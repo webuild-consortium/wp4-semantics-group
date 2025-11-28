@@ -59,20 +59,8 @@ The Owner Attestation shall contain two attributes: (1) the official organisatio
 |  |  |  |  |  |  |  |  |
 
 > **Questions to ask per relation:**
-
-
-## Entity: PID
-|Name|Description/Definition|
-|--|--|
-| PID | Represents the Economic operator. Economic operator means any natural or legal person or public entity or group of such persons and/or entities, including any temporary association of undertakings, which offers the execution of works and/or a work, the supply of products or the provision of services on the market. |
-
-|Attribute| Description | mandatory | private | datatype | 
-|--|--|--|--|--|
-| - | We need harmonised attributes for the PID. People should be able to use their NP wallet as a business wallet so they can act as an Economic Operator. | yes | no | string |
-
-| Relation | Description | Left Entity | Right Entity | Left Role | Right Role | Cardinality | Optional |
-|--|--|--|--|--|--|--|--|
-| (none) | The World entity has no outgoing relations in this example. | - | - | - | - | - | - |
+> Check whether the direction reflects the dominant flow of meaning.
+> If both sides can have multiple relations (n?n), consider refactoring the relationship into a separate class.
 
 # Workflow of the Attestation
 
@@ -119,42 +107,51 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| I001 | The  _Hello World_  attestation shall serve as an illustrative reference implementation to clarify the intended use of this template and to demonstrate practical dilemmas and opportunities arising at the intersection of semantics, trust, lifecycle management, and real-world usage. While not intended as a production-grade attestation, it should support analysis and discussion of how these dimensions interact within the broader EU wallet ecosystem. | Bart Bink | inspect |
+
 
 ## Legal and Regulatory requirements
 
-From the directive: <link>
+From the directive: COM_2025_838_1_EN_ACT_part1
 
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| L001 | The Hello World attestation is currently outside the scope of eIDAS2 compliance requirements. However, its design should not preclude future alignment with eIDAS2 trust frameworks, credential formats, or conformity assessment procedures. | eIDAS2 | review |
+| L001 | Providers of EBWOID (qualified trust service providers, public sector bodies, or the Commission) shall issue it to European Business Wallet owners. | Aticle 8 1, 2. | review |
+| L002 | Where EBW owners are Union entities, the Commission shall issue the EBWOID. | Aticle 8 1, 2. | review |
+| L003 | It shall contain at least the official name of the economic operator or public sector body, as recorded in the relevant register or official record. | Aticle 8 5, 6. | review |
+| L004 | It shall contain at least the relevant unique identifier attributed in accordance with Article 9. | Aticle 8 5, 6. | review |
+| L005 | If the economic operator has been attributed a European Unique Identifier (EUID), that identifier shall be used as the unique identifier for EBWOID. | Aticle 9 2, 3, 4. | review |
+| L006 | EUROPEAN BUSINESS WALLETS UNIT AUTHENTICATION Access to the European Business Wallets Unit shall be granted only after the European Business Wallets user has been successfully authenticated by means of either: (1) a notified electronic identification (eID) means in accordance with Article 6 of Regulation (EU) No 910/2014, fulfilling at least the requirements for a substantial level of assurance as defined in Article 8 of that Regulation and further specified in Commission Implementing Regulation (EU) 2015/1502; or (2) an alternative authentication mechanism recognised as equivalent and fulfilling at least the requirements for a substantial level of assurance as defined in Article 8 of Regulation (EU) No 910/2014 and further specified in Commission Implementing Regulation (EU) 2015/1502. Until such authentication has been completed, no functionality of the European Business Wallets Unit or of any other functionalities shall be made accessible to the Wallets user. | ANNEX | review |
+| L007 | The EBWOID shall be issued in a format compliant with one of the standards listed in Annex II of Commission Implementing Regulation (EU) 2024/2979. | Aticle 8 3. | review |
+| L008 | The EBWOID issued by the Commission shall have the same legal effect as QEAA and EAA issued by, or on behalf of, a public sector body responsible for an authentic source. | | review |
+| L009 | The EBWOID issued to Business Wallets units must comply with the technical specifications set out in the implementing acts. | 16 | review |
+| L010 | When issued to economic operators established outside the Union, identity proofing and verification must fulfil one or a combination of the methods set out in Article 24(1a) of Regulation (EU) No 910/2014. | Article 8 4, 5, 6 | review |
 
 ## Functional requirements
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| F001 | The Hello World attestation shall be capable of being issued to any compliant digital wallet, irrespective of the wallet provider or implementation, provided that the wallet supports at least one of the supported attestation formats (JSON-LD, SD-JWT, or mDoc). The attestation should not rely on wallet-specific extensions or proprietary interfaces that would limit its interoperability. | Bart Bink | test |
+| F001 |  | |  |
 
 ## Technical requirements – e.g. security, privacy, performance, usability.
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| T001 | 1. EUROPEAN BUSINESS WALLETS UNIT AUTHENTICATION Access to the European Business Wallets Unit shall be granted only after the European Business Wallets user has been successfully authenticated by means of either: (1) a notified electronic identification (eID) means in accordance with Article 6 of Regulation (EU) No 910/2014, fulfilling at least the requirements for a substantial level of assurance as defined in Article 8 of that Regulation and further specified in Commission Implementing Regulation (EU) 2015/1502; or (2) an alternative authentication mechanism recognised as equivalent and fulfilling at least the requirements for a substantial level of assurance as defined in Article 8 of Regulation (EU) No 910/2014 and further specified in Commission Implementing Regulation (EU) 2015/1502. Until such authentication has been completed, no functionality of the European Business Wallets Unit or of any other functionalities shall be made accessible to the Wallets user. | COM(2025) 838 final ANNEX to the Proposal for a Regulation of the European Parliament and of the Council on the establishment of European Business Wallets. | test |
+
 
 ## Operational requirements
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| O001 | The LPID should be stable over time. | WEBUILD Semantic Modeling interoperability requirement. | test |
+| O001 | The European Business Wallet Owner Identification Data (EBWOID) must be stable in time primarily to ensure legal certainty, trust, and the reliable functioning of cross-border systems | following multiple legal requirements. | test |
 
 ## Governance and trust restrictions
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| G001 | The  _Hello World_  attestation shall be cryptographically bound to both the holder’s eWallet and the holder’s verified identity attestation to ensure authenticity and non-transferability.| General trust mechanism. | review |
+| G001 | | | review |
 
 ## Open Questions / Gaps – For follow-up or design iterations.
-| No. | Question | Why |
+| No. | Question | How is it resolved? |
 |--|--|--|
-| Q001 | Can we change the name LPID to something else? LPID excliudes all organisations except legal persons.||
-| Q002 | how is the LPID issued to sole traders not mentioned in the business registries? ||
-| Q003 | are there any othe attributes that need to be considdered? |  |
-| Q004 | how to cope with organisations/businesses not registered at any registry? ||
-| Q005 | how to harmonise attributes per memberstate for sole traders for instance? | |
+| Q001 | Can we change the name LPID to something else? LPID excliudes all organisations except legal persons.| Yes, resolved by Proposal for a Regulation on the establishment of European Business Wallets. |
+| Q002 | how is the LPID issued to sole traders not mentioned in the business registries? | Resolved by Proposal for a Regulation on the establishment of European Business Wallets.|
+| Q003 | are there any othe attributes that need to be considdered? | No, resolved by Proposal for a Regulation on the establishment of European Business Wallets. |
+| Q004 | how to cope with organisations/businesses not registered at any registry? | Resolved by Proposal for a Regulation on the establishment of European Business Wallets. |
+| Q005 | how to harmonise attributes per memberstate for sole traders for instance? | Resolved by Proposal for a Regulation on the establishment of European Business Wallets.|
 | Q005 | Do we need all the attributes defined for the PID? The PID will be unstable and make the wallet unactive. | |
