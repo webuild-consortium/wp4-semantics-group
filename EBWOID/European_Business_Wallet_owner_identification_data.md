@@ -1,20 +1,25 @@
-# Use Case Overview of LPID
+# Use Case Overview of BWOID
 
-Purpose: Capture the story and high-level purpose of the use case “LPID” & "PID".
+Purpose: Capture the story and high-level purpose of the use case of the European Business Wallet Owner ID.
 
 ## Storyline
 
 What is the scenario being solved?
- + to define and create a PID and LPID
- + initialising a (buisiness) wallet
-   
+
+The “LPID” & "PID" were the candidates for the attestations to initialise the wallet. At least for the LPID and the business wallet the LPID was too restricted. The LP in LPID stand for Legal Person. And because not all business wallet owners will be legal persons, we need a new term. The [Proposal for a Regulation on the establishment of European Business Wallets](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets) solves this issue by introducing the European Business Wallet Owner ID.
 
 ## Business Context / Motivation
 
 Why is this attestation needed?
-PID and LPID To be able to bind a person or buisiness to the wallet an do economic oprations.
+The EBWOID is the attestation that wil be bouwned to the wallet so the Economis Operator (EO) or Public Sector Body (PSB) is the owner of the wallet. The owner organisation is one of three kinds:
+ - Economic Operators (EO): This is a broad category encompassing various entities acting in a commercial or professional capacity
+ - Public Sector Bodies (PSB): This group includes national, state, regional, or local authorities, bodies governed by public law, or associations formed by these entities. It also includes private entities mandated by one or more of these bodies to provide public services, when acting under that mandate.
+ - Union Entities: These are a specific type of Public Sector Body (PSB). They are defined as Union institutions, bodies, offices and agencies set up by or pursuant to the Treaty on European Union, the Treaty on the Functioning of European Union, or the Treaty establishing the European Atomic Energy Community.
 
-We need to provide an ID for EVERY organisation or business or even economic operator, not only legal persons. We suggest to rename LPID to organisation ID, business ID or Economic Operator ID. This will also make it possible to incorporate, Shipping company, persons partnership, commercial partnership, Limited partnership and sole traders.
+The EBWOID will have two attributes, an ID and the registered name of the organisation. For organisations registered at a business registry the organisation is attributed a European Unique Identifier (EUID) in accordance with Directive (EU) 2017/1132 (or Directive (EU) 2015/849).
+If a European Unique Identifier (EUID) has not been attributed to an economic operator or public sector body, a unique identifier must be created according to a specific process defined through implementing acts. The "how" of this creation process relies on two key aspects: the designation of authentic national data sources and the detailed technical instructions provided by the European Commission. The implementing acts will establish the structure and technical specifications of this identifier, with the goal of ensuring Union-wide uniqueness and interoperability.
+
+If the public sector body is a Union entity (a Union institution, body, office, or agency), the Commission shall create and attribute a unique identifier to that Union entity in accordance with the implementing acts.
 
 ## Stakeholders
 
@@ -29,26 +34,29 @@ etc.
 
 What should happen when the attestation is used?
  + initialised (business) wallet for any member state, so the wallet can receive other attestations for the economic operator.
- + 
 
 # Data Model or Knowledge Graph
 
 Purpose: Capture the entities, attributes, and relationships.
 
+Owner Attestation – Source and Scope of Information
 
-## Entity: LPID
+The Owner Attestation shall contain two attributes: (1) the official organisational identifier as registered in the competent business registry, and (2) the official registered name of the organisation. These attributes constitute an authoritative excerpt of the organisation’s registered data as held by the official registration authority. The attestation does not encompass the full set of information maintained in the business registry; rather, it provides a verifiable subset issued directly by, or obtained in a trusted manner from, the competent registry office. The information included in the Owner Attestation MUST be derived solely from the official records of the registration authority to ensure accuracy, authenticity, and trustworthiness.
+
+
+## Entity: EBWOID
 |Name|Description/Definition|
 |--|--|
-| LPID | Represents the Economic operator. So the name LPID is misleading. We propose EOID. Economic operator means any natural or legal person or public entity or group of such persons and/or entities, including any temporary association of undertakings, which offers the execution of works and/or a work, the supply of products or the provision of services on the market. |
+| EBWOID | Represents the Economic operator or Public Sector Body. (So the name LPID is misleading. We proposed EOID. The EU proposes EBWOID. owner ID works for any natural or legal person or public entity or group of such persons and/or entities, including any temporary association of undertakings, which offers the execution of works and/or a work, the supply of products or the provision of services on the market.|
 
 |Attribute| Description | mandatory | private | datatype | 
 |--|--|--|--|--|
-| EUID | The EUID is defined as in BORIS. However a EOID can be a better name, because it is natural and also covers natural persons. | yes | no | string |
-| regitered name | As stated in the registry as the statutairy name. | no | yes | string |
+| EUID | Here the EUID covers the EUID and the ID issued by, or on behalf of, the commission. In case of the EUID, it is defined as in BORIS. The ID provided by the commission has not yet been fromalised. It would be obvious to follow the same format of the EUID. | yes | no | string |
+| registered name | As stated in the registry as the statutairy name. | no | yes | string |
 
 | Relation | Description | Left Entity | Right Entity | Left Role | Right Role | Cardinality | Optional |
 |--|--|--|--|--|--|--|--|
-|  |  | Hello | World | greeter | greeted | 1 1..n | no |
+|  |  |  |  |  |  |  |  |
 
 > **Questions to ask per relation:**
 
@@ -129,7 +137,7 @@ From the directive: <link>
 ## Technical requirements – e.g. security, privacy, performance, usability.
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| T001 | The issuer MUST issue the Hello World attestation as a JSON-LD-based attestation. If the recipient wallet does not support JSON-LD, the issuer MUST fall back to an SD-JWT-based attestation. If the recipient wallet does not support SD-JWT, the issuer MUST issue the attestation as an mDoc. | WEBUILD Semantic Modeling interoperability requirement. | test |
+| T001 | 1. EUROPEAN BUSINESS WALLETS UNIT AUTHENTICATION Access to the European Business Wallets Unit shall be granted only after the European Business Wallets user has been successfully authenticated by means of either: (1) a notified electronic identification (eID) means in accordance with Article 6 of Regulation (EU) No 910/2014, fulfilling at least the requirements for a substantial level of assurance as defined in Article 8 of that Regulation and further specified in Commission Implementing Regulation (EU) 2015/1502; or (2) an alternative authentication mechanism recognised as equivalent and fulfilling at least the requirements for a substantial level of assurance as defined in Article 8 of Regulation (EU) No 910/2014 and further specified in Commission Implementing Regulation (EU) 2015/1502. Until such authentication has been completed, no functionality of the European Business Wallets Unit or of any other functionalities shall be made accessible to the Wallets user. | COM(2025) 838 final ANNEX to the Proposal for a Regulation of the European Parliament and of the Council on the establishment of European Business Wallets. | test |
 
 ## Operational requirements
 | No. | Requirement | Source | Verification method |
