@@ -8,6 +8,12 @@ Purpose: Capture the story and high-level purpose of the use case “issuing and
 >
 > Replacing the word Certificate with:
 > Attestation, Exerpt, Act, Warrent, Deed, Record, Register, Instrument, Grant
+>
+> Some candidates:
+> - EU Business Excerpt
+> - EU Business Warrent
+> - EU Organisation Excerpt
+> - EU Organisation Warrent
 
 ## Storyline
 
