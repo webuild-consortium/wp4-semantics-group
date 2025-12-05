@@ -53,8 +53,8 @@ The Owner Attestation shall contain two attributes: (1) the official organisatio
 
 |Attribute| Description | mandatory | private | datatype | 
 |--|--|--|--|--|
-| EUID | Here the EUID covers the EUID and the ID issued by, or on behalf of, the commission. In case of the EUID, it is defined as in BORIS. The ID provided by the commission has not yet been fromalised. It would be obvious to follow the same format of the EUID. | yes | no | string |
-| registered name | As stated in the registry as the statutairy name. | no | yes | string |
+| EUID | Here the EUID covers the EUID and the ID issued by, or on behalf of, the commission. In case of the EUID, it is defined as in BORIS. The ID provided by the commission has not yet been fromalised. The EUID follows the patern: ^[A-Z]{2}[A-Z]{3}\\. [a-zA-Z0-9]+\\.[a-zA-Z0-9]+$ | yes | no | string |
+| registered name | As stated in the registry often stated as the statutairy name. | no | yes | string |
 
 # Workflow of the Attestation
 
@@ -87,9 +87,10 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 ## Information requirements
 
 | No. | Requirement | Source | Verification method |
+|--|--|--|--|
 | I001 | There will be an Entity EBWOID | L000, L003, L004 | check |
-| I002 | The EBWOID shall have two attributes, an EUID or equivalent and the registered name. | L003, L004, L005 |
-| I003 | The EUID or equivalent shall be unique for all memberstates. | L000, L005  |
+| I002 | The EBWOID shall have two attributes, an EUID or equivalent and the registered name. | L003, L004, L005 | check |
+| I003 | The EUID or equivalent shall be unique for all memberstates. | L000, L005  | check |
 
 ## Legal and Regulatory requirements
 
