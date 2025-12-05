@@ -25,8 +25,6 @@ Member States shall ensure that the registers issue the EU Company Certificates 
 
 **Why is this attestation needed?**
 
-
-
 ## Stakeholders
 
 When mentioning organisation, every registered Economic Operator is meant.
@@ -45,40 +43,19 @@ The EU Company Certificate shall be accepted in all Member States as sufficient 
 
 Purpose: Capture the entities, attributes, and relationships.
 
-The Hello World data model is depicted below. It is a simple model to illustrate the use of data models to capture the use case entities.
-
-![Hello World Data ](https://www.plantuml.com/plantuml/png/bL91ozD04BtlhnZwtPGMX7f9GMfLy20UH2YUPCrEax6xCsLsGWp5_-vkcw35Y-QKztRVUpEFtMVpQaEApiWYmdkCKM0KZS6vDlgSP-hgu5cdY4RSVSOV1itzmC7pW2TYCX8kv787nXuPa5iPs50haoMXC2v66HhtSmavriHRI93aYJ_wXCKDlLfV8dnNqNRpSWk9udUleP2jf8HiC_-DOgmZJ4MJWKumoG13HiYzg45kVSJVUU_OoAPROF8Sl8bEnL8kTGqVwyNRUaqppxfwiOArKjVR-bK1cmslvg6V8Z4sRxsUFs7OMUccEVPa2CtN-ZtM-FIXMdof_-FkR-4C7ahvBycyrpzgN4y1eILj8pgNpyGNhpx1tUlg3huzToe3XpSIHU4FL_TQLSOxlTWTH0Fg8rVVoW9ggtlaK9_RBm00)
-Figure 1 "Hello World" exaple diagram or knoledge graph.
-
-```mermaid
-classDiagram
-direction TB
-class  Hello  {
-greetingText: Hello
-definition: greeting when  encountering someone
-}
-class  World  {
-domainName: earth
-age: 4.54 miljard
-comment: 4.54 billion years  if you  use short  scale
-}
-Hello  "1"  -->  "1..n"  World : Greets
-
-```
-
-**Entity: Hello**
+**Entity: EUCC**
 |Name|Description/Definition|
 |--|--|
-| Hello | Represents the  _Hello_  part of  _Hello World_. It symbolizes the entity initiating a greeting. |
+|  |  |
 
 |Attribute| Description | mandatory | private | datatype | 
 |--|--|--|--|--|
-| greetingText | An example of a mandatory attribute that holds the text of the greeting. | yes | no | string |
-| definition | An example of an optional, private attribute describing the greeting or its context. | no | yes | string |
+|  |  |  |  |  |
+|  |  |  |  |  |
 
 | Relation | Description | Left Entity | Right Entity | Left Role | Right Role | Cardinality | Optional |
 |--|--|--|--|--|--|--|--|
-| greets | Expresses the relation between Hello (the greeter) and World (the greeted). | Hello | World | greeter | greeted | 1 1..n | no |
+|  |  |  |  |  |  |  |  |
 
 > Questions to ask per relation:
 > Check whether the direction (Hello ? World) reflects the dominant
@@ -87,44 +64,19 @@ Hello  "1"  -->  "1..n"  World : Greets
 > refactoring the relationship into a separate class (e.g.,
 > GreetingEvent)
 
-**Entity: World**
-|Name|Description/Definition|
-|--|--|
-| World | Represents the  _World_  part of  _Hello World_. It symbolizes the entity initiating a greeting. |
-
-|Attribute| Description | mandatory | private | datatype | 
-|--|--|--|--|--|
-| domainName | A mandatory attribute representing the domain, context, or scope being greeted. | yes | no | string |
-| age | An optional, private attribute showing example metadata about the World. | no | yes | string |
-
-| Relation | Description | Left Entity | Right Entity | Left Role | Right Role | Cardinality | Optional |
-|--|--|--|--|--|--|--|--|
-| (none) | The World entity has no outgoing relations in this example. | - | - | - | - | - | - |
-
 # Workflow of the Attestation
 
 Purpose: Map the flow of actions, data, and interactions between entities.
 
 | Actor | Role | Description |
 |--|--|--|
-| Hello Authority | issuer | The trusted party that creates and issues the Hello World attestation. It defines the semantics, attributes, and relation (“greets”) between the entities Hello and World. It also manages issuance, signing, and potential revocation. |
-| Wallet Owner | holder | The user (or test persona) who receives the Hello World attestation in their EU Digital Identity Wallet. The holder stores, manages, and can present the attestation when needed. |
-| EU business Wallet | Wallet | The technical component used by the holder to receive, store, and present the attestation. It handles workflow and format negotiation (JSON-LD, SD-JWT, mDoc) and enforces binding with the holder’s ID attestation. |
-| Verifier | relying party | The entity that requests and verifies the Hello World attestation to confirm the claim “Hello greets World” is valid and trustworthy. It validates the signature, the wallet binding, and the issuer’s trust status. |
-| Trust Registry | governance authority | Maintains the trust list or framework under which the Hello World issuer (Hello Authority) is recognized as trustworthy. It ensures that the attestation can be verified across systems and jurisdictions. |
-| Attestation Registry | registry | Stores or indexes attestations for verification (if used in your architecture). |
-| Revocation Service | revocation service | Manages lifecycle events, such as the deactivation of the Hello World attestation. |
+|  |  |  |
 
-Trigger Event: What initiates the workflow? a request from the holder’s wallet to obtain the “Hello World” attestation from the Hello Authority.
+Trigger Event: What initiates the workflow?
 
-Post-condition: What is the result of the workflow? The holder’s wallet contains an active, verifiable Hello World attestation bound to the ID attestation.
+Post-condition: What is the result of the workflow?
 
-See Figure 2 for a simplified overview.
-
-![Swimlane 1](https://www.plantuml.com/plantuml/png/ZLJDaXet4BxhAReuh6SgIt6VpO-niIjR5SSkMDkLAYvQgHaKX3HfQMP2Ggho3dd3F4ca4R0C2snEZAJkhx_kxsjUEy_9rslDlF8QOV0ZQctXgoKjOUmzXdUlh85___u7tXavz7OOVcB0Qg5jEs3i5RorsX98N2YZOh23H-vGGaZRs9f0QEuSICLBucl6t4gPYeTFuCAhHlaD_Ca0tbYII0bhmcarHHbktrlZJ-_USB4goTP6ffUVLBdqlqJYBVlh2DvOZm7wQiB_Bzo3TgrQQsxm2lE7ED2hbLD8B7GsDy5Uvi29RDiHE8q9cdns-3JUEFfZrWwo0E6JM3aqYiDsBBobBJngArOk07HdLy0Crznu9U23bQYHRY5PP5pxfQM8djqxLoFbuSLg6ICcgbIUQ_ZAjKP_2r-Gr4B5bmUgdOSfbifvsepU1rRO1Y_TXhl6YkIr6LAZ1Dxs3BZFWSnMyOBhdB5jgWYZNIdus1gaBUjSpOe7KcM9L8Jat-g0D3V7_Xu0VyA_2s1zsbjMl5sYM46Re6_cvdu23TTAXgxlc5f0zYMUViZ1Bz50zgs8EXGx7RxVeCiPQeVFNepDMJ55W-tSF252e6qhXaQgHNXEb7VJBWdHkyGxKhsaGI3TSU8UWHB27Ii-4GQziTzlCLEbERwQcnjmw24UQmVVGOVPbNikJYXq7xSz5Fi3zoc4mfASc-m0COuMn3nYd1Cpe7pSgQatGDqjKe_dzMOdg0C-WUgelYZep5l2qwYzEo6RejueKy8dJduJuVSYL8GEpNvCcLt0uBakW_oyYQo9kV0D24BkiGUMn8d7cDkhVoob2rA5YHB23OGB3kkuZ36blr0mWiDATVITrGscwH3u67j9pcJslP9P4cuK8rSeHtFpxlTAKVYQrHMIGuaoFqFvi1Gm_dcoK__gVW0KOo6myZrLBgyDGEZgLnGdyMbfs2iO3eTmr5x5_H8opQEhi47ZynXnrLAfvJxy-Obzhf8uUxFlXdNM1LCKg9f3i5XoK-BTt7m8lKLZI3HncU3Uy6veBnXpLZ-ww4tZGKJT72ouqj1q6MB7ElsVl4OZwxN-3m00)
-Figure 2 The swim lane diagram Hello World issuance and revocation.
-
-Notable Interactions / Dependencies: Are there cross-border or cross-domain steps?
+Notable Interactions / Dependencies: 
 
 # Life Cycle of the Attestation
 
@@ -132,11 +84,7 @@ Purpose: Capture how the attestation evolves over time.
 
 | Stage | Description |
 |--|--|
-| Creation / Issuance | Who issues it and under what conditions? The Hello Authority (trusted issuing entity). Preconditions: The holder’s wallet is activated and bound to a valid ID. |
-| Usage / Presentation | How and where it’s presented? The attestation may be presented to any Verifier who requests proof that the Hello Authority issued a valid greeting (symbolically representing any verifiable claim). The wallet creates a verifiable presentation (potentially with selective disclosure). |
-| Update / Renewal | Can it change or expire? The Hello World attestation is static by design - it has no mutable attributes. However, if either the schema changes or the Hello Authority updates its signing keys or trust policy, then a new version of the attestation must be issued. Optionally, an expiry date can be set to force periodic renewal for testing lifecycle behavior. |
-| Revocation / Expiry | How is it invalidated or replaced? The Hello World attestation can be revoked by the issuer or automatically expire after a predefined validity period. |
-| Archiving / End-of-life Handling | What happens after expiry or revocation? The wallet may retain a cryptographic proof of the attestation (hash or record) for audit or traceability purposes, while marking it as expired or revoked. The issuer may archive metadata (e.g., issuance date, revocation timestamp, format used) for audit trails, compliance testing, or statistical reporting complying to privacy rules. In demonstrative settings, archived attestations can serve as test material for verifying lifecycle management and revocation interoperability. |
+| | |
 
 # Requirements and Constraints
 
@@ -151,7 +99,7 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 
 ## Legal and Regulatory requirements
 
-From https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202500025 follows that:<br>
+From the [publication](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_2025000250)
 
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
@@ -184,33 +132,28 @@ From https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202500025 foll
 | L026 | Member States shall ensure that the EU Company Certificate provided by the register in electronic form is authenticated by means of trust services as referred to in Regulation (EU) No 910/2014 in order to guarantee that it has been provided by the register and that its content is a true copy of the information held by the register or that it is consistent with the information contained therein. The EU Company Certificate shall also be compatible with the European Digital Identity Wallet, as provided for in Regulation (EU) 2024/1183. | Article 16b | review |
 | L027 | Member States shall ensure that the EU Company Certificate provided by the register in paper form includes the date of issuance, as well as the seal or stamp of the register, or equivalent means of authentication, in order to certify that its content is a true copy of the information held by the register or that it is consistent with the information contained therein, and bears a unique protocol or identification number or similar feature that allows the electronic verification of the origin and authenticity of the document. | Article 16b | review |
 | L028 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. | Article 16b | review |
-| L029 | . | Article 16b | review |
-| L030 | . | Article 16b | review |
 
 ## Functional requirements
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| F001 | The Hello World attestation shall be capable of being issued to any compliant digital wallet, irrespective of the wallet provider or implementation, provided that the wallet supports at least one of the supported attestation formats (JSON-LD, SD-JWT, or mDoc). The attestation should not rely on wallet-specific extensions or proprietary interfaces that would limit its interoperability. | Bart Bink | test |
+|  |  |  |  |
 
 ## Technical requirements – e.g. security, privacy, performance, usability.
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| T001 | The issuer MUST issue the Hello World attestation as a JSON-LD-based attestation. If the recipient wallet does not support JSON-LD, the issuer MUST fall back to an SD-JWT-based attestation. If the recipient wallet does not support SD-JWT, the issuer MUST issue the attestation as an mDoc. | WEBUILD Semantic Modeling interoperability requirement. | test |
+|  |  |  |  |
 
 ## Operational requirements
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| O001 | The  _Hello World_  attestation shall be automatically reactivated/reissued whenever the user’s associated digital identity attestation is renewed or replaced, in order to maintain a valid binding between the attestation and the user’s active eWallet identity. If the recipient wallet does not support SD-JWT, the issuer MUST issue the attestation as an mDoc. | WEBUILD Semantic Modeling interoperability requirement. | test |
+|  |  |  |  |
 
 ## Governance and trust restrictions
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| G001 | The  _Hello World_  attestation shall be cryptographically bound to both the holder’s eWallet and the holder’s verified identity attestation to ensure authenticity and non-transferability.| General trust mechanism. | review |
+|  | |  |  |
 
 ## Open Questions / Gaps – For follow-up or design iterations.
 | No. | Question | Why |
 |--|--|--|
-| Q001 | How should the  _Hello World_  attestation’s semantics — including its entities, attributes, and relationships — be aligned with existing vocabularies or ontologies to ensure that other ecosystems or wallet implementations can interpret its meaning consistently?| Where does the authoritative meaning of each attribute come from, and how stable must that be? |
-| Q002 | Which core entities and attributes in the  _Hello World_  attestation should be represented as references to existing EU or W3C vocabularies, and which—if any—require the definition of new, domain-specific terms? | **Information model:** _semantic reuse vs. semantic innovation,_ ensuring interoperability while avoiding redundancy.
-| Q003 | How can we semantically represent the lifecycle states of the  _Hello World_ attestation (e.g., issued, active, revoked, superseded) so that they are machine-interpretable and consistent across issuers and verifiers? | **Lyfe Cycle:** _Lifecycle concepts are often procedural in code_ but implicit in meaning. Defining them semantically enables automation, policy reasoning, and consistent interpretation across ecosystems (outside of the eWallet ecosystem too). |
-| Q004 | What is the most appropriate way to semantically express the binding between the  _Hello World_  attestation, the holder’s identity, and the wallet instance, so that trust can be verified across different infrastructures and trust frameworks? Or is this outside the semantics and part of the meta data in the attestation? | **Trust semantics:** This is about semantic binding—how trust relationships are described and validated, not just cryptographically but meaningfully. It connects the modeling work to governance and policy semantics (who asserts what, on whose behalf, and under which trust framework). |
+|  |  |  |
