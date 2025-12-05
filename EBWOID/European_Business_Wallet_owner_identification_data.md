@@ -23,44 +23,38 @@ If the public sector body is a Union entity (a Union institution, body, office, 
 
 ## Stakeholders
 
-authority or government
-issuer,
-holder,
-verifier,
-relying party,
-etc.
+The stakeholders are mentioned with their roles:
+ - authority or government providing the authentic source.
+ - a QTSP as issuer
+ - an EO or PSB as owner
+
+## Prerequisites
+ - The Wallet owner already has a wallet and needs a EBWOID to activate it.
 
 ## Expected Outcome
 
 What should happen when the attestation is used?
- + initialised (business) wallet for any member state, so the wallet can receive other attestations for the economic operator.
+ + initialised (business) wallet for an EO or PSB from any member state, so the wallet can receive other attestations for the economic operator.
 
-# Data Model or Knowledge Graph
+# Informaion Model from the intake
 
 Purpose: Capture the entities, attributes, and relationships.
 
-Owner Attestation – Source and Scope of Information
+Owner Attestation - Source and Scope of Information
 
 The Owner Attestation shall contain two attributes: (1) the official organisational identifier as registered in the competent business registry, and (2) the official registered name of the organisation. These attributes constitute an authoritative excerpt of the organisation’s registered data as held by the official registration authority. The attestation does not encompass the full set of information maintained in the business registry; rather, it provides a verifiable subset issued directly by, or obtained in a trusted manner from, the competent registry office. The information included in the Owner Attestation MUST be derived solely from the official records of the registration authority to ensure accuracy, authenticity, and trustworthiness.
 
+![](https://img.plantuml.biz/plantuml/png/NP1FImD13CNl-HIXUb9MH4zkBrNQGq4H117j7nXsihkXivcIYIYM_Uu6fI2UajyBURnaLYoelGy9Z2qHBgNDEWJEWWyvKi9Myu3M4x9Os150aq8fkBXxULpEyG1ujdZsfaQE9COjaxgcr74nKeeeOI0V5rEM3aO0oKPeUO-vFThKEFbnsGVp9N7UhcwhjytXQlojr-DwVO6hK7qvNbOtctFdltWw-PViv9wxtbuffVmnJInKpuFkdYXEZJxj202zvyQ6jKb-suma-Y--0G00)
 
 ## Entity: EBWOID
 |Name|Description/Definition|
 |--|--|
-| EBWOID | Represents the Economic operator or Public Sector Body. (So the name LPID is misleading. We proposed EOID. The EU proposes EBWOID. owner ID works for any natural or legal person or public entity or group of such persons and/or entities, including any temporary association of undertakings, which offers the execution of works and/or a work, the supply of products or the provision of services on the market.|
+| EBWOID | Represents the Economic operator or Public Sector Body. So the name LPID is misleading. We proposed EOID. The EU proposes EBWOID. owner ID works for any natural or legal person or public entity or group of such persons and/or entities, including any temporary association of undertakings, which offers the execution of works and/or a work, the supply of products or the provision of services on the market.|
 
 |Attribute| Description | mandatory | private | datatype | 
 |--|--|--|--|--|
 | EUID | Here the EUID covers the EUID and the ID issued by, or on behalf of, the commission. In case of the EUID, it is defined as in BORIS. The ID provided by the commission has not yet been fromalised. It would be obvious to follow the same format of the EUID. | yes | no | string |
 | registered name | As stated in the registry as the statutairy name. | no | yes | string |
-
-| Relation | Description | Left Entity | Right Entity | Left Role | Right Role | Cardinality | Optional |
-|--|--|--|--|--|--|--|--|
-|  |  |  |  |  |  |  |  |
-
-> **Questions to ask per relation:**
-> Check whether the direction reflects the dominant flow of meaning.
-> If both sides can have multiple relations (n?n), consider refactoring the relationship into a separate class.
 
 # Workflow of the Attestation
 
