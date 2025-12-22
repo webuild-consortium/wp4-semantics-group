@@ -2,7 +2,12 @@
 
 Purpose: Capture the story and high-level purpose of the use case “issuing and using the EUCC”.
 
-> Note: The acronim EUCC is already taken and may couse misunderstandings if used here as well. So some proposals:
+This iteration is based on:
+ - [link](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32025L0025&qid=1762615804836), this is the proposal for a EU business wallet.
+
+
+
+> Note: The acronim EUCC is already [taken](https://certification.enisa.europa.eu/certification-library/eucc-certification-scheme_en) and may couse misunderstandings if used here as well. So some proposals:
 > Replacing the word Companny with:
 > Business, Enterprise, Firm, Organisation, Entity, Legal Person, Commercial, Registered
 >
@@ -24,6 +29,8 @@ Member States shall ensure that the registers issue the EU Company Certificates 
 ## Business Context / Motivation
 
 **Why is this attestation needed?**
+
+Please name scenario's where the EUCC is being used or needed.
 
 ## Stakeholders
 
@@ -93,9 +100,27 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 ## Information requirements
 
 
-| No. | Requirement | Source | Verification method |
-|--|--|--|--|
-| I001 |  | Monica & Bart | inspect |
+| No. | Requirement | mandatory/optional |Source | Verification method |
+|--|--|--|--|--|
+| I001 | for limited liability companies: details of the company’s **website** | M | L015 | check |
+| I002 | Enitiy for the register in which the company is registered | M | L001 | check |
+| I003 | The **LPID name** | M | L001 | check |
+| I003 | The **LPID ID**, or EUID | M | L001 | check |
+| I003 | the **legal form** of the company | M | L003 | check |
+| I003 | ther **Member State where the company is registered** | M | L004| check |
+| I003 | the object of the company, **NACE code** or memberstate code | M | L013 | check |
+| I003 | for limited liability companies: the **duration** of the company | M | L014 | check |
+| I003 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. | M | L028 | check |
+| I003 | The LPID name | M | L001 | check |
+| I003 | The LPID name | M | L001 | check |
+| I003 | The LPID name | M | L001 | check |
+| I003 | The LPID name | M | L001 | check |
+| I003 | The LPID name | M | L001 | check |
+| I003 | The LPID name | M | L001 | check |
+| I003 | The LPID name | M | L001 | check |
+| I003 | The LPID name | M | L001 | check |
+
+Check for a list of standard legal forma in the EU.
 
 ## Legal and Regulatory requirements
 
@@ -105,7 +130,7 @@ From the [publication](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=O
 |--|--|--|--|
 | L001 | Member States shall ensure that the registers issue the EU Company Certificates regarding the companies listed in Annexes II and IIB. The EU Company Certificate shall be accepted in all Member States as sufficient evidence, at the time of its issuance, of the incorporation of the company and of the information listed in paragraphs 2 and 3 of this Article, respectively, which is held by the register in which the company is registered. | Article 16b | review |
 | L001 | the EU Company Certificate for the limited liability companies listed in Annex II shall include the following information: | Article 16b | review |
-| L002 | for limited liability companies: the **the name or names of the company** | Article 16b | review |
+| L002 | for limited liability companies: the **name or names of the company** | Article 16b | review |
 | L003 | for limited liability companies: the **legal form** of the company | Article 16b | review |
 | L004 | for limited liability companies: the **registration number** of the company **and the Member State where the company is registered** | Article 16b | review |
 | L005 | for limited liability companies: the **EUID** of the company | Article 16b | review |
@@ -116,7 +141,7 @@ From the [publication](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=O
 | L010 | for limited liability companies: the **status** of the company, such as when it is closed, struck off the register, wound up, dissolved, undergoing insolvency proceedings, economically active or inactive as defined in national law and where it is recorded in the national register; (ENUM: active, inactive, ...) | Article 16b | review |
 | L011 | for limited liability companies: the first names, surnames and date of birth, or equivalent information when that date is not recorded in the national register, of **any persons who** either as a body or as members of any such body **are authorised by the company to represent it** in dealings with third parties and in legal proceedings, and whether those persons may do so alone or are required to act jointly<br><br>*(we should talk about this. How deep do we follow the PoA chain? We don't! In the text it clearly states are authorised by the company, that is directly, so it means the shareholders. Also we should have a harmonised list of titles of each country.)* | Article 16b | review |
 | L012 | for limited liability companies: where the persons referred to in point (j) are legal persons, the name, the legal form, the EUID or, where the EUID is not applicable, the registration number. | Article 16b | review |
-| L013 | for limited liability companies: the object of the company, describing its main activity or activities, which can be expressed using the relevant Statistical Classification of Economic Activities in the European Community (NACE) code, where such code is used for the purposes of the register pursuant to applicable national law, and where the object is recorded in the national register.<br><br>(note: because some countries don't use the NACE code, one should be able to enter an other code or string. NACE (SBI in NL, different codes in BE, WZ in DE)) | Article 16b | review |
+| L013 | for limited liability companies: the **object of the company**, describing its main activity or activities, which can be expressed using the relevant Statistical Classification of Economic Activities in the European Community (NACE) code, where such code is used for the purposes of the register pursuant to applicable national law, and where the object is recorded in the national register.<br><br>(note: because some countries don't use the NACE code, one should be able to enter an other code or string. NACE (SBI in NL, different codes in BE, WZ in DE)) | Article 16b | review |
 | L014 | for limited liability companies: the **duration** of the company, where its duration is limited. | Article 16b | review |
 | L015 | for limited liability companies: details of the company’s **website** where such details are recorded in the national register. | Article 16b | review |
 | L016 | for limited liability companies: the **date of issue of the** company’s **EU Company Certificate**. | Article 16b | review |
@@ -133,6 +158,8 @@ From the [publication](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=O
 | L027 | Member States shall ensure that the EU Company Certificate provided by the register in paper form includes the date of issuance, as well as the seal or stamp of the register, or equivalent means of authentication, in order to certify that its content is a true copy of the information held by the register or that it is consistent with the information contained therein, and bears a unique protocol or identification number or similar feature that allows the electronic verification of the origin and authenticity of the document. | Article 16b | review |
 | L028 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. | Article 16b | review |
 
+Why are some attributes only applicable for limited liability 
+
 ## Functional requirements
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
@@ -141,12 +168,19 @@ From the [publication](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=O
 ## Technical requirements – e.g. security, privacy, performance, usability.
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
+| T001 | paper issuance | L025 |  |
 |  |  |  |  |
 
 ## Operational requirements
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-|  |  |  |  |
+| O001 | Each company listed in Annex II or Annex IIB can obtain its EU Company Certificate in electronic format free of charge unless it causes serious prejudice to the financing of the national registers. | L025, L026 | ? |
+| O001 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. (see countries below). | L028 | ? |
+
+<img width="513" height="436" alt="image" src="https://github.com/user-attachments/assets/4d248f0d-54b2-4d8d-9b37-ee5b9694caee" />
+
+
+Do we need to discuss the issuance on paper?
 
 ## Governance and trust restrictions
 | No. | Requirement | Source | Verification method |
