@@ -7,7 +7,7 @@ This iteration is based on:
 
 Other sources are yet to be incorporated.
 
-<img width="330" height="330" alt="funnel" src="https://github.com/user-attachments/assets/c3e5cd7b-4da2-4e8b-a730-abdd57164e74" />
+<img width="330" height="330" alt="funnel" src="https://github.com/user-attachments/assets/63ec9edb-cd20-49f9-9fde-5953132f8167" />
 
 Input: Company law.
 
