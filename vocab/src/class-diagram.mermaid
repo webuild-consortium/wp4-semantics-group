@@ -1,0 +1,120 @@
+classDiagram
+    direction LR
+%% =========================
+%% Core EBW Classes
+%% =========================
+    class ElectronicAttestationOfAttributes {
+        <<EBW>>
+    }
+
+    class CredentialSubject {
+        <<EBW>>
+    }
+
+    class NaturalPersonIdentificationData {
+        <<EBW>>
+        +givenName: string
+        +familyName: string
+        +birthDate: date
+    }
+
+    class LegalPersonIdentificationData {
+        <<EBW>>
+        +legalName: string
+        +legalIdentifier: string
+    }
+
+    class EuropeanBusinessWalletOwnerId {
+        <<EBW>>
+        +legalName: string
+        +legalIdentifier: string
+        +vat: string
+        +tin: string
+        +lei: string
+        +eori: string
+        +excise: string
+    }
+
+    class EuccLimitLiabilityCompany {
+        <<EBW>>
+        +legalName: string
+        +legalIdentifier: string
+        +dateOfRegistration: date
+        +companyStatus: string
+    }
+
+    class EuccPartnership {
+        <<EBW>>
+        +legalName: string
+        +legalIdentifier: string
+        +dateOfRegistration: date
+        +companyStatus: string
+    }
+
+    class AttestationLegalCategory {
+        <<EBWenum>>
+        +Pub-EAA
+        +QEAA
+        +EAA
+    }
+
+    class Address {
+        <<EBW>>
+        +streetAddress: string
+        +addressLocality: string
+        +addressRegion: string
+        +postalCode: string
+        +addressCountry: string
+    }
+
+    class Capital {
+        <<EBW>>
+        +amount: integer
+        +currency: string
+    }
+
+    class Nace021 {
+        <<EBW>>
+        +naceCode: string
+        +naceDescription: string
+    }
+
+    class LegalRepresentative {
+        <<EBW>>
+        +legalRepresentativeId: uri
+        +role: string
+        +scopeOfAuthorization: ScopeOfAuthorization
+    }
+
+
+%% =========================
+%% External / Referenced Types
+%% =========================
+    class VerifiableCredential {
+        <<external>>
+    }
+
+%% =========================
+%% Inheritance
+%% =========================
+    VerifiableCredential <|-- ElectronicAttestationOfAttributes
+    CredentialSubject <|-- NaturalPersonIdentificationData
+    CredentialSubject <|-- LegalPersonIdentificationData
+    CredentialSubject <|-- EuropeanBusinessWalletOwnerId
+    CredentialSubject <|-- EuccLimitLiabilityCompany
+    CredentialSubject <|-- EuccPartnership
+
+%% =========================
+%% Properties (Object relations)
+%% =========================
+    ElectronicAttestationOfAttributes --> AttestationLegalCategory: attestationLegalCategory
+    EuropeanBusinessWalletOwnerId --> Address: registeredAddress
+    EuccLimitLiabilityCompany --> Address: registeredAddress
+    EuccLimitLiabilityCompany --> Address: correspondenceAddress
+    EuccLimitLiabilityCompany --> Capital: subscribedCapital
+    EuccLimitLiabilityCompany --> Nace021: economicActivity
+    EuccLimitLiabilityCompany --> LegalRepresentative: legalRepresentative
+    EuccPartnership --> Address: registeredAddress
+    EuccPartnership --> Address: correspondenceAddress
+    EuccPartnership --> Nace021: economicActivity
+    EuccPartnership --> Partner: partner

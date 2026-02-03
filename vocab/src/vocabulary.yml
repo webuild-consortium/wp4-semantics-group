@@ -1,0 +1,577 @@
+vocab:
+  - id: ebw
+    value: https://ebw-vocabulary.spherity.dev/ebw#
+    context: https://ebw-vocabulary.spherity.dev/ebw-context/v0.1
+
+prefix:
+  - id: schema
+    value: http://schema.org/
+
+  - id: jsonld
+    value: http://www.w3.org/ns/json-ld#
+
+  - id: cred
+    value: https://w3.org/2018/credentials#
+
+ontology:
+  - property: dc:title
+    value: European Business Wallet Vocabulary v0.1
+
+  - property: dc:description
+    value: Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework
+
+  - property: rdfs:seeAlso
+    value: https://ebw-vocabulary.spherity.dev/ebw
+
+class:
+  - id: ElectronicAttestationOfAttributes
+    label: Electronic Attestation Of Attributes
+    upper_value: cred:VerifiableCredential
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes
+
+  - id: AttestationLegalCategory
+    label: Attestation Legal Category
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
+
+  - id: cred:CredentialSubject
+    label: Credential Subject
+    defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
+
+  - id: NaturalPersonIdentificationData
+    label: Natural Person Identification Data
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonidentificationdata
+    example:
+      - label: Credential with credential subject of type NaturalPersonIdentificationData
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+            ],
+            "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "NaturalPersonIdentificationData",
+              "givenName": "Mario",
+              "familyName": "Mustermann",
+              "birthDate": "12/01/1965"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: LegalPersonIdentificationData
+    label: Legal Person Identification Data
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonidentificationdata
+    example:
+      - label: Credential with credential subject of type LegalPersonIdentificationData
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "LegalPersonIdentificationData",
+              "legalIdentifier": "DExxxx123456789",
+              "legalName": "acme Corporation"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: EuropeanBusinessWalletOwnerId
+    label: European Business Wallet Owner ID
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/europeanbusinesswalletownerid
+    example:
+      - label: Credential with credential subject of type EuropeanBusinessWalletOwnerId
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+            ],
+            "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "EuropeanBusinessWalletOwnerId",
+              "legalIdentifier": "NOFOR.987654321",
+              "legalName": "acme Corporation",
+              "registeredAddress": {
+                "@type":"Address",
+                "streetAddress": "123 Via Appia",
+                "addressLocality": "Rome",
+                "addressRegion": "Lazio",
+                "postalCode": "00100",
+                "addressCountry": "IT"
+              },
+              "vat": "123456789MVA",
+              "tin": "NO-ORG-123456789",
+              "lei": "5493001KJTIIGC8Y1R12",
+              "eori": "NO123456789012",
+              "excise": "GBWK123456789000"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: EuccLimitLiabilityCompany
+    label: European Company Certificate Data for limited liability companies
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eucclimitliabilitycompany
+    example:
+      - label: Credential with credential subject of type EuccLimitLiabilityCompany
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+            ],
+            "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "EuccLimitLiabilityCompany",
+              "legalIdentifier": "NOFOR.987654321",
+              "legalName": "acme Corporation",
+              "registeredAddress": {
+                "@type":"Address",
+                "streetAddress": "123 Via Appia",
+                "addressLocality": "Rome",
+                "addressRegion": "Lazio",
+                "postalCode": "00100",
+                "addressCountry": "IT"
+              },
+              "correspondenceAddress": {
+                "@type":"Address",
+                "streetAddress": "123 Via Appia",
+                "addressLocality": "Rome",
+                "addressRegion": "Lazio",
+                "postalCode": "00100",
+                "addressCountry": "IT"
+              },
+              "dateOfRegistration": "2023-10-11",
+              "companyStatus": "active",
+              "economicActivity": {
+                "@type": "Nace021",
+                "naceCode": "01.12",
+                "naceDescription": "Growing of rice"
+              },
+              "subscribedCapital": {
+                "@type": "Capital",
+                "amount": 100000,
+                "currency": "Euro"
+              },
+              "legalRepresentative": [
+                {
+                  "@type": "LegalRepresentative",
+                  "legalRepresentativeId": "did:key:$publicKeyOfRepresentative1$",
+                  "role": "CEO",
+                  "scopeOfAuthorization": "Alone"
+                },
+                {
+                  "@type": "LegalRepresentative",
+                  "legalRepresentativeId": "did:key:$publicKeyOfRepresentative2$",
+                  "role": "CFO",
+                  "scopeOfAuthorization": "Alone"
+                }
+              ]
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: EuccPartnership
+    label: European Company Certificate Data for partnerships
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/euccpartnership
+    example:
+      - label: Credential with credential subject of type EuccPartnership
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+            ],
+            "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "EuccPartnership",
+              "legalIdentifier": "NOFOR.987654321",
+              "legalName": "acme Partnership",
+              "registeredAddress": {
+                "@type":"Address",
+                "streetAddress": "123 Via Appia",
+                "addressLocality": "Rome",
+                "addressRegion": "Lazio",
+                "postalCode": "00100",
+                "addressCountry": "IT"
+              },
+              "correspondenceAddress": {
+                "@type":"Address",
+                "streetAddress": "123 Via Appia",
+                "addressLocality": "Rome",
+                "addressRegion": "Lazio",
+                "postalCode": "00100",
+                "addressCountry": "IT"
+              },
+              "dateOfRegistration": "2023-10-11",
+              "companyStatus": "active",
+              "economicActivity": {
+                "@type": "Nace021",
+                "naceCode": "01.12",
+                "naceDescription": "Growing of rice"
+              },
+              "partner": [
+                {
+                  "@type": "GeneralPartner",
+                  "partnerId": "did:key:$publicKeyOfPartner1$"
+                },
+                {
+                  "@type": "LimitedPartner",
+                  "partnerId": "did:key:$publicKeyOfPartner2$",
+                  "liabilityOrContribution": {
+                    "@type": "Capital",
+                    "amount": 100000,
+                    "currency": "Euro"
+                  }
+                },
+                {
+                  "@type": "StatutoryPartner",
+                  "partnerId": "did:key:$publicKeyOfPartner3$",
+                  "role": "Head of HR",
+                  "scopeOfAuthorization": "Jointly"
+                }
+              ]
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: Capital
+    label: Capital
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
+
+  - id: LegalRepresentative
+    label: Legal representative
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
+
+  - id: ScopeOfAuthorization
+    label: Scope Of Authorization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
+
+  - id: Address
+    label: Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
+
+  - id: Nace021
+    label: Nace Rev. 2.1
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nace021
+
+  - id: GeneralPartner
+    label: General Partner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner
+
+  - id: LimitedPartner
+    label: Limited Partner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedpartner
+
+  - id: StatutoryPartner
+    label: Statutory Partner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
+
+property:
+  - id: schema:streetAddress
+    label: street address
+    domain: Address
+    defined_by: http://schema.org/streetAddress
+
+  - id: schema:addressLocality
+    label: address locality
+    domain: Address
+    defined_by: http://schema.org/addressLocality
+
+  - id: schema:addressRegion
+    label: address region
+    domain: Address
+    defined_by: http://schema.org/addressRegion
+
+  - id: schema:postalCode
+    label: postal code
+    domain: Address
+    defined_by: http://schema.org/postalCode
+
+  - id: schema:addressCountry
+    label: address country
+    domain: Address
+    defined_by: http://schema.org/addressCountry
+
+  - id: givenName
+    label: given name
+    domain: NaturalPersonIdentificationData
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
+
+  - id: familyName
+    label: family name
+    domain: NaturalPersonIdentificationData
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
+
+  - id: dateOfBirth
+    label: date of birth
+    domain: NaturalPersonIdentificationData
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth
+
+  - id: legalName
+    label: legal name
+    domain:
+      - LegalPersonIdentificationData
+      - EuropeanBusinessWalletOwnerId
+      - EuccLimitLiabilityCompany
+      - EuccPartnership
+    range: xsd:string
+    comment: a name under which the legal entity is registered
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
+
+  - id: legalIdentifier
+    label: legal identifier
+    domain:
+      - LegalPersonIdentificationData
+      - EuropeanBusinessWalletOwnerId
+      - EuccLimitLiabilityCompany
+      - EuccPartnership
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier
+
+  - id: attestationLegalCategory
+    label: attestation legal category
+    domain: ElectronicAttestationOfAttributes
+    range: AttestationLegalCategory
+    one_of: [QEAA, Pub-EAA, EAA]
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
+
+  - id: registeredAddress
+    label: registered address
+    domain:
+      - EuropeanBusinessWalletOwnerId
+      - EuccLimitLiabilityCompany
+      - EuccPartnership
+    range:
+      - Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
+
+  - id: correspondenceAddress
+    label: correspondence Address
+    domain:
+      - EuropeanBusinessWalletOwnerId
+      - EuccLimitLiabilityCompany
+      - EuccPartnership
+    range:
+      - Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
+
+  - id: dateOfRegistration
+    label: date of registration
+    domain:
+      - EuccLimitLiabilityCompany
+      - EuccPartnership
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
+
+  - id: subscribedCapital
+    label: subscribed capital
+    domain:
+      - EuccLimitLiabilityCompany
+    range: Capital
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital
+
+  - id: companyStatus
+    label: status of the company
+    domain:
+      - EuccLimitLiabilityCompany
+      - EuccPartnership
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/companyStatus
+
+  - id: legalRepresentative
+    label: legal representative
+    domain:
+      - EuccLimitLiabilityCompany
+    range:
+      - LegalRepresentative
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
+
+  - id: economicActivity
+    label: main economic activity of company
+    domain:
+      - EuccLimitLiabilityCompany
+      - EuccPartnership
+    range: Nace021
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/economicactivity
+
+  - id: vat
+    label: value added tax id
+    domain: EuropeanBusinessWalletOwnerId
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vat
+
+  - id: tin
+    label: tax reference number
+    domain: EuropeanBusinessWalletOwnerId
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tin
+
+  - id: lei
+    label: legal entity identifier
+    domain: EuropeanBusinessWalletOwnerId
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
+
+  - id: eori
+    label: economic operator registration and identification
+    domain: EuropeanBusinessWalletOwnerId
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
+
+  - id: excise
+    label: excise number
+    domain: EuropeanBusinessWalletOwnerId
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/excise
+
+  - id: currency
+    label: currency
+    domain: Capital
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/currency
+
+  - id: amount
+    label: amount
+    domain: Capital
+    range: xsd:float
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
+
+  - id: legalRepresentativeId
+    label: unique ID of the identity of the representative
+    domain: LegalRepresentative
+    range: xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid
+
+  - id: partnerId
+    label: unique ID of the identity of the partner
+    domain:
+      - GeneralPartner
+      - LimitedPartner
+      - StatutoryPartner
+    range: xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid
+
+  - id: liabilityOrContribution
+    label: liability or contribution of the limited partner
+    domain: LimitedPartner
+    range: Capital
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution
+
+  - id: role
+    label: role of representative
+    domain:
+      - LegalRepresentative
+      - StatutoryPartner
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
+
+  - id: scopeOfAuthorization
+    label: scope of authorization (alone or jointly)
+    domain:
+      - LegalRepresentative
+      - StatutoryPartner
+    range: ScopeOfAuthorization
+    one_of: [Alone, Jointly]
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
+
+  - id: naceCode
+    label: nace code
+    domain: Nace021
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nacecode
+
+  - id: naceDescription
+    label: nace description
+    domain: Nace021
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nacedescription
+
+  - id: partner
+    label: partner
+    domain: EuccPartnership
+    range:
+      - GeneralPartner
+      - LimitedPartner
+      - StatutoryPartner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
+
+individual:
+  - id: Pub-EAA
+    label: public electronic attestation of attributes
+    type: AttestationLegalCategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA
+
+  - id: QEAA
+    label: qualified electronic attestation of attributes
+    type: AttestationLegalCategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA
+
+  - id: EAA
+    label: electronic attestation of attributes
+    type: AttestationLegalCategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA
+
+  - id: Alone
+    label: scope of authorization Alone
+    type: ScopeOfAuthorization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
+
+  - id: Jointly
+    label: scope of authorization Jointly
+    type: ScopeOfAuthorization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly
+
+  - id: jsonld:Context
+    label: jsonld context
+    type: schema:mapping
