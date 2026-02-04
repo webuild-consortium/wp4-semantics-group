@@ -12,7 +12,7 @@ If you are so inclined, you can refactor it to an instance of the conceptual mod
     World (instance of Audience).
     Statement:  Hello greets World.
 
-> **Important:** This template is on a "need" basis. If there is nothing in the workflow part of the use case just omit the paragraph. Only use what you need to. Keep it simple and clean.
+> **Important:** This template is on a "need" basis. If there is nothing to mention in the workflow part of the use case, for instance, just omit the paragraph. Only use what you need to. Keep it simple and clean.
 
 
 # Use Case Overview of Hello World
