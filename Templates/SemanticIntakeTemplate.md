@@ -63,7 +63,7 @@ Purpose: Capture the entities, attributes, and relationships.
 The Hello World data model is depicted below. It is a simple model to illustrate the use of data models to capture the use case entities.
 
 
-Figure 1 "Hello World" exaple diagram or knoledge graph.
+
 
 ```mermaid
 classDiagram
@@ -81,6 +81,7 @@ Hello  "1"  --> "1..n"  World : Greets
 
 classDef default fill:#ffffe0,stroke:#8b0000,stroke-width:2px,color:#8b0000
 ```
+Figure 1 "Hello World" exaple diagram or knoledge graph.
 
 ## Entity: Hello
 |Name|Description/Definition|
