@@ -546,7 +546,7 @@ property:
       - StatutoryPartner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
 
-individual:
+individual:   # code lists
   - id: Pub-EAA
     label: public electronic attestation of attributes
     type: AttestationLegalCategory
