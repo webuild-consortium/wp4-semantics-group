@@ -62,7 +62,7 @@ Purpose: Capture the entities, attributes, and relationships.
 
 The Hello World data model is depicted below. It is a simple model to illustrate the use of data models to capture the use case entities.
 
-![Hello World Data ](https://www.plantuml.com/plantuml/png/bL91ozD04BtlhnZwtPGMX7f9GMfLy20UH2YUPCrEax6xCsLsGWp5_-vkcw35Y-QKztRVUpEFtMVpQaEApiWYmdkCKM0KZS6vDlgSP-hgu5cdY4RSVSOV1itzmC7pW2TYCX8kv787nXuPa5iPs50haoMXC2v66HhtSmavriHRI93aYJ_wXCKDlLfV8dnNqNRpSWk9udUleP2jf8HiC_-DOgmZJ4MJWKumoG13HiYzg45kVSJVUU_OoAPROF8Sl8bEnL8kTGqVwyNRUaqppxfwiOArKjVR-bK1cmslvg6V8Z4sRxsUFs7OMUccEVPa2CtN-ZtM-FIXMdof_-FkR-4C7ahvBycyrpzgN4y1eILj8pgNpyGNhpx1tUlg3huzToe3XpSIHU4FL_TQLSOxlTWTH0Fg8rVVoW9ggtlaK9_RBm00)
+
 Figure 1 "Hello World" exaple diagram or knoledge graph.
 
 ```mermaid
