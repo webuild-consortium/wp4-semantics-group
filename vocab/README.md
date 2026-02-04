@@ -18,4 +18,4 @@ Use the build script to generate all artefact in the static folder ready for upl
 ```console
 wp4-semtics-group % cd vocab/static/ebw/v0.1
 v0.1 % sh ../../../scripts/build.zsh
-```
+Testing the tool```
