@@ -29,7 +29,7 @@ The Information Model has two patterns that record IRIs. As usual, we distinguis
 1.  A pattern for IRIs that refer to data in the Information Model.
 2.  A different pattern for the IRIs of model definitions of the Information Model.
 
-### IRI pattern for data in the System Catalogue
+### IRI pattern for data in the Information Model
 
 The IRIs of data are recorded according to the general pattern
 
@@ -45,8 +45,8 @@ http://opendata.webuildconsortium.eu/{contex}{subcontext}/{type}/{kind of concep
 
 The pattern {type} indicates what type of IRI it is. In an IRI for an information element, there are two possibilities:
 
-1.  **'id'** is used when the IRI is an identifier of an object. This is the unique IRI of an object. In the System Catalog, each IRI contains an  **id**.
-2.  **'doc'** is used to refer to the documentation associated with an IRI. If the IRI, which contains  **"id",** is presented to the System Catalogue,  **"id"** is  replaced by  **"doc",** because the resulting URL refers to the IRI documentation page. With the help of content negotiation, it is decided in which format the information is displayed.
+1.  **'id'** is used when the IRI is an identifier of an object. This is the unique IRI of an object. In the Information Model, each IRI contains an  **id**.
+2.  **'doc'** is used to refer to the documentation associated with an IRI. If the IRI, which contains  **"id",** is presented to the Information Model,  **"id"** is  replaced by  **"doc",** because the resulting URL refers to the IRI documentation page. With the help of content negotiation, it is decided in which format the information is displayed.
 
 | Pattern part | Explanation |
 |--|--|
@@ -65,7 +65,7 @@ The pattern {type} indicates what type of IRI it is. In an IRI for an informatio
 | **concept type** | Name of the group to which the described object belongs. It is necessary to include each object in a collection of objects belonging to the same "species". The Information Model includes: **registration, dataset, concept scheme, understanding, cluster concept, data element, ...** |
 | **reference** | The unique "key" with which a concept is identified. Preferably, the reference has meaning, such as the name of a record, a concept or a dataset. But in special cases, the reference can be generated. |
 
-### IRI pattern of model definitions in the System Catalogue
+### IRI pattern of model definitions in the Information Model
 
 The template for the Information Model looks like:
 
@@ -79,7 +79,7 @@ The parts are described below.
 |--|--|
 | **schema** | **HTTP** |
 | | The schema type is always http. |
-| **domain** | **opendata.systemcatalog.com** |
+| **domain** | **opendata.webiuldconsortium.eu** |
 | | This is the domain that the Information Model uses for Linked Data elements. |
 | **Type** | **def** |
 | | The term "**def**" indicates that this element is part of a model definition. |
