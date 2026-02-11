@@ -92,7 +92,7 @@ The parts are described below.
 An example of an IRI is that of an Information Model data element:  [http://opendata.webiuldconsortium.eu/def/informationmodel#Organisation](http://opendata.webiuldconsortium.eu/def/informationmodel#Organisation)  
 This IRI refers to the definition of the object named "Organisation", which is defined in the vocabulary "Information Model".
 
-### Elements of the System Catalogue
+### Elements of the Information Model
 
 #### Model definitions
 
