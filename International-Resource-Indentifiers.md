@@ -6,7 +6,7 @@ The Semantic Group strives to create a complete model of all the information pre
 
 ### Principles
 
-The WEBUILS Information Model is made in a linked data fashion. The Information Model is built to make the information freely accessible and fit it into other Linked Data solutions. This makes the Information Model a Linked Open Data source and complies with the  [FAIR principles](https://nl.wikipedia.org/wiki/FAIR-principes).  
+The WEBUILD Information Model is made in a linked data fashion. The Information Model is built to make the information freely accessible and fit it into other Linked Data solutions. This makes the Information Model a Linked Open Data source and complies with the  [FAIR principles](https://nl.wikipedia.org/wiki/FAIR-principes).  
   
 With this, the Information Model wants to be transparent and optimize the reusability of both the data with relationships and the definitions.  
 
