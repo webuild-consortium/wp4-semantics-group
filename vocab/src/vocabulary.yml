@@ -320,6 +320,12 @@ property:
     domain: Address
     defined_by: http://schema.org/streetAddress
 
+ - id: thoroughfare
+    label: thoroughfare
+    domain: Address
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
+
   - id: schema:addressLocality
     label: address locality
     domain: Address
