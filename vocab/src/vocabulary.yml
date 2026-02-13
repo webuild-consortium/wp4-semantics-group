@@ -24,119 +24,30 @@ ontology:
     value: https://ebw-vocabulary.spherity.dev/ebw
 
 class:
-  - id: ElectronicAttestationOfAttributes
-    label: Electronic Attestation Of Attributes
-    upper_value: cred:VerifiableCredential
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes
+  - id: Address
+    label: Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
+  
+  - id: Agent
+    label: Agent
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/agent
 
   - id: AttestationLegalCategory
     label: Attestation Legal Category
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
+  - id: Capital
+    label: Capital
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
+
   - id: cred:CredentialSubject
     label: Credential Subject
     defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
-
-  - id: NaturalPersonIdentificationData
-    label: Natural Person Identification Data
-    upper_value: cred:CredentialSubject
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonidentificationdata
-    example:
-      - label: Credential with credential subject of type NaturalPersonIdentificationData
-        json: |
-          {
-            "@context": [
-              "https://www.w3.org/ns/credentials/v2",
-              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
-            ],
-            "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
-            "@type": [
-              "VerifiableCredential",
-              "ElectronicAttestationOfAttributes"
-            ],
-            "attestationLegalCategory": "QEAA",
-            "credentialSubject": {
-              "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "NaturalPersonIdentificationData",
-              "givenName": "Mario",
-              "familyName": "Mustermann",
-              "birthDate": "12/01/1965"
-            },
-            "validUntil": "2029-12-03T12:19:52Z",
-            "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfIssuer$"
-          }
-
-  - id: LegalPersonIdentificationData
-    label: Legal Person Identification Data
-    upper_value: cred:CredentialSubject
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonidentificationdata
-    example:
-      - label: Credential with credential subject of type LegalPersonIdentificationData
-        json: |
-          {
-            "@context": [
-              "https://www.w3.org/ns/credentials/v2",
-              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
-            ],
-            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
-            "@type": [
-              "VerifiableCredential",
-              "ElectronicAttestationOfAttributes"
-            ],
-            "attestationLegalCategory": "QEAA",
-            "credentialSubject": {
-              "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "LegalPersonIdentificationData",
-              "legalIdentifier": "DExxxx123456789",
-              "legalName": "acme Corporation"
-            },
-            "validUntil": "2029-12-03T12:19:52Z",
-            "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfIssuer$"
-          }
-
-  - id: EuropeanBusinessWalletOwnerId
-    label: European Business Wallet Owner ID
-    upper_value: cred:CredentialSubject
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/europeanbusinesswalletownerid
-    example:
-      - label: Credential with credential subject of type EuropeanBusinessWalletOwnerId
-        json: |
-          {
-            "@context": [
-              "https://www.w3.org/ns/credentials/v2",
-              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
-            ],
-            "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
-            "@type": [
-              "VerifiableCredential",
-              "ElectronicAttestationOfAttributes"
-            ],
-            "attestationLegalCategory": "QEAA",
-            "credentialSubject": {
-              "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "EuropeanBusinessWalletOwnerId",
-              "legalIdentifier": "NOFOR.987654321",
-              "legalName": "acme Corporation",
-              "registeredAddress": {
-                "@type":"Address",
-                "streetAddress": "123 Via Appia",
-                "addressLocality": "Rome",
-                "addressRegion": "Lazio",
-                "postalCode": "00100",
-                "addressCountry": "IT"
-              },
-              "vat": "123456789MVA",
-              "tin": "NO-ORG-123456789",
-              "lei": "5493001KJTIIGC8Y1R12",
-              "eori": "NO123456789012",
-              "excise": "GBWK123456789000"
-            },
-            "validUntil": "2029-12-03T12:19:52Z",
-            "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfIssuer$"
-          }
+  
+  - id: ElectronicAttestationOfAttributes
+    label: Electronic Attestation Of Attributes
+    upper_value: cred:VerifiableCredential
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes
 
   - id: EuccLimitLiabilityCompany
     label: European Company Certificate Data for limited liability companies
@@ -282,25 +193,134 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
-  - id: Capital
-    label: Capital
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
+  - id: EuropeanBusinessWalletOwnerId
+    label: European Business Wallet Owner ID
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/europeanbusinesswalletownerid
+    example:
+      - label: Credential with credential subject of type EuropeanBusinessWalletOwnerId
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+            ],
+            "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "EuropeanBusinessWalletOwnerId",
+              "legalIdentifier": "NOFOR.987654321",
+              "legalName": "acme Corporation",
+              "registeredAddress": {
+                "@type":"Address",
+                "streetAddress": "123 Via Appia",
+                "addressLocality": "Rome",
+                "addressRegion": "Lazio",
+                "postalCode": "00100",
+                "addressCountry": "IT"
+              },
+              "vat": "123456789MVA",
+              "tin": "NO-ORG-123456789",
+              "lei": "5493001KJTIIGC8Y1R12",
+              "eori": "NO123456789012",
+              "excise": "GBWK123456789000"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: Identifier
+    label: Identifier
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
+
+  - id: Jurisdiction
+    label: Period of Time
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
+
+  - id: LegalPersonIdentificationData
+    label: Legal Person Identification Data
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonidentificationdata
+    example:
+      - label: Credential with credential subject of type LegalPersonIdentificationData
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "LegalPersonIdentificationData",
+              "legalIdentifier": "DExxxx123456789",
+              "legalName": "acme Corporation"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
 
   - id: LegalRepresentative
     label: Legal representative
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
 
-  - id: ScopeOfAuthorization
-    label: Scope Of Authorization
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
+  - id: Location
+    label: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/location
 
-  - id: Address
-    label: Address
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
+  - id: NaturalPersonIdentificationData
+    label: Natural Person Identification Data
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonidentificationdata
+    example:
+      - label: Credential with credential subject of type NaturalPersonIdentificationData
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+            ],
+            "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "NaturalPersonIdentificationData",
+              "givenName": "Mario",
+              "familyName": "Mustermann",
+              "birthDate": "12/01/1965"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
 
   - id: Nace021
     label: Nace Rev. 2.1
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nace021
+
+  - id: PeriodOfTime
+    label: Period of Time
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
+
+  - id: ScopeOfAuthorization
+    label: Scope Of Authorization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
 
   - id: GeneralPartner
     label: General Partner
