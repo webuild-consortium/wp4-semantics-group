@@ -5,4 +5,7 @@ npx yml2vocab -c
 cp ../../../src/class-diagram.mermaid class-diagram.mermaid
 npx -p @mermaid-js/mermaid-cli mmdc -i class-diagram.mermaid -o class-diagram.svg
 
+cp ../../../src/class-diagram-poa.mermaid class-diagram-poa.mermaid
+npx -p @mermaid-js/mermaid-cli mmdc -i class-diagram-poa.mermaid -o class-diagram-poa.svg
+
 cp ../../../src/_redirects ../../_redirects

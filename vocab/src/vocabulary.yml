@@ -314,6 +314,37 @@ class:
     label: Statutory Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
 
+  - id: PowerOfAttorney
+    label: Power of attorney
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/powerofattorney
+    example:
+      - label: Credential with credential subject of type LegalPersonIdentificationData
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urnd:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
+              "@type": "PowerOfAttorney",
+              "mandatee": "did:key:$publicKeyOfMandatee$",
+              "scope": "Opening bank account",
+              "provenanceProof": $euccOfMandateeOrganisation$,
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfMandater$"
+          }
+
+
 property:
   - id: schema:streetAddress
     label: street address
@@ -545,6 +576,27 @@ property:
       - LimitedPartner
       - StatutoryPartner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
+
+  - id: mandatee
+    label: mandatee
+    domain: PowerOfAttorney
+    range:
+      - xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/mandatee
+
+  - id: scope
+    label: scope
+    domain: PowerOfAttorney
+    range:
+      - xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scope
+
+  - id: provenanceProof
+    label: provenance proof
+    domain: PowerOfAttorney
+    range:
+      - Credential
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provenanceproof
 
 individual:   # code lists
   - id: Pub-EAA
