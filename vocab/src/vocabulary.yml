@@ -341,25 +341,65 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
 
-  - id: schema:addressLocality
-    label: address locality
+  - id: postName
+    label: post name
     domain: Address
-    defined_by: http://schema.org/addressLocality
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postname
 
-  - id: schema:addressRegion
-    label: address region
+  - id: postCode
+    label: post code
     domain: Address
-    defined_by: http://schema.org/addressRegion
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postcode
 
-  - id: schema:postalCode
-    label: postal code
+  - id: poBox
+    label: post office box
     domain: Address
-    defined_by: http://schema.org/postalCode
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/pobox
 
-  - id: schema:addressCountry
-    label: address country
+  - id: locatorName
+    label: locator name
     domain: Address
-    defined_by: http://schema.org/addressCountry
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname
+
+  - id: locatorDesignator
+    label: locator designator
+    domain: Address
+    range: 
+      - xsd:string
+      - xsd:integer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator
+
+  - id: fullAddress
+    label: full address
+    domain: Address
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress
+
+  - id: adminUnitL2
+    label: administrative unit level 2
+    domain: Address
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2
+
+  - id: adminUnitL1
+    label: administrative unit level 1
+    domain: Address
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1
+
+  - id: addressArea
+    label: address area
+    domain: Address
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea
+
+
+
+
 
   - id: givenName
     label: given name
