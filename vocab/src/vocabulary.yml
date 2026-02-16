@@ -318,6 +318,10 @@ class:
     label: Period of Time
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
 
+  - id: Person
+    label: Person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
+
   - id: ScopeOfAuthorization
     label: Scope Of Authorization
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
