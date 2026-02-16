@@ -89,7 +89,21 @@ class:
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": "LegalPersonIdentificationData",
               "legalIdentifier": "DExxxx123456789",
-              "legalName": "acme Corporation"
+              "legalName": "acme Corporation",
+              "registeredAddress": {
+                "@type":"Address",
+                "streetAddress": "123 Via Appia",
+                "addressLocality": "Rome",
+                "addressRegion": "Lazio",
+                "postalCode": "00100",
+                "addressCountry": "IT"
+              },
+              "vat": "123456789MVA",
+              "tin": "NO-ORG-123456789",
+              "lei": "5493001KJTIIGC8Y1R12",
+              "eori": "NO123456789012",
+              "excise": "GBWK123456789000"
+
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
@@ -118,20 +132,7 @@ class:
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": "EuropeanBusinessWalletOwnerId",
               "legalIdentifier": "NOFOR.987654321",
-              "legalName": "acme Corporation",
-              "registeredAddress": {
-                "@type":"Address",
-                "streetAddress": "123 Via Appia",
-                "addressLocality": "Rome",
-                "addressRegion": "Lazio",
-                "postalCode": "00100",
-                "addressCountry": "IT"
-              },
-              "vat": "123456789MVA",
-              "tin": "NO-ORG-123456789",
-              "lei": "5493001KJTIIGC8Y1R12",
-              "eori": "NO123456789012",
-              "excise": "GBWK123456789000"
+              "legalName": "acme Corporation"
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
@@ -389,7 +390,7 @@ property:
   - id: registeredAddress
     label: registered address
     domain:
-      - EuropeanBusinessWalletOwnerId
+      - LegalPersonIdentificationData
       - EuccLimitLiabilityCompany
       - EuccPartnership
     range:
@@ -399,7 +400,7 @@ property:
   - id: correspondenceAddress
     label: correspondence Address
     domain:
-      - EuropeanBusinessWalletOwnerId
+      - LegalPersonIdentificationData
       - EuccLimitLiabilityCompany
       - EuccPartnership
     range:
@@ -447,31 +448,31 @@ property:
 
   - id: vat
     label: value added tax id
-    domain: EuropeanBusinessWalletOwnerId
+    domain: LegalPersonIdentificationData
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vat
 
   - id: tin
     label: tax reference number
-    domain: EuropeanBusinessWalletOwnerId
+    domain: LegalPersonIdentificationData
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tin
 
   - id: lei
     label: legal entity identifier
-    domain: EuropeanBusinessWalletOwnerId
+    domain: LegalPersonIdentificationData
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
 
   - id: eori
     label: economic operator registration and identification
-    domain: EuropeanBusinessWalletOwnerId
+    domain: LegalPersonIdentificationData
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
 
   - id: excise
     label: excise number
-    domain: EuropeanBusinessWalletOwnerId
+    domain: LegalPersonIdentificationData
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/excise
 
