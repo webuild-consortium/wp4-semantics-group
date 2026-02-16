@@ -403,6 +403,62 @@ property:
 
 
 
+  - id: alternativeName
+    label: alternative name
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename
+
+  - id: birthName
+    label: birth name
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname
+
+  - id: alternativeName
+    label: alternative name
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename
+
+  - id: citizenship
+    label: citizenship
+    domain: Person
+    range: Jurisdiction
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
+
+  - id: contactPoint
+    label: contact point
+    domain: Person
+    range: ContactPoint
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
+
+  - id: countryOfBirth
+    label: country of birth
+    domain: Person
+    range: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofbirth
+
+  - id: countryOfDeath
+    label: country of death
+    domain: Person
+    range: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath
+
+  - id: dateOfBirth
+    label: date of birth
+    domain: 
+      -  Person 
+      -  NaturalPersonIdentificationData
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth
+
+  - id: dateOfDeath
+    label: date of death
+    domain: Person
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath
+  
 
 
   - id: givenName
@@ -417,11 +473,6 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
 
-  - id: dateOfBirth
-    label: date of birth
-    domain: NaturalPersonIdentificationData
-    range: xsd:date
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth
 
   - id: legalName
     label: legal name
