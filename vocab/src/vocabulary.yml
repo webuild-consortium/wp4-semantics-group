@@ -415,12 +415,6 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname
 
-  - id: alternativeName
-    label: alternative name
-    domain: Person
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename
-
   - id: citizenship
     label: citizenship
     domain: Person
