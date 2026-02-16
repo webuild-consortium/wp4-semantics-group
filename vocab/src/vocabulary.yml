@@ -459,7 +459,29 @@ property:
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath
   
+  - id: domicile
+    label: domicile
+    domain: Person
+    range: Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile
 
+  - id: familyName
+    label: family name
+    domain: NaturalPersonIdentificationData
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
+
+  - id: fullName
+    label: full name
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname
+
+  - id: gender
+    label: gender
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gender
 
   - id: givenName
     label: given name
@@ -467,11 +489,43 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
 
-  - id: familyName
-    label: family name
-    domain: NaturalPersonIdentificationData
+  - id: identifier
+    label: identifier
+    domain: Person
+    range: Identifier
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
+
+ - id: matronymicName
+    label: matronymic name
+    domain: Person
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname
+
+ - id: patronymicName
+    label: patronymic name
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
+
+ - id: placeOfBirth
+    label: place of birth
+    domain: Person
+    range: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofbirth
+
+ - id: placeOfDeath
+    label: place of death
+    domain: Person
+    range: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath
+
+ - id: residency
+    label: residency
+    domain: Person
+    range: Jurisdiction
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
+
+
 
 
   - id: legalName
