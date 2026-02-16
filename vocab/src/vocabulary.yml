@@ -319,7 +319,7 @@ class:
     upper_value: cred:CredentialSubject
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/powerofattorney
     example:
-      - label: Credential with credential subject of type LegalPersonIdentificationData
+      - label: Credential with credential subject of type PowerOfAttorney
         json: |
           {
             "@context": [
