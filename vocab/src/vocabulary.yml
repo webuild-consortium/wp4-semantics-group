@@ -335,12 +335,7 @@ class:
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
 
 property:
-  - id: schema:streetAddress
-    label: street address
-    domain: Address
-    defined_by: http://schema.org/streetAddress
-
- - id: thoroughfare
+  - id: thoroughfare
     label: thoroughfare
     domain: Address
     range: xsd:string
