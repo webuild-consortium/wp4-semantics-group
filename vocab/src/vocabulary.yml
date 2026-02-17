@@ -313,6 +313,10 @@ class:
     label: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/location
 
+  - id: Jurisdiction
+    label: Jurisdiction
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
+
   - id: Address
     label: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
