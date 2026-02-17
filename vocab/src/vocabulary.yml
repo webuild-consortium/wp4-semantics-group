@@ -29,6 +29,10 @@ class:
     upper_value: cred:VerifiableCredential
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes
 
+  - id: Agent
+    label: Agent
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/agent
+
   - id: AttestationLegalCategory
     label: Attestation Legal Category
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
@@ -305,6 +309,10 @@ class:
     label: Scope Of Authorization
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
 
+  - id: Location
+    label: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/location
+
   - id: Address
     label: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
@@ -312,6 +320,14 @@ class:
   - id: Nace021
     label: Nace Rev. 2.1
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nace021
+
+  - id: PeriodOfTime
+    label: Period of Time
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
+
+  - id: Person
+    label: Person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
 
   - id: GeneralPartner
     label: General Partner
@@ -388,11 +404,61 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1
 
-  - id: givenName
-    label: given name
-    domain: NaturalPersonIdentificationData
+  - id: alternativeName
+    label: alternative name
+    domain: Person
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename
+
+  - id: birthName
+    label: birth name
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname
+
+  - id: citizenship
+    label: citizenship
+    domain: Person
+    range: Jurisdiction
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
+
+  - id: contactPoint
+    label: contact point
+    domain: Person
+    range: ContactPoint
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
+
+  - id: countryOfBirth
+    label: country of birth
+    domain: Person
+    range: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofbirth
+
+  - id: countryOfDeath
+    label: country of death
+    domain: Person
+    range: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath
+
+  - id: dateOfBirth
+    label: date of birth
+    domain:
+      -  Person
+      -  NaturalPersonIdentificationData
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth
+
+  - id: dateOfDeath
+    label: date of death
+    domain: Person
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath
+
+  - id: domicile
+    label: domicile
+    domain: Person
+    range: Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile
 
   - id: familyName
     label: family name
@@ -400,11 +466,59 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
 
-  - id: dateOfBirth
-    label: date of birth
+  - id: fullName
+    label: full name
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname
+
+  - id: gender
+    label: gender
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gender
+
+  - id: givenName
+    label: given name
     domain: NaturalPersonIdentificationData
-    range: xsd:date
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
+
+  - id: identifier
+    label: identifier
+    domain: Person
+    range: Identifier
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
+
+  - id: matronymicName
+    label: matronymic name
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname
+
+  - id: patronymicName
+    label: patronymic name
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
+
+  - id: placeOfBirth
+    label: place of birth
+    domain: Person
+    range: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofbirth
+
+  - id: placeOfDeath
+    label: place of death
+    domain: Person
+    range: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath
+
+  - id: residency
+    label: residency
+    domain: Person
+    range: Jurisdiction
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
 
   - id: legalName
     label: legal name
