@@ -92,11 +92,13 @@ class:
               "legalName": "acme Corporation",
               "registeredAddress": {
                 "@type":"Address",
-                "streetAddress": "123 Via Appia",
-                "addressLocality": "Rome",
-                "addressRegion": "Lazio",
-                "postalCode": "00100",
-                "addressCountry": "IT"
+                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                "thoroughfare": "Via Appia",
+                "locatorDesignator": "123",
+                "postName": "Rome",
+                "adminUnitL2": "Lazio",
+                "postCode": "00100",
+                "adminUnitL1": "IT"
               },
               "vat": "123456789MVA",
               "tin": "NO-ORG-123456789",
@@ -164,19 +166,23 @@ class:
               "legalName": "acme Corporation",
               "registeredAddress": {
                 "@type":"Address",
-                "streetAddress": "123 Via Appia",
-                "addressLocality": "Rome",
-                "addressRegion": "Lazio",
-                "postalCode": "00100",
-                "addressCountry": "IT"
+                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                "thoroughfare": "Via Appia",
+                "locatorDesignator": "123",
+                "postName": "Rome",
+                "adminUnitL2": "Lazio",
+                "postCode": "00100",
+                "adminUnitL1": "IT"
               },
               "correspondenceAddress": {
                 "@type":"Address",
-                "streetAddress": "123 Via Appia",
-                "addressLocality": "Rome",
-                "addressRegion": "Lazio",
-                "postalCode": "00100",
-                "addressCountry": "IT"
+                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                "thoroughfare": "Via Appia",
+                "locatorDesignator": "123",
+                "postName": "Rome",
+                "adminUnitL2": "Lazio",
+                "postCode": "00100",
+                "adminUnitL1": "IT"
               },
               "dateOfRegistration": "2023-10-11",
               "companyStatus": "active",
@@ -235,19 +241,23 @@ class:
               "legalName": "acme Partnership",
               "registeredAddress": {
                 "@type":"Address",
-                "streetAddress": "123 Via Appia",
-                "addressLocality": "Rome",
-                "addressRegion": "Lazio",
-                "postalCode": "00100",
-                "addressCountry": "IT"
+                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                "thoroughfare": "Via Appia",
+                "locatorDesignator": "123",
+                "postName": "Rome",
+                "adminUnitL2": "Lazio",
+                "postCode": "00100",
+                "adminUnitL1": "IT"
               },
               "correspondenceAddress": {
                 "@type":"Address",
-                "streetAddress": "123 Via Appia",
-                "addressLocality": "Rome",
-                "addressRegion": "Lazio",
-                "postalCode": "00100",
-                "addressCountry": "IT"
+                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                "thoroughfare": "Via Appia",
+                "locatorDesignator": "123",
+                "postName": "Rome",
+                "adminUnitL2": "Lazio",
+                "postCode": "00100",
+                "adminUnitL1": "IT"
               },
               "dateOfRegistration": "2023-10-11",
               "companyStatus": "active",
@@ -359,6 +369,12 @@ property:
     domain: Address
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress
+
+  - id: addressArea
+    label: address area
+    domain: Address
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea
 
   - id: adminUnitL2
     label: administrative unit level 2

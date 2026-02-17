@@ -60,11 +60,13 @@ classDiagram
 
     class Address {
         <<EBW>>
-        +streetAddress: string
-        +addressLocality: string
-        +addressRegion: string
-        +postalCode: string
-        +addressCountry: string
+        +thoroughfare: string
+        +postName: string
+        +postCode: string
+        +poBox: string
+        +locatorName: string
+        +locatorDesignator: string
+        +fullAddress: string
     }
 
     class Capital {
