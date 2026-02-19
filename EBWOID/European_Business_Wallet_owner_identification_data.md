@@ -1,3 +1,5 @@
+# Semantic intake template
+
 # Use Case Overview of EBWOID
 
 Purpose: Capture the story and high-level purpose of the use case of the European Business Wallet Owner ID.

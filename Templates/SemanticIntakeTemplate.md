@@ -12,6 +12,9 @@ If you are so inclined, you can refactor it to an instance of the conceptual mod
     World (instance of Audience).
     Statement:  Hello greets World.
 
+> **Important:** This template is on a "need" basis. If there is nothing to mention in the workflow part of the use case, for instance, just omit the paragraph. Only use what you need to. Keep it simple and clean.
+
+
 # Use Case Overview of Hello World
 
 Purpose: Capture the story and high-level purpose of the use case “Hello World”.
@@ -62,8 +65,8 @@ Purpose: Capture the entities, attributes, and relationships.
 
 The Hello World data model is depicted below. It is a simple model to illustrate the use of data models to capture the use case entities.
 
-![Hello World Data ](https://www.plantuml.com/plantuml/png/bL91ozD04BtlhnZwtPGMX7f9GMfLy20UH2YUPCrEax6xCsLsGWp5_-vkcw35Y-QKztRVUpEFtMVpQaEApiWYmdkCKM0KZS6vDlgSP-hgu5cdY4RSVSOV1itzmC7pW2TYCX8kv787nXuPa5iPs50haoMXC2v66HhtSmavriHRI93aYJ_wXCKDlLfV8dnNqNRpSWk9udUleP2jf8HiC_-DOgmZJ4MJWKumoG13HiYzg45kVSJVUU_OoAPROF8Sl8bEnL8kTGqVwyNRUaqppxfwiOArKjVR-bK1cmslvg6V8Z4sRxsUFs7OMUccEVPa2CtN-ZtM-FIXMdof_-FkR-4C7ahvBycyrpzgN4y1eILj8pgNpyGNhpx1tUlg3huzToe3XpSIHU4FL_TQLSOxlTWTH0Fg8rVVoW9ggtlaK9_RBm00)
-Figure 1 "Hello World" exaple diagram or knoledge graph.
+
+
 
 ```mermaid
 classDiagram
@@ -81,6 +84,7 @@ Hello  "1"  --> "1..n"  World : Greets
 
 classDef default fill:#ffffe0,stroke:#8b0000,stroke-width:2px,color:#8b0000
 ```
+Figure 1 "Hello World" exaple diagram or knoledge graph.
 
 ## Entity: Hello
 |Name|Description/Definition|
