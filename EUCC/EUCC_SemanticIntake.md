@@ -4,12 +4,13 @@ Purpose: Capture the story and high-level purpose of the use case “issuing and
 
 This iteration is based on:
  - [Publication amending existing EU company-law directives (Directives 2009/102/EC and 2017/1132) to expand and improve the use of digital tools and digital processes in company law](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32025L0025&qid=1762615804836). In article 16b it describes the EU Company Certificate. Suggested to rename to EU Organisation Certificate, EUOC.
+ - The [EU Company Certificate Data Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/0434604ad07d42e946bc062ea72f86b1cafecc19/rulebooks/rb002_eu_company_certificate.md)
 
 Other sources are yet to be incorporated.
 
-<img width="330" height="330" alt="funnel" src="https://github.com/user-attachments/assets/63ec9edb-cd20-49f9-9fde-5953132f8167" />
+<img width="330" height="330" alt="funnel" src="https://raw.githubusercontent.com/webuild-consortium/wp4-semantics-group/ac925c6c1333c1c9fe05b56383b82a986c9c037a/img/Funnel_02.jpg" />
 
-Input: Company law.
+Input: Company law and EUCC Data Rulebook.
 
 
 > Note: The acronym EUCC is already [taken](https://certification.enisa.europa.eu/certification-library/eucc-certification-scheme_en) and may cause misunderstandings if used here as well. So some proposals:
@@ -29,13 +30,14 @@ Input: Company law.
 
 **What is the scenario being solved?**
 
-Member States shall ensure that the registers issue the EU Company Certificates regarding the companies listed in Annexes II and IIB. 
+- Member States shall ensure that the registers issue the EU Company Certificates regarding the companies listed in Annexes II and IIB.
+
 
 ## Business Context / Motivation
 
 **Why is this attestation needed?**
 
-Please name scenario's where the EUCC is being used or needed.
+- The goal of the EUCC attestation is to have a common standard for European legal entities to exchange. The EUCC attestation will be used by companies in the EWC pilots. This attestation allows companies to share, with a high level of security, information about their companies. This is also a way for relying parties to ensure that they only verify one standard attestation, which allows machine automation and simplifies human comprehension.
 
 ## Stakeholders
 
@@ -154,18 +156,18 @@ Why are some attributes only applicable for limited liability
 
 | No. | Requirement | mandatory/optional |Source | Verification method |
 |--|--|--|--|--|
-| I002 | Entity for the register in which the organisation is registered | M | L001 | check |
-| I003 | Entity for the organisation | M | L001 | check |
+| I001 | Entity for the register in which the organisation is registered | M | L001 | check |
+| I002 | Entity for the organisation | M | L001 | check |
 | I003 | Entity for the organisation's legal type | M | L001 | check |
-| I001 | Details of the company’s **website** | M | L015 | check |
-| I003 | The **LPID name** | M | L001 | check |
-| I003 | The **LPID ID**, or EUID | M | L001 | check |
-| I003 | the **legal form** of the company | M | L003 | check |
-| I003 | the **Member State where the company is registered** | M | L004| check |
-| I003 | the object of the company, **NACE code** or member state code | M | L013 | check |
-| I003 | for limited liability companies: the **duration** of the company | M | L014 | check |
-| I003 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. | M | L028 | check |
-| I001 |  | M | L001 | check |
+| I004 | Details of the company’s **website** | M | L015 | check |
+| I005 | The **LPID name** | M | L001 | check |
+| I006 | The **LPID ID**, or EUID | M | L001 | check |
+| I007 | the **legal form** of the company | M | L003 | check |
+| I008 | the **Member State where the company is registered** | M | L004| check |
+| I009 | the object of the company, **NACE code** or member state code | M | L013 | check |
+| I010 | for limited liability companies: the **duration** of the company | M | L014 | check |
+| I011 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. | M | L028 | check |
+| I012 |  | M | 001 | check |
 | I003 | The LPID name | M | L001 | check |
 | I003 | The LPID name | M | L001 | check |
 | I003 | The LPID name | M | L001 | check |
@@ -186,11 +188,12 @@ Check for a list of standard legal forma in the EU.
 | T001 | paper issuance | L025 |  |
 |  |  |  |  |
 
-## Operational requirements
+## Rulebook or Operational requirements
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
 | O001 | Each company listed in Annex II or Annex IIB can obtain its EU Company Certificate in electronic format free of charge unless it causes serious prejudice to the financing of the national registers. | L025, L026 | ? |
-| O001 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. (see countries below). | L028 | ? |
+| O002 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. (see countries below). | L028 | ? |
+| O003| **Natural person:** an individual human being who has legal rights and obligations. Unlike a legal person (which refers to an organization or entity), a natural person is a human with the capacity to engage in legal relationships, enter into contracts, own property, and be subject to legal actions. Natural persons are distinct from artificial entities (like corporations or governments). In legal terms, a natural person is someone who exists as a human being, as opposed to a corporate or fictional entity. | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#:~:text=important%20to%20understand:-,Natural%20person,-:%20an%20individual%20human) | check |
 
 <img width="513" height="436" alt="image" src="https://github.com/user-attachments/assets/4d248f0d-54b2-4d8d-9b37-ee5b9694caee" />
 
