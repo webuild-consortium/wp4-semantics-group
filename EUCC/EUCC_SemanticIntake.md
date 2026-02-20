@@ -167,13 +167,43 @@ Why are some attributes only applicable for limited liability
 | I009 | the object of the company, **NACE code** or member state code | M | L013 | check |
 | I010 | for limited liability companies: the **duration** of the company | M | L014 | check |
 | I011 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. | M | L028 | check |
-| I012 |  | M | 001 | check |
-| I003 | The LPID name | M | L001 | check |
-| I003 | The LPID name | M | L001 | check |
-| I003 | The LPID name | M | L001 | check |
-| I003 | The LPID name | M | L001 | check |
-| I003 | The LPID name | M | L001 | check |
-| I003 | The LPID name | M | L001 | check |
+| I012 | EUCC attribute: **legal_person** Information regarding the legal entity, including name, ID, legal form, etc. | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#4-eucc-attributes) | check |
+| I013 | EUCC attribute: **legal_person_name** Official current legal entity name as registered in the business register. | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#4-eucc-attributes) | check |
+| I014 | EUCC attribute: **legal_person_id** Unique ID for the legal entity in the EUID structure. | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#4-eucc-attributes) | check |
+| I015 | EUCC attribute: legal_form_type 	Legal form of the company. | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#4-eucc-attributes) | check |
+| I016 | EUCC attribute: **registration_member_state** The member state where the company is registered (Alpha-2 country code according to ISO 3166-1). | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#4-eucc-attributes) | check |
+| I017 | EUCC attribute: **registered_address** The official address of the company. | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#4-eucc-attributes) | check |
+| I018 | EUCC attribute: **care_of** Used when the address is at the address of another person or legal entity. | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#4-eucc-attributes) | check |
+| I019 | EUCC attribute: **full_address** Complete address of the company, written as a string, separated by semicolons. | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#4-eucc-attributes) | check |
+| I020 | EUCC attribute: **registration_date** Date of company registration. | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md) | check |
+| I021 | EUCC attribute: **share_capital** Amount of the subscribed capital with currency. | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md) | check |
+| I022 | EUCC attribute: **legal_entity_status** Status of the company as defined in national law and recorded in the national register. | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md) | check |
+| I023 | EUCC attribute: **legal_entity_activity** Main activity or activities of the company, expressed using the NACE (Statistical Classification of Economic Activities). | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md) | check |
+| I024 | EUCC attribute: **legal_entity_duration** Duration of the company, if limited. | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md) | check |
+| I025 | EUCC attribute: **contact_point** Correspondence address of the company, such as email or postal address (full or partial). | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md) | check |
+| I026 | EUCC attribute: **contact_email** Details of the company email address. | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md) | check |
+| I027 | EUCC attribute: **contact_page** Details of the company website. | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md) | check |
+| I028 | EUCC attribute: **legal_representative** Information about the person(s) authorized to represent the company, either individually or jointly. | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md) | check |
+| I029 | EUCC attribute: **legal_representative.natural_person** Details about the natural person representing the company. | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md) | check |
+| I030 | EUCC attribute: **legal_representative.legal_person** Details about the legal person representing the company. | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md) | check |
+| I031 | Registered address attribute: **full_address** | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#41-regitered-address-related-attributes) | check |
+| I032 | Registered address attribute: **care_of** | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#41-regitered-address-related-attributes) | check |
+| I033 | Registered address attribute: **thorough_fare** | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#41-regitered-address-related-attributes) | check |
+| I034 | Registered address attribute: **locator_designator** | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#41-regitered-address-related-attributes) | check |
+| I035 | Registered address attribute: **post_code** | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#41-regitered-address-related-attributes) | check |
+| I036 | Registered address attribute: **post_name** | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#41-regitered-address-related-attributes) | check |
+| I037 | Registered address attribute: **post_office_box** | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#41-regitered-address-related-attributes) | check |
+| I038 | Registered address attribute: **locator_name** | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#41-regitered-address-related-attributes) | check |
+| I039 | Registered address attribute: **admin_unit_level_1** | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#41-regitered-address-related-attributes) | check |
+| I040 | Registered address attribute: **admin_unit_level_2** | O | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#41-regitered-address-related-attributes) | check |
+| I041 | Legal representative attribute: **full_name** | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#42-legal-representative-related-attributes) | check |
+| I042 | Legal representative attribute: **date_of_birth** | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#42-legal-representative-related-attributes) | check |
+| I043 | Legal representative attribute: **nationality** | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#42-legal-representative-related-attributes) | check |
+| I044 | Legal representative attribute: **signatory_rule** | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#42-legal-representative-related-attributes) | check |
+| I045 | Legal person attribute: **legal_person_name** | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#42-legal-representative-related-attributes) | check |
+| I046 | Legal person attribute: **legal_person_id** | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#42-legal-representative-related-attributes) | check |
+| I047 | Legal person attribute: **legal_form_type** | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#42-legal-representative-related-attributes) | check |
+| I048 | Legal person attribute: **signatory_rule** | M | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#42-legal-representative-related-attributes) | check |
 
 Check for a list of standard legal forma in the EU.
 
@@ -186,6 +216,12 @@ Check for a list of standard legal forma in the EU.
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
 | T001 | paper issuance | L025 |  |
+| T002 | The EUCC SHALL follow the SD-JWT format. | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#51-trust-requirements-on-the-eucc-attestation-from-the-perspective-of-company-registration-offices-as-authentic-sources-for-the-eucc) |  |
+| T001 | The EUCC unique identifier SHALL be unique and agreed upon on EU and EES level. | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#51-trust-requirements-on-the-eucc-attestation-from-the-perspective-of-company-registration-offices-as-authentic-sources-for-the-eucc) |  |
+| T001 | The EUCC SHALL be in a format that can scale to additional/new legal forms. | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#51-trust-requirements-on-the-eucc-attestation-from-the-perspective-of-company-registration-offices-as-authentic-sources-for-the-eucc) |  |
+| T001 | The EUCC SHALL apply for all legal persons. | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#51-trust-requirements-on-the-eucc-attestation-from-the-perspective-of-company-registration-offices-as-authentic-sources-for-the-eucc) |  |
+| T001 | paper issuance | L025 |  |
+| T001 | paper issuance | L025 |  |
 |  |  |  |  |
 
 ## Rulebook or Operational requirements
@@ -193,7 +229,31 @@ Check for a list of standard legal forma in the EU.
 |--|--|--|--|
 | O001 | Each company listed in Annex II or Annex IIB can obtain its EU Company Certificate in electronic format free of charge unless it causes serious prejudice to the financing of the national registers. | L025, L026 | ? |
 | O002 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. (see countries below). | L028 | ? |
-| O003| **Natural person:** an individual human being who has legal rights and obligations. Unlike a legal person (which refers to an organization or entity), a natural person is a human with the capacity to engage in legal relationships, enter into contracts, own property, and be subject to legal actions. Natural persons are distinct from artificial entities (like corporations or governments). In legal terms, a natural person is someone who exists as a human being, as opposed to a corporate or fictional entity. | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#:~:text=important%20to%20understand:-,Natural%20person,-:%20an%20individual%20human) | check |
+| O003| **Natural person:** an individual human being who has legal rights and obligations. Unlike a legal person (which refers to an organization or entity), a natural person is a human with the capacity to engage in legal relationships, enter into contracts, own property, and be subject to legal actions. Natural persons are distinct from artificial entities (like corporations or governments). In legal terms, a natural person is someone who exists as a human being, as opposed to a corporate or fictional entity. | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#15-terminology) | check |
+| O004| **Legal person:** an entity that has legal rights and obligations, similar to a natural person (an individual). It is an organization or group recognized by law as having the capacity to enter into contracts, sue, and be sued, and own property. Legal persons are distinct from the individuals who may own, manage, or be part of them. Examples of legal persons include Corporations, Government agencies, public entities (that are granted legal recognition to act on behalf of the state), Nonprofit organizations A legal person exists as a separate legal entity, meaning it can perform legal actions in its own name, distinct from the actions of its members. | [[Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#15-terminology) | check |
+| O005| **Legal entity:** an organization or structure that is recognized by law as having legal rights and responsibilities distinct from those of its members or owners. A legal entity can enter into contracts, own property, incur debts, and be held liable for legal actions in its own name. Legal entities include various forms of organizations such as Corporations, Limited liability companies (LLCs), Nonprofit organizations, Partnerships The key characteristic of a legal entity is that it has its own legal existence, allowing it to perform actions independently of the individuals who are involved with it. | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#15-terminology) | check |
+| O006| **Legal representative:** Natural or legal person authorized to act on behalf of another person or organization in legal matters. This person has the legal authority to represent the interests of the entity, such as a company, in dealings with other parties, including signing contracts, making decisions, and appearing in legal proceedings. For businesses, a legal representative can be a director, officer, or another person designated by the company’s governing body (like the board of directors) to represent the company in legal matters. In the case of individuals, a legal representative might include a guardian, power of attorney holder, or someone with similar legal authority to act on behalf of the person. | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#15-terminology)| check |
+| O007| **Signatory rights:** the authority or power granted to an individual or entity to legally bind an organization or company by signing contracts, agreements, or other formal documents. This authority can be granted to a specific person, such as an executive, director, or authorized representative, and can be either individual (where one person alone can sign) or joint (where multiple individuals are required to sign together). Signatory rights are important because they ensure that any commitments made by the organization are legally valid and enforceable. The terms and scope of signatory rights are usually outlined in the organization's internal governance documents, such as its bylaws, and can vary based on the level of responsibility and the nature of the agreements being signed. | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#2-eucc-issuance-process) | check |
+| O008| Only Business Registries are allowed to be the authentic source of the EUCC attestation | [[Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#2-eucc-issuance-process) | check |
+| O009| This attestation can only be issued to an EUDI valid organizational wallet. | [Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb002_eu_company_certificate.md#2-eucc-issuance-process) | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+| O010|  |  | check |
+
 
 <img width="513" height="436" alt="image" src="https://github.com/user-attachments/assets/4d248f0d-54b2-4d8d-9b37-ee5b9694caee" />
 
