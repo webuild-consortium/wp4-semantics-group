@@ -60,16 +60,55 @@ Purpose: Capture the entities, attributes, and relationships.
 **Entity: EOCC**
 | Name | Description/Definition | vocabulary | required by |
 |--|--|--|--|
-| EOCC |  |  |  |
+| EOCC | A standardised, machine-verifiable proof of a company’s incorporation and registered company information, to be presented by a Wallet User to an RP in cross-border and domestic contexts. | - | O039 |
+| Address | an identification of the fixed location of a geographic place | [Address](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#Address) | L008, O013 |
+| NaturalPerson | the designation of a Person in a legal and business context | [Address](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#NaturalPerson) | O003 |
+| LegalPerson |  | [Address](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#LegalPerson) | O004 |
+| LegalEntity |  | [Address](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#LegalEntity) | O005 |
+| LegalRepresentative |  | [Address](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#LegalRepresentative) | O006 |
+| SignatoryRights |  | [Address](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#SignatoryRights) | O007 |
 
-| Attribute | Description | mandatory | private | datatype | 
-|--|--|--|--|--|
-|  |  |  |  |  |
-|  |  |  |  |  |
+| Attribute | Description | vocabulary | MOC | private |required by | 
+|--|--|--|--|--|--|
+| fullAddress | the complete address written as a string. | [fullAddress](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#fullAddress) | M | No | O029 |
+| attestationLegalCategory | One of EAA, Pub-EAA or QEAA | [attestationLegalCategory](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#attestationLegalCategory) | M | No | O009 |
+| legalName | the name under which the legal entity is legally registered | [legalName](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalName) | M | No | O009 |
+| legalIdentifier | Unique ID for the legal person in the EUID structure. | [legalIdentifier](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalIdentifier) | M | No | O010 |
+| legalFormType | Legal form of the company. | [legalFormType](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalFormType) | M | No | O011 |
+| registrationMemberState | The member state where the company is registered (Alpha-2 country code). | [registrationMemberState](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#registrationMemberState) | M | No | O012 |
+| dateOfRegistration | the date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes | [dateOfRegistration](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#dateOfRegistration) | M | No | O014 |
+| pick up from here |  | |  |  |  |
+| legalPersonStatus | Status of the company as defined in national law. #TODO: Can we limit this to the BRIS accepted groups for a better international representative approach? | [legalPersonStatus](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalPersonStatus) | M | No | O015 |
+| legalPersonActivity | Main activity of the company (NACE). | [legalPersonActivity](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalPersonActivity) | M | No | O016 |
+| legalRepresentative | Information about the natural or legal person(s) authorized to represent the company. See section 2.4. At least one is required. | [legalRepresentative](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalRepresentative) | M | No | O017 |
+| shareCapital | Amount of the subscribed capital with currency. Currency code used of the capital subscribed, as defined in ISO 4217:2015. | [shareCapital](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#shareCapital) | O | No | O018 |
+| legalPersonDuration | Endpoint of the legal duration of the company, if it is of a limited timespan. Given as date following ISO 8601. | [legalPersonDuration](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalPersonDuration) | O | No | O019 |
+| digitalContactPoint | Correspondence address of the company, such as electronic mail and/or website. | [digitalContactPoint](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#digitalContactPoint) | O | No | O020 |
+| fullName | Full name of the natural person representing the company. | [fullName](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#fullName) | C | No | O021 |
+| dateOfBirth | Date of birth of the natural person representing the company. | [dateOfBirth](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#dateOfBirth) | C | No | O022 |
+| nationality | OPTIONAL: Nationality of the natural person representing the company. | [nationality](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#nationality) | C | No | O023 |
+| signatoryRule | Information on whether the representative can engage the company alone or jointly. | [signatoryRule](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#signatoryRule) | C | No | O024 |
+| name | Details about the legal person representing the company. | [name](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#name) | C | No | O025 |
+| id | Unique ID for the legal person in the EUID structure. | [id](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#id) | C | No | O026 |
+| legalFormType | Legal form of the legal person representing the company. | [legalFormType](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalFormType) | C | No | O027 |
+| signatoryRule | Information on whether the representative can engage the company alone or jointly. | [signatoryRule](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#signatoryRule) | C | No | O028 |
+| fullAddress | Complete address of the company, written as a string, separated by semicolons. | [fullAddress](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#fullAddress) | M | No | O029 |
+| careOf | Used when the address is at the address of another person or legal person. | [careOf](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#careOf) | O | No | O030 |
+| thoroughFare | The name of a passage or way through from one location to another. | [thoroughFare](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#thoroughFare) | O | No | O031 |
+| locatorDesignator | A number or sequence that uniquely identifies the locator. | [locatorDesignator](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#locatorDesignator) | O | No | O032 |
+| postCode | The code created and maintained for postal purposes. | [postCode](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#postCode) | O | No | O033 |
+| postName | A name identifying a subdivision of addresses (e.g., city). | [postName](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#postName) | O | No | O034 |
+| postOfficeBox | A location designator for a postal delivery point at a post office. | [postOfficeBox](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#postOfficeBox) | O | No | O035 |
+| locatorName | Proper noun(s) applied to the real-world entity. | [locatorName](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#locatorName) | O | No | O036 |
+| adminUnitLevel1 | The uppermost administrative unit (typically country). | [adminUnitLevel1](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#adminUnitLevel1) | O | No | O037 |
+| adminUnitLevel2 | Secondary level/region (typically county or state). | [adminUnitLevel2](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#adminUnitLevel2) | O | No | O038 |
 
-| Relation | Description | Left Entity | Right Entity | Left Role | Right Role | Cardinality | Optional |
-|--|--|--|--|--|--|--|--|
-|  |  |  |  |  |  |  |  |
+
+
+| Relation | Description | vocabulary | Left Entity | Right Entity | Cardinality | required by |
+|--|--|--|--|--|--|--|
+| registeredAddress | the address at which the legal entity is legally registered | [registeredAddress](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#registeredAddress) | Company  | Address | 1..1 |O013 |
+
 
 > Questions to ask per relation:
 > Check whether the direction (Hello ? World) reflects the dominant
