@@ -345,6 +345,11 @@ class:
     label: Statutory Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
 
+  - id: ContactPoint
+    label: Contact Point
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
+
+
 property:
   - id: thoroughfare
     label: thoroughfare
@@ -506,6 +511,12 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
 
+  - id: personalAdministrativeNumber
+    label: personalAdministrativeNumber
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber
+
   - id: placeOfBirth
     label: place of birth
     domain: Person
@@ -518,11 +529,29 @@ property:
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath
 
+  - id: portrait
+    label: portrait
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait
+
   - id: residency
     label: residency
     domain: Person
     range: Jurisdiction
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
+
+  - id: hasEmail
+    label: email
+    domain: ContactPoint
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
+
+  - id: hasTelephone
+    label: telephone
+    domain: ContactPoint
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/telephone
 
   - id: legalName
     label: legal name
