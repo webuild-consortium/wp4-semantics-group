@@ -1,6 +1,6 @@
 # Use Case Overview of EU Organisation Certificate (former EUCC)
 
-Purpose: Capture the story and high-level purpose of the use case “issuing and using the EUCC”.
+Purpose: Capture the story and high-level purpose of the use case “issuing and using the EUCC” as an input for the information model. The information model is the basis for the declaration of Attestation details: Application Model. The mapping will take care of the translation/casting of the Information Model to the Application Model.
 
 This iteration is based on:
  - [Publication amending existing EU company-law directives (Directives 2009/102/EC and 2017/1132) to expand and improve the use of digital tools and digital processes in company law](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32025L0025&qid=1762615804836). In article 16b it describes the EU Company Certificate. Suggested to rename to EU Organisation Certificate, EUOC.
@@ -53,7 +53,7 @@ When mentioning organisation, every registered Economic Operator is meant.
 
 The EU Company Certificate shall be accepted in all Member States as sufficient evidence, at the time of its issuance, of the incorporation of the company and of the information listed in paragraphs 2 and 3 of this Article, respectively, which is held by the register in which the company is registered.
 
-# Data Model or Knowledge Graph
+# Information Model or Knowledge Graph
 
 Purpose: Capture the entities, attributes, and relationships.
 
