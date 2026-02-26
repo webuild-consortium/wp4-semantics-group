@@ -1,0 +1,425 @@
+{
+    "@context": {
+        "@protected": true,
+        "ElectronicAttestationOfAttributes": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#ElectronicAttestationOfAttributes",
+            "@context": {
+                "@protected": true,
+                "attestationLegalCategory": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#attestationLegalCategory",
+                    "@type": "@vocab",
+                    "@context": {
+                        "QEAA": "https://ebw-vocabulary.spherity.dev/ebw#QEAA",
+                        "Pub-EAA": "https://ebw-vocabulary.spherity.dev/ebw#Pub-EAA",
+                        "EAA": "https://ebw-vocabulary.spherity.dev/ebw#EAA",
+                        "@vocab": "ebw:INVALID_VALUE:"
+                    }
+                }
+            }
+        },
+        "Agent": "https://ebw-vocabulary.spherity.dev/ebw#Agent",
+        "AttestationLegalCategory": "https://ebw-vocabulary.spherity.dev/ebw#AttestationLegalCategory",
+        "CredentialSubject": "https://w3.org/2018/credentials#CredentialSubject",
+        "NaturalPersonIdentificationData": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#NaturalPersonIdentificationData",
+            "@context": {
+                "@protected": true,
+                "dateOfBirth": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#dateOfBirth",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "familyName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#familyName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "givenName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#givenName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "LegalPersonIdentificationData": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#LegalPersonIdentificationData",
+            "@context": {
+                "@protected": true,
+                "legalName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#legalName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "legalIdentifier": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#legalIdentifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "registeredAddress": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#registeredAddress",
+                    "@type": "@id"
+                },
+                "correspondenceAddress": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#correspondenceAddress",
+                    "@type": "@id"
+                },
+                "vat": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#vat",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "tin": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#tin",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "lei": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#lei",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "eori": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#eori",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "excise": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#excise",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "EuropeanBusinessWalletOwnerId": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#EuropeanBusinessWalletOwnerId",
+            "@context": {
+                "@protected": true,
+                "legalName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#legalName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "legalIdentifier": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#legalIdentifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "EuccLimitLiabilityCompany": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#EuccLimitLiabilityCompany",
+            "@context": {
+                "@protected": true,
+                "legalName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#legalName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "legalIdentifier": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#legalIdentifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "registeredAddress": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#registeredAddress",
+                    "@type": "@id"
+                },
+                "correspondenceAddress": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#correspondenceAddress",
+                    "@type": "@id"
+                },
+                "dateOfRegistration": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#dateOfRegistration",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "subscribedCapital": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#subscribedCapital",
+                    "@type": "@id"
+                },
+                "companyStatus": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#companyStatus",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "legalRepresentative": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#legalRepresentative",
+                    "@type": "@id"
+                },
+                "economicActivity": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#economicActivity",
+                    "@type": "@id"
+                }
+            }
+        },
+        "EuccPartnership": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#EuccPartnership",
+            "@context": {
+                "@protected": true,
+                "legalName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#legalName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "legalIdentifier": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#legalIdentifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "registeredAddress": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#registeredAddress",
+                    "@type": "@id"
+                },
+                "correspondenceAddress": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#correspondenceAddress",
+                    "@type": "@id"
+                },
+                "dateOfRegistration": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#dateOfRegistration",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "companyStatus": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#companyStatus",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "economicActivity": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#economicActivity",
+                    "@type": "@id"
+                },
+                "partner": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#partner",
+                    "@type": "@id"
+                }
+            }
+        },
+        "Capital": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#Capital",
+            "@context": {
+                "@protected": true,
+                "currency": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#currency",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "amount": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#amount",
+                    "@type": "http://www.w3.org/2001/XMLSchema#float"
+                }
+            }
+        },
+        "LegalRepresentative": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#LegalRepresentative",
+            "@context": {
+                "@protected": true,
+                "legalRepresentativeId": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#legalRepresentativeId",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "role": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#role",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "scopeOfAuthorization": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#scopeOfAuthorization",
+                    "@type": "@vocab",
+                    "@context": {
+                        "Alone": "https://ebw-vocabulary.spherity.dev/ebw#Alone",
+                        "Jointly": "https://ebw-vocabulary.spherity.dev/ebw#Jointly",
+                        "@vocab": "ebw:INVALID_VALUE:"
+                    }
+                }
+            }
+        },
+        "ScopeOfAuthorization": "https://ebw-vocabulary.spherity.dev/ebw#ScopeOfAuthorization",
+        "Location": "https://ebw-vocabulary.spherity.dev/ebw#Location",
+        "Jurisdiction": "https://ebw-vocabulary.spherity.dev/ebw#Jurisdiction",
+        "Address": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#Address",
+            "@context": {
+                "@protected": true,
+                "thoroughfare": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#thoroughfare",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "postName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#postName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "postCode": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#postCode",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "poBox": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#poBox",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "locatorName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#locatorName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "locatorDesignator": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#locatorDesignator",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "fullAddress": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#fullAddress",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "addressArea": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#addressArea",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "adminUnitL2": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#adminUnitL2",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "adminUnitL1": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#adminUnitL1",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Nace021": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#Nace021",
+            "@context": {
+                "@protected": true,
+                "naceCode": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#naceCode",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "naceDescription": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#naceDescription",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "PeriodOfTime": "https://ebw-vocabulary.spherity.dev/ebw#PeriodOfTime",
+        "Person": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#Person",
+            "@context": {
+                "@protected": true,
+                "alternativeName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#alternativeName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "birthName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#birthName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "citizenship": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#citizenship",
+                    "@type": "@id"
+                },
+                "contactPoint": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#contactPoint",
+                    "@type": "@id"
+                },
+                "countryOfBirth": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#countryOfBirth",
+                    "@type": "@id"
+                },
+                "countryOfDeath": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#countryOfDeath",
+                    "@type": "@id"
+                },
+                "dateOfBirth": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#dateOfBirth",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "dateOfDeath": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#dateOfDeath",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "domicile": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#domicile",
+                    "@type": "@id"
+                },
+                "fullName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#fullName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "gender": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#gender",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "identifier": "https://ebw-vocabulary.spherity.dev/ebw#identifier",
+                "matronymicName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#matronymicName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "patronymicName": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#patronymicName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "personalAdministrativeNumber": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#personalAdministrativeNumber",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "placeOfBirth": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#placeOfBirth",
+                    "@type": "@id"
+                },
+                "placeOfDeath": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#placeOfDeath",
+                    "@type": "@id"
+                },
+                "portrait": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#portrait",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "residency": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#residency",
+                    "@type": "@id"
+                }
+            }
+        },
+        "GeneralPartner": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#GeneralPartner",
+            "@context": {
+                "@protected": true,
+                "partnerId": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#partnerId",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                }
+            }
+        },
+        "LimitedPartner": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#LimitedPartner",
+            "@context": {
+                "@protected": true,
+                "partnerId": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#partnerId",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "liabilityOrContribution": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#liabilityOrContribution",
+                    "@type": "@id"
+                }
+            }
+        },
+        "StatutoryPartner": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#StatutoryPartner",
+            "@context": {
+                "@protected": true,
+                "partnerId": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#partnerId",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "role": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#role",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "scopeOfAuthorization": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#scopeOfAuthorization",
+                    "@type": "@vocab",
+                    "@context": {
+                        "Alone": "https://ebw-vocabulary.spherity.dev/ebw#Alone",
+                        "Jointly": "https://ebw-vocabulary.spherity.dev/ebw#Jointly",
+                        "@vocab": "ebw:INVALID_VALUE:"
+                    }
+                }
+            }
+        },
+        "ContactPoint": {
+            "@id": "https://ebw-vocabulary.spherity.dev/ebw#ContactPoint",
+            "@context": {
+                "@protected": true,
+                "hasEmail": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#hasEmail",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "hasTelephone": {
+                    "@id": "https://ebw-vocabulary.spherity.dev/ebw#hasTelephone",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Pub-EAA": "https://ebw-vocabulary.spherity.dev/ebw#Pub-EAA",
+        "QEAA": "https://ebw-vocabulary.spherity.dev/ebw#QEAA",
+        "EAA": "https://ebw-vocabulary.spherity.dev/ebw#EAA",
+        "Alone": "https://ebw-vocabulary.spherity.dev/ebw#Alone",
+        "Jointly": "https://ebw-vocabulary.spherity.dev/ebw#Jointly",
+        "Context": "http://www.w3.org/ns/json-ld#Context"
+    }
+}
