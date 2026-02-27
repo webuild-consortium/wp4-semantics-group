@@ -48,11 +48,11 @@ Purpose: Capture the entities, attributes, and relationships.
 | Name | Description/Definition | vocabulary | required by |
 |--|--|--|--|
 
-
 **Attributes of Entity: EOCR**
+| Attribute | Description | vocabulary | MOC | private |required by | 
 |--|--|--|--|--|--|
 
-
+**Relationships**
 | Relation | Description | vocabulary | Left Entity | Right Entity | Cardinality | required by |
 |--|--|--|--|--|--|--|
 
