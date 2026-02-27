@@ -14,7 +14,7 @@ ebw: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://ebw-vocabulary.spherity.dev/ebw> ;
-    dc:date "2026-02-26"^^xsd:date ;
+    dc:date "2026-02-27"^^xsd:date ;
 .
 
 # Property definitions

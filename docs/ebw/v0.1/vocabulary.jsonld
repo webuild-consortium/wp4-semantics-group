@@ -77,7 +77,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://ebw-vocabulary.spherity.dev/ebw",
-    "dc:date": "2026-02-26",
+    "dc:date": "2026-02-27",
     "rdfs_properties": [{
         "@id": "ebw:thoroughfare",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
