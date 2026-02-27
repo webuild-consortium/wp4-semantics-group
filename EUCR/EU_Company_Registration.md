@@ -108,78 +108,38 @@ Check for a list of standard legal forms in the EU.
 ## Rulebook or Operational requirements
 | No. | Requirement | Source | MOC | Verification method |
 |--|--|--|--|--|
-| <a id="requirement-O001"></a>O001 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O002"></a>O002 | Legal entity attribute: company_type Type of the company based on ISO 20275. |  | M | ? |
-| <a id="requirement-O003"></a>O003 | Legal entity attribute: company_status . This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O004"></a>O004 | Legal entity attribute: company_activity . This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O005"></a>O005 | Legal entity attribute: registration_date . This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O006"></a>O006 | Legal entity attribute: company_end_date . This is the primary name of the company. |  | O | ? |
-| <a id="requirement-O007"></a>O007 | Legal entity attribute: company_EUID. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O008"></a>O008 | Legal entity attribute: vat_number . This is the primary name of the company. |  | O | ? |
-| <a id="requirement-O009"></a>O009 | Legal entity attribute: company_contact_data . This is the primary name of the company. |  | O | ? |
-| <a id="requirement-O010"></a>O010 | Legal entity attribute: registered_address . This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O011"></a>O011 | Legal entity attribute: postal_address . This is the primary name of the company. |  | O | ? |
-| <a id="requirement-O012"></a>O012 | Legal entity attribute: branch. This is the primary name of the company. |  | O | ? |
-| <a id="requirement-O013"></a>O013 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O014"></a>O014 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O015"></a>O015 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O016"></a>O016 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O017"></a>O017 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O018"></a>O018 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O019"></a>O019 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O020"></a>O020 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O021"></a>O021 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O022"></a>O022 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O023"></a>O023 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O024"></a>O024 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O025"></a>O025 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O026"></a>O026 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O027"></a>O027 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O028"></a>O028 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O029"></a>O029 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O030"></a>O030 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O031"></a>O031 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O032"></a>O032 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O033"></a>O033 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O034"></a>O034 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O035"></a>O035 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O036"></a>O036 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O037"></a>O037 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-| <a id="requirement-O038"></a>O038 | Legal entity attribute: company_name. This is the primary name of the company. |  | M | ? |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| <a id="requirement-O001"></a>O001 | Legal entity attribute: company_name. This is the primary name of the company. (string)|  | M | ? |
+| <a id="requirement-O002"></a>O002 | Legal entity attribute: company_type Type of the company based on ISO 20275.  (string)|  | M | ? |
+| <a id="requirement-O003"></a>O003 | Legal entity attribute: company_status . Company status as defined in BRIS.  (string)|  | M | ? |
+| <a id="requirement-O004"></a>O004 | Legal entity attribute: company_activity . The activity of the company, either described as one or more NACE-codes or as one of more descriptions of the activities. (object)|  | M | ? |
+| <a id="requirement-O005"></a>O005 | Legal entity attribute: registration_date . Date of registration of the company. (date)|  | M | ? |
+| <a id="requirement-O006"></a>O006 | Legal entity attribute: company_end_date . The end date of the company. (date)|  | O | ? |
+| <a id="requirement-O007"></a>O007 | Legal entity attribute: company_EUID. Identification of the company. (string)|  | M | ? |
+| <a id="requirement-O008"></a>O008 | Legal entity attribute: vat_number . The VAT (value added taxes) registration number of the company.  (object)|  | O | ? |
+| <a id="requirement-O009"></a>O009 | Legal entity attribute: company_contact_data . The contact information of the company (email address and / or telephone number). (object)|  | O | ? |
+| <a id="requirement-O010"></a>O010 | Legal entity attribute: registered_address . The physical address on which the company is registered. (object)|  | M | ? |
+| <a id="requirement-O011"></a>O011 | Legal entity attribute: postal_address . The physical correspondence address of the company. (object)|  | O | ? |
+| <a id="requirement-O012"></a>O012 | Legal entity attribute: branch. The branch information. (object)|  | O | ? |
+| <a id="requirement-O013"></a>O013 | Company activity attribute: nace_code. The NACE code of the activities of the company. (string)|  | O | ? |
+| <a id="requirement-O014"></a>O014 | Company activity attribute: activity_description. The description of the activities of the company. (string)|  | O | ? |
+| <a id="requirement-O015"></a>O015 | Contact data attribute: email. The main email address of the company. (string)|  | O | ? |
+| <a id="requirement-O016"></a>O016 | Contact data attribute: telephone. The main telephone number of the company. (string) |  | M | ? |
+| <a id="requirement-O017"></a>O017 | Address attribute: po_box. See core location vocabulary. (string)|  | O | ? |
+| <a id="requirement-O018"></a>O018 | Address attribute: thoroughfare. See core location vocabulary. (string)|  | O | ? |
+| <a id="requirement-O019"></a>O019 | Address attribute: location_designator. See core location vocabulary. (string)|  | O | ? |
+| <a id="requirement-O020"></a>O020 | Address attribute: post_code. See core location vocabulary. (string)|  | O | ? |
+| <a id="requirement-O021"></a>O021 | Address attribute: post_name. See core location vocabulary. (string)|  | O | ? |
+| <a id="requirement-O022"></a>O022 | Address attribute: admin_unit_L1. See core location vocabulary. (string)|  | O | ? |
+| <a id="requirement-O023"></a>O023 | Address attribute: admin_unit_L2. See core location vocabulary. (string)|  | O | ? |
+| <a id="requirement-O024"></a>O024 | Branch attribute: branch_name. This is the primary name of the branch of the company. (string)|  | M | ? |
+| <a id="requirement-O025"></a>O025 | Branch attribute: branche_EUID. Identification of the branch of the company. (string)|  | M | ? |
+| <a id="requirement-O026"></a>O026 | Branch attribute: branch_activity. The activity of the branch of the company, either described as one or more NACE-codes or as one of more descriptions of the activities. (company activity object)|  | O| ? |
+| <a id="requirement-O027"></a>O027 | Branch attribute: branch_registered_address. The physical address on which the company is registered. (Address object)|  | M | ? |
+| <a id="requirement-O028"></a>O028 | Branch attribute: branch_postal_address. The physical correspondence address of the company. (Address object)|  | M | ? |
+| <a id="requirement-O029"></a>O029 | Code list company_type: ISO 20275 (e.g: SA, PLC, LLC, GmbH etc)|  | M | ? |
+| <a id="requirement-O030"></a>O030 | Code list company_status: BRIS status list: “closed”, “struck off the register”, “wound up”, “dissolved”, “economically active” or “inactive”. (array)|  | M | ? |
+| <a id="requirement-O031"></a>O031 | Code list company_EUID: identifier of the company following the BRIS-structure: country code + register identifier + registration number + verification digit (optional). |  | M | ? |
+| <a id="requirement-O032"></a>O032 | Intergrety rule: When provided, the attribute “company_end_date” SHALL be greater than the attribute “registration_date” |  | M | ? |
 
 ## Governance and trust restrictions
 | No. | Requirement | Source | Verification method |
