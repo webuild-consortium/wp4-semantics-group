@@ -8,7 +8,7 @@ This iteration is based on:
 
 Other sources are yet to be incorporated.
 
-<img width="330" height="330" alt="funnel" src="https://raw.githubusercontent.com/webuild-consortium/wp4-semantics-group/ac925c6c1333c1c9fe05b56383b82a986c9c037a/img/Funnel_02.jpg" />
+<img width="330" height="330" alt="funnel" src="../img/Funnel01_EUCR.jpg" />
 
 Input: Company law and EUCC Data Rulebook.
 
