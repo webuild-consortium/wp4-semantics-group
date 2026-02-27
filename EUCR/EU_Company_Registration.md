@@ -15,111 +15,87 @@ Input: Company law and EUCC Data Rulebook.
 > **Important:** This template is on a "need" basis. If there is nothing to mention in the workflow part of the use case, for instance, just omit the paragraph. Only use what you need to. Keep it simple and clean.
 
 
-# Use Case Overview of Hello World
-
-Purpose: Capture the story and high-level purpose of the use case “Hello World”.
-
 ## Storyline
 
-What is the scenario being solved? A fictional organization, Hello Authority, issues a simple attestation to a holder’s digital wallet.
+**What is the scenario being solved?**
 
-This attestation confirms that Hello (the issuer entity) has a valid and verifiable connection with World (the subject entity).
-
-The attestation’s only statement is:
-
-“Hello greets World.”
+- The attestation proves the registration of the company in the business register of the Member State and provides basic information on the company such as the status of the company, the type of the company, the type of activity of the company and company contact and location details.
+- The CR attestation encompasses the company key attributes as stated in the Implementing Regulation 2013/138 on high-value datasets regarding the open data regulation 2019/1024.
 
 ## Business Context / Motivation
 
 Why is this attestation needed?
 
-The  _Hello World_  use case serves as a minimal, example to demonstrate how an attestation can represent structured information - including entities, attributes, relations, and lifecycle behaviors - within the EU wallet ecosystem (and beyond).
-
-It helps modelers, developers, and policy stakeholders understand how semantics, trust, and lifecycle interact when designing and exchanging digital attestations.
 
 ## Stakeholders
 
-issuer,
-holder,
-verifier,
-relying party,
-etc.
+When mentioning organisation, every registered Economic Operator is meant.
+
+ - the organisation stated in the EUCR
+ - the registry
+ - the organisation asking for the EUCR
 
 ## Expected Outcome
 
-What should happen when the attestation is used? By the end of the Hello World example, users of the template should understand:
+**What should happen when the attestation is used?**
 
-1. How to describe an attestation using structured semantic elements (classes, attributes, relations).
+The EU Company Certificate shall be accepted in all Member States as sufficient evidence, at the time of its issuance, of the incorporation of the company and of the information listed in paragraphs 2 and 3 of this Article, respectively, which is held by the register in which the company is registered.
 
-2. If and if so how those elements are linked to trust, lifecycle, and interoperability concerns.
-
-3. How to extend this structure to real-world use cases, e.g., ID, IBAN, or EUCC.
-
-### Meta-purpose
-
-The Hello World attestation is not about greeting the world - it’s about greeting the conceptual structure of attestations themselves. It provides a safe sandbox to explore what it means to model meaning.
-
-# Data Model or Knowledge Graph
+# Information Model or Knowledge Graph
 
 Purpose: Capture the entities, attributes, and relationships.
 
-The Hello World data model is depicted below. It is a simple model to illustrate the use of data models to capture the use case entities.
+**Entity: EOCC**
+| Name | Description/Definition | vocabulary | required by |
+|--|--|--|--|
+| EOCC | A standardised, machine-verifiable proof of a company’s incorporation and registered company information, to be presented by a Wallet User to an RP in cross-border and domestic contexts. | - | [O039](#requirement-O039) |
+| Address | an identification of the fixed location of a geographic place | [Address](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#Address) | [L008](#requirement-L008), [O013](#requirement-O013) |
+| NaturalPerson | the designation of a Person in a legal and business context | [Address](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#NaturalPerson) | [O003](#requirement-O003) |
+| LegalPerson |  | [Address](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#LegalPerson) | [O004](#requirement-O004) |
+| Attribute | Description | vocabulary | MOC | private |required by | 
+|--|--|--|--|--|--|
+| fullAddress | the complete address written as a string. | [fullAddress](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#fullAddress) | M | No | [O029](#requirement-O029) |
+| attestationLegalCategory | One of EAA, Pub-EAA or QEAA | [attestationLegalCategory](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#attestationLegalCategory) | M | No | [O009](#requirement-O009) |
+| legalName | the name under which the legal entity is legally registered | [legalName](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalName) | M | No | [O009](#requirement-O009) |
+| legalIdentifier | Unique ID for the legal person in the EUID structure. | [legalIdentifier](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalIdentifier) | M | No | [O010](#requirement-O010) |
+| legalFormType | Legal form of the company. | [legalFormType](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalFormType) | M | No | [O011](#requirement-O011) |
+| registrationMemberState | The member state where the company is registered (Alpha-2 country code). | [registrationMemberState](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#registrationMemberState) | M | No | [O012](#requirement-O012) |
+| dateOfRegistration | the date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes | [dateOfRegistration](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#dateOfRegistration) | M | No | [O014](#requirement-O014) |
+| pick up from here |  | |  |  |  |
+| legalPersonStatus | Status of the company as defined in national law. #TODO: Can we limit this to the BRIS accepted groups for a better international representative approach? | [legalPersonStatus](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalPersonStatus) | M | No | [O015](#requirement-O015) |
+| legalPersonActivity | Main activity of the company (NACE). | [legalPersonActivity](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalPersonActivity) | M | No | [O016](#requirement-O016) |
+| legalRepresentative | Information about the natural or legal person(s) authorized to represent the company. See section 2.4. At least one is required. | [legalRepresentative](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalRepresentative) | M | No | [O017](#requirement-O017) |
+| shareCapital | Amount of the subscribed capital with currency. Currency code used of the capital subscribed, as defined in ISO 4217:2015. | [shareCapital](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#shareCapital) | O | No | [O018](#requirement-O018) |
+| legalPersonDuration | Endpoint of the legal duration of the company, if it is of a limited timespan. Given as date following ISO 8601. | [legalPersonDuration](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalPersonDuration) | O | No | [O019](#requirement-O019) |
+| digitalContactPoint | Correspondence address of the company, such as electronic mail and/or website. | [digitalContactPoint](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#digitalContactPoint) | O | No | [O020](#requirement-O020) |
+| fullName | Full name of the natural person representing the company. | [fullName](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#fullName) | C | No | [O021](#requirement-O021) |
+| dateOfBirth | Date of birth of the natural person representing the company. | [dateOfBirth](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#dateOfBirth) | C | No | [O022](#requirement-O022) |
+| nationality | OPTIONAL: Nationality of the natural person representing the company. | [nationality](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#nationality) | C | No | [O023](#requirement-O023) |
+| signatoryRule | Information on whether the representative can engage the company alone or jointly. | [signatoryRule](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#signatoryRule) | C | No | [O024](#requirement-O024) |
+| name | Details about the legal person representing the company. | [name](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#name) | C | No | [O025](#requirement-O025) |
+| id | Unique ID for the legal person in the EUID structure. | [id](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#id) | C | No | [O026](#requirement-O026) |
+| legalFormType | Legal form of the legal person representing the company. | [legalFormType](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#legalFormType) | C | No | [O027](#requirement-O027) |
+| signatoryRule | Information on whether the representative can engage the company alone or jointly. | [signatoryRule](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#signatoryRule) | C | No | [O028](#requirement-O028) |
+| fullAddress | Complete address of the company, written as a string, separated by semicolons. | [fullAddress](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#fullAddress) | M | No | [O029](#requirement-O029) |
+| careOf | Used when the address is at the address of another person or legal person. | [careOf](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#careOf) | O | No | [O030](#requirement-O030) |
+| thoroughFare | The name of a passage or way through from one location to another. | [thoroughFare](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#thoroughFare) | O | No | [O031](#requirement-O031) |
+| locatorDesignator | A number or sequence that uniquely identifies the locator. | [locatorDesignator](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#locatorDesignator) | O | No | [O032](#requirement-O032) |
+| postCode | The code created and maintained for postal purposes. | [postCode](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#postCode) | O | No | [O033](#requirement-O033) |
+| postName | A name identifying a subdivision of addresses (e.g., city). | [postName](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#postName) | O | No | [O034](#requirement-O034) |
+| postOfficeBox | A location designator for a postal delivery point at a post office. | [postOfficeBox](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#postOfficeBox) | O | No | [O035](#requirement-O035) |
+| locatorName | Proper noun(s) applied to the real-world entity. | [locatorName](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#locatorName) | O | No | [O036](#requirement-O036) |
+| adminUnitLevel1 | The uppermost administrative unit (typically country). | [adminUnitLevel1](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#adminUnitLevel1) | O | No | [O037](#requirement-O037) |
+| adminUnitLevel2 | Secondary level/region (typically county or state). | [adminUnitLevel2](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#adminUnitLevel2) | O | No | [O038](#requirement-O038) |
 
 
 
+| Relation | Description | vocabulary | Left Entity | Right Entity | Cardinality | required by |
+|--|--|--|--|--|--|--|
+| registeredAddress | the address at which the legal entity is legally registered | [registeredAddress](https://ebw-vocabulary.spherity.dev/ebw/v0.1/vocabulary#registeredAddress) | Company  | Address | 1..1 | [O013](#requirement-O013) |
 
-```mermaid
-classDiagram
-direction TB
-class  Hello  {
-• greetingText: Hello
-• definition: greeting when  encountering someone
-}
-class  World  {
-• domainName: earth
-• age: 4.54 miljard
-+ comment: 4.54 billion years  if you  use short  scale
-}
-Hello  "1"  --> "1..n"  World : Greets
-
-classDef default fill:#ffffe0,stroke:#8b0000,stroke-width:2px,color:#8b0000
-```
-Figure 1 "Hello World" exaple diagram or knoledge graph.
-
-## Entity: Hello
-|Name|Description/Definition|
-|--|--|
-| Hello | Represents the  _Hello_  part of  _Hello World_. It symbolizes the entity initiating a greeting. |
-
-|Attribute| Description | mandatory | private | datatype | 
-|--|--|--|--|--|
-| greetingText | An example of a mandatory attribute that holds the text of the greeting. | yes | no | string |
-| definition | An example of an optional, private attribute describing the greeting or its context. | no | yes | string |
-
-| Relation | Description | Left Entity | Right Entity | Left Role | Right Role | Cardinality | Optional |
-|--|--|--|--|--|--|--|--|
-| greets | Expresses the relation between Hello (the greeter) and World (the greeted). | Hello | World | greeter | greeted | 1 1..n | no |
 
 > Questions to ask per relation:
-> Check whether the direction (Hello ? World) reflects the dominant
-> flow of meaning.
-> If both sides can have multiple relations (n?n), consider
-> refactoring the relationship into a separate class (e.g.,
-> GreetingEvent)
-
-## Entity: World
-|Name|Description/Definition|
-|--|--|
-| World | Represents the  _World_  part of  _Hello World_. It symbolizes the entity initiating a greeting. |
-
-|Attribute| Description | mandatory | private | datatype | 
-|--|--|--|--|--|
-| domainName | A mandatory attribute representing the domain, context, or scope being greeted. | yes | no | string |
-| age | An optional, private attribute showing example metadata about the World. | no | yes | string |
-
-| Relation | Description | Left Entity | Right Entity | Left Role | Right Role | Cardinality | Optional |
-|--|--|--|--|--|--|--|--|
-| (none) | The World entity has no outgoing relations in this example. | - | - | - | - | - | - |
+> 
 
 # Workflow of the Attestation
 
@@ -127,24 +103,11 @@ Purpose: Map the flow of actions, data, and interactions between entities.
 
 | Actor | Role | Description |
 |--|--|--|
-| Hello Authority | issuer | The trusted party that creates and issues the Hello World attestation. It defines the semantics, attributes, and relation (“greets”) between the entities Hello and World. It also manages issuance, signing, and potential revocation. |
-| Wallet Owner | holder | The user (or test persona) who receives the Hello World attestation in their EU Digital Identity Wallet. The holder stores, manages, and can present the attestation when needed. |
-| EU business Wallet | Wallet | The technical component used by the holder to receive, store, and present the attestation. It handles workflow and format negotiation (JSON-LD, SD-JWT, mDoc) and enforces binding with the holder’s ID attestation. |
-| Verifier | relying party | The entity that requests and verifies the Hello World attestation to confirm the claim “Hello greets World” is valid and trustworthy. It validates the signature, the wallet binding, and the issuer’s trust status. |
-| Trust Registry | governance authority | Maintains the trust list or framework under which the Hello World issuer (Hello Authority) is recognized as trustworthy. It ensures that the attestation can be verified across systems and jurisdictions. |
-| Attestation Registry | registry | Stores or indexes attestations for verification (if used in your architecture). |
-| Revocation Service | revocation service | Manages lifecycle events, such as the deactivation of the Hello World attestation. |
+Trigger Event: What initiates the workflow?
 
-Trigger Event: What initiates the workflow? a request from the holder’s wallet to obtain the “Hello World” attestation from the Hello Authority.
+Post-condition: What is the result of the workflow?
 
-Post-condition: What is the result of the workflow? The holder’s wallet contains an active, verifiable Hello World attestation bound to the ID attestation.
-
-See Figure 2 for a simplified overview.
-
-![Swimlane 1](https://www.plantuml.com/plantuml/png/ZLJDaXet4BxhAReuh6SgIt6VpO-niIjR5SSkMDkLAYvQgHaKX3HfQMP2Ggho3dd3F4ca4R0C2snEZAJkhx_kxsjUEy_9rslDlF8QOV0ZQctXgoKjOUmzXdUlh85___u7tXavz7OOVcB0Qg5jEs3i5RorsX98N2YZOh23H-vGGaZRs9f0QEuSICLBucl6t4gPYeTFuCAhHlaD_Ca0tbYII0bhmcarHHbktrlZJ-_USB4goTP6ffUVLBdqlqJYBVlh2DvOZm7wQiB_Bzo3TgrQQsxm2lE7ED2hbLD8B7GsDy5Uvi29RDiHE8q9cdns-3JUEFfZrWwo0E6JM3aqYiDsBBobBJngArOk07HdLy0Crznu9U23bQYHRY5PP5pxfQM8djqxLoFbuSLg6ICcgbIUQ_ZAjKP_2r-Gr4B5bmUgdOSfbifvsepU1rRO1Y_TXhl6YkIr6LAZ1Dxs3BZFWSnMyOBhdB5jgWYZNIdus1gaBUjSpOe7KcM9L8Jat-g0D3V7_Xu0VyA_2s1zsbjMl5sYM46Re6_cvdu23TTAXgxlc5f0zYMUViZ1Bz50zgs8EXGx7RxVeCiPQeVFNepDMJ55W-tSF252e6qhXaQgHNXEb7VJBWdHkyGxKhsaGI3TSU8UWHB27Ii-4GQziTzlCLEbERwQcnjmw24UQmVVGOVPbNikJYXq7xSz5Fi3zoc4mfASc-m0COuMn3nYd1Cpe7pSgQatGDqjKe_dzMOdg0C-WUgelYZep5l2qwYzEo6RejueKy8dJduJuVSYL8GEpNvCcLt0uBakW_oyYQo9kV0D24BkiGUMn8d7cDkhVoob2rA5YHB23OGB3kkuZ36blr0mWiDATVITrGscwH3u67j9pcJslP9P4cuK8rSeHtFpxlTAKVYQrHMIGuaoFqFvi1Gm_dcoK__gVW0KOo6myZrLBgyDGEZgLnGdyMbfs2iO3eTmr5x5_H8opQEhi47ZynXnrLAfvJxy-Obzhf8uUxFlXdNM1LCKg9f3i5XoK-BTt7m8lKLZI3HncU3Uy6veBnXpLZ-ww4tZGKJT72ouqj1q6MB7ElsVl4OZwxN-3m00)
-Figure 2 The swim lane diagram Hello World issuance and revocation.
-
-Notable Interactions / Dependencies: Are there cross-border or cross-domain steps?
+Notable Interactions / Dependencies: 
 
 # Life Cycle of the Attestation
 
@@ -152,51 +115,149 @@ Purpose: Capture how the attestation evolves over time.
 
 | Stage | Description |
 |--|--|
-| Creation / Issuance | Who issues it and under what conditions? The Hello Authority (trusted issuing entity). Preconditions: The holder’s wallet is activated and bound to a valid ID. |
-| Usage / Presentation | How and where it’s presented? The attestation may be presented to any Verifier who requests proof that the Hello Authority issued a valid greeting (symbolically representing any verifiable claim). The wallet creates a verifiable presentation (potentially with selective disclosure). |
-| Update / Renewal | Can it change or expire? The Hello World attestation is static by design - it has no mutable attributes. However, if either the schema changes or the Hello Authority updates its signing keys or trust policy, then a new version of the attestation must be issued. Optionally, an expiry date can be set to force periodic renewal for testing lifecycle behavior. |
-| Revocation / Expiry | How is it invalidated or replaced? The Hello World attestation can be revoked by the issuer or automatically expire after a predefined validity period. |
-| Archiving / End-of-life Handling | What happens after expiry or revocation? The wallet may retain a cryptographic proof of the attestation (hash or record) for audit or traceability purposes, while marking it as expired or revoked. The issuer may archive metadata (e.g., issuance date, revocation timestamp, format used) for audit trails, compliance testing, or statistical reporting complying to privacy rules. In demonstrative settings, archived attestations can serve as test material for verifying lifecycle management and revocation interoperability. |
+| | |
 
 # Requirements and Constraints
 
 Purpose: Capture explicit and implicit technical or policy requirements.
 
-## Information requirements
-
-| No. | Requirement | Source | Verification method |
-|--|--|--|--|
-| I001 | The  _Hello World_  attestation shall serve as an illustrative reference implementation to clarify the intended use of this template and to demonstrate practical dilemmas and opportunities arising at the intersection of semantics, trust, lifecycle management, and real-world usage. While not intended as a production-grade attestation, it should support analysis and discussion of how these dimensions interact within the broader EU wallet ecosystem. | Bart Bink | inspect |
 
 ## Legal and Regulatory requirements
+
+From the [publication](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_2025000250)
+
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| L001 | The Hello World attestation is currently outside the scope of eIDAS2 compliance requirements. However, its design should not preclude future alignment with eIDAS2 trust frameworks, credential formats, or conformity assessment procedures. | eIDAS2 | review |
+| <a id="requirement-L001"></a>L001 | Member States shall ensure that the registers issue the EU Company Certificates regarding the companies listed in Annexes II and IIB. The EU Company Certificate shall be accepted in all Member States as sufficient evidence, at the time of its issuance, of the incorporation of the company and of the information listed in paragraphs 2 and 3 of this Article, respectively, which is held by the register in which the company is registered. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+|  | **Remark:** *The annexes II and IIb do not seem to be complete or may be unclear. For NL it is missing legal forms. Therefor the requirements will apply to all registered organisations, unless explicitly mentioned otherwise.* |  |  |
+| <a id="requirement-L002"></a>L002 | the EU Company Certificate for the limited liability companies listed in Annex II shall include the following information: | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L003"></a>L003 | for limited liability companies: the **name or names of the company** | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L004"></a>L004 | for limited liability companies: the **legal form** of the company | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L005"></a>L005 | for limited liability companies: the **registration number** of the company **and the Member State where the company is registered** | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L006"></a>L006 | for limited liability companies: the **EUID** of the company | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L007"></a>L007 | for limited liability companies: the **registered office** of the company | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+|  | **Remark:** *The registered office is the address recorded in the commercial register that determines...* |  |  |
+| <a id="requirement-L008"></a>L008 | for limited liability companies: the **correspondence address** of the company, such as its electronic mail or postal address | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L009"></a>L009 | for limited liability companies: the **date of registration** of the company | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L010"></a>L010 | for limited liability companies: the **amount of the subscribed capital** of the company, if applicable. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L011"></a>L011 | for limited liability companies: the **status** of the company... | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L012"></a>L012 | for limited liability companies: first names, surnames and date of birth of **any persons authorised to represent it** | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L013"></a>L013 | for limited liability companies: where the persons referred to are legal persons, the name, legal form, EUID or registration number. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+|  | **Remark:** *(we should talk about this...)* |  |  |
+| <a id="requirement-L014"></a>L014 | for limited liability companies: the **object of the company** (NACE code where used). | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+|  | **Remark:** *because some countries don't use the NACE code...* |  |  |
+| <a id="requirement-L015"></a>L015 | for limited liability companies: the **duration** of the company. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L016"></a>L016 | for limited liability companies: details of the company’s **website**. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L017"></a>L017 | for limited liability companies: the **date of issue** of the EU Company Certificate. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L018"></a>L018 | The EU Company Certificate for partnerships listed in Annex IIB shall include the information referred to... | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L019"></a>L019 | for partnerships: the **registered office** of the partnership. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L020"></a>L020 | for partnerships: **maximum liability or contribution of each limited partner**. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L021"></a>L021 | for partnerships: details of **partners/directors authorised to represent** the partnership. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L022"></a>L022 | for partnerships: where persons are legal persons, include name, legal form, EUID or registration number. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L023"></a>L023 | for partnerships: details of general and limited partners. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L024"></a>L024 | for partnerships: where persons referred to are legal persons, include name, legal form, EUID or registration number. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L025"></a>L025 | Member States shall ensure that the EU Company Certificate can be obtained from the register electronically or by paper means. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L026"></a>L026 | Member States shall ensure that each company can obtain its EU Company Certificate in electronic format free of charge (at least once per year). | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L027"></a>L027 | Electronic EU Company Certificate must be authenticated using trust services and compatible with the European Digital Identity Wallet. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L028"></a>L028 | Paper EU Company Certificate must include date of issuance, seal/stamp and unique protocol or identification number. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+| <a id="requirement-L029"></a>L029 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal. | [Article 16b](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025L0025) | review |
+
+
+|  | **Remark:**  |  |  |
+
+Why are some attributes only applicable for limited liability 
+
+## Information requirements
+
+
+
+
+| No. | Requirement | mandatory/optional |Source | Verification method |
+|--|--|--|--|--|
+| <a id="requirement-I001"></a>I001 | Entity for the register in which the organisation is registered | M | [L001](#requirement-L001) | check |
+| <a id="requirement-I002"></a>I002 | Entity for the organisation | M | [L001](#requirement-L001) | check |
+| <a id="requirement-I003"></a>I003 | Entity for the organisation's legal type | M | [L001](#requirement-L001) | check |
+| <a id="requirement-I004"></a>I004 | Details of the company’s **website** | M | [L015](#requirement-L015) | check |
+| <a id="requirement-I005"></a>I005 | The **LPID name** | M | [L001](#requirement-L001) | check |
+| <a id="requirement-I006"></a>I006 | The **LPID ID**, or EUID | M | [L001](#requirement-L001) | check |
+| <a id="requirement-I007"></a>I007 | the **legal form** of the company | M | [L003](#requirement-L003) | check |
+| <a id="requirement-I008"></a>I008 | the **Member State where the company is registered** | M | [L004](#requirement-L004) | check |
+| <a id="requirement-I009"></a>I009 | the object of the company, **NACE code** or member state code | M | [L013](#requirement-L013) | check |
+| <a id="requirement-I010"></a>I010 | for limited liability companies: the **duration** of the company | M | [L014](#requirement-L014) | check |
+| <a id="requirement-I011"></a>I011 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. | M | [L028](#requirement-L028) | check |
+
+Check for a list of standard legal forma in the EU.
 
 ## Functional requirements
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| F001 | The Hello World attestation shall be capable of being issued to any compliant digital wallet, irrespective of the wallet provider or implementation, provided that the wallet supports at least one of the supported attestation formats (JSON-LD, SD-JWT, or mDoc). The attestation should not rely on wallet-specific extensions or proprietary interfaces that would limit its interoperability. | Bart Bink | test |
+|  |  |  |  |
 
 ## Technical requirements – e.g. security, privacy, performance, usability.
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| T001 | The issuer MUST issue the Hello World attestation as a JSON-LD-based attestation. If the recipient wallet does not support JSON-LD, the issuer MUST fall back to an SD-JWT-based attestation. If the recipient wallet does not support SD-JWT, the issuer MUST issue the attestation as an mDoc. | WEBUILD Semantic Modeling interoperability requirement. | test |
+| <a id="requirement-T001"></a>T001 | paper issuance | [L025](#requirement-L025) |  |
+| <a id="requirement-T002"></a>T002 | The EUCC SHALL follow the SD-JWT format. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#32-sd-jwt-vc-based-encoding) | check |
+| <a id="requirement-T003"></a>T003 | The EUCC SHALL be in a format that can scale to additional/new legal forms. |  |  |
+| T004 |  |  |  |
+|  |  |  |  |
 
-## Operational requirements
-| No. | Requirement | Source | Verification method |
-|--|--|--|--|
-| O001 | The  _Hello World_  attestation shall be automatically reactivated/reissued whenever the user’s associated digital identity attestation is renewed or replaced, in order to maintain a valid binding between the attestation and the user’s active eWallet identity. If the recipient wallet does not support SD-JWT, the issuer MUST issue the attestation as an mDoc. | WEBUILD Semantic Modeling interoperability requirement. | test |
+## Rulebook or Operational requirements
+| No. | Requirement | Source | MOC | Verification method |
+|--|--|--|--|--|
+| <a id="requirement-O001"></a>O001 | Each company listed in Annex II or Annex IIB can obtain its EU Company Certificate in electronic format free of charge unless it causes serious prejudice to the financing of the national registers. | [L025](#requirement-L025), [L026](#requirement-L026) | O | ? |
+| <a id="requirement-O002"></a>O002 | The Commission shall publish the multilingual template for the EU Company Certificate on the European e-Justice portal (“the portal”) in all official languages of the Union. (see countries below). | [L028](#requirement-L028) | M | ? |
+| <a id="requirement-O003"></a>O003 | **Natural person:** an individual human being who has legal rights and obligations. Unlike a legal person (which refers to an organization or entity), a natural person is a human with the capacity to engage in legal relationships, enter into contracts, own property, and be subject to legal actions. Natural persons are distinct from artificial entities (like corporations or governments). In legal terms, a natural person is someone who exists as a human being, as opposed to a corporate or fictional entity. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#14-terminology) | M | check |
+| <a id="requirement-O004"></a>O004 | **Legal person:** an entity that has legal rights and obligations, similar to a natural person (an individual). It is an organization or group recognized by law as having the capacity to enter into contracts, sue, and be sued, and own property. Legal persons are distinct from the individuals who may own, manage, or be part of them. Examples of legal persons include Corporations, Government agencies, public entities (that are granted legal recognition to act on behalf of the state), Nonprofit organizations A legal person exists as a separate legal entity, meaning it can perform legal actions in its own name, distinct from the actions of its members. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#14-terminology) | M | check |
+| <a id="requirement-O005"></a>O005 | **Legal entity:** an organization or structure that is recognized by law as having legal rights and responsibilities distinct from those of its members or owners. A legal entity can enter into contracts, own property, incur debts, and be held liable for legal actions in its own name. Legal entities include various forms of organizations such as Corporations, Limited liability companies (LLCs), Nonprofit organizations, Partnerships The key characteristic of a legal entity is that it has its own legal existence, allowing it to perform actions independently of the individuals who are involved with it. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#14-terminology) | M | check |
+| <a id="requirement-O006"></a>O006 | **Legal representative:** Natural or legal person authorized to act on behalf of another person or organization in legal matters. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#14-terminology) | M | check |
+| <a id="requirement-O007"></a>O007 | **Signatory rights:** the authority or power granted to an individual or entity to legally bind an organization or company by signing contracts, agreements, or other formal documents. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#14-terminology) | M | check |
+| <a id="requirement-O008"></a>O008 | **attestation_legal_category** One of EAA, Pub-EAA or QEAA | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#22-mandatory-attributes) | M | check |
+| <a id="requirement-O009"></a>O009 | **legal_person_name** Official current legal person name as registered in the business register. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#22-mandatory-attributes) | M | check |
+| <a id="requirement-O010"></a>O010 | **legal_person_id** Unique ID for the legal person in the EUID structure. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#22-mandatory-attributes) | M | check |
+| <a id="requirement-O011"></a>O011 | **legal_form_type** Legal form of the company. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#22-mandatory-attributes) | M | check |
+| <a id="requirement-O012"></a>O012 | **registration_member_state** The member state where the company is registered (Alpha-2 country code). | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#22-mandatory-attributes) | M | check |
+| <a id="requirement-O013"></a>O013 | **registered_address** The official address of the company as registered by public authority. See [section 2.5](#25-Address). | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#22-mandatory-attributes) | M | check |
+| <a id="requirement-O014"></a>O014 | **registration_date** Date of company registration. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#22-mandatory-attributes) | M | check |
+| <a id="requirement-O015"></a>O015 | **legal_person_status** Status of the company as defined in national law. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#22-mandatory-attributes) | M | check |
+| <a id="requirement-O016"></a>O016 | **legal_person_activity** Main activity of the company (NACE). | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#22-mandatory-attributes) | M | check |
+| <a id="requirement-O017"></a>O017 | **legal_representative** Information about the natural or legal person(s) authorized to represent the company. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#22-mandatory-attributes) | M | check |
+| <a id="requirement-O018"></a>O018 | **share_capital** Amount of the subscribed capital with currency. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#23-optional-attributes) | O | check |
+| <a id="requirement-O019"></a>O019 | **legal_person_duration** Endpoint of the legal duration of the company. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#23-optional-attributes) | O | check |
+| <a id="requirement-O020"></a>O020 | **digital_contact_point** Correspondence address of the company. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#23-optional-attributes) | O | check |
+| <a id="requirement-O021"></a>O021 | **full_name** Full name of the natural person representing the company. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#24-conditional-attributes) | C | check |
+| <a id="requirement-O022"></a>O022 | **date_of_birth** Date of birth of the natural person representing the company. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#24-conditional-attributes) | C | check |
+| <a id="requirement-O023"></a>O023 | **nationality** Nationality of the natural person representing the company. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#24-conditional-attributes) | C | check |
+| <a id="requirement-O024"></a>O024 | **signatory_rule** Information on whether the representative can engage the company alone or jointly. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#24-conditional-attributes) | C | check |
+| <a id="requirement-O025"></a>O025 | **name** Details about the legal person representing the company. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#24-conditional-attributes) | C | check |
+| <a id="requirement-O026"></a>O026 | **id** Unique ID for the legal person in the EUID structure. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#24-conditional-attributes) | C | check |
+| <a id="requirement-O027"></a>O027 | **legal_form_type** Legal form of the legal person representing the company. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#24-conditional-attributes) | C | check |
+| <a id="requirement-O028"></a>O028 | **signatory_rule** Information on whether the representative can engage the company alone or jointly. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#24-conditional-attributes) | C | check |
+| <a id="requirement-O029"></a>O029 | **full_address** Complete address of the company. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#25-address) | M | check |
+| <a id="requirement-O030"></a>O030 | **care_of** Used when the address is at the address of another person. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#25-address) | O | check |
+| <a id="requirement-O031"></a>O031 | **thorough_fare** The name of a passage or way. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#25-address) | O | check |
+| <a id="requirement-O032"></a>O032 | **locator_designator** A number identifying the locator. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#25-address) | O | check |
+| <a id="requirement-O033"></a>O033 | **post_code** Postal code. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#25-address) | O | check |
+| <a id="requirement-O034"></a>O034 | **post_name** City or subdivision name. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#25-address) | O | check |
+| <a id="requirement-O035"></a>O035 | **post_office_box** PO box identifier. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#25-address) | O | check |
+| <a id="requirement-O036"></a>O036 | **locator_name** Proper noun(s) applied to the entity. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#25-address) | O | check |
+| <a id="requirement-O037"></a>O037 | **admin_unit_level_1** Country-level administrative unit. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#25-address) | O | check |
+| <a id="requirement-O038"></a>O038 | **admin_unit_level_2** Secondary administrative unit. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#25-address) | O | check |
+| <a id="requirement-O039"></a>O039 | The EUCC is intended to be used as a standardised, machine-verifiable proof of a company’s incorporation and registered company information. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#4-attestation-usage) | check |
+| <a id="requirement-O040"></a>O040 | **Cross-border business onboarding (B2B)** description. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#4-attestation-usage) | check |
+| <a id="requirement-O041"></a>O041 | **Public administration procedures (G2B)** description. |  | check |
+| <a id="requirement-O042"></a>O042 | **Financial and regulated services** description. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#4-attestation-usage) | check |
+| <a id="requirement-O043"></a>O043 | **Replacement/supplement of national extracts** description. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#4-attestation-usage) | check |
+| <a id="requirement-O044"></a>O044 | The EUCC is intended for **online, remote presentation** using EUDI Wallet-compatible protocols. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#4-attestation-usage) | check |
+| <a id="requirement-O045"></a>O045 | Only Business Registries are allowed to be the authentic source of the EUCC attestation. | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#41-issuance-of-the-eucc) | check |
+| <a id="requirement-O046"></a>O046 | The EUCC SHALL be issued in a format compatible with the EUDI Wallet ecosystem (e.g., **OpenID4VP** profiles). | [Rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/ds004-eucc-rulebook.md#41-issuance-of-the-eucc) | check |
 
 ## Governance and trust restrictions
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| G001 | The  _Hello World_  attestation shall be cryptographically bound to both the holder’s eWallet and the holder’s verified identity attestation to ensure authenticity and non-transferability.| General trust mechanism. | review |
+|  | |  |  |
 
 ## Open Questions / Gaps – For follow-up or design iterations.
 | No. | Question | Why |
 |--|--|--|
-| Q001 | How should the  _Hello World_  attestation’s semantics — including its entities, attributes, and relationships — be aligned with existing vocabularies or ontologies to ensure that other ecosystems or wallet implementations can interpret its meaning consistently?| Where does the authoritative meaning of each attribute come from, and how stable must that be? |
-| Q002 | Which core entities and attributes in the  _Hello World_  attestation should be represented as references to existing EU or W3C vocabularies, and which—if any—require the definition of new, domain-specific terms? | **Information model:** _semantic reuse vs. semantic innovation,_ ensuring interoperability while avoiding redundancy.
-| Q003 | How can we semantically represent the lifecycle states of the  _Hello World_ attestation (e.g., issued, active, revoked, superseded) so that they are machine-interpretable and consistent across issuers and verifiers? | **Lyfe Cycle:** _Lifecycle concepts are often procedural in code_ but implicit in meaning. Defining them semantically enables automation, policy reasoning, and consistent interpretation across ecosystems (outside of the eWallet ecosystem too). |
-| Q004 | What is the most appropriate way to semantically express the binding between the  _Hello World_  attestation, the holder’s identity, and the wallet instance, so that trust can be verified across different infrastructures and trust frameworks? Or is this outside the semantics and part of the meta data in the attestation? | **Trust semantics:** This is about semantic binding—how trust relationships are described and validated, not just cryptographically but meaningfully. It connects the modeling work to governance and policy semantics (who asserts what, on whose behalf, and under which trust framework). |
+|  |  |  |
