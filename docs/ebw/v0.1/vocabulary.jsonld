@@ -1,6 +1,6 @@
 {
     "@context": {
-        "ebw": "https://ebw-vocabulary.spherity.dev/ebw#",
+        "ebw": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#",
         "schema": "http://schema.org/",
         "jsonld": "http://www.w3.org/ns/json-ld#",
         "cred": "https://w3.org/2018/credentials#",
@@ -66,7 +66,7 @@
             "@type": "@id"
         }
     },
-    "@id": "https://ebw-vocabulary.spherity.dev/ebw#",
+    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#",
     "@type": "owl:Ontology",
     "dc:title": {
         "@value": "European Business Wallet Vocabulary v0.1",
@@ -76,7 +76,7 @@
         "@value": "Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework",
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
-    "rdfs:seeAlso": "https://ebw-vocabulary.spherity.dev/ebw",
+    "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebw",
     "dc:date": "2026-02-27",
     "rdfs_properties": [{
         "@id": "ebw:thoroughfare",
@@ -87,7 +87,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -99,7 +99,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/postname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -111,7 +111,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/postcode",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -123,7 +123,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/pobox",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -135,7 +135,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -147,7 +147,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -159,7 +159,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -171,7 +171,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -183,7 +183,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -195,7 +195,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -207,7 +207,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -219,7 +219,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -231,7 +231,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -243,7 +243,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -255,7 +255,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofbirth",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -267,7 +267,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -282,7 +282,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -294,7 +294,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -306,7 +306,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -318,7 +318,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -330,7 +330,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -342,7 +342,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/gender",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -354,7 +354,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -366,7 +366,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -378,7 +378,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -390,7 +390,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -402,7 +402,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -414,7 +414,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofbirth",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -426,7 +426,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -438,7 +438,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -450,7 +450,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/residency",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -462,7 +462,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/email",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -474,7 +474,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/telephone",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -493,7 +493,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -508,7 +508,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -523,7 +523,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -538,7 +538,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -553,7 +553,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -568,7 +568,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -580,7 +580,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -595,7 +595,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/companyStatus",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -607,7 +607,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -622,7 +622,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/economicactivity",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -634,7 +634,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/vat",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -646,7 +646,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/tin",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -658,7 +658,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/lei",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -670,7 +670,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/eori",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -682,7 +682,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/excise",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -694,7 +694,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/currency",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -706,7 +706,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/amount",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -718,7 +718,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -733,7 +733,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -745,7 +745,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -760,7 +760,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/role",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -778,7 +778,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/role",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -790,7 +790,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/nacecode",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -802,7 +802,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/nacedescription",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -814,7 +814,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/partner",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }],
@@ -826,7 +826,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -836,7 +836,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/agent",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -846,7 +846,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -857,7 +857,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonidentificationdata",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -868,7 +868,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonidentificationdata",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -879,7 +879,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/europeanbusinesswalletownerid",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -890,7 +890,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/eucclimitliabilitycompany",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -901,7 +901,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/euccpartnership",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -911,7 +911,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/capital",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -921,7 +921,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -931,7 +931,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -941,7 +941,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/location",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -951,7 +951,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -961,7 +961,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/address",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -971,7 +971,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/nace021",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -981,7 +981,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -991,7 +991,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/person",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -1001,7 +1001,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -1011,7 +1011,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedpartner",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -1021,7 +1021,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -1031,7 +1031,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }],
@@ -1042,7 +1042,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -1052,7 +1052,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -1062,7 +1062,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -1072,7 +1072,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -1082,7 +1082,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
             "@type": "jsonld:Context"
         }]
     }]
