@@ -1,16 +1,16 @@
-# Introduction
+# Use Case Overview of EU Company Registration
 
-This is a template to collect information of every use case. The example used is the famous “Hello World”. For that I have to make a disclaimer:
+Purpose: It is to capture the story and high-level purpose of the use case “presenting proof of registration of the company” as an input for the information model. The information model is the basis for the declaration of Attestation details: Application Model. The mapping will take care of the translation/casting of the Information Model to the Application Model...
 
-It is an illustrative instance-level example of a class-level model that defines entities, attributes, and relations. The Hello World example is a simplified illustration used to explain class-attribute-relation modeling concepts. “Hello” and “World” represent example entities or classes, not literal data instances.
+This iteration is based on:
 
-If you are so inclined, you can refactor it to an instance of the conceptual model. For instance:
+ - Rulebook Company Registration Attestation v1.2.pdf
 
-    Classes:  Greeting and Audience.
-    Relation:  Greeting greets Audience.
-    Instances:  Hello (instance of Greeting).
-    World (instance of Audience).
-    Statement:  Hello greets World.
+Other sources are yet to be incorporated.
+
+<img width="330" height="330" alt="funnel" src="https://raw.githubusercontent.com/webuild-consortium/wp4-semantics-group/ac925c6c1333c1c9fe05b56383b82a986c9c037a/img/Funnel_02.jpg" />
+
+Input: Company law and EUCC Data Rulebook.
 
 > **Important:** This template is on a "need" basis. If there is nothing to mention in the workflow part of the use case, for instance, just omit the paragraph. Only use what you need to. Keep it simple and clean.
 
