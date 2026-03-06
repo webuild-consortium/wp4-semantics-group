@@ -13,9 +13,9 @@ The EBWV consists of two layer:
 
 The folder `vocab` contains sources and scripts to generate all artifacts of the semantic model description.
 
-The folder `docs` contains all built artifacts. This folder is published using github pages:
+The folder `docs` contains all built artifacts. The artifacts are published using github pages:
 
-https://webuild-consortium.github.io/wp4-semantics-group/ebw
+https://webuild-consortium.github.io/wp4-semantics-group/ebwv
 
 ```
 
@@ -39,7 +39,7 @@ https://webuild-consortium.github.io/wp4-semantics-group/ebw
         
 ```
 
-The tool yml2vocab is used to generate html, turtle and jsonld presentation of the vocabulary as well the jsonld context.
+The tool yml2vocab is used to generate the vocabulary in html, turtle and jsonld format as well the jsonld context.
 
 The tool mmdc is used to generate a svg file of the class diagram for the html documentation.
 
@@ -56,3 +56,16 @@ In order to build all artifacts and download the terminology from the nordic int
 ```console
 wp4-semantics-group % vocab/scripts/build.zsh
 ```
+## TODOs
+
+TODO: w3id.org perma links are in preparation.  
+
+After the w3id.org permalinks have been activated, the vocabulary will be available at:
+https://w3id.org/ebwv
+in all three formats - turtle, jsonld and html - selectable by mime type.
+
+The URI of the terminology will be:
+https://w3id.org/ebwv/terminology
+
+The jsonld context URI  will be:
+https://w3id.org/ebwv/v.01
