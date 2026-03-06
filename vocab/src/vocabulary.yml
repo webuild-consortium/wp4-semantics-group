@@ -35,6 +35,7 @@ class:
 
   - id: AttestationLegalCategory
     label: Attestation Legal Category
+    one_of: [ QEAA, Pub-EAA, EAA ]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
   - id: cred:CredentialSubject
@@ -349,6 +350,15 @@ class:
     label: Contact Point
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
 
+  - id: euid
+    label: EUID
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/euid
+
+  - id: publicBodyId
+    label: unique identifier of public body
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId
+
+
 
 property:
   - id: thoroughfare
@@ -571,14 +581,15 @@ property:
       - EuropeanBusinessWalletOwnerId
       - EuccLimitLiabilityCompany
       - EuccPartnership
-    range: xsd:string
+    range:
+      - publicBodyId
+      - euid
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier
 
   - id: attestationLegalCategory
     label: attestation legal category
     domain: ElectronicAttestationOfAttributes
     range: AttestationLegalCategory
-    one_of: [QEAA, Pub-EAA, EAA]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
   - id: registeredAddress

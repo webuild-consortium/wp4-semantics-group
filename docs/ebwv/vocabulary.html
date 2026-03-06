@@ -134,7 +134,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-02-27</time>
+                <time property="dc:date" id="time">2026-03-06</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -245,6 +245,7 @@
                         <li><a href="#domicile"><code>domicile<code></code></code></a></li>
                         <li><a href="#economicActivity"><code>economicActivity<code></code></code></a></li>
                         <li><a href="#eori"><code>eori<code></code></code></a></li>
+                        <li><a href="#euid"><code>euid<code></code></code></a></li>
                         <li><a href="#excise"><code>excise<code></code></code></a></li>
                         <li><a href="#familyName"><code>familyName<code></code></code></a></li>
                         <li><a href="#fullAddress"><code>fullAddress<code></code></code></a></li>
@@ -275,6 +276,7 @@
                         <li><a href="#portrait"><code>portrait<code></code></code></a></li>
                         <li><a href="#postCode"><code>postCode<code></code></code></a></li>
                         <li><a href="#postName"><code>postName<code></code></code></a></li>
+                        <li><a href="#publicBodyId"><code>publicBodyId<code></code></code></a></li>
                         <li><a href="#registeredAddress"><code>registeredAddress<code></code></code></a></li>
                         <li><a href="#residency"><code>residency<code></code></code></a></li>
                         <li><a href="#role"><code>role<code></code></code></a></li>
@@ -815,7 +817,7 @@
                     <dt>Domain:</dt>
                     <dd><a href="#LegalPersonIdentificationData"><code>LegalPersonIdentificationData</code></a> ⊔&nbsp;<a href="#EuropeanBusinessWalletOwnerId"><code>EuropeanBusinessWalletOwnerId</code></a> ⊔&nbsp;<a href="#EuccLimitLiabilityCompany"><code>EuccLimitLiabilityCompany</code></a> ⊔&nbsp;<a href="#EuccPartnership"><code>EuccPartnership</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><code>xsd:string</code></dd>
+                    <dd><a href="#publicBodyId"><code>publicBodyId</code></a> ⊓&nbsp;<a href="#euid"><code>euid</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -831,10 +833,6 @@
                     <dd><a href="#ElectronicAttestationOfAttributes"><code>ElectronicAttestationOfAttributes</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#AttestationLegalCategory"><code>AttestationLegalCategory</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Value may be one of:</dt>
-                    <dd><a href="#QEAA"><code>QEAA</code></a>, <a href="#Pub-EAA"><code>Pub-EAA</code></a>, <a href="#EAA"><code>EAA</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1211,6 +1209,10 @@
                 <p><em>Attestation Legal Category</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory">formal definition of the term</a>.</p>
                 <dl class="terms">
+                    <dt>Consists of:</dt>
+                    <dd>{ <a href="#QEAA"><code>QEAA</code></a>, <a href="#Pub-EAA"><code>Pub-EAA</code></a>, <a href="#EAA"><code>EAA</code></a> }</dd>
+                </dl>
+                <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#attestationLegalCategory"><code>attestationLegalCategory</code></a></dd>
                 </dl>
@@ -1254,7 +1256,7 @@
                 <pre class="example prettyprint language-json" title="Credential with credential subject of type NaturalPersonIdentificationData">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1"
+    "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
   ],
   "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
   "@type": [
@@ -1296,7 +1298,7 @@
                 <pre class="example prettyprint language-json" title="Credential with credential subject of type LegalPersonIdentificationData">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1"
+    "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
   ],
   "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
   "@type": [
@@ -1351,7 +1353,7 @@
                 <pre class="example prettyprint language-json" title="Credential with credential subject of type EuropeanBusinessWalletOwnerId">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+    "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
   ],
   "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
   "@type": [
@@ -1392,7 +1394,7 @@
                 <pre class="example prettyprint language-json" title="Credential with credential subject of type EuccLimitLiabilityCompany">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1"
+    "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
   ],
   "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
   "@type": [
@@ -1479,7 +1481,7 @@
                 <pre class="example prettyprint language-json" title="Credential with credential subject of type EuccPartnership">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1"
+    "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
   ],
   "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
   "@type": [
@@ -1728,6 +1730,32 @@
                     <dd><a href="#contactPoint"><code>contactPoint</code></a></dd>
                     <dt>Domain of:</dt>
                     <dd><a href="#hasEmail"><code>hasEmail</code></a>, <a href="#hasTelephone"><code>hasTelephone</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"><code>https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="euid">
+                <h4><code>euid</code></h4>
+                <p><em>EUID</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/euid">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#legalIdentifier"><code>legalIdentifier</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"><code>https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="publicBodyId">
+                <h4><code>publicBodyId</code></h4>
+                <p><em>unique identifier of public body</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#legalIdentifier"><code>legalIdentifier</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>

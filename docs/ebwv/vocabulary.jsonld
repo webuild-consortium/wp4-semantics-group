@@ -77,7 +77,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebw",
-    "dc:date": "2026-02-27",
+    "dc:date": "2026-03-06",
     "rdfs_properties": [{
         "@id": "ebw:thoroughfare",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -498,12 +498,12 @@
         }]
     }, {
         "@id": "ebw:legalIdentifier",
-        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
             "owl:unionOf": ["ebw:LegalPersonIdentificationData", "ebw:EuropeanBusinessWalletOwnerId", "ebw:EuccLimitLiabilityCompany", "ebw:EuccPartnership"]
         },
-        "rdfs:range": "xsd:string",
+        "rdfs:range": ["ebw:publicBodyId", "ebw:euid"],
         "rdfs:label": "legal identifier",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier",
         "vs:term_status": "stable",
@@ -515,10 +515,7 @@
         "@id": "ebw:attestationLegalCategory",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebw:ElectronicAttestationOfAttributes",
-        "rdfs:range": ["ebw:AttestationLegalCategory", {
-            "@type": "owl:class",
-            "owl:oneOf": ["ebw:QEAA", "ebw:Pub-EAA", "ebw:EAA"]
-        }],
+        "rdfs:range": "ebw:AttestationLegalCategory",
         "rdfs:label": "attestation legal category",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory",
         "vs:term_status": "stable",
@@ -841,7 +838,8 @@
         }]
     }, {
         "@id": "ebw:AttestationLegalCategory",
-        "@type": "rdfs:Class",
+        "@type": ["rdfs:Class", "owl:Class"],
+        "owl:oneOf": ["ebw:QEAA", "ebw:Pub-EAA", "ebw:EAA"],
         "rdfs:label": "Attestation Legal Category",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory",
         "vs:term_status": "stable",
@@ -1029,6 +1027,26 @@
         "@type": "rdfs:Class",
         "rdfs:label": "Contact Point",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebw:euid",
+        "@type": "rdfs:Class",
+        "rdfs:label": "EUID",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/euid",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebw:publicBodyId",
+        "@type": "rdfs:Class",
+        "rdfs:label": "unique identifier of public body",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld",

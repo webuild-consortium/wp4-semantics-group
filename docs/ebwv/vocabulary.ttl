@@ -14,7 +14,7 @@ ebw: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebw> ;
-    dc:date "2026-02-27"^^xsd:date ;
+    dc:date "2026-03-06"^^xsd:date ;
 .
 
 # Property definitions
@@ -291,9 +291,9 @@ ebw:legalName a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
-ebw:legalIdentifier a rdf:Property, owl:DatatypeProperty ;
+ebw:legalIdentifier a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebw:LegalPersonIdentificationData ebw:EuropeanBusinessWalletOwnerId ebw:EuccLimitLiabilityCompany ebw:EuccPartnership) ] ;
-    rdfs:range xsd:string ;
+    rdfs:range ebw:publicBodyId, ebw:euid ;
     rdfs:label "legal identifier" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
     vs:term_status "stable" ;
@@ -301,7 +301,7 @@ ebw:legalIdentifier a rdf:Property, owl:DatatypeProperty ;
 
 ebw:attestationLegalCategory a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebw:ElectronicAttestationOfAttributes ;
-    rdfs:range ebw:AttestationLegalCategory, [ a owl:Class; owl:oneOf (ebw:QEAA ebw:Pub-EAA ebw:EAA) ] ;
+    rdfs:range ebw:AttestationLegalCategory ;
     rdfs:label "attestation legal category" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
     vs:term_status "stable" ;
@@ -497,7 +497,8 @@ ebw:Agent a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebw:AttestationLegalCategory a rdfs:Class ;
+ebw:AttestationLegalCategory a rdfs:Class, owl:Class ;
+    owl:oneOf (ebw:QEAA ebw:Pub-EAA ebw:EAA) ;
     rdfs:label "Attestation Legal Category" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
     vs:term_status "stable" ;
@@ -613,6 +614,18 @@ ebw:StatutoryPartner a rdfs:Class ;
 ebw:ContactPoint a rdfs:Class ;
     rdfs:label "Contact Point" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    vs:term_status "stable" ;
+.
+
+ebw:euid a rdfs:Class ;
+    rdfs:label "EUID" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/euid>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    vs:term_status "stable" ;
+.
+
+ebw:publicBodyId a rdfs:Class ;
+    rdfs:label "unique identifier of public body" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
