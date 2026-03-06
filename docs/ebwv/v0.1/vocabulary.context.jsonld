@@ -2,420 +2,420 @@
     "@context": {
         "@protected": true,
         "ElectronicAttestationOfAttributes": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#ElectronicAttestationOfAttributes",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#ElectronicAttestationOfAttributes",
             "@context": {
                 "@protected": true,
                 "attestationLegalCategory": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#attestationLegalCategory",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#attestationLegalCategory",
                     "@type": "@id"
                 }
             }
         },
-        "Agent": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Agent",
-        "AttestationLegalCategory": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#AttestationLegalCategory",
+        "Agent": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Agent",
+        "AttestationLegalCategory": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#AttestationLegalCategory",
         "CredentialSubject": "https://w3.org/2018/credentials#CredentialSubject",
         "NaturalPersonIdentificationData": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#NaturalPersonIdentificationData",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#NaturalPersonIdentificationData",
             "@context": {
                 "@protected": true,
                 "dateOfBirth": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#dateOfBirth",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#dateOfBirth",
                     "@type": "http://www.w3.org/2001/XMLSchema#date"
                 },
                 "familyName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#familyName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#familyName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "givenName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#givenName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#givenName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
         },
         "LegalPersonIdentificationData": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#LegalPersonIdentificationData",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#LegalPersonIdentificationData",
             "@context": {
                 "@protected": true,
                 "legalName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#legalName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#legalName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "legalIdentifier": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#legalIdentifier",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#legalIdentifier",
                     "@type": "@id"
                 },
                 "registeredAddress": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#registeredAddress",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#registeredAddress",
                     "@type": "@id"
                 },
                 "correspondenceAddress": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#correspondenceAddress",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#correspondenceAddress",
                     "@type": "@id"
                 },
                 "vat": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#vat",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#vat",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "tin": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#tin",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#tin",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "lei": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#lei",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#lei",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "eori": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#eori",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#eori",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "excise": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#excise",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#excise",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
         },
         "EuropeanBusinessWalletOwnerId": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#EuropeanBusinessWalletOwnerId",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#EuropeanBusinessWalletOwnerId",
             "@context": {
                 "@protected": true,
                 "legalName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#legalName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#legalName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "legalIdentifier": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#legalIdentifier",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#legalIdentifier",
                     "@type": "@id"
                 }
             }
         },
         "EuccLimitLiabilityCompany": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#EuccLimitLiabilityCompany",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#EuccLimitLiabilityCompany",
             "@context": {
                 "@protected": true,
                 "legalName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#legalName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#legalName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "legalIdentifier": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#legalIdentifier",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#legalIdentifier",
                     "@type": "@id"
                 },
                 "registeredAddress": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#registeredAddress",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#registeredAddress",
                     "@type": "@id"
                 },
                 "correspondenceAddress": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#correspondenceAddress",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#correspondenceAddress",
                     "@type": "@id"
                 },
                 "dateOfRegistration": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#dateOfRegistration",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#dateOfRegistration",
                     "@type": "http://www.w3.org/2001/XMLSchema#date"
                 },
                 "subscribedCapital": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#subscribedCapital",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#subscribedCapital",
                     "@type": "@id"
                 },
                 "companyStatus": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#companyStatus",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#companyStatus",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "legalRepresentative": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#legalRepresentative",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#legalRepresentative",
                     "@type": "@id"
                 },
                 "economicActivity": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#economicActivity",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#economicActivity",
                     "@type": "@id"
                 }
             }
         },
         "EuccPartnership": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#EuccPartnership",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#EuccPartnership",
             "@context": {
                 "@protected": true,
                 "legalName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#legalName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#legalName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "legalIdentifier": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#legalIdentifier",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#legalIdentifier",
                     "@type": "@id"
                 },
                 "registeredAddress": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#registeredAddress",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#registeredAddress",
                     "@type": "@id"
                 },
                 "correspondenceAddress": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#correspondenceAddress",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#correspondenceAddress",
                     "@type": "@id"
                 },
                 "dateOfRegistration": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#dateOfRegistration",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#dateOfRegistration",
                     "@type": "http://www.w3.org/2001/XMLSchema#date"
                 },
                 "companyStatus": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#companyStatus",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#companyStatus",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "economicActivity": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#economicActivity",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#economicActivity",
                     "@type": "@id"
                 },
                 "partner": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#partner",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#partner",
                     "@type": "@id"
                 }
             }
         },
         "Capital": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Capital",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Capital",
             "@context": {
                 "@protected": true,
                 "currency": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#currency",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#currency",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "amount": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#amount",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#amount",
                     "@type": "http://www.w3.org/2001/XMLSchema#float"
                 }
             }
         },
         "LegalRepresentative": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#LegalRepresentative",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#LegalRepresentative",
             "@context": {
                 "@protected": true,
                 "legalRepresentativeId": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#legalRepresentativeId",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#legalRepresentativeId",
                     "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
                 },
                 "role": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#role",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#role",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "scopeOfAuthorization": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#scopeOfAuthorization",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#scopeOfAuthorization",
                     "@type": "@vocab",
                     "@context": {
-                        "Alone": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Alone",
-                        "Jointly": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Jointly",
-                        "@vocab": "ebw:INVALID_VALUE:"
+                        "Alone": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Alone",
+                        "Jointly": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Jointly",
+                        "@vocab": "ebwv:INVALID_VALUE:"
                     }
                 }
             }
         },
-        "ScopeOfAuthorization": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#ScopeOfAuthorization",
-        "Location": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Location",
-        "Jurisdiction": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Jurisdiction",
+        "ScopeOfAuthorization": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#ScopeOfAuthorization",
+        "Location": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Location",
+        "Jurisdiction": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Jurisdiction",
         "Address": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Address",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Address",
             "@context": {
                 "@protected": true,
                 "thoroughfare": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#thoroughfare",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#thoroughfare",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "postName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#postName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#postName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "postCode": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#postCode",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#postCode",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "poBox": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#poBox",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#poBox",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "locatorName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#locatorName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#locatorName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "locatorDesignator": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#locatorDesignator",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#locatorDesignator",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "fullAddress": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#fullAddress",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#fullAddress",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "addressArea": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#addressArea",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#addressArea",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "adminUnitL2": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#adminUnitL2",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#adminUnitL2",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "adminUnitL1": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#adminUnitL1",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#adminUnitL1",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
         },
         "Nace021": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Nace021",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Nace021",
             "@context": {
                 "@protected": true,
                 "naceCode": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#naceCode",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#naceCode",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "naceDescription": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#naceDescription",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#naceDescription",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
         },
-        "PeriodOfTime": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#PeriodOfTime",
+        "PeriodOfTime": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#PeriodOfTime",
         "Person": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Person",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Person",
             "@context": {
                 "@protected": true,
                 "alternativeName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#alternativeName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#alternativeName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "birthName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#birthName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#birthName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "citizenship": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#citizenship",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#citizenship",
                     "@type": "@id"
                 },
                 "contactPoint": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#contactPoint",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#contactPoint",
                     "@type": "@id"
                 },
                 "countryOfBirth": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#countryOfBirth",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#countryOfBirth",
                     "@type": "@id"
                 },
                 "countryOfDeath": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#countryOfDeath",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#countryOfDeath",
                     "@type": "@id"
                 },
                 "dateOfBirth": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#dateOfBirth",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#dateOfBirth",
                     "@type": "http://www.w3.org/2001/XMLSchema#date"
                 },
                 "dateOfDeath": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#dateOfDeath",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#dateOfDeath",
                     "@type": "http://www.w3.org/2001/XMLSchema#date"
                 },
                 "domicile": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#domicile",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#domicile",
                     "@type": "@id"
                 },
                 "fullName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#fullName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#fullName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "gender": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#gender",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#gender",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
-                "identifier": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#identifier",
+                "identifier": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#identifier",
                 "matronymicName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#matronymicName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#matronymicName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "patronymicName": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#patronymicName",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#patronymicName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "personalAdministrativeNumber": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#personalAdministrativeNumber",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#personalAdministrativeNumber",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "placeOfBirth": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#placeOfBirth",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#placeOfBirth",
                     "@type": "@id"
                 },
                 "placeOfDeath": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#placeOfDeath",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#placeOfDeath",
                     "@type": "@id"
                 },
                 "portrait": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#portrait",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#portrait",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "residency": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#residency",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#residency",
                     "@type": "@id"
                 }
             }
         },
         "GeneralPartner": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#GeneralPartner",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#GeneralPartner",
             "@context": {
                 "@protected": true,
                 "partnerId": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#partnerId",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#partnerId",
                     "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
                 }
             }
         },
         "LimitedPartner": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#LimitedPartner",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#LimitedPartner",
             "@context": {
                 "@protected": true,
                 "partnerId": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#partnerId",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#partnerId",
                     "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
                 },
                 "liabilityOrContribution": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#liabilityOrContribution",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#liabilityOrContribution",
                     "@type": "@id"
                 }
             }
         },
         "StatutoryPartner": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#StatutoryPartner",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#StatutoryPartner",
             "@context": {
                 "@protected": true,
                 "partnerId": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#partnerId",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#partnerId",
                     "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
                 },
                 "role": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#role",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#role",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "scopeOfAuthorization": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#scopeOfAuthorization",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#scopeOfAuthorization",
                     "@type": "@vocab",
                     "@context": {
-                        "Alone": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Alone",
-                        "Jointly": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Jointly",
-                        "@vocab": "ebw:INVALID_VALUE:"
+                        "Alone": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Alone",
+                        "Jointly": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Jointly",
+                        "@vocab": "ebwv:INVALID_VALUE:"
                     }
                 }
             }
         },
         "ContactPoint": {
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#ContactPoint",
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#ContactPoint",
             "@context": {
                 "@protected": true,
                 "hasEmail": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#hasEmail",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#hasEmail",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "hasTelephone": {
-                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#hasTelephone",
+                    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#hasTelephone",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
         },
-        "euid": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#euid",
-        "publicBodyId": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#publicBodyId",
-        "Pub-EAA": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Pub-EAA",
-        "QEAA": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#QEAA",
-        "EAA": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#EAA",
-        "Alone": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Alone",
-        "Jointly": "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#Jointly",
+        "euid": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#euid",
+        "publicBodyId": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#publicBodyId",
+        "Pub-EAA": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Pub-EAA",
+        "QEAA": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#QEAA",
+        "EAA": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#EAA",
+        "Alone": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Alone",
+        "Jointly": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#Jointly",
         "Context": "http://www.w3.org/ns/json-ld#Context"
     }
 }

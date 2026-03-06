@@ -1,4 +1,4 @@
-@prefix ebw: <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> .
+@prefix ebwv: <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> .
 @prefix schema: <http://schema.org/> .
 @prefix jsonld: <http://www.w3.org/ns/json-ld#> .
 @prefix cred: <https://w3.org/2018/credentials#> .
@@ -10,655 +10,655 @@
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 
 # Ontology definition
-ebw: a owl:Ontology ;
+ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
-    rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebw> ;
+    rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
     dc:date "2026-03-06"^^xsd:date ;
 .
 
 # Property definitions
-ebw:thoroughfare a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Address ;
+ebwv:thoroughfare a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "thoroughfare" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:postName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Address ;
+ebwv:postName a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "post name" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/postname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/postname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:postCode a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Address ;
+ebwv:postCode a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "post code" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/postcode>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/postcode>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:poBox a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Address ;
+ebwv:poBox a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "post office box" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/pobox>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/pobox>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:locatorName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Address ;
+ebwv:locatorName a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "locator name" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:locatorDesignator a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Address ;
+ebwv:locatorDesignator a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Address ;
     rdfs:range xsd:string, xsd:integer ;
     rdfs:label "locator designator" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:fullAddress a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Address ;
+ebwv:fullAddress a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "full address" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:addressArea a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Address ;
+ebwv:addressArea a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "address area" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:adminUnitL2 a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Address ;
+ebwv:adminUnitL2 a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "administrative unit level 2" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:adminUnitL1 a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Address ;
+ebwv:adminUnitL1 a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "administrative unit level 1" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:alternativeName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Person ;
+ebwv:alternativeName a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "alternative name" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:birthName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Person ;
+ebwv:birthName a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "birth name" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:citizenship a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:Person ;
-    rdfs:range ebw:Jurisdiction ;
+ebwv:citizenship a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:Person ;
+    rdfs:range ebwv:Jurisdiction ;
     rdfs:label "citizenship" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:contactPoint a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:Person ;
-    rdfs:range ebw:ContactPoint ;
+ebwv:contactPoint a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:Person ;
+    rdfs:range ebwv:ContactPoint ;
     rdfs:label "contact point" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:countryOfBirth a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:Person ;
-    rdfs:range ebw:Location ;
+ebwv:countryOfBirth a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:Person ;
+    rdfs:range ebwv:Location ;
     rdfs:label "country of birth" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofbirth>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofbirth>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:countryOfDeath a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:Person ;
-    rdfs:range ebw:Location ;
+ebwv:countryOfDeath a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:Person ;
+    rdfs:range ebwv:Location ;
     rdfs:label "country of death" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:dateOfBirth a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebw:Person ebw:NaturalPersonIdentificationData) ] ;
+ebwv:dateOfBirth a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Person ebwv:NaturalPersonIdentificationData) ] ;
     rdfs:range xsd:date ;
     rdfs:label "date of birth" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:dateOfDeath a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Person ;
+ebwv:dateOfDeath a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Person ;
     rdfs:range xsd:date ;
     rdfs:label "date of death" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:domicile a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:Person ;
-    rdfs:range ebw:Address ;
+ebwv:domicile a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:Person ;
+    rdfs:range ebwv:Address ;
     rdfs:label "domicile" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:familyName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:NaturalPersonIdentificationData ;
+ebwv:familyName a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:NaturalPersonIdentificationData ;
     rdfs:range xsd:string ;
     rdfs:label "family name" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:fullName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Person ;
+ebwv:fullName a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "full name" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:gender a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Person ;
+ebwv:gender a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "gender" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/gender>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/gender>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:givenName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:NaturalPersonIdentificationData ;
+ebwv:givenName a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:NaturalPersonIdentificationData ;
     rdfs:range xsd:string ;
     rdfs:label "given name" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:identifier a rdf:Property ;
-    rdfs:domain ebw:Person ;
-    rdfs:range ebw:Identifier ;
+ebwv:identifier a rdf:Property ;
+    rdfs:domain ebwv:Person ;
+    rdfs:range ebwv:Identifier ;
     rdfs:label "identifier" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:matronymicName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Person ;
+ebwv:matronymicName a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "matronymic name" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:patronymicName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Person ;
+ebwv:patronymicName a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "patronymic name" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:personalAdministrativeNumber a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Person ;
+ebwv:personalAdministrativeNumber a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "personalAdministrativeNumber" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:placeOfBirth a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:Person ;
-    rdfs:range ebw:Location ;
+ebwv:placeOfBirth a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:Person ;
+    rdfs:range ebwv:Location ;
     rdfs:label "place of birth" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofbirth>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofbirth>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:placeOfDeath a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:Person ;
-    rdfs:range ebw:Location ;
+ebwv:placeOfDeath a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:Person ;
+    rdfs:range ebwv:Location ;
     rdfs:label "place of death" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:portrait a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Person ;
+ebwv:portrait a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "portrait" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:residency a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:Person ;
-    rdfs:range ebw:Jurisdiction ;
+ebwv:residency a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:Person ;
+    rdfs:range ebwv:Jurisdiction ;
     rdfs:label "residency" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/residency>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/residency>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:hasEmail a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:ContactPoint ;
+ebwv:hasEmail a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:ContactPoint ;
     rdfs:range xsd:string ;
     rdfs:label "email" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/email>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/email>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:hasTelephone a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:ContactPoint ;
+ebwv:hasTelephone a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:ContactPoint ;
     rdfs:range xsd:string ;
     rdfs:label "telephone" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/telephone>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/telephone>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:legalName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebw:LegalPersonIdentificationData ebw:EuropeanBusinessWalletOwnerId ebw:EuccLimitLiabilityCompany ebw:EuccPartnership) ] ;
+ebwv:legalName a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalPersonIdentificationData ebwv:EuropeanBusinessWalletOwnerId ebwv:EuccLimitLiabilityCompany ebwv:EuccPartnership) ] ;
     rdfs:range xsd:string ;
     rdfs:label "legal name" ;
     rdfs:comment """<div>a name under which the legal entity is registered</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:legalIdentifier a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebw:LegalPersonIdentificationData ebw:EuropeanBusinessWalletOwnerId ebw:EuccLimitLiabilityCompany ebw:EuccPartnership) ] ;
-    rdfs:range ebw:publicBodyId, ebw:euid ;
+ebwv:legalIdentifier a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalPersonIdentificationData ebwv:EuropeanBusinessWalletOwnerId ebwv:EuccLimitLiabilityCompany ebwv:EuccPartnership) ] ;
+    rdfs:range ebwv:publicBodyId, ebwv:euid ;
     rdfs:label "legal identifier" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:attestationLegalCategory a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:ElectronicAttestationOfAttributes ;
-    rdfs:range ebw:AttestationLegalCategory ;
+ebwv:attestationLegalCategory a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:ElectronicAttestationOfAttributes ;
+    rdfs:range ebwv:AttestationLegalCategory ;
     rdfs:label "attestation legal category" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:registeredAddress a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebw:LegalPersonIdentificationData ebw:EuccLimitLiabilityCompany ebw:EuccPartnership) ] ;
-    rdfs:range ebw:Address ;
+ebwv:registeredAddress a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalPersonIdentificationData ebwv:EuccLimitLiabilityCompany ebwv:EuccPartnership) ] ;
+    rdfs:range ebwv:Address ;
     rdfs:label "registered address" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:correspondenceAddress a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebw:LegalPersonIdentificationData ebw:EuccLimitLiabilityCompany ebw:EuccPartnership) ] ;
-    rdfs:range ebw:Address ;
+ebwv:correspondenceAddress a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalPersonIdentificationData ebwv:EuccLimitLiabilityCompany ebwv:EuccPartnership) ] ;
+    rdfs:range ebwv:Address ;
     rdfs:label "correspondence Address" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:dateOfRegistration a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebw:EuccLimitLiabilityCompany ebw:EuccPartnership) ] ;
+ebwv:dateOfRegistration a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuccLimitLiabilityCompany ebwv:EuccPartnership) ] ;
     rdfs:range xsd:date ;
     rdfs:label "date of registration" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:subscribedCapital a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:EuccLimitLiabilityCompany ;
-    rdfs:range ebw:Capital ;
+ebwv:subscribedCapital a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:EuccLimitLiabilityCompany ;
+    rdfs:range ebwv:Capital ;
     rdfs:label "subscribed capital" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:companyStatus a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebw:EuccLimitLiabilityCompany ebw:EuccPartnership) ] ;
+ebwv:companyStatus a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuccLimitLiabilityCompany ebwv:EuccPartnership) ] ;
     rdfs:range xsd:string ;
     rdfs:label "status of the company" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/companyStatus>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/companyStatus>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:legalRepresentative a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:EuccLimitLiabilityCompany ;
-    rdfs:range ebw:LegalRepresentative ;
+ebwv:legalRepresentative a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:EuccLimitLiabilityCompany ;
+    rdfs:range ebwv:LegalRepresentative ;
     rdfs:label "legal representative" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:economicActivity a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebw:EuccLimitLiabilityCompany ebw:EuccPartnership) ] ;
-    rdfs:range ebw:Nace021 ;
+ebwv:economicActivity a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuccLimitLiabilityCompany ebwv:EuccPartnership) ] ;
+    rdfs:range ebwv:Nace021 ;
     rdfs:label "main economic activity of company" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/economicactivity>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/economicactivity>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:vat a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:LegalPersonIdentificationData ;
+ebwv:vat a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:LegalPersonIdentificationData ;
     rdfs:range xsd:string ;
     rdfs:label "value added tax id" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/vat>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/vat>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:tin a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:LegalPersonIdentificationData ;
+ebwv:tin a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:LegalPersonIdentificationData ;
     rdfs:range xsd:string ;
     rdfs:label "tax reference number" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/tin>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/tin>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:lei a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:LegalPersonIdentificationData ;
+ebwv:lei a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:LegalPersonIdentificationData ;
     rdfs:range xsd:string ;
     rdfs:label "legal entity identifier" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/lei>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/lei>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:eori a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:LegalPersonIdentificationData ;
+ebwv:eori a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:LegalPersonIdentificationData ;
     rdfs:range xsd:string ;
     rdfs:label "economic operator registration and identification" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/eori>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/eori>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:excise a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:LegalPersonIdentificationData ;
+ebwv:excise a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:LegalPersonIdentificationData ;
     rdfs:range xsd:string ;
     rdfs:label "excise number" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/excise>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/excise>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:currency a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Capital ;
+ebwv:currency a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Capital ;
     rdfs:range xsd:string ;
     rdfs:label "currency" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/currency>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/currency>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:amount a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Capital ;
+ebwv:amount a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Capital ;
     rdfs:range xsd:float ;
     rdfs:label "amount" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/amount>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/amount>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:legalRepresentativeId a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:LegalRepresentative ;
+ebwv:legalRepresentativeId a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:LegalRepresentative ;
     rdfs:range xsd:anyURI ;
     rdfs:label "unique ID of the identity of the representative" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:partnerId a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebw:GeneralPartner ebw:LimitedPartner ebw:StatutoryPartner) ] ;
+ebwv:partnerId a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:GeneralPartner ebwv:LimitedPartner ebwv:StatutoryPartner) ] ;
     rdfs:range xsd:anyURI ;
     rdfs:label "unique ID of the identity of the partner" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:liabilityOrContribution a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:LimitedPartner ;
-    rdfs:range ebw:Capital ;
+ebwv:liabilityOrContribution a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:LimitedPartner ;
+    rdfs:range ebwv:Capital ;
     rdfs:label "liability or contribution of the limited partner" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:role a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebw:LegalRepresentative ebw:StatutoryPartner) ] ;
+ebwv:role a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:StatutoryPartner) ] ;
     rdfs:range xsd:string ;
     rdfs:label "role of representative" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/role>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/role>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:scopeOfAuthorization a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebw:LegalRepresentative ebw:StatutoryPartner) ] ;
-    rdfs:range ebw:ScopeOfAuthorization, [ a owl:Class; owl:oneOf (ebw:Alone ebw:Jointly) ] ;
+ebwv:scopeOfAuthorization a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:StatutoryPartner) ] ;
+    rdfs:range ebwv:ScopeOfAuthorization, [ a owl:Class; owl:oneOf (ebwv:Alone ebwv:Jointly) ] ;
     rdfs:label "scope of authorization (alone or jointly)" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/role>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/role>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:naceCode a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Nace021 ;
+ebwv:naceCode a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Nace021 ;
     rdfs:range xsd:string ;
     rdfs:label "nace code" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/nacecode>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/nacecode>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:naceDescription a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebw:Nace021 ;
+ebwv:naceDescription a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Nace021 ;
     rdfs:range xsd:string ;
     rdfs:label "nace description" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/nacedescription>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/nacedescription>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:partner a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebw:EuccPartnership ;
-    rdfs:range ebw:GeneralPartner, ebw:LimitedPartner, ebw:StatutoryPartner ;
+ebwv:partner a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:EuccPartnership ;
+    rdfs:range ebwv:GeneralPartner, ebwv:LimitedPartner, ebwv:StatutoryPartner ;
     rdfs:label "partner" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/partner>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/partner>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
 # Class definitions
-ebw:ElectronicAttestationOfAttributes a rdfs:Class ;
+ebwv:ElectronicAttestationOfAttributes a rdfs:Class ;
     rdfs:subClassOf cred:VerifiableCredential ;
     rdfs:label "Electronic Attestation Of Attributes" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:Agent a rdfs:Class ;
+ebwv:Agent a rdfs:Class ;
     rdfs:label "Agent" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/agent>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/agent>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:AttestationLegalCategory a rdfs:Class, owl:Class ;
-    owl:oneOf (ebw:QEAA ebw:Pub-EAA ebw:EAA) ;
+ebwv:AttestationLegalCategory a rdfs:Class, owl:Class ;
+    owl:oneOf (ebwv:QEAA ebwv:Pub-EAA ebwv:EAA) ;
     rdfs:label "Attestation Legal Category" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:NaturalPersonIdentificationData a rdfs:Class ;
+ebwv:NaturalPersonIdentificationData a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Natural Person Identification Data" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonidentificationdata>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonidentificationdata>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:LegalPersonIdentificationData a rdfs:Class ;
+ebwv:LegalPersonIdentificationData a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Legal Person Identification Data" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonidentificationdata>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonidentificationdata>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:EuropeanBusinessWalletOwnerId a rdfs:Class ;
+ebwv:EuropeanBusinessWalletOwnerId a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "European Business Wallet Owner ID" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/europeanbusinesswalletownerid>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/europeanbusinesswalletownerid>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:EuccLimitLiabilityCompany a rdfs:Class ;
+ebwv:EuccLimitLiabilityCompany a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "European Company Certificate Data for limited liability companies" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/eucclimitliabilitycompany>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/eucclimitliabilitycompany>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:EuccPartnership a rdfs:Class ;
+ebwv:EuccPartnership a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "European Company Certificate Data for partnerships" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/euccpartnership>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/euccpartnership>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:Capital a rdfs:Class ;
+ebwv:Capital a rdfs:Class ;
     rdfs:label "Capital" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/capital>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/capital>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:LegalRepresentative a rdfs:Class ;
+ebwv:LegalRepresentative a rdfs:Class ;
     rdfs:label "Legal representative" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:ScopeOfAuthorization a rdfs:Class ;
+ebwv:ScopeOfAuthorization a rdfs:Class ;
     rdfs:label "Scope Of Authorization" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:Location a rdfs:Class ;
+ebwv:Location a rdfs:Class ;
     rdfs:label "Location" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/location>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/location>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:Jurisdiction a rdfs:Class ;
+ebwv:Jurisdiction a rdfs:Class ;
     rdfs:label "Jurisdiction" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:Address a rdfs:Class ;
+ebwv:Address a rdfs:Class ;
     rdfs:label "Address" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/address>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/address>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:Nace021 a rdfs:Class ;
+ebwv:Nace021 a rdfs:Class ;
     rdfs:label "Nace Rev. 2.1" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/nace021>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/nace021>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:PeriodOfTime a rdfs:Class ;
+ebwv:PeriodOfTime a rdfs:Class ;
     rdfs:label "Period of Time" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:Person a rdfs:Class ;
+ebwv:Person a rdfs:Class ;
     rdfs:label "Person" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/person>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/person>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:GeneralPartner a rdfs:Class ;
+ebwv:GeneralPartner a rdfs:Class ;
     rdfs:label "General Partner" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:LimitedPartner a rdfs:Class ;
+ebwv:LimitedPartner a rdfs:Class ;
     rdfs:label "Limited Partner" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedpartner>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedpartner>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:StatutoryPartner a rdfs:Class ;
+ebwv:StatutoryPartner a rdfs:Class ;
     rdfs:label "Statutory Partner" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:ContactPoint a rdfs:Class ;
+ebwv:ContactPoint a rdfs:Class ;
     rdfs:label "Contact Point" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:euid a rdfs:Class ;
+ebwv:euid a rdfs:Class ;
     rdfs:label "EUID" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/euid>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/euid>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:publicBodyId a rdfs:Class ;
+ebwv:publicBodyId a rdfs:Class ;
     rdfs:label "unique identifier of public body" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
 
 
 # Definitions of individuals
-ebw:Pub-EAA a ebw:AttestationLegalCategory ;
+ebwv:Pub-EAA a ebwv:AttestationLegalCategory ;
     rdfs:label "public electronic attestation of attributes" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:QEAA a ebw:AttestationLegalCategory ;
+ebwv:QEAA a ebwv:AttestationLegalCategory ;
     rdfs:label "qualified electronic attestation of attributes" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:EAA a ebw:AttestationLegalCategory ;
+ebwv:EAA a ebwv:AttestationLegalCategory ;
     rdfs:label "electronic attestation of attributes" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:Alone a ebw:ScopeOfAuthorization ;
+ebwv:Alone a ebwv:ScopeOfAuthorization ;
     rdfs:label "scope of authorization Alone" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
-ebw:Jointly a ebw:ScopeOfAuthorization ;
+ebwv:Jointly a ebwv:ScopeOfAuthorization ;
     rdfs:label "scope of authorization Jointly" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly>, <https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
