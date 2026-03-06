@@ -1,7 +1,7 @@
 vocab:
-  - id: ebw
-    value: https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#
-    context: https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld
+  - id: ebwv
+    value: https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#
+    context: https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld
 
 prefix:
   - id: schema
@@ -21,7 +21,7 @@ ontology:
     value: Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework
 
   - property: rdfs:seeAlso
-    value: https://webuild-consortium.github.io/wp4-semantics-group/ebw
+    value: https://webuild-consortium.github.io/wp4-semantics-group/ebwv
 
 class:
   - id: ElectronicAttestationOfAttributes
@@ -52,7 +52,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
+              "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld"
             ],
             "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
             "@type": [
@@ -82,7 +82,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
+              "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld"
             ],
             "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
             "@type": [
@@ -127,7 +127,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
+              "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld"
             ],
             "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
             "@type": [
@@ -156,7 +156,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
+              "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld"
             ],
             "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
             "@type": [
@@ -231,7 +231,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
+              "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld"
             ],
             "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
             "@type": [
