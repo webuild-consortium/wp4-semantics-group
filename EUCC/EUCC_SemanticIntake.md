@@ -37,13 +37,13 @@ Input: Company law and EUCC Data Rulebook.
 
 **Why is this attestation needed?**
 
-- The goal of the EUCC attestation is to have a common standard for European legal entities to exchange. The EUCC attestation will be used by companies in the EWC pilots. This attestation allows companies to share, with a high level of security, information about their companies. This is also a way for relying parties to ensure that they only verify one standard attestation, which allows machine automation and simplifies human comprehension.
+- The goal of the EUOC attestation is to have a common standard for European organisations to exchange the information about the organisation found on an excerpt. The EUOC attestation will be used by companies in the WEBUILD pilots. This attestation allows companies to share, with a high level of security, information about their companies. This is also a way for relying parties to ensure that they only verify one standard attestation, which allows machine automation and simplifies human comprehension.
 
 ## Stakeholders
 
 When mentioning organisation, every registered Economic Operator is meant.
 
- - the organisation stated in the EUCC
+ - the organisation stated in the EUOC
  - the registry
  - the organisation asking for the EUCC
 
@@ -51,7 +51,7 @@ When mentioning organisation, every registered Economic Operator is meant.
 
 **What should happen when the attestation is used?**
 
-The EU Company Certificate shall be accepted in all Member States as sufficient evidence, at the time of its issuance, of the incorporation of the company and of the information listed in paragraphs 2 and 3 of this Article, respectively, which is held by the register in which the company is registered.
+The EU Organisation Certificate shall be accepted in all Member States as sufficient evidence, at the time of its issuance, of the incorporation of the company and of the information listed in paragraphs 2 and 3 of this Article, respectively, which is held by the register in which the company is registered.
 
 # Information Model or Knowledge Graph
 
