@@ -2,7 +2,7 @@
 
 This repository hosts the European Business Vocabulary. The latest version of the html representation of the European Business Vocabulary is available at:
 
-[European business wallet vocabulary (EBWV)](https://webuild-consortium.github.io/wp4-semantics-group/ebw)
+[European business wallet vocabulary (EBWV)](https://webuild-consortium.github.io/wp4-semantics-group/ebwv)
 
 The EBWV consists of two layer:
 
