@@ -5,7 +5,7 @@ Purpose: Capture the story and high-level purpose of the use case of the IBAN Ow
 This iteration is based on:
 
 The IBAN OV [file](https://portal.webuildconsortium.eu/group/pa3-corporate-banking/files).
-Thisis besed on WP 2.3 within the EWC Consortia together with Archipels in accordance with PSD2: https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb003_IBAN_attestation.md<img width="454" height="88" alt="image" src="https://github.com/user-attachments/assets/1584b1e6-2715-461b-8b66-cca06c69f07d" />
+This is besed on WP 2.3 within the EWC Consortia together with Archipels in accordance with [PSD2](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb003_IBAN_attestation.md)
 
 Other sources are yet to be incorporated.
 
