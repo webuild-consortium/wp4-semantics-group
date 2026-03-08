@@ -2,6 +2,13 @@
 
 Purpose: Capture the story and high-level purpose of the use case of the IBAN Ownership Verification attestation.
 
+This iteration is based on:
+
+The IBAN OV [file](https://portal.webuildconsortium.eu/group/pa3-corporate-banking/files).
+Thisis besed on WP 2.3 within the EWC Consortia together with Archipels in accordance with PSD2: https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb003_IBAN_attestation.md<img width="454" height="88" alt="image" src="https://github.com/user-attachments/assets/1584b1e6-2715-461b-8b66-cca06c69f07d" />
+
+Other sources are yet to be incorporated.
+
 ## Storyline
 
 What is the scenario being solved?
@@ -10,11 +17,18 @@ What is the scenario being solved?
 
 Why is this attestation needed?
 
+The IBAN-OV attestation is a document that provides verified information about the bank account details of the account owner. It ensures that a third party can confidently confirm that a specific IBAN is owned by a designated natural or legal person .
+Overview:
+ - Issuing Authority: The attestation can be  issued by the bank holding the account (Account Servicing Payment Service Provider, ASPSP) or by an authorized third party acting on behalf of the bank.
+ - Holder: The attestation is issued in the name of the bank account owner (natural or legal person).
+
+
 ## Stakeholders
 
 ## Expected Outcome
 
 What should happen when the attestation is used?
+The account holder can present the attestation to third parties as required by business processes, regulatory obligations, or contractual agreements, to provide assurance of account ownership, enabling secure and accurate financial transactions and reducing the risk of errors, fraud, or unauthorized payments.
 
 # Information Model from the intake
 
