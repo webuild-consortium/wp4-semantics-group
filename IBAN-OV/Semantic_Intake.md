@@ -9,7 +9,7 @@ This is besed on WP 2.3 within the EWC Consortia together with Archipels in acco
 
 Other sources are yet to be incorporated.
 
-<img width="330" height="330" alt="funnel" src="https://raw.githubusercontent.com/webuild-consortium/wp4-semantics-group/ac925c6c1333c1c9fe05b56383b82a986c9c037a/img/Funnel_03.jpg" />
+<img width="330" height="330" alt="funnel" src="https://raw.githubusercontent.com/webuild-consortium/wp4-semantics-group/blob/11-iban-ov-bart-bink/IBAN-OV/Semantic_Intake.md?plain=1#:~:text=Funnel_02.jpg-,Funnel_03,-.jpg" />
 
 Input: IBAN OV document.
 
