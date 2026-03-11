@@ -1,5 +1,6 @@
 @prefix ebwv: <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> .
 @prefix cred: <https://w3.org/2018/credentials#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -12,10 +13,18 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-03-10"^^xsd:date ;
+    dc:date "2026-03-11"^^xsd:date ;
 .
 
 # Property definitions
+ebwv:activity a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuccLimitLiabilityCompany ebwv:EuccPartnership) ] ;
+    rdfs:range ebwv:Nace21 ;
+    rdfs:label "main activity of company" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/activity>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:addressArea a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
@@ -58,7 +67,7 @@ ebwv:amount a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:attestationLegalCategory a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:ElectronicAttestationOfAttributes ;
-    rdfs:range ebwv:AttestationLegalCategory ;
+    rdfs:range ebwv:AttestationLegalCategory, [ a owl:Class; owl:oneOf (ebwv:QEAA ebwv:Pub-EAA ebwv:EAA) ] ;
     rdfs:label "attestation legal category" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
@@ -157,14 +166,6 @@ ebwv:domicile a rdf:Property, owl:ObjectProperty ;
     rdfs:range ebwv:Address ;
     rdfs:label "domicile" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:economicActivity a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuccLimitLiabilityCompany ebwv:EuccPartnership) ] ;
-    rdfs:range ebwv:Nace021 ;
-    rdfs:label "main economic activity of company" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/economicactivity>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
@@ -318,22 +319,6 @@ ebwv:matronymicName a rdf:Property, owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "matronymic name" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:naceCode a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Nace021 ;
-    rdfs:range xsd:string ;
-    rdfs:label "nace code" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/nacecode>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:naceDescription a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Nace021 ;
-    rdfs:range xsd:string ;
-    rdfs:label "nace description" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/nacedescription>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 
@@ -494,8 +479,7 @@ ebwv:Agent a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebwv:AttestationLegalCategory a rdfs:Class, owl:Class ;
-    owl:oneOf (ebwv:QEAA ebwv:Pub-EAA ebwv:EAA) ;
+ebwv:AttestationLegalCategory a rdfs:Class ;
     rdfs:label "Attestation Legal Category" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
@@ -584,9 +568,10 @@ ebwv:Location a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebwv:Nace021 a rdfs:Class ;
+ebwv:Nace21 a rdfs:Class ;
+    rdfs:subClassOf skos:Concept ;
     rdfs:label "Nace Rev. 2.1" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/nace021>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/nace21>, <https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#> ;
     vs:term_status "stable" ;
 .
 

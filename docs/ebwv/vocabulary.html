@@ -134,7 +134,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-03-10</time>
+                <time property="dc:date" id="time">2026-03-11</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -143,8 +143,8 @@
     </section>
     <section id="sotd">
         <p>
-            This vocabulary has been defined by the <a href="https://portal.webuildconsortium.eu/group/semantics/stream">Semantics goup of the Webuild Consortium</a> and provides
-            the official RDFS vocabulary for the Electronic Attestation of Attributes of the European Business Wallet framework.
+            This vocabulary has been defined by the <a href="https://portal.webuildconsortium.eu/group/semantics">Semantics goup of the Webuild Consortium</a> and provides
+            the RDFS vocabulary for the Electronic Attestation of Attributes of the European Business Wallet framework.
             Comments regarding this document are welcome. Please file issues
             directly on <a href="https://github.com/webuild-consortium/wp4-semantics-group/issues/">GitHub</a>, or send them to
             <a href="mailto:example.com">tbd</a>.
@@ -160,6 +160,8 @@
             <dd><code>https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#</code></dd>
             <dt><code>cred</code></dt>
             <dd><code>https://w3.org/2018/credentials#</code></dd>
+            <dt><code>skos</code></dt>
+            <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
             <dt><code>dc</code></dt>
             <dd><code>http://purl.org/dc/terms/</code></dd>
             <dt><code>owl</code></dt>
@@ -214,7 +216,7 @@
                         <li><a href="#LegalRepresentative"><code>LegalRepresentative<code></code></code></a></li>
                         <li><a href="#LimitedPartner"><code>LimitedPartner<code></code></code></a></li>
                         <li><a href="#Location"><code>Location<code></code></code></a></li>
-                        <li><a href="#Nace021"><code>Nace021<code></code></code></a></li>
+                        <li><a href="#Nace21"><code>Nace21<code></code></code></a></li>
                         <li><a href="#NaturalPersonIdentificationData"><code>NaturalPersonIdentificationData<code></code></code></a></li>
                         <li><a href="#PeriodOfTime"><code>PeriodOfTime<code></code></code></a></li>
                         <li><a href="#Person"><code>Person<code></code></code></a></li>
@@ -223,6 +225,7 @@
                         <li><a href="#QEAA"><code>QEAA<code></code></code></a></li>
                         <li><a href="#ScopeOfAuthorization"><code>ScopeOfAuthorization<code></code></code></a></li>
                         <li><a href="#StatutoryPartner"><code>StatutoryPartner<code></code></code></a></li>
+                        <li><a href="#activity"><code>activity<code></code></code></a></li>
                         <li><a href="#addressArea"><code>addressArea<code></code></code></a></li>
                         <li><a href="#adminUnitL1"><code>adminUnitL1<code></code></code></a></li>
                         <li><a href="#adminUnitL2"><code>adminUnitL2<code></code></code></a></li>
@@ -241,7 +244,6 @@
                         <li><a href="#dateOfDeath"><code>dateOfDeath<code></code></code></a></li>
                         <li><a href="#dateOfRegistration"><code>dateOfRegistration<code></code></code></a></li>
                         <li><a href="#domicile"><code>domicile<code></code></code></a></li>
-                        <li><a href="#economicActivity"><code>economicActivity<code></code></code></a></li>
                         <li><a href="#eori"><code>eori<code></code></code></a></li>
                         <li><a href="#excise"><code>excise<code></code></code></a></li>
                         <li><a href="#familyName"><code>familyName<code></code></code></a></li>
@@ -261,8 +263,6 @@
                         <li><a href="#locatorDesignator"><code>locatorDesignator<code></code></code></a></li>
                         <li><a href="#locatorName"><code>locatorName<code></code></code></a></li>
                         <li><a href="#matronymicName"><code>matronymicName<code></code></code></a></li>
-                        <li><a href="#naceCode"><code>naceCode<code></code></code></a></li>
-                        <li><a href="#naceDescription"><code>naceDescription<code></code></code></a></li>
                         <li><a href="#partner"><code>partner<code></code></code></a></li>
                         <li><a href="#partnerId"><code>partnerId<code></code></code></a></li>
                         <li><a href="#patronymicName"><code>patronymicName<code></code></code></a></li>
@@ -293,6 +293,21 @@
         <section id="property_definitions" class="term_definitions">
             <h3>Property definitions</h3>
             <p>The following are property definitions in the <code>ebwv</code> namespace.</p>
+            <section id="activity">
+                <h4><code>activity</code></h4>
+                <p><em>main activity of company</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/activity">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#EuccLimitLiabilityCompany"><code>EuccLimitLiabilityCompany</code></a> ⊔&nbsp;<a href="#EuccPartnership"><code>EuccPartnership</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Nace21"><code>Nace21</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld"><code>https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
             <section id="addressArea">
                 <h4><code>addressArea</code></h4>
                 <p><em>address area</em></p>
@@ -377,6 +392,10 @@
                     <dd><a href="#ElectronicAttestationOfAttributes"><code>ElectronicAttestationOfAttributes</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#AttestationLegalCategory"><code>AttestationLegalCategory</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Value may be one of:</dt>
+                    <dd><a href="#QEAA"><code>QEAA</code></a>, <a href="#Pub-EAA"><code>Pub-EAA</code></a>, <a href="#EAA"><code>EAA</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -557,21 +576,6 @@
                     <dd><a href="#Person"><code>Person</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld"><code>https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld</code></a></dd>
-                </dl>
-            </section>
-            <section id="economicActivity">
-                <h4><code>economicActivity</code></h4>
-                <p><em>main economic activity of company</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/economicactivity">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#EuccLimitLiabilityCompany"><code>EuccLimitLiabilityCompany</code></a> ⊔&nbsp;<a href="#EuccPartnership"><code>EuccPartnership</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><a href="#Nace021"><code>Nace021</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -856,36 +860,6 @@
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><code>xsd:string</code></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld"><code>https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld</code></a></dd>
-                </dl>
-            </section>
-            <section id="naceCode">
-                <h4><code>naceCode</code></h4>
-                <p><em>nace code</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/nacecode">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#Nace021"><code>Nace021</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><code>xsd:string</code></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld"><code>https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld</code></a></dd>
-                </dl>
-            </section>
-            <section id="naceDescription">
-                <h4><code>naceDescription</code></h4>
-                <p><em>nace description</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/nacedescription">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#Nace021"><code>Nace021</code></a></dd>
                     <dt>Range:</dt>
                     <dd><code>xsd:string</code></dd>
                 </dl>
@@ -1202,10 +1176,6 @@
                 <p><em>Attestation Legal Category</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory">formal definition of the term</a>.</p>
                 <dl class="terms">
-                    <dt>Consists of:</dt>
-                    <dd>{ <a href="#QEAA"><code>QEAA</code></a>, <a href="#Pub-EAA"><code>Pub-EAA</code></a>, <a href="#EAA"><code>EAA</code></a> }</dd>
-                </dl>
-                <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#attestationLegalCategory"><code>attestationLegalCategory</code></a></dd>
                 </dl>
@@ -1287,7 +1257,7 @@
                     <dt>Domain of:</dt>
                     <dd><a href="#legalRepresentative"><code>legalRepresentative</code></a>, <a href="#subscribedCapital"><code>subscribedCapital</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#companyStatus"><code>companyStatus</code></a>, <a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#economicActivity"><code>economicActivity</code></a>, <a href="#legalName"><code>legalName</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
+                    <dd><a href="#activity"><code>activity</code></a>, <a href="#companyStatus"><code>companyStatus</code></a>, <a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#legalName"><code>legalName</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1307,7 +1277,10 @@
   "credentialSubject": {
     "@id": "did:key:$publicKeyOfHolder$",
     "@type": "EuccLimitLiabilityCompany",
-    "legalIdentifier": "NOFOR.987654321",
+    "legalIdentifier": {
+      "@type" : "Euid",
+      "@value" : "NOFOR.987654321"
+    },
     "legalName": "acme Corporation",
     "registeredAddress": {
       "@type":"Address",
@@ -1331,11 +1304,7 @@
     },
     "dateOfRegistration": "2023-10-11",
     "companyStatus": "active",
-    "economicActivity": {
-      "@type": "Nace021",
-      "naceCode": "01.12",
-      "naceDescription": "Growing of rice"
-    },
+    "activity": "http://data.europa.eu/ux2/nace2.1/1082",
     "subscribedCapital": {
       "@type": "Capital",
       "amount": 100000,
@@ -1374,7 +1343,7 @@
                     <dt>Domain of:</dt>
                     <dd><a href="#partner"><code>partner</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#companyStatus"><code>companyStatus</code></a>, <a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#economicActivity"><code>economicActivity</code></a>, <a href="#legalName"><code>legalName</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
+                    <dd><a href="#activity"><code>activity</code></a>, <a href="#companyStatus"><code>companyStatus</code></a>, <a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#legalName"><code>legalName</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1394,7 +1363,10 @@
   "credentialSubject": {
     "@id": "did:key:$publicKeyOfHolder$",
     "@type": "EuccPartnership",
-    "legalIdentifier": "NOFOR.987654321",
+    "legalIdentifier": {
+      "@type" : "Euid",
+      "@value" : "NOFOR.987654321"
+    },
     "legalName": "acme Partnership",
     "registeredAddress": {
       "@type":"Address",
@@ -1418,11 +1390,7 @@
     },
     "dateOfRegistration": "2023-10-11",
     "companyStatus": "active",
-    "economicActivity": {
-      "@type": "Nace021",
-      "naceCode": "01.12",
-      "naceDescription": "Growing of rice"
-    },
+    "activity": "http://data.europa.eu/ux2/nace2.1/1082",
     "partner": [
       {
         "@type": "GeneralPartner",
@@ -1494,7 +1462,10 @@
   "credentialSubject": {
     "@id": "did:key:$publicKeyOfHolder$",
     "@type": "EuropeanBusinessWalletOwnerId",
-    "legalIdentifier": "NOFOR.987654321",
+    "legalIdentifier": {
+      "@type" : "Euid",
+      "@value" : "NOFOR.987654321"
+    },
     "legalName": "acme Corporation"
   },
   "validUntil": "2029-12-03T12:19:52Z",
@@ -1563,7 +1534,10 @@
   "credentialSubject": {
     "@id": "did:key:$publicKeyOfHolder$",
     "@type": "LegalPersonIdentificationData",
-    "legalIdentifier": "DExxxx123456789",
+    "legalIdentifier": {
+      "@type" : "Euid",
+      "@value" : "NOFOR.987654321"
+    },
     "legalName": "acme Corporation",
     "registeredAddress": {
       "@type":"Address",
@@ -1635,15 +1609,17 @@
                     <dd><a href="https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld"><code>https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld</code></a></dd>
                 </dl>
             </section>
-            <section id="Nace021">
-                <h4><code>Nace021</code></h4>
+            <section id="Nace21">
+                <h4><code>Nace21</code></h4>
                 <p><em>Nace Rev. 2.1</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/nace021">formal definition of the term</a>.</p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/nace21">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+                </dl>
                 <dl class="terms">
                     <dt>Range of:</dt>
-                    <dd><a href="#economicActivity"><code>economicActivity</code></a></dd>
-                    <dt>Domain of:</dt>
-                    <dd><a href="#naceCode"><code>naceCode</code></a>, <a href="#naceDescription"><code>naceDescription</code></a></dd>
+                    <dd><a href="#activity"><code>activity</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>

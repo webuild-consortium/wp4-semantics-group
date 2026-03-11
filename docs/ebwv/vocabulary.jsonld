@@ -3,6 +3,7 @@
         "ebwv": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#",
         "jsonld": "http://www.w3.org/ns/json-ld#",
         "cred": "https://w3.org/2018/credentials#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
         "dc": "http://purl.org/dc/terms/",
         "owl": "http://www.w3.org/2002/07/owl#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -76,8 +77,23 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-03-10",
+    "dc:date": "2026-03-11",
     "rdfs_properties": [{
+        "@id": "ebwv:activity",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:EuccLimitLiabilityCompany", "ebwv:EuccPartnership"]
+        },
+        "rdfs:range": "ebwv:Nace21",
+        "rdfs:label": "main activity of company",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/activity",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:addressArea",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Address",
@@ -141,7 +157,10 @@
         "@id": "ebwv:attestationLegalCategory",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:ElectronicAttestationOfAttributes",
-        "rdfs:range": "ebwv:AttestationLegalCategory",
+        "rdfs:range": ["ebwv:AttestationLegalCategory", {
+            "@type": "owl:class",
+            "owl:oneOf": ["ebwv:QEAA", "ebwv:Pub-EAA", "ebwv:EAA"]
+        }],
         "rdfs:label": "attestation legal category",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory",
         "vs:term_status": "stable",
@@ -300,21 +319,6 @@
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "domicile",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile",
-        "vs:term_status": "stable",
-        "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
-            "@type": "jsonld:Context"
-        }]
-    }, {
-        "@id": "ebwv:economicActivity",
-        "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": {
-            "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:EuccLimitLiabilityCompany", "ebwv:EuccPartnership"]
-        },
-        "rdfs:range": "ebwv:Nace021",
-        "rdfs:label": "main economic activity of company",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/economicactivity",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
@@ -553,30 +557,6 @@
         "rdfs:range": "xsd:string",
         "rdfs:label": "matronymic name",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname",
-        "vs:term_status": "stable",
-        "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
-            "@type": "jsonld:Context"
-        }]
-    }, {
-        "@id": "ebwv:naceCode",
-        "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Nace021",
-        "rdfs:range": "xsd:string",
-        "rdfs:label": "nace code",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/nacecode",
-        "vs:term_status": "stable",
-        "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
-            "@type": "jsonld:Context"
-        }]
-    }, {
-        "@id": "ebwv:naceDescription",
-        "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Nace021",
-        "rdfs:range": "xsd:string",
-        "rdfs:label": "nace description",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/nacedescription",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
@@ -836,8 +816,7 @@
         }]
     }, {
         "@id": "ebwv:AttestationLegalCategory",
-        "@type": ["rdfs:Class", "owl:Class"],
-        "owl:oneOf": ["ebwv:QEAA", "ebwv:Pub-EAA", "ebwv:EAA"],
+        "@type": "rdfs:Class",
         "rdfs:label": "Attestation Legal Category",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory",
         "vs:term_status": "stable",
@@ -981,10 +960,11 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:Nace021",
+        "@id": "ebwv:Nace21",
         "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["skos:Concept"],
         "rdfs:label": "Nace Rev. 2.1",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/nace021",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/nace21",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",

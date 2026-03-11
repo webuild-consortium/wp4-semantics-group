@@ -13,6 +13,9 @@ prefix:
   - id: cred
     value: https://w3.org/2018/credentials#
 
+  - id: skos
+    value: http://www.w3.org/2004/02/skos/core#
+
 ontology:
   - property: dc:title
     value: European Business Wallet Vocabulary v0.1
@@ -34,7 +37,6 @@ class:
 
   - id: AttestationLegalCategory
     label: Attestation Legal Category
-    one_of: [ QEAA, Pub-EAA, EAA ]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
   - id: Capital
@@ -75,7 +77,10 @@ class:
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": "EuccLimitLiabilityCompany",
-              "legalIdentifier": "NOFOR.987654321",
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
               "legalName": "acme Corporation",
               "registeredAddress": {
                 "@type":"Address",
@@ -99,11 +104,7 @@ class:
               },
               "dateOfRegistration": "2023-10-11",
               "companyStatus": "active",
-              "economicActivity": {
-                "@type": "Nace021",
-                "naceCode": "01.12",
-                "naceDescription": "Growing of rice"
-              },
+              "activity": "http://data.europa.eu/ux2/nace2.1/1082",
               "subscribedCapital": {
                 "@type": "Capital",
                 "amount": 100000,
@@ -150,7 +151,10 @@ class:
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": "EuccPartnership",
-              "legalIdentifier": "NOFOR.987654321",
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
               "legalName": "acme Partnership",
               "registeredAddress": {
                 "@type":"Address",
@@ -174,11 +178,7 @@ class:
               },
               "dateOfRegistration": "2023-10-11",
               "companyStatus": "active",
-              "economicActivity": {
-                "@type": "Nace021",
-                "naceCode": "01.12",
-                "naceDescription": "Growing of rice"
-              },
+              "activity": "http://data.europa.eu/ux2/nace2.1/1082",
               "partner": [
                 {
                   "@type": "GeneralPartner",
@@ -231,7 +231,10 @@ class:
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": "EuropeanBusinessWalletOwnerId",
-              "legalIdentifier": "NOFOR.987654321",
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
               "legalName": "acme Corporation"
             },
             "validUntil": "2029-12-03T12:19:52Z",
@@ -268,7 +271,10 @@ class:
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": "LegalPersonIdentificationData",
-              "legalIdentifier": "DExxxx123456789",
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
               "legalName": "acme Corporation",
               "registeredAddress": {
                 "@type":"Address",
@@ -304,9 +310,10 @@ class:
     label: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/location
 
-  - id: Nace021
+  - id: Nace21
     label: Nace Rev. 2.1
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nace021
+    upper_value: skos:Concept
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nace21
 
   - id: NaturalPersonIdentificationData
     label: Natural Person Identification Data
@@ -359,6 +366,15 @@ class:
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
 
 property:
+  - id: activity
+    label: main activity of company
+    domain:
+      - EuccLimitLiabilityCompany
+      - EuccPartnership
+    range:
+      - Nace21
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
+
   - id: addressArea
     label: address area
     domain: Address
@@ -393,6 +409,7 @@ property:
     label: attestation legal category
     domain: ElectronicAttestationOfAttributes
     range: AttestationLegalCategory
+    one_of: [ QEAA, Pub-EAA, EAA ]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
   - id: birthName
@@ -476,14 +493,6 @@ property:
     domain: Person
     range: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile
-
-  - id: economicActivity
-    label: main economic activity of company
-    domain:
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
-    range: Nace021
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/economicactivity
 
   - id: eori
     label: economic operator registration and identification
@@ -613,18 +622,6 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname
-
-  - id: naceCode
-    label: nace code
-    domain: Nace021
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nacecode
-
-  - id: naceDescription
-    label: nace description
-    domain: Nace021
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nacedescription
 
   - id: partner
     label: partner

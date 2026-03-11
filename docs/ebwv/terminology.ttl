@@ -339,11 +339,6 @@ webuild:concept-6044  rdf:type        skos:Concept;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
         term:orderedRelated           ( webuild:concept-6005 webuild:concept-6006 ) .
 
-<urn:uuid:9f69ed0f-fb4b-4e6a-82a3-63446b0c6e7b>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "membership based representation rule"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
 webuild:countryofbirth
         rdf:type                      skos:Concept;
         dcterms:created               "2026-02-16T14:37:17.229Z"^^xsd:dateTime;
@@ -356,6 +351,11 @@ webuild:countryofbirth
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
         term:orderedNote              ( "Country of birth refers to the state associated with the place of birth at the time of birth registration.\nIt reflects territorial jurisdiction and does not imply citizenship, nationality, ethnicity, or residence."@en "Where historical territorial changes have occurred, the country of birth shall correspond to the state recognised in the official birth record."@en ) .
+
+<urn:uuid:9f69ed0f-fb4b-4e6a-82a3-63446b0c6e7b>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "membership based representation rule"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 <urn:uuid:95984217-b926-4ddc-a164-e3be2881f2e0>
         rdf:type                      skos-xl:Label;
@@ -1114,6 +1114,11 @@ webuild:concept-23  rdf:type          skos:Concept;
         skos-xl:literalForm           "business"@en;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
+<urn:uuid:95ed35c9-93af-471a-a4e1-63666ceebf92>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "thoroughfare"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
 webuild:concept-87  rdf:type          skos:Concept;
         dcterms:created               "2025-10-06T08:39:16.14Z"^^xsd:dateTime;
         dcterms:modified              "2025-10-06T08:39:16.14Z"^^xsd:dateTime;
@@ -1122,11 +1127,6 @@ webuild:concept-87  rdf:type          skos:Concept;
         skos:prefLabel                <urn:uuid:f8607a1b-a379-406c-b458-b5edfb461839>;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
-<urn:uuid:95ed35c9-93af-471a-a4e1-63666ceebf92>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "thoroughfare"@en;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 <urn:uuid:1a25adae-bf9b-49ec-87fd-a8c62fe88c57>
