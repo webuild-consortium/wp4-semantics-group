@@ -250,6 +250,10 @@ class:
     label: Jurisdiction
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
 
+- id: LegalEntity
+    label: Legal Entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
+
   - id: LegalPersonIdentificationData
     label: Legal Person Identification Data
     upper_value: cred:CredentialSubject
@@ -676,6 +680,14 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait
+
+  - id: postalAddress
+    label: postal address
+    domain:
+      - Person
+      - LegalEntity
+    range: Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postaladdress
 
   - id: postCode
     label: post code
