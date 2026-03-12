@@ -15,7 +15,7 @@
                 },
                 "adminUnitL1": {
                     "@id": "https://w3id.org/ebwv#adminUnitL1",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                    "@type": "https://w3id.org/ebwv#Jurisdiction"
                 },
                 "fullAddress": {
                     "@id": "https://w3id.org/ebwv#fullAddress",
@@ -59,7 +59,7 @@
                 },
                 "currency": {
                     "@id": "https://w3id.org/ebwv#currency",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                    "@type": "https://w3id.org/ebwv#Currency"
                 }
             }
         },
@@ -100,7 +100,7 @@
                 "@protected": true,
                 "activity": {
                     "@id": "https://w3id.org/ebwv#activity",
-                    "@type": "@id"
+                    "@type": "https://w3id.org/ebwv#Nace21"
                 },
                 "companyStatus": {
                     "@id": "https://w3id.org/ebwv#companyStatus",
@@ -142,7 +142,7 @@
                 "@protected": true,
                 "activity": {
                     "@id": "https://w3id.org/ebwv#activity",
-                    "@type": "@id"
+                    "@type": "https://w3id.org/ebwv#Nace21"
                 },
                 "companyStatus": {
                     "@id": "https://w3id.org/ebwv#companyStatus",
@@ -199,7 +199,6 @@
                 }
             }
         },
-        "Jurisdiction": "https://w3id.org/ebwv#Jurisdiction",
         "LegalPersonIdentificationData": {
             "@id": "https://w3id.org/ebwv#LegalPersonIdentificationData",
             "@context": {
@@ -280,7 +279,6 @@
             }
         },
         "Location": "https://w3id.org/ebwv#Location",
-        "Nace21": "https://w3id.org/ebwv#Nace21",
         "NaturalPersonIdentificationData": {
             "@id": "https://w3id.org/ebwv#NaturalPersonIdentificationData",
             "@context": {
@@ -314,7 +312,7 @@
                 },
                 "citizenship": {
                     "@id": "https://w3id.org/ebwv#citizenship",
-                    "@type": "@id"
+                    "@type": "https://w3id.org/ebwv#Jurisdiction"
                 },
                 "contactPoint": {
                     "@id": "https://w3id.org/ebwv#contactPoint",
@@ -375,7 +373,7 @@
                 },
                 "residency": {
                     "@id": "https://w3id.org/ebwv#residency",
-                    "@type": "@id"
+                    "@type": "https://w3id.org/ebwv#Jurisdiction"
                 }
             }
         },
@@ -408,6 +406,9 @@
         "EAA": "https://w3id.org/ebwv#EAA",
         "Jointly": "https://w3id.org/ebwv#Jointly",
         "Pub-EAA": "https://w3id.org/ebwv#Pub-EAA",
-        "QEAA": "https://w3id.org/ebwv#QEAA"
+        "QEAA": "https://w3id.org/ebwv#QEAA",
+        "Currency": "https://w3id.org/ebwv#Currency",
+        "Nace21": "https://w3id.org/ebwv#Nace21",
+        "Jurisdiction": "https://w3id.org/ebwv#Jurisdiction"
     }
 }

@@ -3,7 +3,6 @@
         "ebwv": "https://w3id.org/ebwv#",
         "jsonld": "http://www.w3.org/ns/json-ld#",
         "cred": "https://w3.org/2018/credentials#",
-        "skos": "http://www.w3.org/2004/02/skos/core#",
         "dc": "http://purl.org/dc/terms/",
         "owl": "http://www.w3.org/2002/07/owl#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -80,7 +79,7 @@
     "dc:date": "2026-03-12",
     "rdfs_properties": [{
         "@id": "ebwv:activity",
-        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
             "owl:unionOf": ["ebwv:EuccLimitLiabilityCompany", "ebwv:EuccPartnership"]
@@ -121,7 +120,7 @@
         "@id": "ebwv:adminUnitL1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Address",
-        "rdfs:range": "xsd:string",
+        "rdfs:range": "ebwv:Jurisdiction",
         "rdfs:label": "administrative unit level 1",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/adminUnitL1",
         "vs:term_status": "stable",
@@ -182,7 +181,7 @@
         }]
     }, {
         "@id": "ebwv:citizenship",
-        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "ebwv:Jurisdiction",
         "rdfs:label": "citizenship",
@@ -262,7 +261,7 @@
         "@id": "ebwv:currency",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Capital",
-        "rdfs:range": "xsd:string",
+        "rdfs:range": "ebwv:Currency",
         "rdfs:label": "currency",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/currency",
         "vs:term_status": "stable",
@@ -702,7 +701,7 @@
         }]
     }, {
         "@id": "ebwv:residency",
-        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "ebwv:Jurisdiction",
         "rdfs:label": "residency",
@@ -909,16 +908,6 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:Jurisdiction",
-        "@type": "rdfs:Class",
-        "rdfs:label": "Jurisdiction",
-        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/jurisdiction",
-        "vs:term_status": "stable",
-        "mentioned": [{
-            "@id": "https://w3id.org/ebwv/v0.1",
-            "@type": "jsonld:Context"
-        }]
-    }, {
         "@id": "ebwv:LegalPersonIdentificationData",
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["cred:CredentialSubject"],
@@ -954,17 +943,6 @@
         "@type": "rdfs:Class",
         "rdfs:label": "Location",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/location",
-        "vs:term_status": "stable",
-        "mentioned": [{
-            "@id": "https://w3id.org/ebwv/v0.1",
-            "@type": "jsonld:Context"
-        }]
-    }, {
-        "@id": "ebwv:Nace21",
-        "@type": "rdfs:Class",
-        "rdfs:subClassOf": ["skos:Concept"],
-        "rdfs:label": "Nace Rev. 2.1",
-        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/nace21",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1077,6 +1055,64 @@
         "@type": "ebwv:AttestationLegalCategory",
         "rdfs:label": "qualified electronic attestation of attributes",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/QEAA",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }],
+    "rdfs_datatypes": [{
+        "@id": "ebwv:Currency",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "owl:onDatatype": "xsd:string",
+        "owl:withRestrictions": {
+            "@list": [{
+                "xsd:pattern": "[A-Z]{3}"
+            }]
+        },
+        "rdfs:label": "Currency",
+        "rdfs:comment": {
+            "@value": "<div>3 letter currency code according to the European controlled vocabulary 'Currency'</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/currency", "http://publications.europa.eu/resource/authority/currency"],
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:Nace21",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:integer"],
+        "rdfs:label": "Nace Rev. 2.1",
+        "rdfs:comment": {
+            "@value": "<div>code of the main activity of the company according to the European controlled vocabulary 'Nace Rev. 2.1'</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/ux2/nace2.1/nace2.1", "http://data.europa.eu/ux2/nace2.1/nace2.1"],
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:Jurisdiction",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "owl:onDatatype": "xsd:string",
+        "owl:withRestrictions": {
+            "@list": [{
+                "xsd:pattern": "[A-Z]{2}"
+            }]
+        },
+        "rdfs:label": "Jurisdiction",
+        "rdfs:comment": {
+            "@value": "<div>2 letter country code according to ISO-3166</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://www.iso.org/iso-3166-country-codes.html",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",

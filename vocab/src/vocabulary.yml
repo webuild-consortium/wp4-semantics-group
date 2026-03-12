@@ -104,11 +104,11 @@ class:
               },
               "dateOfRegistration": "2023-10-11",
               "companyStatus": "active",
-              "activity": "http://data.europa.eu/ux2/nace2.1/1082",
+              "activity": 1082,
               "subscribedCapital": {
                 "@type": "Capital",
                 "amount": 100000,
-                "currency": "Euro"
+                "currency": "EUR"
               },
               "legalRepresentative": [
                 {
@@ -178,7 +178,7 @@ class:
               },
               "dateOfRegistration": "2023-10-11",
               "companyStatus": "active",
-              "activity": "http://data.europa.eu/ux2/nace2.1/1082",
+              "activity": 1082,
               "partner": [
                 {
                   "@type": "GeneralPartner",
@@ -190,7 +190,7 @@ class:
                   "liabilityOrContribution": {
                     "@type": "Capital",
                     "amount": 100000,
-                    "currency": "Euro"
+                    "currency": "EUR"
                   }
                 },
                 {
@@ -245,10 +245,6 @@ class:
   - id: GeneralPartner
     label: General Partner
     defined_by: https:/w3id.org/ebwv/terminology#/concept/generalpartner
-
-  - id: Jurisdiction
-    label: Jurisdiction
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/jurisdiction
 
   - id: LegalPersonIdentificationData
     label: Legal Person Identification Data
@@ -309,11 +305,6 @@ class:
   - id: Location
     label: Location
     defined_by: https:/w3id.org/ebwv/terminology#/concept/location
-
-  - id: Nace21
-    label: Nace Rev. 2.1
-    upper_value: skos:Concept
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/nace21
 
   - id: NaturalPersonIdentificationData
     label: Natural Person Identification Data
@@ -390,7 +381,7 @@ property:
   - id: adminUnitL1
     label: administrative unit level 1
     domain: Address
-    range: xsd:string
+    range: Jurisdiction
     defined_by: https:/w3id.org/ebwv/terminology#/concept/adminUnitL1
 
   - id: alternativeName
@@ -463,7 +454,7 @@ property:
   - id: currency
     label: currency
     domain: Capital
-    range: xsd:string
+    range: Currency
     defined_by: https:/w3id.org/ebwv/terminology#/concept/currency
 
   - id: dateOfBirth
@@ -772,3 +763,29 @@ individual:   # code lists
     label: qualified electronic attestation of attributes
     type: AttestationLegalCategory
     defined_by: https:/w3id.org/ebwv/terminology#/concept/QEAA
+
+datatype:
+  - id: Currency
+    label: Currency
+    upper_value: xsd:string
+    pattern: '[A-Z]{3}'
+    comment: 3 letter currency code according to the European controlled vocabulary 'Currency'
+    defined_by:
+      - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/currency
+      - http://publications.europa.eu/resource/authority/currency
+
+  - id: Nace21
+    label: Nace Rev. 2.1
+    upper_value: xsd:integer
+    comment: code of the main activity of the company according to the European controlled vocabulary 'Nace Rev. 2.1'
+    defined_by:
+      - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/ux2/nace2.1/nace2.1
+      - http://data.europa.eu/ux2/nace2.1/nace2.1
+
+  - id: Jurisdiction
+    label: Jurisdiction
+    upper_value: xsd:string
+    pattern: '[A-Z]{2}'
+    comment: 2 letter country code according to ISO-3166
+    defined_by: https://www.iso.org/iso-3166-country-codes.html
+

@@ -1,6 +1,5 @@
 @prefix ebwv: <https://w3id.org/ebwv#> .
 @prefix cred: <https://w3.org/2018/credentials#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -17,7 +16,7 @@ ebwv: a owl:Ontology ;
 .
 
 # Property definitions
-ebwv:activity a rdf:Property, owl:ObjectProperty ;
+ebwv:activity a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuccLimitLiabilityCompany ebwv:EuccPartnership) ] ;
     rdfs:range ebwv:Nace21 ;
     rdfs:label "main activity of company" ;
@@ -43,7 +42,7 @@ ebwv:adminUnitL2 a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:adminUnitL1 a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
-    rdfs:range xsd:string ;
+    rdfs:range ebwv:Jurisdiction ;
     rdfs:label "administrative unit level 1" ;
     rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/adminUnitL1>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -81,7 +80,7 @@ ebwv:birthName a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:citizenship a rdf:Property, owl:ObjectProperty ;
+ebwv:citizenship a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:Jurisdiction ;
     rdfs:label "citizenship" ;
@@ -131,7 +130,7 @@ ebwv:countryOfDeath a rdf:Property, owl:ObjectProperty ;
 
 ebwv:currency a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Capital ;
-    rdfs:range xsd:string ;
+    rdfs:range ebwv:Currency ;
     rdfs:label "currency" ;
     rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/currency>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -410,7 +409,7 @@ ebwv:registeredAddress a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:residency a rdf:Property, owl:ObjectProperty ;
+ebwv:residency a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:Jurisdiction ;
     rdfs:label "residency" ;
@@ -537,12 +536,6 @@ ebwv:GeneralPartner a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebwv:Jurisdiction a rdfs:Class ;
-    rdfs:label "Jurisdiction" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/jurisdiction>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:LegalPersonIdentificationData a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Legal Person Identification Data" ;
@@ -565,13 +558,6 @@ ebwv:LimitedPartner a rdfs:Class ;
 ebwv:Location a rdfs:Class ;
     rdfs:label "Location" ;
     rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/location>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:Nace21 a rdfs:Class ;
-    rdfs:subClassOf skos:Concept ;
-    rdfs:label "Nace Rev. 2.1" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/nace21>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -642,6 +628,35 @@ ebwv:Pub-EAA a ebwv:AttestationLegalCategory ;
 ebwv:QEAA a ebwv:AttestationLegalCategory ;
     rdfs:label "qualified electronic attestation of attributes" ;
     rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/QEAA>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+# Definitions of datatypes
+ebwv:Currency a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([xsd:pattern "[A-Z]{3}"]) ;
+    rdfs:label "Currency" ;
+    rdfs:comment """<div>3 letter currency code according to the European controlled vocabulary 'Currency'</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/currency>, <http://publications.europa.eu/resource/authority/currency>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:Nace21 a rdfs:Datatype ;
+    rdfs:subClassOf xsd:integer ;
+    rdfs:label "Nace Rev. 2.1" ;
+    rdfs:comment """<div>code of the main activity of the company according to the European controlled vocabulary 'Nace Rev. 2.1'</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/ux2/nace2.1/nace2.1>, <http://data.europa.eu/ux2/nace2.1/nace2.1>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:Jurisdiction a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([xsd:pattern "[A-Z]{2}"]) ;
+    rdfs:label "Jurisdiction" ;
+    rdfs:comment """<div>2 letter country code according to ISO-3166</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://www.iso.org/iso-3166-country-codes.html>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
