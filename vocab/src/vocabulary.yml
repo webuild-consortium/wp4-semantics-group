@@ -381,7 +381,7 @@ property:
   - id: adminUnitL1
     label: administrative unit level 1
     domain: Address
-    range: Jurisdiction
+    range: CountryCode
     defined_by: https:/w3id.org/ebwv/terminology#/concept/adminUnitL1
 
   - id: alternativeName
@@ -412,7 +412,7 @@ property:
   - id: citizenship
     label: citizenship
     domain: Person
-    range: Jurisdiction
+    range: CountryCode
     defined_by: https:/w3id.org/ebwv/terminology#/concept/citizenship
 
   - id: companyStatus
@@ -693,7 +693,7 @@ property:
   - id: residency
     label: residency
     domain: Person
-    range: Jurisdiction
+    range: CountryCode
     defined_by: https:/w3id.org/ebwv/terminology#/concept/residency
 
   - id: role
@@ -782,8 +782,8 @@ datatype:
       - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/ux2/nace2.1/nace2.1
       - http://data.europa.eu/ux2/nace2.1/nace2.1
 
-  - id: Jurisdiction
-    label: Jurisdiction
+  - id: CountryCode
+    label: Country Code
     upper_value: xsd:string
     pattern: '[A-Z]{2}'
     comment: 2 letter country code according to ISO-3166

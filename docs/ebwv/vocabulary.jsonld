@@ -120,7 +120,7 @@
         "@id": "ebwv:adminUnitL1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Address",
-        "rdfs:range": "ebwv:Jurisdiction",
+        "rdfs:range": "ebwv:CountryCode",
         "rdfs:label": "administrative unit level 1",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/adminUnitL1",
         "vs:term_status": "stable",
@@ -183,7 +183,7 @@
         "@id": "ebwv:citizenship",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Person",
-        "rdfs:range": "ebwv:Jurisdiction",
+        "rdfs:range": "ebwv:CountryCode",
         "rdfs:label": "citizenship",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/citizenship",
         "vs:term_status": "stable",
@@ -703,7 +703,7 @@
         "@id": "ebwv:residency",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Person",
-        "rdfs:range": "ebwv:Jurisdiction",
+        "rdfs:range": "ebwv:CountryCode",
         "rdfs:label": "residency",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/residency",
         "vs:term_status": "stable",
@@ -1098,7 +1098,7 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:Jurisdiction",
+        "@id": "ebwv:CountryCode",
         "@type": "rdfs:Datatype",
         "rdfs:subClassOf": ["xsd:string"],
         "owl:onDatatype": "xsd:string",
@@ -1107,7 +1107,7 @@
                 "xsd:pattern": "[A-Z]{2}"
             }]
         },
-        "rdfs:label": "Jurisdiction",
+        "rdfs:label": "Country Code",
         "rdfs:comment": {
             "@value": "<div>2 letter country code according to ISO-3166</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"

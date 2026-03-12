@@ -15,7 +15,7 @@
                 },
                 "adminUnitL1": {
                     "@id": "https://w3id.org/ebwv#adminUnitL1",
-                    "@type": "https://w3id.org/ebwv#Jurisdiction"
+                    "@type": "https://w3id.org/ebwv#CountryCode"
                 },
                 "fullAddress": {
                     "@id": "https://w3id.org/ebwv#fullAddress",
@@ -312,7 +312,7 @@
                 },
                 "citizenship": {
                     "@id": "https://w3id.org/ebwv#citizenship",
-                    "@type": "https://w3id.org/ebwv#Jurisdiction"
+                    "@type": "https://w3id.org/ebwv#CountryCode"
                 },
                 "contactPoint": {
                     "@id": "https://w3id.org/ebwv#contactPoint",
@@ -373,7 +373,7 @@
                 },
                 "residency": {
                     "@id": "https://w3id.org/ebwv#residency",
-                    "@type": "https://w3id.org/ebwv#Jurisdiction"
+                    "@type": "https://w3id.org/ebwv#CountryCode"
                 }
             }
         },
@@ -409,6 +409,6 @@
         "QEAA": "https://w3id.org/ebwv#QEAA",
         "Currency": "https://w3id.org/ebwv#Currency",
         "Nace21": "https://w3id.org/ebwv#Nace21",
-        "Jurisdiction": "https://w3id.org/ebwv#Jurisdiction"
+        "CountryCode": "https://w3id.org/ebwv#CountryCode"
     }
 }

@@ -42,7 +42,7 @@ ebwv:adminUnitL2 a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:adminUnitL1 a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
-    rdfs:range ebwv:Jurisdiction ;
+    rdfs:range ebwv:CountryCode ;
     rdfs:label "administrative unit level 1" ;
     rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/adminUnitL1>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -82,7 +82,7 @@ ebwv:birthName a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:citizenship a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
-    rdfs:range ebwv:Jurisdiction ;
+    rdfs:range ebwv:CountryCode ;
     rdfs:label "citizenship" ;
     rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/citizenship>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -411,7 +411,7 @@ ebwv:registeredAddress a rdf:Property, owl:ObjectProperty ;
 
 ebwv:residency a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
-    rdfs:range ebwv:Jurisdiction ;
+    rdfs:range ebwv:CountryCode ;
     rdfs:label "residency" ;
     rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/residency>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -650,11 +650,11 @@ ebwv:Nace21 a rdfs:Datatype ;
     vs:term_status "stable" ;
 .
 
-ebwv:Jurisdiction a rdfs:Datatype ;
+ebwv:CountryCode a rdfs:Datatype ;
     rdfs:subClassOf xsd:string ;
     owl:onDatatype xsd:string ;
     owl:withRestrictions ([xsd:pattern "[A-Z]{2}"]) ;
-    rdfs:label "Jurisdiction" ;
+    rdfs:label "Country Code" ;
     rdfs:comment """<div>2 letter country code according to ISO-3166</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://www.iso.org/iso-3166-country-codes.html>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
