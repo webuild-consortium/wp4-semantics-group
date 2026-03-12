@@ -1,6 +1,6 @@
 {
     "@context": {
-        "ebwv": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#",
+        "ebwv": "https://w3id.org/ebwv#",
         "jsonld": "http://www.w3.org/ns/json-ld#",
         "cred": "https://w3.org/2018/credentials#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -66,7 +66,7 @@
             "@type": "@id"
         }
     },
-    "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.html#",
+    "@id": "https://w3id.org/ebwv#",
     "@type": "owl:Ontology",
     "dc:title": {
         "@value": "European Business Wallet Vocabulary v0.1",
@@ -77,7 +77,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-03-11",
+    "dc:date": "2026-03-12",
     "rdfs_properties": [{
         "@id": "ebwv:activity",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
@@ -87,10 +87,10 @@
         },
         "rdfs:range": "ebwv:Nace21",
         "rdfs:label": "main activity of company",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/activity",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/activity",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -99,10 +99,10 @@
         "rdfs:domain": "ebwv:Address",
         "rdfs:range": "xsd:string",
         "rdfs:label": "address area",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/addressarea",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -111,10 +111,10 @@
         "rdfs:domain": "ebwv:Address",
         "rdfs:range": "xsd:string",
         "rdfs:label": "administrative unit level 2",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/adminUnitL2",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -123,10 +123,10 @@
         "rdfs:domain": "ebwv:Address",
         "rdfs:range": "xsd:string",
         "rdfs:label": "administrative unit level 1",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/adminUnitL1",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -135,10 +135,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "xsd:string",
         "rdfs:label": "alternative name",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/alternativename",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -147,10 +147,10 @@
         "rdfs:domain": "ebwv:Capital",
         "rdfs:range": "xsd:float",
         "rdfs:label": "amount",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/amount",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/amount",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -162,10 +162,10 @@
             "owl:oneOf": ["ebwv:QEAA", "ebwv:Pub-EAA", "ebwv:EAA"]
         }],
         "rdfs:label": "attestation legal category",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/attestationlegalcategory",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -174,10 +174,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "xsd:string",
         "rdfs:label": "birth name",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/birthname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -186,10 +186,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "ebwv:Jurisdiction",
         "rdfs:label": "citizenship",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/citizenship",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -201,10 +201,10 @@
         },
         "rdfs:range": "xsd:string",
         "rdfs:label": "status of the company",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/companyStatus",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/companyStatus",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -213,10 +213,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "ebwv:ContactPoint",
         "rdfs:label": "contact point",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/contactpoint",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -228,10 +228,10 @@
         },
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "correspondence Address",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/correspondenceaddress",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -240,10 +240,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "ebwv:Location",
         "rdfs:label": "country of birth",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofbirth",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/countryofbirth",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -252,10 +252,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "ebwv:Location",
         "rdfs:label": "country of death",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/countryofdeath",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -264,10 +264,10 @@
         "rdfs:domain": "ebwv:Capital",
         "rdfs:range": "xsd:string",
         "rdfs:label": "currency",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/currency",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/currency",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -279,10 +279,10 @@
         },
         "rdfs:range": "xsd:date",
         "rdfs:label": "date of birth",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/dateofbirth",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -291,10 +291,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "xsd:date",
         "rdfs:label": "date of death",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/dateofdeath",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -306,10 +306,10 @@
         },
         "rdfs:range": "xsd:date",
         "rdfs:label": "date of registration",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/dateofregistration",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -318,10 +318,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "domicile",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/domicile",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -330,10 +330,10 @@
         "rdfs:domain": "ebwv:LegalPersonIdentificationData",
         "rdfs:range": "xsd:string",
         "rdfs:label": "economic operator registration and identification",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/eori",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/eori",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -342,10 +342,10 @@
         "rdfs:domain": "ebwv:LegalPersonIdentificationData",
         "rdfs:range": "xsd:string",
         "rdfs:label": "excise number",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/excise",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/excise",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -354,10 +354,10 @@
         "rdfs:domain": "ebwv:NaturalPersonIdentificationData",
         "rdfs:range": "xsd:string",
         "rdfs:label": "family name",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/familyname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -366,10 +366,10 @@
         "rdfs:domain": "ebwv:Address",
         "rdfs:range": "xsd:string",
         "rdfs:label": "full address",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/fulladdress",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -378,10 +378,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "xsd:string",
         "rdfs:label": "full name",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/fullname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -390,10 +390,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "xsd:string",
         "rdfs:label": "gender",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/gender",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/gender",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -402,10 +402,10 @@
         "rdfs:domain": "ebwv:NaturalPersonIdentificationData",
         "rdfs:range": "xsd:string",
         "rdfs:label": "given name",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/givenname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -414,10 +414,10 @@
         "rdfs:domain": "ebwv:ContactPoint",
         "rdfs:range": "xsd:string",
         "rdfs:label": "email",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/email",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/email",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -426,10 +426,10 @@
         "rdfs:domain": "ebwv:ContactPoint",
         "rdfs:range": "xsd:string",
         "rdfs:label": "telephone",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/telephone",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/telephone",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -438,10 +438,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "ebwv:Identifier",
         "rdfs:label": "identifier",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/identifier",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -457,10 +457,10 @@
             "@value": "<div>a name under which the legal entity is registered</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/legalname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -472,10 +472,10 @@
         },
         "rdfs:range": ["ebwv:PublicBodyId", "ebwv:Euid"],
         "rdfs:label": "legal identifier",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/legalidentifier",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -484,10 +484,10 @@
         "rdfs:domain": "ebwv:EuccLimitLiabilityCompany",
         "rdfs:range": "ebwv:LegalRepresentative",
         "rdfs:label": "legal representative",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/legalrepresentative",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -496,10 +496,10 @@
         "rdfs:domain": "ebwv:LegalRepresentative",
         "rdfs:range": "xsd:anyURI",
         "rdfs:label": "unique ID of the identity of the representative",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/legalrepresentativeid",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -508,10 +508,10 @@
         "rdfs:domain": "ebwv:LegalPersonIdentificationData",
         "rdfs:range": "xsd:string",
         "rdfs:label": "legal entity identifier",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/lei",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/lei",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -520,10 +520,10 @@
         "rdfs:domain": "ebwv:LimitedPartner",
         "rdfs:range": "ebwv:Capital",
         "rdfs:label": "liability or contribution of the limited partner",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/liabilityorcontribution",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -532,10 +532,10 @@
         "rdfs:domain": "ebwv:Address",
         "rdfs:range": ["xsd:string", "xsd:integer"],
         "rdfs:label": "locator designator",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/locatordesignator",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -544,10 +544,10 @@
         "rdfs:domain": "ebwv:Address",
         "rdfs:range": "xsd:string",
         "rdfs:label": "locator name",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/locatorname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -556,10 +556,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "xsd:string",
         "rdfs:label": "matronymic name",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/matronymicname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -568,10 +568,10 @@
         "rdfs:domain": "ebwv:EuccPartnership",
         "rdfs:range": ["ebwv:GeneralPartner", "ebwv:LimitedPartner", "ebwv:StatutoryPartner"],
         "rdfs:label": "partner",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/partner",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/partner",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -583,10 +583,10 @@
         },
         "rdfs:range": "xsd:anyURI",
         "rdfs:label": "unique ID of the identity of the partner",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/partnerid",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -595,10 +595,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "xsd:string",
         "rdfs:label": "patronymic name",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/patronymicname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -607,10 +607,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "xsd:string",
         "rdfs:label": "personalAdministrativeNumber",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/personaladministrativenumber",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -619,10 +619,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "ebwv:Location",
         "rdfs:label": "place of birth",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofbirth",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/placeofbirth",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -631,10 +631,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "ebwv:Location",
         "rdfs:label": "place of death",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/placeofdeath",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -643,10 +643,10 @@
         "rdfs:domain": "ebwv:Address",
         "rdfs:range": "xsd:string",
         "rdfs:label": "post office box",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/pobox",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/pobox",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -655,10 +655,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "xsd:string",
         "rdfs:label": "portrait",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/portrait",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -667,10 +667,10 @@
         "rdfs:domain": "ebwv:Address",
         "rdfs:range": "xsd:string",
         "rdfs:label": "post code",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/postcode",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/postcode",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -679,10 +679,10 @@
         "rdfs:domain": "ebwv:Address",
         "rdfs:range": "xsd:string",
         "rdfs:label": "post name",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/postname",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/postname",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -694,10 +694,10 @@
         },
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "registered address",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/registeredaddress",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -706,10 +706,10 @@
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "ebwv:Jurisdiction",
         "rdfs:label": "residency",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/residency",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/residency",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -721,10 +721,10 @@
         },
         "rdfs:range": "xsd:string",
         "rdfs:label": "role of representative",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/role",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/role",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -739,10 +739,10 @@
             "owl:oneOf": ["ebwv:Alone", "ebwv:Jointly"]
         }],
         "rdfs:label": "scope of authorization (alone or jointly)",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/role",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/role",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -751,10 +751,10 @@
         "rdfs:domain": "ebwv:EuccLimitLiabilityCompany",
         "rdfs:range": "ebwv:Capital",
         "rdfs:label": "subscribed capital",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/subscribedcapital",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -763,10 +763,10 @@
         "rdfs:domain": "ebwv:Address",
         "rdfs:range": "xsd:string",
         "rdfs:label": "thoroughfare",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/thoroughfare",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -775,10 +775,10 @@
         "rdfs:domain": "ebwv:LegalPersonIdentificationData",
         "rdfs:range": "xsd:string",
         "rdfs:label": "tax reference number",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/tin",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/tin",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -787,10 +787,10 @@
         "rdfs:domain": "ebwv:LegalPersonIdentificationData",
         "rdfs:range": "xsd:string",
         "rdfs:label": "value added tax id",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/vat",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/vat",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }],
@@ -798,50 +798,50 @@
         "@id": "ebwv:Address",
         "@type": "rdfs:Class",
         "rdfs:label": "Address",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/address",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/address",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:Agent",
         "@type": "rdfs:Class",
         "rdfs:label": "Agent",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/agent",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/agent",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:AttestationLegalCategory",
         "@type": "rdfs:Class",
         "rdfs:label": "Attestation Legal Category",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/attestationlegalcategory",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:Capital",
         "@type": "rdfs:Class",
         "rdfs:label": "Capital",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/capital",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/capital",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:ContactPoint",
         "@type": "rdfs:Class",
         "rdfs:label": "Contact Point",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/contactpoint",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -849,10 +849,10 @@
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["cred:VerifiableCredential"],
         "rdfs:label": "Electronic Attestation Of Attributes",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/electronicattestationofattributes",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -860,10 +860,10 @@
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "European Company Certificate Data for limited liability companies",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/eucclimitliabilitycompany",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/eucclimitliabilitycompany",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -871,20 +871,20 @@
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "European Company Certificate Data for partnerships",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/euccpartnership",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/euccpartnership",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:Euid",
         "@type": "rdfs:Class",
         "rdfs:label": "EUID",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/euid",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/euid",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -892,30 +892,30 @@
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "European Business Wallet Owner ID",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/europeanbusinesswalletownerid",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/europeanbusinesswalletownerid",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:GeneralPartner",
         "@type": "rdfs:Class",
         "rdfs:label": "General Partner",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/generalpartner",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:Jurisdiction",
         "@type": "rdfs:Class",
         "rdfs:label": "Jurisdiction",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/jurisdiction",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -923,40 +923,40 @@
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "Legal Person Identification Data",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonidentificationdata",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/legalpersonidentificationdata",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:LegalRepresentative",
         "@type": "rdfs:Class",
         "rdfs:label": "Legal representative",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/legalrepresentative",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:LimitedPartner",
         "@type": "rdfs:Class",
         "rdfs:label": "Limited Partner",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedpartner",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/limitedpartner",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:Location",
         "@type": "rdfs:Class",
         "rdfs:label": "Location",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/location",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/location",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -964,10 +964,10 @@
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["skos:Concept"],
         "rdfs:label": "Nace Rev. 2.1",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/nace21",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/nace21",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
@@ -975,60 +975,60 @@
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "Natural Person Identification Data",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonidentificationdata",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/naturalpersonidentificationdata",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:PeriodOfTime",
         "@type": "rdfs:Class",
         "rdfs:label": "Period of Time",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/periodoftime",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:Person",
         "@type": "rdfs:Class",
         "rdfs:label": "Person",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/person",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/person",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:PublicBodyId",
         "@type": "rdfs:Class",
         "rdfs:label": "unique identifier of public body",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/publicBodyId",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:ScopeOfAuthorization",
         "@type": "rdfs:Class",
         "rdfs:label": "Scope Of Authorization",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/scopeofauthorization",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:StatutoryPartner",
         "@type": "rdfs:Class",
         "rdfs:label": "Statutory Partner",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/statutorypartner",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }],
@@ -1036,50 +1036,50 @@
         "@id": "ebwv:Alone",
         "@type": "ebwv:ScopeOfAuthorization",
         "rdfs:label": "scope of authorization Alone",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/Alone",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:EAA",
         "@type": "ebwv:AttestationLegalCategory",
         "rdfs:label": "electronic attestation of attributes",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/EAA",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:Jointly",
         "@type": "ebwv:ScopeOfAuthorization",
         "rdfs:label": "scope of authorization Jointly",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/Jointly",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:Pub-EAA",
         "@type": "ebwv:AttestationLegalCategory",
         "rdfs:label": "public electronic attestation of attributes",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/Pub-EAA",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
         "@id": "ebwv:QEAA",
         "@type": "ebwv:AttestationLegalCategory",
         "rdfs:label": "qualified electronic attestation of attributes",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/QEAA",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv/v0.1/vocabulary.context.jsonld",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }]
