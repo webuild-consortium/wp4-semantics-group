@@ -77,7 +77,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-03-12",
+    "dc:date": "2026-03-13",
     "rdfs_properties": [{
         "@id": "ebwv:activity",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
