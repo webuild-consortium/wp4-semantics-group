@@ -39,6 +39,37 @@ class:
     label: Attestation Legal Category
     defined_by: https:/w3id.org/ebwv/terminology#/concept/attestationlegalcategory
 
+  - id: BankAccount
+    label: Bank Account
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/bankaccount
+    example:
+      - label: Credential with credential subject of type EuropeanBusinessWalletOwner
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https:/w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:eb887cd3-5080-44e6-8b3d-e008d80e19fc",
+              "@type": "BankAccount",
+              "accountName": "ACME: Business expenses HR",
+              "accountType": "Corporate Account",
+              "iban": "DE02500105170137075030",
+              "owner" : "did:key:$publicKeyOfOwner$",
+              "provider" : "did:key:$publicKeyOfProvider$"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfProvider$"
+          }
+
   - id: Capital
     label: Capital
     defined_by: https:/w3id.org/ebwv/terminology#/concept/capital
@@ -56,12 +87,117 @@ class:
     upper_value: cred:VerifiableCredential
     defined_by: https:/w3id.org/ebwv/terminology#/concept/electronicattestationofattributes
 
-  - id: EuccLimitLiabilityCompany
-    label: European Company Certificate Data for limited liability companies
+  - id: EuropeanBusinessWalletOwner
+    label: European Business Wallet Owner
     upper_value: cred:CredentialSubject
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/eucclimitliabilitycompany
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/europeanbusinesswalletowner
     example:
-      - label: Credential with credential subject of type EuccLimitLiabilityCompany
+      - label: Credential with credential subject of type EuropeanBusinessWalletOwner
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https:/w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "EuropeanBusinessWalletOwner",
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
+              "legalName": "acme Corporation"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: GeneralPartner
+    label: General Partner
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/generalpartner
+
+  - id: LegalPerson
+    label: Legal Person
+    upper_value:
+      - LegalEntity
+      - cred:CredentialSubject
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/legalperson
+    example:
+      - label: Credential with credential subject of type LegalPerson
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https:/w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "LegalPerson",
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
+              "legalName": "acme Corporation",
+              "registeredAddress": {
+                "@type":"Address",
+                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                "thoroughfare": "Via Appia",
+                "locatorDesignator": "123",
+                "postName": "Rome",
+                "adminUnitL2": "Lazio",
+                "postCode": "00100",
+                "adminUnitL1": "IT"
+              },
+              "identifier" : [
+                {
+                  "@type" : "BicSwift",
+                  "INCFGXXX"
+                },
+                  "@type" : "ClearingNumber",
+                  "12345678"
+              ],
+              "vat": "123456789MVA",
+              "tin": "NO-ORG-123456789",
+              "lei": "5493001KJTIIGC8Y1R12",
+              "eori": "NO123456789012",
+              "excise": "GBWK123456789000"
+
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: LegalEntity
+    label: Legal entity
+    upper_value: EuropeanBusinessWalletOwner
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/legalentity
+
+  - id: LegalRepresentative
+    label: Legal representative
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/legalrepresentative
+
+  - id: LimitedLiabilityCompany
+    label: European Company Certificate Data for limited liability companies
+    upper_value:
+      - LegalPerson
+      - cred:CredentialSubject
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/limitedliabilitycompany
+    example:
+      - label: Credential with credential subject of type LimitedLiabilityCompany
         json: |
           {
             "@context": [
@@ -76,7 +212,7 @@ class:
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "EuccLimitLiabilityCompany",
+              "@type": "LimitedLiabilityCompany",
               "legalIdentifier": {
                 "@type" : "Euid",
                 "@value" : "NOFOR.987654321"
@@ -103,8 +239,8 @@ class:
                 "adminUnitL1": "IT"
               },
               "dateOfRegistration": "2023-10-11",
-              "companyStatus": "active",
-              "activity": 1082,
+              "legalStatus": "active",
+              "activity": "10.82",
               "subscribedCapital": {
                 "@type": "Capital",
                 "amount": 100000,
@@ -130,12 +266,54 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
-  - id: EuccPartnership
-    label: European Company Certificate Data for partnerships
-    upper_value: cred:CredentialSubject
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/euccpartnership
+  - id: LimitedPartner
+    label: Limited Partner
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/limitedpartner
+
+  - id: Location
+    label: Location
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/location
+
+  - id: NaturalPerson
+    label: Natural Person Identification Data
+    upper_value:
+      - LegalEntity
+      - cred:CredentialSubject
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/naturalperson
     example:
-      - label: Credential with credential subject of type EuccPartnership
+      - label: Credential with credential subject of type NaturalPerson
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https:/w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "NaturalPerson",
+              "givenName": "Mario",
+              "familyName": "Mustermann",
+              "birthDate": "12/01/1965"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: Partnership
+    label: European Company Certificate Data for partnerships
+    upper_value:
+      - LegalPerson
+      - cred:CredentialSubject
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/partnership
+    example:
+      - label: Credential with credential subject of type Partnership
         json: |
           {
             "@context": [
@@ -150,7 +328,7 @@ class:
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "EuccPartnership",
+              "@type": "Partnership",
               "legalIdentifier": {
                 "@type" : "Euid",
                 "@value" : "NOFOR.987654321"
@@ -177,8 +355,8 @@ class:
                 "adminUnitL1": "IT"
               },
               "dateOfRegistration": "2023-10-11",
-              "companyStatus": "active",
-              "activity": 1082,
+              "legalStatus": "active",
+              "activity": "10.82",
               "partner": [
                 {
                   "@type": "GeneralPartner",
@@ -206,136 +384,6 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
-  - id: Euid
-    label: EUID
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/euid
-
-  - id: EuropeanBusinessWalletOwnerId
-    label: European Business Wallet Owner ID
-    upper_value: cred:CredentialSubject
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/europeanbusinesswalletownerid
-    example:
-      - label: Credential with credential subject of type EuropeanBusinessWalletOwnerId
-        json: |
-          {
-            "@context": [
-              "https://www.w3.org/ns/credentials/v2",
-              "https:/w3id.org/ebwv/v0.1"
-            ],
-            "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
-            "@type": [
-              "VerifiableCredential",
-              "ElectronicAttestationOfAttributes"
-            ],
-            "attestationLegalCategory": "QEAA",
-            "credentialSubject": {
-              "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "EuropeanBusinessWalletOwnerId",
-              "legalIdentifier": {
-                "@type" : "Euid",
-                "@value" : "NOFOR.987654321"
-              },
-              "legalName": "acme Corporation"
-            },
-            "validUntil": "2029-12-03T12:19:52Z",
-            "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfIssuer$"
-          }
-
-  - id: GeneralPartner
-    label: General Partner
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/generalpartner
-
-  - id: LegalPersonIdentificationData
-    label: Legal Person Identification Data
-    upper_value: cred:CredentialSubject
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/legalpersonidentificationdata
-    example:
-      - label: Credential with credential subject of type LegalPersonIdentificationData
-        json: |
-          {
-            "@context": [
-              "https://www.w3.org/ns/credentials/v2",
-              "https:/w3id.org/ebwv/v0.1"
-            ],
-            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
-            "@type": [
-              "VerifiableCredential",
-              "ElectronicAttestationOfAttributes"
-            ],
-            "attestationLegalCategory": "QEAA",
-            "credentialSubject": {
-              "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "LegalPersonIdentificationData",
-              "legalIdentifier": {
-                "@type" : "Euid",
-                "@value" : "NOFOR.987654321"
-              },
-              "legalName": "acme Corporation",
-              "registeredAddress": {
-                "@type":"Address",
-                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
-                "thoroughfare": "Via Appia",
-                "locatorDesignator": "123",
-                "postName": "Rome",
-                "adminUnitL2": "Lazio",
-                "postCode": "00100",
-                "adminUnitL1": "IT"
-              },
-              "vat": "123456789MVA",
-              "tin": "NO-ORG-123456789",
-              "lei": "5493001KJTIIGC8Y1R12",
-              "eori": "NO123456789012",
-              "excise": "GBWK123456789000"
-
-            },
-            "validUntil": "2029-12-03T12:19:52Z",
-            "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfIssuer$"
-          }
-
-  - id: LegalRepresentative
-    label: Legal representative
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/legalrepresentative
-
-  - id: LimitedPartner
-    label: Limited Partner
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/limitedpartner
-
-  - id: Location
-    label: Location
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/location
-
-  - id: NaturalPersonIdentificationData
-    label: Natural Person Identification Data
-    upper_value: cred:CredentialSubject
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/naturalpersonidentificationdata
-    example:
-      - label: Credential with credential subject of type NaturalPersonIdentificationData
-        json: |
-          {
-            "@context": [
-              "https://www.w3.org/ns/credentials/v2",
-              "https:/w3id.org/ebwv/v0.1"
-            ],
-            "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
-            "@type": [
-              "VerifiableCredential",
-              "ElectronicAttestationOfAttributes"
-            ],
-            "attestationLegalCategory": "QEAA",
-            "credentialSubject": {
-              "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "NaturalPersonIdentificationData",
-              "givenName": "Mario",
-              "familyName": "Mustermann",
-              "birthDate": "12/01/1965"
-            },
-            "validUntil": "2029-12-03T12:19:52Z",
-            "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfIssuer$"
-          }
-
   - id: PeriodOfTime
     label: Period of Time
     defined_by: https:/w3id.org/ebwv/terminology#/concept/periodoftime
@@ -343,10 +391,6 @@ class:
   - id: Person
     label: Person
     defined_by: https:/w3id.org/ebwv/terminology#/concept/person
-
-  - id: PublicBodyId
-    label: unique identifier of public body
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/publicBodyId
 
   - id: ScopeOfAuthorization
     label: Scope Of Authorization
@@ -359,12 +403,22 @@ class:
 property:
   - id: activity
     label: main activity of company
-    domain:
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
+    domain: LegalPerson
     range:
       - Nace21
     defined_by: https:/w3id.org/ebwv/terminology#/concept/activity
+
+  - id: accountName
+    label: account name
+    domain: BankAccount
+    range: xsd:string
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/bankaccount
+
+  - id: accountType
+    label: account type
+    domain: BankAccount
+    range: AccountType
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/banktype
 
   - id: addressArea
     label: address area
@@ -415,14 +469,6 @@ property:
     range: CountryCode
     defined_by: https:/w3id.org/ebwv/terminology#/concept/citizenship
 
-  - id: companyStatus
-    label: status of the company
-    domain:
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
-    range: xsd:string
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/companyStatus
-
   - id: contactPoint
     label: contact point
     domain: Person
@@ -432,9 +478,7 @@ property:
   - id: correspondenceAddress
     label: correspondence Address
     domain:
-      - LegalPersonIdentificationData
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
+      - LegalPerson
     range:
       - Address
     defined_by: https:/w3id.org/ebwv/terminology#/concept/correspondenceaddress
@@ -461,7 +505,7 @@ property:
     label: date of birth
     domain:
       -  Person
-      -  NaturalPersonIdentificationData
+      -  NaturalPerson
     range: xsd:date
     defined_by: https:/w3id.org/ebwv/terminology#/concept/dateofbirth
 
@@ -473,9 +517,7 @@ property:
 
   - id: dateOfRegistration
     label: date of registration
-    domain:
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
+    domain: LegalPerson
     range: xsd:date
     defined_by: https:/w3id.org/ebwv/terminology#/concept/dateofregistration
 
@@ -487,19 +529,19 @@ property:
 
   - id: eori
     label: economic operator registration and identification
-    domain: LegalPersonIdentificationData
+    domain: LegalPerson
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/eori
 
   - id: excise
     label: excise number
-    domain: LegalPersonIdentificationData
+    domain: LegalPerson
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/excise
 
   - id: familyName
     label: family name
-    domain: NaturalPersonIdentificationData
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/familyname
 
@@ -523,7 +565,7 @@ property:
 
   - id: givenName
     label: given name
-    domain: NaturalPersonIdentificationData
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/givenname
 
@@ -539,39 +581,43 @@ property:
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/telephone
 
+  - id: iban
+    label: IBAN
+    domain: BankAccount
+    range: Iban
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/iban
+
   - id: identifier
     label: identifier
-    domain: Person
-    range: Identifier
+    domain: 
+      - Person
+      - LegalPerson
+      - NaturalPerson
+    range:
+      - BicSwift
+      - ClearingNumber
+      - Iban
     defined_by: https:/w3id.org/ebwv/terminology#/concept/identifier
-
-  - id: legalName
-    label: legal name
-    domain:
-      - LegalPersonIdentificationData
-      - EuropeanBusinessWalletOwnerId
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
-    range: xsd:string
-    comment: a name under which the legal entity is registered
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/legalname
 
   - id: legalIdentifier
     label: legal identifier
-    domain:
-      - LegalPersonIdentificationData
-      - EuropeanBusinessWalletOwnerId
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
+    domain: EuropeanBusinessWalletOwner
     range:
       - PublicBodyId
       - Euid
     defined_by: https:/w3id.org/ebwv/terminology#/concept/legalidentifier
 
+  - id: legalName
+    label: legal name
+    domain: EuropeanBusinessWalletOwner
+    range: xsd:string
+    comment: a name under which the legal entity is registered
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/legalname
+
   - id: legalRepresentative
     label: legal representative
     domain:
-      - EuccLimitLiabilityCompany
+      - LimitedLiabilityCompany
     range:
       - LegalRepresentative
     defined_by: https:/w3id.org/ebwv/terminology#/concept/legalrepresentative
@@ -582,9 +628,15 @@ property:
     range: xsd:anyURI
     defined_by: https:/w3id.org/ebwv/terminology#/concept/legalrepresentativeid
 
+  - id: legalStatus
+    label: status of the company
+    domain: LegalPerson
+    range: xsd:string
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/legalstatus
+
   - id: lei
     label: legal entity identifier
-    domain: LegalPersonIdentificationData
+    domain: LegalPerson
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/lei
 
@@ -614,9 +666,18 @@ property:
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/matronymicname
 
+  - id: owner
+    label: owner
+    domain: BankAccount
+    range:
+      - LegalPerson
+      - NaturalPerson
+      - Person
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/owner
+
   - id: partner
     label: partner
-    domain: EuccPartnership
+    domain: Partnership
     range:
       - GeneralPartner
       - LimitedPartner
@@ -680,12 +741,16 @@ property:
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/postname
 
+  - id: provider
+    label: provide
+    domain: ProviderBankAccount
+    range:
+      - LegalPerson
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/provider
+
   - id: registeredAddress
     label: registered address
-    domain:
-      - LegalPersonIdentificationData
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
+    domain: LegalPerson
     range:
       - Address
     defined_by: https:/w3id.org/ebwv/terminology#/concept/registeredaddress
@@ -716,7 +781,7 @@ property:
   - id: subscribedCapital
     label: subscribed capital
     domain:
-      - EuccLimitLiabilityCompany
+      - LimitedLiabilityCompany
     range: Capital
     defined_by: https:/w3id.org/ebwv/terminology#/concept/subscribedcapital
 
@@ -728,13 +793,13 @@ property:
 
   - id: tin
     label: tax reference number
-    domain: LegalPersonIdentificationData
+    domain: LegalPerson
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/tin
 
   - id: vat
     label: value added tax id
-    domain: LegalPersonIdentificationData
+    domain: LegalPerson
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/vat
 
@@ -765,6 +830,30 @@ individual:   # code lists
     defined_by: https:/w3id.org/ebwv/terminology#/concept/QEAA
 
 datatype:
+  - id: AccountType
+    label: account type
+    upper_value: xsd:string
+    comment: list of account types TBD
+
+  - id: CountryCode
+    label: Country Code
+    upper_value: xsd:string
+    pattern: '[A-Z]{2}'
+    comment: 2 letter country code according to ISO-3166
+    defined_by: https://www.iso.org/iso-3166-country-codes.html
+
+  - id: BicSwift
+    label: BIC Swift Code
+    upper_value: xsd:string
+    pattern: '[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})'
+    comment: International code (i.e. BIC or SWIFT code), as defined in ISO 9362, of the financial institution
+    defined_by: https://www.iso.org/standard/84108.html
+
+  - id: ClearingNumber
+    label: ClearingNumber
+    upper_value: xsd:string
+    comment: Clearing number, only used in some countries, of the identification of the financial institution.
+
   - id: Currency
     label: Currency
     upper_value: xsd:string
@@ -774,18 +863,34 @@ datatype:
       - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/currency
       - http://publications.europa.eu/resource/authority/currency
 
+  - id: Euid
+    label: EUID
+    upper_value: xsd:string
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/euid
+
+  - id: Iban
+    label: IBAN
+    upper_value: xsd:string
+    pattern: '[A-Z]{2}[0-9A-Z]{13,30}'
+    comment: IBAN as defined by ISO 13616:2020
+    defined_by:
+      - https://www.iso.org/standard/81090.html
+
   - id: Nace21
     label: Nace Rev. 2.1
-    upper_value: xsd:integer
-    comment: code of the main activity of the company according to the European controlled vocabulary 'Nace Rev. 2.1'
+    upper_value: xsd:string
+    comment: notation of the main activity of the company according to the European controlled vocabulary 'Nace Rev. 2.1'
     defined_by:
       - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/ux2/nace2.1/nace2.1
       - http://data.europa.eu/ux2/nace2.1/nace2.1
 
-  - id: CountryCode
-    label: Country Code
+  - id: NationalBankCode
+    label: National Bank Code
     upper_value: xsd:string
-    pattern: '[A-Z]{2}'
-    comment: 2 letter country code according to ISO-3166
-    defined_by: https://www.iso.org/iso-3166-country-codes.html
+    comment: Country-specific code for e.g. internal routing within a specific country’s clearing system (e.g. BLZ, Sort Code)
+
+  - id: PublicBodyId
+    label: unique identifier of public body
+    upper_value: xsd:string
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/publicBodyId
 
