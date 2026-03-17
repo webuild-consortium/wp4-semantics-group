@@ -76,11 +76,11 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-03-16",
+    "dc:date": "2026-03-17",
     "rdfs_properties": [{
         "@id": "ebwv:activity",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:LegalPerson",
+        "rdfs:domain": "ebwv:Company",
         "rdfs:range": "ebwv:Nace21",
         "rdfs:label": "main activity of company",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/activity",
@@ -227,7 +227,7 @@
     }, {
         "@id": "ebwv:correspondenceAddress",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:LegalPerson",
+        "rdfs:domain": "ebwv:Company",
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "correspondence Address",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/correspondenceaddress",
@@ -302,7 +302,7 @@
     }, {
         "@id": "ebwv:dateOfRegistration",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:LegalPerson",
+        "rdfs:domain": "ebwv:Company",
         "rdfs:range": "xsd:date",
         "rdfs:label": "date of registration",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/dateofregistration",
@@ -326,7 +326,7 @@
     }, {
         "@id": "ebwv:eori",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:LegalPerson",
+        "rdfs:domain": "ebwv:Company",
         "rdfs:range": "xsd:string",
         "rdfs:label": "economic operator registration and identification",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/eori",
@@ -338,7 +338,7 @@
     }, {
         "@id": "ebwv:excise",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:LegalPerson",
+        "rdfs:domain": "ebwv:Company",
         "rdfs:range": "xsd:string",
         "rdfs:label": "excise number",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/excise",
@@ -350,7 +350,10 @@
     }, {
         "@id": "ebwv:familyName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:NaturalPerson",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:NaturalPerson", "ebwv:Person"]
+        },
         "rdfs:range": "xsd:string",
         "rdfs:label": "family name",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/familyname",
@@ -398,7 +401,10 @@
     }, {
         "@id": "ebwv:givenName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:NaturalPerson",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:NaturalPerson", "ebwv:Person"]
+        },
         "rdfs:range": "xsd:string",
         "rdfs:label": "given name",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/givenname",
@@ -446,11 +452,8 @@
     }, {
         "@id": "ebwv:identifier",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": {
-            "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Person", "ebwv:LegalPerson", "ebwv:NaturalPerson"]
-        },
-        "rdfs:range": ["ebwv:BicSwift", "ebwv:ClearingNumber", "ebwv:Iban"],
+        "rdfs:domain": "ebwv:Company",
+        "rdfs:range": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Iban"],
         "rdfs:label": "identifier",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/identifier",
         "vs:term_status": "stable",
@@ -459,9 +462,27 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:legalForm",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:LegalPerson", "ebwv:Company"]
+        },
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "legal form",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/legalform",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:legalIdentifier",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:EuropeanBusinessWalletOwner",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:Company"]
+        },
         "rdfs:range": ["ebwv:PublicBodyId", "ebwv:Euid"],
         "rdfs:label": "legal identifier",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/legalidentifier",
@@ -473,7 +494,10 @@
     }, {
         "@id": "ebwv:legalName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:EuropeanBusinessWalletOwner",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:Company"]
+        },
         "rdfs:range": "xsd:string",
         "rdfs:label": "legal name",
         "rdfs:comment": {
@@ -513,7 +537,7 @@
     }, {
         "@id": "ebwv:legalStatus",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:LegalPerson",
+        "rdfs:domain": "ebwv:Company",
         "rdfs:range": "xsd:string",
         "rdfs:label": "status of the company",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/legalstatus",
@@ -525,7 +549,7 @@
     }, {
         "@id": "ebwv:lei",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:LegalPerson",
+        "rdfs:domain": "ebwv:Company",
         "rdfs:range": "xsd:string",
         "rdfs:label": "legal entity identifier",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/lei",
@@ -586,7 +610,7 @@
         "@id": "ebwv:owner",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:BankAccount",
-        "rdfs:range": ["ebwv:LegalPerson", "ebwv:NaturalPerson", "ebwv:Person"],
+        "rdfs:range": ["ebwv:LegalPerson", "ebwv:Company", "ebwv:NaturalPerson", "ebwv:Person"],
         "rdfs:label": "owner",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/owner",
         "vs:term_status": "stable",
@@ -721,7 +745,7 @@
         "@id": "ebwv:provider",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:ProviderBankAccount",
-        "rdfs:range": "ebwv:LegalPerson",
+        "rdfs:range": ["ebwv:LegalPerson", "ebwv:Company"],
         "rdfs:label": "provide",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/provider",
         "vs:term_status": "stable",
@@ -732,7 +756,7 @@
     }, {
         "@id": "ebwv:registeredAddress",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:LegalPerson",
+        "rdfs:domain": "ebwv:Company",
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "registered address",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/registeredaddress",
@@ -813,7 +837,7 @@
     }, {
         "@id": "ebwv:tin",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:LegalPerson",
+        "rdfs:domain": "ebwv:Company",
         "rdfs:range": "xsd:string",
         "rdfs:label": "tax reference number",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/tin",
@@ -825,7 +849,7 @@
     }, {
         "@id": "ebwv:vat",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:LegalPerson",
+        "rdfs:domain": "ebwv:Company",
         "rdfs:range": "xsd:string",
         "rdfs:label": "value added tax id",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/vat",
@@ -880,6 +904,17 @@
         "@type": "rdfs:Class",
         "rdfs:label": "Capital",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/capital",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:Company",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
+        "rdfs:label": "Company as defined in directive-EU-2025/25",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/company",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -941,7 +976,7 @@
     }, {
         "@id": "ebwv:LegalEntity",
         "@type": "rdfs:Class",
-        "rdfs:subClassOf": ["ebwv:EuropeanBusinessWalletOwner"],
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "Legal entity",
         "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/legalentity",
         "vs:term_status": "stable",
@@ -1140,7 +1175,7 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:BicSwift",
+        "@id": "ebwv:Bic",
         "@type": "rdfs:Datatype",
         "rdfs:subClassOf": ["xsd:string"],
         "owl:onDatatype": "xsd:string",
@@ -1149,7 +1184,7 @@
                 "xsd:pattern": "[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})"
             }]
         },
-        "rdfs:label": "BIC Swift Code",
+        "rdfs:label": "Business Identifier Code aka Swift Code",
         "rdfs:comment": {
             "@value": "<div>International code (i.e. BIC or SWIFT code), as defined in ISO 9362, of the financial institution</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"

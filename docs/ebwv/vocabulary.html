@@ -134,7 +134,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-03-16</time>
+                <time property="dc:date" id="time">2026-03-17</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -179,9 +179,27 @@
         <p>The ontology can be browsed <a href="https://webvowl.semantic-treehouse.nl/#iri=https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.ttl">here</a> using the WEBVOWL browser.</p>
         <p>The following class diagram shows the data structure of the credential subjects using the vocabulary defined in this specification.</p>
         <figure id="figure1">
-            <img src="class-diagram.svg" alt="class diagram">
+            <img src="class-diagram-metadata.svg" alt="class diagram">
             <figcaption>
-                Class diagram of vocabulary.<br> A separate stand-alone <a href="class-diagram.svg">SVG Version</a> of the diagram is also available.
+                Class diagram of the additional credential metadata.<br> A separate stand-alone <a href="class-diagram.metadata.svg">SVG Version</a> of the diagram is also available.
+            </figcaption>
+        </figure>
+        <figure id="figure2">
+            <img src="class-diagram-ebwo.svg" alt="class diagram">
+            <figcaption>
+                Class diagram of the european business wallet owner credential.<br> A separate stand-alone <a href="class-diagram-ebwo.svg">SVG Version</a> of the diagram is also available.
+            </figcaption>
+        </figure>
+        <figure id="figure3">
+            <img src="class-diagram-eucc.svg" alt="class diagram">
+            <figcaption>
+                Class diagram of the European Company Certificate vocabulary.<br> A separate stand-alone <a href="class-diagram-eucc.svg">SVG Version</a> of the diagram is also available.
+            </figcaption>
+        </figure>
+        <figure id="figure4">
+            <img src="class-diagram-bank-account.svg" alt="class diagram">
+            <figcaption>
+                Class diagram of the e vocabulary.<br> A separate stand-alone <a href="class-diagram-bank-account.svg">SVG Version</a> of the diagram is also available.
             </figcaption>
         </figure>
     </section>
@@ -201,9 +219,10 @@
                         <li><a href="#Alone"><code>Alone<code></code></code></a></li>
                         <li><a href="#AttestationLegalCategory"><code>AttestationLegalCategory<code></code></code></a></li>
                         <li><a href="#BankAccount"><code>BankAccount<code></code></code></a></li>
-                        <li><a href="#BicSwift"><code>BicSwift<code></code></code></a></li>
+                        <li><a href="#Bic"><code>Bic<code></code></code></a></li>
                         <li><a href="#Capital"><code>Capital<code></code></code></a></li>
                         <li><a href="#ClearingNumber"><code>ClearingNumber<code></code></code></a></li>
+                        <li><a href="#Company"><code>Company<code></code></code></a></li>
                         <li><a href="#ContactPoint"><code>ContactPoint<code></code></code></a></li>
                         <li><a href="#CountryCode"><code>CountryCode<code></code></code></a></li>
                         <li><a href="#Currency"><code>Currency<code></code></code></a></li>
@@ -262,6 +281,7 @@
                         <li><a href="#hasTelephone"><code>hasTelephone<code></code></code></a></li>
                         <li><a href="#iban"><code>iban<code></code></code></a></li>
                         <li><a href="#identifier"><code>identifier<code></code></code></a></li>
+                        <li><a href="#legalForm"><code>legalForm<code></code></code></a></li>
                         <li><a href="#legalIdentifier"><code>legalIdentifier<code></code></code></a></li>
                         <li><a href="#legalName"><code>legalName<code></code></code></a></li>
                         <li><a href="#legalRepresentative"><code>legalRepresentative<code></code></code></a></li>
@@ -310,7 +330,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/activity">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Nace21"><code>Nace21</code></a></dd>
                 </dl>
@@ -494,7 +514,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/correspondenceaddress">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
                 </dl>
@@ -584,7 +604,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/dateofregistration">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><code>xsd:date</code></dd>
                 </dl>
@@ -614,7 +634,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/eori">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -629,7 +649,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/excise">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -644,7 +664,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/familyname">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#NaturalPerson"><code>NaturalPerson</code></a></dd>
+                    <dd><a href="#NaturalPerson"><code>NaturalPerson</code></a> ⊔&nbsp;<a href="#Person"><code>Person</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -704,7 +724,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/givenname">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#NaturalPerson"><code>NaturalPerson</code></a></dd>
+                    <dd><a href="#NaturalPerson"><code>NaturalPerson</code></a> ⊔&nbsp;<a href="#Person"><code>Person</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -764,9 +784,24 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/identifier">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Person"><code>Person</code></a> ⊔&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#NaturalPerson"><code>NaturalPerson</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#BicSwift"><code>BicSwift</code></a> ⊓&nbsp;<a href="#ClearingNumber"><code>ClearingNumber</code></a> ⊓&nbsp;<a href="#Iban"><code>Iban</code></a></dd>
+                    <dd><a href="#Bic"><code>Bic</code></a> ⊓&nbsp;<a href="#ClearingNumber"><code>ClearingNumber</code></a> ⊓&nbsp;<a href="#Iban"><code>Iban</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="legalForm">
+                <h4><code>legalForm</code></h4>
+                <p><em>legal form</em></p>
+                <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/legalform">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#Company"><code>Company</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -779,7 +814,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/legalidentifier">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a></dd>
+                    <dd><a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a> ⊔&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#PublicBodyId"><code>PublicBodyId</code></a> ⊓&nbsp;<a href="#Euid"><code>Euid</code></a></dd>
                 </dl>
@@ -795,7 +830,7 @@
                 <div>a name under which the legal entity is registered</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a></dd>
+                    <dd><a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a> ⊔&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -840,7 +875,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/legalstatus">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -855,7 +890,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/lei">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -932,7 +967,7 @@
                     <dt>Domain:</dt>
                     <dd><a href="#BankAccount"><code>BankAccount</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊓&nbsp;<a href="#NaturalPerson"><code>NaturalPerson</code></a> ⊓&nbsp;<a href="#Person"><code>Person</code></a></dd>
+                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊓&nbsp;<a href="#Company"><code>Company</code></a> ⊓&nbsp;<a href="#NaturalPerson"><code>NaturalPerson</code></a> ⊓&nbsp;<a href="#Person"><code>Person</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1097,7 +1132,7 @@
                     <dt>Domain:</dt>
                     <dd><a href="#ProviderBankAccount"><code>ProviderBankAccount</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a></dd>
+                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊓&nbsp;<a href="#Company"><code>Company</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1110,7 +1145,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/registeredaddress">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
                 </dl>
@@ -1204,7 +1239,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/tin">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -1219,7 +1254,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/vat">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -1323,6 +1358,77 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="Company">
+                <h4><code>Company</code></h4>
+                <p><em>Company as defined in directive-EU-2025/25</em></p>
+                <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/company">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#owner"><code>owner</code></a>, <a href="#provider"><code>provider</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#activity"><code>activity</code></a>, <a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#eori"><code>eori</code></a>, <a href="#excise"><code>excise</code></a>, <a href="#identifier"><code>identifier</code></a>, <a href="#legalStatus"><code>legalStatus</code></a>, <a href="#lei"><code>lei</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a>, <a href="#tin"><code>tin</code></a>, <a href="#vat"><code>vat</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#legalForm"><code>legalForm</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#legalName"><code>legalName</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+                <pre class="example prettyprint language-json" title="Credential with credential subject of type LegalPerson">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https:/w3id.org/ebwv/v0.1"
+  ],
+  "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+  "@type": [
+    "VerifiableCredential",
+    "ElectronicAttestationOfAttributes"
+  ],
+  "attestationLegalCategory": "QEAA",
+  "credentialSubject": {
+    "@id": "did:key:$publicKeyOfHolder$",
+    "@type": "LegalPerson",
+    "legalIdentifier": {
+      "@type" : "Euid",
+      "@value" : "NOFOR.987654321"
+    },
+    "legalName": "acme Corporation",
+    "legalForm": "Inc.",
+    "registeredAddress": {
+      "@type":"Address",
+      "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+      "thoroughfare": "Via Appia",
+      "locatorDesignator": "123",
+      "postName": "Rome",
+      "adminUnitL2": "Lazio",
+      "postCode": "00100",
+      "adminUnitL1": "IT"
+    },
+    "identifier" : [
+      {
+        "@type" : "Bic",
+        "@value" : "INCFGXXX"
+      },
+        "@type" : "ClearingNumber",
+        "@value" : "12345678"
+    ],
+    "vat": "123456789MVA",
+    "tin": "NO-ORG-123456789",
+    "lei": "5493001KJTIIGC8Y1R12",
+    "eori": "NO123456789012",
+    "excise": "GBWK123456789000"
+
+  },
+  "validUntil": "2029-12-03T12:19:52Z",
+  "validFrom": "2019-12-03T12:19:52Z",
+  "issuer": "did:key:$publicKeyOfIssuer$"
+}
+</pre>
+            </section>
             <section id="ContactPoint">
                 <h4><code>ContactPoint</code></h4>
                 <p><em>Contact Point</em></p>
@@ -1378,7 +1484,7 @@
                     <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
                 </dl>
                 <dl class="terms">
-                    <dt>Domain of:</dt>
+                    <dt>In the domain of:</dt>
                     <dd><a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#legalName"><code>legalName</code></a></dd>
                 </dl>
                 <dl class="terms">
@@ -1435,14 +1541,10 @@
                     <dd><a href="#LegalEntity"><code>LegalEntity</code></a> ⊓&nbsp;<a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
                 </dl>
                 <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#provider"><code>provider</code></a></dd>
                     <dt>Includes the range of:</dt>
-                    <dd><a href="#owner"><code>owner</code></a></dd>
-                    <dt>Domain of:</dt>
-                    <dd><a href="#activity"><code>activity</code></a>, <a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#eori"><code>eori</code></a>, <a href="#excise"><code>excise</code></a>, <a href="#legalStatus"><code>legalStatus</code></a>, <a href="#lei"><code>lei</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a>, <a href="#tin"><code>tin</code></a>, <a href="#vat"><code>vat</code></a></dd>
+                    <dd><a href="#owner"><code>owner</code></a>, <a href="#provider"><code>provider</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#identifier"><code>identifier</code></a></dd>
+                    <dd><a href="#legalForm"><code>legalForm</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#legalName"><code>legalName</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1467,30 +1569,7 @@
       "@value" : "NOFOR.987654321"
     },
     "legalName": "acme Corporation",
-    "registeredAddress": {
-      "@type":"Address",
-      "fullAddress": "Via Appia 123, 00100 Rome, Italy",
-      "thoroughfare": "Via Appia",
-      "locatorDesignator": "123",
-      "postName": "Rome",
-      "adminUnitL2": "Lazio",
-      "postCode": "00100",
-      "adminUnitL1": "IT"
-    },
-    "identifier" : [
-      {
-        "@type" : "BicSwift",
-        "INCFGXXX"
-      },
-        "@type" : "ClearingNumber",
-        "12345678"
-    ],
-    "vat": "123456789MVA",
-    "tin": "NO-ORG-123456789",
-    "lei": "5493001KJTIIGC8Y1R12",
-    "eori": "NO123456789012",
-    "excise": "GBWK123456789000"
-
+    "legalForm": "Inc."
   },
   "validUntil": "2029-12-03T12:19:52Z",
   "validFrom": "2019-12-03T12:19:52Z",
@@ -1504,7 +1583,7 @@
                 <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/legalentity">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Subclass of:</dt>
-                    <dd><a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a></dd>
+                    <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1563,6 +1642,7 @@
       "@value" : "NOFOR.987654321"
     },
     "legalName": "acme Corporation",
+    "legalForm": "Inc.",
     "registeredAddress": {
       "@type":"Address",
       "fullAddress": "Via Appia 123, 00100 Rome, Italy",
@@ -1653,10 +1733,8 @@
                 <dl class="terms">
                     <dt>Includes the range of:</dt>
                     <dd><a href="#owner"><code>owner</code></a></dd>
-                    <dt>Domain of:</dt>
-                    <dd><a href="#familyName"><code>familyName</code></a>, <a href="#givenName"><code>givenName</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#dateOfBirth"><code>dateOfBirth</code></a>, <a href="#identifier"><code>identifier</code></a></dd>
+                    <dd><a href="#dateOfBirth"><code>dateOfBirth</code></a>, <a href="#familyName"><code>familyName</code></a>, <a href="#givenName"><code>givenName</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1716,11 +1794,6 @@
   "credentialSubject": {
     "@id": "did:key:$publicKeyOfHolder$",
     "@type": "Partnership",
-    "legalIdentifier": {
-      "@type" : "Euid",
-      "@value" : "NOFOR.987654321"
-    },
-    "legalName": "acme Partnership",
     "registeredAddress": {
       "@type":"Address",
       "fullAddress": "Via Appia 123, 00100 Rome, Italy",
@@ -1731,19 +1804,6 @@
       "postCode": "00100",
       "adminUnitL1": "IT"
     },
-    "correspondenceAddress": {
-      "@type":"Address",
-      "fullAddress": "Via Appia 123, 00100 Rome, Italy",
-      "thoroughfare": "Via Appia",
-      "locatorDesignator": "123",
-      "postName": "Rome",
-      "adminUnitL2": "Lazio",
-      "postCode": "00100",
-      "adminUnitL1": "IT"
-    },
-    "dateOfRegistration": "2023-10-11",
-    "legalStatus": "active",
-    "activity": "10.82",
     "partner": [
       {
         "@type": "GeneralPartner",
@@ -1791,7 +1851,7 @@
                     <dt>Domain of:</dt>
                     <dd><a href="#alternativeName"><code>alternativeName</code></a>, <a href="#birthName"><code>birthName</code></a>, <a href="#citizenship"><code>citizenship</code></a>, <a href="#contactPoint"><code>contactPoint</code></a>, <a href="#countryOfBirth"><code>countryOfBirth</code></a>, <a href="#countryOfDeath"><code>countryOfDeath</code></a>, <a href="#dateOfDeath"><code>dateOfDeath</code></a>, <a href="#domicile"><code>domicile</code></a>, <a href="#fullName"><code>fullName</code></a>, <a href="#gender"><code>gender</code></a>, <a href="#matronymicName"><code>matronymicName</code></a>, <a href="#patronymicName"><code>patronymicName</code></a>, <a href="#personalAdministrativeNumber"><code>personalAdministrativeNumber</code></a>, <a href="#placeOfBirth"><code>placeOfBirth</code></a>, <a href="#placeOfDeath"><code>placeOfDeath</code></a>, <a href="#portrait"><code>portrait</code></a>, <a href="#residency"><code>residency</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#dateOfBirth"><code>dateOfBirth</code></a>, <a href="#identifier"><code>identifier</code></a></dd>
+                    <dd><a href="#dateOfBirth"><code>dateOfBirth</code></a>, <a href="#familyName"><code>familyName</code></a>, <a href="#givenName"><code>givenName</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1870,9 +1930,9 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="BicSwift">
-                <h4><code>BicSwift</code></h4>
-                <p><em>BIC Swift Code</em></p>
+            <section id="Bic">
+                <h4><code>Bic</code></h4>
+                <p><em>Business Identifier Code aka Swift Code</em></p>
                 <p>See the <a href="https://www.iso.org/standard/84108.html">formal definition of the term</a>.</p>
                 <div>International code (i.e. BIC or SWIFT code), as defined in ISO 9362, of the financial institution</div>
                 <dl class="terms">

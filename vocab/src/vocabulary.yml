@@ -74,6 +74,63 @@ class:
     label: Capital
     defined_by: https:/w3id.org/ebwv/terminology#/concept/capital
 
+  - id: Company
+    label: Company as defined in directive-EU-2025/25
+    upper_value: cred:CredentialSubject
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/company
+    example:
+      - label: Credential with credential subject of type LegalPerson
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https:/w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "LegalPerson",
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
+              "legalName": "acme Corporation",
+              "legalForm": "Inc.",
+              "registeredAddress": {
+                "@type":"Address",
+                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                "thoroughfare": "Via Appia",
+                "locatorDesignator": "123",
+                "postName": "Rome",
+                "adminUnitL2": "Lazio",
+                "postCode": "00100",
+                "adminUnitL1": "IT"
+              },
+              "identifier" : [
+                {
+                  "@type" : "Bic",
+                  "@value" : "INCFGXXX"
+                },
+                  "@type" : "ClearingNumber",
+                  "@value" : "12345678"
+              ],
+              "vat": "123456789MVA",
+              "tin": "NO-ORG-123456789",
+              "lei": "5493001KJTIIGC8Y1R12",
+              "eori": "NO123456789012",
+              "excise": "GBWK123456789000"
+
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
   - id: ContactPoint
     label: Contact Point
     defined_by: https:/w3id.org/ebwv/terminology#/concept/contactpoint
@@ -151,30 +208,7 @@ class:
                 "@value" : "NOFOR.987654321"
               },
               "legalName": "acme Corporation",
-              "registeredAddress": {
-                "@type":"Address",
-                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
-                "thoroughfare": "Via Appia",
-                "locatorDesignator": "123",
-                "postName": "Rome",
-                "adminUnitL2": "Lazio",
-                "postCode": "00100",
-                "adminUnitL1": "IT"
-              },
-              "identifier" : [
-                {
-                  "@type" : "BicSwift",
-                  "INCFGXXX"
-                },
-                  "@type" : "ClearingNumber",
-                  "12345678"
-              ],
-              "vat": "123456789MVA",
-              "tin": "NO-ORG-123456789",
-              "lei": "5493001KJTIIGC8Y1R12",
-              "eori": "NO123456789012",
-              "excise": "GBWK123456789000"
-
+              "legalForm": "Inc."
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
@@ -183,7 +217,7 @@ class:
 
   - id: LegalEntity
     label: Legal entity
-    upper_value: EuropeanBusinessWalletOwner
+    upper_value: cred:CredentialSubject
     defined_by: https:/w3id.org/ebwv/terminology#/concept/legalentity
 
   - id: LegalRepresentative
@@ -218,6 +252,7 @@ class:
                 "@value" : "NOFOR.987654321"
               },
               "legalName": "acme Corporation",
+              "legalForm": "Inc.",
               "registeredAddress": {
                 "@type":"Address",
                 "fullAddress": "Via Appia 123, 00100 Rome, Italy",
@@ -329,11 +364,6 @@ class:
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": "Partnership",
-              "legalIdentifier": {
-                "@type" : "Euid",
-                "@value" : "NOFOR.987654321"
-              },
-              "legalName": "acme Partnership",
               "registeredAddress": {
                 "@type":"Address",
                 "fullAddress": "Via Appia 123, 00100 Rome, Italy",
@@ -344,19 +374,6 @@ class:
                 "postCode": "00100",
                 "adminUnitL1": "IT"
               },
-              "correspondenceAddress": {
-                "@type":"Address",
-                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
-                "thoroughfare": "Via Appia",
-                "locatorDesignator": "123",
-                "postName": "Rome",
-                "adminUnitL2": "Lazio",
-                "postCode": "00100",
-                "adminUnitL1": "IT"
-              },
-              "dateOfRegistration": "2023-10-11",
-              "legalStatus": "active",
-              "activity": "10.82",
               "partner": [
                 {
                   "@type": "GeneralPartner",
@@ -403,7 +420,7 @@ class:
 property:
   - id: activity
     label: main activity of company
-    domain: LegalPerson
+    domain: Company
     range:
       - Nace21
     defined_by: https:/w3id.org/ebwv/terminology#/concept/activity
@@ -478,7 +495,7 @@ property:
   - id: correspondenceAddress
     label: correspondence Address
     domain:
-      - LegalPerson
+      - Company
     range:
       - Address
     defined_by: https:/w3id.org/ebwv/terminology#/concept/correspondenceaddress
@@ -517,7 +534,7 @@ property:
 
   - id: dateOfRegistration
     label: date of registration
-    domain: LegalPerson
+    domain: Company
     range: xsd:date
     defined_by: https:/w3id.org/ebwv/terminology#/concept/dateofregistration
 
@@ -529,19 +546,21 @@ property:
 
   - id: eori
     label: economic operator registration and identification
-    domain: LegalPerson
+    domain: Company
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/eori
 
   - id: excise
     label: excise number
-    domain: LegalPerson
+    domain: Company
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/excise
 
   - id: familyName
     label: family name
-    domain: NaturalPerson
+    domain:
+      - NaturalPerson
+      - Person
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/familyname
 
@@ -565,7 +584,9 @@ property:
 
   - id: givenName
     label: given name
-    domain: NaturalPerson
+    domain:
+      - NaturalPerson
+      - Person
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/givenname
 
@@ -590,18 +611,28 @@ property:
   - id: identifier
     label: identifier
     domain: 
-      - Person
-      - LegalPerson
-      - NaturalPerson
+      - Company
     range:
-      - BicSwift
+      - Bic
       - ClearingNumber
       - Iban
     defined_by: https:/w3id.org/ebwv/terminology#/concept/identifier
 
+  - id: legalForm
+    label: legal form
+    domain:
+      - LegalPerson
+      - Company
+    range:
+      - xsd:string
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/legalform
+
   - id: legalIdentifier
     label: legal identifier
-    domain: EuropeanBusinessWalletOwner
+    domain:
+      - EuropeanBusinessWalletOwner
+      - LegalPerson
+      - Company
     range:
       - PublicBodyId
       - Euid
@@ -609,7 +640,10 @@ property:
 
   - id: legalName
     label: legal name
-    domain: EuropeanBusinessWalletOwner
+    domain:
+      - EuropeanBusinessWalletOwner
+      - LegalPerson
+      - Company
     range: xsd:string
     comment: a name under which the legal entity is registered
     defined_by: https:/w3id.org/ebwv/terminology#/concept/legalname
@@ -630,13 +664,13 @@ property:
 
   - id: legalStatus
     label: status of the company
-    domain: LegalPerson
+    domain: Company
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/legalstatus
 
   - id: lei
     label: legal entity identifier
-    domain: LegalPerson
+    domain: Company
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/lei
 
@@ -671,6 +705,7 @@ property:
     domain: BankAccount
     range:
       - LegalPerson
+      - Company
       - NaturalPerson
       - Person
     defined_by: https:/w3id.org/ebwv/terminology#/concept/owner
@@ -746,11 +781,12 @@ property:
     domain: ProviderBankAccount
     range:
       - LegalPerson
+      - Company
     defined_by: https:/w3id.org/ebwv/terminology#/concept/provider
 
   - id: registeredAddress
     label: registered address
-    domain: LegalPerson
+    domain: Company
     range:
       - Address
     defined_by: https:/w3id.org/ebwv/terminology#/concept/registeredaddress
@@ -793,13 +829,13 @@ property:
 
   - id: tin
     label: tax reference number
-    domain: LegalPerson
+    domain: Company
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/tin
 
   - id: vat
     label: value added tax id
-    domain: LegalPerson
+    domain: Company
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/vat
 
@@ -842,8 +878,8 @@ datatype:
     comment: 2 letter country code according to ISO-3166
     defined_by: https://www.iso.org/iso-3166-country-codes.html
 
-  - id: BicSwift
-    label: BIC Swift Code
+  - id: Bic
+    label: Business Identifier Code aka Swift Code
     upper_value: xsd:string
     pattern: '[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})'
     comment: International code (i.e. BIC or SWIFT code), as defined in ISO 9362, of the financial institution
