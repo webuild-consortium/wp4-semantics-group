@@ -533,16 +533,6 @@ webuild:concept-33  rdf:type          skos:Concept;
         skos-xl:literalForm           "jurisdiction"@en;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
 
-<urn:uuid:b09248cf-2495-426b-9423-4a72dab92ddf>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "company name"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
-<urn:uuid:2db94de6-528c-446a-bf19-cb6ddb304bb1>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "zip code"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
 webuild:concept-97  rdf:type          skos:Concept;
         dcterms:created               "2025-12-04T12:54:56.945Z"^^xsd:dateTime;
         dcterms:modified              "2025-12-11T15:32:51.54Z"^^xsd:dateTime;
@@ -554,6 +544,16 @@ webuild:concept-97  rdf:type          skos:Concept;
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
         term:orderedBroader           ( webuild:concept-96 ) .
+
+<urn:uuid:b09248cf-2495-426b-9423-4a72dab92ddf>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "company name"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:2db94de6-528c-446a-bf19-cb6ddb304bb1>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "zip code"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 webuild:registeredaddress
         rdf:type                      skos:Concept;
