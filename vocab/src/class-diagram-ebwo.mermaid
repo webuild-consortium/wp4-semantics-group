@@ -1,0 +1,27 @@
+classDiagram
+    direction LR
+%% =========================
+%% Core EBW Classes
+%% =========================
+    class CredentialSubject {
+        <<EBW>>
+    }
+
+    class EuropeanBusinessWalletOwner {
+        <<EBW>>
+        +legalName: string
+        +legalIdentifier: Euid, PublicBodyId
+    }
+
+%% =========================
+%% External / Referenced Types
+%% =========================
+
+%% =========================
+%% Inheritance
+%% =========================
+    CredentialSubject <|-- EuropeanBusinessWalletOwner
+
+%% =========================
+%% Properties (Object relations)
+%% =========================

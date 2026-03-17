@@ -15,7 +15,7 @@
                 },
                 "adminUnitL1": {
                     "@id": "https://w3id.org/ebwv#adminUnitL1",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                    "@type": "https://w3id.org/ebwv#CountryCode"
                 },
                 "fullAddress": {
                     "@id": "https://w3id.org/ebwv#fullAddress",
@@ -49,6 +49,28 @@
         },
         "Agent": "https://w3id.org/ebwv#Agent",
         "AttestationLegalCategory": "https://w3id.org/ebwv#AttestationLegalCategory",
+        "BankAccount": {
+            "@id": "https://w3id.org/ebwv#BankAccount",
+            "@context": {
+                "@protected": true,
+                "accountName": {
+                    "@id": "https://w3id.org/ebwv#accountName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "accountType": {
+                    "@id": "https://w3id.org/ebwv#accountType",
+                    "@type": "https://w3id.org/ebwv#AccountType"
+                },
+                "iban": {
+                    "@id": "https://w3id.org/ebwv#iban",
+                    "@type": "https://w3id.org/ebwv#Iban"
+                },
+                "owner": {
+                    "@id": "https://w3id.org/ebwv#owner",
+                    "@type": "@id"
+                }
+            }
+        },
         "Capital": {
             "@id": "https://w3id.org/ebwv#Capital",
             "@context": {
@@ -59,6 +81,68 @@
                 },
                 "currency": {
                     "@id": "https://w3id.org/ebwv#currency",
+                    "@type": "https://w3id.org/ebwv#Currency"
+                }
+            }
+        },
+        "Company": {
+            "@id": "https://w3id.org/ebwv#Company",
+            "@context": {
+                "@protected": true,
+                "activity": {
+                    "@id": "https://w3id.org/ebwv#activity",
+                    "@type": "https://w3id.org/ebwv#Nace21"
+                },
+                "correspondenceAddress": {
+                    "@id": "https://w3id.org/ebwv#correspondenceAddress",
+                    "@type": "@id"
+                },
+                "dateOfRegistration": {
+                    "@id": "https://w3id.org/ebwv#dateOfRegistration",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "eori": {
+                    "@id": "https://w3id.org/ebwv#eori",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "excise": {
+                    "@id": "https://w3id.org/ebwv#excise",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "identifier": {
+                    "@id": "https://w3id.org/ebwv#identifier",
+                    "@type": "https://w3id.org/ebwv#Bic"
+                },
+                "legalForm": {
+                    "@id": "https://w3id.org/ebwv#legalForm",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "legalIdentifier": {
+                    "@id": "https://w3id.org/ebwv#legalIdentifier",
+                    "@type": "https://w3id.org/ebwv#PublicBodyId"
+                },
+                "legalName": {
+                    "@id": "https://w3id.org/ebwv#legalName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "legalStatus": {
+                    "@id": "https://w3id.org/ebwv#legalStatus",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "lei": {
+                    "@id": "https://w3id.org/ebwv#lei",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "registeredAddress": {
+                    "@id": "https://w3id.org/ebwv#registeredAddress",
+                    "@type": "@id"
+                },
+                "tin": {
+                    "@id": "https://w3id.org/ebwv#tin",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "vat": {
+                    "@id": "https://w3id.org/ebwv#vat",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
@@ -94,98 +178,17 @@
                 }
             }
         },
-        "EuccLimitLiabilityCompany": {
-            "@id": "https://w3id.org/ebwv#EuccLimitLiabilityCompany",
+        "EuropeanBusinessWalletOwner": {
+            "@id": "https://w3id.org/ebwv#EuropeanBusinessWalletOwner",
             "@context": {
                 "@protected": true,
-                "activity": {
-                    "@id": "https://w3id.org/ebwv#activity",
-                    "@type": "@id"
-                },
-                "companyStatus": {
-                    "@id": "https://w3id.org/ebwv#companyStatus",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "correspondenceAddress": {
-                    "@id": "https://w3id.org/ebwv#correspondenceAddress",
-                    "@type": "@id"
-                },
-                "dateOfRegistration": {
-                    "@id": "https://w3id.org/ebwv#dateOfRegistration",
-                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                "legalIdentifier": {
+                    "@id": "https://w3id.org/ebwv#legalIdentifier",
+                    "@type": "https://w3id.org/ebwv#PublicBodyId"
                 },
                 "legalName": {
                     "@id": "https://w3id.org/ebwv#legalName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "legalIdentifier": {
-                    "@id": "https://w3id.org/ebwv#legalIdentifier",
-                    "@type": "@id"
-                },
-                "legalRepresentative": {
-                    "@id": "https://w3id.org/ebwv#legalRepresentative",
-                    "@type": "@id"
-                },
-                "registeredAddress": {
-                    "@id": "https://w3id.org/ebwv#registeredAddress",
-                    "@type": "@id"
-                },
-                "subscribedCapital": {
-                    "@id": "https://w3id.org/ebwv#subscribedCapital",
-                    "@type": "@id"
-                }
-            }
-        },
-        "EuccPartnership": {
-            "@id": "https://w3id.org/ebwv#EuccPartnership",
-            "@context": {
-                "@protected": true,
-                "activity": {
-                    "@id": "https://w3id.org/ebwv#activity",
-                    "@type": "@id"
-                },
-                "companyStatus": {
-                    "@id": "https://w3id.org/ebwv#companyStatus",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "correspondenceAddress": {
-                    "@id": "https://w3id.org/ebwv#correspondenceAddress",
-                    "@type": "@id"
-                },
-                "dateOfRegistration": {
-                    "@id": "https://w3id.org/ebwv#dateOfRegistration",
-                    "@type": "http://www.w3.org/2001/XMLSchema#date"
-                },
-                "legalName": {
-                    "@id": "https://w3id.org/ebwv#legalName",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "legalIdentifier": {
-                    "@id": "https://w3id.org/ebwv#legalIdentifier",
-                    "@type": "@id"
-                },
-                "partner": {
-                    "@id": "https://w3id.org/ebwv#partner",
-                    "@type": "@id"
-                },
-                "registeredAddress": {
-                    "@id": "https://w3id.org/ebwv#registeredAddress",
-                    "@type": "@id"
-                }
-            }
-        },
-        "Euid": "https://w3id.org/ebwv#Euid",
-        "EuropeanBusinessWalletOwnerId": {
-            "@id": "https://w3id.org/ebwv#EuropeanBusinessWalletOwnerId",
-            "@context": {
-                "@protected": true,
-                "legalName": {
-                    "@id": "https://w3id.org/ebwv#legalName",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "legalIdentifier": {
-                    "@id": "https://w3id.org/ebwv#legalIdentifier",
-                    "@type": "@id"
                 }
             }
         },
@@ -199,49 +202,25 @@
                 }
             }
         },
-        "Jurisdiction": "https://w3id.org/ebwv#Jurisdiction",
-        "LegalPersonIdentificationData": {
-            "@id": "https://w3id.org/ebwv#LegalPersonIdentificationData",
+        "LegalPerson": {
+            "@id": "https://w3id.org/ebwv#LegalPerson",
             "@context": {
                 "@protected": true,
-                "correspondenceAddress": {
-                    "@id": "https://w3id.org/ebwv#correspondenceAddress",
-                    "@type": "@id"
-                },
-                "eori": {
-                    "@id": "https://w3id.org/ebwv#eori",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "excise": {
-                    "@id": "https://w3id.org/ebwv#excise",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "legalName": {
-                    "@id": "https://w3id.org/ebwv#legalName",
+                "legalForm": {
+                    "@id": "https://w3id.org/ebwv#legalForm",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "legalIdentifier": {
                     "@id": "https://w3id.org/ebwv#legalIdentifier",
-                    "@type": "@id"
+                    "@type": "https://w3id.org/ebwv#PublicBodyId"
                 },
-                "lei": {
-                    "@id": "https://w3id.org/ebwv#lei",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "registeredAddress": {
-                    "@id": "https://w3id.org/ebwv#registeredAddress",
-                    "@type": "@id"
-                },
-                "tin": {
-                    "@id": "https://w3id.org/ebwv#tin",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "vat": {
-                    "@id": "https://w3id.org/ebwv#vat",
+                "legalName": {
+                    "@id": "https://w3id.org/ebwv#legalName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
         },
+        "LegalEntity": "https://w3id.org/ebwv#LegalEntity",
         "LegalRepresentative": {
             "@id": "https://w3id.org/ebwv#LegalRepresentative",
             "@context": {
@@ -265,6 +244,20 @@
                 }
             }
         },
+        "LimitedLiabilityCompany": {
+            "@id": "https://w3id.org/ebwv#LimitedLiabilityCompany",
+            "@context": {
+                "@protected": true,
+                "legalRepresentative": {
+                    "@id": "https://w3id.org/ebwv#legalRepresentative",
+                    "@type": "@id"
+                },
+                "subscribedCapital": {
+                    "@id": "https://w3id.org/ebwv#subscribedCapital",
+                    "@type": "@id"
+                }
+            }
+        },
         "LimitedPartner": {
             "@id": "https://w3id.org/ebwv#LimitedPartner",
             "@context": {
@@ -280,9 +273,8 @@
             }
         },
         "Location": "https://w3id.org/ebwv#Location",
-        "Nace21": "https://w3id.org/ebwv#Nace21",
-        "NaturalPersonIdentificationData": {
-            "@id": "https://w3id.org/ebwv#NaturalPersonIdentificationData",
+        "NaturalPerson": {
+            "@id": "https://w3id.org/ebwv#NaturalPerson",
             "@context": {
                 "@protected": true,
                 "dateOfBirth": {
@@ -296,6 +288,16 @@
                 "givenName": {
                     "@id": "https://w3id.org/ebwv#givenName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Partnership": {
+            "@id": "https://w3id.org/ebwv#Partnership",
+            "@context": {
+                "@protected": true,
+                "partner": {
+                    "@id": "https://w3id.org/ebwv#partner",
+                    "@type": "@id"
                 }
             }
         },
@@ -314,7 +316,7 @@
                 },
                 "citizenship": {
                     "@id": "https://w3id.org/ebwv#citizenship",
-                    "@type": "@id"
+                    "@type": "https://w3id.org/ebwv#CountryCode"
                 },
                 "contactPoint": {
                     "@id": "https://w3id.org/ebwv#contactPoint",
@@ -340,6 +342,10 @@
                     "@id": "https://w3id.org/ebwv#domicile",
                     "@type": "@id"
                 },
+                "familyName": {
+                    "@id": "https://w3id.org/ebwv#familyName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
                 "fullName": {
                     "@id": "https://w3id.org/ebwv#fullName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -348,7 +354,10 @@
                     "@id": "https://w3id.org/ebwv#gender",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
-                "identifier": "https://w3id.org/ebwv#identifier",
+                "givenName": {
+                    "@id": "https://w3id.org/ebwv#givenName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
                 "matronymicName": {
                     "@id": "https://w3id.org/ebwv#matronymicName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -375,11 +384,10 @@
                 },
                 "residency": {
                     "@id": "https://w3id.org/ebwv#residency",
-                    "@type": "@id"
+                    "@type": "https://w3id.org/ebwv#CountryCode"
                 }
             }
         },
-        "PublicBodyId": "https://w3id.org/ebwv#PublicBodyId",
         "ScopeOfAuthorization": "https://w3id.org/ebwv#ScopeOfAuthorization",
         "StatutoryPartner": {
             "@id": "https://w3id.org/ebwv#StatutoryPartner",
@@ -404,10 +412,24 @@
                 }
             }
         },
+        "provider": {
+            "@id": "https://w3id.org/ebwv#provider",
+            "@type": "@id"
+        },
         "Alone": "https://w3id.org/ebwv#Alone",
         "EAA": "https://w3id.org/ebwv#EAA",
         "Jointly": "https://w3id.org/ebwv#Jointly",
         "Pub-EAA": "https://w3id.org/ebwv#Pub-EAA",
-        "QEAA": "https://w3id.org/ebwv#QEAA"
+        "QEAA": "https://w3id.org/ebwv#QEAA",
+        "AccountType": "https://w3id.org/ebwv#AccountType",
+        "CountryCode": "https://w3id.org/ebwv#CountryCode",
+        "Bic": "https://w3id.org/ebwv#Bic",
+        "ClearingNumber": "https://w3id.org/ebwv#ClearingNumber",
+        "Currency": "https://w3id.org/ebwv#Currency",
+        "Euid": "https://w3id.org/ebwv#Euid",
+        "Iban": "https://w3id.org/ebwv#Iban",
+        "Nace21": "https://w3id.org/ebwv#Nace21",
+        "NationalBankCode": "https://w3id.org/ebwv#NationalBankCode",
+        "PublicBodyId": "https://w3id.org/ebwv#PublicBodyId"
     }
 }
