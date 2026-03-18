@@ -12,7 +12,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-03-17"^^xsd:date ;
+    dc:date "2026-03-18"^^xsd:date ;
 .
 
 # Property definitions
@@ -20,7 +20,7 @@ ebwv:activity a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Company ;
     rdfs:range ebwv:Nace21 ;
     rdfs:label "main activity of company" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/activity>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/activity>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -28,7 +28,7 @@ ebwv:accountName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:BankAccount ;
     rdfs:range xsd:string ;
     rdfs:label "account name" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/bankaccount>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/bankaccount>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -36,7 +36,7 @@ ebwv:accountType a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:BankAccount ;
     rdfs:range ebwv:AccountType ;
     rdfs:label "account type" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/banktype>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/banktype>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -44,7 +44,7 @@ ebwv:addressArea a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "address area" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/addressarea>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/addressarea>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -52,7 +52,7 @@ ebwv:adminUnitL2 a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "administrative unit level 2" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/adminUnitL2>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/adminUnitL2>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -60,7 +60,7 @@ ebwv:adminUnitL1 a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
     rdfs:range ebwv:CountryCode ;
     rdfs:label "administrative unit level 1" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/adminUnitL1>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/adminUnitL1>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -68,7 +68,7 @@ ebwv:alternativeName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "alternative name" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/alternativename>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/alternativename>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -76,7 +76,7 @@ ebwv:amount a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Capital ;
     rdfs:range xsd:float ;
     rdfs:label "amount" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/amount>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/amount>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -84,7 +84,7 @@ ebwv:attestationLegalCategory a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:ElectronicAttestationOfAttributes ;
     rdfs:range ebwv:AttestationLegalCategory, [ a owl:Class; owl:oneOf (ebwv:QEAA ebwv:Pub-EAA ebwv:EAA) ] ;
     rdfs:label "attestation legal category" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/attestationlegalcategory>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/attestationlegalcategory>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -92,7 +92,7 @@ ebwv:birthName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "birth name" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/birthname>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/birthname>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -100,7 +100,7 @@ ebwv:citizenship a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:CountryCode ;
     rdfs:label "citizenship" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/citizenship>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/citizenship>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -108,7 +108,7 @@ ebwv:contactPoint a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:ContactPoint ;
     rdfs:label "contact point" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/contactpoint>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/contactpoint>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -116,7 +116,7 @@ ebwv:correspondenceAddress a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Company ;
     rdfs:range ebwv:Address ;
     rdfs:label "correspondence Address" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/correspondenceaddress>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/correspondenceaddress>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -124,7 +124,7 @@ ebwv:countryOfBirth a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:Location ;
     rdfs:label "country of birth" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/countryofbirth>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/countryofbirth>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -132,7 +132,7 @@ ebwv:countryOfDeath a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:Location ;
     rdfs:label "country of death" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/countryofdeath>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/countryofdeath>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -140,7 +140,7 @@ ebwv:currency a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Capital ;
     rdfs:range ebwv:Currency ;
     rdfs:label "currency" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/currency>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/currency>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -148,7 +148,7 @@ ebwv:dateOfBirth a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Person ebwv:NaturalPerson) ] ;
     rdfs:range xsd:date ;
     rdfs:label "date of birth" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/dateofbirth>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/dateofbirth>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -156,7 +156,7 @@ ebwv:dateOfDeath a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:date ;
     rdfs:label "date of death" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/dateofdeath>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/dateofdeath>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -164,7 +164,7 @@ ebwv:dateOfRegistration a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Company ;
     rdfs:range xsd:date ;
     rdfs:label "date of registration" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/dateofregistration>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/dateofregistration>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -172,7 +172,7 @@ ebwv:domicile a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:Address ;
     rdfs:label "domicile" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/domicile>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/domicile>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -180,7 +180,7 @@ ebwv:eori a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Company ;
     rdfs:range xsd:string ;
     rdfs:label "economic operator registration and identification" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/eori>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/eori>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -188,7 +188,7 @@ ebwv:excise a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Company ;
     rdfs:range xsd:string ;
     rdfs:label "excise number" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/excise>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/excise>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -196,7 +196,7 @@ ebwv:familyName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:NaturalPerson ebwv:Person) ] ;
     rdfs:range xsd:string ;
     rdfs:label "family name" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/familyname>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/familyname>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -204,7 +204,7 @@ ebwv:fullAddress a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "full address" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/fulladdress>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/fulladdress>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -212,7 +212,7 @@ ebwv:fullName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "full name" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/fullname>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/fullname>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -220,7 +220,7 @@ ebwv:gender a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "gender" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/gender>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/gender>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -228,7 +228,7 @@ ebwv:givenName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:NaturalPerson ebwv:Person) ] ;
     rdfs:range xsd:string ;
     rdfs:label "given name" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/givenname>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/givenname>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -236,7 +236,7 @@ ebwv:hasEmail a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:ContactPoint ;
     rdfs:range xsd:string ;
     rdfs:label "email" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/email>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/email>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -244,7 +244,7 @@ ebwv:hasTelephone a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:ContactPoint ;
     rdfs:range xsd:string ;
     rdfs:label "telephone" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/telephone>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/telephone>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -252,7 +252,7 @@ ebwv:iban a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:BankAccount ;
     rdfs:range ebwv:Iban ;
     rdfs:label "IBAN" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/iban>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/iban>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -260,7 +260,7 @@ ebwv:identifier a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Company ;
     rdfs:range ebwv:Bic, ebwv:ClearingNumber, ebwv:Iban ;
     rdfs:label "identifier" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/identifier>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/identifier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -268,7 +268,7 @@ ebwv:legalForm a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalPerson ebwv:Company) ] ;
     rdfs:range xsd:string ;
     rdfs:label "legal form" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/legalform>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/legalform>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -276,7 +276,7 @@ ebwv:legalIdentifier a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuropeanBusinessWalletOwner ebwv:LegalPerson ebwv:Company) ] ;
     rdfs:range ebwv:PublicBodyId, ebwv:Euid ;
     rdfs:label "legal identifier" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/legalidentifier>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/legalidentifier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -285,7 +285,7 @@ ebwv:legalName a rdf:Property, owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "legal name" ;
     rdfs:comment """<div>a name under which the legal entity is registered</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/legalname>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/legalname>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -293,7 +293,7 @@ ebwv:legalRepresentative a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:LimitedLiabilityCompany ;
     rdfs:range ebwv:LegalRepresentative ;
     rdfs:label "legal representative" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/legalrepresentative>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/legalrepresentative>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -301,7 +301,7 @@ ebwv:legalRepresentativeId a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:LegalRepresentative ;
     rdfs:range xsd:anyURI ;
     rdfs:label "unique ID of the identity of the representative" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/legalrepresentativeid>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/legalrepresentativeid>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -309,7 +309,7 @@ ebwv:legalStatus a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Company ;
     rdfs:range xsd:string ;
     rdfs:label "status of the company" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/legalstatus>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/legalstatus>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -317,7 +317,7 @@ ebwv:lei a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Company ;
     rdfs:range xsd:string ;
     rdfs:label "legal entity identifier" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/lei>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/lei>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -325,7 +325,7 @@ ebwv:liabilityOrContribution a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:LimitedPartner ;
     rdfs:range ebwv:Capital ;
     rdfs:label "liability or contribution of the limited partner" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/liabilityorcontribution>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/liabilityorcontribution>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -333,7 +333,7 @@ ebwv:locatorDesignator a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
     rdfs:range xsd:string, xsd:integer ;
     rdfs:label "locator designator" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/locatordesignator>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/locatordesignator>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -341,7 +341,7 @@ ebwv:locatorName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "locator name" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/locatorname>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/locatorname>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -349,7 +349,7 @@ ebwv:matronymicName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "matronymic name" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/matronymicname>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/matronymicname>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -357,7 +357,7 @@ ebwv:owner a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:BankAccount ;
     rdfs:range ebwv:LegalPerson, ebwv:Company, ebwv:NaturalPerson, ebwv:Person ;
     rdfs:label "owner" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/owner>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/owner>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -365,7 +365,7 @@ ebwv:partner a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Partnership ;
     rdfs:range ebwv:GeneralPartner, ebwv:LimitedPartner, ebwv:StatutoryPartner ;
     rdfs:label "partner" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/partner>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/partner>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -373,7 +373,7 @@ ebwv:partnerId a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:GeneralPartner ebwv:LimitedPartner ebwv:StatutoryPartner) ] ;
     rdfs:range xsd:anyURI ;
     rdfs:label "unique ID of the identity of the partner" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/partnerid>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/partnerid>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -381,7 +381,7 @@ ebwv:patronymicName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "patronymic name" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/patronymicname>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/patronymicname>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -389,7 +389,7 @@ ebwv:personalAdministrativeNumber a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "personalAdministrativeNumber" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/personaladministrativenumber>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/personaladministrativenumber>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -397,7 +397,7 @@ ebwv:placeOfBirth a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:Location ;
     rdfs:label "place of birth" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/placeofbirth>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/placeofbirth>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -405,7 +405,7 @@ ebwv:placeOfDeath a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:Location ;
     rdfs:label "place of death" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/placeofdeath>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/placeofdeath>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -413,7 +413,7 @@ ebwv:poBox a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "post office box" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/pobox>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/pobox>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -421,7 +421,7 @@ ebwv:portrait a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
     rdfs:label "portrait" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/portrait>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/portrait>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -429,7 +429,7 @@ ebwv:postCode a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "post code" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/postcode>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/postcode>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -437,7 +437,7 @@ ebwv:postName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "post name" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/postname>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/postname>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -445,7 +445,7 @@ ebwv:provider a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:ProviderBankAccount ;
     rdfs:range ebwv:LegalPerson, ebwv:Company ;
     rdfs:label "provide" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/provider>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/provider>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -453,7 +453,7 @@ ebwv:registeredAddress a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Company ;
     rdfs:range ebwv:Address ;
     rdfs:label "registered address" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/registeredaddress>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/registeredaddress>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -461,7 +461,7 @@ ebwv:residency a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:CountryCode ;
     rdfs:label "residency" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/residency>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/residency>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -469,7 +469,7 @@ ebwv:role a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:StatutoryPartner) ] ;
     rdfs:range xsd:string ;
     rdfs:label "role of representative" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/role>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/role>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -477,7 +477,7 @@ ebwv:scopeOfAuthorization a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:StatutoryPartner) ] ;
     rdfs:range ebwv:ScopeOfAuthorization, [ a owl:Class; owl:oneOf (ebwv:Alone ebwv:Jointly) ] ;
     rdfs:label "scope of authorization (alone or jointly)" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/role>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/role>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -485,7 +485,7 @@ ebwv:subscribedCapital a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:LimitedLiabilityCompany ;
     rdfs:range ebwv:Capital ;
     rdfs:label "subscribed capital" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/subscribedcapital>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/subscribedcapital>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -493,7 +493,7 @@ ebwv:thoroughfare a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Address ;
     rdfs:range xsd:string ;
     rdfs:label "thoroughfare" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/thoroughfare>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/thoroughfare>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -501,7 +501,7 @@ ebwv:tin a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Company ;
     rdfs:range xsd:string ;
     rdfs:label "tax reference number" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/tin>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/tin>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -509,148 +509,148 @@ ebwv:vat a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Company ;
     rdfs:range xsd:string ;
     rdfs:label "value added tax id" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/vat>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/vat>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 # Class definitions
 ebwv:Address a rdfs:Class ;
     rdfs:label "Address" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/address>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/address>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Agent a rdfs:Class ;
     rdfs:label "Agent" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/agent>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/agent>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:AttestationLegalCategory a rdfs:Class ;
     rdfs:label "Attestation Legal Category" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/attestationlegalcategory>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/attestationlegalcategory>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:BankAccount a rdfs:Class ;
     rdfs:label "Bank Account" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/bankaccount>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/bankaccount>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Capital a rdfs:Class ;
     rdfs:label "Capital" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/capital>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/capital>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Company a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Company as defined in directive-EU-2025/25" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/company>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/company>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:ContactPoint a rdfs:Class ;
     rdfs:label "Contact Point" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/contactpoint>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/contactpoint>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:ElectronicAttestationOfAttributes a rdfs:Class ;
     rdfs:subClassOf cred:VerifiableCredential ;
     rdfs:label "Electronic Attestation Of Attributes" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/electronicattestationofattributes>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/electronicattestationofattributes>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:EuropeanBusinessWalletOwner a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "European Business Wallet Owner" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/europeanbusinesswalletowner>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/europeanbusinesswalletowner>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:GeneralPartner a rdfs:Class ;
     rdfs:label "General Partner" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/generalpartner>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/generalpartner>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:LegalPerson a rdfs:Class ;
     rdfs:subClassOf ebwv:LegalEntity, cred:CredentialSubject ;
     rdfs:label "Legal Person" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/legalperson>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/legalperson>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:LegalEntity a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Legal entity" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/legalentity>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/legalentity>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:LegalRepresentative a rdfs:Class ;
     rdfs:label "Legal representative" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/legalrepresentative>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/legalrepresentative>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:LimitedLiabilityCompany a rdfs:Class ;
     rdfs:subClassOf ebwv:LegalPerson, cred:CredentialSubject ;
     rdfs:label "European Company Certificate Data for limited liability companies" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/limitedliabilitycompany>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/limitedliabilitycompany>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:LimitedPartner a rdfs:Class ;
     rdfs:label "Limited Partner" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/limitedpartner>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/limitedpartner>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Location a rdfs:Class ;
     rdfs:label "Location" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/location>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/location>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:NaturalPerson a rdfs:Class ;
     rdfs:subClassOf ebwv:LegalEntity, cred:CredentialSubject ;
     rdfs:label "Natural Person Identification Data" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/naturalperson>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/naturalperson>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Partnership a rdfs:Class ;
     rdfs:subClassOf ebwv:LegalPerson, cred:CredentialSubject ;
     rdfs:label "European Company Certificate Data for partnerships" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/partnership>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/partnership>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:PeriodOfTime a rdfs:Class ;
     rdfs:label "Period of Time" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/periodoftime>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/periodoftime>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Person a rdfs:Class ;
     rdfs:label "Person" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/person>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/person>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:ScopeOfAuthorization a rdfs:Class ;
     rdfs:label "Scope Of Authorization" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/scopeofauthorization>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/scopeofauthorization>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:StatutoryPartner a rdfs:Class ;
     rdfs:label "Statutory Partner" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/statutorypartner>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/statutorypartner>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -659,31 +659,31 @@ ebwv:StatutoryPartner a rdfs:Class ;
 # Definitions of individuals
 ebwv:Alone a ebwv:ScopeOfAuthorization ;
     rdfs:label "scope of authorization Alone" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/Alone>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/Alone>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:EAA a ebwv:AttestationLegalCategory ;
     rdfs:label "electronic attestation of attributes" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/EAA>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/EAA>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Jointly a ebwv:ScopeOfAuthorization ;
     rdfs:label "scope of authorization Jointly" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/Jointly>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/Jointly>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Pub-EAA a ebwv:AttestationLegalCategory ;
     rdfs:label "public electronic attestation of attributes" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/Pub-EAA>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/Pub-EAA>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:QEAA a ebwv:AttestationLegalCategory ;
     rdfs:label "qualified electronic attestation of attributes" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/QEAA>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/QEAA>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -737,7 +737,7 @@ ebwv:Currency a rdfs:Datatype ;
 ebwv:Euid a rdfs:Datatype ;
     rdfs:subClassOf xsd:string ;
     rdfs:label "EUID" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/euid>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/euid>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -770,7 +770,7 @@ ebwv:NationalBankCode a rdfs:Datatype ;
 ebwv:PublicBodyId a rdfs:Datatype ;
     rdfs:subClassOf xsd:string ;
     rdfs:label "unique identifier of public body" ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/publicBodyId>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/publicBodyId>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

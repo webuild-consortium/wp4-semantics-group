@@ -2042,14 +2042,14 @@ webuild:concept-6003  rdf:type        skos:Concept;
         term:orderedNote              ( "Other versions:\ncriterion for the mandate that gives power to an agent to represent a legal entity\ncriterion for power to one or several agents to represent a legal entity\nThe capacity to act on behalf.. is from here https://everis-rpam.github.io/Glossary.html#C"@en );
         term:orderedRelated           ( webuild:concept-98 webuild:concept-3003 webuild:concept-3008 ) .
 
-<urn:uuid:b55cd908-a05c-41a2-8bb4-0eb93245b798>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "registered address"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
 <urn:uuid:5a33baaa-571d-4edd-9832-d494278866f3>
         rdf:type                      skos-xl:Label;
         skos-xl:literalForm           "duration of the legal entity"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:b55cd908-a05c-41a2-8bb4-0eb93245b798>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "registered address"@en;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 <urn:uuid:65298419-671f-4023-a663-21e65afbfc2c>
@@ -2390,6 +2390,11 @@ webuild:locationdesignator
         skos-xl:literalForm           "post"@en;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
+<urn:uuid:e7478fac-443d-4cd2-8bd6-5674f1308dcb>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "representation"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
 webuild:thoroughfare  rdf:type        skos:Concept;
         dcterms:created               "2026-02-16T08:34:40.728Z"^^xsd:dateTime;
         dcterms:modified              "2026-02-16T09:05:35.455Z"^^xsd:dateTime;
@@ -2403,11 +2408,6 @@ webuild:thoroughfare  rdf:type        skos:Concept;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
         term:orderedNote              ( "A thoroughfare is usually a street, but it might be a waterway or some other feature. For example, \"Avenue des Champs-Élysées\".\n\nThe concept definition is based on the EU Core Location Vocabulary."@en "The concept thoroughfare is just a part of \"streetAddress\" in Schema.org; example:\nstreetAddress: \"38 avenue de l'Opéra\"\nthoroughfare: \"avenue de l'Opéra\""@en );
         term:orderedSynonym           ( <urn:uuid:cdc31107-5f91-4442-beeb-af09460bfc36> ) .
-
-<urn:uuid:e7478fac-443d-4cd2-8bd6-5674f1308dcb>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "representation"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 webuild:authorisation
         rdf:type                      skos:Concept;
