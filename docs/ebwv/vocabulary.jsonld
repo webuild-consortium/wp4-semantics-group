@@ -76,7 +76,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-03-18",
+    "dc:date": "2026-03-20",
     "rdfs_properties": [{
         "@id": "ebwv:activity",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -744,7 +744,7 @@
     }, {
         "@id": "ebwv:provider",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:ProviderBankAccount",
+        "rdfs:domain": "ebwv:BankAccount",
         "rdfs:range": ["ebwv:LegalPerson", "ebwv:Company"],
         "rdfs:label": "provide",
         "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/provider",
@@ -892,6 +892,7 @@
     }, {
         "@id": "ebwv:BankAccount",
         "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "Bank Account",
         "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/bankaccount",
         "vs:term_status": "stable",
@@ -997,7 +998,7 @@
     }, {
         "@id": "ebwv:LimitedLiabilityCompany",
         "@type": "rdfs:Class",
-        "rdfs:subClassOf": ["ebwv:LegalPerson", "cred:CredentialSubject"],
+        "rdfs:subClassOf": ["ebwv:Company", "cred:CredentialSubject"],
         "rdfs:label": "European Company Certificate Data for limited liability companies",
         "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/limitedliabilitycompany",
         "vs:term_status": "stable",
@@ -1039,7 +1040,7 @@
     }, {
         "@id": "ebwv:Partnership",
         "@type": "rdfs:Class",
-        "rdfs:subClassOf": ["ebwv:LegalPerson", "cred:CredentialSubject"],
+        "rdfs:subClassOf": ["ebwv:Company", "cred:CredentialSubject"],
         "rdfs:label": "European Company Certificate Data for partnerships",
         "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/partnership",
         "vs:term_status": "stable",

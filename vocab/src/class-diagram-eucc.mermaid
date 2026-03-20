@@ -62,6 +62,13 @@ classDiagram
         +liabilityOrContribution: Capital
     }
 
+    class StatutoryPartner {
+        <<EBW>>
+        +partnerId: NaturalPerson, LegalPerson
+        +role: string
+        +scopeOfAuthorization: ScopeOfAuthorization
+    }
+
     class LegalRepresentative {
         <<EBW>>
         +legalRepresentativeId: uri
@@ -91,7 +98,10 @@ classDiagram
     LimitedLiabilityCompany --> LegalRepresentative: legalRepresentative
     Partnership --> GeneralPartner: partner
     Partnership --> LimitedPartner: partner
+    Partnership --> StatutoryPartner: partner
     GeneralPartner --> NaturalPerson: partnerId
     GeneralPartner --> LegalPerson: partnerId
     LimitedPartner --> NaturalPerson: partnerId
     LimitedPartner --> LegalPerson: partnerId
+    StatutoryPartner --> NaturalPerson: partnerId
+    StatutoryPartner --> LegalPerson: partnerId

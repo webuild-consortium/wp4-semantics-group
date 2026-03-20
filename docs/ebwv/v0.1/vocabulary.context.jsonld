@@ -68,6 +68,10 @@
                 "owner": {
                     "@id": "https://w3id.org/ebwv#owner",
                     "@type": "@id"
+                },
+                "provider": {
+                    "@id": "https://w3id.org/ebwv#provider",
+                    "@type": "@id"
                 }
             }
         },
@@ -411,10 +415,6 @@
                     }
                 }
             }
-        },
-        "provider": {
-            "@id": "https://w3id.org/ebwv#provider",
-            "@type": "@id"
         },
         "Alone": "https://w3id.org/ebwv#Alone",
         "EAA": "https://w3id.org/ebwv#EAA",

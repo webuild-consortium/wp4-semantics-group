@@ -12,7 +12,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-03-18"^^xsd:date ;
+    dc:date "2026-03-20"^^xsd:date ;
 .
 
 # Property definitions
@@ -442,7 +442,7 @@ ebwv:postName a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:provider a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:ProviderBankAccount ;
+    rdfs:domain ebwv:BankAccount ;
     rdfs:range ebwv:LegalPerson, ebwv:Company ;
     rdfs:label "provide" ;
     rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/provider>, <https://w3id.org/ebwv#> ;
@@ -533,6 +533,7 @@ ebwv:AttestationLegalCategory a rdfs:Class ;
 .
 
 ebwv:BankAccount a rdfs:Class ;
+    rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Bank Account" ;
     rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/bankaccount>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -598,7 +599,7 @@ ebwv:LegalRepresentative a rdfs:Class ;
 .
 
 ebwv:LimitedLiabilityCompany a rdfs:Class ;
-    rdfs:subClassOf ebwv:LegalPerson, cred:CredentialSubject ;
+    rdfs:subClassOf ebwv:Company, cred:CredentialSubject ;
     rdfs:label "European Company Certificate Data for limited liability companies" ;
     rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/limitedliabilitycompany>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -624,7 +625,7 @@ ebwv:NaturalPerson a rdfs:Class ;
 .
 
 ebwv:Partnership a rdfs:Class ;
-    rdfs:subClassOf ebwv:LegalPerson, cred:CredentialSubject ;
+    rdfs:subClassOf ebwv:Company, cred:CredentialSubject ;
     rdfs:label "European Company Certificate Data for partnerships" ;
     rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/partnership>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;

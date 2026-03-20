@@ -41,9 +41,10 @@ class:
 
   - id: BankAccount
     label: Bank Account
+    upper_value: cred:CredentialSubject
     defined_by: https://w3id.org/ebwv/terminology#/concept/bankaccount
     example:
-      - label: Credential with credential subject of type EuropeanBusinessWalletOwner
+      - label: Credential with credential subject of type BankAccount
         json: |
           {
             "@context": [
@@ -79,7 +80,7 @@ class:
     upper_value: cred:CredentialSubject
     defined_by: https://w3id.org/ebwv/terminology#/concept/company
     example:
-      - label: Credential with credential subject of type LegalPerson
+      - label: Credential with credential subject of type Company
         json: |
           {
             "@context": [
@@ -94,7 +95,7 @@ class:
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "LegalPerson",
+              "@type": "Company",
               "legalIdentifier": {
                 "@type" : "Euid",
                 "@value" : "NOFOR.987654321"
@@ -116,8 +117,10 @@ class:
                   "@type" : "Bic",
                   "@value" : "INCFGXXX"
                 },
+                {
                   "@type" : "ClearingNumber",
                   "@value" : "12345678"
+                }
               ],
               "vat": "123456789MVA",
               "tin": "NO-ORG-123456789",
@@ -227,7 +230,7 @@ class:
   - id: LimitedLiabilityCompany
     label: European Company Certificate Data for limited liability companies
     upper_value:
-      - LegalPerson
+      - Company
       - cred:CredentialSubject
     defined_by: https://w3id.org/ebwv/terminology#/concept/limitedliabilitycompany
     example:
@@ -246,7 +249,10 @@ class:
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "LimitedLiabilityCompany",
+              "@type": [
+                "Company",
+                "LimitedLiabilityCompany"
+              ],
               "legalIdentifier": {
                 "@type" : "Euid",
                 "@value" : "NOFOR.987654321"
@@ -334,7 +340,7 @@ class:
               "@type": "NaturalPerson",
               "givenName": "Mario",
               "familyName": "Mustermann",
-              "birthDate": "12/01/1965"
+              "dateOfBirth": "12/01/1965"
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
@@ -344,7 +350,7 @@ class:
   - id: Partnership
     label: European Company Certificate Data for partnerships
     upper_value:
-      - LegalPerson
+      - Company
       - cred:CredentialSubject
     defined_by: https://w3id.org/ebwv/terminology#/concept/partnership
     example:
@@ -363,7 +369,10 @@ class:
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "Partnership",
+              "@type": [
+                  "Company",
+                  "Partnership"
+              ],
               "registeredAddress": {
                 "@type":"Address",
                 "fullAddress": "Via Appia 123, 00100 Rome, Italy",
@@ -778,7 +787,7 @@ property:
 
   - id: provider
     label: provide
-    domain: ProviderBankAccount
+    domain: BankAccount
     range:
       - LegalPerson
       - Company

@@ -134,7 +134,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-03-18</time>
+                <time property="dc:date" id="time">2026-03-20</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -1130,7 +1130,7 @@
                 <p>See the <a href="https://w3id.org/ebwv/terminology#/concept/provider">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#ProviderBankAccount"><code>ProviderBankAccount</code></a></dd>
+                    <dd><a href="#BankAccount"><code>BankAccount</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊓&nbsp;<a href="#Company"><code>Company</code></a></dd>
                 </dl>
@@ -1310,14 +1310,18 @@
                 <p><em>Bank Account</em></p>
                 <p>See the <a href="https://w3id.org/ebwv/terminology#/concept/bankaccount">formal definition of the term</a>.</p>
                 <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                </dl>
+                <dl class="terms">
                     <dt>Domain of:</dt>
-                    <dd><a href="#accountName"><code>accountName</code></a>, <a href="#accountType"><code>accountType</code></a>, <a href="#iban"><code>iban</code></a>, <a href="#owner"><code>owner</code></a></dd>
+                    <dd><a href="#accountName"><code>accountName</code></a>, <a href="#accountType"><code>accountType</code></a>, <a href="#iban"><code>iban</code></a>, <a href="#owner"><code>owner</code></a>, <a href="#provider"><code>provider</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type EuropeanBusinessWalletOwner">{
+                <pre class="example prettyprint language-json" title="Credential with credential subject of type BankAccount">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -1378,7 +1382,7 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type LegalPerson">{
+                <pre class="example prettyprint language-json" title="Credential with credential subject of type Company">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -1391,7 +1395,7 @@
   "attestationLegalCategory": "QEAA",
   "credentialSubject": {
     "@id": "did:key:$publicKeyOfHolder$",
-    "@type": "LegalPerson",
+    "@type": "Company",
     "legalIdentifier": {
       "@type" : "Euid",
       "@value" : "NOFOR.987654321"
@@ -1413,8 +1417,10 @@
         "@type" : "Bic",
         "@value" : "INCFGXXX"
       },
+      {
         "@type" : "ClearingNumber",
         "@value" : "12345678"
+      }
     ],
     "vat": "123456789MVA",
     "tin": "NO-ORG-123456789",
@@ -1613,7 +1619,7 @@
                 <p>See the <a href="https://w3id.org/ebwv/terminology#/concept/limitedliabilitycompany">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Subclass of:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊓&nbsp;<a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a> ⊓&nbsp;<a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Domain of:</dt>
@@ -1636,7 +1642,10 @@
   "attestationLegalCategory": "QEAA",
   "credentialSubject": {
     "@id": "did:key:$publicKeyOfHolder$",
-    "@type": "LimitedLiabilityCompany",
+    "@type": [
+      "Company",
+      "LimitedLiabilityCompany"
+    ],
     "legalIdentifier": {
       "@type" : "Euid",
       "@value" : "NOFOR.987654321"
@@ -1756,7 +1765,7 @@
     "@type": "NaturalPerson",
     "givenName": "Mario",
     "familyName": "Mustermann",
-    "birthDate": "12/01/1965"
+    "dateOfBirth": "12/01/1965"
   },
   "validUntil": "2029-12-03T12:19:52Z",
   "validFrom": "2019-12-03T12:19:52Z",
@@ -1770,7 +1779,7 @@
                 <p>See the <a href="https://w3id.org/ebwv/terminology#/concept/partnership">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Subclass of:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊓&nbsp;<a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a> ⊓&nbsp;<a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Domain of:</dt>
@@ -1793,7 +1802,10 @@
   "attestationLegalCategory": "QEAA",
   "credentialSubject": {
     "@id": "did:key:$publicKeyOfHolder$",
-    "@type": "Partnership",
+    "@type": [
+        "Company",
+        "Partnership"
+    ],
     "registeredAddress": {
       "@type":"Address",
       "fullAddress": "Via Appia 123, 00100 Rome, Italy",

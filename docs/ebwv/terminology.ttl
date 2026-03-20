@@ -1819,6 +1819,11 @@ webuild:concept-6043  rdf:type        skos:Concept;
         skos-xl:literalForm           "qualified attestation of attributes"@en;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
+<urn:uuid:cdc31107-5f91-4442-beeb-af09460bfc36>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "street name"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
 webuild:concept-91  rdf:type          skos:Concept;
         dcterms:created               "2025-10-06T08:43:28.464Z"^^xsd:dateTime;
         dcterms:modified              "2025-12-04T13:46:12.153Z"^^xsd:dateTime;
@@ -1830,11 +1835,6 @@ webuild:concept-91  rdf:type          skos:Concept;
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
         term:orderedRelated           ( webuild:concept-30 ) .
-
-<urn:uuid:cdc31107-5f91-4442-beeb-af09460bfc36>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "street name"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 <urn:uuid:601195a0-5fc1-454b-b159-f302b74642ae>
         rdf:type                      skos-xl:Label;
@@ -1984,6 +1984,11 @@ webuild:postname  rdf:type            skos:Concept;
         term:orderedNote              ( "Usually a city, for example \"Paris\"."@en );
         term:orderedSynonym           ( <urn:uuid:986de4e3-0d97-44d7-975f-cfb591466d4a> ) .
 
+<urn:uuid:6d74117a-7060-4a98-9acb-9274b59cdb8c>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "legal address"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
 webuild:concept-18  rdf:type          skos:Concept;
         dcterms:created               "2022-02-02T10:51:49Z";
         dcterms:modified              "2026-01-08T14:46:53.759Z"^^xsd:dateTime;
@@ -1999,11 +2004,6 @@ webuild:concept-18  rdf:type          skos:Concept;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
         term:orderedNarrower          ( webuild:concept-105 webuild:concept-6012 webuild:concept-51 webuild:concept-24 );
         term:orderedNote              ( "EU Core Business Vocabulary definition for \"legal name\" = The name under which the Legal Entity is legally registered."@en ) .
-
-<urn:uuid:6d74117a-7060-4a98-9acb-9274b59cdb8c>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "legal address"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 webuild:concept-96  rdf:type          skos:Concept;
         dcterms:created               "2025-12-04T12:52:03.06Z"^^xsd:dateTime;
@@ -2042,14 +2042,14 @@ webuild:concept-6003  rdf:type        skos:Concept;
         term:orderedNote              ( "Other versions:\ncriterion for the mandate that gives power to an agent to represent a legal entity\ncriterion for power to one or several agents to represent a legal entity\nThe capacity to act on behalf.. is from here https://everis-rpam.github.io/Glossary.html#C"@en );
         term:orderedRelated           ( webuild:concept-98 webuild:concept-3003 webuild:concept-3008 ) .
 
-<urn:uuid:5a33baaa-571d-4edd-9832-d494278866f3>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "duration of the legal entity"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
 <urn:uuid:b55cd908-a05c-41a2-8bb4-0eb93245b798>
         rdf:type                      skos-xl:Label;
         skos-xl:literalForm           "registered address"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:5a33baaa-571d-4edd-9832-d494278866f3>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "duration of the legal entity"@en;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 <urn:uuid:65298419-671f-4023-a663-21e65afbfc2c>
@@ -2216,14 +2216,14 @@ webuild:concept-3002  rdf:type        skos:Concept;
         term:orderedNote              ( "The question whether a natural person actually &quot;owns&quot; or &quot;controls&quot; the agent is decided separately in each national jurisdiction. It is also dependent on the legal form of the agent. <br />Based on Directive (EU) 2015/849 Artcicle 3, section 6"@en );
         term:orderedRelated           ( webuild:concept-41 ) .
 
-<urn:uuid:b7e1dd0b-5275-4de3-830c-94456e05fe3f>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "legal name"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
 <urn:uuid:0737c692-6aee-470b-ae94-d23871ae746c>
         rdf:type                      skos-xl:Label;
         skos-xl:literalForm           "restriction"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:b7e1dd0b-5275-4de3-830c-94456e05fe3f>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "legal name"@en;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 webuild:concept-24  rdf:type          skos:Concept;
@@ -2343,11 +2343,6 @@ webuild:concept-3007  rdf:type        skos:Concept;
         term:orderedRelated           ( webuild:concept-3003 );
         term:orderedSynonym           ( <urn:uuid:bed0473e-a392-4584-b922-047feb28dc90> ) .
 
-<urn:uuid:015a86dc-c75e-479a-97e4-3b306de1c74e>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "mandator"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
 webuild:concept-75  rdf:type          skos:Concept;
         dcterms:created               "2025-02-06T09:26:31.837Z"^^xsd:dateTime;
         dcterms:modified              "2026-01-13T09:17:16.113Z"^^xsd:dateTime;
@@ -2361,6 +2356,11 @@ webuild:concept-75  rdf:type          skos:Concept;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
         term:orderedRelated           ( webuild:concept-76 webuild:concept-77 );
         term:orderedSynonym           ( <urn:uuid:844ee5cb-d693-40d7-a4db-ecef6f1502f3> <urn:uuid:e7478fac-443d-4cd2-8bd6-5674f1308dcb> <urn:uuid:b72cb510-c556-4dbc-9af8-17e47defc04b> <urn:uuid:1f6a0439-2aaf-401c-acce-82d80cd4a869> <urn:uuid:3c6fdbcc-2a60-47e4-a155-ed62be2df256> ) .
+
+<urn:uuid:015a86dc-c75e-479a-97e4-3b306de1c74e>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "mandator"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 <urn:uuid:e6138034-c31f-4307-9078-2fb61d1765c8>
         rdf:type                      skos-xl:Label;
