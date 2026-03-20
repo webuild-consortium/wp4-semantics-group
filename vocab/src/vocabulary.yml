@@ -51,6 +51,11 @@ class:
     label: Credential Subject
     defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
 
+  - id: EconomicOperator
+    label: Economic Operator
+    comment: 
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/economicoperator
+
   - id: ElectronicAttestationOfAttributes
     label: Electronic Attestation Of Attributes
     upper_value: cred:VerifiableCredential
@@ -246,11 +251,15 @@ class:
     label: General Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner
 
+  - id: Identifier
+    label: Identifier
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
+
   - id: Jurisdiction
     label: Jurisdiction
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
 
-- id: LegalEntity
+  - id: LegalEntity
     label: Legal Entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
@@ -314,6 +323,10 @@ class:
     label: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/location
 
+  - id: Membership
+    label: Membership
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/membership
+
   - id: Nace21
     label: Nace Rev. 2.1
     upper_value: skos:Concept
@@ -349,6 +362,10 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
+  - id: Organisation
+    label: Organisation
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/organisation
+
   - id: PeriodOfTime
     label: Period of Time
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
@@ -356,6 +373,10 @@ class:
   - id: Person
     label: Person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
+
+  - id: PlaceOfWork
+    label: Place of Work
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork
 
   - id: PublicBodyId
     label: unique identifier of public body
@@ -368,6 +389,14 @@ class:
   - id: StatutoryPartner
     label: Statutory Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
+
+  - id: Vessel
+    label: Vessel
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vessel
+
+  - id: WorkAssignment
+    label: Work Assignment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/workassignment  
 
 property:
   - id: activity
@@ -389,12 +418,14 @@ property:
     label: administrative unit level 2
     domain: Address
     range: xsd:string
+    comment: usually a region or state (in a country)
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2
 
   - id: adminUnitL1
     label: administrative unit level 1
     domain: Address
     range: xsd:string
+    comment: usually a country
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1
 
   - id: alternativeName
@@ -408,6 +439,12 @@ property:
     domain: Capital
     range: xsd:float
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
+
+  - id: assignedVessel
+    label: assigned vessel
+    domain: PlaceOfWork
+    range: Vessel
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/assignedvessel
 
   - id: attestationLegalCategory
     label: attestation legal category
@@ -451,6 +488,15 @@ property:
     range:
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
+
+  - id: country
+    label: country
+    domain: 
+      - Address
+      - Jurisdiction
+      - Location 
+    range: skos:Concept
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/country
 
   - id: countryOfBirth
     label: country of birth
@@ -516,6 +562,18 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
 
+  - id: fixedPlace
+    label: fixed place
+    domain: PlaceOfWork
+    range: xsd:boolean
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fixedplace
+
+  - id: flagState
+    label: flag state
+    domain: Vessel
+    range: skos:Concept
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/flagstate
+
   - id: fullAddress
     label: full address
     domain: Address
@@ -540,11 +598,29 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
 
+  - id: hasDuration
+    label: has duration
+    domain: WorkAssignment
+    range: PeriodOfTime
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/duration
+
   - id: hasEmail
     label: email
     domain: ContactPoint
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
+
+  - id: hasMember
+    label: has member
+    domain: EconomicOperator
+    range: Membership
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/member
+
+  - id: hasPlaceOfWork 
+    label: has place of work
+    domain: WorkAssignment
+    range: PlaceOfWork
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork
 
   - id: hasTelephone
     label: telephone
@@ -552,11 +628,40 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/telephone
 
+  - id: hasTemporaryAddress
+    label: has temporary address
+    domain: Person
+    range: Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporaryaddress
+
+  - id: hasWorkAssignment
+    label: has work assignment
+    domain: EconomicOperator
+    range: WorkAssignment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/workassignement
+
   - id: identifier
     label: identifier
-    domain: Person
+    domain: 
+      - EconomicOperator
+      - LegalEntity
+      - Person
+      - Organisation
+      - Vessel
     range: Identifier
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
+
+  - id: isEconomicOperator
+    label: is economic operator
+    domain: PlaceOfWork
+    range: EconomicOperator
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/economicoperator
+
+  - id: jobTitle
+    label: job title
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jobtitle
 
   - id: legalName
     label: legal name
@@ -566,7 +671,7 @@ property:
       - EuccLimitLiabilityCompany
       - EuccPartnership
     range: xsd:string
-    comment: a name under which the legal entity is registered
+    comment: a name under which the economic operator or legal entity is registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
 
   - id: legalIdentifier
@@ -626,6 +731,12 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname
+
+  - id: membershipType
+    label: membership type
+    domain: Person
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/membership
 
   - id: partner
     label: partner
@@ -745,6 +856,7 @@ property:
     label: thoroughfare
     domain: Address
     range: xsd:string
+    comment: usually a street
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
 
   - id: tin
@@ -752,6 +864,24 @@ property:
     domain: LegalPersonIdentificationData
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tin
+
+  - id: type
+    label: type
+    domain: Identifier
+    range: skos:Concept
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/type
+
+  - id: underJurisdiction
+    label: under jurisdiction
+    domain: Organisation
+    range: Jurisdiction
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/underjurisdiction
+
+  - id: value
+    label: value
+    domain: Identifier
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/value
 
   - id: vat
     label: value added tax id
