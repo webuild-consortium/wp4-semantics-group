@@ -31,6 +31,10 @@ class:
     label: Address
     defined_by: https://w3id.org/ebwv/terminology#/concept/address
 
+- id: Address2
+    label: Address2
+    defined_by: https://w3id.org/ebwv/terminology#/concept/address2
+
   - id: Agent
     label: Agent
     defined_by: https://w3id.org/ebwv/terminology#/concept/agent
