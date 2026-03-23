@@ -4,7 +4,7 @@ Purpose: Capture the story and high-level purpose of the use case of the IBAN Ow
 
 This iteration is based on:
 
-The IBAN OV [file](https://portal.webuildconsortium.eu/group/pa3-corporate-banking/files).
+The IBAN OV [file]((https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335).
 This is besed on WP 2.3 within the EWC Consortia together with Archipels in accordance with [PSD2](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb003_IBAN_attestation.md)
 
 Other sources are yet to be incorporated.
@@ -38,6 +38,8 @@ The account holder can present the attestation to third parties as required by b
 # Information Model from the intake
 
 Purpose: Capture the entities, attributes, and relationships.
+
+
 
 **Entity: Hello**
 |Name|Description/Definition|
