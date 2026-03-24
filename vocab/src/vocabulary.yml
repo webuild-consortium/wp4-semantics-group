@@ -428,6 +428,77 @@ class:
   - id: PostedWorkerNotification
     label: Posted Worker Notification
     defined_by: https://w3id.org/ebwv/terminology#/concept/postedworker
+    example:
+      - label: Credential with credential subject of type EuropeanBusinessWalletOwner
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "PostedWorkerNotification",
+              "postedWorker" : {
+                "@type": "Person",
+                "gender": "male",
+                "familyName": "Miller",
+                "givenName": "Joe",
+                "birthName": "Miller",
+                "dateOfBirth": "1956-12-02",
+                "citizenShip": "IT",
+                "placeOfBirth": {
+                  "@type" : "Address",
+                  "postName": "Rome",
+                  "adminUtil1": "IT"
+                },
+                "domicile": {
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                },
+                "temporaryAddress":{
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                }
+              },
+              "assignment": {
+                "applicableJurisdiction": "IT",
+                "duration": {
+                  "startDate": "2020-01-01",
+                  "endDate": "2020-06-30"
+                }
+              },
+              "employer": {
+                legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation"
+              },
+              "typeOfEmployment": "Permanent"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
 
   - id: ScopeOfAuthorization
     label: Scope Of Authorization
@@ -601,6 +672,12 @@ property:
     domain: Company
     range: xsd:string
     defined_by: https://w3id.org/ebwv/terminology#/concept/eori
+
+  - id: endDate
+    label: end date of period of time
+    domain: PeriodOfTime
+    range: xsd:date
+    defined_by: https://w3id.org/ebwv/terminology#/concept/endDate
 
   - id: excise
     label: excise number
@@ -890,6 +967,12 @@ property:
     one_of: [Alone, Jointly]
     defined_by: https://w3id.org/ebwv/terminology#/concept/role
 
+  - id: startDate
+    label: start date of period of time
+    domain: PeriodOfTime
+    range: xsd:date
+    defined_by: https://w3id.org/ebwv/terminology#/concept/startDate
+
   - id: subscribedCapital
     label: subscribed capital
     domain:
@@ -917,8 +1000,9 @@ property:
 
   - id: typeOfEmployment
     label: type of employment
-    domain: PostedWorkerNotification 
-    range: xsd:string
+    domain: PostedWorkerNotification
+    range: TypeOfEmployment
+    one_of: [Permanent, Temporary]
     defined_by: https://w3id.org/ebwv/terminology#/concept/typeofemployment
 
   - id: vat
