@@ -142,6 +142,13 @@ class:
     label: Credential Subject
     defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
 
+  - id: EconomicOperator
+    label: Economic Operator
+    upper_value: 
+      - Company
+      - Person
+    defined_by: https://w3id.org/ebwv/terminology#/concept/economicoperator
+
   - id: ElectronicAttestationOfAttributes
     label: Electronic Attestation Of Attributes
     upper_value: cred:VerifiableCredential
@@ -418,6 +425,10 @@ class:
     label: Person
     defined_by: https://w3id.org/ebwv/terminology#/concept/person
 
+  - id: PostedWorkerNotification
+    label: Posted Worker Notification
+    defined_by: https://w3id.org/ebwv/terminology#/concept/postedworker
+
   - id: ScopeOfAuthorization
     label: Scope Of Authorization
     defined_by: https://w3id.org/ebwv/terminology#/concept/scopeofauthorization
@@ -425,6 +436,14 @@ class:
   - id: StatutoryPartner
     label: Statutory Partner
     defined_by: https://w3id.org/ebwv/terminology#/concept/statutorypartner
+
+  - id: TypeOfEmployment
+    label: Type Of Employment
+    defined_by: https://w3id.org/ebwv/terminology#/concept/typeofemployment
+
+  - id: WorkAssignment
+    label: Work Assignment
+    defined_by: https://w3id.org/ebwv/terminology#/concept/workassignment
 
 property:
   - id: activity
@@ -475,6 +494,18 @@ property:
     domain: Capital
     range: xsd:float
     defined_by: https://w3id.org/ebwv/terminology#/concept/amount
+
+  - id: applicableJurisdiction
+    label: applicable jurisdiction
+    domain: WorkAssignment
+    range: CountryCode
+    defined_by: https://w3id.org/ebwv/terminology#/concept/applicablejurisdiction
+
+  - id: assignment
+    label: assignment
+    domain: PostedWorkerNotification
+    range: WorkAssignment
+    defined_by: https://w3id.org/ebwv/terminology#/concept/assignment
 
   - id: attestationLegalCategory
     label: attestation legal category
@@ -553,6 +584,18 @@ property:
     range: Address
     defined_by: https://w3id.org/ebwv/terminology#/concept/domicile
 
+  - id: duration
+    label: duration
+    domain: WorkAssignment
+    range: PeriodOfTime
+    defined_by: https://w3id.org/ebwv/terminology#/concept/duration
+
+  - id: employer
+    label: employer
+    domain: PostedWorkerNotification
+    range: EconomicOperator
+    defined_by: https://w3id.org/ebwv/terminology#/concept/employer
+
   - id: eori
     label: economic operator registration and identification
     domain: Company
@@ -591,6 +634,18 @@ property:
     range: xsd:string
     defined_by: https://w3id.org/ebwv/terminology#/concept/gender
 
+  - id: geographicIdentifier
+    label: geographic identifier
+    domain: Location
+    range: xsd:anyURI
+    defined_by: https://w3id.org/ebwv/terminology#/concept/geographicidentifier
+
+  - id: geographicName
+    label: geographic name
+    domain: Location
+    range: xsd:string
+    defined_by: https://w3id.org/ebwv/terminology#/concept/geographicname
+
   - id: givenName
     label: given name
     domain:
@@ -626,6 +681,12 @@ property:
       - ClearingNumber
       - Iban
     defined_by: https://w3id.org/ebwv/terminology#/concept/identifier
+
+  - id: jobTitle
+    label: job title
+    domain: Person
+    range: xsd:string
+    defined_by: https://w3id.org/ebwv/terminology#/concept/jobtitle
 
   - id: legalForm
     label: legal form
@@ -779,6 +840,12 @@ property:
     range: xsd:string
     defined_by: https://w3id.org/ebwv/terminology#/concept/postcode
 
+  - id: postedWorker
+    label: posted worker
+    domain: PostedWorkerNotification
+    range: Person
+    defined_by: https://w3id.org/ebwv/terminology#/concept/postedworker
+
   - id: postName
     label: post name
     domain: Address
@@ -830,6 +897,12 @@ property:
     range: Capital
     defined_by: https://w3id.org/ebwv/terminology#/concept/subscribedcapital
 
+  - id: temporaryAddress
+    label: temporary address
+    domain: Person
+    range: Address
+    defined_by: https://w3id.org/ebwv/terminology#/concept/temporaryaddress
+
   - id: thoroughfare
     label: thoroughfare
     domain: Address
@@ -841,6 +914,12 @@ property:
     domain: Company
     range: xsd:string
     defined_by: https://w3id.org/ebwv/terminology#/concept/tin
+
+  - id: typeOfEmployment
+    label: type of employment
+    domain: PostedWorkerNotification 
+    range: xsd:string
+    defined_by: https://w3id.org/ebwv/terminology#/concept/typeofemployment
 
   - id: vat
     label: value added tax id
@@ -864,6 +943,11 @@ individual:   # code lists
     type: ScopeOfAuthorization
     defined_by: https://w3id.org/ebwv/terminology#/concept/Jointly
 
+  - id: Permanent
+    label: type of employment Permanent
+    type: TypeOfEmployment
+    defined_by: https://w3id.org/ebwv/terminology#/concept/permanent
+
   - id: Pub-EAA
     label: public electronic attestation of attributes
     type: AttestationLegalCategory
@@ -873,6 +957,11 @@ individual:   # code lists
     label: qualified electronic attestation of attributes
     type: AttestationLegalCategory
     defined_by: https://w3id.org/ebwv/terminology#/concept/QEAA
+
+  - id: Temporary
+    label: type of employment Temporary
+    type: TypeOfEmployment
+    defined_by: https://w3id.org/ebwv/terminology#/concept/temporary
 
 datatype:
   - id: AccountType
