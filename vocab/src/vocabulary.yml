@@ -517,13 +517,6 @@ class:
     defined_by: https://w3id.org/ebwv/terminology#/concept/workassignment
 
 property:
-  - id: activity
-    label: main activity of company
-    domain: Company
-    range:
-      - Nace21
-    defined_by: https://w3id.org/ebwv/terminology#/concept/activity
-
   - id: accountName
     label: account name
     domain: BankAccount
@@ -535,6 +528,15 @@ property:
     domain: BankAccount
     range: AccountType
     defined_by: https://w3id.org/ebwv/terminology#/concept/banktype
+
+  - id: activity
+    label: main activity of company
+    domain: 
+      - Company
+      - EconomicOperator
+    range:
+      - Nace21
+    defined_by: https://w3id.org/ebwv/terminology#/concept/activity
 
   - id: addressArea
     label: address area
