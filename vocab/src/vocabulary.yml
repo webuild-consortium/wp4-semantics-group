@@ -542,6 +542,12 @@ property:
     range: xsd:string
     defined_by: https://w3id.org/ebwv/terminology#/concept/addressarea
 
+  - id: administrativeRepresentative
+    label: administrative representative
+    domain: EconomicOperator
+    range: Person
+    defined_by: https://w3id.org/ebwv/terminology#/concept/administrativerepresentative
+
   - id: adminUnitL2
     label: administrative unit level 2
     domain: Address
@@ -596,6 +602,12 @@ property:
     domain: Person
     range: CountryCode
     defined_by: https://w3id.org/ebwv/terminology#/concept/citizenship
+
+  - id: constructionSector
+    label: construction sector
+    domain: EconomicOperator
+    range: xsd:boolean
+    defined_by: https://w3id.org/ebwv/terminology#/concept/constructionsector
 
   - id: contactPoint
     label: contact point
@@ -742,6 +754,12 @@ property:
     domain: ContactPoint
     range: xsd:string
     defined_by: https://w3id.org/ebwv/terminology#/concept/telephone
+
+  - id: hostEntity
+    label: host entity
+    domain: PostedWorkerNotification
+    range: EconomicOperator
+    defined_by: https://w3id.org/ebwv/terminology#/concept/hostentity
 
   - id: iban
     label: IBAN
@@ -966,6 +984,12 @@ property:
     range: ScopeOfAuthorization
     one_of: [Alone, Jointly]
     defined_by: https://w3id.org/ebwv/terminology#/concept/role
+
+  - id: socialRepresentative
+    label: social representative
+    domain: EconomicOperator
+    range: Person
+    defined_by: https://w3id.org/ebwv/terminology#/concept/socialrepresentative
 
   - id: startDate
     label: start date of period of time
