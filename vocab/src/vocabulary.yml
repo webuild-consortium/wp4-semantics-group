@@ -917,6 +917,15 @@ property:
     range: Location
     defined_by: https://w3id.org/ebwv/terminology#/concept/placeofdeath
 
+  - id: placeOfWork
+    label: place of work
+    domain: WorkAssignment
+    range:
+      - CountryCode
+      - EconomicOperator
+      - Vessel       
+    defined_by: https://w3id.org/ebwv/terminology#/concept/placeofwork
+
   - id: poBox
     label: post office box
     domain: Address
