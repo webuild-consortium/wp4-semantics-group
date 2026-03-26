@@ -29,20 +29,20 @@ ontology:
 class:
   - id: Address
     label: Address
-    defined_by: https://w3id.org/ebwv/terminology#/concept/address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
 
   - id: Agent
     label: Agent
-    defined_by: https://w3id.org/ebwv/terminology#/concept/agent
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/agent
 
   - id: AttestationLegalCategory
     label: Attestation Legal Category
-    defined_by: https://w3id.org/ebwv/terminology#/concept/attestationlegalcategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
   - id: BankAccount
     label: Bank Account
     upper_value: cred:CredentialSubject
-    defined_by: https://w3id.org/ebwv/terminology#/concept/bankaccount
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount
     example:
       - label: Credential with credential subject of type BankAccount
         json: |
@@ -73,12 +73,12 @@ class:
 
   - id: Capital
     label: Capital
-    defined_by: https://w3id.org/ebwv/terminology#/concept/capital
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
 
   - id: Company
     label: Company as defined in directive-EU-2025/25
     upper_value: cred:CredentialSubject
-    defined_by: https://w3id.org/ebwv/terminology#/concept/company
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/company
     example:
       - label: Credential with credential subject of type Company
         json: |
@@ -136,7 +136,7 @@ class:
 
   - id: ContactPoint
     label: Contact Point
-    defined_by: https://w3id.org/ebwv/terminology#/concept/contactpoint
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
 
   - id: cred:CredentialSubject
     label: Credential Subject
@@ -145,12 +145,12 @@ class:
   - id: ElectronicAttestationOfAttributes
     label: Electronic Attestation Of Attributes
     upper_value: cred:VerifiableCredential
-    defined_by: https://w3id.org/ebwv/terminology#/concept/electronicattestationofattributes
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes
 
   - id: EuropeanBusinessWalletOwner
     label: European Business Wallet Owner
     upper_value: cred:CredentialSubject
-    defined_by: https://w3id.org/ebwv/terminology#/concept/europeanbusinesswalletowner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/europeanbusinesswalletowner
     example:
       - label: Credential with credential subject of type EuropeanBusinessWalletOwner
         json: |
@@ -181,14 +181,14 @@ class:
 
   - id: GeneralPartner
     label: General Partner
-    defined_by: https://w3id.org/ebwv/terminology#/concept/generalpartner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner
 
   - id: LegalPerson
     label: Legal Person
     upper_value:
       - LegalEntity
       - cred:CredentialSubject
-    defined_by: https://w3id.org/ebwv/terminology#/concept/legalperson
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson
     example:
       - label: Credential with credential subject of type LegalPerson
         json: |
@@ -221,18 +221,18 @@ class:
   - id: LegalEntity
     label: Legal entity
     upper_value: cred:CredentialSubject
-    defined_by: https://w3id.org/ebwv/terminology#/concept/legalentity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: LegalRepresentative
     label: Legal representative
-    defined_by: https://w3id.org/ebwv/terminology#/concept/legalrepresentative
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
 
   - id: LimitedLiabilityCompany
     label: European Company Certificate Data for limited liability companies
     upper_value:
       - Company
       - cred:CredentialSubject
-    defined_by: https://w3id.org/ebwv/terminology#/concept/limitedliabilitycompany
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedliabilitycompany
     example:
       - label: Credential with credential subject of type LimitedLiabilityCompany
         json: |
@@ -309,18 +309,18 @@ class:
 
   - id: LimitedPartner
     label: Limited Partner
-    defined_by: https://w3id.org/ebwv/terminology#/concept/limitedpartner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedpartner
 
   - id: Location
     label: Location
-    defined_by: https://w3id.org/ebwv/terminology#/concept/location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/location
 
   - id: NaturalPerson
     label: Natural Person Identification Data
     upper_value:
       - LegalEntity
       - cred:CredentialSubject
-    defined_by: https://w3id.org/ebwv/terminology#/concept/naturalperson
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson
     example:
       - label: Credential with credential subject of type NaturalPerson
         json: |
@@ -352,7 +352,7 @@ class:
     upper_value:
       - Company
       - cred:CredentialSubject
-    defined_by: https://w3id.org/ebwv/terminology#/concept/partnership
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnership
     example:
       - label: Credential with credential subject of type Partnership
         json: |
@@ -412,19 +412,19 @@ class:
 
   - id: PeriodOfTime
     label: Period of Time
-    defined_by: https://w3id.org/ebwv/terminology#/concept/periodoftime
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
 
   - id: Person
     label: Person
-    defined_by: https://w3id.org/ebwv/terminology#/concept/person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
 
   - id: ScopeOfAuthorization
     label: Scope Of Authorization
-    defined_by: https://w3id.org/ebwv/terminology#/concept/scopeofauthorization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
 
   - id: StatutoryPartner
     label: Statutory Partner
-    defined_by: https://w3id.org/ebwv/terminology#/concept/statutorypartner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
 
 property:
   - id: activity
@@ -432,74 +432,74 @@ property:
     domain: Company
     range:
       - Nace21
-    defined_by: https://w3id.org/ebwv/terminology#/concept/activity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
 
   - id: accountName
     label: account name
     domain: BankAccount
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/bankaccount
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount
 
   - id: accountType
     label: account type
     domain: BankAccount
     range: AccountType
-    defined_by: https://w3id.org/ebwv/terminology#/concept/banktype
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/banktype
 
   - id: addressArea
     label: address area
     domain: Address
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/addressarea
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea
 
   - id: adminUnitL2
     label: administrative unit level 2
     domain: Address
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/adminUnitL2
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2
 
   - id: adminUnitL1
     label: administrative unit level 1
     domain: Address
     range: CountryCode
-    defined_by: https://w3id.org/ebwv/terminology#/concept/adminUnitL1
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1
 
   - id: alternativeName
     label: alternative name
     domain: Person
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/alternativename
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename
 
   - id: amount
     label: amount
     domain: Capital
     range: xsd:float
-    defined_by: https://w3id.org/ebwv/terminology#/concept/amount
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
 
   - id: attestationLegalCategory
     label: attestation legal category
     domain: ElectronicAttestationOfAttributes
     range: AttestationLegalCategory
     one_of: [ QEAA, Pub-EAA, EAA ]
-    defined_by: https://w3id.org/ebwv/terminology#/concept/attestationlegalcategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
   - id: birthName
     label: birth name
     domain: Person
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/birthname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname
 
   - id: citizenship
     label: citizenship
     domain: Person
     range: CountryCode
-    defined_by: https://w3id.org/ebwv/terminology#/concept/citizenship
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
 
   - id: contactPoint
     label: contact point
     domain: Person
     range: ContactPoint
-    defined_by: https://w3id.org/ebwv/terminology#/concept/contactpoint
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
 
   - id: correspondenceAddress
     label: correspondence Address
@@ -507,25 +507,25 @@ property:
       - Company
     range:
       - Address
-    defined_by: https://w3id.org/ebwv/terminology#/concept/correspondenceaddress
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
 
   - id: countryOfBirth
     label: country of birth
     domain: Person
     range: Location
-    defined_by: https://w3id.org/ebwv/terminology#/concept/countryofbirth
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofbirth
 
   - id: countryOfDeath
     label: country of death
     domain: Person
     range: Location
-    defined_by: https://w3id.org/ebwv/terminology#/concept/countryofdeath
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath
 
   - id: currency
     label: currency
     domain: Capital
     range: Currency
-    defined_by: https://w3id.org/ebwv/terminology#/concept/currency
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/currency
 
   - id: dateOfBirth
     label: date of birth
@@ -533,37 +533,37 @@ property:
       -  Person
       -  NaturalPerson
     range: xsd:date
-    defined_by: https://w3id.org/ebwv/terminology#/concept/dateofbirth
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth
 
   - id: dateOfDeath
     label: date of death
     domain: Person
     range: xsd:date
-    defined_by: https://w3id.org/ebwv/terminology#/concept/dateofdeath
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath
 
   - id: dateOfRegistration
     label: date of registration
     domain: Company
     range: xsd:date
-    defined_by: https://w3id.org/ebwv/terminology#/concept/dateofregistration
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
 
   - id: domicile
     label: domicile
     domain: Person
     range: Address
-    defined_by: https://w3id.org/ebwv/terminology#/concept/domicile
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile
 
   - id: eori
     label: economic operator registration and identification
     domain: Company
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/eori
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
 
   - id: excise
     label: excise number
     domain: Company
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/excise
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/excise
 
   - id: familyName
     label: family name
@@ -571,25 +571,25 @@ property:
       - NaturalPerson
       - Person
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/familyname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
 
   - id: fullAddress
     label: full address
     domain: Address
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/fulladdress
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress
 
   - id: fullName
     label: full name
     domain: Person
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/fullname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname
 
   - id: gender
     label: gender
     domain: Person
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/gender
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gender
 
   - id: givenName
     label: given name
@@ -597,25 +597,25 @@ property:
       - NaturalPerson
       - Person
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/givenname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
 
   - id: hasEmail
     label: email
     domain: ContactPoint
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/email
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
 
   - id: hasTelephone
     label: telephone
     domain: ContactPoint
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/telephone
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/telephone
 
   - id: iban
     label: IBAN
     domain: BankAccount
     range: Iban
-    defined_by: https://w3id.org/ebwv/terminology#/concept/iban
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/iban
 
   - id: identifier
     label: identifier
@@ -625,7 +625,7 @@ property:
       - Bic
       - ClearingNumber
       - Iban
-    defined_by: https://w3id.org/ebwv/terminology#/concept/identifier
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
 
   - id: legalForm
     label: legal form
@@ -634,7 +634,7 @@ property:
       - Company
     range:
       - xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/legalform
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalform
 
   - id: legalIdentifier
     label: legal identifier
@@ -645,7 +645,7 @@ property:
     range:
       - PublicBodyId
       - Euid
-    defined_by: https://w3id.org/ebwv/terminology#/concept/legalidentifier
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier
 
   - id: legalName
     label: legal name
@@ -655,7 +655,7 @@ property:
       - Company
     range: xsd:string
     comment: a name under which the legal entity is registered
-    defined_by: https://w3id.org/ebwv/terminology#/concept/legalname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
 
   - id: legalRepresentative
     label: legal representative
@@ -663,31 +663,31 @@ property:
       - LimitedLiabilityCompany
     range:
       - LegalRepresentative
-    defined_by: https://w3id.org/ebwv/terminology#/concept/legalrepresentative
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
 
   - id: legalRepresentativeId
     label: unique ID of the identity of the representative
     domain: LegalRepresentative
     range: xsd:anyURI
-    defined_by: https://w3id.org/ebwv/terminology#/concept/legalrepresentativeid
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid
 
   - id: legalStatus
     label: status of the company
     domain: Company
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/legalstatus
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalstatus
 
   - id: lei
     label: legal entity identifier
     domain: Company
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/lei
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
 
   - id: liabilityOrContribution
     label: liability or contribution of the limited partner
     domain: LimitedPartner
     range: Capital
-    defined_by: https://w3id.org/ebwv/terminology#/concept/liabilityorcontribution
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution
 
   - id: locatorDesignator
     label: locator designator
@@ -695,19 +695,19 @@ property:
     range:
       - xsd:string
       - xsd:integer
-    defined_by: https://w3id.org/ebwv/terminology#/concept/locatordesignator
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator
 
   - id: locatorName
     label: locator name
     domain: Address
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/locatorname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname
 
   - id: matronymicName
     label: matronymic name
     domain: Person
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/matronymicname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname
 
   - id: owner
     label: owner
@@ -717,7 +717,7 @@ property:
       - Company
       - NaturalPerson
       - Person
-    defined_by: https://w3id.org/ebwv/terminology#/concept/owner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/owner
 
   - id: partner
     label: partner
@@ -726,7 +726,7 @@ property:
       - GeneralPartner
       - LimitedPartner
       - StatutoryPartner
-    defined_by: https://w3id.org/ebwv/terminology#/concept/partner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
 
   - id: partnerId
     label: unique ID of the identity of the partner
@@ -735,55 +735,55 @@ property:
       - LimitedPartner
       - StatutoryPartner
     range: xsd:anyURI
-    defined_by: https://w3id.org/ebwv/terminology#/concept/partnerid
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid
 
   - id: patronymicName
     label: patronymic name
     domain: Person
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/patronymicname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
 
   - id: personalAdministrativeNumber
     label: personalAdministrativeNumber
     domain: Person
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/personaladministrativenumber
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber
 
   - id: placeOfBirth
     label: place of birth
     domain: Person
     range: Location
-    defined_by: https://w3id.org/ebwv/terminology#/concept/placeofbirth
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofbirth
 
   - id: placeOfDeath
     label: place of death
     domain: Person
     range: Location
-    defined_by: https://w3id.org/ebwv/terminology#/concept/placeofdeath
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath
 
   - id: poBox
     label: post office box
     domain: Address
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/pobox
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/pobox
 
   - id: portrait
     label: portrait
     domain: Person
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/portrait
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait
 
   - id: postCode
     label: post code
     domain: Address
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/postcode
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postcode
 
   - id: postName
     label: post name
     domain: Address
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/postname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postname
 
   - id: provider
     label: provide
@@ -791,20 +791,20 @@ property:
     range:
       - LegalPerson
       - Company
-    defined_by: https://w3id.org/ebwv/terminology#/concept/provider
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provider
 
   - id: registeredAddress
     label: registered address
     domain: Company
     range:
       - Address
-    defined_by: https://w3id.org/ebwv/terminology#/concept/registeredaddress
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
 
   - id: residency
     label: residency
     domain: Person
     range: CountryCode
-    defined_by: https://w3id.org/ebwv/terminology#/concept/residency
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
 
   - id: role
     label: role of representative
@@ -812,7 +812,7 @@ property:
       - LegalRepresentative
       - StatutoryPartner
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/role
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 
   - id: scopeOfAuthorization
     label: scope of authorization (alone or jointly)
@@ -821,58 +821,58 @@ property:
       - StatutoryPartner
     range: ScopeOfAuthorization
     one_of: [Alone, Jointly]
-    defined_by: https://w3id.org/ebwv/terminology#/concept/role
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 
   - id: subscribedCapital
     label: subscribed capital
     domain:
       - LimitedLiabilityCompany
     range: Capital
-    defined_by: https://w3id.org/ebwv/terminology#/concept/subscribedcapital
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital
 
   - id: thoroughfare
     label: thoroughfare
     domain: Address
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/thoroughfare
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
 
   - id: tin
     label: tax reference number
     domain: Company
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/tin
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tin
 
   - id: vat
     label: value added tax id
     domain: Company
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/vat
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vat
 
 individual:   # code lists
   - id: Alone
     label: scope of authorization Alone
     type: ScopeOfAuthorization
-    defined_by: https://w3id.org/ebwv/terminology#/concept/Alone
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
 
   - id: EAA
     label: electronic attestation of attributes
     type: AttestationLegalCategory
-    defined_by: https://w3id.org/ebwv/terminology#/concept/EAA
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA
 
   - id: Jointly
     label: scope of authorization Jointly
     type: ScopeOfAuthorization
-    defined_by: https://w3id.org/ebwv/terminology#/concept/Jointly
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly
 
   - id: Pub-EAA
     label: public electronic attestation of attributes
     type: AttestationLegalCategory
-    defined_by: https://w3id.org/ebwv/terminology#/concept/Pub-EAA
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA
 
   - id: QEAA
     label: qualified electronic attestation of attributes
     type: AttestationLegalCategory
-    defined_by: https://w3id.org/ebwv/terminology#/concept/QEAA
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA
 
 datatype:
   - id: AccountType
@@ -911,7 +911,7 @@ datatype:
   - id: Euid
     label: EUID
     upper_value: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/euid
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/euid
 
   - id: Iban
     label: IBAN
@@ -937,5 +937,5 @@ datatype:
   - id: PublicBodyId
     label: unique identifier of public body
     upper_value: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/publicBodyId
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId
 
