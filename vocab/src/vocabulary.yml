@@ -218,9 +218,14 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
+  - id: LegalEntityIdentifier
+    label: Legal entity identifier
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentityidentifier
+
   - id: LegalEntity
     label: Legal entity
-    upper_value: cred:CredentialSubject
+    comment: Legal Entity Data provided by LEI issuer
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: LegalRepresentative
@@ -418,6 +423,11 @@ class:
     label: Person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
 
+  - id: LeiRegistration
+    label: LEI Registration
+    comment: Registration Meta Data of LEI provided and maintained by LEI issuer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registration
+
   - id: ScopeOfAuthorization
     label: Scope Of Authorization
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
@@ -505,6 +515,7 @@ property:
     label: correspondence Address
     domain:
       - Company
+      - LegalEntity
     range:
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
@@ -543,7 +554,9 @@ property:
 
   - id: dateOfRegistration
     label: date of registration
-    domain: Company
+    domain:
+      - Company
+      - LegalEntity
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
 
@@ -627,13 +640,30 @@ property:
       - Iban
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
 
+  - id: jurisdiction
+    label: jurisdiction
+    domain:
+      - Company
+      - LegalEntity
+    range:
+      - CountryCode
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
+
+  - id: legalEntity
+    label: legal entity as registered at lei issuer
+    domain: LegalEntityIdentifier
+    range: LegalEntity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
+
   - id: legalForm
     label: legal form
     domain:
       - LegalPerson
       - Company
+      - LegalEntity
     range:
       - xsd:string
+    comment: e.g. ISO Entity Legal Form (ELF)
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalform
 
   - id: legalIdentifier
@@ -653,6 +683,7 @@ property:
       - EuropeanBusinessWalletOwner
       - LegalPerson
       - Company
+      - LegalEntity
     range: xsd:string
     comment: a name under which the legal entity is registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
@@ -673,15 +704,49 @@ property:
 
   - id: legalStatus
     label: status of the company
-    domain: Company
+    domain:
+      - Company
+      - LegalEntity
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalstatus
 
   - id: lei
     label: legal entity identifier
-    domain: Company
+    domain:
+      - Company
+      - LegalEntityIdentifier
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
+
+  - id: leiLastUpdate
+    label: lei last update date
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leilastupdate
+
+  - id: leiNextRenewal
+    label: lei next renewal
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leinextrenewal
+
+  - id: leiRegistration
+    label: lei registration data
+    domain: LegalEntityIdentifier
+    range: LeiRegistration
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistration
+
+  - id: leiRegistrationStatus
+    label: lei registration status
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationstatus
+
+  - id: leiRegistrationDate
+    label: lei registration date
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationdate
 
   - id: liabilityOrContribution
     label: liability or contribution of the limited partner
@@ -702,6 +767,12 @@ property:
     domain: Address
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname
+
+  - id: managingLeiIssuer
+    label: managing lei issuer
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/managingleiissuer
 
   - id: matronymicName
     label: matronymic name
@@ -795,7 +866,9 @@ property:
 
   - id: registeredAddress
     label: registered address
-    domain: Company
+    domain:
+      - Company
+      - LegalEntity
     range:
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
@@ -883,7 +956,7 @@ datatype:
   - id: CountryCode
     label: Country Code
     upper_value: xsd:string
-    pattern: '[A-Z]{2}'
+    pattern: '[A-Z]{2}(-.*)?'
     comment: 2 letter country code according to ISO-3166
     defined_by: https://www.iso.org/iso-3166-country-codes.html
 
