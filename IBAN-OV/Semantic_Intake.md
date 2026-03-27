@@ -85,9 +85,9 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 
 ## Information requirements
 
-| No. | Requirement | req? | data type | source | fulfills |
+| No. | Requirement | req? | data type | source |
 |--|--|--|--|--|
-| I001 | IBAN OV: The IBAN-OV attestation is a document that provides verified information about the bank account details of the account owner. It ensures that a third party can confidently confirm that a specific IBAN is owned by a designated natural or legal person . | M | object |
+| <a id="requirement-I001"></a>I001 | IBAN OV: The IBAN-OV attestation is a document that provides verified information about the bank account details of the account owner. It ensures that a third party can confidently confirm that a specific IBAN is owned by a designated natural or legal person . | M | object | [IBAN OV description](https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335) |
 
 ## Legal and Regulatory requirements
 | No. | Requirement | Source | Verification method |
