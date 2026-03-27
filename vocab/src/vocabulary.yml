@@ -217,6 +217,10 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
+  
+  - id: Incoterms
+    label: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms
 
   - id: LegalEntity
     label: Legal entity
@@ -413,6 +417,10 @@ class:
   - id: PeriodOfTime
     label: Period of Time
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
+    
+  - id: PaymentTerms
+    label: terms of payment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentterms
 
   - id: Person
     label: Person
@@ -523,7 +531,9 @@ property:
 
   - id: currency
     label: currency
-    domain: Capital
+    domain: 
+      - Capital
+      - PaymentTerms
     range: Currency
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/currency
 
@@ -742,6 +752,12 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
+    
+  - id: paymentDue
+    label: due date of payment
+    domain: PaymentTerms
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentdue
 
   - id: personalAdministrativeNumber
     label: personalAdministrativeNumber
@@ -829,7 +845,15 @@ property:
       - LimitedLiabilityCompany
     range: Capital
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital
+    
+  - id: terms
+    label: terms 
+    domain: PaymentTerms
+    range: Incoterms
+    one_of:  [EXW, FCA, CPT, CIP, DAP, DPU, DDP, FAS, FOB ]
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/terms
 
+    
   - id: thoroughfare
     label: thoroughfare
     domain: Address
@@ -853,6 +877,52 @@ individual:   # code lists
     label: scope of authorization Alone
     type: ScopeOfAuthorization
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
+
+  - id: EXW
+    label: Ex Works
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exw
+
+  - id: FCA
+    label: Free Carrier
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fca
+
+  - id: CPT
+    label: Carriage Paid To
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt
+
+  - id: CIP
+    label: Carriage & Insurance Paid To
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cip
+
+  - id: DAP
+    label: Delivered At Place
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dap
+
+  - id: DPU
+    label: Delivered Place Unloaded
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu
+
+  - id: DDP
+    label: Delivered Duty Paid
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp
+    
+  - id: FAS
+    label: Free Alongside Ship
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fas
+
+ - id: FOB
+    label: Free On Board
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
+
 
   - id: EAA
     label: electronic attestation of attributes
