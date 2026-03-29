@@ -159,5 +159,5 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 ## Open Questions / Gaps – For follow-up or design iterations.
 | No. | Question | Why |
 |--|--|--|
-| Q001 | |  |
+| Q001 | Account ownership is a role of a registered organisation. It passes on the EUID and the stautory name or registered name. Are these all the attributes? Or are there also attributes like owner since <date> | Ownership as a class can heve more attributes and relations. |
 
