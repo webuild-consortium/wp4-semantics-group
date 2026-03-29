@@ -107,8 +107,6 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 | <a id="requirement-E018"></a>E018 | Attestation.issuanceDate: Date of the issuance of the attestation according to ISO 8601. | M | date (yyyy-mm-dd) | [I018](#requirement-I018) |
 | <a id="requirement-E019"></a>E019 | Attestation.expiryDate: Date when the attestation expires according to ISO 8601. | M | date (yyyy-mm-dd) | [I019](#requirement-I019) |
 
-
-
 ## Information requirements
 
 | No. | Requirement | req? | data type | source |
@@ -133,30 +131,30 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 | <a id="requirement-I018"></a>I018 | issuance_date: Date of the issuance of the attestation according to ISO 8601. | M | date (yyyy-mm-dd) | [IBAN OV description](https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335) |
 | <a id="requirement-I019"></a>I019 | expiry_date: Date when the attestation expires according to ISO 8601. | M | date (yyyy-mm-dd) | [IBAN OV description](https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335) |
 
-## Legal and Regulatory requirements
-| No. | Requirement | Source | Verification method |
-|--|--|--|--|
-| L001 |  |  | review |
 
 ## Functional requirements
-| No. | Requirement | Source | Verification method |
-|--|--|--|--|
-| F001 | |  | test |
 
-## Technical requirements – e.g. security, privacy, performance, usability.
-| No. | Requirement | Source | Verification method |
-|--|--|--|--|
-| T001 | |  | test |
+| No. | Requirement | req? | data type | source |
+|--|--|--|--|--|
+| <a id="requirement-F001"></a>F001 | IBAN OV attestation Purpose: Provides assurance of account ownership, enabling secure and accurate financial transactions and reducing the risk of errors, fraud, or unauthorised payments. | M | meta | [IBAN OV description](https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335) |
+
 
 ## Operational requirements
-| No. | Requirement | Source | Verification method |
-|--|--|--|--|
-| O001 |  |  | test |
 
-## Governance and trust restrictions
-| No. | Requirement | Source | Verification method |
-|--|--|--|--|
-| G001 | |  | review |
+| No. | Requirement | req? | data type | source |
+|--|--|--|--|--|
+| <a id="requirement-O001"></a>O001 | The IBAN OV attestation function is strictly limited to validation and cross-verification purposes within the registration and compliance framework. | M | meta | [IBAN OV description](https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335) |
+| <a id="requirement-O002"></a>O002 | IBAN OV attestation issuing authority: The attestation can be  issued by the bank holding the account [Account Servicing Payment Service Provider, ASPSP] or by an authorised third party acting on behalf of the bank. | M | meta | [IBAN OV description](https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335) |
+| <a id="requirement-O003"></a>O003 | IBAN OV attestation holder: The attestation is issued in the name of the bank account owner [natural or legal person]. | M | meta | [IBAN OV description](https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335) |
+| <a id="requirement-O004"></a>O004 | IBAN OV attestation Use and Presentation: The account holder can present the attestation to third parties as required by business processes, regulatory obligations, or contractual agreements. | M | meta | [IBAN OV description](https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335) |
+
+## Security requirements
+
+| No. | Requirement | req? | data type | source |
+|--|--|--|--|--|
+| <a id="requirement-S001"></a>S001 | The IBAN-OV attestation must be cryptographically bound and issued exclusively to the specific Holder wallet that was onboarded by the Issuer | the bank | meta | [IBAN OV description](https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335) |
+| <a id="requirement-S002"></a>S002 | The expiry date must be dated after the issuance date. | M | meta | [IBAN OV description](https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335) |
+
 
 ## Open Questions / Gaps – For follow-up or design iterations.
 | No. | Question | Why |
