@@ -104,8 +104,8 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 | <a id="requirement-E015"></a>E015 | nationalBankCode: Country-specific code for e.g. internal routing within a specific country‚ clearing system | e.g. BLZ, Sort Code | (o) string | [I015](#requirement-I015) |
 | <a id="requirement-E016"></a>E016 | naceCode: NACE code for activity specification | e.g. 64.19 | query | [I016](#requirement-I016) |
 | <a id="requirement-E017"></a>E017 | clearingNumber: Clearing number, only used in some countries, of the identification of the financial institution. | O | string | [I017](#requirement-I017) |
-| <a id="requirement-E018"></a>E018 | Attestation.issuanceDate: Date of the issuance of the attestation according to ISO 8601. | M | date (yyyy-mm-dd) | [I018](#requirement-I018) |
-| <a id="requirement-E019"></a>E019 | Attestation.expiryDate: Date when the attestation expires according to ISO 8601. | M | date (yyyy-mm-dd) | [I019](#requirement-I019) |
+| <a id="requirement-E018"></a>E018 | Attestation.dateStart: Date of the issuance of the attestation according to ISO 8601. | M | datestart (yyyy-mm-dd) | [I018](#requirement-I018) |
+| <a id="requirement-E019"></a>E019 | Attestation.dateEnd: Date when the attestation expires according to ISO 8601. | M | date (yyyy-mm-dd) | [I019](#requirement-I019) |
 
 ## Information requirements
 
