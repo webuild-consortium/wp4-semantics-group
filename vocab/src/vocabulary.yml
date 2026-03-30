@@ -71,6 +71,10 @@ class:
             "issuer": "did:key:$publicKeyOfProvider$"
           }
 
+  - id: BoardingPass
+    label: Boarding Pass
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/boardingpass
+
   - id: Capital
     label: Capital
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
@@ -822,6 +826,18 @@ property:
     range: ScopeOfAuthorization
     one_of: [Alone, Jointly]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
+
+  - id: seatNumber
+    label: seat number
+    domain: BoardingPass
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/seatnumber
+
+  - id: seatType
+    label: seat type
+    domain: BoardingPass
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/seattype
 
   - id: subscribedCapital
     label: subscribed capital
