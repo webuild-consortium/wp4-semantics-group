@@ -71,6 +71,10 @@ class:
             "issuer": "did:key:$publicKeyOfProvider$"
           }
 
+  - id: BoardinPass
+    label: Boarding Pass
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/boardingpass
+  
   - id: Capital
     label: Capital
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
