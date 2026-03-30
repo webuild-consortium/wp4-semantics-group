@@ -773,6 +773,12 @@ property:
     range: xsd:anyURI
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid
 
+  - id: passenger
+    label: passenger
+    domain: TransportTicket
+    range: Person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/passenger
+
   - id: patronymicName
     label: patronymic name
     domain: Person
