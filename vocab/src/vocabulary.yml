@@ -319,6 +319,10 @@ class:
     label: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/location
 
+  - id: LoyaltyCard
+    label: Loyalty Card
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/loyaltycard
+
   - id: NaturalPerson
     label: Natural Person Identification Data
     upper_value:
@@ -657,11 +661,19 @@ property:
     label: identifier
     domain: 
       - Company
+      - LoyaltyCard
     range:
       - Bic
       - ClearingNumber
       - Iban
+      - xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
+
+  - id: issuer
+    label: issuer
+    domain: LoyaltyCard
+    range: EconomicOperator
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/issuer
 
   - id: legalForm
     label: legal form
@@ -747,7 +759,9 @@ property:
 
   - id: owner
     label: owner
-    domain: BankAccount
+    domain: 
+      - BankAccount
+      - LoyaltyCard
     range:
       - LegalPerson
       - Company
