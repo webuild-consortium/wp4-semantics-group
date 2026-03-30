@@ -430,6 +430,14 @@ class:
     label: Statutory Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
 
+  - id: TransportEvent
+    label: Transport Event
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transportevent
+
+  - id: TransportTicket
+    label: Transport Ticket
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transportticket
+
 property:
   - id: activity
     label: main activity of company
@@ -479,6 +487,18 @@ property:
     domain: Capital
     range: xsd:float
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
+
+  - id: arrivalLocation
+    label: arrival location
+    domain: TransportEvent
+    range: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivallocation
+
+  - id: arrivalTime
+    label: arrival time
+    domain: TransportEvent
+    range: xsd:dateTime
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaltime
 
   - id: attestationLegalCategory
     label: attestation legal category
@@ -550,6 +570,18 @@ property:
     domain: Company
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
+
+  - id: departureLocation
+    label: departure location
+    domain: TransportEvent
+    range: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/departurelocation
+
+  - id: departureTime
+    label: departure time
+    domain: TransportEvent
+    range: xsd:dateTime
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/departuretime
 
   - id: domicile
     label: domicile
@@ -858,11 +890,23 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tin
 
+  - id: transportEvent
+    label: transport event
+    domain: TransportTicket
+    range: TransportEvent
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transportevent
+
   - id: vat
     label: value added tax id
     domain: Company
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vat
+
+  - id: vesselDescription
+    label: vessel description
+    domain: TransportEvent
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vesseldescription
 
 individual:   # code lists
   - id: Alone
