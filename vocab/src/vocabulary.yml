@@ -1213,7 +1213,7 @@ individual:   # code lists
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fas
 
- - id: FOB
+  - id: FOB
     label: Free On Board
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
