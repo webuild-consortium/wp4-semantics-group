@@ -224,10 +224,19 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
+  
+  - id: Incoterms
+    label: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms
+
+  - id: LegalEntityIdentifier
+    label: Legal entity identifier
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentityidentifier
 
   - id: LegalEntity
     label: Legal entity
-    upper_value: cred:CredentialSubject
+    comment: Legal Entity Data provided by LEI issuer
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: LegalRepresentative
@@ -420,6 +429,10 @@ class:
   - id: PeriodOfTime
     label: Period of Time
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
+    
+  - id: PaymentTerms
+    label: terms of payment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentterms
 
   - id: Person
     label: Person
@@ -499,6 +512,10 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
+  - id: LeiRegistration
+    label: LEI Registration
+    comment: Registration Meta Data of LEI provided and maintained by LEI issuer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registration
 
   - id: ScopeOfAuthorization
     label: Scope Of Authorization
@@ -632,6 +649,7 @@ property:
     label: correspondence Address
     domain:
       - Company
+      - LegalEntity
     range:
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
@@ -650,7 +668,9 @@ property:
 
   - id: currency
     label: currency
-    domain: Capital
+    domain: 
+      - Capital
+      - PaymentTerms
     range: Currency
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/currency
 
@@ -670,7 +690,9 @@ property:
 
   - id: dateOfRegistration
     label: date of registration
-    domain: Company
+    domain:
+      - Company
+      - LegalEntity
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
 
@@ -797,14 +819,30 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https://w3id.org/ebwv/terminology#/concept/jobtitle
+  - id: jurisdiction
+    label: jurisdiction
+    domain:
+      - Company
+      - LegalEntity
+    range:
+      - CountryCode
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
+
+  - id: legalEntity
+    label: legal entity as registered at lei issuer
+    domain: LegalEntityIdentifier
+    range: LegalEntity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: legalForm
     label: legal form
     domain:
       - LegalPerson
       - Company
+      - LegalEntity
     range:
       - xsd:string
+    comment: e.g. ISO Entity Legal Form (ELF)
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalform
 
   - id: legalIdentifier
@@ -824,8 +862,9 @@ property:
       - EuropeanBusinessWalletOwner
       - LegalPerson
       - Company
+      - LegalEntity
     range: xsd:string
-    comment: a name under which the legal entity is registered
+    comment: the name under which the legal entity is registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
 
   - id: legalRepresentative
@@ -844,15 +883,49 @@ property:
 
   - id: legalStatus
     label: status of the company
-    domain: Company
+    domain:
+      - Company
+      - LegalEntity
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalstatus
 
   - id: lei
     label: legal entity identifier
-    domain: Company
+    domain:
+      - Company
+      - LegalEntityIdentifier
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
+
+  - id: leiLastUpdate
+    label: lei last update date
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leilastupdate
+
+  - id: leiNextRenewal
+    label: lei next renewal
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leinextrenewal
+
+  - id: leiRegistration
+    label: lei registration data
+    domain: LegalEntityIdentifier
+    range: LeiRegistration
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistration
+
+  - id: leiRegistrationStatus
+    label: lei registration status
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationstatus
+
+  - id: leiRegistrationDate
+    label: lei registration date
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationdate
 
   - id: liabilityOrContribution
     label: liability or contribution of the limited partner
@@ -873,6 +946,12 @@ property:
     domain: Address
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname
+
+  - id: managingLeiIssuer
+    label: managing lei issuer
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/managingleiissuer
 
   - id: matronymicName
     label: matronymic name
@@ -919,6 +998,12 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
+    
+  - id: dueDate
+    label: due date of item
+    domain: PaymentTerms
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dueDate
 
   - id: personalAdministrativeNumber
     label: personalAdministrativeNumber
@@ -987,7 +1072,9 @@ property:
 
   - id: registeredAddress
     label: registered address
-    domain: Company
+    domain:
+      - Company
+      - LegalEntity
     range:
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
@@ -1040,6 +1127,15 @@ property:
     range: Address
     defined_by: https://w3id.org/ebwv/terminology#/concept/temporaryaddress
 
+    
+  - id: terms
+    label: terms 
+    domain: PaymentTerms
+    range: Incoterms
+    one_of:  [EXW, FCA, CPT, CIP, DAP, DPU, DDP, FAS, FOB ]
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/terms
+
+    
   - id: thoroughfare
     label: thoroughfare
     domain: Address
@@ -1076,6 +1172,52 @@ individual:   # code lists
     label: scope of authorization Alone
     type: ScopeOfAuthorization
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
+
+  - id: EXW
+    label: Ex Works
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exw
+
+  - id: FCA
+    label: Free Carrier
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fca
+
+  - id: CPT
+    label: Carriage Paid To
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt
+
+  - id: CIP
+    label: Carriage & Insurance Paid To
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cip
+
+  - id: DAP
+    label: Delivered At Place
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dap
+
+  - id: DPU
+    label: Delivered Place Unloaded
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu
+
+  - id: DDP
+    label: Delivered Duty Paid
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp
+    
+  - id: FAS
+    label: Free Alongside Ship
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fas
+
+ - id: FOB
+    label: Free On Board
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
+
 
   - id: EAA
     label: electronic attestation of attributes
@@ -1116,7 +1258,7 @@ datatype:
   - id: CountryCode
     label: Country Code
     upper_value: xsd:string
-    pattern: '[A-Z]{2}'
+    pattern: '[A-Z]{2}(-.*)?'
     comment: 2 letter country code according to ISO-3166
     defined_by: https://www.iso.org/iso-3166-country-codes.html
 
