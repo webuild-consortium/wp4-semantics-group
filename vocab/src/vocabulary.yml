@@ -442,7 +442,7 @@ class:
     label: Posted Worker Notification
     defined_by: https://w3id.org/ebwv/terminology#/concept/postedworker
     example:
-      - label: Credential with credential subject of type EuropeanBusinessWalletOwner
+      - label: Credential with credential subject of type PostedWorkerNotification
         json: |
           {
             "@context": [
