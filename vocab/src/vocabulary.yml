@@ -654,7 +654,7 @@ property:
       - LegalPerson
       - Company
     range: xsd:string
-    comment: a name under which the legal entity is registered
+    comment: the name under which the legal entity is registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
 
   - id: legalRepresentative
