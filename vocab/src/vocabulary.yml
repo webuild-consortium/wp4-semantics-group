@@ -538,13 +538,6 @@ class:
     defined_by: https://w3id.org/ebwv/terminology#/concept/workassignment
 
 property:
-  - id: activity
-    label: main activity of company
-    domain: Company
-    range:
-      - Nace21
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
-
   - id: accountName
     label: account name
     domain: BankAccount
@@ -806,12 +799,12 @@ property:
     label: identifier
     domain: 
       - Company
-      - VAT Registration Unit
+      - VATRegistrationUnit
     range:
       - Bic
       - ClearingNumber
       - Iban
-      - VAT ID
+      - VatId
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
 
   - id: jobTitle
@@ -1314,3 +1307,7 @@ datatype:
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId
 
+  - id: VatId
+    label: unique vat identifier
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vatid

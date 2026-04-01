@@ -16,14 +16,6 @@ ebwv: a owl:Ontology ;
 .
 
 # Property definitions
-ebwv:activity a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:EconomicOperator) ] ;
-    rdfs:range ebwv:Nace21 ;
-    rdfs:label "main activity of company" ;
-    rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/activity>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:accountName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:BankAccount ;
     rdfs:range xsd:string ;
@@ -345,8 +337,8 @@ ebwv:iban a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:identifier a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:VAT Registration Unit) ] ;
-    rdfs:range ebwv:Bic, ebwv:ClearingNumber, ebwv:Iban, ebwv:VAT ID ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:VATRegistrationUnit) ] ;
+    rdfs:range ebwv:Bic, ebwv:ClearingNumber, ebwv:Iban, ebwv:VatId ;
     rdfs:label "identifier" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -1136,6 +1128,13 @@ ebwv:PublicBodyId a rdfs:Datatype ;
     rdfs:subClassOf xsd:string ;
     rdfs:label "unique identifier of public body" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:VatId a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    rdfs:label "unique vat identifier" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/vatid>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

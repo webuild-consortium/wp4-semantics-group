@@ -282,10 +282,10 @@
                         <li><a href="#Temporary"><code>Temporary<code></code></code></a></li>
                         <li><a href="#TypeOfEmployment"><code>TypeOfEmployment<code></code></code></a></li>
                         <li><a href="#VATRegistrationUnit"><code>VATRegistrationUnit<code></code></code></a></li>
+                        <li><a href="#VatId"><code>VatId<code></code></code></a></li>
                         <li><a href="#WorkAssignment"><code>WorkAssignment<code></code></code></a></li>
                         <li><a href="#accountName"><code>accountName<code></code></code></a></li>
                         <li><a href="#accountType"><code>accountType<code></code></code></a></li>
-                        <li><a href="#activity"><code>activity<code></code></code></a></li>
                         <li><a href="#activity"><code>activity<code></code></code></a></li>
                         <li><a href="#addressArea"><code>addressArea<code></code></code></a></li>
                         <li><a href="#adminUnitL1"><code>adminUnitL1<code></code></code></a></li>
@@ -387,21 +387,6 @@
         <section id="property_definitions" class="term_definitions">
             <h3>Property definitions</h3>
             <p>The following are property definitions in the <code>ebwv</code> namespace.</p>
-            <section id="activity">
-                <h4><code>activity</code></h4>
-                <p><em>main activity of company</em></p>
-                <p>See the <a href="https://w3id.org/ebwv/terminology#/concept/activity">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><a href="#Nace21"><code>Nace21</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="accountName">
                 <h4><code>accountName</code></h4>
                 <p><em>account name</em></p>
@@ -1012,9 +997,9 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#VAT Registration Unit"><code>VAT Registration Unit</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#VATRegistrationUnit"><code>VATRegistrationUnit</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#Bic"><code>Bic</code></a> ⊓&nbsp;<a href="#ClearingNumber"><code>ClearingNumber</code></a> ⊓&nbsp;<a href="#Iban"><code>Iban</code></a> ⊓&nbsp;<a href="https://w3id.org/ebwv#VAT ID"><code>ebwv:VAT ID</code></a></dd>
+                    <dd><a href="#Bic"><code>Bic</code></a> ⊓&nbsp;<a href="#ClearingNumber"><code>ClearingNumber</code></a> ⊓&nbsp;<a href="#Iban"><code>Iban</code></a> ⊓&nbsp;<a href="#VatId"><code>VatId</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1900,7 +1885,7 @@
                     <dt>Domain of:</dt>
                     <dd><a href="#eori"><code>eori</code></a>, <a href="#excise"><code>excise</code></a>, <a href="#tin"><code>tin</code></a>, <a href="#vat"><code>vat</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#activity"><code>activity</code></a>, <a href="#activity"><code>activity</code></a>, <a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#identifier"><code>identifier</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#legalForm"><code>legalForm</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#legalName"><code>legalName</code></a>, <a href="#legalStatus"><code>legalStatus</code></a>, <a href="#lei"><code>lei</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
+                    <dd><a href="#activity"><code>activity</code></a>, <a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#identifier"><code>identifier</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#legalForm"><code>legalForm</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#legalName"><code>legalName</code></a>, <a href="#legalStatus"><code>legalStatus</code></a>, <a href="#lei"><code>lei</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2004,7 +1989,7 @@
                     <dt>Domain of:</dt>
                     <dd><a href="#administrativeRepresentative"><code>administrativeRepresentative</code></a>, <a href="#constructionSector"><code>constructionSector</code></a>, <a href="#socialRepresentative"><code>socialRepresentative</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#activity"><code>activity</code></a>, <a href="#activity"><code>activity</code></a></dd>
+                    <dd><a href="#activity"><code>activity</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2623,6 +2608,8 @@
                 <dl class="terms">
                     <dt>Domain of:</dt>
                     <dd><a href="#name"><code>name</code></a>, <a href="#type"><code>type</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#identifier"><code>identifier</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2803,7 +2790,7 @@
                 </dl>
                 <dl class="terms">
                     <dt>Range of:</dt>
-                    <dd><a href="#activity"><code>activity</code></a>, <a href="#activity"><code>activity</code></a></dd>
+                    <dd><a href="#activity"><code>activity</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2834,6 +2821,23 @@
                 <dl class="terms">
                     <dt>Includes the range of:</dt>
                     <dd><a href="#legalIdentifier"><code>legalIdentifier</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="VatId">
+                <h4><code>VatId</code></h4>
+                <p><em>unique vat identifier</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/vatid">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Derived from:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#identifier"><code>identifier</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>

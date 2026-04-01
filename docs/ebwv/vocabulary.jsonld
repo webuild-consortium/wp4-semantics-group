@@ -78,21 +78,6 @@
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
     "dc:date": "2026-04-01",
     "rdfs_properties": [{
-        "@id": "ebwv:activity",
-        "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": {
-            "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Company", "ebwv:EconomicOperator"]
-        },
-        "rdfs:range": "ebwv:Nace21",
-        "rdfs:label": "main activity of company",
-        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/activity",
-        "vs:term_status": "stable",
-        "mentioned": [{
-            "@id": "https://w3id.org/ebwv/v0.1",
-            "@type": "jsonld:Context"
-        }]
-    }, {
         "@id": "ebwv:accountName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:BankAccount",
@@ -601,9 +586,9 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Company", "ebwv:VAT Registration Unit"]
+            "owl:unionOf": ["ebwv:Company", "ebwv:VATRegistrationUnit"]
         },
-        "rdfs:range": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Iban", "ebwv:VAT ID"],
+        "rdfs:range": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Iban", "ebwv:VatId"],
         "rdfs:label": "identifier",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier",
         "vs:term_status": "stable",
@@ -1907,6 +1892,17 @@
         "rdfs:subClassOf": ["xsd:string"],
         "rdfs:label": "unique identifier of public body",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:VatId",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "rdfs:label": "unique vat identifier",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/vatid",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
