@@ -753,11 +753,11 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
     
-  - id: paymentDue
-    label: due date of payment
+  - id: dueDate
+    label: due date of item
     domain: PaymentTerms
     range: xsd:date
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentdue
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dueDate
 
   - id: personalAdministrativeNumber
     label: personalAdministrativeNumber
