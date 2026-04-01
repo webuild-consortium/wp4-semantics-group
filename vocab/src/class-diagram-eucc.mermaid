@@ -3,10 +3,6 @@ classDiagram
 %% =========================
 %% Core EBW Classes
 %% =========================
-    class CredentialSubject {
-        <<EBW>>
-    }
-
     class Company {
         <<EBW>>
         +legalName: string
@@ -80,6 +76,9 @@ classDiagram
 %% =========================
 %% External / Referenced Types
 %% =========================
+    class CredentialSubject {
+        <<external>>
+    }
 
 %% =========================
 %% Inheritance

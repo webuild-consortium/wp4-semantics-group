@@ -3,10 +3,6 @@ classDiagram
 %% =========================
 %% Core EBW Classes
 %% =========================
-    class CredentialSubject {
-        <<CRED>>
-    }
-
     class LegalEntityIdentifier {
         <<EBW>>
         +lei: string
@@ -37,14 +33,17 @@ classDiagram
 %% =========================
 %% External / Referenced Types
 %% =========================
+    class CredentialSubject {
+        <<external>>
+    }
 
 %% =========================
 %% Inheritance
 %% =========================
     CredentialSubject <|-- LegalEntityIdentifier
-    LegalEntityIdentifier *-- LegalEntity : legalEntity
-    LegalEntityIdentifier *-- LeiRegistration: leiRegistration
 
 %% =========================
 %% Properties (Object relations)
 %% =========================
+    LegalEntityIdentifier *-- LegalEntity : legalEntity
+    LegalEntityIdentifier *-- LeiRegistration: leiRegistration

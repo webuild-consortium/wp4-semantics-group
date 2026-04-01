@@ -3,28 +3,26 @@ classDiagram
 %% =========================
 %% Core EBW Classes
 %% =========================
-    class ElectronicAttestationOfAttributes {
+    class PaymentTerms {
         <<EBW>>
-        +attestationLegalCategory: AttestationLegalCategory
+        +dueDate: date
+        +terms: IncoTerms
+        +currency: Currency
     }
 
 %% =========================
 %% External / Referenced Types
 %% =========================
-    class VerifiableCredential {
-        <<external>>
-    }
-
-    class CredentialSubject {
+    class IncoTerms {
         <<external>>
     }
 
 %% =========================
 %% Inheritance
 %% =========================
-    VerifiableCredential <|-- ElectronicAttestationOfAttributes
+    CredentialSubject <|-- PaymentTerms
 
 %% =========================
 %% Properties (Object relations)
 %% =========================
-    VerifiableCredential *-- CredentialSubject
+    PaymentTerms --> IncoTerms: terms

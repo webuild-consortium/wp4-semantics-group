@@ -3,10 +3,6 @@ classDiagram
 %% =========================
 %% Core EBW Classes
 %% =========================
-    class CredentialSubject {
-        <<EBW>>
-    }
-
     class BankAccount {
         <<EBW>>
         +accountName: string
@@ -29,6 +25,9 @@ classDiagram
 %% =========================
 %% External / Referenced Types
 %% =========================
+    class CredentialSubject {
+        <<external>>
+    }
 
 %% =========================
 %% Inheritance
