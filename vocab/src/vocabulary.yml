@@ -31,6 +31,14 @@ class:
     label: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
 
+  - id: AccountOwnership
+    label: Account Ownership
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/accountownership
+
+  - id: AccountProvider
+    label: Account Ownership
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/accountprovider
+
   - id: Agent
     label: Agent
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/agent
@@ -544,6 +552,12 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount
 
+  - id: accountCurrencies
+    label: account currencies (cardinality [1..n]
+    domain: BankAccount
+    range: Currency
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/currency
+
   - id: accountType
     label: account type
     domain: BankAccount
@@ -967,6 +981,12 @@ property:
       - NaturalPerson
       - Person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/owner
+
+  - id: ownerName
+    label: owner name
+    domain: BankAccount
+    range: xsd:string (RegisteredOrganisation.statutoryName)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ownername
 
   - id: partner
     label: partner
