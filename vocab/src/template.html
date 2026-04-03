@@ -15,9 +15,9 @@
           localBiblio: {
           },
           specStatus:  "unofficial",
-          shortName:   "ebw/v0.1",
-          latestVersion: "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1",
-          thisVersion: "https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1",
+          shortName:   "ebwv/v0.1",
+          latestVersion: "https://w3id.org/ebwv",
+          thisVersion: "https://w3id.org/ebwv",
           doJsonLd:    true,
           editors: [{
             name:       "Ronald Koenig",
@@ -40,7 +40,7 @@
             companyURL: "https://www.kvk.nl",
           },
           {
-            name:       "Rene Bonte",
+            name:       "René Bonte",
             company:    "Reconi",
             companyURL: "https://www.reconi.nl",
           },
@@ -131,8 +131,8 @@
 </section>
 <section id="sotd">
     <p>
-        This vocabulary has been defined by the <a href="https://portal.webuildconsortium.eu/group/semantics/stream">Semantics goup of the Webuild Consortium</a> and provides
-        the official RDFS vocabulary for the Electronic Attestation of Attributes of the European Business Wallet framework.
+        This vocabulary has been defined by the <a href="https://portal.webuildconsortium.eu/group/semantics">Semantics goup of the Webuild Consortium</a> and provides
+        the RDFS vocabulary for the Electronic Attestation of Attributes of the European Business Wallet framework.
         Comments regarding this document are welcome. Please file issues
         directly on <a href="https://github.com/webuild-consortium/wp4-semantics-group/issues/">GitHub</a>, or send them to
         <a href="mailto:example.com">tbd</a>.
@@ -150,15 +150,46 @@
 <section>
     <h2>Specification of terms</h2>
     <h3>Data model</h3>
-    <p>The ontology can be browsed <a href="https://webvowl.semantic-treehouse.nl/#iri=https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.ttl">here</a> using the WEBVOWL browser.</p>
+    <p>The ontology can be browsed <a href="https://webvowl.semantic-treehouse.nl/#iri=https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.ttl">here</a> using the WEBVOWL browser.</p>
     <p>The following class diagram shows the data structure of the credential subjects using the vocabulary defined in this specification.</p>
     <figure id="figure1">
-        <img src="class-diagram.svg" alt="class diagram" />
+        <img src="class-diagram-metadata.svg" alt="class diagram" />
         <figcaption>
-            Class diagram of vocabulary.<br> A separate stand-alone <a href="class-diagram.svg">SVG Version</a> of the diagram is also available.
+            Class diagram of the additional credential metadata.<br> A separate stand-alone <a href="class-diagram.metadata.svg">SVG Version</a> of the diagram is also available.
+        </figcaption>
+    </figure>
+    <figure id="figure2">
+        <img src="class-diagram-ebwo.svg" alt="class diagram" />
+        <figcaption>
+            Class diagram of the european business wallet owner credential.<br> A separate stand-alone <a href="class-diagram-ebwo.svg">SVG Version</a> of the diagram is also available.
+        </figcaption>
+    </figure>
+    <figure id="figure3">
+        <img src="class-diagram-eucc.svg" alt="class diagram" />
+        <figcaption>
+            Class diagram of the European Company Certificate vocabulary.<br> A separate stand-alone <a href="class-diagram-eucc.svg">SVG Version</a> of the diagram is also available.
+        </figcaption>
+    </figure>
+    <figure id="figure4">
+        <img src="class-diagram-bank-account.svg" alt="class diagram" />
+        <figcaption>
+            Class diagram of the bank account vocabulary.<br> A separate stand-alone <a href="class-diagram-bank-account.svg">SVG Version</a> of the diagram is also available.
         </figcaption>
     </figure>
 </section>
+<figure id="figure5">
+    <img src="class-diagram-lei.svg" alt="class diagram" />
+    <figcaption>
+        Class diagram of the legal identifier vocabulary.<br> A separate stand-alone <a href="class-diagram-bank-account.svg">SVG Version</a> of the diagram is also available.
+    </figcaption>
+</figure>
+<figure id="figure6">
+    <img src="class-diagram-payment-terms.svg" alt="class diagram" />
+    <figcaption>
+        Class diagram of the payment terms vocabulary.<br> A separate stand-alone <a href="class-diagram-bank-account.svg">SVG Version</a> of the diagram is also available.
+    </figcaption>
+</figure>
+
 
 <section>
     <h2><code>@context</code> files</h2>

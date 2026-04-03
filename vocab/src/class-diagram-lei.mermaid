@@ -1,0 +1,49 @@
+classDiagram
+    direction LR
+%% =========================
+%% Core EBW Classes
+%% =========================
+    class LegalEntityIdentifier {
+        <<EBW>>
+        +lei: string
+        +legalEntity: LegalEntity
+        +leiRegstration: LeiRegistration
+    }
+
+    class LegalEntity {
+        <<EBW>>
+        +correspondenceAddress: Address
+        +dateOfRegistration: date
+        +jurisdiction: CountryCode
+        +legalForm: string
+        +legalName: string
+        +legalStatus: string
+        +registeredAddress: Address
+    }
+
+    class LeiRegistration {
+        <<EBW>>
+        +leiLastUpdate: date
+        +leiNextRenewal: date
+        +leiRegistrationStatus: string
+        +leiRegistrationDate: date
+        +managingLeiIssuer: string
+    }
+
+%% =========================
+%% External / Referenced Types
+%% =========================
+    class CredentialSubject {
+        <<external>>
+    }
+
+%% =========================
+%% Inheritance
+%% =========================
+    CredentialSubject <|-- LegalEntityIdentifier
+
+%% =========================
+%% Properties (Object relations)
+%% =========================
+    LegalEntityIdentifier *-- LegalEntity : legalEntity
+    LegalEntityIdentifier *-- LeiRegistration: leiRegistration

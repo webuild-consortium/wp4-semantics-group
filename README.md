@@ -4,7 +4,7 @@ Driven from the needs of the use cases, the Semantics Group is creating the sema
 
 Github is used for creating the vocabulary including datamodel and ontology, classes, properties and some other aspects of the semantic model.
 
-A working version is temporarily published here: https://ebw-vocabulary.spherity.dev/ebw
+The latest version is published here: https://w3id.org/ebwv
 
 The nordics interoperability platform is used for defining the concepts. Links are included in the vocabulary.
 

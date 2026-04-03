@@ -1,7 +1,7 @@
 vocab:
-  - id: ebw
-    value: https://webuild-consortium.github.io/wp4-semantics-group/ebw/v0.1/vocabulary.html#
-    context: https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld
+  - id: ebwv
+    value: https://w3id.org/ebwv#
+    context: https://w3id.org/ebwv/v0.1
 
 prefix:
   - id: schema
@@ -13,6 +13,9 @@ prefix:
   - id: cred
     value: https://w3.org/2018/credentials#
 
+  - id: skos
+    value: http://www.w3.org/2004/02/skos/core#
+
 ontology:
   - property: dc:title
     value: European Business Wallet Vocabulary v0.1
@@ -21,13 +24,12 @@ ontology:
     value: Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework
 
   - property: rdfs:seeAlso
-    value: https://webuild-consortium.github.io/wp4-semantics-group/ebw
+    value: https://webuild-consortium.github.io/wp4-semantics-group/ebwv
 
 class:
-  - id: ElectronicAttestationOfAttributes
-    label: Electronic Attestation Of Attributes
-    upper_value: cred:VerifiableCredential
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes
+  - id: Address
+    label: Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
 
   - id: Agent
     label: Agent
@@ -37,51 +39,53 @@ class:
     label: Attestation Legal Category
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
-  - id: cred:CredentialSubject
-    label: Credential Subject
-    defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
-
-  - id: NaturalPersonIdentificationData
-    label: Natural Person Identification Data
+  - id: BankAccount
+    label: Bank Account
     upper_value: cred:CredentialSubject
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonidentificationdata
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount
     example:
-      - label: Credential with credential subject of type NaturalPersonIdentificationData
+      - label: Credential with credential subject of type BankAccount
         json: |
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
+              "https://w3id.org/ebwv/v0.1"
             ],
-            "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
+            "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
             "@type": [
               "VerifiableCredential",
               "ElectronicAttestationOfAttributes"
             ],
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
-              "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "NaturalPersonIdentificationData",
-              "givenName": "Mario",
-              "familyName": "Mustermann",
-              "birthDate": "12/01/1965"
+              "@id": "urn:uuid:eb887cd3-5080-44e6-8b3d-e008d80e19fc",
+              "@type": "BankAccount",
+              "accountName": "ACME: Business expenses HR",
+              "accountType": "Corporate Account",
+              "iban": "DE02500105170137075030",
+              "owner" : "did:key:$publicKeyOfOwner$",
+              "provider" : "did:key:$publicKeyOfProvider$"
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfIssuer$"
+            "issuer": "did:key:$publicKeyOfProvider$"
           }
 
-  - id: LegalPersonIdentificationData
-    label: Legal Person Identification Data
+  - id: Capital
+    label: Capital
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
+
+  - id: Company
+    label: Company as defined in directive-EU-2025/25
     upper_value: cred:CredentialSubject
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonidentificationdata
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/company
     example:
-      - label: Credential with credential subject of type LegalPersonIdentificationData
+      - label: Credential with credential subject of type Company
         json: |
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
+              "https://w3id.org/ebwv/v0.1"
             ],
             "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
             "@type": [
@@ -91,9 +95,13 @@ class:
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "LegalPersonIdentificationData",
-              "legalIdentifier": "DExxxx123456789",
+              "@type": "Company",
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
               "legalName": "acme Corporation",
+              "legalForm": "Inc.",
               "registeredAddress": {
                 "@type":"Address",
                 "fullAddress": "Via Appia 123, 00100 Rome, Italy",
@@ -104,6 +112,16 @@ class:
                 "postCode": "00100",
                 "adminUnitL1": "IT"
               },
+              "identifier" : [
+                {
+                  "@type" : "Bic",
+                  "@value" : "INCFGXXX"
+                },
+                {
+                  "@type" : "ClearingNumber",
+                  "@value" : "12345678"
+                }
+              ],
               "vat": "123456789MVA",
               "tin": "NO-ORG-123456789",
               "lei": "5493001KJTIIGC8Y1R12",
@@ -116,17 +134,37 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
-  - id: EuropeanBusinessWalletOwnerId
-    label: European Business Wallet Owner ID
+  - id: ContactPoint
+    label: Contact Point
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
+
+  - id: cred:CredentialSubject
+    label: Credential Subject
+    defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
+
+  - id: EconomicOperator
+    label: Economic Operator
+    upper_value: 
+      - Company
+      - Person
+    defined_by: https://w3id.org/ebwv/terminology#/concept/economicoperator
+
+  - id: ElectronicAttestationOfAttributes
+    label: Electronic Attestation Of Attributes
+    upper_value: cred:VerifiableCredential
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes
+
+  - id: EuropeanBusinessWalletOwner
+    label: European Business Wallet Owner
     upper_value: cred:CredentialSubject
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/europeanbusinesswalletownerid
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/europeanbusinesswalletowner
     example:
-      - label: Credential with credential subject of type EuropeanBusinessWalletOwnerId
+      - label: Credential with credential subject of type EuropeanBusinessWalletOwner
         json: |
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
+              "https://w3id.org/ebwv/v0.1"
             ],
             "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
             "@type": [
@@ -136,8 +174,11 @@ class:
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "EuropeanBusinessWalletOwnerId",
-              "legalIdentifier": "NOFOR.987654321",
+              "@type": "EuropeanBusinessWalletOwner",
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
               "legalName": "acme Corporation"
             },
             "validUntil": "2029-12-03T12:19:52Z",
@@ -145,17 +186,76 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
-  - id: EuccLimitLiabilityCompany
-    label: European Company Certificate Data for limited liability companies
-    upper_value: cred:CredentialSubject
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eucclimitliabilitycompany
+  - id: GeneralPartner
+    label: General Partner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner
+
+  - id: LegalPerson
+    label: Legal Person
+    upper_value:
+      - LegalEntity
+      - cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson
     example:
-      - label: Credential with credential subject of type EuccLimitLiabilityCompany
+      - label: Credential with credential subject of type LegalPerson
         json: |
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "LegalPerson",
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
+              "legalName": "acme Corporation",
+              "legalForm": "Inc."
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+  
+  - id: Incoterms
+    label: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms
+
+  - id: LegalEntityIdentifier
+    label: Legal entity identifier
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentityidentifier
+
+  - id: LegalEntity
+    label: Legal entity
+    comment: Legal Entity Data provided by LEI issuer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
+
+  - id: LegalRepresentative
+    label: Legal representative
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
+
+  - id: LimitedLiabilityCompany
+    label: European Company Certificate Data for limited liability companies
+    upper_value:
+      - Company
+      - cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedliabilitycompany
+    example:
+      - label: Credential with credential subject of type LimitedLiabilityCompany
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
             ],
             "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
             "@type": [
@@ -165,9 +265,16 @@ class:
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "EuccLimitLiabilityCompany",
-              "legalIdentifier": "NOFOR.987654321",
+              "@type": [
+                "Company",
+                "LimitedLiabilityCompany"
+              ],
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
               "legalName": "acme Corporation",
+              "legalForm": "Inc.",
               "registeredAddress": {
                 "@type":"Address",
                 "fullAddress": "Via Appia 123, 00100 Rome, Italy",
@@ -189,16 +296,12 @@ class:
                 "adminUnitL1": "IT"
               },
               "dateOfRegistration": "2023-10-11",
-              "companyStatus": "active",
-              "economicActivity": {
-                "@type": "Nace021",
-                "naceCode": "01.12",
-                "naceDescription": "Growing of rice"
-              },
+              "legalStatus": "active",
+              "activity": "10.82",
               "subscribedCapital": {
                 "@type": "Capital",
                 "amount": 100000,
-                "currency": "Euro"
+                "currency": "EUR"
               },
               "legalRepresentative": [
                 {
@@ -220,17 +323,59 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
-  - id: EuccPartnership
-    label: European Company Certificate Data for partnerships
-    upper_value: cred:CredentialSubject
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/euccpartnership
+  - id: LimitedPartner
+    label: Limited Partner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedpartner
+
+  - id: Location
+    label: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/location
+
+  - id: NaturalPerson
+    label: Natural Person Identification Data
+    upper_value:
+      - LegalEntity
+      - cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson
     example:
-      - label: Credential with credential subject of type EuccPartnership
+      - label: Credential with credential subject of type NaturalPerson
         json: |
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://webuild-consortium.github.io/wp4-semantics-group/ebw-context/v0.1/vocabulary.context.jsonld"
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "NaturalPerson",
+              "givenName": "Mario",
+              "familyName": "Mustermann",
+              "dateOfBirth": "12/01/1965"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: Partnership
+    label: European Company Certificate Data for partnerships
+    upper_value:
+      - Company
+      - cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnership
+    example:
+      - label: Credential with credential subject of type Partnership
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
             ],
             "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
             "@type": [
@@ -240,9 +385,10 @@ class:
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "EuccPartnership",
-              "legalIdentifier": "NOFOR.987654321",
-              "legalName": "acme Partnership",
+              "@type": [
+                  "Company",
+                  "Partnership"
+              ],
               "registeredAddress": {
                 "@type":"Address",
                 "fullAddress": "Via Appia 123, 00100 Rome, Italy",
@@ -252,23 +398,6 @@ class:
                 "adminUnitL2": "Lazio",
                 "postCode": "00100",
                 "adminUnitL1": "IT"
-              },
-              "correspondenceAddress": {
-                "@type":"Address",
-                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
-                "thoroughfare": "Via Appia",
-                "locatorDesignator": "123",
-                "postName": "Rome",
-                "adminUnitL2": "Lazio",
-                "postCode": "00100",
-                "adminUnitL1": "IT"
-              },
-              "dateOfRegistration": "2023-10-11",
-              "companyStatus": "active",
-              "economicActivity": {
-                "@type": "Nace021",
-                "naceCode": "01.12",
-                "naceDescription": "Growing of rice"
               },
               "partner": [
                 {
@@ -281,7 +410,7 @@ class:
                   "liabilityOrContribution": {
                     "@type": "Capital",
                     "amount": 100000,
-                    "currency": "Euro"
+                    "currency": "EUR"
                   }
                 },
                 {
@@ -297,109 +426,150 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
-  - id: Capital
-    label: Capital
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
-
-  - id: LegalRepresentative
-    label: Legal representative
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
-
-  - id: ScopeOfAuthorization
-    label: Scope Of Authorization
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
-
-  - id: Location
-    label: Location
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/location
-
-  - id: Jurisdiction
-    label: Jurisdiction
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
-
-  - id: Address
-    label: Address
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
-
-  - id: Nace021
-    label: Nace Rev. 2.1
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nace021
-
   - id: PeriodOfTime
     label: Period of Time
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
+    
+  - id: PaymentTerms
+    label: terms of payment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentterms
 
   - id: Person
     label: Person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
 
-  - id: GeneralPartner
-    label: General Partner
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner
+  - id: PostedWorkerNotification
+    label: Posted Worker Notification
+    defined_by: https://w3id.org/ebwv/terminology#/concept/postedworker
+    example:
+      - label: Credential with credential subject of type PostedWorkerNotification
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "PostedWorkerNotification",
+              "postedWorker" : {
+                "@type": "Person",
+                "gender": "male",
+                "familyName": "Miller",
+                "givenName": "Joe",
+                "birthName": "Miller",
+                "dateOfBirth": "1956-12-02",
+                "citizenShip": "IT",
+                "placeOfBirth": {
+                  "@type" : "Address",
+                  "postName": "Rome",
+                  "adminUtil1": "IT"
+                },
+                "domicile": {
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                },
+                "temporaryAddress":{
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                }
+              },
+              "assignment": {
+                "applicableJurisdiction": "IT",
+                "duration": {
+                  "startDate": "2020-01-01",
+                  "endDate": "2020-06-30"
+                }
+              },
+              "employer": {
+                legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation"
+              },
+              "typeOfEmployment": "Permanent"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+  - id: LeiRegistration
+    label: LEI Registration
+    comment: Registration Meta Data of LEI provided and maintained by LEI issuer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registration
 
-  - id: LimitedPartner
-    label: Limited Partner
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedpartner
+  - id: ScopeOfAuthorization
+    label: Scope Of Authorization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
 
   - id: StatutoryPartner
     label: Statutory Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
 
-  - id: ContactPoint
-    label: Contact Point
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
+  - id: TypeOfEmployment
+    label: Type Of Employment
+    defined_by: https://w3id.org/ebwv/terminology#/concept/typeofemployment
 
+  - id: VATRegistrationUnit
+    label: VAT Registration Unit
+    defined_by: https://w3id.org/ebwv/terminology#/concept/vatregistrationunit
+
+  - id: WorkAssignment
+    label: Work Assignment
+    defined_by: https://w3id.org/ebwv/terminology#/concept/workassignment
 
 property:
-  - id: thoroughfare
-    label: thoroughfare
-    domain: Address
+  - id: accountName
+    label: account name
+    domain: BankAccount
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount
 
-  - id: postName
-    label: post name
-    domain: Address
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postname
+  - id: accountType
+    label: account type
+    domain: BankAccount
+    range: AccountType
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/banktype
 
-  - id: postCode
-    label: post code
-    domain: Address
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postcode
-
-  - id: poBox
-    label: post office box
-    domain: Address
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/pobox
-
-  - id: locatorName
-    label: locator name
-    domain: Address
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname
-
-  - id: locatorDesignator
-    label: locator designator
-    domain: Address
+  - id: activity
+    label: main activity of company
+    domain:
+      - Company
+      - EconomicOperator
     range:
-      - xsd:string
-      - xsd:integer
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator
-
-  - id: fullAddress
-    label: full address
-    domain: Address
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress
+      - Nace21
+    defined_by: https://w3id.org/ebwv/terminology#/concept/activity
 
   - id: addressArea
     label: address area
     domain: Address
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea
+
+  - id: administrativeRepresentative
+    label: administrative representative
+    domain: EconomicOperator
+    range: Person
+    defined_by: https://w3id.org/ebwv/terminology#/concept/administrativerepresentative
 
   - id: adminUnitL2
     label: administrative unit level 2
@@ -410,7 +580,7 @@ property:
   - id: adminUnitL1
     label: administrative unit level 1
     domain: Address
-    range: xsd:string
+    range: CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1
 
   - id: alternativeName
@@ -418,6 +588,31 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename
+
+  - id: amount
+    label: amount
+    domain: Capital
+    range: xsd:float
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
+
+  - id: applicableJurisdiction
+    label: applicable jurisdiction
+    domain: WorkAssignment
+    range: CountryCode
+    defined_by: https://w3id.org/ebwv/terminology#/concept/applicablejurisdiction
+
+  - id: assignment
+    label: assignment
+    domain: PostedWorkerNotification
+    range: WorkAssignment
+    defined_by: https://w3id.org/ebwv/terminology#/concept/assignment
+
+  - id: attestationLegalCategory
+    label: attestation legal category
+    domain: ElectronicAttestationOfAttributes
+    range: AttestationLegalCategory
+    one_of: [ QEAA, Pub-EAA, EAA ]
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
   - id: birthName
     label: birth name
@@ -428,14 +623,29 @@ property:
   - id: citizenship
     label: citizenship
     domain: Person
-    range: Jurisdiction
+    range: CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
+
+  - id: constructionSector
+    label: construction sector
+    domain: EconomicOperator
+    range: xsd:boolean
+    defined_by: https://w3id.org/ebwv/terminology#/concept/constructionsector
 
   - id: contactPoint
     label: contact point
     domain: Person
     range: ContactPoint
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
+
+  - id: correspondenceAddress
+    label: correspondence Address
+    domain:
+      - Company
+      - LegalEntity
+    range:
+      - Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
 
   - id: countryOfBirth
     label: country of birth
@@ -449,11 +659,19 @@ property:
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath
 
+  - id: currency
+    label: currency
+    domain: 
+      - Capital
+      - PaymentTerms
+    range: Currency
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/currency
+
   - id: dateOfBirth
     label: date of birth
     domain:
       -  Person
-      -  NaturalPersonIdentificationData
+      -  NaturalPerson
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth
 
@@ -463,17 +681,63 @@ property:
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath
 
+  - id: dateOfRegistration
+    label: date of registration
+    domain:
+      - Company
+      - LegalEntity
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
+
   - id: domicile
     label: domicile
     domain: Person
     range: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile
 
+  - id: duration
+    label: duration
+    domain: WorkAssignment
+    range: PeriodOfTime
+    defined_by: https://w3id.org/ebwv/terminology#/concept/duration
+
+  - id: employer
+    label: employer
+    domain: PostedWorkerNotification
+    range: EconomicOperator
+    defined_by: https://w3id.org/ebwv/terminology#/concept/employer
+
+  - id: eori
+    label: economic operator registration and identification
+    domain: Company
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
+
+  - id: endDate
+    label: end date of period of time
+    domain: PeriodOfTime
+    range: xsd:date
+    defined_by: https://w3id.org/ebwv/terminology#/concept/endDate
+
+  - id: excise
+    label: excise number
+    domain: Company
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/excise
+
   - id: familyName
     label: family name
-    domain: NaturalPersonIdentificationData
+    domain:
+      - NaturalPerson
+      - Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
+
+  - id: fullAddress
+    label: full address
+    domain: Address
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress
 
   - id: fullName
     label: full name
@@ -487,17 +751,200 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gender
 
+  - id: geographicIdentifier
+    label: geographic identifier
+    domain: Location
+    range: xsd:anyURI
+    defined_by: https://w3id.org/ebwv/terminology#/concept/geographicidentifier
+
+  - id: geographicName
+    label: geographic name
+    domain: Location
+    range: xsd:string
+    defined_by: https://w3id.org/ebwv/terminology#/concept/geographicname
+
   - id: givenName
     label: given name
-    domain: NaturalPersonIdentificationData
+    domain:
+      - NaturalPerson
+      - Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
 
+  - id: hasEmail
+    label: email
+    domain: ContactPoint
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
+
+  - id: hasTelephone
+    label: telephone
+    domain: ContactPoint
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/telephone
+
+  - id: hostEntity
+    label: host entity
+    domain: PostedWorkerNotification
+    range: EconomicOperator
+    defined_by: https://w3id.org/ebwv/terminology#/concept/hostentity
+
+  - id: iban
+    label: IBAN
+    domain: BankAccount
+    range: Iban
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/iban
+
   - id: identifier
     label: identifier
-    domain: Person
-    range: Identifier
+    domain: 
+      - Company
+      - VATRegistrationUnit
+    range:
+      - Bic
+      - ClearingNumber
+      - Iban
+      - VatId
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
+
+  - id: jobTitle
+    label: job title
+    domain: Person
+    range: xsd:string
+    defined_by: https://w3id.org/ebwv/terminology#/concept/jobtitle
+  - id: jurisdiction
+    label: jurisdiction
+    domain:
+      - Company
+      - LegalEntity
+    range:
+      - CountryCode
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
+
+  - id: legalEntity
+    label: legal entity as registered at lei issuer
+    domain: LegalEntityIdentifier
+    range: LegalEntity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
+
+  - id: legalForm
+    label: legal form
+    domain:
+      - LegalPerson
+      - Company
+      - LegalEntity
+    range:
+      - xsd:string
+    comment: e.g. ISO Entity Legal Form (ELF)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalform
+
+  - id: legalIdentifier
+    label: legal identifier
+    domain:
+      - EuropeanBusinessWalletOwner
+      - LegalPerson
+      - Company
+    range:
+      - PublicBodyId
+      - Euid
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier
+
+  - id: legalName
+    label: legal name
+    domain:
+      - EuropeanBusinessWalletOwner
+      - LegalPerson
+      - Company
+      - LegalEntity
+    range: xsd:string
+    comment: the name under which the legal entity is registered
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
+
+  - id: legalRepresentative
+    label: legal representative
+    domain:
+      - LimitedLiabilityCompany
+    range:
+      - LegalRepresentative
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
+
+  - id: legalRepresentativeId
+    label: unique ID of the identity of the representative
+    domain: LegalRepresentative
+    range: xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid
+
+  - id: legalStatus
+    label: status of the company
+    domain:
+      - Company
+      - LegalEntity
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalstatus
+
+  - id: lei
+    label: legal entity identifier
+    domain:
+      - Company
+      - LegalEntityIdentifier
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
+
+  - id: leiLastUpdate
+    label: lei last update date
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leilastupdate
+
+  - id: leiNextRenewal
+    label: lei next renewal
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leinextrenewal
+
+  - id: leiRegistration
+    label: lei registration data
+    domain: LegalEntityIdentifier
+    range: LeiRegistration
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistration
+
+  - id: leiRegistrationStatus
+    label: lei registration status
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationstatus
+
+  - id: leiRegistrationDate
+    label: lei registration date
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationdate
+
+  - id: liabilityOrContribution
+    label: liability or contribution of the limited partner
+    domain: LimitedPartner
+    range: Capital
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution
+
+  - id: locatorDesignator
+    label: locator designator
+    domain: Address
+    range:
+      - xsd:string
+      - xsd:integer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator
+
+  - id: locatorName
+    label: locator name
+    domain: Address
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname
+
+  - id: managingLeiIssuer
+    label: managing lei issuer
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/managingleiissuer
 
   - id: matronymicName
     label: matronymic name
@@ -505,11 +952,51 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname
 
+  - id: name
+    label: name
+    domain: VATRegistrationUnit
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/name
+
+  - id: owner
+    label: owner
+    domain: BankAccount
+    range:
+      - LegalPerson
+      - Company
+      - NaturalPerson
+      - Person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/owner
+
+  - id: partner
+    label: partner
+    domain: Partnership
+    range:
+      - GeneralPartner
+      - LimitedPartner
+      - StatutoryPartner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
+
+  - id: partnerId
+    label: unique ID of the identity of the partner
+    domain:
+      - GeneralPartner
+      - LimitedPartner
+      - StatutoryPartner
+    range: xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid
+
   - id: patronymicName
     label: patronymic name
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
+    
+  - id: dueDate
+    label: due date of item
+    domain: PaymentTerms
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dueDate
 
   - id: personalAdministrativeNumber
     label: personalAdministrativeNumber
@@ -529,179 +1016,67 @@ property:
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath
 
+  - id: placeOfWork
+    label: place of work
+    domain: WorkAssignment
+    range:
+      - CountryCode
+      - EconomicOperator
+      - Vessel
+    defined_by: https://w3id.org/ebwv/terminology#/concept/placeofwork
+
+  - id: poBox
+    label: post office box
+    domain: Address
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/pobox
+
   - id: portrait
     label: portrait
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait
 
-  - id: residency
-    label: residency
-    domain: Person
-    range: Jurisdiction
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
-
-  - id: hasEmail
-    label: email
-    domain: ContactPoint
+  - id: postCode
+    label: post code
+    domain: Address
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postcode
 
-  - id: hasTelephone
-    label: telephone
-    domain: ContactPoint
+  - id: postedWorker
+    label: posted worker
+    domain: PostedWorkerNotification
+    range: Person
+    defined_by: https://w3id.org/ebwv/terminology#/concept/postedworker
+
+  - id: postName
+    label: post name
+    domain: Address
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/telephone
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postname
 
-  - id: legalName
-    label: legal name
-    domain:
-      - LegalPersonIdentificationData
-      - EuropeanBusinessWalletOwnerId
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
-    range: xsd:string
-    comment: a name under which the legal entity is registered
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
-
-  - id: legalIdentifier
-    label: legal identifier
-    domain:
-      - LegalPersonIdentificationData
-      - EuropeanBusinessWalletOwnerId
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier
-
-  - id: attestationLegalCategory
-    label: attestation legal category
-    domain: ElectronicAttestationOfAttributes
-    range: AttestationLegalCategory
-    one_of: [QEAA, Pub-EAA, EAA]
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
+  - id: provider
+    label: provide
+    domain: BankAccount
+    range:
+      - LegalPerson
+      - Company
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provider
 
   - id: registeredAddress
     label: registered address
     domain:
-      - LegalPersonIdentificationData
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
+      - Company
+      - LegalEntity
     range:
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
 
-  - id: correspondenceAddress
-    label: correspondence Address
-    domain:
-      - LegalPersonIdentificationData
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
-    range:
-      - Address
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
-
-  - id: dateOfRegistration
-    label: date of registration
-    domain:
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
-    range: xsd:date
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
-
-  - id: subscribedCapital
-    label: subscribed capital
-    domain:
-      - EuccLimitLiabilityCompany
-    range: Capital
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital
-
-  - id: companyStatus
-    label: status of the company
-    domain:
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/companyStatus
-
-  - id: legalRepresentative
-    label: legal representative
-    domain:
-      - EuccLimitLiabilityCompany
-    range:
-      - LegalRepresentative
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
-
-  - id: economicActivity
-    label: main economic activity of company
-    domain:
-      - EuccLimitLiabilityCompany
-      - EuccPartnership
-    range: Nace021
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/economicactivity
-
-  - id: vat
-    label: value added tax id
-    domain: LegalPersonIdentificationData
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vat
-
-  - id: tin
-    label: tax reference number
-    domain: LegalPersonIdentificationData
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tin
-
-  - id: lei
-    label: legal entity identifier
-    domain: LegalPersonIdentificationData
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
-
-  - id: eori
-    label: economic operator registration and identification
-    domain: LegalPersonIdentificationData
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
-
-  - id: excise
-    label: excise number
-    domain: LegalPersonIdentificationData
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/excise
-
-  - id: currency
-    label: currency
-    domain: Capital
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/currency
-
-  - id: amount
-    label: amount
-    domain: Capital
-    range: xsd:float
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
-
-  - id: legalRepresentativeId
-    label: unique ID of the identity of the representative
-    domain: LegalRepresentative
-    range: xsd:anyURI
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid
-
-  - id: partnerId
-    label: unique ID of the identity of the partner
-    domain:
-      - GeneralPartner
-      - LimitedPartner
-      - StatutoryPartner
-    range: xsd:anyURI
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid
-
-  - id: liabilityOrContribution
-    label: liability or contribution of the limited partner
-    domain: LimitedPartner
-    range: Capital
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution
+  - id: residency
+    label: residency
+    domain: Person
+    range: CountryCode
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
 
   - id: role
     label: role of representative
@@ -720,28 +1095,138 @@ property:
     one_of: [Alone, Jointly]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 
-  - id: naceCode
-    label: nace code
-    domain: Nace021
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nacecode
+  - id: socialRepresentative
+    label: social representative
+    domain: EconomicOperator
+    range: Person
+    defined_by: https://w3id.org/ebwv/terminology#/concept/socialrepresentative
 
-  - id: naceDescription
-    label: nace description
-    domain: Nace021
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nacedescription
+  - id: startDate
+    label: start date of period of time
+    domain: PeriodOfTime
+    range: xsd:date
+    defined_by: https://w3id.org/ebwv/terminology#/concept/startDate
 
-  - id: partner
-    label: partner
-    domain: EuccPartnership
-    range:
-      - GeneralPartner
-      - LimitedPartner
-      - StatutoryPartner
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
+  - id: subscribedCapital
+    label: subscribed capital
+    domain:
+      - LimitedLiabilityCompany
+    range: Capital
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital
+
+  - id: temporaryAddress
+    label: temporary address
+    domain: Person
+    range: Address
+    defined_by: https://w3id.org/ebwv/terminology#/concept/temporaryaddress
+
+    
+  - id: terms
+    label: terms 
+    domain: PaymentTerms
+    range: Incoterms
+    one_of:  [EXW, FCA, CPT, CIP, DAP, DPU, DDP, FAS, FOB ]
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/terms
+
+    
+  - id: thoroughfare
+    label: thoroughfare
+    domain: Address
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
+
+  - id: tin
+    label: tax reference number
+    domain: Company
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tin
+
+  - id: type
+    label: type
+    domain: VATRegistrationUnit
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/type
+
+  - id: typeOfEmployment
+    label: type of employment
+    domain: PostedWorkerNotification
+    range: TypeOfEmployment
+    one_of: [Permanent, Temporary]
+    defined_by: https://w3id.org/ebwv/terminology#/concept/typeofemployment
+
+  - id: vat
+    label: value added tax id
+    domain: Company
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vat
 
 individual:   # code lists
+  - id: Alone
+    label: scope of authorization Alone
+    type: ScopeOfAuthorization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
+
+  - id: EXW
+    label: Ex Works
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exw
+
+  - id: FCA
+    label: Free Carrier
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fca
+
+  - id: CPT
+    label: Carriage Paid To
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt
+
+  - id: CIP
+    label: Carriage & Insurance Paid To
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cip
+
+  - id: DAP
+    label: Delivered At Place
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dap
+
+  - id: DPU
+    label: Delivered Place Unloaded
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu
+
+  - id: DDP
+    label: Delivered Duty Paid
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp
+    
+  - id: FAS
+    label: Free Alongside Ship
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fas
+
+  - id: FOB
+    label: Free On Board
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
+
+
+  - id: EAA
+    label: electronic attestation of attributes
+    type: AttestationLegalCategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA
+
+  - id: Jointly
+    label: scope of authorization Jointly
+    type: ScopeOfAuthorization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly
+
+  - id: Permanent
+    label: type of employment Permanent
+    type: TypeOfEmployment
+    defined_by: https://w3id.org/ebwv/terminology#/concept/permanent
+
   - id: Pub-EAA
     label: public electronic attestation of attributes
     type: AttestationLegalCategory
@@ -752,21 +1237,77 @@ individual:   # code lists
     type: AttestationLegalCategory
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA
 
-  - id: EAA
-    label: electronic attestation of attributes
-    type: AttestationLegalCategory
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA
+  - id: Temporary
+    label: type of employment Temporary
+    type: TypeOfEmployment
+    defined_by: https://w3id.org/ebwv/terminology#/concept/temporary
 
-  - id: Alone
-    label: scope of authorization Alone
-    type: ScopeOfAuthorization
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
+datatype:
+  - id: AccountType
+    label: account type
+    upper_value: xsd:string
+    comment: list of account types TBD
 
-  - id: Jointly
-    label: scope of authorization Jointly
-    type: ScopeOfAuthorization
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly
+  - id: CountryCode
+    label: Country Code
+    upper_value: xsd:string
+    pattern: '[A-Z]{2}(-.*)?'
+    comment: 2 letter country code according to ISO-3166
+    defined_by: https://www.iso.org/iso-3166-country-codes.html
 
-  - id: jsonld:Context
-    label: jsonld context
-    type: schema:mapping
+  - id: Bic
+    label: Business Identifier Code aka Swift Code
+    upper_value: xsd:string
+    pattern: '[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})'
+    comment: International code (i.e. BIC or SWIFT code), as defined in ISO 9362, of the financial institution
+    defined_by: https://www.iso.org/standard/84108.html
+
+  - id: ClearingNumber
+    label: ClearingNumber
+    upper_value: xsd:string
+    comment: Clearing number, only used in some countries, of the identification of the financial institution.
+
+  - id: Currency
+    label: Currency
+    upper_value: xsd:string
+    pattern: '[A-Z]{3}'
+    comment: 3 letter currency code according to the European controlled vocabulary 'Currency'
+    defined_by:
+      - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/currency
+      - http://publications.europa.eu/resource/authority/currency
+
+  - id: Euid
+    label: EUID
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/euid
+
+  - id: Iban
+    label: IBAN
+    upper_value: xsd:string
+    pattern: '[A-Z]{2}[0-9A-Z]{13,30}'
+    comment: IBAN as defined by ISO 13616:2020
+    defined_by:
+      - https://www.iso.org/standard/81090.html
+
+  - id: Nace21
+    label: Nace Rev. 2.1
+    upper_value: xsd:string
+    comment: notation of the main activity of the company according to the European controlled vocabulary 'Nace Rev. 2.1'
+    defined_by:
+      - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/ux2/nace2.1/nace2.1
+      - http://data.europa.eu/ux2/nace2.1/nace2.1
+
+  - id: NationalBankCode
+    label: National Bank Code
+    upper_value: xsd:string
+    comment: Country-specific code for e.g. internal routing within a specific country’s clearing system (e.g. BLZ, Sort Code)
+
+  - id: PublicBodyId
+    label: unique identifier of public body
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId
+
+  - id: VatId
+    label: unique vat identifier
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vatid

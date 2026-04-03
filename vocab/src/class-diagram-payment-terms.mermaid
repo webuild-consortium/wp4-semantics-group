@@ -1,0 +1,28 @@
+classDiagram
+    direction LR
+%% =========================
+%% Core EBW Classes
+%% =========================
+    class PaymentTerms {
+        <<EBW>>
+        +dueDate: date
+        +terms: IncoTerms
+        +currency: Currency
+    }
+
+%% =========================
+%% External / Referenced Types
+%% =========================
+    class IncoTerms {
+        <<external>>
+    }
+
+%% =========================
+%% Inheritance
+%% =========================
+    CredentialSubject <|-- PaymentTerms
+
+%% =========================
+%% Properties (Object relations)
+%% =========================
+    PaymentTerms --> IncoTerms: terms
