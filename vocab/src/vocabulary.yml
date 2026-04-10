@@ -1167,8 +1167,12 @@ property:
 
   - id: type
     label: type
-    domain: VATRegistrationUnit
-    range: xsd:string
+    domain:
+      - Identifier
+      - VATRegistrationUnit
+    range:
+      - xsd:string
+      - skos:Concept
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/type
 
   - id: typeOfEmployment
