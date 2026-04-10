@@ -198,6 +198,10 @@ class:
     label: General Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner
 
+  - id: Identifier
+    label: Identifier
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
+
   - id: LegalPerson
     label: Legal Person
     upper_value:
