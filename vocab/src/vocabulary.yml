@@ -715,6 +715,12 @@ property:
     range: PeriodOfTime
     defined_by: https://w3id.org/ebwv/terminology#/concept/duration
 
+  - id: employee
+    label: employee
+    domain: EconomicOperator
+    range: Person
+    defined_by: https://w3id.org/ebwv/terminology#/concept/employee
+
   - id: employer
     label: employer
     domain: PostedWorkerNotification
@@ -791,6 +797,12 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
 
+  - id: hasMember
+    label: has member
+    domain: EconomicOperator
+    range: Membership
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/member
+
   - id: hasTelephone
     label: telephone
     domain: ContactPoint
@@ -799,7 +811,9 @@ property:
 
   - id: hostEntity
     label: host entity
-    domain: PostedWorkerNotification
+    domain: 
+      - PostedWorkerNotification
+      - WorkAssignment
     range: EconomicOperator
     defined_by: https://w3id.org/ebwv/terminology#/concept/hostentity
 
