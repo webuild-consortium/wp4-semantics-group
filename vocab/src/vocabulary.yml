@@ -1135,6 +1135,13 @@ property:
     range: xsd:date
     defined_by: https://w3id.org/ebwv/terminology#/concept/startDate
 
+  - id: stateOfInsurance
+    label: state of insurance
+    comment: In PWN, the "Home Member State" information regarding the Work Assignment
+    domain: Person
+    range: CountryCode
+    defined_by: https://w3id.org/ebwv/terminology#/concept/stateofinsurance
+
   - id: subscribedCapital
     label: subscribed capital
     domain:
