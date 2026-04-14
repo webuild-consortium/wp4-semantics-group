@@ -614,6 +614,13 @@ property:
     range: WorkAssignment
     defined_by: https://w3id.org/ebwv/terminology#/concept/assignment
 
+  - id: assignmentDescription
+    label: assignment description
+    comment: Used in PWN for the "job duties" description of a Posted Worker
+    domain: WorkAssignment
+    range: xsd:string
+    defined_by: https://w3id.org/ebwv/terminology#/concept/assignmentdescription
+
   - id: attestationLegalCategory
     label: attestation legal category
     domain: ElectronicAttestationOfAttributes
