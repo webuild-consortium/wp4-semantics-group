@@ -16,6 +16,9 @@ prefix:
   - id: skos
     value: http://www.w3.org/2004/02/skos/core#
 
+  - id: dcterms
+    value: http://purl.org/dc/terms/
+
 ontology:
   - property: dc:title
     value: European Business Wallet Vocabulary v0.1
@@ -614,13 +617,6 @@ property:
     range: WorkAssignment
     defined_by: https://w3id.org/ebwv/terminology#/concept/assignment
 
-  - id: assignmentDescription
-    label: assignment description
-    comment: Used in PWN for the "job duties" description of a Posted Worker
-    domain: WorkAssignment
-    range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/assignmentdescription
-
   - id: attestationLegalCategory
     label: attestation legal category
     domain: ElectronicAttestationOfAttributes
@@ -702,6 +698,12 @@ property:
       - LegalEntity
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
+
+  - id: dcterms:description
+    label: description
+    domain: WorkAssignment
+    range: rdf:Literal
+    defined_by: https://w3id.org/ebwv/terminology#/concept/description
 
   - id: domicile
     label: domicile
