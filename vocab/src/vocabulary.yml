@@ -449,8 +449,9 @@ class:
         json: |
           {
             "@context": [
+              "https://schema.org",
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/ebwv/v0.1"
+              "https://w3id.org/ebwv/v0.1"              
             ],
             "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
             "@type": [
@@ -496,7 +497,9 @@ class:
                 }
               },
               "assignment": {
+                "@type":"WorkAssignment",
                 "applicableJurisdiction": "IT",
+                "description": "job duties", 
                 "duration": {
                   "startDate": "2020-01-01",
                   "endDate": "2020-06-30"
@@ -538,6 +541,7 @@ class:
 
   - id: WorkAssignment
     label: Work Assignment
+    upper_value: schema:Thing
     defined_by: https://w3id.org/ebwv/terminology#/concept/workassignment
 
 property:
@@ -698,12 +702,6 @@ property:
       - LegalEntity
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
-
-  - id: dcterms:description
-    label: description
-    domain: WorkAssignment
-    range: rdf:Literal
-    defined_by: https://w3id.org/ebwv/terminology#/concept/description
 
   - id: domicile
     label: domicile
