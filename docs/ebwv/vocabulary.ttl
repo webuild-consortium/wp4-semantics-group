@@ -338,7 +338,7 @@ ebwv:iban a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:identifier a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:VATRegistrationUnit) ] ;
-    rdfs:range ebwv:Bic, ebwv:ClearingNumber, ebwv:Iban, ebwv:VatId ;
+    rdfs:range xsd:string, ebwv:Bic, ebwv:ClearingNumber, ebwv:Iban, ebwv:VatId ;
     rdfs:label "identifier" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -379,7 +379,7 @@ ebwv:legalForm a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:legalIdentifier a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuropeanBusinessWalletOwner ebwv:LegalPerson ebwv:Company) ] ;
-    rdfs:range ebwv:PublicBodyId, ebwv:Euid ;
+    rdfs:range xsd:string, ebwv:PublicBodyId, ebwv:Euid ;
     rdfs:label "legal identifier" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -580,7 +580,7 @@ ebwv:placeOfDeath a rdf:Property, owl:ObjectProperty ;
 
 ebwv:placeOfWork a rdf:Property ;
     rdfs:domain ebwv:WorkAssignment ;
-    rdfs:range ebwv:CountryCode, ebwv:EconomicOperator, ebwv:Vessel ;
+    rdfs:range xsd:string, ebwv:CountryCode, ebwv:EconomicOperator, ebwv:Vessel ;
     rdfs:label "place of work" ;
     rdfs:isDefinedBy <https://w3id.org/ebwv/terminology#/concept/placeofwork>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;

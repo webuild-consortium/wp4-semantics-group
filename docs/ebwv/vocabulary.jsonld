@@ -588,7 +588,7 @@
             "@type": "owl:Class",
             "owl:unionOf": ["ebwv:Company", "ebwv:VATRegistrationUnit"]
         },
-        "rdfs:range": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Iban", "ebwv:VatId"],
+        "rdfs:range": ["xsd:string", "ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Iban", "ebwv:VatId"],
         "rdfs:label": "identifier",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier",
         "vs:term_status": "stable",
@@ -661,7 +661,7 @@
             "@type": "owl:Class",
             "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:Company"]
         },
-        "rdfs:range": ["ebwv:PublicBodyId", "ebwv:Euid"],
+        "rdfs:range": ["xsd:string", "ebwv:PublicBodyId", "ebwv:Euid"],
         "rdfs:label": "legal identifier",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier",
         "vs:term_status": "stable",
@@ -977,7 +977,7 @@
         "@id": "ebwv:placeOfWork",
         "@type": "rdf:Property",
         "rdfs:domain": "ebwv:WorkAssignment",
-        "rdfs:range": ["ebwv:CountryCode", "ebwv:EconomicOperator", "ebwv:Vessel"],
+        "rdfs:range": ["xsd:string", "ebwv:CountryCode", "ebwv:EconomicOperator", "ebwv:Vessel"],
         "rdfs:label": "place of work",
         "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/placeofwork",
         "vs:term_status": "stable",

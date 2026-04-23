@@ -805,6 +805,7 @@ property:
       - Company
       - VATRegistrationUnit
     range:
+      - xsd:string
       - Bic
       - ClearingNumber
       - Iban
@@ -849,6 +850,7 @@ property:
       - LegalPerson
       - Company
     range:
+      - xsd:string
       - PublicBodyId
       - Euid
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier
@@ -1024,6 +1026,7 @@ property:
     label: place of work
     domain: WorkAssignment
     range:
+      - xsd:string
       - CountryCode
       - EconomicOperator
       - Vessel
