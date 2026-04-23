@@ -134,7 +134,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-04-01</time>
+                <time property="dc:date" id="time">2026-04-23</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -2495,11 +2495,11 @@
       "givenName": "Joe",
       "birthName": "Miller",
       "dateOfBirth": "1956-12-02",
-      "citizenShip": "IT",
+      "citizenship": "IT",
       "placeOfBirth": {
         "@type" : "Address",
         "postName": "Rome",
-        "adminUtil1": "IT"
+        "adminUnitL1": "IT"
       },
       "domicile": {
         "@type":"Address",
@@ -2523,14 +2523,17 @@
       }
     },
     "assignment": {
+      "@type" : "WorkAssignment",
       "applicableJurisdiction": "IT",
       "duration": {
+        "@type" : "PeriodOfTime",
         "startDate": "2020-01-01",
         "endDate": "2020-06-30"
       }
     },
     "employer": {
-      legalIdentifier": {
+      "@type" : "Company",
+      "legalIdentifier": {
         "@type" : "Euid",
         "@value" : "NOFOR.987654321"
       },
