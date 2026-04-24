@@ -9,17 +9,11 @@ classDiagram
         +legalForm: string
         +legalIdentifier: Euid
         +activity: Nace21
-        +identifier: List<string>
+        +identifier: List
         +registeredAddress: Address
         +correspondenceAddress: Address
         +dateOfRegistration: date
         +legalStatus: string
-        +lei: string
-        +vat: string
-        +tin: string
-        +lei: string
-        +eori: string
-        +excise: string
     }
 
     class NaturalPerson {
@@ -92,6 +86,12 @@ classDiagram
 %% =========================
 %% Properties (Object relations)
 %% =========================
+    Company --> Lei : identifier
+    Company --> VatId : identifier
+    Company --> Tin : identifier
+    Company --> Eori : identifier
+    Company --> Excise : identifier
+
     LegalRepresentative --> NaturalPerson: legalRepresentativeId
     LegalRepresentative --> LegalPerson: legalRepresentativeId
     LimitedLiabilityCompany --> LegalRepresentative: legalRepresentative

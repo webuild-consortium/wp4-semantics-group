@@ -8,11 +8,11 @@ classDiagram
         +accountName: string
         +accountType: string
         +iban: Iban
-        +owner: Company
-        +provider: Company
+        +owner: EconomicOperator
+        +provider: EconomicOperator
     }
 
-    class Company {
+    class EconomicOperator {
         identifier: List
     }
 
@@ -37,8 +37,8 @@ classDiagram
 %% =========================
 %% Properties (Object relations)
 %% =========================
-    BankAccount --> Company: owner
-    BankAccount --> Company: provider
+    BankAccount --> EconomicOperator: owner
+    BankAccount --> EconomicOperator: provider
     BankAccount --> Iban : iban
-    Company --> Bic : identifier
-    Company --> ClearingNumber : identifier
+    EconomicOperator --> ClearingNumber : identifier
+    EconomicOperator --> Bic : identifier
