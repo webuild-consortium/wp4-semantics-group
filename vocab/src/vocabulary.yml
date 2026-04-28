@@ -16,9 +16,6 @@ prefix:
   - id: skos
     value: http://www.w3.org/2004/02/skos/core#
 
-  - id: dcterms
-    value: http://purl.org/dc/terms/
-
 ontology:
   - property: dc:title
     value: European Business Wallet Vocabulary v0.1
