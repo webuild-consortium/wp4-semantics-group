@@ -470,6 +470,7 @@ class:
         json: |
           {
             "@context": [
+              "https://schema.org",
               "https://www.w3.org/ns/credentials/v2",
               "https://w3id.org/ebwv/v0.1"
             ],
@@ -517,8 +518,9 @@ class:
                 }
               },
               "assignment": {
-                "@type" : "WorkAssignment",
+                "@type":"WorkAssignment",
                 "applicableJurisdiction": "IT",
+                "description": "job duties", 
                 "duration": {
                   "@type" : "PeriodOfTime",
                   "startDate": "2020-01-01",
@@ -563,6 +565,7 @@ class:
 
   - id: WorkAssignment
     label: Work Assignment
+    upper_value: schema:Thing
     defined_by: https://w3id.org/ebwv/terminology#/concept/workassignment
 
 property:
@@ -808,7 +811,7 @@ property:
 
   - id: hostEntity
     label: host entity
-    domain: PostedWorkerNotification
+    domain: PostedWorkerNotification     
     range: EconomicOperator
     defined_by: https://w3id.org/ebwv/terminology#/concept/hostentity
 
@@ -1017,7 +1020,7 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
-    
+  
   - id: personalAdministrativeNumber
     label: personalAdministrativeNumber
     domain: Person
@@ -1127,6 +1130,13 @@ property:
     range: xsd:date
     defined_by: https://w3id.org/ebwv/terminology#/concept/startDate
 
+  - id: stateOfInsurance
+    label: state of insurance
+    comment: In PWN, the "Home Member State" information regarding the Work Assignment
+    domain: WorkAssignment
+    range: CountryCode
+    defined_by: https://w3id.org/ebwv/terminology#/concept/stateofinsurance
+
   - id: subscribedCapital
     label: subscribed capital
     domain:
@@ -1140,6 +1150,11 @@ property:
     range: Address
     defined_by: https://w3id.org/ebwv/terminology#/concept/temporaryaddress
 
+  - id: temporaryWorkAgency
+    label: temporary work agency
+    domain: EconomicOperator
+    range: xsd:boolean
+    defined_by: https://w3id.org/ebwv/terminology#/concept/temporaryworkagency
     
   - id: terms
     label: terms 
@@ -1147,7 +1162,6 @@ property:
     range: Incoterms
     one_of:  [EXW, FCA, CPT, CIP, DAP, DPU, DDP, FAS, FOB ]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/terms
-
     
   - id: thoroughfare
     label: thoroughfare
