@@ -451,7 +451,7 @@ class:
             "@context": [
               "https://schema.org",
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/ebwv/v0.1"              
+              "https://w3id.org/ebwv/v0.1"
             ],
             "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
             "@type": [
@@ -721,12 +721,6 @@ property:
     range: PeriodOfTime
     defined_by: https://w3id.org/ebwv/terminology#/concept/duration
 
-  - id: employee
-    label: employee
-    domain: EconomicOperator
-    range: Person
-    defined_by: https://w3id.org/ebwv/terminology#/concept/employee
-
   - id: employer
     label: employer
     domain: PostedWorkerNotification
@@ -803,12 +797,6 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
 
-  - id: hasMember
-    label: has member
-    domain: EconomicOperator
-    range: Membership
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/member
-
   - id: hasTelephone
     label: telephone
     domain: ContactPoint
@@ -817,9 +805,7 @@ property:
 
   - id: hostEntity
     label: host entity
-    domain: 
-      - PostedWorkerNotification
-      - WorkAssignment
+    domain: PostedWorkerNotification     
     range: EconomicOperator
     defined_by: https://w3id.org/ebwv/terminology#/concept/hostentity
 
@@ -1138,7 +1124,7 @@ property:
   - id: stateOfInsurance
     label: state of insurance
     comment: In PWN, the "Home Member State" information regarding the Work Assignment
-    domain: Person
+    domain: WorkAssignment
     range: CountryCode
     defined_by: https://w3id.org/ebwv/terminology#/concept/stateofinsurance
 
@@ -1167,7 +1153,6 @@ property:
     range: Incoterms
     one_of:  [EXW, FCA, CPT, CIP, DAP, DPU, DDP, FAS, FOB ]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/terms
-
     
   - id: thoroughfare
     label: thoroughfare
