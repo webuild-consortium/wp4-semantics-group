@@ -569,11 +569,17 @@ class:
     defined_by: https://w3id.org/ebwv/terminology#/concept/workassignment
 
 property:
+  - id: a1
+    label: a1 certificate
+    domain: PostedWorkerNotification
+    range: xsd:anyUri
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/a1
+
   - id: accountName
     label: account name
     domain: BankAccount
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/accountname
 
   - id: accountType
     label: account type
@@ -835,6 +841,7 @@ property:
       - Lei
       - Tin
       - VatId
+    range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
 
   - id: jobTitle
