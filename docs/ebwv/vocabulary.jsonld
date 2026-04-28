@@ -76,20 +76,8 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-03-26",
+    "dc:date": "2026-04-24",
     "rdfs_properties": [{
-        "@id": "ebwv:activity",
-        "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Company",
-        "rdfs:range": "ebwv:Nace21",
-        "rdfs:label": "main activity of company",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/activity",
-        "vs:term_status": "stable",
-        "mentioned": [{
-            "@id": "https://w3id.org/ebwv/v0.1",
-            "@type": "jsonld:Context"
-        }]
-    }, {
         "@id": "ebwv:accountName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:BankAccount",
@@ -114,12 +102,36 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:activity",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:Company",
+        "rdfs:range": "ebwv:Nace21",
+        "rdfs:label": "main activity of company",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/activity",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:addressArea",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Address",
         "rdfs:range": "xsd:string",
         "rdfs:label": "address area",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:administrativeRepresentative",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:EconomicOperator",
+        "rdfs:range": "ebwv:Person",
+        "rdfs:label": "administrative representative",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/administrativerepresentative",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -174,6 +186,30 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:applicableJurisdiction",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:WorkAssignment",
+        "rdfs:range": "ebwv:CountryCode",
+        "rdfs:label": "applicable jurisdiction",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/applicablejurisdiction",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:assignment",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:PostedWorkerNotification",
+        "rdfs:range": "ebwv:WorkAssignment",
+        "rdfs:label": "assignment",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/assignment",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:attestationLegalCategory",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:ElectronicAttestationOfAttributes",
@@ -213,9 +249,24 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:constructionSector",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:EconomicOperator",
+        "rdfs:range": "xsd:boolean",
+        "rdfs:label": "construction sector",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/constructionsector",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:contactPoint",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:Person", "ebwv:EconomicOperator"]
+        },
         "rdfs:range": "ebwv:ContactPoint",
         "rdfs:label": "contact point",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint",
@@ -227,7 +278,10 @@
     }, {
         "@id": "ebwv:correspondenceAddress",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:Company",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:Company", "ebwv:LegalEntity"]
+        },
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "correspondence Address",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress",
@@ -263,7 +317,10 @@
     }, {
         "@id": "ebwv:currency",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Capital",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:Capital", "ebwv:PaymentTerms"]
+        },
         "rdfs:range": "ebwv:Currency",
         "rdfs:label": "currency",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/currency",
@@ -302,7 +359,10 @@
     }, {
         "@id": "ebwv:dateOfRegistration",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Company",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:Company", "ebwv:LegalEntity"]
+        },
         "rdfs:range": "xsd:date",
         "rdfs:label": "date of registration",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration",
@@ -324,24 +384,48 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:eori",
+        "@id": "ebwv:dueDate",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Company",
-        "rdfs:range": "xsd:string",
-        "rdfs:label": "economic operator registration and identification",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/eori",
+        "rdfs:domain": "ebwv:PaymentTerms",
+        "rdfs:range": "xsd:date",
+        "rdfs:label": "due date of item",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dueDate",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:excise",
+        "@id": "ebwv:duration",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:WorkAssignment",
+        "rdfs:range": "ebwv:PeriodOfTime",
+        "rdfs:label": "duration",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/duration",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:employer",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:PostedWorkerNotification",
+        "rdfs:range": "ebwv:EconomicOperator",
+        "rdfs:label": "employer",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/employer",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:endDate",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Company",
-        "rdfs:range": "xsd:string",
-        "rdfs:label": "excise number",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/excise",
+        "rdfs:domain": "ebwv:PeriodOfTime",
+        "rdfs:range": "xsd:date",
+        "rdfs:label": "end date of period of time",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/endDate",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -399,6 +483,30 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:geographicIdentifier",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:Location",
+        "rdfs:range": "xsd:anyURI",
+        "rdfs:label": "geographic identifier",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/geographicidentifier",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:geographicName",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:Location",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "geographic name",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/geographicname",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:givenName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
@@ -438,6 +546,18 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:hostEntity",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:PostedWorkerNotification",
+        "rdfs:range": "ebwv:EconomicOperator",
+        "rdfs:label": "host entity",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/hostentity",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:iban",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:BankAccount",
@@ -452,10 +572,52 @@
     }, {
         "@id": "ebwv:identifier",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Company",
-        "rdfs:range": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Iban"],
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:EconomicOperator", "ebwv:VATRegistrationUnit"]
+        },
+        "rdfs:range": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Eori", "ebwv:Excise", "ebwv:Iban", "ebwv:Lei", "ebwv:Tin", "ebwv:VatId"],
         "rdfs:label": "identifier",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:jobTitle",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:Person",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "job title",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/jobtitle",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:jurisdiction",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:Company", "ebwv:LegalEntity"]
+        },
+        "rdfs:range": "ebwv:CountryCode",
+        "rdfs:label": "jurisdiction",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:legalEntity",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:LegalEntityIdentifier",
+        "rdfs:range": "ebwv:LegalEntity",
+        "rdfs:label": "legal entity as registered at lei issuer",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -466,10 +628,14 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:LegalPerson", "ebwv:Company"]
+            "owl:unionOf": ["ebwv:LegalPerson", "ebwv:Company", "ebwv:LegalEntity"]
         },
         "rdfs:range": "xsd:string",
         "rdfs:label": "legal form",
+        "rdfs:comment": {
+            "@value": "<div>e.g. ISO Entity Legal Form (ELF)</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalform",
         "vs:term_status": "stable",
         "mentioned": [{
@@ -481,7 +647,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:Company"]
+            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:EconomicOperator"]
         },
         "rdfs:range": ["ebwv:PublicBodyId", "ebwv:Euid"],
         "rdfs:label": "legal identifier",
@@ -496,12 +662,12 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:Company"]
+            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:EconomicOperator", "ebwv:LegalEntity"]
         },
         "rdfs:range": "xsd:string",
         "rdfs:label": "legal name",
         "rdfs:comment": {
-            "@value": "<div>a name under which the legal entity is registered</div>",
+            "@value": "<div>the name under which the legal entity is registered</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname",
@@ -537,7 +703,10 @@
     }, {
         "@id": "ebwv:legalStatus",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Company",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:Company", "ebwv:LegalEntity"]
+        },
         "rdfs:range": "xsd:string",
         "rdfs:label": "status of the company",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalstatus",
@@ -549,10 +718,70 @@
     }, {
         "@id": "ebwv:lei",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Company",
+        "rdfs:domain": "ebwv:LegalEntityIdentifier",
         "rdfs:range": "xsd:string",
         "rdfs:label": "legal entity identifier",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/lei",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:leiLastUpdate",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:LeiRegistration",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "lei last update date",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/leilastupdate",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:leiNextRenewal",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:LeiRegistration",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "lei next renewal",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/leinextrenewal",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:leiRegistration",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:LegalEntityIdentifier",
+        "rdfs:range": "ebwv:LeiRegistration",
+        "rdfs:label": "lei registration data",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistration",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:leiRegistrationStatus",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:LeiRegistration",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "lei registration status",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationstatus",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:leiRegistrationDate",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:LeiRegistration",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "lei registration date",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationdate",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -595,6 +824,18 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:managingLeiIssuer",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:LeiRegistration",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "managing lei issuer",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/managingleiissuer",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:matronymicName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Person",
@@ -607,10 +848,22 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:name",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:VATRegistrationUnit",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "name",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/name",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:owner",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:BankAccount",
-        "rdfs:range": ["ebwv:LegalPerson", "ebwv:Company", "ebwv:NaturalPerson", "ebwv:Person"],
+        "rdfs:range": ["ebwv:LegalPerson", "ebwv:EconomicOperator", "ebwv:NaturalPerson", "ebwv:Person"],
         "rdfs:label": "owner",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/owner",
         "vs:term_status": "stable",
@@ -694,6 +947,18 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:placeOfWork",
+        "@type": "rdf:Property",
+        "rdfs:domain": "ebwv:WorkAssignment",
+        "rdfs:range": ["ebwv:CountryCode", "ebwv:EconomicOperator", "ebwv:Vessel"],
+        "rdfs:label": "place of work",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/placeofwork",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:poBox",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Address",
@@ -730,6 +995,18 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:postedWorker",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:PostedWorkerNotification",
+        "rdfs:range": "ebwv:Person",
+        "rdfs:label": "posted worker",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/postedworker",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:postName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Address",
@@ -745,7 +1022,7 @@
         "@id": "ebwv:provider",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:BankAccount",
-        "rdfs:range": ["ebwv:LegalPerson", "ebwv:Company"],
+        "rdfs:range": ["ebwv:LegalPerson", "ebwv:EconomicOperator"],
         "rdfs:label": "provide",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/provider",
         "vs:term_status": "stable",
@@ -756,7 +1033,10 @@
     }, {
         "@id": "ebwv:registeredAddress",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:Company",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:Company", "ebwv:LegalEntity"]
+        },
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "registered address",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress",
@@ -811,12 +1091,63 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:socialRepresentative",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:EconomicOperator",
+        "rdfs:range": "ebwv:Person",
+        "rdfs:label": "social representative",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/socialrepresentative",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:startDate",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:PeriodOfTime",
+        "rdfs:range": "xsd:date",
+        "rdfs:label": "start date of period of time",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/startDate",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:subscribedCapital",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:LimitedLiabilityCompany",
         "rdfs:range": "ebwv:Capital",
         "rdfs:label": "subscribed capital",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:temporaryAddress",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:Person",
+        "rdfs:range": "ebwv:Address",
+        "rdfs:label": "temporary address",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/temporaryaddress",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:terms",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:PaymentTerms",
+        "rdfs:range": ["ebwv:Incoterms", {
+            "@type": "owl:class",
+            "owl:oneOf": ["ebwv:EXW", "ebwv:FCA", "ebwv:CPT", "ebwv:CIP", "ebwv:DAP", "ebwv:DPU", "ebwv:DDP", "ebwv:FAS", "ebwv:FOB"]
+        }],
+        "rdfs:label": "terms",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/terms",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -835,24 +1166,27 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:tin",
+        "@id": "ebwv:type",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Company",
+        "rdfs:domain": "ebwv:VATRegistrationUnit",
         "rdfs:range": "xsd:string",
-        "rdfs:label": "tax reference number",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/tin",
+        "rdfs:label": "type",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/type",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:vat",
-        "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Company",
-        "rdfs:range": "xsd:string",
-        "rdfs:label": "value added tax id",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/vat",
+        "@id": "ebwv:typeOfEmployment",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:PostedWorkerNotification",
+        "rdfs:range": ["ebwv:TypeOfEmployment", {
+            "@type": "owl:class",
+            "owl:oneOf": ["ebwv:Permanent", "ebwv:Temporary"]
+        }],
+        "rdfs:label": "type of employment",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/typeofemployment",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -913,7 +1247,7 @@
     }, {
         "@id": "ebwv:Company",
         "@type": "rdfs:Class",
-        "rdfs:subClassOf": ["cred:CredentialSubject"],
+        "rdfs:subClassOf": ["cred:CredentialSubject", "ebwv:EconomicOperator"],
         "rdfs:label": "Company as defined in directive-EU-2025/25",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/company",
         "vs:term_status": "stable",
@@ -926,6 +1260,16 @@
         "@type": "rdfs:Class",
         "rdfs:label": "Contact Point",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:EconomicOperator",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Economic Operator",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/economicoperator",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -975,10 +1319,34 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:LegalEntity",
+        "@id": "ebwv:Incoterms",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Incoterms",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:LegalEntityIdentifier",
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["cred:CredentialSubject"],
+        "rdfs:label": "Legal entity identifier",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentityidentifier",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:LegalEntity",
+        "@type": "rdfs:Class",
         "rdfs:label": "Legal entity",
+        "rdfs:comment": {
+            "@value": "<div>Legal Entity Data provided by LEI issuer</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity",
         "vs:term_status": "stable",
         "mentioned": [{
@@ -1059,10 +1427,44 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:PaymentTerms",
+        "@type": "rdfs:Class",
+        "rdfs:label": "terms of payment",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentterms",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:Person",
         "@type": "rdfs:Class",
         "rdfs:label": "Person",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/person",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:PostedWorkerNotification",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Posted Worker Notification",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/postedworker",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:LeiRegistration",
+        "@type": "rdfs:Class",
+        "rdfs:label": "LEI Registration",
+        "rdfs:comment": {
+            "@value": "<div>Registration Meta Data of LEI provided and maintained by LEI issuer</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/registration",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1088,12 +1490,132 @@
             "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
+    }, {
+        "@id": "ebwv:TypeOfEmployment",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Type Of Employment",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/typeofemployment",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:VATRegistrationUnit",
+        "@type": "rdfs:Class",
+        "rdfs:label": "VAT Registration Unit",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/vatregistrationunit",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:WorkAssignment",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Work Assignment",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/workassignment",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
     }],
     "rdfs_individuals": [{
         "@id": "ebwv:Alone",
         "@type": "ebwv:ScopeOfAuthorization",
         "rdfs:label": "scope of authorization Alone",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:EXW",
+        "@type": "ebwv:Incoterms",
+        "rdfs:label": "Ex Works",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/exw",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:FCA",
+        "@type": "ebwv:Incoterms",
+        "rdfs:label": "Free Carrier",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/fca",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:CPT",
+        "@type": "ebwv:Incoterms",
+        "rdfs:label": "Carriage Paid To",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:CIP",
+        "@type": "ebwv:Incoterms",
+        "rdfs:label": "Carriage & Insurance Paid To",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/cip",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:DAP",
+        "@type": "ebwv:Incoterms",
+        "rdfs:label": "Delivered At Place",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dap",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:DPU",
+        "@type": "ebwv:Incoterms",
+        "rdfs:label": "Delivered Place Unloaded",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:DDP",
+        "@type": "ebwv:Incoterms",
+        "rdfs:label": "Delivered Duty Paid",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:FAS",
+        "@type": "ebwv:Incoterms",
+        "rdfs:label": "Free Alongside Ship",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/fas",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:FOB",
+        "@type": "ebwv:Incoterms",
+        "rdfs:label": "Free On Board",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/fob",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1120,6 +1642,16 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:Permanent",
+        "@type": "ebwv:TypeOfEmployment",
+        "rdfs:label": "type of employment Permanent",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/permanent",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:Pub-EAA",
         "@type": "ebwv:AttestationLegalCategory",
         "rdfs:label": "public electronic attestation of attributes",
@@ -1134,6 +1666,16 @@
         "@type": "ebwv:AttestationLegalCategory",
         "rdfs:label": "qualified electronic attestation of attributes",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:Temporary",
+        "@type": "ebwv:TypeOfEmployment",
+        "rdfs:label": "type of employment Temporary",
+        "rdfs:isDefinedBy": "https://w3id.org/ebwv/terminology#/concept/temporary",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1161,7 +1703,7 @@
         "owl:onDatatype": "xsd:string",
         "owl:withRestrictions": {
             "@list": [{
-                "xsd:pattern": "[A-Z]{2}"
+                "xsd:pattern": "[A-Z]{2}(-.*)?"
             }]
         },
         "rdfs:label": "Country Code",
@@ -1232,11 +1774,33 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:Eori",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "rdfs:label": "economic operator registration and identification",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/eori",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:Euid",
         "@type": "rdfs:Datatype",
         "rdfs:subClassOf": ["xsd:string"],
         "rdfs:label": "EUID",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/euid",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:Excise",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "rdfs:label": "excise number",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/excise",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1258,6 +1822,17 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": "https://www.iso.org/standard/81090.html",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:Lei",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "rdfs:label": "legal entity identifier",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/lei",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1298,6 +1873,28 @@
         "rdfs:subClassOf": ["xsd:string"],
         "rdfs:label": "unique identifier of public body",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:Tin",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "rdfs:label": "tax reference number",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/tin",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:VatId",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "rdfs:label": "unique vat identifier",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/vatid",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",

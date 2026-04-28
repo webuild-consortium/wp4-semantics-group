@@ -1,16 +1,44 @@
 {
     "@graph": [
         {
-            "@id": "webuild:legalform",
-            "term:orderedNote": {
+            "@id": "urn:uuid:2dd17e11-c2fb-46bd-8346-7e9314b606f7",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "birth date"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:48c5da8c-5e36-467f-8f9f-2152e5eb00a4",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "date of birth"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:e5230ea7-a580-4239-b0b0-7de43cd2b182",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "natural person"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "webuild:person",
+            "term:orderedSynonym": {
                 "@list": [
                     {
-                        "@language": "en",
-                        "@value": "Legal form is typically expressed using nationally defined classifications, such as company types or partnership forms, which may be represented as codes or controlled concepts in business registers."
-                    },
-                    {
-                        "@language": "en",
-                        "@value": "The reference in the definition to \"legal entity\" reflects the existing EU Core Business Vocabulary structure, but the label of the key actor type might change during WE BUILD LSP (discussions about introducing the more generic \"economic operator\" instead)."
+                        "@id": "urn:uuid:e5230ea7-a580-4239-b0b0-7de43cd2b182"
                     }
                 ]
             },
@@ -20,43 +48,36 @@
             "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
             "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
             "skos:prefLabel": {
-                "@id": "urn:uuid:ec6a9ff0-b2c3-4411-aabd-c295d0c23de3"
+                "@id": "urn:uuid:0a56c3ab-b114-492f-b5fe-a41219e7aae3"
             },
-            "skos:note": [
-                {
-                    "@language": "en",
-                    "@value": "Legal form is typically expressed using nationally defined classifications, such as company types or partnership forms, which may be represented as codes or controlled concepts in business registers."
-                },
-                {
-                    "@language": "en",
-                    "@value": "The reference in the definition to \"legal entity\" reflects the existing EU Core Business Vocabulary structure, but the label of the key actor type might change during WE BUILD LSP (discussions about introducing the more generic \"economic operator\" instead)."
-                }
-            ],
             "skos:inScheme": {
                 "@id": "https://iri.suomi.fi/terminology/webuild/"
             },
             "skos:definition": {
                 "@language": "en",
-                "@value": "the juridical classification of a [legal entity] according to the law under which it is constituted, determining its legal personality, governance structure, and liability regime"
+                "@value": "TBD"
+            },
+            "skos:altLabel": {
+                "@id": "urn:uuid:e5230ea7-a580-4239-b0b0-7de43cd2b182"
             },
             "dcterms:modified": {
-                "@value": "2026-03-24T09:00:17.295Z",
+                "@value": "2026-04-14T07:15:09.261Z",
                 "@type": "xsd:dateTime"
             },
             "dcterms:created": {
-                "@value": "2026-03-24T09:00:17.295Z",
+                "@value": "2026-04-14T07:15:09.261Z",
                 "@type": "xsd:dateTime"
             },
             "@type": "skos:Concept"
         },
         {
-            "@id": "urn:uuid:ec6a9ff0-b2c3-4411-aabd-c295d0c23de3",
+            "@id": "urn:uuid:0a56c3ab-b114-492f-b5fe-a41219e7aae3",
             "suomi-meta:publicationStatus": {
                 "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
             },
             "skos-xl:literalForm": {
                 "@language": "en",
-                "@value": "legal form"
+                "@value": "person"
             },
             "@type": "skos-xl:Label"
         },
@@ -132,6 +153,940 @@
                 "@type": "xsd:dateTime"
             },
             "http://purl.org/termed/properties/id": "1649987f-c058-46af-8f94-5adf6acac654"
+        },
+        {
+            "@id": "urn:uuid:3906e481-d9c7-4655-98d6-b3009d5365b9",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "identifier"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:6fb558b9-ac6f-44e5-938f-c2c6989b7cbe",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "legal identifier"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:ba8b6757-41f0-4bfb-a3db-947fca50b8ae",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "statutory name"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:75da39c3-ad77-443b-b21e-634e2c61aa34",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "registered legal name"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:602507ce-5a2f-42c5-ac2b-294a26b18096",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "corporate name"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:366211ea-ba2d-4b7d-b633-d7a6097c9c2d",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "legal name (not in use)"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:ef3c5907-744c-4daa-a74d-0b881ee267d3",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "legal identifier (not in use)"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:34fda745-a8e5-4a35-bb3a-ab297cc30a1f",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "fi",
+                "@value": "tunnus"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:4b4b9460-6371-40b3-b360-ed7f5bc67773",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "nb-no",
+                "@value": "identifikator"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:8b376364-58c7-4435-ba1e-bafdcbc4d0fd",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "identifier (not in use)"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "webuild:legalidentifier",
+            "term:orderedSource": {
+                "@list": [
+                    "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.2.0/#LegalEntity.legalidentifier"
+                ]
+            },
+            "term:orderedNote": {
+                "@list": [
+                    {
+                        "@language": "en",
+                        "@value": "Legal Entity must have a unique identification number, allowing it to be clearly identified in communication across business registers. The Core vocabulary sets no restriction on the type of legal identifier. In many countries, the business register's identifier is the relevant data point.\n\nRemoved: \"The details of the registration are provided as properties of the Identifier class.\""
+                    }
+                ]
+            },
+            "term:orderedBroader": {
+                "@list": [
+                    {
+                        "@id": "webuild:identifier"
+                    }
+                ]
+            },
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "skos:prefLabel": {
+                "@id": "urn:uuid:6fb558b9-ac6f-44e5-938f-c2c6989b7cbe"
+            },
+            "skos:note": {
+                "@language": "en",
+                "@value": "Legal Entity must have a unique identification number, allowing it to be clearly identified in communication across business registers. The Core vocabulary sets no restriction on the type of legal identifier. In many countries, the business register's identifier is the relevant data point.\n\nRemoved: \"The details of the registration are provided as properties of the Identifier class.\""
+            },
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "the unambiguous structured reference assigned to the legal entity by the legal authority that registered it"
+            },
+            "skos:broader": {
+                "@id": "webuild:identifier"
+            },
+            "dcterms:source": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.2.0/#LegalEntity.legalidentifier",
+            "dcterms:modified": {
+                "@value": "2026-04-14T07:13:47.273Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:created": {
+                "@value": "2026-02-03T15:04:12.908Z",
+                "@type": "xsd:dateTime"
+            },
+            "@type": "skos:Concept"
+        },
+        {
+            "@id": "webuild:identifier",
+            "term:orderedNarrower": {
+                "@list": [
+                    {
+                        "@id": "webuild:legalidentifier"
+                    }
+                ]
+            },
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "skos:prefLabel": {
+                "@id": "urn:uuid:3906e481-d9c7-4655-98d6-b3009d5365b9"
+            },
+            "skos:narrower": {
+                "@id": "webuild:legalidentifier"
+            },
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "TBD"
+            },
+            "dcterms:modified": {
+                "@value": "2026-04-14T07:14:10.031Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:created": {
+                "@value": "2026-04-14T05:48:44.149Z",
+                "@type": "xsd:dateTime"
+            },
+            "@type": "skos:Concept"
+        },
+        {
+            "@id": "urn:uuid:9dd6aa36-d9d6-41c2-81d8-3f268dbf5789",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "economic operator"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:8860fb3a-4231-47a8-8031-6ac8ea25d3db",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "economic activity"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:9c8ac212-67a2-4fad-b6f2-df083426d020",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "commercial activity"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:538de649-c8ff-49d0-8ad6-7c80f0c76ad3",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "business activity"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "webuild:economicactivity",
+            "term:orderedSynonym": {
+                "@list": [
+                    {
+                        "@id": "urn:uuid:538de649-c8ff-49d0-8ad6-7c80f0c76ad3"
+                    },
+                    {
+                        "@id": "urn:uuid:9c8ac212-67a2-4fad-b6f2-df083426d020"
+                    }
+                ]
+            },
+            "term:orderedRelated": {
+                "@list": [
+                    {
+                        "@id": "webuild:economicoperator"
+                    }
+                ]
+            },
+            "@type": "skos:Concept",
+            "dcterms:created": {
+                "@value": "2026-04-14T05:43:55.26Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:modified": {
+                "@value": "2026-04-14T05:46:26.677Z",
+                "@type": "xsd:dateTime"
+            },
+            "skos:altLabel": [
+                {
+                    "@id": "urn:uuid:538de649-c8ff-49d0-8ad6-7c80f0c76ad3"
+                },
+                {
+                    "@id": "urn:uuid:9c8ac212-67a2-4fad-b6f2-df083426d020"
+                }
+            ],
+            "skos:broader": {
+                "@id": "webuild:activity"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "activity in which resources are combined in a production process to produce goods or services; in EU law and policy, the concept also covers the offering of goods or services on a market"
+            },
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:note": {
+                "@language": "en",
+                "@value": "Use for activities relevant to NACE classification, business statistics, market participation, trade, procurement, compliance and EU Business Wallet attestations. An economic activity may be associated with an economic operator in the regulatory sense."
+            },
+            "skos:prefLabel": {
+                "@id": "urn:uuid:8860fb3a-4231-47a8-8031-6ac8ea25d3db"
+            },
+            "skos:related": {
+                "@id": "webuild:economicoperator"
+            },
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "term:orderedBroader": {
+                "@list": [
+                    {
+                        "@id": "webuild:activity"
+                    }
+                ]
+            },
+            "term:orderedNote": {
+                "@list": [
+                    {
+                        "@language": "en",
+                        "@value": "Use for activities relevant to NACE classification, business statistics, market participation, trade, procurement, compliance and EU Business Wallet attestations. An economic activity may be associated with an economic operator in the regulatory sense."
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "webuild:economicoperator",
+            "term:orderedRelated": {
+                "@list": [
+                    {
+                        "@id": "webuild:economicactivity"
+                    }
+                ]
+            },
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "skos:related": {
+                "@id": "webuild:economicactivity"
+            },
+            "skos:prefLabel": {
+                "@id": "urn:uuid:9dd6aa36-d9d6-41c2-81d8-3f268dbf5789"
+            },
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "any natural or legal person, including but not limited to companies, partnerships, foundations, associations as well as sole-traders and self-employed persons or a group of such persons, acting in a commercial or professional capacity (EBW regulation definition; 3rd Presidency compromise)\n\nOR\n\nactor concept used in EU regulatory contexts for a natural or legal person, and in some instruments also a public entity or grouping, engaged in legally relevant economic operations"
+            },
+            "dcterms:modified": {
+                "@value": "2026-04-14T05:47:34.269Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:created": {
+                "@value": "2026-04-14T05:45:50.887Z",
+                "@type": "xsd:dateTime"
+            },
+            "@type": "skos:Concept"
+        },
+        {
+            "@id": "urn:uuid:7d0d4206-fc6d-43f4-abf7-12aac9b2a036",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "activity"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:4a13bec3-266e-4741-b982-bf612d2c1093",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "action domain"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:f506a943-61ea-4690-b61f-1eec84a55727",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "operation"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "webuild:activity",
+            "term:orderedSynonym": {
+                "@list": [
+                    {
+                        "@id": "urn:uuid:4a13bec3-266e-4741-b982-bf612d2c1093"
+                    },
+                    {
+                        "@id": "urn:uuid:f506a943-61ea-4690-b61f-1eec84a55727"
+                    }
+                ]
+            },
+            "term:orderedNote": {
+                "@list": [
+                    {
+                        "@language": "en",
+                        "@value": "Broad neutral concept. Use when the activity does not specifically need to be classified as economic, regulatory, administrative or other specialised activity."
+                    }
+                ]
+            },
+            "term:orderedNarrower": {
+                "@list": [
+                    {
+                        "@id": "webuild:economicactivity"
+                    }
+                ]
+            },
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "skos:prefLabel": {
+                "@id": "urn:uuid:7d0d4206-fc6d-43f4-abf7-12aac9b2a036"
+            },
+            "skos:note": {
+                "@language": "en",
+                "@value": "Broad neutral concept. Use when the activity does not specifically need to be classified as economic, regulatory, administrative or other specialised activity."
+            },
+            "skos:narrower": {
+                "@id": "webuild:economicactivity"
+            },
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "organised doing, operation or process carried out for a purpose or result"
+            },
+            "skos:altLabel": [
+                {
+                    "@id": "urn:uuid:4a13bec3-266e-4741-b982-bf612d2c1093"
+                },
+                {
+                    "@id": "urn:uuid:f506a943-61ea-4690-b61f-1eec84a55727"
+                }
+            ],
+            "dcterms:modified": {
+                "@value": "2026-04-14T05:44:20.771Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:created": {
+                "@value": "2026-04-14T05:40:40.657Z",
+                "@type": "xsd:dateTime"
+            },
+            "@type": "skos:Concept"
+        },
+        {
+            "@id": "urn:uuid:bc1436c2-d988-47a4-a14d-594086ea71c9",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "economic activity (not in use)"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:31764b48-c0eb-43d0-9be0-0132a7f971f0",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "site"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:7052e039-5382-49dd-a2c1-5447f8765b3c",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "location of operation"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:9a70f8e9-d8ad-4730-a551-51ef1af4b318",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "premises"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:45cbcb6a-1d8a-4bc3-a819-94e242819a38",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "physical site"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:2c2e6807-7dc1-4f71-8c41-75f65180e8b2",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "LKAU"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:c4ecbb22-137e-47e3-a563-41e376461896",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "local KAU"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:56d0149c-0df4-4f8d-97e2-2a6a14e0d089",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "establishment"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:2d417a04-4f47-48ba-87bd-5f8ec691cb2a",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "local kind-of-activity unit"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:f2f78481-7cc2-4237-ace4-eb47cedace0a",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "activity (not in use)"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:f24baf81-de6c-4b42-b8be-39899b601321",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "local business unit"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:61c6c603-f0d3-465c-b98b-7de9f47ea6e4",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "enterprise local unit"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:f1412668-6642-4b34-9a8f-dc7e358522a0",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "local unit"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "webuild:localunit",
+            "term:orderedSynonym": {
+                "@list": [
+                    {
+                        "@id": "urn:uuid:f24baf81-de6c-4b42-b8be-39899b601321"
+                    },
+                    {
+                        "@id": "urn:uuid:61c6c603-f0d3-465c-b98b-7de9f47ea6e4"
+                    }
+                ]
+            },
+            "term:orderedRelated": {
+                "@list": [
+                    {
+                        "@id": "webuild:site"
+                    }
+                ]
+            },
+            "term:orderedNote": {
+                "@list": [
+                    {
+                        "@language": "en",
+                        "@value": "Use as the general EU-wide concept for a geographically delimited operating unit of an enterprise (economic operator). This is the preferred broad concept in a Eurostat-oriented model."
+                    },
+                    {
+                        "@language": "en",
+                        "@value": "Alternatively:\nUse as the broad EU statistical concept for a geographically delimited operating unit of an enterprise. A local unit may contain more than one activity, may consist only of ancillary activities, and may in some cases be the registered office even if nobody works there."
+                    }
+                ]
+            },
+            "@type": "skos:Concept",
+            "dcterms:created": {
+                "@value": "2026-04-13T08:57:42.11Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:modified": {
+                "@value": "2026-04-14T05:30:57.466Z",
+                "@type": "xsd:dateTime"
+            },
+            "skos:altLabel": [
+                {
+                    "@id": "urn:uuid:61c6c603-f0d3-465c-b98b-7de9f47ea6e4"
+                },
+                {
+                    "@id": "urn:uuid:f24baf81-de6c-4b42-b8be-39899b601321"
+                }
+            ],
+            "skos:definition": {
+                "@language": "en",
+                "@value": "an enterprise or part of an enterprise situated in a geographically identified place, from or at which economic activity is carried out and for which one or more persons work\n\nOR\n\nan enterprise or part thereof situated in a geographically identified place, from or at which economic activity is carried out"
+            },
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:narrower": {
+                "@id": "webuild:establishment"
+            },
+            "skos:note": [
+                {
+                    "@language": "en",
+                    "@value": "Use as the general EU-wide concept for a geographically delimited operating unit of an enterprise (economic operator). This is the preferred broad concept in a Eurostat-oriented model."
+                },
+                {
+                    "@language": "en",
+                    "@value": "Alternatively:\nUse as the broad EU statistical concept for a geographically delimited operating unit of an enterprise. A local unit may contain more than one activity, may consist only of ancillary activities, and may in some cases be the registered office even if nobody works there."
+                }
+            ],
+            "skos:prefLabel": {
+                "@id": "urn:uuid:f1412668-6642-4b34-9a8f-dc7e358522a0"
+            },
+            "skos:related": {
+                "@id": "webuild:site"
+            },
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "term:orderedNarrower": {
+                "@list": [
+                    {
+                        "@id": "webuild:establishment"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "webuild:establishment",
+            "term:orderedSynonym": {
+                "@list": [
+                    {
+                        "@id": "urn:uuid:c4ecbb22-137e-47e3-a563-41e376461896"
+                    },
+                    {
+                        "@id": "urn:uuid:2c2e6807-7dc1-4f71-8c41-75f65180e8b2"
+                    },
+                    {
+                        "@id": "urn:uuid:2d417a04-4f47-48ba-87bd-5f8ec691cb2a"
+                    }
+                ]
+            },
+            "term:orderedRelated": {
+                "@list": [
+                    {
+                        "@id": "webuild:site"
+                    }
+                ]
+            },
+            "term:orderedNote": {
+                "@list": [
+                    {
+                        "@language": "en",
+                        "@value": "Use when the concept is not merely a local operating presence but a production-oriented local unit characterised by a principal activity. In Eurostat and related statistical contexts this corresponds to the local kind-of-activity unit."
+                    },
+                    {
+                        "@language": "en",
+                        "@value": "Alternatively:\nUse when the intended concept is the more specific production-oriented unit used for industry and national accounts purposes, rather than the broader local unit."
+                    }
+                ]
+            },
+            "term:orderedBroader": {
+                "@list": [
+                    {
+                        "@id": "webuild:localunit"
+                    }
+                ]
+            },
+            "@type": "skos:Concept",
+            "dcterms:created": {
+                "@value": "2026-04-13T09:00:06.166Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:modified": {
+                "@value": "2026-04-14T05:34:09.427Z",
+                "@type": "xsd:dateTime"
+            },
+            "skos:altLabel": [
+                {
+                    "@id": "urn:uuid:2d417a04-4f47-48ba-87bd-5f8ec691cb2a"
+                },
+                {
+                    "@id": "urn:uuid:c4ecbb22-137e-47e3-a563-41e376461896"
+                },
+                {
+                    "@id": "urn:uuid:2c2e6807-7dc1-4f71-8c41-75f65180e8b2"
+                }
+            ],
+            "skos:broader": {
+                "@id": "webuild:localunit"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "a local unit that constitutes a production unit mainly engaged in one kind of economic activity, corresponding to the local part of a kind-of-activity unit\n\nOR\n\na local unit viewed through both the activity dimension and the locality dimension; in the European statistical context this corresponds to the local kind-of-activity unit"
+            },
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:note": [
+                {
+                    "@language": "en",
+                    "@value": "Use when the concept is not merely a local operating presence but a production-oriented local unit characterised by a principal activity. In Eurostat and related statistical contexts this corresponds to the local kind-of-activity unit."
+                },
+                {
+                    "@language": "en",
+                    "@value": "Alternatively:\nUse when the intended concept is the more specific production-oriented unit used for industry and national accounts purposes, rather than the broader local unit."
+                }
+            ],
+            "skos:prefLabel": {
+                "@id": "urn:uuid:56d0149c-0df4-4f8d-97e2-2a6a14e0d089"
+            },
+            "skos:related": {
+                "@id": "webuild:site"
+            },
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            }
+        },
+        {
+            "@id": "webuild:site",
+            "term:orderedSynonym": {
+                "@list": [
+                    {
+                        "@id": "urn:uuid:7052e039-5382-49dd-a2c1-5447f8765b3c"
+                    },
+                    {
+                        "@id": "urn:uuid:9a70f8e9-d8ad-4730-a551-51ef1af4b318"
+                    },
+                    {
+                        "@id": "urn:uuid:45cbcb6a-1d8a-4bc3-a819-94e242819a38"
+                    }
+                ]
+            },
+            "term:orderedRelated": {
+                "@list": [
+                    {
+                        "@id": "webuild:establishment"
+                    },
+                    {
+                        "@id": "webuild:localunit"
+                    }
+                ]
+            },
+            "term:orderedNote": {
+                "@list": [
+                    {
+                        "@language": "en",
+                        "@value": "Use only for the location or premises layer. Do not use for the enterprise (economic operator) sub-unit itself when the intended meaning is a local operating or statistical unit."
+                    },
+                    {
+                        "@language": "en",
+                        "@value": "Alternatively:\nUse only for the physical-location layer. Do not use as the main concept for the statistical unit of an enterprise."
+                    }
+                ]
+            },
+            "@type": "skos:Concept",
+            "dcterms:created": {
+                "@value": "2026-04-13T09:03:04.359Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:modified": {
+                "@value": "2026-04-14T05:35:41.952Z",
+                "@type": "xsd:dateTime"
+            },
+            "skos:altLabel": [
+                {
+                    "@id": "urn:uuid:45cbcb6a-1d8a-4bc3-a819-94e242819a38"
+                },
+                {
+                    "@id": "urn:uuid:9a70f8e9-d8ad-4730-a551-51ef1af4b318"
+                },
+                {
+                    "@id": "urn:uuid:7052e039-5382-49dd-a2c1-5447f8765b3c"
+                }
+            ],
+            "skos:definition": {
+                "@language": "en",
+                "@value": "a place, premises or location at which an organisation is present or located\n\nOR\n\na physical place, premises or location whose boundaries help determine the spatial extent of a local unit"
+            },
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:note": [
+                {
+                    "@language": "en",
+                    "@value": "Use only for the location or premises layer. Do not use for the enterprise (economic operator) sub-unit itself when the intended meaning is a local operating or statistical unit."
+                },
+                {
+                    "@language": "en",
+                    "@value": "Alternatively:\nUse only for the physical-location layer. Do not use as the main concept for the statistical unit of an enterprise."
+                }
+            ],
+            "skos:prefLabel": {
+                "@id": "urn:uuid:31764b48-c0eb-43d0-9be0-0132a7f971f0"
+            },
+            "skos:related": [
+                {
+                    "@id": "webuild:localunit"
+                },
+                {
+                    "@id": "webuild:establishment"
+                }
+            ],
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            }
+        },
+        {
+            "@id": "webuild:legalform",
+            "term:orderedNote": {
+                "@list": [
+                    {
+                        "@language": "en",
+                        "@value": "Legal form is typically expressed using nationally defined classifications, such as company types or partnership forms, which may be represented as codes or controlled concepts in business registers."
+                    },
+                    {
+                        "@language": "en",
+                        "@value": "The reference in the definition to \"legal entity\" reflects the existing EU Core Business Vocabulary structure, but the label of the key actor type might change during WE BUILD LSP (discussions about introducing the more generic \"economic operator\" instead)."
+                    }
+                ]
+            },
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "skos:prefLabel": {
+                "@id": "urn:uuid:ec6a9ff0-b2c3-4411-aabd-c295d0c23de3"
+            },
+            "skos:note": [
+                {
+                    "@language": "en",
+                    "@value": "Legal form is typically expressed using nationally defined classifications, such as company types or partnership forms, which may be represented as codes or controlled concepts in business registers."
+                },
+                {
+                    "@language": "en",
+                    "@value": "The reference in the definition to \"legal entity\" reflects the existing EU Core Business Vocabulary structure, but the label of the key actor type might change during WE BUILD LSP (discussions about introducing the more generic \"economic operator\" instead)."
+                }
+            ],
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "the juridical classification of a [legal entity] according to the law under which it is constituted, determining its legal personality, governance structure, and liability regime"
+            },
+            "dcterms:modified": {
+                "@value": "2026-03-24T09:00:17.295Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:created": {
+                "@value": "2026-03-24T09:00:17.295Z",
+                "@type": "xsd:dateTime"
+            },
+            "@type": "skos:Concept"
+        },
+        {
+            "@id": "urn:uuid:ec6a9ff0-b2c3-4411-aabd-c295d0c23de3",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "legal form"
+            },
+            "@type": "skos-xl:Label"
         },
         {
             "@id": "urn:uuid:e1b64573-537b-440b-bdcd-78a3980d4e1d",
@@ -1968,62 +2923,6 @@
             "@type": "skos:Concept"
         },
         {
-            "@id": "webuild:legalidentifier",
-            "term:orderedSource": {
-                "@list": [
-                    "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.2.0/#LegalEntity.legalidentifier"
-                ]
-            },
-            "term:orderedNote": {
-                "@list": [
-                    {
-                        "@language": "en",
-                        "@value": "Legal Entity must have a unique identification number, allowing it to be clearly identified in communication across business registers. The Core vocabulary sets no restriction on the type of legal identifier. In many countries, the business register's identifier is the relevant data point.\n\nRemoved: \"The details of the registration are provided as properties of the Identifier class.\""
-                    }
-                ]
-            },
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
-            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
-            "skos:prefLabel": {
-                "@id": "urn:uuid:6338be59-797f-4b3c-a77c-c2e7ef473114"
-            },
-            "skos:note": {
-                "@language": "en",
-                "@value": "Legal Entity must have a unique identification number, allowing it to be clearly identified in communication across business registers. The Core vocabulary sets no restriction on the type of legal identifier. In many countries, the business register's identifier is the relevant data point.\n\nRemoved: \"The details of the registration are provided as properties of the Identifier class.\""
-            },
-            "skos:inScheme": {
-                "@id": "https://iri.suomi.fi/terminology/webuild/"
-            },
-            "skos:definition": {
-                "@language": "en",
-                "@value": "the unambiguous structured reference assigned to the legal entity by the legal authority that registered it"
-            },
-            "dcterms:source": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.2.0/#LegalEntity.legalidentifier",
-            "dcterms:modified": {
-                "@value": "2026-02-03T15:04:12.908Z",
-                "@type": "xsd:dateTime"
-            },
-            "dcterms:created": {
-                "@value": "2026-02-03T15:04:12.908Z",
-                "@type": "xsd:dateTime"
-            },
-            "@type": "skos:Concept"
-        },
-        {
-            "@id": "urn:uuid:6338be59-797f-4b3c-a77c-c2e7ef473114",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "en",
-                "@value": "legal identifier"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
             "@id": "urn:uuid:21bfc130-0b34-4049-a37a-10f8fabbfcd5",
             "suomi-meta:publicationStatus": {
                 "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
@@ -2120,33 +3019,11 @@
             "@type": "skos-xl:Label"
         },
         {
-            "@id": "urn:uuid:739a9ad1-495b-4a2b-8985-363c6d206610",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "en",
-                "@value": "birth date"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
-            "@id": "urn:uuid:2ac14967-fbd9-4154-92ff-e593e085afc6",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "en",
-                "@value": "date of birth"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
             "@id": "webuild:dateofbirth",
             "term:orderedSynonym": {
                 "@list": [
                     {
-                        "@id": "urn:uuid:739a9ad1-495b-4a2b-8985-363c6d206610"
+                        "@id": "urn:uuid:2dd17e11-c2fb-46bd-8346-7e9314b606f7"
                     }
                 ]
             },
@@ -2155,13 +3032,23 @@
                     "https://semiceu.github.io/Core-Person-Vocabulary/releases/2.1.1/#Person.dateofbirth"
                 ]
             },
+            "term:orderedRelated": {
+                "@list": [
+                    {
+                        "@id": "webuild:person"
+                    }
+                ]
+            },
             "suomi-meta:publicationStatus": {
                 "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
             },
             "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
             "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "skos:related": {
+                "@id": "webuild:person"
+            },
             "skos:prefLabel": {
-                "@id": "urn:uuid:2ac14967-fbd9-4154-92ff-e593e085afc6"
+                "@id": "urn:uuid:48c5da8c-5e36-467f-8f9f-2152e5eb00a4"
             },
             "skos:inScheme": {
                 "@id": "https://iri.suomi.fi/terminology/webuild/"
@@ -2171,11 +3058,11 @@
                 "@value": "the point in time on which the person was born"
             },
             "skos:altLabel": {
-                "@id": "urn:uuid:739a9ad1-495b-4a2b-8985-363c6d206610"
+                "@id": "urn:uuid:2dd17e11-c2fb-46bd-8346-7e9314b606f7"
             },
             "dcterms:source": "https://semiceu.github.io/Core-Person-Vocabulary/releases/2.1.1/#Person.dateofbirth",
             "dcterms:modified": {
-                "@value": "2026-02-09T08:51:42.411Z",
+                "@value": "2026-04-14T07:15:39.377Z",
                 "@type": "xsd:dateTime"
             },
             "dcterms:created": {
@@ -2541,7 +3428,7 @@
             "@type": "skos:Concept",
             "dcterms:created": "2021-12-13T14:42:43Z",
             "dcterms:modified": {
-                "@value": "2025-12-04T13:44:56.377Z",
+                "@value": "2026-04-14T05:49:04.049Z",
                 "@type": "xsd:dateTime"
             },
             "http://purl.org/termed/properties/id": "34a93245-36f6-4b98-a1cc-60fcf66fac99",
@@ -2561,13 +3448,13 @@
             },
             "skos:prefLabel": [
                 {
-                    "@id": "urn:uuid:683e386f-12d9-4013-b935-7d0365a9515b"
+                    "@id": "urn:uuid:8b376364-58c7-4435-ba1e-bafdcbc4d0fd"
                 },
                 {
-                    "@id": "urn:uuid:8d77b5c9-52d0-42ce-accb-41a3f5927499"
+                    "@id": "urn:uuid:4b4b9460-6371-40b3-b360-ed7f5bc67773"
                 },
                 {
-                    "@id": "urn:uuid:192272a8-3684-4a80-b131-589d1cfc8ee1"
+                    "@id": "urn:uuid:34fda745-a8e5-4a35-bb3a-ab297cc30a1f"
                 }
             ],
             "skos:related": [
@@ -2972,7 +3859,7 @@
             "@type": "skos:Concept",
             "dcterms:created": "2022-01-28T08:36:09Z",
             "dcterms:modified": {
-                "@value": "2026-01-23T14:53:28.584Z",
+                "@value": "2026-04-14T05:49:17.855Z",
                 "@type": "xsd:dateTime"
             },
             "http://purl.org/termed/properties/id": "ede07a51-68db-42a3-9713-ab618f5fbe66",
@@ -2992,7 +3879,7 @@
                 "@value": "EU Core Business Vocabulary definition for \"legal identifier\" = The unambiguous structured reference assigned to the Legal Entity by the legal authority that registered it."
             },
             "skos:prefLabel": {
-                "@id": "urn:uuid:1f37bba5-9a24-425a-96bf-16fbec4dd873"
+                "@id": "urn:uuid:ef3c5907-744c-4daa-a74d-0b881ee267d3"
             },
             "skos:related": [
                 {
@@ -3187,13 +4074,13 @@
             "term:orderedSynonym": {
                 "@list": [
                     {
-                        "@id": "urn:uuid:20bf563a-35b8-4435-920a-06e6d0136e24"
+                        "@id": "urn:uuid:602507ce-5a2f-42c5-ac2b-294a26b18096"
                     },
                     {
-                        "@id": "urn:uuid:49221e2a-9a25-4075-b180-cbeac87b8ad2"
+                        "@id": "urn:uuid:75da39c3-ad77-443b-b21e-634e2c61aa34"
                     },
                     {
-                        "@id": "urn:uuid:066ae5c3-2faa-4f97-8d92-9e97283e0dd3"
+                        "@id": "urn:uuid:ba8b6757-41f0-4bfb-a3db-947fca50b8ae"
                     }
                 ]
             },
@@ -3235,18 +4122,18 @@
                 "@type": "xsd:dateTime"
             },
             "dcterms:modified": {
-                "@value": "2026-01-23T15:08:29.857Z",
+                "@value": "2026-04-14T07:13:05.804Z",
                 "@type": "xsd:dateTime"
             },
             "skos:altLabel": [
                 {
-                    "@id": "urn:uuid:49221e2a-9a25-4075-b180-cbeac87b8ad2"
+                    "@id": "urn:uuid:602507ce-5a2f-42c5-ac2b-294a26b18096"
                 },
                 {
-                    "@id": "urn:uuid:066ae5c3-2faa-4f97-8d92-9e97283e0dd3"
+                    "@id": "urn:uuid:75da39c3-ad77-443b-b21e-634e2c61aa34"
                 },
                 {
-                    "@id": "urn:uuid:20bf563a-35b8-4435-920a-06e6d0136e24"
+                    "@id": "urn:uuid:ba8b6757-41f0-4bfb-a3db-947fca50b8ae"
                 }
             ],
             "skos:broader": {
@@ -3270,7 +4157,7 @@
                 }
             ],
             "skos:prefLabel": {
-                "@id": "urn:uuid:b7e1dd0b-5275-4de3-830c-94456e05fe3f"
+                "@id": "urn:uuid:366211ea-ba2d-4b7d-b633-d7a6097c9c2d"
             },
             "skos:related": [
                 {
@@ -4199,7 +5086,7 @@
             "@type": "skos:Concept",
             "dcterms:created": "2022-10-24T09:42:20Z",
             "dcterms:modified": {
-                "@value": "2025-12-04T13:44:38.05Z",
+                "@value": "2026-04-14T05:32:08.323Z",
                 "@type": "xsd:dateTime"
             },
             "http://purl.org/termed/properties/id": "be7d71a9-3a74-4f51-9e65-0c4635616c66",
@@ -4223,7 +5110,7 @@
                 "@value": "EU Core Business Vocabulary definition for \"Legal entity activity\" =  The area of work in which the Legal Entity is engaged."
             },
             "skos:prefLabel": {
-                "@id": "urn:uuid:c830be93-bcf7-4e53-a16a-b7b7f75573c3"
+                "@id": "urn:uuid:f2f78481-7cc2-4237-ace4-eb47cedace0a"
             },
             "skos:related": {
                 "@id": "webuild:concept-6006"
@@ -4285,7 +5172,7 @@
                 "@id": "webuild:concept-94"
             },
             "skos:prefLabel": {
-                "@id": "urn:uuid:74921b1d-b650-4c96-bdb5-11506f564948"
+                "@id": "urn:uuid:bc1436c2-d988-47a4-a14d-594086ea71c9"
             },
             "skos:note": {
                 "@language": "en",
@@ -4303,22 +5190,11 @@
             },
             "http://purl.org/termed/properties/id": "d0c8878f-1c7f-4573-a913-aa1a9d32c0e1",
             "dcterms:modified": {
-                "@value": "2025-12-11T15:31:10.054Z",
+                "@value": "2026-04-14T05:41:55.934Z",
                 "@type": "xsd:dateTime"
             },
             "dcterms:created": "2022-10-24T09:29:07Z",
             "@type": "skos:Concept"
-        },
-        {
-            "@id": "urn:uuid:74921b1d-b650-4c96-bdb5-11506f564948",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "en",
-                "@value": "economic activity"
-            },
-            "@type": "skos-xl:Label"
         },
         {
             "@id": "webuild:concept-26",
@@ -4653,50 +5529,6 @@
             "skos-xl:literalForm": {
                 "@language": "en",
                 "@value": "company status"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
-            "@id": "urn:uuid:20bf563a-35b8-4435-920a-06e6d0136e24",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "en",
-                "@value": "statutory name"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
-            "@id": "urn:uuid:066ae5c3-2faa-4f97-8d92-9e97283e0dd3",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "en",
-                "@value": "registered legal name"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
-            "@id": "urn:uuid:49221e2a-9a25-4075-b180-cbeac87b8ad2",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "en",
-                "@value": "corporate name"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
-            "@id": "urn:uuid:b7e1dd0b-5275-4de3-830c-94456e05fe3f",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "en",
-                "@value": "legal name"
             },
             "@type": "skos-xl:Label"
         },
@@ -5129,17 +5961,6 @@
             "skos-xl:literalForm": {
                 "@language": "en",
                 "@value": "scope"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
-            "@id": "urn:uuid:1f37bba5-9a24-425a-96bf-16fbec4dd873",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "en",
-                "@value": "legal identifier"
             },
             "@type": "skos-xl:Label"
         },
@@ -6635,17 +7456,6 @@
             }
         },
         {
-            "@id": "urn:uuid:c830be93-bcf7-4e53-a16a-b7b7f75573c3",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "en",
-                "@value": "activity"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
             "@id": "webuild:concept-91",
             "term:orderedRelated": {
                 "@list": [
@@ -6862,39 +7672,6 @@
             "skos-xl:literalForm": {
                 "@language": "en",
                 "@value": "Union entity"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
-            "@id": "urn:uuid:683e386f-12d9-4013-b935-7d0365a9515b",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "fi",
-                "@value": "tunnus"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
-            "@id": "urn:uuid:8d77b5c9-52d0-42ce-accb-41a3f5927499",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "nb-no",
-                "@value": "identifikator"
-            },
-            "@type": "skos-xl:Label"
-        },
-        {
-            "@id": "urn:uuid:192272a8-3684-4a80-b131-589d1cfc8ee1",
-            "suomi-meta:publicationStatus": {
-                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
-            },
-            "skos-xl:literalForm": {
-                "@language": "en",
-                "@value": "identifier"
             },
             "@type": "skos-xl:Label"
         },
@@ -8200,8 +8977,8 @@
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "skos-xl": "http://www.w3.org/2008/05/skos-xl#",
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "dcterms": "http://purl.org/dc/terms/",
         "term": "https://iri.suomi.fi/model/term/",
         "webuild": "https://iri.suomi.fi/terminology/webuild/",

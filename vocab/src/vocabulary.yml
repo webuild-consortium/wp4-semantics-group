@@ -77,7 +77,9 @@ class:
 
   - id: Company
     label: Company as defined in directive-EU-2025/25
-    upper_value: cred:CredentialSubject
+    upper_value:
+      - cred:CredentialSubject
+      - EconomicOperator
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/company
     example:
       - label: Credential with credential subject of type Company
@@ -95,7 +97,10 @@ class:
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "Company",
+              "@type": [
+                "EconomicOperator",
+                "Company"
+              ],
               "legalIdentifier": {
                 "@type" : "Euid",
                 "@value" : "NOFOR.987654321"
@@ -120,14 +125,28 @@ class:
                 {
                   "@type" : "ClearingNumber",
                   "@value" : "12345678"
+                },
+                {
+                  "@type": "VatId",
+                  "@value": "123456789MVA"
+                },
+                {
+                  "@type": "Tin",
+                  "@value": "NO-ORG-123456789"
+                },
+                {
+                  "@type": "Lei",
+                  "@value": "5493001KJTIIGC8Y1R12"
+                },
+                {
+                  "@type": "Eori",
+                  "@value": "NO123456789012"
+                },
+                {
+                  "@type": "Excise",
+                  "@value": "GBWK123456789000"
                 }
-              ],
-              "vat": "123456789MVA",
-              "tin": "NO-ORG-123456789",
-              "lei": "5493001KJTIIGC8Y1R12",
-              "eori": "NO123456789012",
-              "excise": "GBWK123456789000"
-
+              ]
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
@@ -144,9 +163,6 @@ class:
 
   - id: EconomicOperator
     label: Economic Operator
-    upper_value: 
-      - Company
-      - Person
     defined_by: https://w3id.org/ebwv/terminology#/concept/economicoperator
 
   - id: ElectronicAttestationOfAttributes
@@ -266,6 +282,7 @@ class:
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": [
+                "EconomicOperator",
                 "Company",
                 "LimitedLiabilityCompany"
               ],
@@ -386,9 +403,16 @@ class:
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": [
+                  "EconomicOperator",
                   "Company",
                   "Partnership"
               ],
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
+              "legalName": "acme",
+              "legalForm": "Partnership",
               "registeredAddress": {
                 "@type":"Address",
                 "fullAddress": "Via Appia 123, 00100 Rome, Italy",
@@ -442,7 +466,7 @@ class:
     label: Posted Worker Notification
     defined_by: https://w3id.org/ebwv/terminology#/concept/postedworker
     example:
-      - label: Credential with credential subject of type EuropeanBusinessWalletOwner
+      - label: Credential with credential subject of type PostedWorkerNotification
         json: |
           {
             "@context": [
@@ -466,11 +490,11 @@ class:
                 "givenName": "Joe",
                 "birthName": "Miller",
                 "dateOfBirth": "1956-12-02",
-                "citizenShip": "IT",
+                "citizenship": "IT",
                 "placeOfBirth": {
                   "@type" : "Address",
                   "postName": "Rome",
-                  "adminUtil1": "IT"
+                  "adminUnitL1": "IT"
                 },
                 "domicile": {
                   "@type":"Address",
@@ -498,12 +522,14 @@ class:
                 "applicableJurisdiction": "IT",
                 "description": "job duties", 
                 "duration": {
+                  "@type" : "PeriodOfTime",
                   "startDate": "2020-01-01",
                   "endDate": "2020-06-30"
                 }
               },
               "employer": {
-                legalIdentifier": {
+                "@type" : "EconomicOperator",
+                "legalIdentifier": {
                   "@type" : "Euid",
                   "@value" : "NOFOR.987654321"
                 },
@@ -515,6 +541,7 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
+
   - id: LeiRegistration
     label: LEI Registration
     comment: Registration Meta Data of LEI provided and maintained by LEI issuer
@@ -542,13 +569,6 @@ class:
     defined_by: https://w3id.org/ebwv/terminology#/concept/workassignment
 
 property:
-  - id: activity
-    label: main activity of company
-    domain: Company
-    range:
-      - Nace21
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
-
   - id: accountName
     label: account name
     domain: BankAccount
@@ -565,7 +585,6 @@ property:
     label: main activity of company
     domain:
       - Company
-      - EconomicOperator
     range:
       - Nace21
     defined_by: https://w3id.org/ebwv/terminology#/concept/activity
@@ -645,7 +664,9 @@ property:
 
   - id: contactPoint
     label: contact point
-    domain: Person
+    domain:
+      - Person
+      - EconomicOperator
     range: ContactPoint
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
 
@@ -724,23 +745,11 @@ property:
     range: EconomicOperator
     defined_by: https://w3id.org/ebwv/terminology#/concept/employer
 
-  - id: eori
-    label: economic operator registration and identification
-    domain: Company
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
-
   - id: endDate
     label: end date of period of time
     domain: PeriodOfTime
     range: xsd:date
     defined_by: https://w3id.org/ebwv/terminology#/concept/endDate
-
-  - id: excise
-    label: excise number
-    domain: Company
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/excise
 
   - id: familyName
     label: family name
@@ -815,13 +824,17 @@ property:
   - id: identifier
     label: identifier
     domain: 
-      - Company
-      - VAT Registration Unit
+      - EconomicOperator
+      - VATRegistrationUnit
     range:
       - Bic
       - ClearingNumber
+      - Eori
+      - Excise
       - Iban
-      - VAT ID
+      - Lei
+      - Tin
+      - VatId
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
 
   - id: jobTitle
@@ -860,7 +873,7 @@ property:
     domain:
       - EuropeanBusinessWalletOwner
       - LegalPerson
-      - Company
+      - EconomicOperator
     range:
       - PublicBodyId
       - Euid
@@ -871,7 +884,7 @@ property:
     domain:
       - EuropeanBusinessWalletOwner
       - LegalPerson
-      - Company
+      - EconomicOperator
       - LegalEntity
     range: xsd:string
     comment: the name under which the legal entity is registered
@@ -902,7 +915,6 @@ property:
   - id: lei
     label: legal entity identifier
     domain:
-      - Company
       - LegalEntityIdentifier
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
@@ -980,7 +992,7 @@ property:
     domain: BankAccount
     range:
       - LegalPerson
-      - Company
+      - EconomicOperator
       - NaturalPerson
       - Person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/owner
@@ -1071,7 +1083,7 @@ property:
     domain: BankAccount
     range:
       - LegalPerson
-      - Company
+      - EconomicOperator
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provider
 
   - id: registeredAddress
@@ -1157,12 +1169,6 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
 
-  - id: tin
-    label: tax reference number
-    domain: Company
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tin
-
   - id: type
     label: type
     domain: VATRegistrationUnit
@@ -1175,12 +1181,6 @@ property:
     range: TypeOfEmployment
     one_of: [Permanent, Temporary]
     defined_by: https://w3id.org/ebwv/terminology#/concept/typeofemployment
-
-  - id: vat
-    label: value added tax id
-    domain: Company
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vat
 
 individual:   # code lists
   - id: Alone
@@ -1228,7 +1228,7 @@ individual:   # code lists
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fas
 
- - id: FOB
+  - id: FOB
     label: Free On Board
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
@@ -1298,10 +1298,20 @@ datatype:
       - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/currency
       - http://publications.europa.eu/resource/authority/currency
 
+  - id: Eori
+    label: economic operator registration and identification
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
+
   - id: Euid
     label: EUID
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/euid
+
+  - id: Excise
+    label: excise number
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/excise
 
   - id: Iban
     label: IBAN
@@ -1310,6 +1320,11 @@ datatype:
     comment: IBAN as defined by ISO 13616:2020
     defined_by:
       - https://www.iso.org/standard/81090.html
+
+  - id: Lei
+    label: legal entity identifier
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
 
   - id: Nace21
     label: Nace Rev. 2.1
@@ -1329,3 +1344,12 @@ datatype:
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId
 
+  - id: Tin
+    label: tax reference number
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tin
+
+  - id: VatId
+    label: unique vat identifier
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vatid

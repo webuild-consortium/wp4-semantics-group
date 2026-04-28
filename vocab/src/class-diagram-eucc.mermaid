@@ -3,27 +3,17 @@ classDiagram
 %% =========================
 %% Core EBW Classes
 %% =========================
-    class CredentialSubject {
-        <<EBW>>
-    }
-
     class Company {
         <<EBW>>
         +legalName: string
         +legalForm: string
         +legalIdentifier: Euid
         +activity: Nace21
-        +identifier: List<string>
+        +identifier: List
         +registeredAddress: Address
         +correspondenceAddress: Address
         +dateOfRegistration: date
         +legalStatus: string
-        +lei: string
-        +vat: string
-        +tin: string
-        +lei: string
-        +eori: string
-        +excise: string
     }
 
     class NaturalPerson {
@@ -42,7 +32,7 @@ classDiagram
 
     class LimitedLiabilityCompany {
         <<EBW>>
-        +legalRepresentative: NaturalPerson
+        +legalRepresentative: LegalRepresentative
         +subscribedCapital: Capital
     }
 
@@ -80,6 +70,9 @@ classDiagram
 %% =========================
 %% External / Referenced Types
 %% =========================
+    class CredentialSubject {
+        <<external>>
+    }
 
 %% =========================
 %% Inheritance
@@ -93,6 +86,12 @@ classDiagram
 %% =========================
 %% Properties (Object relations)
 %% =========================
+    Company --> Lei : identifier
+    Company --> VatId : identifier
+    Company --> Tin : identifier
+    Company --> Eori : identifier
+    Company --> Excise : identifier
+
     LegalRepresentative --> NaturalPerson: legalRepresentativeId
     LegalRepresentative --> LegalPerson: legalRepresentativeId
     LimitedLiabilityCompany --> LegalRepresentative: legalRepresentative
