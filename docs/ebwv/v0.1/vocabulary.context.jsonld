@@ -169,6 +169,10 @@
                 "socialRepresentative": {
                     "@id": "https://w3id.org/ebwv#socialRepresentative",
                     "@type": "@id"
+                },
+                "temporaryWorkAgency": {
+                    "@id": "https://w3id.org/ebwv#temporaryWorkAgency",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
                 }
             }
         },
@@ -518,6 +522,10 @@
             "@id": "https://w3id.org/ebwv#PostedWorkerNotification",
             "@context": {
                 "@protected": true,
+                "a1": {
+                    "@id": "https://w3id.org/ebwv#a1",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyUri"
+                },
                 "assignment": {
                     "@id": "https://w3id.org/ebwv#assignment",
                     "@type": "@id"
@@ -629,6 +637,10 @@
                 "placeOfWork": {
                     "@id": "https://w3id.org/ebwv#placeOfWork",
                     "@type": "@id"
+                },
+                "stateOfInsurance": {
+                    "@id": "https://w3id.org/ebwv#stateOfInsurance",
+                    "@type": "https://w3id.org/ebwv#CountryCode"
                 }
             }
         },

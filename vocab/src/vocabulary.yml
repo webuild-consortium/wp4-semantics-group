@@ -163,7 +163,7 @@ class:
 
   - id: EconomicOperator
     label: Economic Operator
-    defined_by: https://w3id.org/ebwv/terminology#/concept/economicoperator
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/economicoperator
 
   - id: ElectronicAttestationOfAttributes
     label: Electronic Attestation Of Attributes
@@ -464,7 +464,7 @@ class:
 
   - id: PostedWorkerNotification
     label: Posted Worker Notification
-    defined_by: https://w3id.org/ebwv/terminology#/concept/postedworker
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker
     example:
       - label: Credential with credential subject of type PostedWorkerNotification
         json: |
@@ -568,16 +568,16 @@ class:
 
   - id: TypeOfEmployment
     label: Type Of Employment
-    defined_by: https://w3id.org/ebwv/terminology#/concept/typeofemployment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
 
   - id: VATRegistrationUnit
     label: VAT Registration Unit
-    defined_by: https://w3id.org/ebwv/terminology#/concept/vatregistrationunit
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vatregistrationunit
 
   - id: WorkAssignment
     label: Work Assignment
     upper_value: schema:Thing
-    defined_by: https://w3id.org/ebwv/terminology#/concept/workassignment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/workassignment
 
 property:
   - id: a1
@@ -604,7 +604,7 @@ property:
       - Company
     range:
       - Nace21
-    defined_by: https://w3id.org/ebwv/terminology#/concept/activity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
 
   - id: addressArea
     label: address area
@@ -616,7 +616,7 @@ property:
     label: administrative representative
     domain: EconomicOperator
     range: Person
-    defined_by: https://w3id.org/ebwv/terminology#/concept/administrativerepresentative
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/administrativerepresentative
 
   - id: adminUnitL2
     label: administrative unit level 2
@@ -646,13 +646,13 @@ property:
     label: applicable jurisdiction
     domain: WorkAssignment
     range: CountryCode
-    defined_by: https://w3id.org/ebwv/terminology#/concept/applicablejurisdiction
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/applicablejurisdiction
 
   - id: assignment
     label: assignment
     domain: PostedWorkerNotification
     range: WorkAssignment
-    defined_by: https://w3id.org/ebwv/terminology#/concept/assignment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/assignment
 
   - id: attestationLegalCategory
     label: attestation legal category
@@ -677,7 +677,7 @@ property:
     label: construction sector
     domain: EconomicOperator
     range: xsd:boolean
-    defined_by: https://w3id.org/ebwv/terminology#/concept/constructionsector
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/constructionsector
 
   - id: contactPoint
     label: contact point
@@ -754,19 +754,19 @@ property:
     label: duration
     domain: WorkAssignment
     range: PeriodOfTime
-    defined_by: https://w3id.org/ebwv/terminology#/concept/duration
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/duration
 
   - id: employer
     label: employer
     domain: PostedWorkerNotification
     range: EconomicOperator
-    defined_by: https://w3id.org/ebwv/terminology#/concept/employer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/employer
 
   - id: endDate
     label: end date of period of time
     domain: PeriodOfTime
     range: xsd:date
-    defined_by: https://w3id.org/ebwv/terminology#/concept/endDate
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/endDate
 
   - id: familyName
     label: family name
@@ -798,13 +798,13 @@ property:
     label: geographic identifier
     domain: Location
     range: xsd:anyURI
-    defined_by: https://w3id.org/ebwv/terminology#/concept/geographicidentifier
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/geographicidentifier
 
   - id: geographicName
     label: geographic name
     domain: Location
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/geographicname
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/geographicname
 
   - id: givenName
     label: given name
@@ -830,7 +830,7 @@ property:
     label: host entity
     domain: PostedWorkerNotification     
     range: EconomicOperator
-    defined_by: https://w3id.org/ebwv/terminology#/concept/hostentity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity
 
   - id: iban
     label: IBAN
@@ -859,7 +859,7 @@ property:
     label: job title
     domain: Person
     range: xsd:string
-    defined_by: https://w3id.org/ebwv/terminology#/concept/jobtitle
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jobtitle
   - id: jurisdiction
     label: jurisdiction
     domain:
@@ -881,8 +881,7 @@ property:
       - LegalPerson
       - Company
       - LegalEntity
-    range:
-      - xsd:string
+    range: xsd:string
     comment: e.g. ISO Entity Legal Form (ELF)
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalform
 
@@ -895,6 +894,7 @@ property:
     range:
       - PublicBodyId
       - Euid
+    range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier
 
   - id: legalName
@@ -910,10 +910,8 @@ property:
 
   - id: legalRepresentative
     label: legal representative
-    domain:
-      - LimitedLiabilityCompany
-    range:
-      - LegalRepresentative
+    domain: LimitedLiabilityCompany
+    range: LegalRepresentative
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
 
   - id: legalRepresentativeId
@@ -979,6 +977,7 @@ property:
     range:
       - xsd:string
       - xsd:integer
+    range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator
 
   - id: locatorName
@@ -1013,6 +1012,7 @@ property:
       - EconomicOperator
       - NaturalPerson
       - Person
+    range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/owner
 
   - id: partner
@@ -1022,6 +1022,7 @@ property:
       - GeneralPartner
       - LimitedPartner
       - StatutoryPartner
+    range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
 
   - id: partnerId
@@ -1064,7 +1065,8 @@ property:
       - CountryCode
       - EconomicOperator
       - Vessel
-    defined_by: https://w3id.org/ebwv/terminology#/concept/placeofwork
+    range_union: true
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork
 
   - id: poBox
     label: post office box
@@ -1088,7 +1090,7 @@ property:
     label: posted worker
     domain: PostedWorkerNotification
     range: Person
-    defined_by: https://w3id.org/ebwv/terminology#/concept/postedworker
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker
 
   - id: postName
     label: post name
@@ -1102,6 +1104,7 @@ property:
     range:
       - LegalPerson
       - EconomicOperator
+    range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provider
 
   - id: registeredAddress
@@ -1109,8 +1112,7 @@ property:
     domain:
       - Company
       - LegalEntity
-    range:
-      - Address
+    range: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
 
   - id: residency
@@ -1140,20 +1142,20 @@ property:
     label: social representative
     domain: EconomicOperator
     range: Person
-    defined_by: https://w3id.org/ebwv/terminology#/concept/socialrepresentative
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialrepresentative
 
   - id: startDate
     label: start date of period of time
     domain: PeriodOfTime
     range: xsd:date
-    defined_by: https://w3id.org/ebwv/terminology#/concept/startDate
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/startDate
 
   - id: stateOfInsurance
     label: state of insurance
     comment: In PWN, the "Home Member State" information regarding the Work Assignment
     domain: WorkAssignment
     range: CountryCode
-    defined_by: https://w3id.org/ebwv/terminology#/concept/stateofinsurance
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/stateofinsurance
 
   - id: subscribedCapital
     label: subscribed capital
@@ -1166,13 +1168,13 @@ property:
     label: temporary address
     domain: Person
     range: Address
-    defined_by: https://w3id.org/ebwv/terminology#/concept/temporaryaddress
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporaryaddress
 
   - id: temporaryWorkAgency
     label: temporary work agency
     domain: EconomicOperator
     range: xsd:boolean
-    defined_by: https://w3id.org/ebwv/terminology#/concept/temporaryworkagency
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporaryworkagency
     
   - id: terms
     label: terms 
@@ -1198,7 +1200,7 @@ property:
     domain: PostedWorkerNotification
     range: TypeOfEmployment
     one_of: [Permanent, Temporary]
-    defined_by: https://w3id.org/ebwv/terminology#/concept/typeofemployment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
 
 individual:   # code lists
   - id: Alone
@@ -1265,7 +1267,7 @@ individual:   # code lists
   - id: Permanent
     label: type of employment Permanent
     type: TypeOfEmployment
-    defined_by: https://w3id.org/ebwv/terminology#/concept/permanent
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/permanent
 
   - id: Pub-EAA
     label: public electronic attestation of attributes
@@ -1280,7 +1282,7 @@ individual:   # code lists
   - id: Temporary
     label: type of employment Temporary
     type: TypeOfEmployment
-    defined_by: https://w3id.org/ebwv/terminology#/concept/temporary
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary
 
 datatype:
   - id: AccountType
