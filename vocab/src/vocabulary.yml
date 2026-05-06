@@ -457,6 +457,44 @@ class:
   - id: PaymentTerms
     label: terms of payment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentterms
+    example:
+      - label: Credential with credential subject of type PaymentTerms
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:08f36c51-27f9-4aa2-a09e-b02fa5b778c2",
+              "@type": "PaymentTerms",
+              "paymentDue": "P30D",
+              "deliveryLocation": {
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                },
+              "supplier": "did:key:$publicKeyOfSupplier",
+              "buyer": "did:key:$publicKeyOfBuyer",
+              "terms": "DAP",
+              "currency": "EUR"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
 
   - id: Person
     label: Person
@@ -667,6 +705,12 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname
 
+  - id: buyer
+    label: buyer
+    domain: PaymentTerms
+    range: xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/buyer
+
   - id: citizenship
     label: citizenship
     domain: Person
@@ -738,17 +782,25 @@ property:
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
 
+  - id: deliveryLocation
+    label: delivery location
+    domain: PaymentTerms
+    range:
+      - Location
+      - Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverylocation
+
   - id: domicile
     label: domicile
     domain: Person
     range: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile
 
-  - id: dueDate
-    label: due date of item
+  - id: paymentDue
+    label: due period of payment
     domain: PaymentTerms
-    range: xsd:date
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dueDate
+    range: xsd:duration
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue
 
   - id: duration
     label: duration
@@ -1163,6 +1215,12 @@ property:
       - LimitedLiabilityCompany
     range: Capital
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital
+
+  - id: supplier
+    label: supplier
+    domain: PaymentTerms
+    range: xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/supplier
 
   - id: temporaryAddress
     label: temporary address

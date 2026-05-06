@@ -5,9 +5,12 @@ classDiagram
 %% =========================
     class PaymentTerms {
         <<EBW>>
-        +dueDate: date
+        +paymentDue: duration
         +terms: IncoTerms
         +currency: Currency
+        +supplier: anyURI
+        +buyer: anyURI
+        +deliveryLocation: Location
     }
 
 %% =========================
