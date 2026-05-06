@@ -134,7 +134,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-04-30</time>
+                <time property="dc:date" id="time">2026-05-06</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -304,6 +304,7 @@
                         <li><a href="#assignment"><code>assignment<code></code></code></a></li>
                         <li><a href="#attestationLegalCategory"><code>attestationLegalCategory<code></code></code></a></li>
                         <li><a href="#birthName"><code>birthName<code></code></code></a></li>
+                        <li><a href="#buyer"><code>buyer<code></code></code></a></li>
                         <li><a href="#citizenship"><code>citizenship<code></code></code></a></li>
                         <li><a href="#constructionSector"><code>constructionSector<code></code></code></a></li>
                         <li><a href="#contactPoint"><code>contactPoint<code></code></code></a></li>
@@ -314,8 +315,8 @@
                         <li><a href="#dateOfBirth"><code>dateOfBirth<code></code></code></a></li>
                         <li><a href="#dateOfDeath"><code>dateOfDeath<code></code></code></a></li>
                         <li><a href="#dateOfRegistration"><code>dateOfRegistration<code></code></code></a></li>
+                        <li><a href="#deliveryLocation"><code>deliveryLocation<code></code></code></a></li>
                         <li><a href="#domicile"><code>domicile<code></code></code></a></li>
-                        <li><a href="#dueDate"><code>dueDate<code></code></code></a></li>
                         <li><a href="#duration"><code>duration<code></code></code></a></li>
                         <li><a href="#employer"><code>employer<code></code></code></a></li>
                         <li><a href="#endDate"><code>endDate<code></code></code></a></li>
@@ -356,6 +357,7 @@
                         <li><a href="#partner"><code>partner<code></code></code></a></li>
                         <li><a href="#partnerId"><code>partnerId<code></code></code></a></li>
                         <li><a href="#patronymicName"><code>patronymicName<code></code></code></a></li>
+                        <li><a href="#paymentDue"><code>paymentDue<code></code></code></a></li>
                         <li><a href="#personalAdministrativeNumber"><code>personalAdministrativeNumber<code></code></code></a></li>
                         <li><a href="#placeOfBirth"><code>placeOfBirth<code></code></code></a></li>
                         <li><a href="#placeOfDeath"><code>placeOfDeath<code></code></code></a></li>
@@ -374,6 +376,7 @@
                         <li><a href="#startDate"><code>startDate<code></code></code></a></li>
                         <li><a href="#stateOfInsurance"><code>stateOfInsurance<code></code></code></a></li>
                         <li><a href="#subscribedCapital"><code>subscribedCapital<code></code></code></a></li>
+                        <li><a href="#supplier"><code>supplier<code></code></code></a></li>
                         <li><a href="#temporaryAddress"><code>temporaryAddress<code></code></code></a></li>
                         <li><a href="#temporaryWorkAgency"><code>temporaryWorkAgency<code></code></code></a></li>
                         <li><a href="#terms"><code>terms<code></code></code></a></li>
@@ -606,6 +609,21 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="buyer">
+                <h4><code>buyer</code></h4>
+                <p><em>buyer</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/buyer">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#PaymentTerms"><code>PaymentTerms</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:anyURI</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="citizenship">
                 <h4><code>citizenship</code></h4>
                 <p><em>citizenship</em></p>
@@ -756,6 +774,21 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="deliveryLocation">
+                <h4><code>deliveryLocation</code></h4>
+                <p><em>delivery location</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverylocation">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#PaymentTerms"><code>PaymentTerms</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Location"><code>Location</code></a> ⊓&nbsp;<a href="#Address"><code>Address</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="domicile">
                 <h4><code>domicile</code></h4>
                 <p><em>domicile</em></p>
@@ -771,15 +804,15 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="dueDate">
-                <h4><code>dueDate</code></h4>
-                <p><em>due date of item</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/dueDate">formal definition of the term</a>.</p>
+            <section id="paymentDue">
+                <h4><code>paymentDue</code></h4>
+                <p><em>due period of payment</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#PaymentTerms"><code>PaymentTerms</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><code>xsd:date</code></dd>
+                    <dd><code>xsd:duration</code></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1663,6 +1696,21 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="supplier">
+                <h4><code>supplier</code></h4>
+                <p><em>supplier</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/supplier">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#PaymentTerms"><code>PaymentTerms</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:anyURI</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="temporaryAddress">
                 <h4><code>temporaryAddress</code></h4>
                 <p><em>temporary address</em></p>
@@ -1773,6 +1821,8 @@
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#domicile"><code>domicile</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a>, <a href="#temporaryAddress"><code>temporaryAddress</code></a></dd>
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#deliveryLocation"><code>deliveryLocation</code></a></dd>
                     <dt>Domain of:</dt>
                     <dd><a href="#addressArea"><code>addressArea</code></a>, <a href="#adminUnitL2"><code>adminUnitL2</code></a>, <a href="#adminUnitL1"><code>adminUnitL1</code></a>, <a href="#fullAddress"><code>fullAddress</code></a>, <a href="#locatorDesignator"><code>locatorDesignator</code></a>, <a href="#locatorName"><code>locatorName</code></a>, <a href="#poBox"><code>poBox</code></a>, <a href="#postCode"><code>postCode</code></a>, <a href="#postName"><code>postName</code></a>, <a href="#thoroughfare"><code>thoroughfare</code></a></dd>
                 </dl>
@@ -2293,6 +2343,8 @@
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#countryOfBirth"><code>countryOfBirth</code></a>, <a href="#countryOfDeath"><code>countryOfDeath</code></a>, <a href="#placeOfBirth"><code>placeOfBirth</code></a>, <a href="#placeOfDeath"><code>placeOfDeath</code></a></dd>
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#deliveryLocation"><code>deliveryLocation</code></a></dd>
                     <dt>Domain of:</dt>
                     <dd><a href="#geographicIdentifier"><code>geographicIdentifier</code></a>, <a href="#geographicName"><code>geographicName</code></a></dd>
                 </dl>
@@ -2442,7 +2494,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentterms">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain of:</dt>
-                    <dd><a href="#dueDate"><code>dueDate</code></a>, <a href="#terms"><code>terms</code></a></dd>
+                    <dd><a href="#buyer"><code>buyer</code></a>, <a href="#deliveryLocation"><code>deliveryLocation</code></a>, <a href="#paymentDue"><code>paymentDue</code></a>, <a href="#supplier"><code>supplier</code></a>, <a href="#terms"><code>terms</code></a></dd>
                     <dt>In the domain of:</dt>
                     <dd><a href="#currency"><code>currency</code></a></dd>
                 </dl>
@@ -2450,6 +2502,41 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
+                <pre class="example prettyprint language-json" title="Credential with credential subject of type PaymentTerms">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/ebwv/v0.1"
+  ],
+  "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
+  "@type": [
+    "VerifiableCredential",
+    "ElectronicAttestationOfAttributes"
+  ],
+  "attestationLegalCategory": "QEAA",
+  "credentialSubject": {
+    "@id": "urn:uuid:08f36c51-27f9-4aa2-a09e-b02fa5b778c2",
+    "@type": "PaymentTerms",
+    "paymentDue": "P30D",
+    "deliveryLocation": {
+        "@type":"Address",
+        "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+        "thoroughfare": "Via Appia",
+        "locatorDesignator": "123",
+        "postName": "Rome",
+        "adminUnitL2": "Lazio",
+        "postCode": "00100",
+        "adminUnitL1": "IT"
+      },
+    "supplier": "did:key:$publicKeyOfSupplier",
+    "buyer": "did:key:$publicKeyOfBuyer",
+    "terms": "DAP",
+    "currency": "EUR"
+  },
+  "validUntil": "2029-12-03T12:19:52Z",
+  "validFrom": "2019-12-03T12:19:52Z",
+  "issuer": "did:key:$publicKeyOfIssuer$"
+}
+</pre>
             </section>
             <section id="Person">
                 <h4><code>Person</code></h4>

@@ -77,7 +77,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-04-30",
+    "dc:date": "2026-05-06",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -250,6 +250,18 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:buyer",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:PaymentTerms",
+        "rdfs:range": "xsd:anyURI",
+        "rdfs:label": "buyer",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/buyer",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:citizenship",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Person",
@@ -385,6 +397,18 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:deliveryLocation",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:PaymentTerms",
+        "rdfs:range": ["ebwv:Location", "ebwv:Address"],
+        "rdfs:label": "delivery location",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverylocation",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:domicile",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:Person",
@@ -397,12 +421,12 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:dueDate",
+        "@id": "ebwv:paymentDue",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:PaymentTerms",
-        "rdfs:range": "xsd:date",
-        "rdfs:label": "due date of item",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dueDate",
+        "rdfs:range": "xsd:duration",
+        "rdfs:label": "due period of payment",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1171,6 +1195,18 @@
         "rdfs:range": "ebwv:Capital",
         "rdfs:label": "subscribed capital",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:supplier",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:PaymentTerms",
+        "rdfs:range": "xsd:anyURI",
+        "rdfs:label": "supplier",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/supplier",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",

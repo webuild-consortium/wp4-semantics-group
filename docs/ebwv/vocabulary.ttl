@@ -13,7 +13,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-04-30"^^xsd:date ;
+    dc:date "2026-05-06"^^xsd:date ;
 .
 
 # Property definitions
@@ -129,6 +129,14 @@ ebwv:birthName a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
+ebwv:buyer a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:PaymentTerms ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "buyer" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/buyer>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:citizenship a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:CountryCode ;
@@ -209,6 +217,14 @@ ebwv:dateOfRegistration a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
+ebwv:deliveryLocation a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:PaymentTerms ;
+    rdfs:range ebwv:Location, ebwv:Address ;
+    rdfs:label "delivery location" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverylocation>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:domicile a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range ebwv:Address ;
@@ -217,11 +233,11 @@ ebwv:domicile a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:dueDate a rdf:Property, owl:DatatypeProperty ;
+ebwv:paymentDue a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:PaymentTerms ;
-    rdfs:range xsd:date ;
-    rdfs:label "due date of item" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/dueDate>, <https://w3id.org/ebwv#> ;
+    rdfs:range xsd:duration ;
+    rdfs:label "due period of payment" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -689,6 +705,14 @@ ebwv:subscribedCapital a rdf:Property, owl:ObjectProperty ;
     rdfs:range ebwv:Capital ;
     rdfs:label "subscribed capital" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:supplier a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:PaymentTerms ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "supplier" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/supplier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

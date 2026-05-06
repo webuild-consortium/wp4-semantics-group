@@ -386,13 +386,25 @@
             "@id": "https://w3id.org/ebwv#PaymentTerms",
             "@context": {
                 "@protected": true,
+                "buyer": {
+                    "@id": "https://w3id.org/ebwv#buyer",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
                 "currency": {
                     "@id": "https://w3id.org/ebwv#currency",
                     "@type": "https://w3id.org/ebwv#Currency"
                 },
-                "dueDate": {
-                    "@id": "https://w3id.org/ebwv#dueDate",
-                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                "deliveryLocation": {
+                    "@id": "https://w3id.org/ebwv#deliveryLocation",
+                    "@type": "@id"
+                },
+                "paymentDue": {
+                    "@id": "https://w3id.org/ebwv#paymentDue",
+                    "@type": "http://www.w3.org/2001/XMLSchema#duration"
+                },
+                "supplier": {
+                    "@id": "https://w3id.org/ebwv#supplier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
                 },
                 "terms": {
                     "@id": "https://w3id.org/ebwv#terms",
