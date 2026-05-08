@@ -77,7 +77,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-05-06",
+    "dc:date": "2026-05-08",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -615,7 +615,7 @@
         },
         "rdfs:range": {
             "@type": "ows:Class",
-            "owl:unionOf": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Eori", "ebwv:Excise", "ebwv:Iban", "ebwv:Lei", "ebwv:Tin", "ebwv:VatId"]
+            "owl:unionOf": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Eori", "ebwv:Excise", "ebwv:Iban", "ebwv:Lei", "ebwv:Tin", "ebwv:VatId", "ebwv:PeppolId"]
         },
         "rdfs:label": "identifier",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier",
@@ -1961,6 +1961,27 @@
             "@value": "<div>Country-specific code for e.g. internal routing within a specific country’s clearing system (e.g. BLZ, Sort Code)</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:PeppolId",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "owl:onDatatype": "xsd:string",
+        "owl:withRestrictions": {
+            "@list": [{
+                "xsd:pattern": "[0-9]{4}(:.*)"
+            }]
+        },
+        "rdfs:label": "Peppol ID",
+        "rdfs:comment": {
+            "@value": "<div>A Peppol ID is a unique identifier used to securely exchange electronic documents (like invoices) within the Peppol network, acting similarly to a digital address. It consists of a four-digit scheme ID (identifying the type of number) and a specific participant ID, separated by a colon (e.g., 9930:DE123456789)</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://docs.peppol.eu/edelivery/",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",

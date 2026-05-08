@@ -669,6 +669,7 @@
         "Lei": "https://w3id.org/ebwv#Lei",
         "Nace21": "https://w3id.org/ebwv#Nace21",
         "NationalBankCode": "https://w3id.org/ebwv#NationalBankCode",
+        "PeppolId": "https://w3id.org/ebwv#PeppolId",
         "PublicBodyId": "https://w3id.org/ebwv#PublicBodyId",
         "Tin": "https://w3id.org/ebwv#Tin",
         "VatId": "https://w3id.org/ebwv#VatId"

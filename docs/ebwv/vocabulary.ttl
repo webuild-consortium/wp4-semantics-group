@@ -13,7 +13,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-05-06"^^xsd:date ;
+    dc:date "2026-05-08"^^xsd:date ;
 .
 
 # Property definitions
@@ -355,7 +355,7 @@ ebwv:iban a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:identifier a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EconomicOperator ebwv:VATRegistrationUnit) ] ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:Bic ebwv:ClearingNumber ebwv:Eori ebwv:Excise ebwv:Iban ebwv:Lei ebwv:Tin ebwv:VatId) ] ;
+    rdfs:range [ a owl:Class; owl:unionOf (ebwv:Bic ebwv:ClearingNumber ebwv:Eori ebwv:Excise ebwv:Iban ebwv:Lei ebwv:Tin ebwv:VatId ebwv:PeppolId) ] ;
     rdfs:label "identifier" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -1160,6 +1160,16 @@ ebwv:NationalBankCode a rdfs:Datatype ;
     rdfs:label "National Bank Code" ;
     rdfs:comment """<div>Country-specific code for e.g. internal routing within a specific country’s clearing system (e.g. BLZ, Sort Code)</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:PeppolId a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([xsd:pattern "[0-9]{4}(:.*)"]) ;
+    rdfs:label "Peppol ID" ;
+    rdfs:comment """<div>A Peppol ID is a unique identifier used to securely exchange electronic documents (like invoices) within the Peppol network, acting similarly to a digital address. It consists of a four-digit scheme ID (identifying the type of number) and a specific participant ID, separated by a colon (e.g., 9930:DE123456789)</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://docs.peppol.eu/edelivery/>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

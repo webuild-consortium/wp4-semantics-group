@@ -145,6 +145,10 @@ class:
                 {
                   "@type": "Excise",
                   "@value": "GBWK123456789000"
+                },
+                {
+                  "@type": "PeppolId",
+                  "@value": "0199:5493001KJTIIGC8Y1R12"
                 }
               ]
             },
@@ -904,6 +908,7 @@ property:
       - Lei
       - Tin
       - VatId
+      - PeppolId
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
 
@@ -1416,6 +1421,13 @@ datatype:
     label: National Bank Code
     upper_value: xsd:string
     comment: Country-specific code for e.g. internal routing within a specific country’s clearing system (e.g. BLZ, Sort Code)
+
+  - id: PeppolId
+    label: Peppol ID
+    upper_value: xsd:string
+    pattern: '[0-9]{4}(:.*)'
+    comment: A Peppol ID is a unique identifier used to securely exchange electronic documents (like invoices) within the Peppol network, acting similarly to a digital address. It consists of a four-digit scheme ID (identifying the type of number) and a specific participant ID, separated by a colon (e.g., 9930:DE123456789)
+    defined_by: https://docs.peppol.eu/edelivery/
 
   - id: PublicBodyId
     label: unique identifier of public body
