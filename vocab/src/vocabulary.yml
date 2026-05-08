@@ -1427,7 +1427,9 @@ datatype:
     upper_value: xsd:string
     pattern: '[0-9]{4}(:.*)'
     comment: A Peppol ID is a unique identifier used to securely exchange electronic documents (like invoices) within the Peppol network, acting similarly to a digital address. It consists of a four-digit scheme ID (identifying the type of number) and a specific participant ID, separated by a colon (e.g., 9930:DE123456789)
-    defined_by: https://docs.peppol.eu/edelivery/
+    defined_by:
+    - https://docs.peppol.eu/edelivery/
+    - https://docs.peppol.eu/poacc/billing/3.0/codelist/ICD/
 
   - id: PublicBodyId
     label: unique identifier of public body

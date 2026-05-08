@@ -1981,7 +1981,7 @@
             "@value": "<div>A Peppol ID is a unique identifier used to securely exchange electronic documents (like invoices) within the Peppol network, acting similarly to a digital address. It consists of a four-digit scheme ID (identifying the type of number) and a specific participant ID, separated by a colon (e.g., 9930:DE123456789)</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
-        "rdfs:isDefinedBy": "https://docs.peppol.eu/edelivery/",
+        "rdfs:isDefinedBy": ["https://docs.peppol.eu/edelivery/", "https://docs.peppol.eu/poacc/billing/3.0/codelist/ICD/"],
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
