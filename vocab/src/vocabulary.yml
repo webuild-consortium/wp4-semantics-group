@@ -27,6 +27,10 @@ ontology:
     value: https://webuild-consortium.github.io/wp4-semantics-group/ebwv
 
 class:
+  - id: A1
+    label: A1
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/a1
+
   - id: Address
     label: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
@@ -616,6 +620,10 @@ class:
     label: VAT Registration Unit
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vatregistrationunit
 
+  - id: Vessel
+    label: Vessel
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vessel
+
   - id: WorkAssignment
     label: Work Assignment
     upper_value: schema:Thing
@@ -714,6 +722,12 @@ property:
     domain: PaymentTerms
     range: xsd:anyURI
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/buyer
+
+  - id: certificateSubject
+    label: certificate subject
+    domain: A1
+    range: Person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject
 
   - id: citizenship
     label: citizenship
@@ -814,7 +828,9 @@ property:
 
   - id: employer
     label: employer
-    domain: PostedWorkerNotification
+    domain: 
+      - A1  
+      - PostedWorkerNotification
     range: EconomicOperator
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/employer
 
@@ -832,6 +848,12 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
 
+  - id: flagState
+    label: flag state
+    domain: Vessel
+    range: CountryCode
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/flagstate
+
   - id: fullAddress
     label: full address
     domain: Address
@@ -843,6 +865,12 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname
+
+  - id: fullPeriodCovered
+    label: full period covered
+    domain: A1
+    range: xsd:boolean
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullperiodcovered
 
   - id: gender
     label: gender
@@ -1057,7 +1085,9 @@ property:
 
   - id: name
     label: name
-    domain: VATRegistrationUnit
+    domain: 
+      - VATRegistrationUnit
+      - Vessel
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/name
 
@@ -1117,7 +1147,9 @@ property:
 
   - id: placeOfWork
     label: place of work
-    domain: WorkAssignment
+    domain: 
+      - A1
+      - WorkAssignment
     range:
       - CountryCode
       - EconomicOperator
@@ -1163,6 +1195,12 @@ property:
       - EconomicOperator
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provider
+
+  - id: provisionalDetermination
+    label: provisionalDetermination
+    domain: A1
+    range: xsd:boolean
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination
 
   - id: registeredAddress
     label: registered address
@@ -1214,6 +1252,12 @@ property:
     range: CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/stateofinsurance
 
+  - id: statusConfirmation
+    label: status confirmation
+    domain: A1
+    range: xsd:boolean
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statusconfirmation
+
   - id: subscribedCapital
     label: subscribed capital
     domain:
@@ -1252,6 +1296,12 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
 
+  - id: transitionalRules
+    label: transitional rules
+    domain: A1
+    range: xsd:boolean
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transitionalrules
+
   - id: type
     label: type
     domain: VATRegistrationUnit
@@ -1260,7 +1310,9 @@ property:
 
   - id: typeOfEmployment
     label: type of employment
-    domain: PostedWorkerNotification
+    domain: 
+      - A1
+      - PostedWorkerNotification
     range: TypeOfEmployment
     one_of: [Permanent, Temporary]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
