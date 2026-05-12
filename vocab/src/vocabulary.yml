@@ -694,7 +694,9 @@ property:
 
   - id: applicableJurisdiction
     label: applicable jurisdiction
-    domain: WorkAssignment
+    domain: 
+      - A1
+      - WorkAssignment
     range: CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/applicablejurisdiction
 
