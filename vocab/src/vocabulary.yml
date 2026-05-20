@@ -1093,6 +1093,13 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/name
 
+  - id: noFixedPlaceOfWork
+    label: no fixed place of work
+    domain: A1
+    range: xsd:boolean
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork
+    comment: Indicates that no fixed address or fixed place of work exists for the work or self-employment activity covered by the A1 certificate.
+
   - id: owner
     label: owner
     domain: BankAccount
@@ -1149,16 +1156,18 @@ property:
 
   - id: placeOfWork
     label: place of work
-    domain: 
+    domain:
       - A1
       - WorkAssignment
     range:
+      - Address
       - CountryCode
       - EconomicOperator
-      - Vessel
+      - Vessel      
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork
-
+    comment: Country, organisation, vessel or address where work or self-employed activity is carried out.
+    
   - id: poBox
     label: post office box
     domain: Address
@@ -1208,10 +1217,12 @@ property:
     label: registered address
     domain:
       - Company
+      - EconomicOperator
       - LegalEntity
     range: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
-
+    comment: Officially registered address of a company, legal entity or economic operator.
+    
   - id: residency
     label: residency
     domain: Person
