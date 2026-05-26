@@ -5,7 +5,7 @@ vocab:
 
 prefix:
   - id: schema
-    value: http://schema.org/
+    value: https://schema.org/
 
   - id: jsonld
     value: http://www.w3.org/ns/json-ld#
@@ -29,6 +29,7 @@ ontology:
 class:
   - id: A1Certificate
     label: A1 Certificate
+    upper_value: cred:CredentialSubject
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/a1certificate
 
   - id: Address
@@ -168,6 +169,7 @@ class:
   - id: cred:CredentialSubject
     label: Credential Subject
     defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
+    context: https://www.w3.org/ns/credentials/v2
 
   - id: EconomicOperator
     label: Economic Operator
@@ -565,7 +567,7 @@ class:
               },
               "assignment": {
                 "@type":"WorkAssignment",
-                "applicableJurisdiction": "IT",
+                "jurisdiction": "IT",
                 "description": "job duties", 
                 "duration": {
                   "@type" : "PeriodOfTime",
@@ -692,14 +694,6 @@ property:
     range: xsd:float
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
 
-  - id: applicableJurisdiction
-    label: applicable jurisdiction
-    domain: 
-      - A1
-      - WorkAssignment
-    range: CountryCode
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/applicablejurisdiction
-
   - id: assignment
     label: assignment
     domain: PostedWorkerNotification
@@ -809,6 +803,11 @@ property:
       - Location
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverylocation
+
+  - id: schema:description
+    label: description
+    defined_by: https://schema.org/description
+    context: https://schema.org/docs/jsonldcontext.json
 
   - id: domicile
     label: domicile
@@ -947,11 +946,14 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jobtitle
+
   - id: jurisdiction
     label: jurisdiction
     domain:
       - Company
       - LegalEntity
+      - A1Certificate
+      - WorkAssignment
     range:
       - CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
@@ -1085,13 +1087,10 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname
 
-  - id: name
+  - id: schema:name
     label: name
-    domain: 
-      - VATRegistrationUnit
-      - Vessel
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/name
+    defined_by: https://schema.org/name
+    context: https://schema.org/docs/jsonldcontext.json
 
   - id: noFixedPlaceOfWork
     label: no fixed place of work

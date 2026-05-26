@@ -134,7 +134,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-05-08</time>
+                <time property="dc:date" id="time">2026-05-26</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -159,7 +159,7 @@
             <dt><code>ebwv</code></dt>
             <dd><code>https://w3id.org/ebwv#</code></dd>
             <dt><code>schema</code></dt>
-            <dd><code>http://schema.org/</code></dd>
+            <dd><code>https://schema.org/</code></dd>
             <dt><code>cred</code></dt>
             <dd><code>https://w3.org/2018/credentials#</code></dd>
             <dt><code>dc</code></dt>
@@ -227,7 +227,7 @@
                 <details>
                     <summary>term list</summary>
                     <ul>
-                        <li><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject<code></code></code></a></li>
+                        <li><a href="#A1Certificate"><code>A1Certificate<code></code></code></a></li>
                         <li><a href="#AccountType"><code>AccountType<code></code></code></a></li>
                         <li><a href="#Address"><code>Address<code></code></code></a></li>
                         <li><a href="#Agent"><code>Agent<code></code></code></a></li>
@@ -290,6 +290,7 @@
                         <li><a href="#TypeOfEmployment"><code>TypeOfEmployment<code></code></code></a></li>
                         <li><a href="#VATRegistrationUnit"><code>VATRegistrationUnit<code></code></code></a></li>
                         <li><a href="#VatId"><code>VatId<code></code></code></a></li>
+                        <li><a href="#Vessel"><code>Vessel<code></code></code></a></li>
                         <li><a href="#WorkAssignment"><code>WorkAssignment<code></code></code></a></li>
                         <li><a href="#a1"><code>a1<code></code></code></a></li>
                         <li><a href="#accountName"><code>accountName<code></code></code></a></li>
@@ -301,7 +302,6 @@
                         <li><a href="#administrativeRepresentative"><code>administrativeRepresentative<code></code></code></a></li>
                         <li><a href="#alternativeName"><code>alternativeName<code></code></code></a></li>
                         <li><a href="#amount"><code>amount<code></code></code></a></li>
-                        <li><a href="#applicableJurisdiction"><code>applicableJurisdiction<code></code></code></a></li>
                         <li><a href="#assignment"><code>assignment<code></code></code></a></li>
                         <li><a href="#attestationLegalCategory"><code>attestationLegalCategory<code></code></code></a></li>
                         <li><a href="#birthName"><code>birthName<code></code></code></a></li>
@@ -322,8 +322,10 @@
                         <li><a href="#employer"><code>employer<code></code></code></a></li>
                         <li><a href="#endDate"><code>endDate<code></code></code></a></li>
                         <li><a href="#familyName"><code>familyName<code></code></code></a></li>
+                        <li><a href="#flagState"><code>flagState<code></code></code></a></li>
                         <li><a href="#fullAddress"><code>fullAddress<code></code></code></a></li>
                         <li><a href="#fullName"><code>fullName<code></code></code></a></li>
+                        <li><a href="#fullPeriodCovered"><code>fullPeriodCovered<code></code></code></a></li>
                         <li><a href="#gender"><code>gender<code></code></code></a></li>
                         <li><a href="#geographicIdentifier"><code>geographicIdentifier<code></code></code></a></li>
                         <li><a href="#geographicName"><code>geographicName<code></code></code></a></li>
@@ -353,12 +355,13 @@
                         <li><a href="#locatorName"><code>locatorName<code></code></code></a></li>
                         <li><a href="#managingLeiIssuer"><code>managingLeiIssuer<code></code></code></a></li>
                         <li><a href="#matronymicName"><code>matronymicName<code></code></code></a></li>
-                        <li><a href="#name"><code>name<code></code></code></a></li>
+                        <li><a href="#noFixedPlaceOfWork"><code>noFixedPlaceOfWork<code></code></code></a></li>
                         <li><a href="#owner"><code>owner<code></code></code></a></li>
                         <li><a href="#partner"><code>partner<code></code></code></a></li>
                         <li><a href="#partnerId"><code>partnerId<code></code></code></a></li>
                         <li><a href="#patronymicName"><code>patronymicName<code></code></code></a></li>
                         <li><a href="#paymentDue"><code>paymentDue<code></code></code></a></li>
+                        <li><a href="#person"><code>person<code></code></code></a></li>
                         <li><a href="#personalAdministrativeNumber"><code>personalAdministrativeNumber<code></code></code></a></li>
                         <li><a href="#placeOfBirth"><code>placeOfBirth<code></code></code></a></li>
                         <li><a href="#placeOfDeath"><code>placeOfDeath<code></code></code></a></li>
@@ -369,6 +372,7 @@
                         <li><a href="#postName"><code>postName<code></code></code></a></li>
                         <li><a href="#postedWorker"><code>postedWorker<code></code></code></a></li>
                         <li><a href="#provider"><code>provider<code></code></code></a></li>
+                        <li><a href="#provisionalDetermination"><code>provisionalDetermination<code></code></code></a></li>
                         <li><a href="#registeredAddress"><code>registeredAddress<code></code></code></a></li>
                         <li><a href="#residency"><code>residency<code></code></code></a></li>
                         <li><a href="#role"><code>role<code></code></code></a></li>
@@ -376,14 +380,33 @@
                         <li><a href="#socialRepresentative"><code>socialRepresentative<code></code></code></a></li>
                         <li><a href="#startDate"><code>startDate<code></code></code></a></li>
                         <li><a href="#stateOfInsurance"><code>stateOfInsurance<code></code></code></a></li>
+                        <li><a href="#statusConfirmation"><code>statusConfirmation<code></code></code></a></li>
                         <li><a href="#subscribedCapital"><code>subscribedCapital<code></code></code></a></li>
                         <li><a href="#supplier"><code>supplier<code></code></code></a></li>
                         <li><a href="#temporaryAddress"><code>temporaryAddress<code></code></code></a></li>
                         <li><a href="#temporaryWorkAgency"><code>temporaryWorkAgency<code></code></code></a></li>
                         <li><a href="#terms"><code>terms<code></code></code></a></li>
                         <li><a href="#thoroughfare"><code>thoroughfare<code></code></code></a></li>
+                        <li><a href="#transitionalRules"><code>transitionalRules<code></code></code></a></li>
                         <li><a href="#type"><code>type<code></code></code></a></li>
                         <li><a href="#typeOfEmployment"><code>typeOfEmployment<code></code></code></a></li>
+                    </ul>
+                </details>
+            </li>
+            <li><a href="https://www.w3.org/ns/credentials/v2"><code>https://www.w3.org/ns/credentials/v2</code></a>
+                <details>
+                    <summary>term list</summary>
+                    <ul>
+                        <li><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject<code></code></code></a></li>
+                    </ul>
+                </details>
+            </li>
+            <li><a href="https://schema.org/docs/jsonldcontext.json"><code>https://schema.org/docs/jsonldcontext.json</code></a>
+                <details>
+                    <summary>term list</summary>
+                    <ul>
+                        <li><a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description<code></code></code></a></li>
+                        <li><a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name<code></code></code></a></li>
                     </ul>
                 </details>
             </li>
@@ -546,21 +569,6 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="applicableJurisdiction">
-                <h4><code>applicableJurisdiction</code></h4>
-                <p><em>applicable jurisdiction</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/applicablejurisdiction">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#WorkAssignment"><code>WorkAssignment</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><a href="#CountryCode"><code>CountryCode</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="assignment">
                 <h4><code>assignment</code></h4>
                 <p><em>assignment</em></p>
@@ -619,6 +627,21 @@
                     <dd><a href="#PaymentTerms"><code>PaymentTerms</code></a></dd>
                     <dt>Range:</dt>
                     <dd><code>xsd:anyURI</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="person">
+                <h4><code>person</code></h4>
+                <p><em>person</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Person"><code>Person</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -790,6 +813,20 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba">
+                <h4><code>description</code></h4>
+                <p><em>description</em></p>
+                <p>See also the <a href="https://schema.org/description">formal definition of the term</a>.</p>
+                <p class="note">
+                    <b>This term is formally defined in another vocabulary</b>
+                    (as <a href="https://schema.org/description">schema:description</a>), but is frequently used with this vocabulary and has been
+                    included to aid readability of this document.
+                </p>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://schema.org/docs/jsonldcontext.json"><code>https://schema.org/docs/jsonldcontext.json</code></a></dd>
+                </dl>
+            </section>
             <section id="domicile">
                 <h4><code>domicile</code></h4>
                 <p><em>domicile</em></p>
@@ -841,7 +878,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/employer">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a></dd>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a> ⊔&nbsp;<a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
                 </dl>
@@ -880,6 +917,21 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="flagState">
+                <h4><code>flagState</code></h4>
+                <p><em>flag state</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/flagstate">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Vessel"><code>Vessel</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#CountryCode"><code>CountryCode</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="fullAddress">
                 <h4><code>fullAddress</code></h4>
                 <p><em>full address</em></p>
@@ -904,6 +956,21 @@
                     <dd><a href="#Person"><code>Person</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="fullPeriodCovered">
+                <h4><code>fullPeriodCovered</code></h4>
+                <p><em>full period covered</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/fullperiodcovered">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:boolean</code></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1066,7 +1133,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a> ⊔&nbsp;<a href="#A1Certificate"><code>A1Certificate</code></a> ⊔&nbsp;<a href="#WorkAssignment"><code>WorkAssignment</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#CountryCode"><code>CountryCode</code></a></dd>
                 </dl>
@@ -1347,15 +1414,30 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="name">
+            <section id="104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37">
                 <h4><code>name</code></h4>
                 <p><em>name</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/name">formal definition of the term</a>.</p>
+                <p>See also the <a href="https://schema.org/name">formal definition of the term</a>.</p>
+                <p class="note">
+                    <b>This term is formally defined in another vocabulary</b>
+                    (as <a href="https://schema.org/name">schema:name</a>), but is frequently used with this vocabulary and has been
+                    included to aid readability of this document.
+                </p>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://schema.org/docs/jsonldcontext.json"><code>https://schema.org/docs/jsonldcontext.json</code></a></dd>
+                </dl>
+            </section>
+            <section id="noFixedPlaceOfWork">
+                <h4><code>noFixedPlaceOfWork</code></h4>
+                <p><em>no fixed place of work</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork">formal definition of the term</a>.</p>
+                <div>Indicates that no fixed address or fixed place of work exists for the work or self-employment activity covered by the A1 certificate.</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#VATRegistrationUnit"><code>VATRegistrationUnit</code></a></dd>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                    <dd><code>xsd:boolean</code></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1471,11 +1553,12 @@
                 <h4><code>placeOfWork</code></h4>
                 <p><em>place of work</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork">formal definition of the term</a>.</p>
+                <div>Country, organisation, vessel or address where work or self-employed activity is carried out.</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#WorkAssignment"><code>WorkAssignment</code></a></dd>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a> ⊔&nbsp;<a href="#WorkAssignment"><code>WorkAssignment</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#CountryCode"><code>CountryCode</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="https://w3id.org/ebwv#Vessel"><code>ebwv:Vessel</code></a></dd>
+                    <dd><a href="#Address"><code>Address</code></a> ⊔&nbsp;<a href="#CountryCode"><code>CountryCode</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#Vessel"><code>Vessel</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1572,13 +1655,29 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="provisionalDetermination">
+                <h4><code>provisionalDetermination</code></h4>
+                <p><em>provisionalDetermination</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:boolean</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="registeredAddress">
                 <h4><code>registeredAddress</code></h4>
                 <p><em>registered address</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress">formal definition of the term</a>.</p>
+                <div>Officially registered address of a company, legal entity or economic operator.</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
                 </dl>
@@ -1682,6 +1781,21 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="statusConfirmation">
+                <h4><code>statusConfirmation</code></h4>
+                <p><em>status confirmation</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/statusconfirmation">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:boolean</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="subscribedCapital">
                 <h4><code>subscribedCapital</code></h4>
                 <p><em>subscribed capital</em></p>
@@ -1776,6 +1890,21 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="transitionalRules">
+                <h4><code>transitionalRules</code></h4>
+                <p><em>transitional rules</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/transitionalrules">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:boolean</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="type">
                 <h4><code>type</code></h4>
                 <p><em>type</em></p>
@@ -1797,7 +1926,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a></dd>
+                    <dd><a href="#A1"><code>A1</code></a> ⊔&nbsp;<a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#TypeOfEmployment"><code>TypeOfEmployment</code></a></dd>
                 </dl>
@@ -1815,6 +1944,25 @@
         <section id="class_definitions" class="term_definitions">
             <h2>Class definitions</h2>
             <p>The following are class definitions in the <code>ebwv</code> namespace.</p>
+            <section id="A1Certificate">
+                <h4><code>A1Certificate</code></h4>
+                <p><em>A1 Certificate</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/a1certificate">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Domain of:</dt>
+                    <dd><a href="#person"><code>person</code></a>, <a href="#fullPeriodCovered"><code>fullPeriodCovered</code></a>, <a href="#noFixedPlaceOfWork"><code>noFixedPlaceOfWork</code></a>, <a href="#provisionalDetermination"><code>provisionalDetermination</code></a>, <a href="#statusConfirmation"><code>statusConfirmation</code></a>, <a href="#transitionalRules"><code>transitionalRules</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#employer"><code>employer</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#placeOfWork"><code>placeOfWork</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="Address">
                 <h4><code>Address</code></h4>
                 <p><em>Address</em></p>
@@ -1823,7 +1971,7 @@
                     <dt>Range of:</dt>
                     <dd><a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#domicile"><code>domicile</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a>, <a href="#temporaryAddress"><code>temporaryAddress</code></a></dd>
                     <dt>Includes the range of:</dt>
-                    <dd><a href="#deliveryLocation"><code>deliveryLocation</code></a></dd>
+                    <dd><a href="#deliveryLocation"><code>deliveryLocation</code></a>, <a href="#placeOfWork"><code>placeOfWork</code></a></dd>
                     <dt>Domain of:</dt>
                     <dd><a href="#addressArea"><code>addressArea</code></a>, <a href="#adminUnitL2"><code>adminUnitL2</code></a>, <a href="#adminUnitL1"><code>adminUnitL1</code></a>, <a href="#fullAddress"><code>fullAddress</code></a>, <a href="#locatorDesignator"><code>locatorDesignator</code></a>, <a href="#locatorName"><code>locatorName</code></a>, <a href="#poBox"><code>poBox</code></a>, <a href="#postCode"><code>postCode</code></a>, <a href="#postName"><code>postName</code></a>, <a href="#thoroughfare"><code>thoroughfare</code></a></dd>
                 </dl>
@@ -2031,7 +2179,7 @@
                 </p>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    <dd><a href="https://www.w3.org/ns/credentials/v2"><code>https://www.w3.org/ns/credentials/v2</code></a></dd>
                 </dl>
             </section>
             <section id="EconomicOperator">
@@ -2046,7 +2194,7 @@
                     <dt>Domain of:</dt>
                     <dd><a href="#administrativeRepresentative"><code>administrativeRepresentative</code></a>, <a href="#constructionSector"><code>constructionSector</code></a>, <a href="#socialRepresentative"><code>socialRepresentative</code></a>, <a href="#temporaryWorkAgency"><code>temporaryWorkAgency</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#contactPoint"><code>contactPoint</code></a>, <a href="#identifier"><code>identifier</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#legalName"><code>legalName</code></a></dd>
+                    <dd><a href="#contactPoint"><code>contactPoint</code></a>, <a href="#identifier"><code>identifier</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#legalName"><code>legalName</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2549,7 +2697,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/person">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Range of:</dt>
-                    <dd><a href="#administrativeRepresentative"><code>administrativeRepresentative</code></a>, <a href="#postedWorker"><code>postedWorker</code></a>, <a href="#socialRepresentative"><code>socialRepresentative</code></a></dd>
+                    <dd><a href="#administrativeRepresentative"><code>administrativeRepresentative</code></a>, <a href="#person"><code>person</code></a>, <a href="#postedWorker"><code>postedWorker</code></a>, <a href="#socialRepresentative"><code>socialRepresentative</code></a></dd>
                     <dt>Includes the range of:</dt>
                     <dd><a href="#owner"><code>owner</code></a></dd>
                     <dt>Domain of:</dt>
@@ -2568,7 +2716,9 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain of:</dt>
-                    <dd><a href="#a1"><code>a1</code></a>, <a href="#assignment"><code>assignment</code></a>, <a href="#employer"><code>employer</code></a>, <a href="#hostEntity"><code>hostEntity</code></a>, <a href="#postedWorker"><code>postedWorker</code></a>, <a href="#typeOfEmployment"><code>typeOfEmployment</code></a></dd>
+                    <dd><a href="#a1"><code>a1</code></a>, <a href="#assignment"><code>assignment</code></a>, <a href="#hostEntity"><code>hostEntity</code></a>, <a href="#postedWorker"><code>postedWorker</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#employer"><code>employer</code></a>, <a href="#typeOfEmployment"><code>typeOfEmployment</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2625,7 +2775,7 @@
     },
     "assignment": {
       "@type":"WorkAssignment",
-      "applicableJurisdiction": "IT",
+      "jurisdiction": "IT",
       "description": "job duties", 
       "duration": {
         "@type" : "PeriodOfTime",
@@ -2723,9 +2873,24 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/vatregistrationunit">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain of:</dt>
-                    <dd><a href="#name"><code>name</code></a>, <a href="#type"><code>type</code></a></dd>
+                    <dd><a href="#type"><code>type</code></a></dd>
                     <dt>In the domain of:</dt>
                     <dd><a href="#identifier"><code>identifier</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="Vessel">
+                <h4><code>Vessel</code></h4>
+                <p><em>Vessel</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/vessel">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#placeOfWork"><code>placeOfWork</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#flagState"><code>flagState</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2738,13 +2903,15 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/workassignment">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Subclass of:</dt>
-                    <dd><a href="http://schema.org/Thing"><code>schema:Thing</code></a></dd>
+                    <dd><a href="https://schema.org/Thing"><code>schema:Thing</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#assignment"><code>assignment</code></a></dd>
                     <dt>Domain of:</dt>
-                    <dd><a href="#applicableJurisdiction"><code>applicableJurisdiction</code></a>, <a href="#duration"><code>duration</code></a>, <a href="#placeOfWork"><code>placeOfWork</code></a>, <a href="#stateOfInsurance"><code>stateOfInsurance</code></a></dd>
+                    <dd><a href="#duration"><code>duration</code></a>, <a href="#stateOfInsurance"><code>stateOfInsurance</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#placeOfWork"><code>placeOfWork</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2788,7 +2955,7 @@
                 </dl>
                 <dl class="terms">
                     <dt>Range of:</dt>
-                    <dd><a href="#adminUnitL1"><code>adminUnitL1</code></a>, <a href="#applicableJurisdiction"><code>applicableJurisdiction</code></a>, <a href="#citizenship"><code>citizenship</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#residency"><code>residency</code></a>, <a href="#stateOfInsurance"><code>stateOfInsurance</code></a></dd>
+                    <dd><a href="#adminUnitL1"><code>adminUnitL1</code></a>, <a href="#citizenship"><code>citizenship</code></a>, <a href="#flagState"><code>flagState</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#residency"><code>residency</code></a>, <a href="#stateOfInsurance"><code>stateOfInsurance</code></a></dd>
                     <dt>Includes the range of:</dt>
                     <dd><a href="#placeOfWork"><code>placeOfWork</code></a></dd>
                 </dl>

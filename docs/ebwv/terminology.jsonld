@@ -1,6 +1,420 @@
 {
     "@graph": [
         {
+            "@id": "urn:uuid:32f55e34-aaba-46a0-87c4-499237ff43d7",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "temporary transition regime"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:f5a2677d-bf6c-40d7-926d-dd4d0c672c27",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "transitional rules apply"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:9b423958-0b5e-43a1-8cbe-b0103d561712",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "transition rules"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:2b3ecebe-c3ea-4b6c-bf25-d050f2bf0b7a",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "transitional provisions"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "webuild:transitionalrules",
+            "term:orderedSynonym": {
+                "@list": [
+                    {
+                        "@id": "urn:uuid:2b3ecebe-c3ea-4b6c-bf25-d050f2bf0b7a"
+                    },
+                    {
+                        "@id": "urn:uuid:9b423958-0b5e-43a1-8cbe-b0103d561712"
+                    },
+                    {
+                        "@id": "urn:uuid:f5a2677d-bf6c-40d7-926d-dd4d0c672c27"
+                    },
+                    {
+                        "@id": "urn:uuid:32f55e34-aaba-46a0-87c4-499237ff43d7"
+                    }
+                ]
+            },
+            "@type": "skos:Concept",
+            "dcterms:created": {
+                "@value": "2026-05-12T09:06:15.726Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:modified": {
+                "@value": "2026-05-12T09:06:15.726Z",
+                "@type": "xsd:dateTime"
+            },
+            "skos:altLabel": [
+                {
+                    "@id": "urn:uuid:32f55e34-aaba-46a0-87c4-499237ff43d7"
+                },
+                {
+                    "@id": "urn:uuid:f5a2677d-bf6c-40d7-926d-dd4d0c672c27"
+                },
+                {
+                    "@id": "urn:uuid:9b423958-0b5e-43a1-8cbe-b0103d561712"
+                },
+                {
+                    "@id": "urn:uuid:2b3ecebe-c3ea-4b6c-bf25-d050f2bf0b7a"
+                }
+            ],
+            "skos:definition": {
+                "@language": "en",
+                "@value": "a temporary legal or administrative rule set that applies to a case because the relevant situation falls within a transition from one regime, framework, or procedure to another"
+            },
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:note": [
+                {
+                    "@language": "en",
+                    "@value": "In the general EBWV context, this concept can be used to qualify any status, entitlement, obligation, authorisation, determination, or certificate where the applicable legal or administrative basis is a temporary transition regime."
+                },
+                {
+                    "@language": "en",
+                    "@value": "In the PD A1 context, this concept indicates that the determination of the applicable social security legislation is based on transitional provisions rather than only on the ordinary rules in force at the time of the activity. Such provisions may apply, for example, when legal amendments, withdrawal agreements, bilateral arrangements, or implementation periods affect how cross-border social security coordination rules are applied."
+                }
+            ],
+            "skos:prefLabel": {
+                "@id": "urn:uuid:930c0929-42c0-4969-a4bd-143faef1866b"
+            },
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "term:orderedNote": {
+                "@list": [
+                    {
+                        "@language": "en",
+                        "@value": "In the PD A1 context, this concept indicates that the determination of the applicable social security legislation is based on transitional provisions rather than only on the ordinary rules in force at the time of the activity. Such provisions may apply, for example, when legal amendments, withdrawal agreements, bilateral arrangements, or implementation periods affect how cross-border social security coordination rules are applied."
+                    },
+                    {
+                        "@language": "en",
+                        "@value": "In the general EBWV context, this concept can be used to qualify any status, entitlement, obligation, authorisation, determination, or certificate where the applicable legal or administrative basis is a temporary transition regime."
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "https://iri.suomi.fi/terminology/webuild/",
+            "term:terminologyType": "TERMINOLOGICAL_VOCABULARY",
+            "suomi-meta:publicationStatus": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT",
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:copiedFrom": "https://iri.suomi.fi/terminology/nbvoc/",
+            "skos:prefLabel": [
+                {
+                    "@language": "sv",
+                    "@value": "WE BUILD Terminology"
+                },
+                {
+                    "@language": "fi",
+                    "@value": "WE BUILD Terminology"
+                },
+                {
+                    "@language": "no",
+                    "@value": "WE BUILD Terminology"
+                },
+                {
+                    "@language": "nl",
+                    "@value": "WE BUILD Terminology"
+                },
+                {
+                    "@language": "es",
+                    "@value": "WE BUILD Terminology"
+                },
+                {
+                    "@language": "de",
+                    "@value": "WE BUILD Terminology"
+                },
+                {
+                    "@language": "en",
+                    "@value": "WE BUILD Terminology"
+                }
+            ],
+            "dcap:preferredXMLNamespacePrefix": "webuild",
+            "dcap:preferredXMLNamespace": "https://iri.suomi.fi/terminology/webuild/",
+            "@type": "skos:ConceptScheme",
+            "dcterms:contributor": {
+                "@id": "urn:uuid:0e7e4f57-be57-4f99-bb1f-bfdcf0b6948a"
+            },
+            "dcterms:created": "2021-12-13T13:43:30Z",
+            "dcterms:isPartOf": [
+                {
+                    "@id": "http://urn.fi/URN:NBN:fi:au:ptvl:v1095"
+                },
+                {
+                    "@id": "http://urn.fi/URN:NBN:fi:au:ptvl:v1126"
+                },
+                {
+                    "@id": "http://urn.fi/URN:NBN:fi:au:ptvl:v1132"
+                },
+                {
+                    "@id": "http://urn.fi/URN:NBN:fi:au:ptvl:v1105"
+                }
+            ],
+            "dcterms:language": [
+                "fi",
+                "sv",
+                "en",
+                "es",
+                "no",
+                "de",
+                "nl"
+            ],
+            "dcterms:modified": {
+                "@value": "2026-01-07T10:41:32.167Z",
+                "@type": "xsd:dateTime"
+            },
+            "http://purl.org/termed/properties/id": "1649987f-c058-46af-8f94-5adf6acac654"
+        },
+        {
+            "@id": "urn:uuid:930c0929-42c0-4969-a4bd-143faef1866b",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "transitional rules"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:05fc770b-9bb1-45fd-b293-53e06b634867",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "provisional determination"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:afc609ea-9b38-4094-b31d-15073b4dbed7",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "determination is provisional"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:9c8802e8-5adc-4c6d-ad91-edab010c5594",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "preliminary determination"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:3a94e9e4-0e22-4291-b053-d54f11633144",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "non-final determination"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "webuild:provisionaldetermination",
+            "term:orderedSynonym": {
+                "@list": [
+                    {
+                        "@id": "urn:uuid:afc609ea-9b38-4094-b31d-15073b4dbed7"
+                    },
+                    {
+                        "@id": "urn:uuid:9c8802e8-5adc-4c6d-ad91-edab010c5594"
+                    },
+                    {
+                        "@id": "urn:uuid:3a94e9e4-0e22-4291-b053-d54f11633144"
+                    }
+                ]
+            },
+            "term:orderedNote": {
+                "@list": [
+                    {
+                        "@language": "en",
+                        "@value": "In the PD A1 context, this concept indicates that the determination of the applicable social security legislation is not yet final. It may apply where the competent institution has issued or recorded an initial position pending further verification, coordination between institutions, or expiry of a period during which the determination can be contested."
+                    },
+                    {
+                        "@language": "en",
+                        "@value": "In the general EBWV context, this concept can be used to qualify any administrative, legal, or procedural determination whose status is temporary or not yet final."
+                    }
+                ]
+            },
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "skos:prefLabel": {
+                "@id": "urn:uuid:05fc770b-9bb1-45fd-b293-53e06b634867"
+            },
+            "skos:note": [
+                {
+                    "@language": "en",
+                    "@value": "In the PD A1 context, this concept indicates that the determination of the applicable social security legislation is not yet final. It may apply where the competent institution has issued or recorded an initial position pending further verification, coordination between institutions, or expiry of a period during which the determination can be contested."
+                },
+                {
+                    "@language": "en",
+                    "@value": "In the general EBWV context, this concept can be used to qualify any administrative, legal, or procedural determination whose status is temporary or not yet final."
+                }
+            ],
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A determination that has legal or administrative effect on a provisional basis and remains subject to confirmation, amendment, or withdrawal under the applicable procedure."
+            },
+            "skos:altLabel": [
+                {
+                    "@id": "urn:uuid:afc609ea-9b38-4094-b31d-15073b4dbed7"
+                },
+                {
+                    "@id": "urn:uuid:9c8802e8-5adc-4c6d-ad91-edab010c5594"
+                },
+                {
+                    "@id": "urn:uuid:3a94e9e4-0e22-4291-b053-d54f11633144"
+                }
+            ],
+            "dcterms:modified": {
+                "@value": "2026-05-12T09:01:17.481Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:created": {
+                "@value": "2026-05-12T09:00:19.864Z",
+                "@type": "xsd:dateTime"
+            },
+            "@type": "skos:Concept"
+        },
+        {
+            "@id": "urn:uuid:10c00395-fc21-4252-bc22-bf636126cdf7",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "certificate applies for the duration of the activity"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "urn:uuid:3e7cc834-667b-4f3b-8101-9e3a0e52cb69",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "activity period fully covered"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
+            "@id": "webuild:fullperiodcovered",
+            "term:orderedSynonym": {
+                "@list": [
+                    {
+                        "@id": "urn:uuid:3e7cc834-667b-4f3b-8101-9e3a0e52cb69"
+                    },
+                    {
+                        "@id": "urn:uuid:10c00395-fc21-4252-bc22-bf636126cdf7"
+                    }
+                ]
+            },
+            "term:orderedNote": {
+                "@list": [
+                    {
+                        "@language": "en",
+                        "@value": "This concept is used to express that there is no uncovered part of the declared activity period: the validity or applicability of the certificate covers the activity from its start date to its end date. It should not be interpreted as defining the activity period itself, but as qualifying the relationship between the certificate coverage and the activity duration."
+                    }
+                ]
+            },
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
+            "skos:prefLabel": {
+                "@id": "urn:uuid:d79bc065-b6b8-4d72-a199-ca2c01ef5034"
+            },
+            "skos:note": {
+                "@language": "en",
+                "@value": "This concept is used to express that there is no uncovered part of the declared activity period: the validity or applicability of the certificate covers the activity from its start date to its end date. It should not be interpreted as defining the activity period itself, but as qualifying the relationship between the certificate coverage and the activity duration."
+            },
+            "skos:inScheme": {
+                "@id": "https://iri.suomi.fi/terminology/webuild/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "indicates that the PD A1 certificate applies for the entire duration of the cross-border work activity or posting for which the certificate is issued"
+            },
+            "skos:altLabel": [
+                {
+                    "@id": "urn:uuid:3e7cc834-667b-4f3b-8101-9e3a0e52cb69"
+                },
+                {
+                    "@id": "urn:uuid:10c00395-fc21-4252-bc22-bf636126cdf7"
+                }
+            ],
+            "dcterms:modified": {
+                "@value": "2026-05-12T08:56:59.691Z",
+                "@type": "xsd:dateTime"
+            },
+            "dcterms:created": {
+                "@value": "2026-05-12T08:56:59.691Z",
+                "@type": "xsd:dateTime"
+            },
+            "@type": "skos:Concept"
+        },
+        {
+            "@id": "urn:uuid:d79bc065-b6b8-4d72-a199-ca2c01ef5034",
+            "suomi-meta:publicationStatus": {
+                "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
+            },
+            "skos-xl:literalForm": {
+                "@language": "en",
+                "@value": "full period covered"
+            },
+            "@type": "skos-xl:Label"
+        },
+        {
             "@id": "urn:uuid:782efa4d-40a8-4931-be9a-37b98f96ca4c",
             "suomi-meta:publicationStatus": {
                 "@id": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT"
@@ -244,79 +658,6 @@
             ],
             "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
             "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8"
-        },
-        {
-            "@id": "https://iri.suomi.fi/terminology/webuild/",
-            "term:terminologyType": "TERMINOLOGICAL_VOCABULARY",
-            "suomi-meta:publicationStatus": "http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT",
-            "suomi-meta:modifier": "5dc030a4-740f-4dde-9548-4e6e797899d8",
-            "suomi-meta:creator": "5dc030a4-740f-4dde-9548-4e6e797899d8",
-            "suomi-meta:copiedFrom": "https://iri.suomi.fi/terminology/nbvoc/",
-            "skos:prefLabel": [
-                {
-                    "@language": "sv",
-                    "@value": "WE BUILD Terminology"
-                },
-                {
-                    "@language": "fi",
-                    "@value": "WE BUILD Terminology"
-                },
-                {
-                    "@language": "no",
-                    "@value": "WE BUILD Terminology"
-                },
-                {
-                    "@language": "nl",
-                    "@value": "WE BUILD Terminology"
-                },
-                {
-                    "@language": "es",
-                    "@value": "WE BUILD Terminology"
-                },
-                {
-                    "@language": "de",
-                    "@value": "WE BUILD Terminology"
-                },
-                {
-                    "@language": "en",
-                    "@value": "WE BUILD Terminology"
-                }
-            ],
-            "dcap:preferredXMLNamespacePrefix": "webuild",
-            "dcap:preferredXMLNamespace": "https://iri.suomi.fi/terminology/webuild/",
-            "@type": "skos:ConceptScheme",
-            "dcterms:contributor": {
-                "@id": "urn:uuid:0e7e4f57-be57-4f99-bb1f-bfdcf0b6948a"
-            },
-            "dcterms:created": "2021-12-13T13:43:30Z",
-            "dcterms:isPartOf": [
-                {
-                    "@id": "http://urn.fi/URN:NBN:fi:au:ptvl:v1095"
-                },
-                {
-                    "@id": "http://urn.fi/URN:NBN:fi:au:ptvl:v1126"
-                },
-                {
-                    "@id": "http://urn.fi/URN:NBN:fi:au:ptvl:v1132"
-                },
-                {
-                    "@id": "http://urn.fi/URN:NBN:fi:au:ptvl:v1105"
-                }
-            ],
-            "dcterms:language": [
-                "fi",
-                "sv",
-                "en",
-                "es",
-                "no",
-                "de",
-                "nl"
-            ],
-            "dcterms:modified": {
-                "@value": "2026-01-07T10:41:32.167Z",
-                "@type": "xsd:dateTime"
-            },
-            "http://purl.org/termed/properties/id": "1649987f-c058-46af-8f94-5adf6acac654"
         },
         {
             "@id": "urn:uuid:90d215a5-19dc-49eb-80ee-9abd063d94c2",

@@ -12,6 +12,111 @@ PREFIX term:       <https://iri.suomi.fi/model/term/>
 PREFIX webuild:    <https://iri.suomi.fi/terminology/webuild/>
 PREFIX xsd:        <http://www.w3.org/2001/XMLSchema#>
 
+webuild:transitionalrules
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-05-12T09:06:15.726Z"^^xsd:dateTime;
+        dcterms:modified              "2026-05-12T09:06:15.726Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:32f55e34-aaba-46a0-87c4-499237ff43d7> , <urn:uuid:f5a2677d-bf6c-40d7-926d-dd4d0c672c27> , <urn:uuid:9b423958-0b5e-43a1-8cbe-b0103d561712> , <urn:uuid:2b3ecebe-c3ea-4b6c-bf25-d050f2bf0b7a>;
+        skos:definition               "a temporary legal or administrative rule set that applies to a case because the relevant situation falls within a transition from one regime, framework, or procedure to another"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "In the general EBWV context, this concept can be used to qualify any status, entitlement, obligation, authorisation, determination, or certificate where the applicable legal or administrative basis is a temporary transition regime."@en , "In the PD A1 context, this concept indicates that the determination of the applicable social security legislation is based on transitional provisions rather than only on the ordinary rules in force at the time of the activity. Such provisions may apply, for example, when legal amendments, withdrawal agreements, bilateral arrangements, or implementation periods affect how cross-border social security coordination rules are applied."@en;
+        skos:prefLabel                <urn:uuid:930c0929-42c0-4969-a4bd-143faef1866b>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "In the PD A1 context, this concept indicates that the determination of the applicable social security legislation is based on transitional provisions rather than only on the ordinary rules in force at the time of the activity. Such provisions may apply, for example, when legal amendments, withdrawal agreements, bilateral arrangements, or implementation periods affect how cross-border social security coordination rules are applied."@en "In the general EBWV context, this concept can be used to qualify any status, entitlement, obligation, authorisation, determination, or certificate where the applicable legal or administrative basis is a temporary transition regime."@en );
+        term:orderedSynonym           ( <urn:uuid:2b3ecebe-c3ea-4b6c-bf25-d050f2bf0b7a> <urn:uuid:9b423958-0b5e-43a1-8cbe-b0103d561712> <urn:uuid:f5a2677d-bf6c-40d7-926d-dd4d0c672c27> <urn:uuid:32f55e34-aaba-46a0-87c4-499237ff43d7> ) .
+
+<urn:uuid:930c0929-42c0-4969-a4bd-143faef1866b>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "transitional rules"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:2b3ecebe-c3ea-4b6c-bf25-d050f2bf0b7a>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "transitional provisions"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:9b423958-0b5e-43a1-8cbe-b0103d561712>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "transition rules"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:f5a2677d-bf6c-40d7-926d-dd4d0c672c27>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "transitional rules apply"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:32f55e34-aaba-46a0-87c4-499237ff43d7>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "temporary transition regime"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:05fc770b-9bb1-45fd-b293-53e06b634867>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "provisional determination"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:afc609ea-9b38-4094-b31d-15073b4dbed7>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "determination is provisional"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:9c8802e8-5adc-4c6d-ad91-edab010c5594>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "preliminary determination"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:3a94e9e4-0e22-4291-b053-d54f11633144>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "non-final determination"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:provisionaldetermination
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-05-12T09:00:19.864Z"^^xsd:dateTime;
+        dcterms:modified              "2026-05-12T09:01:17.481Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:afc609ea-9b38-4094-b31d-15073b4dbed7> , <urn:uuid:9c8802e8-5adc-4c6d-ad91-edab010c5594> , <urn:uuid:3a94e9e4-0e22-4291-b053-d54f11633144>;
+        skos:definition               "A determination that has legal or administrative effect on a provisional basis and remains subject to confirmation, amendment, or withdrawal under the applicable procedure."@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "In the PD A1 context, this concept indicates that the determination of the applicable social security legislation is not yet final. It may apply where the competent institution has issued or recorded an initial position pending further verification, coordination between institutions, or expiry of a period during which the determination can be contested."@en , "In the general EBWV context, this concept can be used to qualify any administrative, legal, or procedural determination whose status is temporary or not yet final."@en;
+        skos:prefLabel                <urn:uuid:05fc770b-9bb1-45fd-b293-53e06b634867>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "In the PD A1 context, this concept indicates that the determination of the applicable social security legislation is not yet final. It may apply where the competent institution has issued or recorded an initial position pending further verification, coordination between institutions, or expiry of a period during which the determination can be contested."@en "In the general EBWV context, this concept can be used to qualify any administrative, legal, or procedural determination whose status is temporary or not yet final."@en );
+        term:orderedSynonym           ( <urn:uuid:afc609ea-9b38-4094-b31d-15073b4dbed7> <urn:uuid:9c8802e8-5adc-4c6d-ad91-edab010c5594> <urn:uuid:3a94e9e4-0e22-4291-b053-d54f11633144> ) .
+
+webuild:fullperiodcovered
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-05-12T08:56:59.691Z"^^xsd:dateTime;
+        dcterms:modified              "2026-05-12T08:56:59.691Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:3e7cc834-667b-4f3b-8101-9e3a0e52cb69> , <urn:uuid:10c00395-fc21-4252-bc22-bf636126cdf7>;
+        skos:definition               "indicates that the PD A1 certificate applies for the entire duration of the cross-border work activity or posting for which the certificate is issued"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "This concept is used to express that there is no uncovered part of the declared activity period: the validity or applicability of the certificate covers the activity from its start date to its end date. It should not be interpreted as defining the activity period itself, but as qualifying the relationship between the certificate coverage and the activity duration."@en;
+        skos:prefLabel                <urn:uuid:d79bc065-b6b8-4d72-a199-ca2c01ef5034>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "This concept is used to express that there is no uncovered part of the declared activity period: the validity or applicability of the certificate covers the activity from its start date to its end date. It should not be interpreted as defining the activity period itself, but as qualifying the relationship between the certificate coverage and the activity duration."@en );
+        term:orderedSynonym           ( <urn:uuid:3e7cc834-667b-4f3b-8101-9e3a0e52cb69> <urn:uuid:10c00395-fc21-4252-bc22-bf636126cdf7> ) .
+
+<urn:uuid:d79bc065-b6b8-4d72-a199-ca2c01ef5034>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "full period covered"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:3e7cc834-667b-4f3b-8101-9e3a0e52cb69>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "activity period fully covered"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:10c00395-fc21-4252-bc22-bf636126cdf7>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "certificate applies for the duration of the activity"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
 webuild:typeofemployment
         rdf:type                      skos:Concept;
         dcterms:created               "2026-04-28T15:04:07.672Z"^^xsd:dateTime;
