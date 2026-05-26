@@ -27,9 +27,9 @@ ontology:
     value: https://webuild-consortium.github.io/wp4-semantics-group/ebwv
 
 class:
-  - id: A1
-    label: A1
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/a1
+  - id: A1Certificate
+    label: A1 Certificate
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/a1certificate
 
   - id: Address
     label: Address
@@ -725,9 +725,9 @@ property:
     range: xsd:anyURI
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/buyer
 
-  - id: certificateSubject
-    label: certificate subject
-    domain: A1
+  - id: person
+    label: person
+    domain: A1Certificate
     range: Person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject
 
@@ -831,7 +831,7 @@ property:
   - id: employer
     label: employer
     domain: 
-      - A1  
+      - A1Certificate
       - PostedWorkerNotification
     range: EconomicOperator
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/employer
@@ -870,7 +870,7 @@ property:
 
   - id: fullPeriodCovered
     label: full period covered
-    domain: A1
+    domain: A1Certificate
     range: xsd:boolean
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullperiodcovered
 
@@ -1095,7 +1095,7 @@ property:
 
   - id: noFixedPlaceOfWork
     label: no fixed place of work
-    domain: A1
+    domain: A1Certificate
     range: xsd:boolean
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork
     comment: Indicates that no fixed address or fixed place of work exists for the work or self-employment activity covered by the A1 certificate.
@@ -1157,7 +1157,7 @@ property:
   - id: placeOfWork
     label: place of work
     domain:
-      - A1
+      - A1Certificate
       - WorkAssignment
     range:
       - Address
@@ -1209,7 +1209,7 @@ property:
 
   - id: provisionalDetermination
     label: provisionalDetermination
-    domain: A1
+    domain: A1Certificate
     range: xsd:boolean
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination
 
@@ -1267,7 +1267,7 @@ property:
 
   - id: statusConfirmation
     label: status confirmation
-    domain: A1
+    domain: A1Certificate
     range: xsd:boolean
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statusconfirmation
 
@@ -1311,7 +1311,7 @@ property:
 
   - id: transitionalRules
     label: transitional rules
-    domain: A1
+    domain: A1Certificate
     range: xsd:boolean
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transitionalrules
 
