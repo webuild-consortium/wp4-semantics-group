@@ -621,6 +621,7 @@ class:
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
 
   - id: SocialSecurityContributionAttestation
+    upper_value: cred:CredentialSubject
     label: Social Security Contribution Attestation
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialsecuritycontribution
     comment: A social security contribution attestation is an attestation issued by a competent authority or authorized body confirming information about an employer’s fulfilment of obligations related to social security contributions arising from the employment of workers.
@@ -705,10 +706,11 @@ property:
 
   - id: amount
     label: amount
+    comment: Indicates the numeric value of an amount. In the context of MonetaryAmount, this property represents the monetary value expressed in the associated currency; in other contexts, it may be used for other quantifiable amounts where the applicable unit or meaning is provided by the surrounding class or additional properties.
     domain: 
       - Capital
       - MonetaryAmount
-    range: xsd:float
+    range: xsd:decimal
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
 
   - id: assignment
@@ -953,6 +955,7 @@ property:
 
   - id: hasSite
     label: has site
+    comment: Indicates a site, establishment, local unit, branch, workplace, or comparable operational location of the liable employer that falls within the scope of the social security contribution attestation.
     domain: SocialSecurityContributionAttestation
     range: Site
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/site
