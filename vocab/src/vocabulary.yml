@@ -724,6 +724,13 @@ property:
     one_of: [ QEAA, Pub-EAA, EAA ]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
+  - id: averagePeriodWorkforce
+    label: average period workforce
+    comment: Indicates the average number of employed persons associated with the employer during the reporting period covered by a social security contribution attestation.
+    domain: SocialSecurityContributionAttestation
+    range: xsd:decimal
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/averageperiodworkforce
+
   - id: birthName
     label: birth name
     domain: Person
@@ -1316,13 +1323,6 @@ property:
     domain: EconomicOperator
     range: Person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialrepresentative
-
-  - id: staffAverage
-    label: staff average
-    comment: The average number of staff associated with the employer for the period or reference data used in a social security contribution attestation.
-    domain: SocialSecurityContribution
-    range: xsd:integer
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/staffaverage
 
   - id: startDate
     label: start date of period of time
