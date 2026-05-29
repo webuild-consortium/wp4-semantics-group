@@ -799,6 +799,13 @@ property:
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath
 
+  - id: coverageStatement
+    label: coverage statement
+    comment: Provides a human-readable statement describing the establishments, sites, obligations, regimes, or reporting scope covered by the attestation.
+    domain: SocialSecurityContributionAttestation
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/coveragestatement
+
   - id: coveredObligationType
     label: covered obligation type
     comment: Indicates the type of social security, employment-related contribution, reporting, or payment obligation covered by the attestation.
@@ -1125,7 +1132,7 @@ property:
 
   - id: liableEmployer
     label: liable employer
-    comment: The economic operator that is the employer subject of a social security contribution attestation.
+    comment: Indicates the economic operator whose social security contribution, employment-related reporting, or payment obligations are the subject of the attestation.
     domain: SocialSecurityContributionAttestation
     range: EconomicOperator
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liableemployer
@@ -1393,7 +1400,7 @@ property:
 
   - id: totalPayroll
     label: total payroll
-    comment: The total payroll amount associated with the employer for the reference period used in a social security contribution attestation.
+    comment: Indicates the total gross payroll, wage sum, or declared remuneration amount associated with the liable employer for the reporting period covered by the social security contribution attestation.
     domain: SocialSecurityContributionAttestation
     range: MonetaryAmount
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/totalpayroll
