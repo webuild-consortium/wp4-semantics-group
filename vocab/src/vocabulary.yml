@@ -620,8 +620,8 @@ class:
     label: Scope Of Authorization
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
 
-  - id: SocialSecurityContribution
-    label: Social Security Contribution
+  - id: SocialSecurityContributionAttestation
+    label: Social Security Contribution Attestation
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialsecuritycontribution
     comment: A social security contribution attestation is an attestation issued by a competent authority or authorized body confirming information about an employer’s fulfilment of obligations related to social security contributions arising from the employment of workers.
 
@@ -748,12 +748,12 @@ property:
     range: CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
 
-  - id: contributer
-    label: contributer
-    comment: The economic operator that is the employer subject of a social security contribution attestation.
-    domain: SocialSecurityContribution
-    range: EconomicOperator
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contributer
+  - id: complianceStatus
+    label: compliance status
+    comment: Indicates the assessed status of the subject's fulfilment of the obligations covered by the attestation at the relevant reference date or period.
+    domain: SocialSecurityContributionAttestation
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/compliancestatus
 
   - id: constructionSector
     label: construction sector
@@ -789,6 +789,13 @@ property:
     domain: Person
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath
+
+  - id: coveredObligationType
+    label: covered obligation type
+    comment: Indicates the type of social security, employment-related contribution, reporting, or payment obligation covered by the attestation.
+    domain: SocialSecurityContributionAttestation
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/coveredobligationtype
 
   - id: currency
     label: currency
@@ -997,6 +1004,13 @@ property:
       - CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
 
+  - id: legalBasis
+    label: legal basis
+    comment: Indicates the legal provision, regulatory framework, or authoritative legal reference under which the attestation is issued or the covered obligation is defined.
+    domain: SocialSecurityContributionAttestation
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalbasis
+
   - id: legalEntity
     label: legal entity as registered at lei issuer
     domain: LegalEntityIdentifier
@@ -1098,6 +1112,13 @@ property:
     domain: LimitedPartner
     range: Capital
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution
+
+  - id: liableEmployer
+    label: liable employer
+    comment: The economic operator that is the employer subject of a social security contribution attestation.
+    domain: SocialSecurityContribution
+    range: EconomicOperator
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liableemployer
 
   - id: locatorDesignator
     label: locator designator
@@ -1387,6 +1408,13 @@ property:
     range: TypeOfEmployment
     one_of: [Permanent, Temporary]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
+
+  - id: validAsOfDate
+    label: valid as of date
+    comment: Indicates the date on which the status, facts, or fulfilment of obligations stated in the attestation were assessed or considered valid.
+    domain: SocialSecurityContributionAttestation
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/validasofdate
 
 individual:   # code lists
   - id: Alone
