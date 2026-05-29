@@ -2,6 +2,7 @@
     "@context": {
         "ebwv": "https://w3id.org/ebwv#",
         "schema": "https://schema.org/",
+        "time": "http://www.w3.org/2006/time#",
         "jsonld": "http://www.w3.org/ns/json-ld#",
         "cred": "https://w3.org/2018/credentials#",
         "dc": "http://purl.org/dc/terms/",
@@ -77,7 +78,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-05-26",
+    "dc:date": "2026-05-29",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -189,7 +190,10 @@
     }, {
         "@id": "ebwv:amount",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Capital",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:Capital", "ebwv:MonetaryAmount"]
+        },
         "rdfs:range": "xsd:float",
         "rdfs:label": "amount",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/amount",
@@ -274,6 +278,22 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:contributer",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:SocialSecurityContribution",
+        "rdfs:range": "ebwv:EconomicOperator",
+        "rdfs:label": "contributer",
+        "rdfs:comment": {
+            "@value": "<div>The economic operator that is the employer subject of a social security contribution attestation.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/contributer",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:constructionSector",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:EconomicOperator",
@@ -344,7 +364,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Capital", "ebwv:PaymentTerms"]
+            "owl:unionOf": ["ebwv:Capital", "ebwv:MonetaryAmount", "ebwv:PaymentTerms"]
         },
         "rdfs:range": "ebwv:Currency",
         "rdfs:label": "currency",
@@ -424,7 +444,7 @@
         "@id": "ebwv:paymentDue",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:PaymentTerms",
-        "rdfs:range": "xsd:duration",
+        "rdfs:range": ["xsd:duration", "time:TemporalDuration"],
         "rdfs:label": "due period of payment",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue",
         "vs:term_status": "stable",
@@ -439,6 +459,18 @@
         "rdfs:range": "ebwv:PeriodOfTime",
         "rdfs:label": "duration",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/duration",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:employee",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:EconomicOperator",
+        "rdfs:range": "ebwv:Person",
+        "rdfs:label": "employee",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/employee",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -598,6 +630,18 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:hasSite",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:SocialSecurityContribution",
+        "rdfs:range": "ebwv:Site",
+        "rdfs:label": "has site",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/site",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:hasTelephone",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:ContactPoint",
@@ -638,11 +682,11 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:EconomicOperator", "ebwv:VATRegistrationUnit"]
+            "owl:unionOf": ["ebwv:EconomicOperator", "ebwv:Site", "ebwv:VATRegistrationUnit"]
         },
         "rdfs:range": {
             "@type": "ows:Class",
-            "owl:unionOf": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Eori", "ebwv:Excise", "ebwv:Iban", "ebwv:Lei", "ebwv:Tin", "ebwv:VatId", "ebwv:PeppolId"]
+            "owl:unionOf": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Eori", "ebwv:Excise", "ebwv:Iban", "ebwv:Lei", "ebwv:PeppolId", "ebwv:Tin", "ebwv:VatId"]
         },
         "rdfs:label": "identifier",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier",
@@ -1158,6 +1202,18 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:reportingMonth",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:SocialSecurityContribution",
+        "rdfs:range": "xsd:date",
+        "rdfs:label": "reporting Month",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingmonth",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:residency",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Person",
@@ -1209,6 +1265,22 @@
         "rdfs:range": "ebwv:Person",
         "rdfs:label": "social representative",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/socialrepresentative",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:staffAverage",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:SocialSecurityContribution",
+        "rdfs:range": "xsd:integer",
+        "rdfs:label": "staff average",
+        "rdfs:comment": {
+            "@value": "<div>The average number of staff associated with the employer for the period or reference data used in a social security contribution attestation.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/staffaverage",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1324,6 +1396,22 @@
         "rdfs:range": "xsd:string",
         "rdfs:label": "thoroughfare",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:totalPayroll",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:SocialSecurityContribution",
+        "rdfs:range": "ebwv:MonetaryAmount",
+        "rdfs:label": "total payroll",
+        "rdfs:comment": {
+            "@value": "<div>The total payroll amount associated with the employer for the reference period used in a social security contribution attestation.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/totalpayroll",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1585,6 +1673,20 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:MonetaryAmount",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Monetary Amount",
+        "rdfs:comment": {
+            "@value": "<div>A structured representation of a sum of money, consisting at minimum of a numeric amount and the currency in which that amount is expressed. It is used in business attestations, credentials, invoices, payments, taxes, fees, capital, turnover, balances, and other economic or financial statements where the monetary value must be interpreted unambiguously across systems and jurisdictions.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/monetaryamount",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:NaturalPerson",
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["ebwv:LegalEntity", "cred:CredentialSubject"],
@@ -1661,10 +1763,38 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:Site",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Site",
+        "rdfs:comment": {
+            "@value": "<div>A site is a specific physical place where an organization, legal entity, economic operator, or other business actor carries out activities, performs functions, or maintains operational presence.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/site",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:ScopeOfAuthorization",
         "@type": "rdfs:Class",
         "rdfs:label": "Scope Of Authorization",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:SocialSecurityContribution",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Social Security Contribution",
+        "rdfs:comment": {
+            "@value": "<div>A social security contribution attestation is an attestation issued by a competent authority or authorized body confirming information about an employer’s fulfilment of obligations related to social security contributions arising from the employment of workers.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/socialsecuritycontribution",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
