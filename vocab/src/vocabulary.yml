@@ -358,6 +358,11 @@ class:
     label: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/location
 
+  - id: MonetaryAmount
+    label: Monetary Amount
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/monetaryamount
+    comment: A structured representation of a sum of money, consisting at minimum of a numeric amount and the currency in which that amount is expressed. It is used in business attestations, credentials, invoices, payments, taxes, fees, capital, turnover, balances, and other economic or financial statements where the monetary value must be interpreted unambiguously across systems and jurisdictions.
+
   - id: NaturalPerson
     label: Natural Person Identification Data
     upper_value:
