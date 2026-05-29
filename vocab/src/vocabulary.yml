@@ -611,9 +611,18 @@ class:
     comment: Registration Meta Data of LEI provided and maintained by LEI issuer
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registration
 
+  - id: Site
+    label: Site
+    comment: A site is a specific physical place where an organization, legal entity, economic operator, or other business actor carries out activities, performs functions, or maintains operational presence.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/site
+
   - id: ScopeOfAuthorization
     label: Scope Of Authorization
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
+
+  - id: SocialSecurityContribution
+    label: Social Security Contribution
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialsecuritycontribution
 
   - id: StatutoryPartner
     label: Statutory Partner
@@ -695,7 +704,9 @@ property:
 
   - id: amount
     label: amount
-    domain: Capital
+    domain: 
+      - Capital
+      - MonetaryAmount
     range: xsd:float
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
 
@@ -736,6 +747,12 @@ property:
     range: CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
 
+  - id: contributer
+    label: contributer
+    domain: SocialSecurityContribution
+    range: EconomicOperator
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contributer
+
   - id: constructionSector
     label: construction sector
     domain: EconomicOperator
@@ -775,6 +792,7 @@ property:
     label: currency
     domain: 
       - Capital
+      - MonetaryAmount
       - PaymentTerms
     range: Currency
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/currency
@@ -910,6 +928,12 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
 
+  - id: hasSite
+    label: has site
+    domain: SocialSecurityContribution
+    range: Site
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/site
+
   - id: hasTelephone
     label: telephone
     domain: ContactPoint
@@ -932,6 +956,7 @@ property:
     label: identifier
     domain: 
       - EconomicOperator
+      - Site
       - VATRegistrationUnit
     range:
       - Bic
@@ -940,9 +965,9 @@ property:
       - Excise
       - Iban
       - Lei
-      - Tin
-      - VatId
       - PeppolId
+      - Tin
+      - VatId      
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
 
@@ -1226,6 +1251,12 @@ property:
     range: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
     comment: Officially registered address of a company, legal entity or economic operator.
+
+  - id: reportingMonth
+    label: reporting Month
+    domain: SocialSecurityContribution
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingmonth
     
   - id: residency
     label: residency
@@ -1255,6 +1286,12 @@ property:
     domain: EconomicOperator
     range: Person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialrepresentative
+
+  - id: staffAverage
+    label: staff average
+    domain: SocialSecurityContribution
+    range: xsd:integer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/staffaverage
 
   - id: startDate
     label: start date of period of time
@@ -1312,6 +1349,12 @@ property:
     domain: Address
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
+
+  - id: totalPayroll
+    label: total payroll
+    domain: SocialSecurityContribution
+    range: MonetaryAmount
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/totalpayroll
 
   - id: transitionalRules
     label: transitional rules
