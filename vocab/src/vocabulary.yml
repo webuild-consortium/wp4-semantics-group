@@ -7,6 +7,9 @@ prefix:
   - id: schema
     value: https://schema.org/
 
+  - id: time
+    value: http://www.w3.org/2006/time#
+
   - id: jsonld
     value: http://www.w3.org/ns/json-ld#
 
@@ -843,7 +846,9 @@ property:
   - id: paymentDue
     label: due period of payment
     domain: PaymentTerms
-    range: xsd:duration
+    range:
+     - xsd:duration
+     - time:TemporalDuration
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue
 
   - id: duration
