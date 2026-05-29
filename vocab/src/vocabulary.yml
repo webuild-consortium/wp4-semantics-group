@@ -953,7 +953,7 @@ property:
 
   - id: hasSite
     label: has site
-    domain: SocialSecurityContribution
+    domain: SocialSecurityContributionAttestation
     range: Site
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/site
 
@@ -1123,7 +1123,7 @@ property:
   - id: liableEmployer
     label: liable employer
     comment: The economic operator that is the employer subject of a social security contribution attestation.
-    domain: SocialSecurityContribution
+    domain: SocialSecurityContributionAttestation
     range: EconomicOperator
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liableemployer
 
@@ -1291,10 +1291,17 @@ property:
 
   - id: reportingMonth
     label: reporting Month
-    domain: SocialSecurityContribution
+    domain: SocialSecurityContributionAttestation
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingmonth
-    
+
+  - id: reportingPeriod
+    label: reporting period
+    comment: Indicates the period to which the declarations, payroll amount, workforce figure, or other reported social security contribution data in the attestation relate.
+    domain: SocialSecurityContributionAttestation
+    range: PeriodOfTime
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingperiod
+      
   - id: residency
     label: residency
     domain: Person
@@ -1384,7 +1391,7 @@ property:
   - id: totalPayroll
     label: total payroll
     comment: The total payroll amount associated with the employer for the reference period used in a social security contribution attestation.
-    domain: SocialSecurityContribution
+    domain: SocialSecurityContributionAttestation
     range: MonetaryAmount
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/totalpayroll
 
