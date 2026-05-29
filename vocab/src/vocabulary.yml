@@ -827,6 +827,13 @@ property:
     range: PeriodOfTime
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/duration
 
+  - id: employee
+    label: employee
+    domain: 
+      - EconomicOperator
+    range: Person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/employee
+
   - id: employer
     label: employer
     domain: 
