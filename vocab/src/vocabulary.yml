@@ -750,6 +750,7 @@ property:
 
   - id: contributer
     label: contributer
+    comment: The economic operator that is the employer subject of a social security contribution attestation.
     domain: SocialSecurityContribution
     range: EconomicOperator
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contributer
@@ -1290,6 +1291,7 @@ property:
 
   - id: staffAverage
     label: staff average
+    comment: The average number of staff associated with the employer for the period or reference data used in a social security contribution attestation.
     domain: SocialSecurityContribution
     range: xsd:integer
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/staffaverage
@@ -1353,6 +1355,7 @@ property:
 
   - id: totalPayroll
     label: total payroll
+    comment: The total payroll amount associated with the employer for the reference period used in a social security contribution attestation.
     domain: SocialSecurityContribution
     range: MonetaryAmount
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/totalpayroll
