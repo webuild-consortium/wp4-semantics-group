@@ -623,6 +623,7 @@ class:
   - id: SocialSecurityContribution
     label: Social Security Contribution
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialsecuritycontribution
+    comment: A social security contribution attestation is an attestation issued by a competent authority or authorized body confirming information about an employer’s fulfilment of obligations related to social security contributions arising from the employment of workers.
 
   - id: StatutoryPartner
     label: Statutory Partner
