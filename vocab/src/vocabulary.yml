@@ -498,12 +498,6 @@ property:
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivallocation
 
-  - id: arrivalTime
-    label: arrival time
-    domain: TransportEvent
-    range: xsd:dateTime
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaltime
-
   - id: attestationLegalCategory
     label: attestation legal category
     domain: ElectronicAttestationOfAttributes
@@ -580,12 +574,6 @@ property:
     domain: TransportEvent
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/departurelocation
-
-  - id: departureTime
-    label: departure time
-    domain: TransportEvent
-    range: xsd:dateTime
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/departuretime
 
   - id: domicile
     label: domicile
@@ -869,6 +857,18 @@ property:
       - StatutoryPartner
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
+
+  - id: scheduledArrivalTime
+    label: scheduled arrival time
+    domain: TransportEvent
+    range: xsd:dateTime
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scheduledarrivaltime
+
+  - id: scheduledDepartureTime
+    label: scheduled departure time
+    domain: TransportEvent
+    range: xsd:dateTime
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scheduleddeparturetime
 
   - id: scopeOfAuthorization
     label: scope of authorization (alone or jointly)
