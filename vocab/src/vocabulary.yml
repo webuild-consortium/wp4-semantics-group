@@ -583,14 +583,14 @@ class:
                   "endDate": "2020-06-30"
                 }
               },
-              "a1": "urn:uuid:35b7bf25-0629-48d0-8269-20eac38dd2d7" 
+              "a1": "urn:uuid:35b7bf25-0629-48d0-8269-20eac38dd2d7",
               "employer": {
                 "@type" : "EconomicOperator",
                 "legalIdentifier": {
                   "@type" : "Euid",
                   "@value" : "NOFOR.987654321"
                 },
-                "legalName": "acme Corporation"
+                "legalName": "acme Corporation",
                 "temporaryWorkAgency": false
               },
               "hostEntity": {
