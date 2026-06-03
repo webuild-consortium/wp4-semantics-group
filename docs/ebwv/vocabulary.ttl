@@ -1,6 +1,7 @@
 @prefix ebwv: <https://w3id.org/ebwv#> .
 @prefix schema: <https://schema.org/> .
 @prefix time: <http://www.w3.org/2006/time#> .
+@prefix jsonld: <http://www.w3.org/ns/json-ld#> .
 @prefix cred: <https://w3.org/2018/credentials#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -14,7 +15,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-05-29"^^xsd:date ;
+    dc:date "2026-06-03"^^xsd:date ;
 .
 
 # Property definitions
