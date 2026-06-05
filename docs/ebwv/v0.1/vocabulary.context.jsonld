@@ -147,6 +147,10 @@
                     "@id": "https://w3id.org/ebwv#dateOfRegistration",
                     "@type": "http://www.w3.org/2001/XMLSchema#date"
                 },
+                "endDate": {
+                    "@id": "https://w3id.org/ebwv#endDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
                 "jurisdiction": {
                     "@id": "https://w3id.org/ebwv#jurisdiction",
                     "@type": "https://w3id.org/ebwv#CountryCode"

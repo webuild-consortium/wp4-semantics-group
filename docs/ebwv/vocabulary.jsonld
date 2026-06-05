@@ -78,7 +78,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-06-03",
+    "dc:date": "2026-06-05",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -494,7 +494,10 @@
     }, {
         "@id": "ebwv:endDate",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:PeriodOfTime",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:PeriodOfTime", "ebwv:Company"]
+        },
         "rdfs:range": "xsd:date",
         "rdfs:label": "end date of period of time",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/endDate",
@@ -1644,8 +1647,8 @@
     }, {
         "@id": "ebwv:LimitedLiabilityCompany",
         "@type": "rdfs:Class",
-        "rdfs:subClassOf": ["ebwv:Company", "cred:CredentialSubject"],
-        "rdfs:label": "European Company Certificate Data for limited liability companies",
+        "rdfs:subClassOf": ["ebwv:Company"],
+        "rdfs:label": "limited liability company",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedliabilitycompany",
         "vs:term_status": "stable",
         "mentioned": [{
@@ -1700,8 +1703,8 @@
     }, {
         "@id": "ebwv:Partnership",
         "@type": "rdfs:Class",
-        "rdfs:subClassOf": ["ebwv:Company", "cred:CredentialSubject"],
-        "rdfs:label": "European Company Certificate Data for partnerships",
+        "rdfs:subClassOf": ["ebwv:Company"],
+        "rdfs:label": "partnership",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/partnership",
         "vs:term_status": "stable",
         "mentioned": [{

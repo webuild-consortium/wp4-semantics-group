@@ -15,7 +15,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-06-03"^^xsd:date ;
+    dc:date "2026-06-05"^^xsd:date ;
 .
 
 # Property definitions
@@ -277,7 +277,7 @@ ebwv:employer a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:endDate a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:PeriodOfTime ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:PeriodOfTime ebwv:Company) ] ;
     rdfs:range xsd:date ;
     rdfs:label "end date of period of time" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/endDate>, <https://w3id.org/ebwv#> ;
@@ -972,8 +972,8 @@ ebwv:LegalRepresentative a rdfs:Class ;
 .
 
 ebwv:LimitedLiabilityCompany a rdfs:Class ;
-    rdfs:subClassOf ebwv:Company, cred:CredentialSubject ;
-    rdfs:label "European Company Certificate Data for limited liability companies" ;
+    rdfs:subClassOf ebwv:Company ;
+    rdfs:label "limited liability company" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedliabilitycompany>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -1005,8 +1005,8 @@ ebwv:NaturalPerson a rdfs:Class ;
 .
 
 ebwv:Partnership a rdfs:Class ;
-    rdfs:subClassOf ebwv:Company, cred:CredentialSubject ;
-    rdfs:label "European Company Certificate Data for partnerships" ;
+    rdfs:subClassOf ebwv:Company ;
+    rdfs:label "partnership" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/partnership>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .

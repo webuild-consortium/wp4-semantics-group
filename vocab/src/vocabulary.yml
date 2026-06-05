@@ -158,7 +158,9 @@ class:
                   "@type": "PeppolId",
                   "@value": "0199:5493001KJTIIGC8Y1R12"
                 }
-              ]
+              ],
+              "dateOfRegistration" : "2018-12-03",
+              "endDate" : "2020-12-02",
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
@@ -273,10 +275,8 @@ class:
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
 
   - id: LimitedLiabilityCompany
-    label: European Company Certificate Data for limited liability companies
-    upper_value:
-      - Company
-      - cred:CredentialSubject
+    label: limited liability company
+    upper_value: Company
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedliabilitycompany
     example:
       - label: Credential with credential subject of type LimitedLiabilityCompany
@@ -391,7 +391,7 @@ class:
               "@type": "NaturalPerson",
               "givenName": "Mario",
               "familyName": "Mustermann",
-              "dateOfBirth": "12/01/1965"
+              "dateOfBirth": "1965-12-01"
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
@@ -399,10 +399,8 @@ class:
           }
 
   - id: Partnership
-    label: European Company Certificate Data for partnerships
-    upper_value:
-      - Company
-      - cred:CredentialSubject
+    label: partnership
+    upper_value: Company
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnership
     example:
       - label: Credential with credential subject of type Partnership
@@ -874,7 +872,9 @@ property:
 
   - id: endDate
     label: end date of period of time
-    domain: PeriodOfTime
+    domain:
+      - PeriodOfTime
+      - Company
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/endDate
 

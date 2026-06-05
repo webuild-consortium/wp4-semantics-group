@@ -135,7 +135,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-06-03</time>
+                <time property="dc:date" id="time">2026-06-05</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -936,7 +936,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/endDate">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#PeriodOfTime"><code>PeriodOfTime</code></a></dd>
+                    <dd><a href="#PeriodOfTime"><code>PeriodOfTime</code></a> ⊔&nbsp;<a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><code>xsd:date</code></dd>
                 </dl>
@@ -2176,7 +2176,7 @@
                     <dt>Domain of:</dt>
                     <dd><a href="#activity"><code>activity</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#legalForm"><code>legalForm</code></a>, <a href="#legalStatus"><code>legalStatus</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
+                    <dd><a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#endDate"><code>endDate</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#legalForm"><code>legalForm</code></a>, <a href="#legalStatus"><code>legalStatus</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2248,7 +2248,9 @@
         "@type": "PeppolId",
         "@value": "0199:5493001KJTIIGC8Y1R12"
       }
-    ]
+    ],
+    "dateOfRegistration" : "2018-12-03",
+    "endDate" : "2020-12-02",
   },
   "validUntil": "2029-12-03T12:19:52Z",
   "validFrom": "2019-12-03T12:19:52Z",
@@ -2488,11 +2490,11 @@
             </section>
             <section id="LimitedLiabilityCompany">
                 <h4><code>LimitedLiabilityCompany</code></h4>
-                <p><em>European Company Certificate Data for limited liability companies</em></p>
+                <p><em>limited liability company</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedliabilitycompany">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Subclass of:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊓&nbsp;<a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Domain of:</dt>
@@ -2659,7 +2661,7 @@
     "@type": "NaturalPerson",
     "givenName": "Mario",
     "familyName": "Mustermann",
-    "dateOfBirth": "12/01/1965"
+    "dateOfBirth": "1965-12-01"
   },
   "validUntil": "2029-12-03T12:19:52Z",
   "validFrom": "2019-12-03T12:19:52Z",
@@ -2669,11 +2671,11 @@
             </section>
             <section id="Partnership">
                 <h4><code>Partnership</code></h4>
-                <p><em>European Company Certificate Data for partnerships</em></p>
+                <p><em>partnership</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/partnership">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Subclass of:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊓&nbsp;<a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Domain of:</dt>
@@ -2753,7 +2755,9 @@
                     <dt>Range of:</dt>
                     <dd><a href="#duration"><code>duration</code></a></dd>
                     <dt>Domain of:</dt>
-                    <dd><a href="#endDate"><code>endDate</code></a>, <a href="#startDate"><code>startDate</code></a></dd>
+                    <dd><a href="#startDate"><code>startDate</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#endDate"><code>endDate</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
