@@ -1037,7 +1037,10 @@ property:
       - LegalPerson
       - EconomicOperator
       - LegalEntity
-    range: xsd:string
+    range:
+      - xsd:string
+      - rdf:langString
+    range_union: true
     comment: the name under which the legal entity is registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
 
