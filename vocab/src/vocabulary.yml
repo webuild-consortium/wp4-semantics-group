@@ -981,7 +981,9 @@ property:
       - Lei
       - PeppolId
       - Tin
-      - VatId      
+      - VatId
+      - xsd:anyURI
+      - xsd:string
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
 

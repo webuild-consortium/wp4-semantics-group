@@ -78,7 +78,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-06-05",
+    "dc:date": "2026-06-08",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -689,7 +689,7 @@
         },
         "rdfs:range": {
             "@type": "ows:Class",
-            "owl:unionOf": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Eori", "ebwv:Excise", "ebwv:Iban", "ebwv:Lei", "ebwv:PeppolId", "ebwv:Tin", "ebwv:VatId"]
+            "owl:unionOf": ["ebwv:Bic", "ebwv:ClearingNumber", "ebwv:Eori", "ebwv:Excise", "ebwv:Iban", "ebwv:Lei", "ebwv:PeppolId", "ebwv:Tin", "ebwv:VatId", "xsd:anyURI", "xsd:string"]
         },
         "rdfs:label": "identifier",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier",

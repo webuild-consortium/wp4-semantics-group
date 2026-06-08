@@ -15,7 +15,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-06-05"^^xsd:date ;
+    dc:date "2026-06-08"^^xsd:date ;
 .
 
 # Property definitions
@@ -398,7 +398,7 @@ ebwv:iban a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:identifier a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EconomicOperator ebwv:Site ebwv:VATRegistrationUnit) ] ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:Bic ebwv:ClearingNumber ebwv:Eori ebwv:Excise ebwv:Iban ebwv:Lei ebwv:PeppolId ebwv:Tin ebwv:VatId) ] ;
+    rdfs:range [ a owl:Class; owl:unionOf (ebwv:Bic ebwv:ClearingNumber ebwv:Eori ebwv:Excise ebwv:Iban ebwv:Lei ebwv:PeppolId ebwv:Tin ebwv:VatId xsd:anyURI xsd:string) ] ;
     rdfs:label "identifier" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
