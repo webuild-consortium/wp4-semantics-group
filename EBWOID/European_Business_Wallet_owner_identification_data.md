@@ -9,7 +9,7 @@ This iteration is based on:
 Other sources are yet to be incorporated.
 
 
-<img width="330" height="330" alt="funnel" src="../img/FunnelEBWOID_01.jpg" />
+<img width="330" height="330" alt="funnel" src="../img/FunnelEBWOID_02.jpg" />
 
 Input: Proposal for a Regulation on the establishment of European Business Wallets.
 
