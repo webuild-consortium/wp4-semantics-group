@@ -5,6 +5,7 @@ Purpose: Capture the story and high-level purpose of the use case of the Europea
 This iteration is based on:
 
 - [Proposal for a Regulation on the establishment of European Business Wallets](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets)
+- [LPID Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb001-legal-person-identification-data.md)
 
 Other sources are yet to be incorporated.
 
