@@ -1,8 +1,17 @@
-# Semantic intake template
-
 # Use Case Overview of EBWOID
 
 Purpose: Capture the story and high-level purpose of the use case of the European Business Wallet Owner ID.
+
+This iteration is based on:
+
+- [Proposal for a Regulation on the establishment of European Business Wallets](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets)
+
+Other sources are yet to be incorporated.
+
+
+<img width="330" height="330" alt="funnel" src="Funnel_01.jpg" />
+
+Input: Proposal for a Regulation on the establishment of European Business Wallets.
 
 ## Storyline
 
@@ -66,22 +75,25 @@ Purpose: Map the flow of actions, data, and interactions between entities.
 |--|--|--|
 |  |  |  |
 
-Trigger Event: What initiates the workflow?
+Trigger Event: The workflow is initiated by the identification of an economic operator through authentic sources, such as official national business registries
+. This occurs specifically when a business begins the onboarding process to initiate their European Business Wallet
 
-Post-condition: What is the result of the workflow?
-
-See Figure 2 for a simplified overview.
+Post-condition: The result is the creation of a verified EBWOID attestation (typically an Electronic Attestation of Attributes) that is integrated into the EUBW
+. This provides the economic operator with a "digital-by-default" identity that acts as the trusted foundation for managing further credentials 
 
 Notable Interactions / Dependencies: 
+ - Registry Interconnection: For limited liability companies, the protocol depends on retrieving the EUID from the Business Registers.
+ - Legal Framework: The attestation must be issued following the legal and technical requirements of the eIDAS Regulation to ensure it is secure, interoperable, and carries full legal effect.
+ - Identifier Attribution: For entities currently lacking a EUID in some member states, such as sole traders or public sector bodies, the protocol depends on the framework’s ability to attribute a new unique identifier to them.
+ - Wallet Interoperability: The protocol relies on seamless interoperability between the EUBW and the EU Digital Identity Wallets for natural persons, which ensures a user-friendly experience during the exchange of identification data.
+
+ This process has no impact on the EBWOID information model.
 
 # Life Cycle of the Attestation
 
 Purpose: Capture how the attestation evolves over time.
 
-| Stage | Description |
-|--|--|
-|  |  |
-
+The lifecycle has no impact on the EBWOID information model.
 # Requirements and Constraints
 
 Purpose: Capture explicit and implicit technical or policy requirements.
