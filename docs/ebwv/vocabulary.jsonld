@@ -78,7 +78,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-06-08",
+    "dc:date": "2026-06-11",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -1449,7 +1449,7 @@
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:A1", "ebwv:PostedWorkerNotification"]
+            "owl:unionOf": ["ebwv:A1Certificate", "ebwv:PostedWorkerNotification"]
         },
         "rdfs:range": ["ebwv:TypeOfEmployment", {
             "@type": "owl:class",

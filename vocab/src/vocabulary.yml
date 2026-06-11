@@ -1389,7 +1389,7 @@ property:
   - id: typeOfEmployment
     label: type of employment
     domain: 
-      - A1
+      - A1Certificate
       - PostedWorkerNotification
     range: TypeOfEmployment
     one_of: [Permanent, Temporary]
