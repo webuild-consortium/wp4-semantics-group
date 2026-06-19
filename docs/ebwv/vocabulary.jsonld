@@ -78,12 +78,12 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-06-11",
+    "dc:date": "2026-06-19",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:PostedWorkerNotification",
-        "rdfs:range": "xsd:anyUri",
+        "rdfs:range": "xsd:anyURI",
         "rdfs:label": "a1 certificate",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/a1",
         "vs:term_status": "stable",
@@ -278,16 +278,16 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:contributer",
+        "@id": "ebwv:contributor",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:SocialSecurityContribution",
         "rdfs:range": "ebwv:EconomicOperator",
-        "rdfs:label": "contributer",
+        "rdfs:label": "contributor",
         "rdfs:comment": {
             "@value": "<div>The economic operator that is the employer subject of a social security contribution attestation.</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/contributer",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/contributor",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1045,7 +1045,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Person",
         "rdfs:range": "xsd:string",
-        "rdfs:label": "personalAdministrativeNumber",
+        "rdfs:label": "personal administrative number",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber",
         "vs:term_status": "stable",
         "mentioned": [{
@@ -1166,7 +1166,7 @@
             "@type": "ows:Class",
             "owl:unionOf": ["ebwv:LegalPerson", "ebwv:EconomicOperator"]
         },
-        "rdfs:label": "provide",
+        "rdfs:label": "provider",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/provider",
         "vs:term_status": "stable",
         "mentioned": [{
@@ -1178,7 +1178,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:A1Certificate",
         "rdfs:range": "xsd:boolean",
-        "rdfs:label": "provisionalDetermination",
+        "rdfs:label": "provisional determination",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination",
         "vs:term_status": "stable",
         "mentioned": [{
@@ -1209,7 +1209,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:SocialSecurityContribution",
         "rdfs:range": "xsd:date",
-        "rdfs:label": "reporting Month",
+        "rdfs:label": "reporting month",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingmonth",
         "vs:term_status": "stable",
         "mentioned": [{

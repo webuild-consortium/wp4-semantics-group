@@ -651,7 +651,7 @@ property:
   - id: a1
     label: a1 certificate
     domain: PostedWorkerNotification
-    range: xsd:anyUri
+    range: xsd:anyURI
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/a1
 
   - id: accountName
@@ -749,12 +749,12 @@ property:
     range: CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
 
-  - id: contributer
-    label: contributer
+  - id: contributor
+    label: contributor
     comment: The economic operator that is the employer subject of a social security contribution attestation.
     domain: SocialSecurityContribution
     range: EconomicOperator
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contributer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contributor
 
   - id: constructionSector
     label: construction sector
@@ -1182,7 +1182,7 @@ property:
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
   
   - id: personalAdministrativeNumber
-    label: personalAdministrativeNumber
+    label: personal administrative number
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber
@@ -1244,7 +1244,7 @@ property:
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postname
 
   - id: provider
-    label: provide
+    label: provider
     domain: BankAccount
     range:
       - LegalPerson
@@ -1253,7 +1253,7 @@ property:
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provider
 
   - id: provisionalDetermination
-    label: provisionalDetermination
+    label: provisional determination
     domain: A1Certificate
     range: xsd:boolean
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination
@@ -1269,7 +1269,7 @@ property:
     comment: Officially registered address of a company, legal entity or economic operator.
 
   - id: reportingMonth
-    label: reporting Month
+    label: reporting month
     domain: SocialSecurityContribution
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingmonth

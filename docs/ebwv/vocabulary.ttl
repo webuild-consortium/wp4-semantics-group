@@ -15,13 +15,13 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-06-11"^^xsd:date ;
+    dc:date "2026-06-19"^^xsd:date ;
 .
 
 # Property definitions
 ebwv:a1 a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:PostedWorkerNotification ;
-    rdfs:range xsd:anyUri ;
+    rdfs:range xsd:anyURI ;
     rdfs:label "a1 certificate" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/a1>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -147,12 +147,12 @@ ebwv:citizenship a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:contributer a rdf:Property, owl:ObjectProperty ;
+ebwv:contributor a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:SocialSecurityContribution ;
     rdfs:range ebwv:EconomicOperator ;
-    rdfs:label "contributer" ;
+    rdfs:label "contributor" ;
     rdfs:comment """<div>The economic operator that is the employer subject of a social security contribution attestation.</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/contributer>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/contributor>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -610,7 +610,7 @@ ebwv:patronymicName a rdf:Property, owl:DatatypeProperty ;
 ebwv:personalAdministrativeNumber a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
-    rdfs:label "personalAdministrativeNumber" ;
+    rdfs:label "personal administrative number" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -683,7 +683,7 @@ ebwv:postName a rdf:Property, owl:DatatypeProperty ;
 ebwv:provider a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:BankAccount ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:LegalPerson ebwv:EconomicOperator) ] ;
-    rdfs:label "provide" ;
+    rdfs:label "provider" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/provider>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -691,7 +691,7 @@ ebwv:provider a rdf:Property, owl:ObjectProperty ;
 ebwv:provisionalDetermination a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:A1Certificate ;
     rdfs:range xsd:boolean ;
-    rdfs:label "provisionalDetermination" ;
+    rdfs:label "provisional determination" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -708,7 +708,7 @@ ebwv:registeredAddress a rdf:Property, owl:ObjectProperty ;
 ebwv:reportingMonth a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:SocialSecurityContribution ;
     rdfs:range xsd:date ;
-    rdfs:label "reporting Month" ;
+    rdfs:label "reporting month" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingmonth>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .

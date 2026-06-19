@@ -40,6 +40,15 @@
                 "transitionalRules": {
                     "@id": "https://w3id.org/ebwv#transitionalRules",
                     "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "typeOfEmployment": {
+                    "@id": "https://w3id.org/ebwv#typeOfEmployment",
+                    "@type": "@vocab",
+                    "@context": {
+                        "Permanent": "https://w3id.org/ebwv#Permanent",
+                        "Temporary": "https://w3id.org/ebwv#Temporary",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
                 }
             }
         },
@@ -592,7 +601,7 @@
                 "@protected": true,
                 "a1": {
                     "@id": "https://w3id.org/ebwv#a1",
-                    "@type": "http://www.w3.org/2001/XMLSchema#anyUri"
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
                 },
                 "assignment": {
                     "@id": "https://w3id.org/ebwv#assignment",
@@ -659,8 +668,8 @@
             "@id": "https://w3id.org/ebwv#SocialSecurityContribution",
             "@context": {
                 "@protected": true,
-                "contributer": {
-                    "@id": "https://w3id.org/ebwv#contributer",
+                "contributor": {
+                    "@id": "https://w3id.org/ebwv#contributor",
                     "@type": "@id"
                 },
                 "hasSite": {
