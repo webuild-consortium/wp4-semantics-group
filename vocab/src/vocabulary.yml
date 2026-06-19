@@ -14,7 +14,7 @@ prefix:
     value: http://www.w3.org/ns/json-ld#
 
   - id: cred
-    value: https://w3.org/2018/credentials#
+    value: https://www.w3.org/2018/credentials#
 
   - id: skos
     value: http://www.w3.org/2004/02/skos/core#
@@ -45,11 +45,13 @@ class:
 
   - id: AttestationLegalCategory
     label: Attestation Legal Category
+    comment: a categorization of electronic attestations of attributes into three primary types, each associated with a distinct level of assurance and legal effect
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
   - id: BankAccount
     label: Bank Account
     upper_value: cred:CredentialSubject
+    comment: an account held with a credit institution or payment service provider that enables a legal or natural person to receive, hold, and transfer funds
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount
     example:
       - label: Credential with credential subject of type BankAccount
@@ -169,6 +171,7 @@ class:
 
   - id: ContactPoint
     label: Contact Point
+    comment: a designated communication channel or organisational function through which an entity can be contacted for a specific purpose
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
 
   - id: cred:CredentialSubject
@@ -178,6 +181,7 @@ class:
 
   - id: EconomicOperator
     label: Economic Operator
+    comment: any natural or legal person, including but not limited to companies, partnerships, foundations, associations as well as sole-traders and self-employed persons or a group of such persons, acting in a commercial or professional capacity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/economicoperator
 
   - id: ElectronicAttestationOfAttributes
@@ -267,11 +271,12 @@ class:
 
   - id: LegalEntity
     label: Legal entity
-    comment: Legal Entity Data provided by LEI issuer
+    comment: an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: LegalRepresentative
     label: Legal representative
+    comment: a natural person or economic operator that has authority, under law, the company's statutes, a register entry or another recognised legal basis, to represent a company in dealings with third parties, authorities or courts
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
 
   - id: LimitedLiabilityCompany
@@ -518,6 +523,7 @@ class:
 
   - id: PostedWorkerNotification
     label: Posted Worker Notification
+    comment: a worker who is sent by an employer to perform work temporarily in a country other than the country in which the worker normally works
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker
     example:
       - label: Credential with credential subject of type PostedWorkerNotification
@@ -614,11 +620,12 @@ class:
 
   - id: Site
     label: Site
-    comment: A site is a specific physical place where an organization, legal entity, economic operator, or other business actor carries out activities, performs functions, or maintains operational presence.
+    comment: a place, premises or location at which an organisation is present or located
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/site
 
   - id: ScopeOfAuthorization
     label: Scope Of Authorization
+    comment: the actions, matters, transactions, roles or circumstances for which an agent is authorised to act on behalf of another person or entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
 
   - id: SocialSecurityContribution
@@ -632,6 +639,7 @@ class:
 
   - id: TypeOfEmployment
     label: Type Of Employment
+    comment: the category or form of an employment relationship, indicating how a worker is employed or engaged by an employer
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
 
   - id: VATRegistrationUnit
@@ -672,12 +680,14 @@ property:
       - Company
     range:
       - Nace21
+    comment: organised doing, operation or process carried out for a purpose or result
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
 
   - id: addressArea
     label: address area
     domain: Address
     range: xsd:string
+    comment: the name of a geographic area that groups addresses
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea
 
   - id: administrativeRepresentative
@@ -690,12 +700,14 @@ property:
     label: administrative unit level 2
     domain: Address
     range: xsd:string
+    comment: The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2
 
   - id: adminUnitL1
     label: administrative unit level 1
     domain: Address
     range: CountryCode
+    comment: the name of the uppermost level of the address, almost always a country
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1
 
   - id: alternativeName
@@ -716,6 +728,7 @@ property:
     label: assignment
     domain: PostedWorkerNotification
     range: WorkAssignment
+    comment: a formal allocation of a role, mandate, responsibility, task, right, or duty to an identified party or agent within a defined context
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/assignment
 
   - id: attestationLegalCategory
@@ -723,6 +736,7 @@ property:
     domain: ElectronicAttestationOfAttributes
     range: AttestationLegalCategory
     one_of: [ QEAA, Pub-EAA, EAA ]
+    comment: a categorization of electronic attestations of attributes into three primary types, each associated with a distinct level of assurance and legal effect
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
   - id: birthName
@@ -747,6 +761,7 @@ property:
     label: citizenship
     domain: Person
     range: CountryCode
+    comment: the legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
 
   - id: contributor
@@ -768,6 +783,7 @@ property:
       - Person
       - EconomicOperator
     range: ContactPoint
+    comment: a designated communication channel or organisational function through which an entity can be contacted for a specific purpose
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
 
   - id: correspondenceAddress
@@ -783,12 +799,14 @@ property:
     label: country of birth
     domain: Person
     range: Location
+    comment: the sovereign state within whose territory a person's birth was officially registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofbirth
 
   - id: countryOfDeath
     label: country of death
     domain: Person
     range: Location
+    comment: the sovereign state within whose territory a person's death was officially registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath
 
   - id: currency
@@ -798,6 +816,7 @@ property:
       - MonetaryAmount
       - PaymentTerms
     range: Currency
+    comment: a recognised monetary unit used to express prices, payments, liabilities, values, or other monetary amounts in a business, financial, administrative, or regulatory context
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/currency
 
   - id: dateOfBirth
@@ -806,12 +825,14 @@ property:
       -  Person
       -  NaturalPerson
     range: xsd:date
+    comment: the point in time on which the person was born
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth
 
   - id: dateOfDeath
     label: date of death
     domain: Person
     range: xsd:date
+    comment: the calendar date on which a person is recorded or attested as having died
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath
 
   - id: dateOfRegistration
@@ -820,6 +841,7 @@ property:
       - Company
       - LegalEntity
     range: xsd:date
+    comment: the date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
 
   - id: deliveryLocation
@@ -839,6 +861,7 @@ property:
     label: domicile
     domain: Person
     range: Address
+    comment: the address representing the place that a person treats as their permanent home, as recorded, declared, or attested in a given context
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile
 
   - id: paymentDue
@@ -853,6 +876,7 @@ property:
     label: duration
     domain: WorkAssignment
     range: PeriodOfTime
+    comment: a temporal length representing how long an activity, status, validity period, assignment, mandate, process, event, or other time-bound condition lasts
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/duration
 
   - id: employee
@@ -868,6 +892,7 @@ property:
       - A1Certificate
       - PostedWorkerNotification
     range: EconomicOperator
+    comment: a party that engages a person to perform work under an employment relationship, with associated rights, duties, reporting obligations, or liabilities
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/employer
 
   - id: endDate
@@ -884,6 +909,7 @@ property:
       - NaturalPerson
       - Person
     range: xsd:string
+    comment: the hereditary surname of a family
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
 
   - id: flagState
@@ -896,6 +922,7 @@ property:
     label: full address
     domain: Address
     range: xsd:string
+    comment: the complete address written as a string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress
 
   - id: fullName
@@ -908,12 +935,14 @@ property:
     label: full period covered
     domain: A1Certificate
     range: xsd:boolean
+    comment: indicates that the PD A1 certificate applies for the entire duration of the cross-border work activity or posting for which the certificate is issued
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullperiodcovered
 
   - id: gender
     label: gender
     domain: Person
     range: xsd:string
+    comment: a recorded, declared, or attested classification of a person according to gender in a given administrative, legal, or business context
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gender
 
   - id: geographicIdentifier
@@ -934,6 +963,7 @@ property:
       - NaturalPerson
       - Person
     range: xsd:string
+    comment: the name(s) that identify the person within a family with a common surname
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
 
   - id: hasEmail
@@ -946,6 +976,7 @@ property:
     label: has site
     domain: SocialSecurityContribution
     range: Site
+    comment: a place, premises or location at which an organisation is present or located
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/site
 
   - id: hasTelephone
@@ -958,12 +989,14 @@ property:
     label: host entity
     domain: PostedWorkerNotification     
     range: EconomicOperator
+    comment: an economic operator established or operating in the host country that receives, supervises, coordinates or otherwise benefits from the work carried out by a posted worker during a posting period
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity
 
   - id: iban
     label: IBAN
     domain: BankAccount
     range: Iban
+    comment: an internationally standardised identifier for a payment account, composed of a country code, check digits and a country-specific basic bank account number, used to identify the account to which a payment is to be made or from which a payment is to be collected
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/iban
 
   - id: identifier
@@ -991,6 +1024,7 @@ property:
     label: job title
     domain: Person
     range: xsd:string
+    comment: the name or designation of a worker's role, position or function in relation to an employment relationship, posting arrangement or work assignment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jobtitle
 
   - id: jurisdiction
@@ -1008,6 +1042,7 @@ property:
     label: legal entity as registered at lei issuer
     domain: LegalEntityIdentifier
     range: LegalEntity
+    comment: an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: legalForm
@@ -1017,7 +1052,7 @@ property:
       - Company
       - LegalEntity
     range: xsd:string
-    comment: e.g. ISO Entity Legal Form (ELF)
+    comment: the juridical classification of a legal entity according to the law under which it is constituted, determining its legal personality, governance structure, and liability regime
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalform
 
   - id: legalIdentifier
@@ -1040,13 +1075,14 @@ property:
       - EconomicOperator
       - LegalEntity
     range: xsd:string
-    comment: the name under which the legal entity is registered
+    comment: the name under which the legal entity is legally registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
 
   - id: legalRepresentative
     label: legal representative
     domain: LimitedLiabilityCompany
     range: LegalRepresentative
+    comment: a natural person or economic operator that has authority, under law, the company's statutes, a register entry or another recognised legal basis, to represent a company in dealings with third parties, authorities or courts
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
 
   - id: legalRepresentativeId
@@ -1061,6 +1097,7 @@ property:
       - Company
       - LegalEntity
     range: xsd:string
+    comment: the officially recorded status of a registered business entity as determined or maintained by the competent register authority
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalstatus
 
   - id: lei
@@ -1068,6 +1105,7 @@ property:
     domain:
       - LegalEntityIdentifier
     range: xsd:string
+    comment: a globally unique reference code assigned under the Global LEI System to identify a legal entity participating in financial, business or regulatory transactions
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
 
   - id: leiLastUpdate
@@ -1113,12 +1151,14 @@ property:
       - xsd:string
       - xsd:integer
     range_union: true
+    comment: an alphanumeric identifier assigned within a thoroughfare or property context to designate a specific access point, building, unit, or sub-unit
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator
 
   - id: locatorName
     label: locator name
     domain: Address
     range: xsd:string
+    comment: Proper noun(s) applied to the real world entity identified by the locator.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname
 
   - id: managingLeiIssuer
@@ -1131,6 +1171,7 @@ property:
     label: matronymic name
     domain: Person
     range: xsd:string
+    comment: a name component derived from the given name of a person's mother
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname
 
   - id: schema:name
@@ -1154,6 +1195,7 @@ property:
       - NaturalPerson
       - Person
     range_union: true
+    comment: an agent that holds an ownership right, title or legally recognised control over an asset, resource, business entity, credential, account, property or other object
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/owner
 
   - id: partner
@@ -1164,6 +1206,7 @@ property:
       - LimitedPartner
       - StatutoryPartner
     range_union: true
+    comment: a person or legal entity that is a member of a partnership or comparable company-law entity and whose status as partner is recorded or recognised by the competent business register or company register
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
 
   - id: partnerId
@@ -1191,6 +1234,7 @@ property:
     label: place of birth
     domain: Person
     range: Location
+    comment: the location where a person was born
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofbirth
 
   - id: placeOfDeath
@@ -1211,12 +1255,13 @@ property:
       - Vessel      
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork
-    comment: Country, organisation, vessel or address where work or self-employed activity is carried out.
+    comment: the location where a worker performs, is expected to perform, or is assigned to perform work during an employment, posting or work assignment
     
   - id: poBox
     label: post office box
     domain: Address
     range: xsd:string
+    comment: A location designator for a postal delivery point at a post office, usually a number.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/pobox
 
   - id: portrait
@@ -1229,18 +1274,21 @@ property:
     label: post code
     domain: Address
     range: xsd:string
+    comment: The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postcode
 
   - id: postedWorker
     label: posted worker
     domain: PostedWorkerNotification
     range: Person
+    comment: a worker who is sent by an employer to perform work temporarily in a country other than the country in which the worker normally works
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker
 
   - id: postName
     label: post name
     domain: Address
     range: xsd:string
+    comment: a name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postname
 
   - id: provider
@@ -1250,12 +1298,14 @@ property:
       - LegalPerson
       - EconomicOperator
     range_union: true
+    comment: an agent that offers, supplies or makes available a service, account, facility or other capability to another party
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provider
 
   - id: provisionalDetermination
     label: provisional determination
     domain: A1Certificate
     range: xsd:boolean
+    comment: A determination that has legal or administrative effect on a provisional basis and remains subject to confirmation, amendment, or withdrawal under the applicable procedure.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination
 
   - id: registeredAddress
@@ -1266,7 +1316,7 @@ property:
       - LegalEntity
     range: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
-    comment: Officially registered address of a company, legal entity or economic operator.
+    comment: the address at which the legal entity is legally registered
 
   - id: reportingMonth
     label: reporting month
@@ -1278,6 +1328,7 @@ property:
     label: residency
     domain: Person
     range: CountryCode
+    comment: a jurisdiction in which a person has their dwelling or is officially regarded as living or residing
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
 
   - id: role
@@ -1301,6 +1352,7 @@ property:
     label: social representative
     domain: EconomicOperator
     range: Person
+    comment: a person or entity designated to represent or assist an employer or posted worker in relation to social security, labour, employment or posting-related obligations during a posting period
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialrepresentative
 
   - id: staffAverage
@@ -1334,6 +1386,7 @@ property:
     domain:
       - LimitedLiabilityCompany
     range: Capital
+    comment: the total monetary amount of capital that shareholders or members have formally committed to contribute to a company under its constitutive documents
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital
 
   - id: supplier
@@ -1346,6 +1399,7 @@ property:
     label: temporary address
     domain: Person
     range: Address
+    comment: an address at which a person resides, stays or can be reached for a limited period, without it being the person's permanent home or domicile address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporaryaddress
 
   - id: temporaryWorkAgency
@@ -1365,6 +1419,7 @@ property:
     label: thoroughfare
     domain: Address
     range: xsd:string
+    comment: the name of a passage or way through from one location to another
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
 
   - id: totalPayroll
@@ -1378,6 +1433,7 @@ property:
     label: transitional rules
     domain: A1Certificate
     range: xsd:boolean
+    comment: a temporary legal or administrative rule set that applies to a case because the relevant situation falls within a transition from one regime, framework, or procedure to another
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transitionalrules
 
   - id: type
@@ -1393,6 +1449,7 @@ property:
       - PostedWorkerNotification
     range: TypeOfEmployment
     one_of: [Permanent, Temporary]
+    comment: the category or form of an employment relationship, indicating how a worker is employed or engaged by an employer
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
 
 individual:   # code lists
@@ -1537,6 +1594,7 @@ datatype:
   - id: Lei
     label: legal entity identifier
     upper_value: xsd:string
+    comment: a globally unique reference code assigned under the Global LEI System to identify a legal entity participating in financial, business or regulatory transactions
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
 
   - id: Nace21
