@@ -1,8 +1,8 @@
-# baseURI: http://data.webuildconsortium.eu/top.ttl
+# baseURI: http://data.webuildconsortium.eu/authorisation.ttl
 # imports: http://www.braindex.nl/data/PRIMER
 # prefix: auth
 
-@prefix auth: <http://data.webuildconsortium.eu/top.ttl#> .
+@prefix auth: <http://data.webuildconsortium.eu/authorisation.ttl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pmr: <http://www.braindex.nl/data/PRIMER#> .
 @prefix primer: <http://data.webuildconsortium.eu/primer#> .
@@ -10,10 +10,10 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://data.webuildconsortium.eu/top.ttl>
+<http://data.webuildconsortium.eu/authorisation.ttl>
   a owl:Ontology ;
   owl:imports <http://www.braindex.nl/data/PRIMER> ;
-  owl:versionInfo "Created with TopBraid Composer" ;
+  owl:versionInfo "Created for WEBUILD" ;
 .
 auth:Aspect
   a primer:Class ;
