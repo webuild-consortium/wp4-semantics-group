@@ -1,0 +1,174 @@
+@startuml
+title General Authorisation Model
+
+class Authorisation {
+ *name : string
+ +isGroundedIn :
+ +isWitnessedBy :
+ *grantor :
+ *state : ENUM [active, inactive]
+ *dateOfStart : date
+ +dateOfEnd : date
+ +delegable : [Y/N]
+ +includingResponsibility : [Y/N]
+ *hasRule :
+ +isDocumentedIn :
+ +hasScope :
+}
+
+class AssignmentRule {
+ *grantee :
+ *jointType : ENUM [Alone, All, Majority,
+ One of y, At Least x of y]
+ *totalNumberOfGranteesInRule : Integer
+ +and:
+ +or:
+}
+
+class Law {
+ *jurisdiction : string
+ *code : string
+ *name : string
+}
+
+class Document {
+ +code : string
+ *name : string
+}
+
+class Membership {
+ +code : string
+ *inOrganisation :
+ *name : string
+ *member :
+ +hasRole :
+}
+
+class Machine {
+ *id : url
+ +name : string
+}
+
+class Person {
+ *nameFirst : string
+ *nameLast : string
+ +dateOfBirth : date
+}
+
+class Role {
+ *name :
+ *inOrganisation :
+}
+
+class Restriction {
+ +frequencyRestriction: [value, unit]
+ +scopeRestriction:
+}
+
+class CodeList:Financial
+{
+ *amount : float
+ +currency : ENUM [EUR,
+ NOK, SEK, ...]
+}
+
+class CodeList:NACE
+{
+ *code:
+ *ENUM : [A Agriculture,
+ Forestry and Fishing]
+}
+
+class CodeList:eService
+{
+ *code:
+ *ENUM : [Buy, Sell,
+ Pay, Issue, Decide]
+}
+
+class CodeList:Region
+{
+ *code
+ *ENUM : [State,
+ Province, Municipality]
+}
+
+class  EconomicOperator
+{
+ *legalName : string
+ +registryNumber : string
+ *EUID : identifier
+ pattern : "^[A-Z]{2}[A-Z]{3}\\.
+ [a-zA-Z0-9]+\\.[a-zA-Z0-9]+$"
+ +hasAuthorisations :
+}
+
+class Scope {
+ *name : string
+ +hasRestriction :
+}
+
+class Entity {
+ *mandatory
+ +optional
+}
+
+EconomicOperator___::hasAuthorisations "1" -down-> "0..n" Authorisation #line:DarkRed;text:DarkRed
+Authorisation::grantor "1" -left-> "1..n" Membership #line:DarkRed;text:White :_____
+Authorisation::isWitnessedBy "1" -up-> "0..n" Membership__ #line:DarkRed;text:DarkRed
+Authorisation::isGroundedIn "1" -up-> "0..n" Law #line:DarkRed;text:DarkRed
+Authorisation::isGroundedIn "1" -up-> "0..n" Authorisation_ #line:DarkRed;text:DarkRed
+Authorisation::hasScope "1" -down-> "0..1" Scope #line:DarkRed;text:DarkRed
+Authorisation::isDocumentedIn "1" -down-> "0..1" Document #line:DarkRed;text:DarkRed
+Authorisation::hasRule "1" -right-> "1" AssignmentRule #line:DarkRed;text:White :_____
+
+AssignmentRule::isAssignedTo "1" -right-> "1..n" Membership_ #line:DarkRed;text:DarkRed
+AssignmentRule::and "1" -down-> "0..n" AssignmentRule_ #line:DarkRed;text:DarkRed
+AssignmentRule::or "1" -down-> "0..n" AssignmentRule__ #line:DarkRed;text:DarkRed
+
+Membership::hasRole "1" -down-> "0..1" Role #line:DarkRed;text:DarkRed
+Membership::member "1" -down-> "0..1" Person  #line:DarkRed;text:DarkRed
+Membership::member "1" -down-> "0..1" Machine  #line:DarkRed;text:DarkRed
+Membership::inOrganisation "1" -down-> "0..1" EconomicOperator  #line:DarkRed;text:DarkRed
+Membership_::hasRole "1" -down-> "0..1" Role_ #line:DarkRed;text:DarkRed
+Membership_::member "1" -down-> "0..1" Person_  #line:DarkRed;text:DarkRed
+Membership_::member "1" -down-> "0..1" Machine_  #line:DarkRed;text:DarkRed
+Membership_::inOrganisation "1" -down-> "0..1" EconomicOperator_  #line:DarkRed;text:DarkRed
+
+Restriction::scopeRestriction .down.> "CodeList:NACE" #line:Gray;text:DarkRed
+Restriction::scopeRestriction .down.> "CodeList:eService" #line:Gray;text:DarkRed
+Restriction::scopeRestriction .down.> "CodeList:EconomicOperator" #line:Gray;text:DarkRed
+Restriction::scopeRestriction .down.> "CodeList:Region" #line:Gray;text:DarkRed
+
+Role::inOrganisation -left-> "EconomicOperator" #line:DarkRed;text:DarkRed
+
+Scope::hasRestriction "1" -down-> "0..n" Restriction #line:DarkRed;text:DarkRed
+
+Document -left- Scope #line:white
+AssignmentRule -down-> Document #line:White
+Role -right- Person #line:White
+Person -right- Machine #line:White
+Role -left- Person #line:White
+Membership__ -right- Authorisation_ #line:White
+
+class Authorisation #LightYellow;line:DarkRed;text:DarkRed
+class Law #LightYellow;line:DarkRed;text:DarkRed
+class Scope #LightYellow;line:DarkRed;text:DarkRed
+class CodeList:eService #CEEED0;line:285F17;text:285F17
+class Document #LightYellow;line:DarkRed;text:DarkRed
+class CodeList:Financial #CEEED0;line:285F17;text:285F17
+class CodeList:NACE #CEEED0;line:285F17;text:285F17
+class CodeList:Region #CEEED0;line:285F17;text:285F17
+class EconomicOperator #LightYellow;line:DarkRed;text:DarkRed
+class Membership #LightYellow;line:DarkRed;text:DarkRed
+class Role #LightYellow;line:DarkRed;text:DarkRed
+class Person #LightYellow;line:DarkRed;text:DarkRed
+class Machine #LightYellow;line:DarkRed;text:DarkRed
+class AssignmentRule #LightYellow;line:DarkRed;text:DarkRed
+class Restriction #LightYellow;line:DarkRed;text:DarkRed
+class Entity #LightYellow;line:DarkRed;text:DarkRed
+
+hide circle
+
+@enduml
+
