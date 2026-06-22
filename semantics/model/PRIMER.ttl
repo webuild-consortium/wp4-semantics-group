@@ -1,0 +1,170 @@
+# baseURI: http://data.webuildconsortium.eu/PRIMER
+# prefix: PMR
+
+@prefix PMR: <http://data.webuildconsortium.eu/PRIMER#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.webuildconsortium.eu/PRIMER>
+  a owl:Ontology ;
+  PMR:termPrimary "Kernmodel"@nl ;
+  PMR:termPrimary "Kickstarter"@en ;
+  owl:versionInfo "Created for WEBUILD" ;
+.
+PMR:Anything
+  a PMR:Class ;
+  PMR:definition "is used to refer to a thing, no matter what."@en ;
+  PMR:termPrimary "Anything"@en ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+PMR:Class
+  a rdfs:Class ;
+  rdfs:comment "The class of Braindex classes." ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:label "Class" ;
+  rdfs:subClassOf rdfs:Class ;
+.
+PMR:ID
+  a rdf:Property ;
+  PMR:definition "ID is a referencer that specifies a string of characters that identifies the object within the context of the system that assigns the identifier. Note: identifiers assigned by other systems can be recorded via an identification relation in a uniqueness context." ;
+  PMR:termPrimary "ID"@en ;
+  rdfs:comment "A human-readable name for the subject." ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:ID ;
+.
+PMR:Nothing
+  a PMR:Class ;
+  PMR:definition "is not anything"@en ;
+  PMR:termPrimary "Nothing"@en ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:subClassOf PMR:Anything ;
+.
+PMR:creationDate
+  a rdf:Property ;
+  PMR:termPrimary "creation date"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:date ;
+.
+PMR:date
+  a rdf:Property ;
+  PMR:termPrimary "end date"@en ;
+  PMR:termSecondary "expiration date"@en ;
+  rdfs:comment "This specification defines the date property"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:dateTime ;
+.
+PMR:dateOfEnd
+  a rdf:Property ;
+  PMR:termPrimary "end date"@en ;
+  PMR:termSecondary "expiration date"@en ;
+  rdfs:comment "This specification defines the expirationDate property for the expression of credential expiration information."@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf PMR:date ;
+.
+PMR:dateOfRevision
+  a rdf:Property ;
+  PMR:termPrimary "revision date"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf PMR:date ;
+.
+PMR:dateOfStart
+  a rdf:Property ;
+  PMR:termPrimary "start date"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf PMR:date ;
+.
+PMR:definition
+  a rdf:Property ;
+  PMR:definition "is a statement of the meaning of a word or word group or a sign or symbol."@en ;
+  PMR:termPrimary "definition"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdfs:comment ;
+.
+PMR:definitionBusiness
+  a rdf:Property ;
+  PMR:definition "is a statement in everyday terms of the meaning of a word or word group or a sign or symbol stating its supertype in the statement as subject."@en ;
+  PMR:termPrimary "business definition"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf PMR:definition ;
+.
+PMR:definitionFormalTaxonomic
+  a rdf:Property ;
+  PMR:definition "is a taxonomic correct statement of the meaning of a word or word group or a sign or symbol stating its supertype in the statement as subject."@en ;
+  PMR:termPrimary "formal taxonomic definition"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf PMR:definition ;
+.
+PMR:example
+  a rdf:Property ;
+  PMR:definition "a thing characteristic of its kind or illustrating a general rule."@en ;
+  PMR:termPrimary "example"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdfs:comment ;
+.
+PMR:partOf
+  a rdf:Property ;
+  PMR:termPrimary "part of"@en ;
+  PMR:termSecondary "expiration date"@en ;
+  rdfs:comment "The relation between an element and it's whole."@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range PMR:Anything ;
+.
+PMR:proofMethod
+  a rdf:Property ;
+  PMR:termPrimary "proof method"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdfs:seeAlso ;
+.
+PMR:source
+  a rdf:Property ;
+  PMR:definition "Definition is a statement of the meaning of a word or word group or a sign or symbol." ;
+  PMR:termPrimary "source of object"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdfs:seeAlso ;
+.
+PMR:termPrimary
+  a rdf:Property ;
+  PMR:definition "Definition is a statement of the meaning of a word or word group or a sign or symbol." ;
+  PMR:termPrimary "prefered term"@en ;
+  PMR:termSecondary "primairy term"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+PMR:termSecondary
+  a rdf:Property ;
+  PMR:definition "A synonym is an alias for a term for an object that expresses that the alias term is a synonym of a preferred term." ;
+  PMR:termPrimary "synonym"@en ;
+  PMR:termSecondary "secondairy term"@en ;
+  rdfs:domain PMR:Anything ;
+  rdfs:isDefinedBy PMR: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdfs:label ;
+.
