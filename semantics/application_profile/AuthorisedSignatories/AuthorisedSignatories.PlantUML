@@ -1,0 +1,92 @@
+@startuml
+title Authorised Signatories application profile
+
+class AuthorisedSignatories {
+
+
+}
+
+class  LegalEntity {
+ *legalPersonName : string
+ *legalFormType : string
+ *euid : identifier
+ +lei : string
+ +tax : string
+ *hasAuthorisedPersons :
+}
+
+class AuthorisedPerson {
+' Membership
+ *naturalPerson :
+ +naturalPersonIdentifier :
+ *birthPlace :
+ *personRole :
+ *citizenship :
+}
+
+class IdentifyingDocument {
+ *documentNumber : string
+ *documentType : 
+ *issuingCountry :
+ *expiryDate : date
+ }
+
+class NaturalPerson {
+ *firstName : string
+ *surname : string
+ *dateOfBirth : date
+}
+
+class Role {
+ +role : string
+ *representationType :
+}
+
+class Place {
+ *locality : string
+ *country : 
+ +region :
+ }
+ 
+class CodeList:citizenship
+{
+ *code:
+ *name :
+}
+
+class CodeList:representationType
+{
+ *code:
+ *name :
+}
+
+class Entity {
+ *mandatory
+ +optional
+}
+
+AuthorisedSignatories "1" -right-> "1" LegalEntity #line:DarkRed;text:DarkRed
+AuthorisedSignatories "1" -down-> "1..n" AuthorisedPerson #line:DarkRed;text:DarkRed
+AuthorisedPerson::naturalPerson "1" -right-> "1" NaturalPerson #line:DarkRed;text:White :_____
+AuthorisedPerson::naturalPersonIdentifier "1" -down-> "1" IdentifyingDocument #line:DarkRed;text:White :_____
+AuthorisedPerson::birthPlace "1" -down-> "1" Place #line:DarkRed;text:White :_____
+AuthorisedPerson::citizenship "1" -down-> "1" "CodeList:citizenship" #line:DarkRed;text:White :_____
+AuthorisedPerson::personRole "1" -left-> "1" Role #line:DarkRed;text:White :_____
+Role::representationType "1" -left-> "1" "CodeList:representationType" #line:DarkRed;text:DarkRed
+
+"CodeList:citizenship" -right- Place #line:white
+
+class AuthorisedPerson #LightYellow;line:DarkRed;text:DarkRed
+class AuthorisedSignatories #LightYellow;line:DarkRed;text:DarkRed
+class Place #LightYellow;line:DarkRed;text:DarkRed
+class CodeList:citizenship #CEEED0;line:285F17;text:285F17
+class IdentifyingDocument #LightYellow;line:DarkRed;text:DarkRed
+class CodeList:representationType #CEEED0;line:285F17;text:285F17
+class Role #LightYellow;line:DarkRed;text:DarkRed
+class NaturalPerson #LightYellow;line:DarkRed;text:DarkRed
+class LegalEntity #LightYellow;line:DarkRed;text:DarkRed
+class Entity #LightYellow;line:DarkRed;text:DarkRed
+
+hide circle
+
+@enduml
