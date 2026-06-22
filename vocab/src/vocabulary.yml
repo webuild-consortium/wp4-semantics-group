@@ -225,6 +225,123 @@ class:
     label: General Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner
 
+  - id: GLN
+    label: Global Location Number
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gln
+    example:
+      - label: Credential with credential subject of type GLN
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:88b6586b-0eb4-43a6-b6cc-bd4e11198834",
+              "@type": "GLN",
+              "organisation": "did:key:$publicKeyOfHolder$",
+              "licenceKey": "810123456",
+              "identifier": {
+                "@type" : "GlobalLocationNumber",
+                "@value": "8101234560000"
+              }
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfGS1Issuer$"
+          }
+
+      - label: Credential with credential subject of type GLN and separate registered address
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:88b6586b-0eb4-43a6-b6cc-bd4e11198834",
+              "@type": "GLN",
+              "organisation": "did:key:$publicKeyOfHolder$",
+              "licenceKey": "810123456",
+              "identifier": {
+                "@type" : "GlobalLocationNumber",
+                "@value": "8101234560000"
+              },
+              "registeredAddress": {
+                "@type":"Address",
+                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                "thoroughfare": "Via Appia",
+                "locatorDesignator": "123",
+                "postName": "Rome",
+                "adminUnitL2": "Lazio",
+                "postCode": "00100",
+                "adminUnitL1": "IT"
+              }
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfGS1Issuer$"
+          }
+
+      - label: Credential with credential subject of type GLN and company identity asserted by GS1 issuer
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:88b6586b-0eb4-43a6-b6cc-bd4e11198834",
+              "@type": "GLN",
+              "organisation": {
+                "@id": "did:key:$publicKeyOfHolder$",
+                "@type": "EconomicOperator",
+                "legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation",
+                "registeredAddress": {
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                }
+              },
+              "licenceKey": "810123456",
+              "identifier": {
+                "@type" : "GlobalLocationNumber",
+                "@value": "8101234560000"
+              }
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfGS1Issuer$"
+          }
+
   - id: LegalPerson
     label: Legal Person
     upper_value:
@@ -966,6 +1083,13 @@ property:
     comment: the name(s) that identify the person within a family with a common surname
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
 
+  - id: organisation
+    label: organisation
+    domain: GLN
+    range: EconomicOperator
+    comment: organisation legally registered as economic operator
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/organisation
+
   - id: hasEmail
     label: email
     domain: ContactPoint
@@ -1005,11 +1129,13 @@ property:
       - EconomicOperator
       - Site
       - VATRegistrationUnit
+      - GLN
     range:
       - Bic
       - ClearingNumber
       - Eori
       - Excise
+      - GlobalLocationNumber
       - Iban
       - Lei
       - PeppolId
@@ -1143,6 +1269,13 @@ property:
     domain: LimitedPartner
     range: Capital
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution
+
+  - id: licenceKey
+    label: gs1 licence key
+    domain: GLN
+    range: GS1CompanyPrefix
+    comment: the GS1 Company Prefix assigned to the organization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/licenceKey
 
   - id: locatorDesignator
     label: locator designator
@@ -1314,6 +1447,7 @@ property:
       - Company
       - EconomicOperator
       - LegalEntity
+      - GLN
     range: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
     comment: the address at which the legal entity is legally registered
@@ -1582,6 +1716,18 @@ datatype:
     label: excise number
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/excise
+
+  - id: GlobalLocationNumber
+    label: Global Location Number
+    pattern: '[0-9]{13}'
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/globallocationnumber
+
+  - id: GS1CompanyPrefix
+    label: GS1 company prefix
+    pattern: '[0-9]{7,9}'
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gs1companyprefix
 
   - id: Iban
     label: IBAN
