@@ -1,0 +1,292 @@
+# baseURI: http://data.webuildconsortium.eu/top.ttl
+# imports: http://www.braindex.nl/data/PRIMER
+# prefix: auth
+
+@prefix auth: <http://data.webuildconsortium.eu/top.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pmr: <http://www.braindex.nl/data/PRIMER#> .
+@prefix primer: <http://data.webuildconsortium.eu/primer#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.webuildconsortium.eu/top.ttl>
+  a owl:Ontology ;
+  owl:imports <http://www.braindex.nl/data/PRIMER> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+auth:Aspect
+  a primer:Class ;
+  primer:definition "A Role (e.g., a student role, or the role of a bearing as 'driven end bearing') is a contingent property that is not essential to the bearer's existence. Roles must be modeled as Dependent Continuants. The specific kind of role usually falls under Specifically Dependent Continuant because it depends on one unique object (like a person or a specific machine component)."@en ;
+  primer:prefLabel "Aspect"@en ;
+  rdfs:isDefinedBy auth: ;
+  rdfs:subClassOf auth:DependentContinuant ;
+.
+auth:AssignmentRule
+  a pmr:Class ;
+  rdfs:isDefinedBy auth: ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:Authorisation
+  a pmr:Class ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:CodeList
+  a pmr:Class ;
+  rdfs:isDefinedBy auth: ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:Document
+  a pmr:Class ;
+  rdfs:isDefinedBy auth: ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:EUID
+  a rdf:Property ;
+  rdfs:domain auth:RegisteredOrganisation ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+auth:FrequencyValue
+  a pmr:Class ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:Ground
+  a pmr:Class ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:Machine
+  a pmr:Class ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:Membership
+  a pmr:Class ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:Person
+  a pmr:Class ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:RegisteredOrganisation
+  a pmr:Class ;
+  rdfs:isDefinedBy auth: ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:Restriction
+  a pmr:Class ;
+  rdfs:isDefinedBy auth: ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:Role
+  a pmr:Class ;
+  rdfs:isDefinedBy auth: ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:Scope
+  a pmr:Class ;
+  rdfs:isDefinedBy auth: ;
+  rdfs:subClassOf pmr:Anything ;
+.
+auth:andRule
+  a rdf:Property ;
+  rdfs:domain auth:AssignmentRule ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:AssignmentRule ;
+.
+auth:code
+  a rdf:Property ;
+  rdfs:domain pmr:Anything ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+auth:dateOfBirth
+  a rdf:Property ;
+  rdfs:domain auth:Person ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf pmr:date ;
+.
+auth:familyName
+  a rdf:Property ;
+  rdfs:domain auth:Person ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf auth:name ;
+.
+auth:nameFirst
+  a rdf:Property ;
+  rdfs:domain auth:Person ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf auth:name ;
+.
+auth:hasAuthorisations
+  a rdf:Property ;
+  rdfs:domain auth:RegisteredOrganisation ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:Authorisation ;
+.
+auth:hasFrequency
+  a rdf:Property ;
+  rdfs:domain auth:Restriction ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:FrequencyValue ;
+.
+auth:hasOwner
+  a rdf:Property ;
+  rdfs:domain pmr:Anything ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:RegisteredOrganisation ;
+.
+auth:hasRestriction
+  a rdf:Property ;
+  rdfs:domain auth:Scope ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:Restriction ;
+.
+auth:hasRole
+  a rdf:Property ;
+  rdfs:domain auth:Membership ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:Role ;
+.
+auth:hasRule
+  a rdf:Property ;
+  rdfs:domain auth:Authorisation ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:AssignmentRule ;
+.
+auth:hasScope
+  a rdf:Property ;
+  rdfs:domain auth:Authorisation ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:Scope ;
+.
+auth:isAssignedBy
+  a rdf:Property ;
+  rdfs:domain auth:Authorisation ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:Membership ;
+.
+auth:isAssignedTo
+  a rdf:Property ;
+  rdfs:domain auth:AssignmentRule ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:Membership ;
+.
+auth:isDelegable
+  a rdf:Property ;
+  rdfs:domain auth:Authorisation ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range xsd:boolean ;
+.
+auth:isDocumentedIn
+  a rdf:Property ;
+  rdfs:domain auth:Authorisation ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:Document ;
+.
+auth:isGroundedIn
+  a rdf:Property ;
+  rdfs:domain auth:Authorisation ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:Authorisation ;
+  rdfs:range auth:Ground ;
+.
+auth:isWitnessedBy
+  a rdf:Property ;
+  rdfs:domain auth:Authorisation ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:Membership ;
+.
+auth:jointNumberOfAssignees
+  a rdf:Property ;
+  rdfs:domain auth:AssignmentRule ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+auth:jointType
+  a rdf:Property ;
+  rdfs:domain auth:AssignmentRule ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range rdf:List ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+auth:member
+  a rdf:Property ;
+  rdfs:domain auth:Membership ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:Machine ;
+  rdfs:range auth:Person ;
+  rdfs:range auth:RegisteredOrganisation ;
+.
+auth:memberOf
+  a rdf:Property ;
+  rdfs:domain auth:Membership ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:RegisteredOrganisation ;
+.
+auth:name
+  a rdf:Property ;
+  rdfs:domain pmr:Anything ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+auth:onSubject
+  a rdf:Property ;
+  rdfs:domain auth:Restriction ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:CodeList ;
+  rdfs:range auth:RegisteredOrganisation ;
+.
+auth:orRule
+  a rdf:Property ;
+  rdfs:domain auth:AssignmentRule ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:AssignmentRule ;
+.
+auth:roleIn
+  a rdf:Property ;
+  rdfs:domain auth:Role ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range auth:RegisteredOrganisation ;
+.
+auth:state
+  a rdf:Property ;
+  rdfs:domain auth:Authorisation ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range rdf:List ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+auth:statutoryName
+  a rdf:Property ;
+  rdfs:domain auth:RegisteredOrganisation ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+auth:totalNumberOfAssignees
+  a rdf:Property ;
+  rdfs:domain auth:AssignmentRule ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+auth:unit
+  a rdf:Property ;
+  rdfs:domain auth:FrequencyValue ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range rdfs:Resource ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+auth:value
+  a rdf:Property ;
+  rdfs:domain auth:FrequencyValue ;
+  rdfs:isDefinedBy pmr: ;
+  rdfs:range xsd:float ;
+  rdfs:subPropertyOf rdfs:label ;
+.
