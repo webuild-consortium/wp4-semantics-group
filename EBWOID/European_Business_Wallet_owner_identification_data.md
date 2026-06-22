@@ -6,11 +6,12 @@ This iteration is based on:
 
 - [Proposal for a Regulation on the establishment of European Business Wallets](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets)
 - [LPID Rulebook](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb001-legal-person-identification-data.md)
+- [EBWOID Rulebook README](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/rb-ebwoid/README.md), version 1.0.0 dated 22.05.2026
 
 Other sources are yet to be incorporated.
 
 
-<img width="330" height="330" alt="funnel" src="../img/FunnelEBWOID_02.jpg" />
+<img width="330" height="330" alt="funnel" src="../img/EBWOIDFunnel02.jpg" />
 
 Input: Proposal for a Regulation on the establishment of European Business Wallets.
 
@@ -68,13 +69,18 @@ The Owner Attestation shall contain two attributes: (1) the official organisatio
 | EUID | Here the EUID covers the EUID and the ID issued by, or on behalf of, the commission. In case of the EUID, it is defined as in BORIS. The ID provided by the commission has not yet been fromalised. The EUID follows the patern: ^[A-Z]{2}[A-Z]{3}\\. [a-zA-Z0-9]+\\.[a-zA-Z0-9]+$ | yes | no | string |
 | registered name | As stated in the registry often stated as the statutairy name. | no | yes | string |
 
+## Semantic Element requirements
+
+| No. | Requirement | req? | data type | source |
+|--|--|--|--|--|
+| <a id="requirement-E001"></a>E001 | EBWOID: Represents the Economic operator or Public Sector Body. So the name LPID is misleading. We proposed EOID. The EU proposes EBWOID. owner ID works for any natural or legal person or public entity or group of such persons and/or entities, including any temporary association of undertakings, which offers the execution of works and/or a work, the supply of products or the provision of services on the market. | M | class | [I001](#requirement-I001) |
+| <a id="requirement-E002"></a>E002 | EUID: Here the EUID covers the EUID and the ID issued by, or on behalf of, the commission. In case of the EUID, it is defined as in BORIS. The ID provided by the commission has not yet been fromalised. The EUID follows the patern: ^[A-Z]{2}[A-Z]{3}\\. [a-zA-Z0-9]+\\.[a-zA-Z0-9]+$ | M | attribute | [I002](#requirement-I002) |
+| <a id="requirement-E003"></a>E003 | registered name: As stated in the registry often stated as the statutairy name. | M | attribute | [I002](#requirement-I002) |
+
+
 # Workflow of the Attestation
 
 Purpose: Map the flow of actions, data, and interactions between entities.
-
-| Actor | Role | Description |
-|--|--|--|
-|  |  |  |
 
 Trigger Event: The workflow is initiated by the identification of an economic operator through authentic sources, such as official national business registries
 . This occurs specifically when a business begins the onboarding process to initiate their European Business Wallet
@@ -90,6 +96,11 @@ Notable Interactions / Dependencies:
 
  This process has no impact on the EBWOID information model.
 
+| Actor | Role | Description |
+|--|--|--|
+| | | |
+
+
 # Life Cycle of the Attestation
 
 Purpose: Capture how the attestation evolves over time.
@@ -103,9 +114,10 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| I001 | There will be an Entity EBWOID | L000, L003, L004 | check |
-| I002 | The EBWOID shall have two attributes, an EUID or equivalent and the registered name. | L003, L004, L005 | check |
-| I003 | The EUID or equivalent shall be unique for all memberstates. | L000, L005  | check |
+| <a id="requirement-I001"></a>I001 | There will be an Entity EBWOID | [L000](#requirement-L000), [L003](#requirement-L003), [L004](#requirement-L004) | check |
+| <a id="requirement-I002"></a>I002 | The EBWOID shall have two attributes, an EUID or equivalent and the registered name. | [L003](#requirement-L003), [L004](#requirement-L004), [L005](#requirement-L005) | check |
+| <a id="requirement-I003"></a>I003 | The EUID or equivalent shall be unique for all memberstates. | [L000](#requirement-L000), [L005](#requirement-L005) | check |
+| <a id="requirement-I004"></a>I004 | The EBWOID shall include the official name of the EBW owner using source data from the relevant register or official record. | [EBWOID Rulebook README 2.2, 3.2](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/rb-ebwoid/README.md) | check |
 
 ## Legal and Regulatory requirements
 
@@ -116,42 +128,49 @@ From the directive:
 
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| L000 | EBWOID is necessary to establish the owner's identity, trust and traceability. | Article 3.1, 5, 114(37) | review |
-| L001 | Providers of EBWOID (qualified trust service providers, public sector bodies, or the Commission) shall issue it to European Business Wallet owners. | Aticle 8 1, 2. | review |
-| L002 | Where EBW owners are Union entities, the Commission shall issue the EBWOID. | Aticle 8 1, 2. | review |
-| L003 | The EBWOID shall contain at least the official name of the economic operator or public sector body, as recorded in the relevant register or official record. | Aticle 8 5, 6. | review |
-| L004 | The EBWOID shall contain at least the relevant unique identifier attributed in accordance with Article 9. | Aticle 8 5, 6. | review |
-| L005 | If the economic operator has been attributed a European Unique Identifier (EUID), that identifier shall be used as the unique identifier for EBWOID. | Aticle 9 2, 3, 4. | review |
-| L006 | EUROPEAN BUSINESS WALLETS UNIT AUTHENTICATION Access to the European Business Wallets Unit shall be granted only after the European Business Wallets user has been successfully authenticated by means of either: (1) a notified electronic identification (eID) means in accordance with Article 6 of Regulation (EU) No 910/2014, fulfilling at least the requirements for a substantial level of assurance as defined in Article 8 of that Regulation and further specified in Commission Implementing Regulation (EU) 2015/1502; or (2) an alternative authentication mechanism recognised as equivalent and fulfilling at least the requirements for a substantial level of assurance as defined in Article 8 of Regulation (EU) No 910/2014 and further specified in Commission Implementing Regulation (EU) 2015/1502. Until such authentication has been completed, no functionality of the European Business Wallets Unit or of any other functionalities shall be made accessible to the Wallets user. | ANNEX | review |
-| L007 | The EBWOID shall be issued in a format compliant with one of the standards listed in Annex II of Commission Implementing Regulation (EU) 2024/2979. | Aticle 8 3. | review |
-| L008 | The EBWOID issued by the Commission shall have the same legal effect as QEAA and EAA issued by, or on behalf of, a public sector body responsible for an authentic source. | | review |
-| L009 | The EBWOID issued to Business Wallets units must comply with the technical specifications set out in the implementing acts. | 16 | review |
-| L010 | When issued to economic operators established outside the Union, identity proofing and verification must fulfil one or a combination of the methods set out in Article 24(1a) of Regulation (EU) No 910/2014. | Article 8 4, 5, 6 | review |
+| <a id="requirement-L000"></a>L000 | EBWOID is necessary to establish the owner's identity, trust and traceability. | [Article 3.1, 5, 114(37)](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets) | review |
+| <a id="requirement-L001"></a>L001 | Providers of EBWOID (qualified trust service providers, public sector bodies, or the Commission) shall issue it to European Business Wallet owners. | [Aticle 8 1, 2](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets). | review |
+| <a id="requirement-L002"></a>L002 | Where EBW owners are Union entities, the Commission shall issue the EBWOID. | [Article 8 1, 2](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets). | review |
+| <a id="requirement-L003"></a>L003 | The EBWOID shall contain at least the official name of the economic operator or public sector body, as recorded in the relevant register or official record. | [Aticle 8 5, 6](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets). | review |
+| <a id="requirement-L004"></a>L004 | The EBWOID shall contain at least the relevant unique identifier attributed in accordance with Article 9. | [Aticle 8 5, 6](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets). | review |
+| <a id="requirement-L005"></a>L005 | If the economic operator has been attributed a European Unique Identifier (EUID), that identifier shall be used as the unique identifier for EBWOID. | [Aticle 9 2, 3, 4](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets). | review |
+| <a id="requirement-L006"></a>L006 | EUROPEAN BUSINESS WALLETS UNIT AUTHENTICATION Access to the European Business Wallets Unit shall be granted only after the European Business Wallets user has been successfully authenticated by means of either: (1) a notified electronic identification (eID) means in accordance with Article 6 of Regulation (EU) No 910/2014, fulfilling at least the requirements for a substantial level of assurance as defined in Article 8 of that Regulation and further specified in Commission Implementing Regulation (EU) 2015/1502; or (2) an alternative authentication mechanism recognised as equivalent and fulfilling at least the requirements for a substantial level of assurance as defined in Article 8 of Regulation (EU) No 910/2014 and further specified in Commission Implementing Regulation (EU) 2015/1502. Until such authentication has been completed, no functionality of the European Business Wallets Unit or of any other functionalities shall be made accessible to the Wallets user. | [ANNEX](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets) | review |
+| <a id="requirement-L007"></a>L007 | The EBWOID shall be issued in a format compliant with one of the standards listed in Annex II of Commission Implementing Regulation (EU) 2024/2979. | [Aticle 8 3](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets). | review |
+| <a id="requirement-L008"></a>L008 | The EBWOID issued by the Commission shall have the same legal effect as QEAA and EAA issued by, or on behalf of, a public sector body responsible for an authentic source. | | review |
+| <a id="requirement-L009"></a>L009 | The EBWOID issued to Business Wallets units must comply with the technical specifications set out in the implementing acts. | 16 | review |
+| <a id="requirement-L010"></a>L010 | When issued to economic operators established outside the Union, identity proofing and verification must fulfil one or a combination of the methods set out in Article 24(1a) of Regulation (EU) No 910/2014. | [Article 8 4, 5, 6](https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-establishment-european-business-wallets) | review |
+| <a id="requirement-L011"></a>L011 | Attributes of the EBWOID shall not be selectively disclosable. | [EBWOID Rulebook README 3.2, 4.1](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/rb-ebwoid/README.md) | review | 
 
 ## Functional requirements
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| F001 |  | |  |
+| <a id="requirement-F001"></a>F001 | EBWOID serves as the activation and ownership attestation enabler for the European Business Wallet. | [EBWOID Rulebook README 1.1, 4.1](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/rb-ebwoid/README.md) | review |
+ 
 
 ## Technical requirements – e.g. security, privacy, performance, usability.
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
 
+ 
 ## Operational requirements
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| O001 | The European Business Wallet Owner Identification Data (EBWOID) must be stable in time primarily to ensure legal certainty, trust, and the reliable functioning of cross-border systems | following multiple legal requirements and stated in large scale project EWC | test |
+| <a id="requirement-O001"></a>O001 | The European Business Wallet Owner Identification Data (EBWOID) must be stable in time primarily to ensure legal certainty, trust, and the reliable functioning of cross-border systems | following multiple legal requirements and stated in large scale project EWC | test |
+| <a id="requirement-O002"></a>O002 | EBWOID can be issued for any EBW owner, provided the attributes are derived from authentic sources notified to the Commission. | [EBWOID Rulebook README 2.1](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/rb-ebwoid/README.md) | review |
+| <a id="requirement-O003"></a>O003 | Where a transaction requires binding to a natural-person representative, the relying party should request and verify a PID for the representative in addition to the EBWOID. | [EBWOID Rulebook README 4.1](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/rb-ebwoid/README.md) | See [Q006](#requirement-Q006). |
+| <a id="requirement-O004"></a>O004 | The relying party may keep minimal logs necessary to demonstrate lawful processing and verification events; EBWOID introduces no additional transaction-specific attributes. | [EBWOID Rulebook README 4.1](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/rb-ebwoid/README.md) | review |
 
 ## Governance and trust restrictions
 | No. | Requirement | Source | Verification method |
 |--|--|--|--|
-| G001 | | | review |
+| <a id="requirement-G001"></a>G001 | | | review |
 
 ## Open Questions / Gaps – For follow-up or design iterations.
 | No. | Question | How is it resolved? |
 |--|--|--|
-| Q001 | Can we change the name LPID to something else? LPID excliudes all organisations except legal persons.| Yes, resolved by Proposal for a Regulation on the establishment of European Business Wallets. |
-| Q002 | how is the LPID issued to sole traders not mentioned in the business registries? | Resolved by Proposal for a Regulation on the establishment of European Business Wallets.|
-| Q003 | are there any othe attributes that need to be considdered? | No, resolved by Proposal for a Regulation on the establishment of European Business Wallets. |
-| Q004 | how to cope with organisations/businesses not registered at any registry? | Resolved by Proposal for a Regulation on the establishment of European Business Wallets. |
-| Q005 | how to harmonise attributes per memberstate for sole traders for instance? | Resolved by Proposal for a Regulation on the establishment of European Business Wallets.|
+| <a id="requirement-Q001"></a>Q001 | Can we change the name LPID to something else? LPID excliudes all organisations except legal persons.| Yes, resolved by Proposal for a Regulation on the establishment of European Business Wallets. |
+| <a id="requirement-Q002"></a>Q002 | how is the LPID issued to sole traders not mentioned in the business registries? | Resolved by Proposal for a Regulation on the establishment of European Business Wallets.|
+| <a id="requirement-Q003"></a>Q003 | are there any othe attributes that need to be considdered? | No, resolved by Proposal for a Regulation on the establishment of European Business Wallets. |
+| <a id="requirement-Q004"></a>Q004 | how to cope with organisations/businesses not registered at any registry? | Resolved by Proposal for a Regulation on the establishment of European Business Wallets. |
+| <a id="requirement-Q005"></a>Q005 | how to harmonise attributes per memberstate for sole traders for instance? | Resolved by Proposal for a Regulation on the establishment of European Business Wallets.|
+| <a id="requirement-Q006"></a>Q006 | In O003 it is stated:  Where a transaction requires binding to a natural-person representative, the relying party should request and verify a PID for the representative in addition to the 'EBWOID'. This is not needed, a form authorisation has this covered. It is undesirable to solve it otherwise. |
