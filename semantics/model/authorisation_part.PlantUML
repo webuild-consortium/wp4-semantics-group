@@ -34,6 +34,13 @@ class Law {
 class Document {
  +code : string
  *name : string
+ +type :
+}
+
+class IdentificationDocument {
+ *number : string
+ *name : string
+ +type :
 }
 
 class Membership {
@@ -53,6 +60,9 @@ class Person {
  *nameFirst : string
  *nameLast : string
  +dateOfBirth : date
+ +placeOfBirth :
+ +fullAdress :
+ +identificationDocument :
 }
 
 class Role {
@@ -77,6 +87,12 @@ class CodeList:NACE
  *code:
  *ENUM : [A Agriculture,
  Forestry and Fishing]
+}
+
+class CodeList:identificationDocumentType
+{
+ *code:
+ *ENUM : [passport, ID card]
 }
 
 class CodeList:eService
@@ -140,6 +156,9 @@ Restriction::scopeRestriction .down.> "CodeList:eService" #line:Gray;text:DarkRe
 Restriction::scopeRestriction .down.> "CodeList:EconomicOperator" #line:Gray;text:DarkRed
 Restriction::scopeRestriction .down.> "CodeList:Region" #line:Gray;text:DarkRed
 
+Person::identificationDocument -down-> IdentificationDocument
+IdentificationDocument::type .right.> "CodeList:identificationDocumentType" #line:Gray;text:DarkRed
+
 Role::inOrganisation -left-> "EconomicOperator" #line:DarkRed;text:DarkRed
 
 Scope::hasRestriction "1" -down-> "0..n" Restriction #line:DarkRed;text:DarkRed
@@ -154,11 +173,8 @@ Membership__ -right- Authorisation_ #line:White
 class Authorisation #LightYellow;line:DarkRed;text:DarkRed
 class Law #LightYellow;line:DarkRed;text:DarkRed
 class Scope #LightYellow;line:DarkRed;text:DarkRed
-class CodeList:eService #CEEED0;line:285F17;text:285F17
 class Document #LightYellow;line:DarkRed;text:DarkRed
-class CodeList:Financial #CEEED0;line:285F17;text:285F17
-class CodeList:NACE #CEEED0;line:285F17;text:285F17
-class CodeList:Region #CEEED0;line:285F17;text:285F17
+class IdentificationDocument #LightYellow;line:DarkRed;text:DarkRed
 class EconomicOperator #LightYellow;line:DarkRed;text:DarkRed
 class Membership #LightYellow;line:DarkRed;text:DarkRed
 class Role #LightYellow;line:DarkRed;text:DarkRed
@@ -167,8 +183,12 @@ class Machine #LightYellow;line:DarkRed;text:DarkRed
 class AssignmentRule #LightYellow;line:DarkRed;text:DarkRed
 class Restriction #LightYellow;line:DarkRed;text:DarkRed
 class Entity #LightYellow;line:DarkRed;text:DarkRed
+class CodeList:eService #CEEED0;line:285F17;text:285F17
+class CodeList:Financial #CEEED0;line:285F17;text:285F17
+class CodeList:NACE #CEEED0;line:285F17;text:285F17
+class CodeList:Region #CEEED0;line:285F17;text:285F17
+class CodeList:identificationDocumentType #CEEED0;line:285F17;text:285F17
 
 hide circle
 
 @enduml
-
