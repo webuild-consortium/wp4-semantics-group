@@ -135,7 +135,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-06-19</time>
+                <time property="dc:date" id="time">2026-06-23</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -164,7 +164,7 @@
             <dt><code>time</code></dt>
             <dd><code>http://www.w3.org/2006/time#</code></dd>
             <dt><code>cred</code></dt>
-            <dd><code>https://w3.org/2018/credentials#</code></dd>
+            <dd><code>https://www.w3.org/2018/credentials#</code></dd>
             <dt><code>dc</code></dt>
             <dd><code>http://purl.org/dc/terms/</code></dd>
             <dt><code>owl</code></dt>
@@ -260,7 +260,10 @@
                         <li><a href="#FAS"><code>FAS<code></code></code></a></li>
                         <li><a href="#FCA"><code>FCA<code></code></code></a></li>
                         <li><a href="#FOB"><code>FOB<code></code></code></a></li>
+                        <li><a href="#GLN"><code>GLN<code></code></code></a></li>
+                        <li><a href="#GS1CompanyPrefix"><code>GS1CompanyPrefix<code></code></code></a></li>
                         <li><a href="#GeneralPartner"><code>GeneralPartner<code></code></code></a></li>
+                        <li><a href="#GlobalLocationNumber"><code>GlobalLocationNumber<code></code></code></a></li>
                         <li><a href="#Iban"><code>Iban<code></code></code></a></li>
                         <li><a href="#Incoterms"><code>Incoterms<code></code></code></a></li>
                         <li><a href="#Jointly"><code>Jointly<code></code></code></a></li>
@@ -360,11 +363,13 @@
                         <li><a href="#leiRegistrationDate"><code>leiRegistrationDate<code></code></code></a></li>
                         <li><a href="#leiRegistrationStatus"><code>leiRegistrationStatus<code></code></code></a></li>
                         <li><a href="#liabilityOrContribution"><code>liabilityOrContribution<code></code></code></a></li>
+                        <li><a href="#licenceKey"><code>licenceKey<code></code></code></a></li>
                         <li><a href="#locatorDesignator"><code>locatorDesignator<code></code></code></a></li>
                         <li><a href="#locatorName"><code>locatorName<code></code></code></a></li>
                         <li><a href="#managingLeiIssuer"><code>managingLeiIssuer<code></code></code></a></li>
                         <li><a href="#matronymicName"><code>matronymicName<code></code></code></a></li>
                         <li><a href="#noFixedPlaceOfWork"><code>noFixedPlaceOfWork<code></code></code></a></li>
+                        <li><a href="#organisation"><code>organisation<code></code></code></a></li>
                         <li><a href="#owner"><code>owner<code></code></code></a></li>
                         <li><a href="#partner"><code>partner<code></code></code></a></li>
                         <li><a href="#partnerId"><code>partnerId<code></code></code></a></li>
@@ -480,6 +485,7 @@
                 <h4><code>activity</code></h4>
                 <p><em>main activity of company</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/activity">formal definition of the term</a>.</p>
+                <div>organised doing, operation or process carried out for a purpose or result</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Company"><code>Company</code></a></dd>
@@ -495,6 +501,7 @@
                 <h4><code>addressArea</code></h4>
                 <p><em>address area</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea">formal definition of the term</a>.</p>
+                <div>the name of a geographic area that groups addresses</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
@@ -525,6 +532,7 @@
                 <h4><code>adminUnitL2</code></h4>
                 <p><em>administrative unit level 2</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2">formal definition of the term</a>.</p>
+                <div>The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
@@ -540,6 +548,7 @@
                 <h4><code>adminUnitL1</code></h4>
                 <p><em>administrative unit level 1</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1">formal definition of the term</a>.</p>
+                <div>the name of the uppermost level of the address, almost always a country</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
@@ -585,6 +594,7 @@
                 <h4><code>assignment</code></h4>
                 <p><em>assignment</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/assignment">formal definition of the term</a>.</p>
+                <div>a formal allocation of a role, mandate, responsibility, task, right, or duty to an identified party or agent within a defined context</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a></dd>
@@ -600,6 +610,7 @@
                 <h4><code>attestationLegalCategory</code></h4>
                 <p><em>attestation legal category</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory">formal definition of the term</a>.</p>
+                <div>a categorization of electronic attestations of attributes into three primary types, each associated with a distinct level of assurance and legal effect</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#ElectronicAttestationOfAttributes"><code>ElectronicAttestationOfAttributes</code></a></dd>
@@ -664,6 +675,7 @@
                 <h4><code>citizenship</code></h4>
                 <p><em>citizenship</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship">formal definition of the term</a>.</p>
+                <div>the legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
@@ -710,6 +722,7 @@
                 <h4><code>contactPoint</code></h4>
                 <p><em>contact point</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint">formal definition of the term</a>.</p>
+                <div>a designated communication channel or organisational function through which an entity can be contacted for a specific purpose</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
@@ -740,6 +753,7 @@
                 <h4><code>countryOfBirth</code></h4>
                 <p><em>country of birth</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofbirth">formal definition of the term</a>.</p>
+                <div>the sovereign state within whose territory a person's birth was officially registered</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
@@ -755,6 +769,7 @@
                 <h4><code>countryOfDeath</code></h4>
                 <p><em>country of death</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath">formal definition of the term</a>.</p>
+                <div>the sovereign state within whose territory a person's death was officially registered</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
@@ -770,6 +785,7 @@
                 <h4><code>currency</code></h4>
                 <p><em>currency</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/currency">formal definition of the term</a>.</p>
+                <div>a recognised monetary unit used to express prices, payments, liabilities, values, or other monetary amounts in a business, financial, administrative, or regulatory context</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Capital"><code>Capital</code></a> ⊔&nbsp;<a href="#MonetaryAmount"><code>MonetaryAmount</code></a> ⊔&nbsp;<a href="#PaymentTerms"><code>PaymentTerms</code></a></dd>
@@ -785,6 +801,7 @@
                 <h4><code>dateOfBirth</code></h4>
                 <p><em>date of birth</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth">formal definition of the term</a>.</p>
+                <div>the point in time on which the person was born</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a> ⊔&nbsp;<a href="#NaturalPerson"><code>NaturalPerson</code></a></dd>
@@ -800,6 +817,7 @@
                 <h4><code>dateOfDeath</code></h4>
                 <p><em>date of death</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath">formal definition of the term</a>.</p>
+                <div>the calendar date on which a person is recorded or attested as having died</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
@@ -815,6 +833,7 @@
                 <h4><code>dateOfRegistration</code></h4>
                 <p><em>date of registration</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration">formal definition of the term</a>.</p>
+                <div>the date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
@@ -859,6 +878,7 @@
                 <h4><code>domicile</code></h4>
                 <p><em>domicile</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile">formal definition of the term</a>.</p>
+                <div>the address representing the place that a person treats as their permanent home, as recorded, declared, or attested in a given context</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
@@ -889,6 +909,7 @@
                 <h4><code>duration</code></h4>
                 <p><em>duration</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/duration">formal definition of the term</a>.</p>
+                <div>a temporal length representing how long an activity, status, validity period, assignment, mandate, process, event, or other time-bound condition lasts</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#WorkAssignment"><code>WorkAssignment</code></a></dd>
@@ -919,6 +940,7 @@
                 <h4><code>employer</code></h4>
                 <p><em>employer</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/employer">formal definition of the term</a>.</p>
+                <div>a party that engages a person to perform work under an employment relationship, with associated rights, duties, reporting obligations, or liabilities</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#A1Certificate"><code>A1Certificate</code></a> ⊔&nbsp;<a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a></dd>
@@ -949,6 +971,7 @@
                 <h4><code>familyName</code></h4>
                 <p><em>family name</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname">formal definition of the term</a>.</p>
+                <div>the hereditary surname of a family</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#NaturalPerson"><code>NaturalPerson</code></a> ⊔&nbsp;<a href="#Person"><code>Person</code></a></dd>
@@ -979,6 +1002,7 @@
                 <h4><code>fullAddress</code></h4>
                 <p><em>full address</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress">formal definition of the term</a>.</p>
+                <div>the complete address written as a string</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
@@ -1009,6 +1033,7 @@
                 <h4><code>fullPeriodCovered</code></h4>
                 <p><em>full period covered</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/fullperiodcovered">formal definition of the term</a>.</p>
+                <div>indicates that the PD A1 certificate applies for the entire duration of the cross-border work activity or posting for which the certificate is issued</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
@@ -1024,6 +1049,7 @@
                 <h4><code>gender</code></h4>
                 <p><em>gender</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/gender">formal definition of the term</a>.</p>
+                <div>a recorded, declared, or attested classification of a person according to gender in a given administrative, legal, or business context</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
@@ -1069,11 +1095,28 @@
                 <h4><code>givenName</code></h4>
                 <p><em>given name</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname">formal definition of the term</a>.</p>
+                <div>the name(s) that identify the person within a family with a common surname</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#NaturalPerson"><code>NaturalPerson</code></a> ⊔&nbsp;<a href="#Person"><code>Person</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="organisation">
+                <h4><code>organisation</code></h4>
+                <p><em>organisation</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/organisation">formal definition of the term</a>.</p>
+                <div>organisation legally registered as economic operator</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#GLN"><code>GLN</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1099,6 +1142,7 @@
                 <h4><code>hasSite</code></h4>
                 <p><em>has site</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/site">formal definition of the term</a>.</p>
+                <div>a place, premises or location at which an organisation is present or located</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#SocialSecurityContribution"><code>SocialSecurityContribution</code></a></dd>
@@ -1129,6 +1173,7 @@
                 <h4><code>hostEntity</code></h4>
                 <p><em>host entity</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity">formal definition of the term</a>.</p>
+                <div>an economic operator established or operating in the host country that receives, supervises, coordinates or otherwise benefits from the work carried out by a posted worker during a posting period</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a></dd>
@@ -1144,6 +1189,7 @@
                 <h4><code>iban</code></h4>
                 <p><em>IBAN</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/iban">formal definition of the term</a>.</p>
+                <div>an internationally standardised identifier for a payment account, composed of a country code, check digits and a country-specific basic bank account number, used to identify the account to which a payment is to be made or from which a payment is to be collected</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#BankAccount"><code>BankAccount</code></a></dd>
@@ -1161,9 +1207,9 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#Site"><code>Site</code></a> ⊔&nbsp;<a href="#VATRegistrationUnit"><code>VATRegistrationUnit</code></a></dd>
+                    <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#Site"><code>Site</code></a> ⊔&nbsp;<a href="#VATRegistrationUnit"><code>VATRegistrationUnit</code></a> ⊔&nbsp;<a href="#GLN"><code>GLN</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#Bic"><code>Bic</code></a> ⊔&nbsp;<a href="#ClearingNumber"><code>ClearingNumber</code></a> ⊔&nbsp;<a href="#Eori"><code>Eori</code></a> ⊔&nbsp;<a href="#Excise"><code>Excise</code></a> ⊔&nbsp;<a href="#Iban"><code>Iban</code></a> ⊔&nbsp;<a href="#Lei"><code>Lei</code></a> ⊔&nbsp;<a href="#PeppolId"><code>PeppolId</code></a> ⊔&nbsp;<a href="#Tin"><code>Tin</code></a> ⊔&nbsp;<a href="#VatId"><code>VatId</code></a> ⊔&nbsp;<code>xsd:anyURI</code> ⊔&nbsp;<a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                    <dd><a href="#Bic"><code>Bic</code></a> ⊔&nbsp;<a href="#ClearingNumber"><code>ClearingNumber</code></a> ⊔&nbsp;<a href="#Eori"><code>Eori</code></a> ⊔&nbsp;<a href="#Excise"><code>Excise</code></a> ⊔&nbsp;<a href="#GlobalLocationNumber"><code>GlobalLocationNumber</code></a> ⊔&nbsp;<a href="#Iban"><code>Iban</code></a> ⊔&nbsp;<a href="#Lei"><code>Lei</code></a> ⊔&nbsp;<a href="#PeppolId"><code>PeppolId</code></a> ⊔&nbsp;<a href="#Tin"><code>Tin</code></a> ⊔&nbsp;<a href="#VatId"><code>VatId</code></a> ⊔&nbsp;<code>xsd:anyURI</code> ⊔&nbsp;<a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1174,6 +1220,7 @@
                 <h4><code>jobTitle</code></h4>
                 <p><em>job title</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/jobtitle">formal definition of the term</a>.</p>
+                <div>the name or designation of a worker's role, position or function in relation to an employment relationship, posting arrangement or work assignment</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
@@ -1204,6 +1251,7 @@
                 <h4><code>legalEntity</code></h4>
                 <p><em>legal entity as registered at lei issuer</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity">formal definition of the term</a>.</p>
+                <div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#LegalEntityIdentifier"><code>LegalEntityIdentifier</code></a></dd>
@@ -1219,7 +1267,7 @@
                 <h4><code>legalForm</code></h4>
                 <p><em>legal form</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalform">formal definition of the term</a>.</p>
-                <div>e.g. ISO Entity Legal Form (ELF)</div>
+                <div>the juridical classification of a legal entity according to the law under which it is constituted, determining its legal personality, governance structure, and liability regime</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
@@ -1250,7 +1298,7 @@
                 <h4><code>legalName</code></h4>
                 <p><em>legal name</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname">formal definition of the term</a>.</p>
-                <div>the name under which the legal entity is registered</div>
+                <div>the name under which the legal entity is legally registered</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a> ⊔&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
@@ -1266,6 +1314,7 @@
                 <h4><code>legalRepresentative</code></h4>
                 <p><em>legal representative</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative">formal definition of the term</a>.</p>
+                <div>a natural person or economic operator that has authority, under law, the company's statutes, a register entry or another recognised legal basis, to represent a company in dealings with third parties, authorities or courts</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#LimitedLiabilityCompany"><code>LimitedLiabilityCompany</code></a></dd>
@@ -1296,6 +1345,7 @@
                 <h4><code>legalStatus</code></h4>
                 <p><em>status of the company</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalstatus">formal definition of the term</a>.</p>
+                <div>the officially recorded status of a registered business entity as determined or maintained by the competent register authority</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
@@ -1311,6 +1361,7 @@
                 <h4><code>lei</code></h4>
                 <p><em>legal entity identifier</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/lei">formal definition of the term</a>.</p>
+                <div>a globally unique reference code assigned under the Global LEI System to identify a legal entity participating in financial, business or regulatory transactions</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#LegalEntityIdentifier"><code>LegalEntityIdentifier</code></a></dd>
@@ -1412,10 +1463,27 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="licenceKey">
+                <h4><code>licenceKey</code></h4>
+                <p><em>gs1 licence key</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/licenceKey">formal definition of the term</a>.</p>
+                <div>the GS1 Company Prefix assigned to the organization</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#GLN"><code>GLN</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#GS1CompanyPrefix"><code>GS1CompanyPrefix</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="locatorDesignator">
                 <h4><code>locatorDesignator</code></h4>
                 <p><em>locator designator</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator">formal definition of the term</a>.</p>
+                <div>an alphanumeric identifier assigned within a thoroughfare or property context to designate a specific access point, building, unit, or sub-unit</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
@@ -1431,6 +1499,7 @@
                 <h4><code>locatorName</code></h4>
                 <p><em>locator name</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname">formal definition of the term</a>.</p>
+                <div>Proper noun(s) applied to the real world entity identified by the locator.</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
@@ -1461,6 +1530,7 @@
                 <h4><code>matronymicName</code></h4>
                 <p><em>matronymic name</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname">formal definition of the term</a>.</p>
+                <div>a name component derived from the given name of a person's mother</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
@@ -1506,6 +1576,7 @@
                 <h4><code>owner</code></h4>
                 <p><em>owner</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/owner">formal definition of the term</a>.</p>
+                <div>an agent that holds an ownership right, title or legally recognised control over an asset, resource, business entity, credential, account, property or other object</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#BankAccount"><code>BankAccount</code></a></dd>
@@ -1521,6 +1592,7 @@
                 <h4><code>partner</code></h4>
                 <p><em>partner</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/partner">formal definition of the term</a>.</p>
+                <div>a person or legal entity that is a member of a partnership or comparable company-law entity and whose status as partner is recorded or recognised by the competent business register or company register</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Partnership"><code>Partnership</code></a></dd>
@@ -1581,6 +1653,7 @@
                 <h4><code>placeOfBirth</code></h4>
                 <p><em>place of birth</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofbirth">formal definition of the term</a>.</p>
+                <div>the location where a person was born</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
@@ -1611,7 +1684,7 @@
                 <h4><code>placeOfWork</code></h4>
                 <p><em>place of work</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork">formal definition of the term</a>.</p>
-                <div>Country, organisation, vessel or address where work or self-employed activity is carried out.</div>
+                <div>the location where a worker performs, is expected to perform, or is assigned to perform work during an employment, posting or work assignment</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#A1Certificate"><code>A1Certificate</code></a> ⊔&nbsp;<a href="#WorkAssignment"><code>WorkAssignment</code></a></dd>
@@ -1627,6 +1700,7 @@
                 <h4><code>poBox</code></h4>
                 <p><em>post office box</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/pobox">formal definition of the term</a>.</p>
+                <div>A location designator for a postal delivery point at a post office, usually a number.</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
@@ -1657,6 +1731,7 @@
                 <h4><code>postCode</code></h4>
                 <p><em>post code</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/postcode">formal definition of the term</a>.</p>
+                <div>The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
@@ -1672,6 +1747,7 @@
                 <h4><code>postedWorker</code></h4>
                 <p><em>posted worker</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker">formal definition of the term</a>.</p>
+                <div>a worker who is sent by an employer to perform work temporarily in a country other than the country in which the worker normally works</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a></dd>
@@ -1687,6 +1763,7 @@
                 <h4><code>postName</code></h4>
                 <p><em>post name</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/postname">formal definition of the term</a>.</p>
+                <div>a name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
@@ -1702,6 +1779,7 @@
                 <h4><code>provider</code></h4>
                 <p><em>provider</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/provider">formal definition of the term</a>.</p>
+                <div>an agent that offers, supplies or makes available a service, account, facility or other capability to another party</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#BankAccount"><code>BankAccount</code></a></dd>
@@ -1717,6 +1795,7 @@
                 <h4><code>provisionalDetermination</code></h4>
                 <p><em>provisional determination</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination">formal definition of the term</a>.</p>
+                <div>A determination that has legal or administrative effect on a provisional basis and remains subject to confirmation, amendment, or withdrawal under the applicable procedure.</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
@@ -1732,10 +1811,10 @@
                 <h4><code>registeredAddress</code></h4>
                 <p><em>registered address</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress">formal definition of the term</a>.</p>
-                <div>Officially registered address of a company, legal entity or economic operator.</div>
+                <div>the address at which the legal entity is legally registered</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a> ⊔&nbsp;<a href="#GLN"><code>GLN</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
                 </dl>
@@ -1763,6 +1842,7 @@
                 <h4><code>residency</code></h4>
                 <p><em>residency</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/residency">formal definition of the term</a>.</p>
+                <div>a jurisdiction in which a person has their dwelling or is officially regarded as living or residing</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
@@ -1812,6 +1892,7 @@
                 <h4><code>socialRepresentative</code></h4>
                 <p><em>social representative</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/socialrepresentative">formal definition of the term</a>.</p>
+                <div>a person or entity designated to represent or assist an employer or posted worker in relation to social security, labour, employment or posting-related obligations during a posting period</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
@@ -1889,6 +1970,7 @@
                 <h4><code>subscribedCapital</code></h4>
                 <p><em>subscribed capital</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital">formal definition of the term</a>.</p>
+                <div>the total monetary amount of capital that shareholders or members have formally committed to contribute to a company under its constitutive documents</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#LimitedLiabilityCompany"><code>LimitedLiabilityCompany</code></a></dd>
@@ -1919,6 +2001,7 @@
                 <h4><code>temporaryAddress</code></h4>
                 <p><em>temporary address</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/temporaryaddress">formal definition of the term</a>.</p>
+                <div>an address at which a person resides, stays or can be reached for a limited period, without it being the person's permanent home or domicile address</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Person"><code>Person</code></a></dd>
@@ -1968,6 +2051,7 @@
                 <h4><code>thoroughfare</code></h4>
                 <p><em>thoroughfare</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare">formal definition of the term</a>.</p>
+                <div>the name of a passage or way through from one location to another</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
@@ -1999,6 +2083,7 @@
                 <h4><code>transitionalRules</code></h4>
                 <p><em>transitional rules</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/transitionalrules">formal definition of the term</a>.</p>
+                <div>a temporary legal or administrative rule set that applies to a case because the relevant situation falls within a transition from one regime, framework, or procedure to another</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
@@ -2029,6 +2114,7 @@
                 <h4><code>typeOfEmployment</code></h4>
                 <p><em>type of employment</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment">formal definition of the term</a>.</p>
+                <div>the category or form of an employment relationship, indicating how a worker is employed or engaged by an employer</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#A1Certificate"><code>A1Certificate</code></a> ⊔&nbsp;<a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a></dd>
@@ -2098,6 +2184,7 @@
                 <h4><code>AttestationLegalCategory</code></h4>
                 <p><em>Attestation Legal Category</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory">formal definition of the term</a>.</p>
+                <div>a categorization of electronic attestations of attributes into three primary types, each associated with a distinct level of assurance and legal effect</div>
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#attestationLegalCategory"><code>attestationLegalCategory</code></a></dd>
@@ -2111,6 +2198,7 @@
                 <h4><code>BankAccount</code></h4>
                 <p><em>Bank Account</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount">formal definition of the term</a>.</p>
+                <div>an account held with a credit institution or payment service provider that enables a legal or natural person to receive, hold, and transfer funds</div>
                 <dl class="terms">
                     <dt>Subclass of:</dt>
                     <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
@@ -2262,6 +2350,7 @@
                 <h4><code>ContactPoint</code></h4>
                 <p><em>Contact Point</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint">formal definition of the term</a>.</p>
+                <div>a designated communication channel or organisational function through which an entity can be contacted for a specific purpose</div>
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#contactPoint"><code>contactPoint</code></a></dd>
@@ -2279,7 +2368,7 @@
                 <p>See also the <a href="https://w3.org/TR/vc-data-model-2.0/#credential-subject">formal definition of the term</a>.</p>
                 <p class="note">
                     <b>This term is formally defined in another vocabulary</b>
-                    (as <a href="https://w3.org/2018/credentials#CredentialSubject">cred:CredentialSubject</a>), but is frequently used with this vocabulary and has been
+                    (as <a href="https://www.w3.org/2018/credentials#CredentialSubject">cred:CredentialSubject</a>), but is frequently used with this vocabulary and has been
                     included to aid readability of this document.
                 </p>
                 <dl class="terms">
@@ -2291,9 +2380,10 @@
                 <h4><code>EconomicOperator</code></h4>
                 <p><em>Economic Operator</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/economicoperator">formal definition of the term</a>.</p>
+                <div>any natural or legal person, including but not limited to companies, partnerships, foundations, associations as well as sole-traders and self-employed persons or a group of such persons, acting in a commercial or professional capacity</div>
                 <dl class="terms">
                     <dt>Range of:</dt>
-                    <dd><a href="#contributor"><code>contributor</code></a>, <a href="#employer"><code>employer</code></a>, <a href="#hostEntity"><code>hostEntity</code></a></dd>
+                    <dd><a href="#contributor"><code>contributor</code></a>, <a href="#employer"><code>employer</code></a>, <a href="#organisation"><code>organisation</code></a>, <a href="#hostEntity"><code>hostEntity</code></a></dd>
                     <dt>Includes the range of:</dt>
                     <dd><a href="#owner"><code>owner</code></a>, <a href="#placeOfWork"><code>placeOfWork</code></a>, <a href="#provider"><code>provider</code></a></dd>
                     <dt>Domain of:</dt>
@@ -2312,7 +2402,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Subclass of:</dt>
-                    <dd><a href="https://w3.org/2018/credentials#VerifiableCredential"><code>cred:VerifiableCredential</code></a></dd>
+                    <dd><a href="https://www.w3.org/2018/credentials#VerifiableCredential"><code>cred:VerifiableCredential</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Domain of:</dt>
@@ -2379,6 +2469,131 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
+            </section>
+            <section id="GLN">
+                <h4><code>GLN</code></h4>
+                <p><em>Global Location Number</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/gln">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Domain of:</dt>
+                    <dd><a href="#organisation"><code>organisation</code></a>, <a href="#licenceKey"><code>licenceKey</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#identifier"><code>identifier</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+                <pre class="example prettyprint language-json" title="Credential with credential subject of type GLN">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/ebwv/v0.1"
+  ],
+  "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+  "@type": [
+    "VerifiableCredential",
+    "ElectronicAttestationOfAttributes"
+  ],
+  "attestationLegalCategory": "EAA",
+  "credentialSubject": {
+    "@id": "urn:uuid:88b6586b-0eb4-43a6-b6cc-bd4e11198834",
+    "@type": "GLN",
+    "organisation": "did:key:$publicKeyOfHolder$",
+    "licenceKey": "810123456",
+    "identifier": {
+      "@type" : "GlobalLocationNumber",
+      "@value": "8101234560000"
+    }
+  },
+  "validUntil": "2029-12-03T12:19:52Z",
+  "validFrom": "2019-12-03T12:19:52Z",
+  "issuer": "did:key:$publicKeyOfGS1Issuer$"
+}
+</pre>
+                <pre class="example prettyprint language-json" title="Credential with credential subject of type GLN and separate registered address">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/ebwv/v0.1"
+  ],
+  "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+  "@type": [
+    "VerifiableCredential",
+    "ElectronicAttestationOfAttributes"
+  ],
+  "attestationLegalCategory": "EAA",
+  "credentialSubject": {
+    "@id": "urn:uuid:88b6586b-0eb4-43a6-b6cc-bd4e11198834",
+    "@type": "GLN",
+    "organisation": "did:key:$publicKeyOfHolder$",
+    "licenceKey": "810123456",
+    "identifier": {
+      "@type" : "GlobalLocationNumber",
+      "@value": "8101234560000"
+    },
+    "registeredAddress": {
+      "@type":"Address",
+      "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+      "thoroughfare": "Via Appia",
+      "locatorDesignator": "123",
+      "postName": "Rome",
+      "adminUnitL2": "Lazio",
+      "postCode": "00100",
+      "adminUnitL1": "IT"
+    }
+  },
+  "validUntil": "2029-12-03T12:19:52Z",
+  "validFrom": "2019-12-03T12:19:52Z",
+  "issuer": "did:key:$publicKeyOfGS1Issuer$"
+}
+</pre>
+                <pre class="example prettyprint language-json" title="Credential with credential subject of type GLN and company identity asserted by GS1 issuer">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/ebwv/v0.1"
+  ],
+  "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+  "@type": [
+    "VerifiableCredential",
+    "ElectronicAttestationOfAttributes"
+  ],
+  "attestationLegalCategory": "EAA",
+  "credentialSubject": {
+    "@id": "urn:uuid:88b6586b-0eb4-43a6-b6cc-bd4e11198834",
+    "@type": "GLN",
+    "organisation": {
+      "@id": "did:key:$publicKeyOfHolder$",
+      "@type": "EconomicOperator",
+      "legalIdentifier": {
+        "@type" : "Euid",
+        "@value" : "NOFOR.987654321"
+      },
+      "legalName": "acme Corporation",
+      "registeredAddress": {
+        "@type":"Address",
+        "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+        "thoroughfare": "Via Appia",
+        "locatorDesignator": "123",
+        "postName": "Rome",
+        "adminUnitL2": "Lazio",
+        "postCode": "00100",
+        "adminUnitL1": "IT"
+      }
+    },
+    "licenceKey": "810123456",
+    "identifier": {
+      "@type" : "GlobalLocationNumber",
+      "@value": "8101234560000"
+    }
+  },
+  "validUntil": "2029-12-03T12:19:52Z",
+  "validFrom": "2019-12-03T12:19:52Z",
+  "issuer": "did:key:$publicKeyOfGS1Issuer$"
+}
+</pre>
             </section>
             <section id="LegalPerson">
                 <h4><code>LegalPerson</code></h4>
@@ -2459,7 +2674,7 @@
                 <h4><code>LegalEntity</code></h4>
                 <p><em>Legal entity</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity">formal definition of the term</a>.</p>
-                <div>Legal Entity Data provided by LEI issuer</div>
+                <div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#legalEntity"><code>legalEntity</code></a></dd>
@@ -2475,6 +2690,7 @@
                 <h4><code>LegalRepresentative</code></h4>
                 <p><em>Legal representative</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative">formal definition of the term</a>.</p>
+                <div>a natural person or economic operator that has authority, under law, the company's statutes, a register entry or another recognised legal basis, to represent a company in dealings with third parties, authorities or courts</div>
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#legalRepresentative"><code>legalRepresentative</code></a></dd>
@@ -2837,6 +3053,7 @@
                 <h4><code>PostedWorkerNotification</code></h4>
                 <p><em>Posted Worker Notification</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker">formal definition of the term</a>.</p>
+                <div>a worker who is sent by an employer to perform work temporarily in a country other than the country in which the worker normally works</div>
                 <dl class="terms">
                     <dt>Domain of:</dt>
                     <dd><a href="#a1"><code>a1</code></a>, <a href="#assignment"><code>assignment</code></a>, <a href="#hostEntity"><code>hostEntity</code></a>, <a href="#postedWorker"><code>postedWorker</code></a></dd>
@@ -2953,7 +3170,7 @@
                 <h4><code>Site</code></h4>
                 <p><em>Site</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/site">formal definition of the term</a>.</p>
-                <div>A site is a specific physical place where an organization, legal entity, economic operator, or other business actor carries out activities, performs functions, or maintains operational presence.</div>
+                <div>a place, premises or location at which an organisation is present or located</div>
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#hasSite"><code>hasSite</code></a></dd>
@@ -2969,6 +3186,7 @@
                 <h4><code>ScopeOfAuthorization</code></h4>
                 <p><em>Scope Of Authorization</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization">formal definition of the term</a>.</p>
+                <div>the actions, matters, transactions, roles or circumstances for which an agent is authorised to act on behalf of another person or entity</div>
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#scopeOfAuthorization"><code>scopeOfAuthorization</code></a></dd>
@@ -3011,6 +3229,7 @@
                 <h4><code>TypeOfEmployment</code></h4>
                 <p><em>Type Of Employment</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment">formal definition of the term</a>.</p>
+                <div>the category or form of an employment relationship, indicating how a worker is employed or engaged by an employer</div>
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#typeOfEmployment"><code>typeOfEmployment</code></a></dd>
@@ -3229,6 +3448,48 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="GlobalLocationNumber">
+                <h4><code>GlobalLocationNumber</code></h4>
+                <p><em>Global Location Number</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/globallocationnumber">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Derived from:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Restriction pattern: </dt>
+                    <dd>"[0-9]{13}"</dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#identifier"><code>identifier</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="GS1CompanyPrefix">
+                <h4><code>GS1CompanyPrefix</code></h4>
+                <p><em>GS1 company prefix</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/gs1companyprefix">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Derived from:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Restriction pattern: </dt>
+                    <dd>"[0-9]{7,9}"</dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#licenceKey"><code>licenceKey</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="Iban">
                 <h4><code>Iban</code></h4>
                 <p><em>IBAN</em></p>
@@ -3257,6 +3518,7 @@
                 <h4><code>Lei</code></h4>
                 <p><em>legal entity identifier</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/lei">formal definition of the term</a>.</p>
+                <div>a globally unique reference code assigned under the Global LEI System to identify a legal entity participating in financial, business or regulatory transactions</div>
                 <dl class="terms">
                     <dt>Derived from:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
