@@ -7,11 +7,8 @@ class AuthorisedSignatories {
 }
 
 class  LegalEntity {
- *legalPersonName : string
- *legalFormType : string
- *euid : identifier
- +lei : string
- +tax : string
+ *legalPerson : 
+ *identifier :
  *hasAuthorisedPersons :
 }
 
@@ -22,6 +19,17 @@ class AuthorisedPerson {
  *birthPlace :
  *personRole :
  *citizenship :
+}
+
+class LegalPerson {
+ *legalPersonName : string
+ *legalFormType : 
+ }
+ 
+class Identifier {
+ *euid : string
+ +lei : string
+ +tax : string
 }
 
 class IdentifyingDocument {
@@ -60,6 +68,24 @@ class CodeList:representationType
  *name :
 }
 
+class CodeList:region
+{
+ *code:
+ *name :
+}
+
+class CodeList:country
+{
+ *code:
+ *name :
+}
+
+class CodeList:documentType
+{
+ *code:
+ *name :
+}
+
 class Entity {
  *mandatory
  +optional
@@ -72,20 +98,33 @@ AuthorisedPerson::naturalPersonIdentifier "1" -down-> "1" IdentifyingDocument #l
 AuthorisedPerson::birthPlace "1" -down-> "1" Place #line:DarkRed;text:White :_____
 AuthorisedPerson::citizenship "1" -down-> "1" "CodeList:citizenship" #line:DarkRed;text:White :_____
 AuthorisedPerson::personRole "1" -left-> "1" Role #line:DarkRed;text:White :_____
+LegalEntity::legalPerson "1" -right-> "1" LegalPerson
+LegalEntity::identifier "1" -down-> "1" Identifier
 Role::representationType "1" -left-> "1" "CodeList:representationType" #line:DarkRed;text:DarkRed
+Place::country "1" -down-> "1" "CodeList:country" #line:DarkRed;text:White :_____
+Place::region "1" -down-> "1" "CodeList:region" #line:DarkRed;text:White :_____
+IdentifyingDocument::documentType "1" -right-> "1" "CodeList:documentType" #line:DarkRed;text:White :_____
+IdentifyingDocument::issuingCountry "1" -right-> "1" "CodeList:country" #line:DarkRed;text:White :_____
+
 
 "CodeList:citizenship" -right- Place #line:white
+"CodeList:representationType" -up- Entity #line:white
 
 class AuthorisedPerson #LightYellow;line:DarkRed;text:DarkRed
 class AuthorisedSignatories #LightYellow;line:DarkRed;text:DarkRed
+class LegalPerson #LightYellow;line:DarkRed;text:DarkRed
+class Identifier #LightYellow;line:DarkRed;text:DarkRed
 class Place #LightYellow;line:DarkRed;text:DarkRed
-class CodeList:citizenship #CEEED0;line:285F17;text:285F17
 class IdentifyingDocument #LightYellow;line:DarkRed;text:DarkRed
-class CodeList:representationType #CEEED0;line:285F17;text:285F17
 class Role #LightYellow;line:DarkRed;text:DarkRed
 class NaturalPerson #LightYellow;line:DarkRed;text:DarkRed
 class LegalEntity #LightYellow;line:DarkRed;text:DarkRed
 class Entity #LightYellow;line:DarkRed;text:DarkRed
+class CodeList:representationType #CEEED0;line:285F17;text:285F17
+class CodeList:citizenship #CEEED0;line:285F17;text:285F17
+class CodeList:country #CEEED0;line:285F17;text:285F17
+class CodeList:region #CEEED0;line:285F17;text:285F17
+class CodeList:documentType #CEEED0;line:285F17;text:285F17
 
 hide circle
 
