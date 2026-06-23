@@ -1459,7 +1459,7 @@
             "owl:oneOf": ["ebwv:Alone", "ebwv:Jointly"]
         }],
         "rdfs:label": "scope of authorization (alone or jointly)",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/role",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1983,6 +1983,7 @@
     }, {
         "@id": "ebwv:PaymentTerms",
         "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "terms of payment",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentterms",
         "vs:term_status": "stable",
@@ -2003,12 +2004,9 @@
     }, {
         "@id": "ebwv:PostedWorkerNotification",
         "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "Posted Worker Notification",
-        "rdfs:comment": {
-            "@value": "<div>a worker who is sent by an employer to perform work temporarily in a country other than the country in which the worker normally works</div>",
-            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-        },
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworkernotification",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -2059,6 +2057,7 @@
     }, {
         "@id": "ebwv:SocialSecurityContribution",
         "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "Social Security Contribution",
         "rdfs:comment": {
             "@value": "<div>A social security contribution attestation is an attestation issued by a competent authority or authorized body confirming information about an employer’s fulfilment of obligations related to social security contributions arising from the employment of workers.</div>",

@@ -794,7 +794,7 @@ ebwv:scopeOfAuthorization a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:StatutoryPartner) ] ;
     rdfs:range ebwv:ScopeOfAuthorization, [ a owl:Class; owl:oneOf (ebwv:Alone ebwv:Jointly) ] ;
     rdfs:label "scope of authorization (alone or jointly)" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/role>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1097,6 +1097,7 @@ ebwv:PeriodOfTime a rdfs:Class ;
 .
 
 ebwv:PaymentTerms a rdfs:Class ;
+    rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "terms of payment" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentterms>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -1109,9 +1110,9 @@ ebwv:Person a rdfs:Class ;
 .
 
 ebwv:PostedWorkerNotification a rdfs:Class ;
+    rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Posted Worker Notification" ;
-    rdfs:comment """<div>a worker who is sent by an employer to perform work temporarily in a country other than the country in which the worker normally works</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworkernotification>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1137,6 +1138,7 @@ ebwv:ScopeOfAuthorization a rdfs:Class ;
 .
 
 ebwv:SocialSecurityContribution a rdfs:Class ;
+    rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Social Security Contribution" ;
     rdfs:comment """<div>A social security contribution attestation is an attestation issued by a competent authority or authorized body confirming information about an employer’s fulfilment of obligations related to social security contributions arising from the employment of workers.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/socialsecuritycontribution>, <https://w3id.org/ebwv#> ;

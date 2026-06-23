@@ -485,8 +485,8 @@ class:
 
   - id: MonetaryAmount
     label: Monetary Amount
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/monetaryamount
     comment: A structured representation of a sum of money, consisting at minimum of a numeric amount and the currency in which that amount is expressed. It is used in business attestations, credentials, invoices, payments, taxes, fees, capital, turnover, balances, and other economic or financial statements where the monetary value must be interpreted unambiguously across systems and jurisdictions.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/monetaryamount
 
   - id: NaturalPerson
     label: Natural Person Identification Data
@@ -594,6 +594,7 @@ class:
     
   - id: PaymentTerms
     label: terms of payment
+    upper_value: cred:CredentialSubject
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentterms
     example:
       - label: Credential with credential subject of type PaymentTerms
@@ -640,8 +641,8 @@ class:
 
   - id: PostedWorkerNotification
     label: Posted Worker Notification
-    comment: a worker who is sent by an employer to perform work temporarily in a country other than the country in which the worker normally works
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworkernotification
     example:
       - label: Credential with credential subject of type PostedWorkerNotification
         json: |
@@ -747,8 +748,9 @@ class:
 
   - id: SocialSecurityContribution
     label: Social Security Contribution
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialsecuritycontribution
+    upper_value: cred:CredentialSubject
     comment: A social security contribution attestation is an attestation issued by a competent authority or authorized body confirming information about an employer’s fulfilment of obligations related to social security contributions arising from the employment of workers.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialsecuritycontribution
 
   - id: StatutoryPartner
     label: Statutory Partner
@@ -771,6 +773,88 @@ class:
     label: Work Assignment
     upper_value: schema:Thing
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/workassignment
+
+individual:   # code lists
+  - id: Alone
+    label: scope of authorization Alone
+    type: ScopeOfAuthorization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
+
+  - id: EXW
+    label: Ex Works
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exw
+
+  - id: FCA
+    label: Free Carrier
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fca
+
+  - id: CPT
+    label: Carriage Paid To
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt
+
+  - id: CIP
+    label: Carriage & Insurance Paid To
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cip
+
+  - id: DAP
+    label: Delivered At Place
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dap
+
+  - id: DPU
+    label: Delivered Place Unloaded
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu
+
+  - id: DDP
+    label: Delivered Duty Paid
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp
+    
+  - id: FAS
+    label: Free Alongside Ship
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fas
+
+  - id: FOB
+    label: Free On Board
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
+
+
+  - id: EAA
+    label: electronic attestation of attributes
+    type: AttestationLegalCategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA
+
+  - id: Jointly
+    label: scope of authorization Jointly
+    type: ScopeOfAuthorization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly
+
+  - id: Permanent
+    label: type of employment Permanent
+    type: TypeOfEmployment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/permanent
+
+  - id: Pub-EAA
+    label: public electronic attestation of attributes
+    type: AttestationLegalCategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA
+
+  - id: QEAA
+    label: qualified electronic attestation of attributes
+    type: AttestationLegalCategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA
+
+  - id: Temporary
+    label: type of employment Temporary
+    type: TypeOfEmployment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary
 
 property:
   - id: a1
@@ -1316,8 +1400,8 @@ property:
     label: no fixed place of work
     domain: A1Certificate
     range: xsd:boolean
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork
     comment: Indicates that no fixed address or fixed place of work exists for the work or self-employment activity covered by the A1 certificate.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork
 
   - id: owner
     label: owner
@@ -1387,8 +1471,8 @@ property:
       - EconomicOperator
       - Vessel      
     range_union: true
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork
     comment: the location where a worker performs, is expected to perform, or is assigned to perform work during an employment, posting or work assignment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork
     
   - id: poBox
     label: post office box
@@ -1449,8 +1533,8 @@ property:
       - LegalEntity
       - GLN
     range: Address
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
     comment: the address at which the legal entity is legally registered
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
 
   - id: reportingMonth
     label: reporting month
@@ -1480,7 +1564,7 @@ property:
       - StatutoryPartner
     range: ScopeOfAuthorization
     one_of: [Alone, Jointly]
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
 
   - id: socialRepresentative
     label: social representative
@@ -1585,88 +1669,6 @@ property:
     one_of: [Permanent, Temporary]
     comment: the category or form of an employment relationship, indicating how a worker is employed or engaged by an employer
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
-
-individual:   # code lists
-  - id: Alone
-    label: scope of authorization Alone
-    type: ScopeOfAuthorization
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
-
-  - id: EXW
-    label: Ex Works
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exw
-
-  - id: FCA
-    label: Free Carrier
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fca
-
-  - id: CPT
-    label: Carriage Paid To
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt
-
-  - id: CIP
-    label: Carriage & Insurance Paid To
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cip
-
-  - id: DAP
-    label: Delivered At Place
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dap
-
-  - id: DPU
-    label: Delivered Place Unloaded
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu
-
-  - id: DDP
-    label: Delivered Duty Paid
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp
-    
-  - id: FAS
-    label: Free Alongside Ship
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fas
-
-  - id: FOB
-    label: Free On Board
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
-
-
-  - id: EAA
-    label: electronic attestation of attributes
-    type: AttestationLegalCategory
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA
-
-  - id: Jointly
-    label: scope of authorization Jointly
-    type: ScopeOfAuthorization
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly
-
-  - id: Permanent
-    label: type of employment Permanent
-    type: TypeOfEmployment
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/permanent
-
-  - id: Pub-EAA
-    label: public electronic attestation of attributes
-    type: AttestationLegalCategory
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA
-
-  - id: QEAA
-    label: qualified electronic attestation of attributes
-    type: AttestationLegalCategory
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA
-
-  - id: Temporary
-    label: type of employment Temporary
-    type: TypeOfEmployment
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary
 
 datatype:
   - id: AccountType
