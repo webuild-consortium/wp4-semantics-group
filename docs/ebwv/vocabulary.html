@@ -118,6 +118,32 @@
         summary {
             font-weight: normal !important;
         }
+
+        .example-with-playground {
+            position: relative;
+        }
+
+        a.jsonld-playground-button {
+            position: absolute;
+            top: 4.4em;
+            right: 1.4em;
+            z-index: 1;
+            padding: 0.3em 0.7em;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #000000;
+            background-color: #ffffff;
+            opacity: .4;
+            border-radius: 4px;
+            text-decoration: none;
+            box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        a.jsonld-playground-button:hover {
+            background-color: #f0f0f0;
+            opacity: 1;
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+        }
     </style>
     <link href="vocab/src/vocabulary.jsonld" rel="alternate" type="application/ld+json">
     <link href="vocab/src/vocabulary.ttl" rel="alternate" type="text/turtle">
@@ -135,7 +161,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-06-23</time>
+                <time property="dc:date" id="time">2026-06-24</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -2211,7 +2237,8 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type BankAccount">{
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type BankAccount">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -2235,7 +2262,8 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfProvider$"
 }
-</pre>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3Af0adc5fe-3558-40f8-b1e2-97713ec44dff%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22urn%3Auuid%3Aeb887cd3-5080-44e6-8b3d-e008d80e19fc%22%2C%0A++++%22%40type%22%3A+%22BankAccount%22%2C%0A++++%22accountName%22%3A+%22ACME%3A+Business+expenses+HR%22%2C%0A++++%22accountType%22%3A+%22Corporate+Account%22%2C%0A++++%22iban%22%3A+%22DE02500105170137075030%22%2C%0A++++%22owner%22+%3A+%22did%3Akey%3A%24publicKeyOfOwner%24%22%2C%0A++++%22provider%22+%3A+%22did%3Akey%3A%24publicKeyOfProvider%24%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfProvider%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
             </section>
             <section id="Capital">
                 <h4><code>Capital</code></h4>
@@ -2270,7 +2298,8 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type Company">{
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type Company">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -2344,7 +2373,8 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
-</pre>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A8c076e09-c680-4fa0-b346-630096770c3e%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%5B%0A++++++%22EconomicOperator%22%2C%0A++++++%22Company%22%0A++++%5D%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++%22legalForm%22%3A+%22Inc.%22%2C%0A++++%22registeredAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22identifier%22+%3A+%5B%0A++++++%7B%0A++++++++%22%40type%22+%3A+%22Bic%22%2C%0A++++++++%22%40value%22+%3A+%22INCFGXXX%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22+%3A+%22ClearingNumber%22%2C%0A++++++++%22%40value%22+%3A+%2212345678%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22VatId%22%2C%0A++++++++%22%40value%22%3A+%22123456789MVA%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22Tin%22%2C%0A++++++++%22%40value%22%3A+%22NO-ORG-123456789%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22Lei%22%2C%0A++++++++%22%40value%22%3A+%225493001KJTIIGC8Y1R12%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22Eori%22%2C%0A++++++++%22%40value%22%3A+%22NO123456789012%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22Excise%22%2C%0A++++++++%22%40value%22%3A+%22GBWK123456789000%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22PeppolId%22%2C%0A++++++++%22%40value%22%3A+%220199%3A5493001KJTIIGC8Y1R12%22%0A++++++%7D%0A++++%5D%2C%0A++++%22dateOfRegistration%22+%3A+%222018-12-03%22%2C%0A++++%22endDate%22+%3A+%222020-12-02%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
             </section>
             <section id="ContactPoint">
                 <h4><code>ContactPoint</code></h4>
@@ -2429,7 +2459,8 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type EuropeanBusinessWalletOwner">{
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type EuropeanBusinessWalletOwner">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -2453,7 +2484,8 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
-</pre>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3Af0adc5fe-3558-40f8-b1e2-97713ec44dff%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%22EuropeanBusinessWalletOwner%22%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme+Corporation%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
             </section>
             <section id="GeneralPartner">
                 <h4><code>GeneralPartner</code></h4>
@@ -2488,7 +2520,8 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type GLN">{
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type GLN">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -2513,8 +2546,10 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfGS1Issuer$"
 }
-</pre>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type GLN and separate registered address">{
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A8c076e09-c680-4fa0-b346-630096770c3e%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22EAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22urn%3Auuid%3A88b6586b-0eb4-43a6-b6cc-bd4e11198834%22%2C%0A++++%22%40type%22%3A+%22GLN%22%2C%0A++++%22organisation%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22licenceKey%22%3A+%22810123456%22%2C%0A++++%22identifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22GlobalLocationNumber%22%2C%0A++++++%22%40value%22%3A+%228101234560000%22%0A++++%7D%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfGS1Issuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type GLN and separate registered address">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -2549,8 +2584,10 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfGS1Issuer$"
 }
-</pre>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type GLN and company identity asserted by GS1 issuer">{
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A8c076e09-c680-4fa0-b346-630096770c3e%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22EAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22urn%3Auuid%3A88b6586b-0eb4-43a6-b6cc-bd4e11198834%22%2C%0A++++%22%40type%22%3A+%22GLN%22%2C%0A++++%22organisation%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22licenceKey%22%3A+%22810123456%22%2C%0A++++%22identifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22GlobalLocationNumber%22%2C%0A++++++%22%40value%22%3A+%228101234560000%22%0A++++%7D%2C%0A++++%22registeredAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfGS1Issuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type GLN and company identity asserted by GS1 issuer">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -2593,7 +2630,8 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfGS1Issuer$"
 }
-</pre>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A8c076e09-c680-4fa0-b346-630096770c3e%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22EAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22urn%3Auuid%3A88b6586b-0eb4-43a6-b6cc-bd4e11198834%22%2C%0A++++%22%40type%22%3A+%22GLN%22%2C%0A++++%22organisation%22%3A+%7B%0A++++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++++%22%40type%22%3A+%22EconomicOperator%22%2C%0A++++++%22legalIdentifier%22%3A+%7B%0A++++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++++%7D%2C%0A++++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++++%22registeredAddress%22%3A+%7B%0A++++++++%22%40type%22%3A%22Address%22%2C%0A++++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++++%22postName%22%3A+%22Rome%22%2C%0A++++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++++%22postCode%22%3A+%2200100%22%2C%0A++++++++%22adminUnitL1%22%3A+%22IT%22%0A++++++%7D%0A++++%7D%2C%0A++++%22licenceKey%22%3A+%22810123456%22%2C%0A++++%22identifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22GlobalLocationNumber%22%2C%0A++++++%22%40value%22%3A+%228101234560000%22%0A++++%7D%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfGS1Issuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
             </section>
             <section id="LegalPerson">
                 <h4><code>LegalPerson</code></h4>
@@ -2613,7 +2651,8 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type LegalPerson">{
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type LegalPerson">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -2638,7 +2677,8 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
-</pre>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A8c076e09-c680-4fa0-b346-630096770c3e%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%22LegalPerson%22%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++%22legalForm%22%3A+%22Inc.%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
             </section>
             <section id="Incoterms">
                 <h4><code>Incoterms</code></h4>
@@ -2720,7 +2760,8 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type LimitedLiabilityCompany">{
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type LimitedLiabilityCompany">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -2791,7 +2832,8 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
-</pre>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Ad5dfeb39-edc7-40b1-a2fc-3968dbd3eac8%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%5B%0A++++++%22EconomicOperator%22%2C%0A++++++%22Company%22%2C%0A++++++%22LimitedLiabilityCompany%22%0A++++%5D%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++%22legalForm%22%3A+%22Inc.%22%2C%0A++++%22registeredAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22correspondenceAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22dateOfRegistration%22%3A+%222023-10-11%22%2C%0A++++%22legalStatus%22%3A+%22active%22%2C%0A++++%22activity%22%3A+%2210.82%22%2C%0A++++%22subscribedCapital%22%3A+%7B%0A++++++%22%40type%22%3A+%22Capital%22%2C%0A++++++%22amount%22%3A+100000%2C%0A++++++%22currency%22%3A+%22EUR%22%0A++++%7D%2C%0A++++%22legalRepresentative%22%3A+%5B%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LegalRepresentative%22%2C%0A++++++++%22legalRepresentativeId%22%3A+%22did%3Akey%3A%24publicKeyOfRepresentative1%24%22%2C%0A++++++++%22role%22%3A+%22CEO%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Alone%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LegalRepresentative%22%2C%0A++++++++%22legalRepresentativeId%22%3A+%22did%3Akey%3A%24publicKeyOfRepresentative2%24%22%2C%0A++++++++%22role%22%3A+%22CFO%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Alone%22%0A++++++%7D%0A++++%5D%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
             </section>
             <section id="LimitedPartner">
                 <h4><code>LimitedPartner</code></h4>
@@ -2861,7 +2903,8 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type NaturalPerson">{
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type NaturalPerson">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -2883,7 +2926,8 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
-</pre>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A06aeb5bc-e4a1-46a5-920e-d15eaba7f35c%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%22NaturalPerson%22%2C%0A++++%22givenName%22%3A+%22Mario%22%2C%0A++++%22familyName%22%3A+%22Mustermann%22%2C%0A++++%22dateOfBirth%22%3A+%221965-12-01%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
             </section>
             <section id="Partnership">
                 <h4><code>Partnership</code></h4>
@@ -2901,7 +2945,8 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type Partnership">{
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type Partnership">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -2961,7 +3006,8 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
-</pre>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Ad5dfeb39-edc7-40b1-a2fc-3968dbd3eac8%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%5B%0A++++++++%22EconomicOperator%22%2C%0A++++++++%22Company%22%2C%0A++++++++%22Partnership%22%0A++++%5D%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme%22%2C%0A++++%22legalForm%22%3A+%22Partnership%22%2C%0A++++%22registeredAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22partner%22%3A+%5B%0A++++++%7B%0A++++++++%22%40type%22%3A+%22GeneralPartner%22%2C%0A++++++++%22partnerId%22%3A+%22did%3Akey%3A%24publicKeyOfPartner1%24%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LimitedPartner%22%2C%0A++++++++%22partnerId%22%3A+%22did%3Akey%3A%24publicKeyOfPartner2%24%22%2C%0A++++++++%22liabilityOrContribution%22%3A+%7B%0A++++++++++%22%40type%22%3A+%22Capital%22%2C%0A++++++++++%22amount%22%3A+100000%2C%0A++++++++++%22currency%22%3A+%22EUR%22%0A++++++++%7D%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22StatutoryPartner%22%2C%0A++++++++%22partnerId%22%3A+%22did%3Akey%3A%24publicKeyOfPartner3%24%22%2C%0A++++++++%22role%22%3A+%22Head+of+HR%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Jointly%22%0A++++++%7D%0A++++%5D%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
             </section>
             <section id="PeriodOfTime">
                 <h4><code>PeriodOfTime</code></h4>
@@ -2998,7 +3044,8 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type PaymentTerms">{
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type PaymentTerms">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/ebwv/v0.1"
@@ -3032,7 +3079,8 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
-</pre>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A06aeb5bc-e4a1-46a5-920e-d15eaba7f35c%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22urn%3Auuid%3A08f36c51-27f9-4aa2-a09e-b02fa5b778c2%22%2C%0A++++%22%40type%22%3A+%22PaymentTerms%22%2C%0A++++%22paymentDue%22%3A+%22P30D%22%2C%0A++++%22deliveryLocation%22%3A+%7B%0A++++++++%22%40type%22%3A%22Address%22%2C%0A++++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++++%22postName%22%3A+%22Rome%22%2C%0A++++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++++%22postCode%22%3A+%2200100%22%2C%0A++++++++%22adminUnitL1%22%3A+%22IT%22%0A++++++%7D%2C%0A++++%22supplier%22%3A+%22did%3Akey%3A%24publicKeyOfSupplier%22%2C%0A++++%22buyer%22%3A+%22did%3Akey%3A%24publicKeyOfBuyer%22%2C%0A++++%22terms%22%3A+%22DAP%22%2C%0A++++%22currency%22%3A+%22EUR%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
             </section>
             <section id="Person">
                 <h4><code>Person</code></h4>
@@ -3071,7 +3119,8 @@
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
-                <pre class="example prettyprint language-json" title="Credential with credential subject of type PostedWorkerNotification">{
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type PostedWorkerNotification">{
   "@context": [
     "https://schema.org",
     "https://www.w3.org/ns/credentials/v2",
@@ -3155,7 +3204,8 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
-</pre>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fschema.org%22%2C%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3Af0adc5fe-3558-40f8-b1e2-97713ec44dff%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%22PostedWorkerNotification%22%2C%0A++++%22postedWorker%22+%3A+%7B%0A++++++%22%40type%22%3A+%22Person%22%2C%0A++++++%22gender%22%3A+%22male%22%2C%0A++++++%22familyName%22%3A+%22Miller%22%2C%0A++++++%22givenName%22%3A+%22Joe%22%2C%0A++++++%22birthName%22%3A+%22Miller%22%2C%0A++++++%22dateOfBirth%22%3A+%221956-12-02%22%2C%0A++++++%22citizenship%22%3A+%22IT%22%2C%0A++++++%22placeOfBirth%22%3A+%7B%0A++++++++%22%40type%22+%3A+%22Address%22%2C%0A++++++++%22postName%22%3A+%22Rome%22%2C%0A++++++++%22adminUnitL1%22%3A+%22IT%22%0A++++++%7D%2C%0A++++++%22domicile%22%3A+%7B%0A++++++++%22%40type%22%3A%22Address%22%2C%0A++++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++++%22postName%22%3A+%22Rome%22%2C%0A++++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++++%22postCode%22%3A+%2200100%22%2C%0A++++++++%22adminUnitL1%22%3A+%22IT%22%0A++++++%7D%2C%0A++++++%22temporaryAddress%22%3A%7B%0A++++++++%22%40type%22%3A%22Address%22%2C%0A++++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++++%22postName%22%3A+%22Rome%22%2C%0A++++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++++%22postCode%22%3A+%2200100%22%2C%0A++++++++%22adminUnitL1%22%3A+%22IT%22%0A++++++%7D%0A++++%7D%2C%0A++++%22assignment%22%3A+%7B%0A++++++%22%40type%22%3A%22WorkAssignment%22%2C%0A++++++%22jurisdiction%22%3A+%22IT%22%2C%0A++++++%22description%22%3A+%22job+duties%22%2C+%0A++++++%22duration%22%3A+%7B%0A++++++++%22%40type%22+%3A+%22PeriodOfTime%22%2C%0A++++++++%22startDate%22%3A+%222020-01-01%22%2C%0A++++++++%22endDate%22%3A+%222020-06-30%22%0A++++++%7D%0A++++%7D%2C%0A++++%22a1%22%3A+%22urn%3Auuid%3A35b7bf25-0629-48d0-8269-20eac38dd2d7%22%2C%0A++++%22employer%22%3A+%7B%0A++++++%22%40type%22+%3A+%22EconomicOperator%22%2C%0A++++++%22legalIdentifier%22%3A+%7B%0A++++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++++%7D%2C%0A++++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++++%22temporaryWorkAgency%22%3A+false%0A++++%7D%2C%0A++++%22hostEntity%22%3A+%7B%0A++++++%22%40type%22+%3A+%22EconomicOperator%22%2C%0A++++++%22legalIdentifier%22%3A+%7B%0A++++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++++%22%40value%22+%3A+%22ITFOR.987654321%22%0A++++++%7D%2C%0A++++++%22legalName%22%3A+%22Hosting+Service+Corporation%22%2C%0A++++++%22temporaryWorkAgency%22%3A+true%0A++++%7D%2C%0A++++%22typeOfEmployment%22%3A+%22Permanent%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
             </section>
             <section id="LeiRegistration">
                 <h4><code>LeiRegistration</code></h4>
