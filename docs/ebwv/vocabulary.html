@@ -161,7 +161,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-06-24</time>
+                <time property="dc:date" id="time">2026-06-25</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -2216,6 +2216,10 @@
                     <dd><a href="#attestationLegalCategory"><code>attestationLegalCategory</code></a></dd>
                 </dl>
                 <dl class="terms">
+                    <dt>Individuals:</dt>
+                    <dd><a href="#EAA"><code>EAA</code></a>, <a href="#Pub-EAA"><code>Pub-EAA</code></a>, <a href="#QEAA"><code>QEAA</code></a></dd>
+                </dl>
+                <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
@@ -2687,6 +2691,10 @@
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#terms"><code>terms</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Individuals:</dt>
+                    <dd><a href="#CPT"><code>CPT</code></a>, <a href="#CIP"><code>CIP</code></a>, <a href="#DAP"><code>DAP</code></a>, <a href="#DPU"><code>DPU</code></a>, <a href="#DDP"><code>DDP</code></a>, <a href="#EXW"><code>EXW</code></a>, <a href="#FAS"><code>FAS</code></a>, <a href="#FCA"><code>FCA</code></a>, <a href="#FOB"><code>FOB</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -3249,6 +3257,10 @@
                     <dd><a href="#scopeOfAuthorization"><code>scopeOfAuthorization</code></a></dd>
                 </dl>
                 <dl class="terms">
+                    <dt>Individuals:</dt>
+                    <dd><a href="#Alone"><code>Alone</code></a>, <a href="#Jointly"><code>Jointly</code></a></dd>
+                </dl>
+                <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
@@ -3294,6 +3306,10 @@
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#typeOfEmployment"><code>typeOfEmployment</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Individuals:</dt>
+                    <dd><a href="#Permanent"><code>Permanent</code></a>, <a href="#Temporary"><code>Temporary</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -3701,214 +3717,166 @@
 
         <section id="individual_definitions" class="term_definitions">
             <h3>Definitions for individuals</h3>
-            <p>The following are definitions for individuals in the <code>ebwv</code> namespace.</p>
-            <section id="Alone">
-                <h4><code>Alone</code></h4>
-                <p><em>scope of authorization Alone</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#ScopeOfAuthorization"><code>ScopeOfAuthorization</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
+            <p>The following are definitions for individuals in the <code>ebwv</code> namespace, grouped by their type.</p>
+            <section id="individuals_of_ebwv_ScopeOfAuthorization">
+                <h4><a href="#ScopeOfAuthorization"><code>ScopeOfAuthorization</code></a></h4>
+                <p>This chapter lists the individuals of type <a href="#ScopeOfAuthorization"><code>ScopeOfAuthorization</code></a>.</p>
+                <section id="Alone">
+                    <h4><code>Alone</code></h4>
+                    <p><em>scope of authorization Alone</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="Jointly">
+                    <h4><code>Jointly</code></h4>
+                    <p><em>scope of authorization Jointly</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
             </section>
-            <section id="EXW">
-                <h4><code>EXW</code></h4>
-                <p><em>Ex Works</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/exw">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#Incoterms"><code>Incoterms</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
+            <section id="individuals_of_ebwv_Incoterms">
+                <h4><a href="#Incoterms"><code>Incoterms</code></a></h4>
+                <p>This chapter lists the individuals of type <a href="#Incoterms"><code>Incoterms</code></a>.</p>
+                <section id="CPT">
+                    <h4><code>CPT</code></h4>
+                    <p><em>Carriage Paid To</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="CIP">
+                    <h4><code>CIP</code></h4>
+                    <p><em>Carriage &amp; Insurance Paid To</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/cip">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="DAP">
+                    <h4><code>DAP</code></h4>
+                    <p><em>Delivered At Place</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/dap">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="DPU">
+                    <h4><code>DPU</code></h4>
+                    <p><em>Delivered Place Unloaded</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="DDP">
+                    <h4><code>DDP</code></h4>
+                    <p><em>Delivered Duty Paid</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="EXW">
+                    <h4><code>EXW</code></h4>
+                    <p><em>Ex Works</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/exw">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="FAS">
+                    <h4><code>FAS</code></h4>
+                    <p><em>Free Alongside Ship</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/fas">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="FCA">
+                    <h4><code>FCA</code></h4>
+                    <p><em>Free Carrier</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/fca">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="FOB">
+                    <h4><code>FOB</code></h4>
+                    <p><em>Free On Board</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/fob">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
             </section>
-            <section id="FCA">
-                <h4><code>FCA</code></h4>
-                <p><em>Free Carrier</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/fca">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#Incoterms"><code>Incoterms</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
+            <section id="individuals_of_ebwv_AttestationLegalCategory">
+                <h4><a href="#AttestationLegalCategory"><code>AttestationLegalCategory</code></a></h4>
+                <p>This chapter lists the individuals of type <a href="#AttestationLegalCategory"><code>AttestationLegalCategory</code></a>.</p>
+                <section id="EAA">
+                    <h4><code>EAA</code></h4>
+                    <p><em>electronic attestation of attributes</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="Pub-EAA">
+                    <h4><code>Pub-EAA</code></h4>
+                    <p><em>public electronic attestation of attributes</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="QEAA">
+                    <h4><code>QEAA</code></h4>
+                    <p><em>qualified electronic attestation of attributes</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
             </section>
-            <section id="CPT">
-                <h4><code>CPT</code></h4>
-                <p><em>Carriage Paid To</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#Incoterms"><code>Incoterms</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="CIP">
-                <h4><code>CIP</code></h4>
-                <p><em>Carriage &amp; Insurance Paid To</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/cip">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#Incoterms"><code>Incoterms</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="DAP">
-                <h4><code>DAP</code></h4>
-                <p><em>Delivered At Place</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/dap">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#Incoterms"><code>Incoterms</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="DPU">
-                <h4><code>DPU</code></h4>
-                <p><em>Delivered Place Unloaded</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#Incoterms"><code>Incoterms</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="DDP">
-                <h4><code>DDP</code></h4>
-                <p><em>Delivered Duty Paid</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#Incoterms"><code>Incoterms</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="FAS">
-                <h4><code>FAS</code></h4>
-                <p><em>Free Alongside Ship</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/fas">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#Incoterms"><code>Incoterms</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="FOB">
-                <h4><code>FOB</code></h4>
-                <p><em>Free On Board</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/fob">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#Incoterms"><code>Incoterms</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="EAA">
-                <h4><code>EAA</code></h4>
-                <p><em>electronic attestation of attributes</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#AttestationLegalCategory"><code>AttestationLegalCategory</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="Jointly">
-                <h4><code>Jointly</code></h4>
-                <p><em>scope of authorization Jointly</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#ScopeOfAuthorization"><code>ScopeOfAuthorization</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="Permanent">
-                <h4><code>Permanent</code></h4>
-                <p><em>type of employment Permanent</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/permanent">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#TypeOfEmployment"><code>TypeOfEmployment</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="Pub-EAA">
-                <h4><code>Pub-EAA</code></h4>
-                <p><em>public electronic attestation of attributes</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#AttestationLegalCategory"><code>AttestationLegalCategory</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="QEAA">
-                <h4><code>QEAA</code></h4>
-                <p><em>qualified electronic attestation of attributes</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#AttestationLegalCategory"><code>AttestationLegalCategory</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="Temporary">
-                <h4><code>Temporary</code></h4>
-                <p><em>type of employment Temporary</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Type</dt>
-                    <dd><span><a href="#TypeOfEmployment"><code>TypeOfEmployment</code></a></span><br></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
+            <section id="individuals_of_ebwv_TypeOfEmployment">
+                <h4><a href="#TypeOfEmployment"><code>TypeOfEmployment</code></a></h4>
+                <p>This chapter lists the individuals of type <a href="#TypeOfEmployment"><code>TypeOfEmployment</code></a>.</p>
+                <section id="Permanent">
+                    <h4><code>Permanent</code></h4>
+                    <p><em>type of employment Permanent</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/permanent">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="Temporary">
+                    <h4><code>Temporary</code></h4>
+                    <p><em>type of employment Temporary</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary">formal definition of the term</a>.</p>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
             </section>
         </section>
     </section>

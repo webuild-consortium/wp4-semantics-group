@@ -15,7 +15,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-06-24"^^xsd:date ;
+    dc:date "2026-06-25"^^xsd:date ;
 .
 
 # Property definitions
@@ -1186,18 +1186,6 @@ ebwv:Alone a ebwv:ScopeOfAuthorization ;
     vs:term_status "stable" ;
 .
 
-ebwv:EXW a ebwv:Incoterms ;
-    rdfs:label "Ex Works" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/exw>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:FCA a ebwv:Incoterms ;
-    rdfs:label "Free Carrier" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/fca>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:CPT a ebwv:Incoterms ;
     rdfs:label "Carriage Paid To" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt>, <https://w3id.org/ebwv#> ;
@@ -1228,21 +1216,33 @@ ebwv:DDP a ebwv:Incoterms ;
     vs:term_status "stable" ;
 .
 
+ebwv:EAA a ebwv:AttestationLegalCategory ;
+    rdfs:label "electronic attestation of attributes" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:EXW a ebwv:Incoterms ;
+    rdfs:label "Ex Works" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/exw>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:FAS a ebwv:Incoterms ;
     rdfs:label "Free Alongside Ship" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/fas>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
-ebwv:FOB a ebwv:Incoterms ;
-    rdfs:label "Free On Board" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/fob>, <https://w3id.org/ebwv#> ;
+ebwv:FCA a ebwv:Incoterms ;
+    rdfs:label "Free Carrier" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/fca>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
-ebwv:EAA a ebwv:AttestationLegalCategory ;
-    rdfs:label "electronic attestation of attributes" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA>, <https://w3id.org/ebwv#> ;
+ebwv:FOB a ebwv:Incoterms ;
+    rdfs:label "Free On Board" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/fob>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

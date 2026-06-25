@@ -780,16 +780,6 @@ individual:   # code lists
     type: ScopeOfAuthorization
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
 
-  - id: EXW
-    label: Ex Works
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exw
-
-  - id: FCA
-    label: Free Carrier
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fca
-
   - id: CPT
     label: Carriage Paid To
     type: Incoterms
@@ -815,21 +805,30 @@ individual:   # code lists
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp
     
+  - id: EAA
+    label: electronic attestation of attributes
+    type: AttestationLegalCategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA
+
+  - id: EXW
+    label: Ex Works
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exw
+
   - id: FAS
     label: Free Alongside Ship
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fas
 
+  - id: FCA
+    label: Free Carrier
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fca
+
   - id: FOB
     label: Free On Board
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
-
-
-  - id: EAA
-    label: electronic attestation of attributes
-    type: AttestationLegalCategory
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA
 
   - id: Jointly
     label: scope of authorization Jointly

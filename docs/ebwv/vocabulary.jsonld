@@ -78,7 +78,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-06-24",
+    "dc:date": "2026-06-25",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -2136,26 +2136,6 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:EXW",
-        "@type": "ebwv:Incoterms",
-        "rdfs:label": "Ex Works",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/exw",
-        "vs:term_status": "stable",
-        "mentioned": [{
-            "@id": "https://w3id.org/ebwv/v0.1",
-            "@type": "jsonld:Context"
-        }]
-    }, {
-        "@id": "ebwv:FCA",
-        "@type": "ebwv:Incoterms",
-        "rdfs:label": "Free Carrier",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/fca",
-        "vs:term_status": "stable",
-        "mentioned": [{
-            "@id": "https://w3id.org/ebwv/v0.1",
-            "@type": "jsonld:Context"
-        }]
-    }, {
         "@id": "ebwv:CPT",
         "@type": "ebwv:Incoterms",
         "rdfs:label": "Carriage Paid To",
@@ -2206,6 +2186,26 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:EAA",
+        "@type": "ebwv:AttestationLegalCategory",
+        "rdfs:label": "electronic attestation of attributes",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:EXW",
+        "@type": "ebwv:Incoterms",
+        "rdfs:label": "Ex Works",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/exw",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:FAS",
         "@type": "ebwv:Incoterms",
         "rdfs:label": "Free Alongside Ship",
@@ -2216,20 +2216,20 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:FOB",
+        "@id": "ebwv:FCA",
         "@type": "ebwv:Incoterms",
-        "rdfs:label": "Free On Board",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/fob",
+        "rdfs:label": "Free Carrier",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/fca",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:EAA",
-        "@type": "ebwv:AttestationLegalCategory",
-        "rdfs:label": "electronic attestation of attributes",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA",
+        "@id": "ebwv:FOB",
+        "@type": "ebwv:Incoterms",
+        "rdfs:label": "Free On Board",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/fob",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
