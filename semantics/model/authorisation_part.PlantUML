@@ -5,8 +5,8 @@ class Authorisation {
  +dct:identifier : uri
  *dct:title : Literal
  *hasOwner :
- +hasLegalBasisIn :
  +isWitnessedBy :
+ +hasLegalBasisIn :
  *principal :
  +status : ENUM [active, inactive]
  *dateOfIssue : date
