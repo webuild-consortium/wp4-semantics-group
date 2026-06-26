@@ -29,7 +29,9 @@ class AssignmentRule {
  +or:
 }
 
-class LegalBasis {
+class [ABS]LegalBasis {
+' Legal Basis is a Role that the law or an other
+' authorisation gan give.
  *code : string
  *name : string
 }
@@ -143,15 +145,18 @@ class Entity {
 
 Authorisation::principal "1" -left-> "1..n" Involvement #line:DarkRed;text:White :_____
 Authorisation::isWitnessedBy "1" -up-> "0..n" Involvement__ #line:DarkRed;text:DarkRed
-Authorisation::hasLegalBasisIn "1" -up-> "0..n" LegalBasis #line:DarkRed;text:DarkRed
+Authorisation::hasLegalBasisIn "1" -up-> "0..n" [ABS]LegalBasis #line:DarkRed;text:DarkRed
 Authorisation::hasScope "1" -down-> "0..n" Scope #line:DarkRed;text:DarkRed
 Authorisation::seeAlso "1" -down-> "0..1" Document #line:DarkRed;text:DarkRed
 Authorisation::hasRule "1" -right-> "1" AssignmentRule #line:DarkRed;text:White :_____
 Authorisation::temporal "1" -left-> "1" PeriodOfTime #line:DarkRed;text:White :_____
 Authorisation::hasOwner "1" -up-> "1" EconomicOperator__ #line:DarkRed;text:White :_____
 
-LegalBasis  <|-up- Law #line:DarkRed;text:White :_____
-LegalBasis  <|-up- Authorisation_ #line:DarkRed;text:White :_____
+skinparam groupInheritance 2
+_Role  <|-- [ABS]LegalBasis_ #line:DarkRed;text:White :_____
+
+[ABS]LegalBasis_  <|-- Law #line:DarkRed;text:White :_____
+[ABS]LegalBasis_  <|-- Authorisation_ #line:DarkRed;text:White :_____
 
 
 AssignmentRule::isAssignedTo "1" -right-> "1..n" Involvement_ #line:DarkRed;text:DarkRed
@@ -187,11 +192,14 @@ EconomicOperator__ -left- Involvement__ #line:White
 EconomicOperator -left- Person #line:White
 Involvement -right- PeriodOfTime #line:White
 AssignmentRule_ -right- AssignmentRule__ #line:White
+Entity -right- _Role #line:White
+
 
 class Authorisation #LightYellow;line:DarkRed;text:DarkRed
 class Law #LightYellow;line:DarkRed;text:DarkRed
 class Scope #LightYellow;line:DarkRed;text:DarkRed
 class Document #LightYellow;line:DarkRed;text:DarkRed
+class [ABS]LegalBasis #LightYellow;line:DarkRed;text:DarkRed
 class IdentificationDocument #LightYellow;line:DarkRed;text:DarkRed
 class EconomicOperator #LightYellow;line:DarkRed;text:DarkRed
 class Involvement #LightYellow;line:DarkRed;text:DarkRed
