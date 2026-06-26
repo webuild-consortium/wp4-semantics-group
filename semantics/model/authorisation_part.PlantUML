@@ -2,17 +2,21 @@
 title General Authorisation Model
 
 class Authorisation {
- *name : string
- +isGroundedIn :
+ +dct:identifier : uri
+ *dct:title : Literal
+ *hasOwner :
+ +hasLegalBasisIn :
  +isWitnessedBy :
- *grantor :
- *state : ENUM [active, inactive]
- *dateOfStart : date
- +dateOfEnd : date
+ *principal :
+ +status : ENUM [active, inactive]
+ *dateOfIssue : date
+ *dct:temporal :
+ +type : Skos Concept
+ 'type is optional, just in case property. 
+ +replaces :
  +delegable : [Y/N]
- +includingResponsibility : [Y/N]
  *hasRule :
- +isDocumentedIn :
+ +seeAlso : uri
  +hasScope :
 }
 
@@ -25,17 +29,22 @@ class AssignmentRule {
  +or:
 }
 
+class LegalBasis {
+ *code : string
+ *name : string
+}
+
 class Law {
  *jurisdiction : string
  *code : string
  *name : string
 }
 
-class Document {
- +code : string
- *name : string
- +type :
+class PeriodOfTime {
+ *startDate : date
+ +endDate : date
 }
+
 
 class IdentificationDocument {
  *number : string
@@ -43,7 +52,7 @@ class IdentificationDocument {
  +type :
 }
 
-class Membership {
+class Involvement {
  +code : string
  *inOrganisation :
  *name : string
@@ -71,9 +80,13 @@ class Role {
 }
 
 class Restriction {
- +frequencyRestriction: [value, unit]
- +scopeRestriction:
-}
+ +title : string
+ +value : string
+ +unit : string
+ +source : uri
+ 'the unit points to the code, not the code list..
+ 'make as much restrictions as you need to define the scope.
+ }
 
 class CodeList:Financial
 {
@@ -102,7 +115,7 @@ class CodeList:eService
  Pay, Issue, Decide]
 }
 
-class CodeList:Region
+class CodeList:SpacialExtent
 {
  *code
  *ENUM : [State,
@@ -116,12 +129,11 @@ class  EconomicOperator
  *EUID : identifier
  pattern : "^[A-Z]{2}[A-Z]{3}\\.
  [a-zA-Z0-9]+\\.[a-zA-Z0-9]+$"
- +hasAuthorisations :
 }
 
 class Scope {
- *name : string
- +hasRestriction :
+ *title : string
+ +hasRestriction :[operator in subproperty]
 }
 
 class Entity {
@@ -129,46 +141,53 @@ class Entity {
  +optional
 }
 
-EconomicOperator___::hasAuthorisations "1" -down-> "0..n" Authorisation #line:DarkRed;text:DarkRed
-Authorisation::grantor "1" -left-> "1..n" Membership #line:DarkRed;text:White :_____
-Authorisation::isWitnessedBy "1" -up-> "0..n" Membership__ #line:DarkRed;text:DarkRed
-Authorisation::isGroundedIn "1" -up-> "0..n" Law #line:DarkRed;text:DarkRed
-Authorisation::isGroundedIn "1" -up-> "0..n" Authorisation_ #line:DarkRed;text:DarkRed
-Authorisation::hasScope "1" -down-> "0..1" Scope #line:DarkRed;text:DarkRed
-Authorisation::isDocumentedIn "1" -down-> "0..1" Document #line:DarkRed;text:DarkRed
+'EconomicOperator___::hasAuthorisations "1" -down-> "0..n" Authorisation #line:DarkRed;text:DarkRed
+Authorisation::principal "1" -left-> "1..n" Involvement #line:DarkRed;text:White :_____
+Authorisation::isWitnessedBy "1" -up-> "0..n" Involvement__ #line:DarkRed;text:DarkRed
+Authorisation::hasLegalBasisIn "1" -up-> "0..n" LegalBasis #line:DarkRed;text:DarkRed
+'Authorisation::isGroundedIn "1" -up-> "0..n" Authorisation_ #line:DarkRed;text:DarkRed
+Authorisation::hasScope "1" -down-> "0..n" Scope #line:DarkRed;text:DarkRed
+Authorisation::seeAlso "1" -down-> "0..1" Document #line:DarkRed;text:DarkRed
 Authorisation::hasRule "1" -right-> "1" AssignmentRule #line:DarkRed;text:White :_____
+Authorisation::temporal "1" -left-> "1" PeriodOfTime #line:DarkRed;text:White :_____
+Authorisation::hasOwner "1" -up-> "1" EconomicOperator__ #line:DarkRed;text:White :_____
+'Authorisation::replaces "1" -left-> "1" Authorisation::replaces #line:DarkRed;text:White :_____
 
-AssignmentRule::isAssignedTo "1" -right-> "1..n" Membership_ #line:DarkRed;text:DarkRed
+'LegalBasis  <|-up- "1" Law #line:DarkRed;text:White :_____
+'LegalBasis  <|-up- "1" Authorisation_ #line:DarkRed;text:White :_____
+
+
+AssignmentRule::isAssignedTo "1" -right-> "1..n" Involvement_ #line:DarkRed;text:DarkRed
 AssignmentRule::and "1" -down-> "0..n" AssignmentRule_ #line:DarkRed;text:DarkRed
 AssignmentRule::or "1" -down-> "0..n" AssignmentRule__ #line:DarkRed;text:DarkRed
 
-Membership::hasRole "1" -down-> "0..1" Role #line:DarkRed;text:DarkRed
-Membership::member "1" -down-> "0..1" Person  #line:DarkRed;text:DarkRed
-Membership::member "1" -down-> "0..1" Machine  #line:DarkRed;text:DarkRed
-Membership::inOrganisation "1" -down-> "0..1" EconomicOperator  #line:DarkRed;text:DarkRed
-Membership_::hasRole "1" -down-> "0..1" Role_ #line:DarkRed;text:DarkRed
-Membership_::member "1" -down-> "0..1" Person_  #line:DarkRed;text:DarkRed
-Membership_::member "1" -down-> "0..1" Machine_  #line:DarkRed;text:DarkRed
-Membership_::inOrganisation "1" -down-> "0..1" EconomicOperator_  #line:DarkRed;text:DarkRed
+Involvement::hasRole "1" -down-> "0..1" Role #line:DarkRed;text:DarkRed
+Involvement::member "1" -down-> "0..1" Person  #line:DarkRed;text:DarkRed
+Involvement::member "1" -down-> "0..1" Machine  #line:DarkRed;text:DarkRed
+Involvement::inOrganisation "1" -down-> "0..1" EconomicOperator  #line:DarkRed;text:DarkRed
+Involvement_::hasRole "1" -down-> "0..1" Role_ #line:DarkRed;text:DarkRed
+Involvement_::member "1" -down-> "0..1" Person_  #line:DarkRed;text:DarkRed
+Involvement_::member "1" -down-> "0..1" Machine_  #line:DarkRed;text:DarkRed
+Involvement_::inOrganisation "1" -down-> "0..1" EconomicOperator_  #line:DarkRed;text:DarkRed
 
-Restriction::scopeRestriction .down.> "CodeList:NACE" #line:Gray;text:DarkRed
-Restriction::scopeRestriction .down.> "CodeList:eService" #line:Gray;text:DarkRed
-Restriction::scopeRestriction .down.> "CodeList:EconomicOperator" #line:Gray;text:DarkRed
-Restriction::scopeRestriction .down.> "CodeList:Region" #line:Gray;text:DarkRed
-
+Restriction::source .down.> "CodeList:NACE::code" #line:Gray;text:DarkRed
+Restriction::source .down.> "CodeList:eService::code" #line:Gray;text:DarkRed
+Restriction::source .down.> "CodeList:EconomicOperator" #line:Gray;text:DarkRed
+Restriction::source .down.> "CodeList:SpacialExtent::code" #line:Gray;text:DarkRed
+'point to the uri code, not the whole code list.
 Person::identificationDocument -down-> IdentificationDocument
-IdentificationDocument::type .right.> "CodeList:identificationDocumentType" #line:Gray;text:DarkRed
+IdentificationDocument::type .right.> "CodeList:identificationDocumentType::code" #line:Gray;text:DarkRed
 
 Role::inOrganisation -left-> "EconomicOperator" #line:DarkRed;text:DarkRed
 
 Scope::hasRestriction "1" -down-> "0..n" Restriction #line:DarkRed;text:DarkRed
 
-Document -left- Scope #line:white
+'Document -left- Scope #line:white
 AssignmentRule -down-> Document #line:White
 Role -right- Person #line:White
 Person -right- Machine #line:White
 Role -left- Person #line:White
-Membership__ -right- Authorisation_ #line:White
+Involvement__ -right- Authorisation_ #line:White
 
 class Authorisation #LightYellow;line:DarkRed;text:DarkRed
 class Law #LightYellow;line:DarkRed;text:DarkRed
@@ -176,17 +195,18 @@ class Scope #LightYellow;line:DarkRed;text:DarkRed
 class Document #LightYellow;line:DarkRed;text:DarkRed
 class IdentificationDocument #LightYellow;line:DarkRed;text:DarkRed
 class EconomicOperator #LightYellow;line:DarkRed;text:DarkRed
-class Membership #LightYellow;line:DarkRed;text:DarkRed
+class Involvement #LightYellow;line:DarkRed;text:DarkRed
 class Role #LightYellow;line:DarkRed;text:DarkRed
 class Person #LightYellow;line:DarkRed;text:DarkRed
 class Machine #LightYellow;line:DarkRed;text:DarkRed
 class AssignmentRule #LightYellow;line:DarkRed;text:DarkRed
 class Restriction #LightYellow;line:DarkRed;text:DarkRed
 class Entity #LightYellow;line:DarkRed;text:DarkRed
+class PeriodOfTime #LightYellow;line:DarkRed;text:DarkRed
 class CodeList:eService #CEEED0;line:285F17;text:285F17
 class CodeList:Financial #CEEED0;line:285F17;text:285F17
 class CodeList:NACE #CEEED0;line:285F17;text:285F17
-class CodeList:Region #CEEED0;line:285F17;text:285F17
+class CodeList:SpacialExtent #CEEED0;line:285F17;text:285F17
 class CodeList:identificationDocumentType #CEEED0;line:285F17;text:285F17
 
 hide circle
