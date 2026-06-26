@@ -54,9 +54,9 @@ class IdentificationDocument {
 
 class Involvement {
  +code : string
- *inOrganisation :
  *name : string
  *member :
+ *inOrganisation :
  +hasRole :
 }
 
@@ -155,8 +155,8 @@ LegalBasis  <|-up- Authorisation_ #line:DarkRed;text:White :_____
 
 
 AssignmentRule::isAssignedTo "1" -right-> "1..n" Involvement_ #line:DarkRed;text:DarkRed
-AssignmentRule::and "1" -down-> "0..n" AssignmentRule_ #line:DarkRed;text:DarkRed
-AssignmentRule::or "1" -down-> "0..n" AssignmentRule__ #line:DarkRed;text:DarkRed
+AssignmentRule::and "1" -down-> "0..n" AssignmentRule__ #line:DarkRed;text:DarkRed
+AssignmentRule::or "1" -down-> "0..n" AssignmentRule_ #line:DarkRed;text:DarkRed
 
 Involvement::hasRole "1" -down-> "0..1" Role #line:DarkRed;text:DarkRed
 Involvement::member "1" -down-> "0..1" Person  #line:DarkRed;text:DarkRed
@@ -181,10 +181,12 @@ Scope::hasRestriction "1" -down-> "0..n" Restriction #line:DarkRed;text:DarkRed
 
 AssignmentRule -down-> Document #line:White
 Role -right- Person #line:White
-Person -right- Machine #line:White
+'Person -right- Machine #line:White
 Role -left- Person #line:White
 EconomicOperator__ -left- Involvement__ #line:White
+EconomicOperator -left- Person #line:White
 Involvement -right- PeriodOfTime #line:White
+AssignmentRule_ -right- AssignmentRule__ #line:White
 
 class Authorisation #LightYellow;line:DarkRed;text:DarkRed
 class Law #LightYellow;line:DarkRed;text:DarkRed
