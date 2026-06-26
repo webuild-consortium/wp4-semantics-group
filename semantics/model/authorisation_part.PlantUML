@@ -84,7 +84,7 @@ class Restriction {
  +value : string
  +unit : string
  +source : uri
- 'the unit points to the code, not the code list..
+ 'the source points to the code, not the code list..
  'make as much restrictions as you need to define the scope.
  }
 
@@ -141,20 +141,17 @@ class Entity {
  +optional
 }
 
-'EconomicOperator___::hasAuthorisations "1" -down-> "0..n" Authorisation #line:DarkRed;text:DarkRed
 Authorisation::principal "1" -left-> "1..n" Involvement #line:DarkRed;text:White :_____
 Authorisation::isWitnessedBy "1" -up-> "0..n" Involvement__ #line:DarkRed;text:DarkRed
 Authorisation::hasLegalBasisIn "1" -up-> "0..n" LegalBasis #line:DarkRed;text:DarkRed
-'Authorisation::isGroundedIn "1" -up-> "0..n" Authorisation_ #line:DarkRed;text:DarkRed
 Authorisation::hasScope "1" -down-> "0..n" Scope #line:DarkRed;text:DarkRed
 Authorisation::seeAlso "1" -down-> "0..1" Document #line:DarkRed;text:DarkRed
 Authorisation::hasRule "1" -right-> "1" AssignmentRule #line:DarkRed;text:White :_____
 Authorisation::temporal "1" -left-> "1" PeriodOfTime #line:DarkRed;text:White :_____
 Authorisation::hasOwner "1" -up-> "1" EconomicOperator__ #line:DarkRed;text:White :_____
-'Authorisation::replaces "1" -left-> "1" Authorisation::replaces #line:DarkRed;text:White :_____
 
-'LegalBasis  <|-up- "1" Law #line:DarkRed;text:White :_____
-'LegalBasis  <|-up- "1" Authorisation_ #line:DarkRed;text:White :_____
+LegalBasis  <|-up- Law #line:DarkRed;text:White :_____
+LegalBasis  <|-up- Authorisation_ #line:DarkRed;text:White :_____
 
 
 AssignmentRule::isAssignedTo "1" -right-> "1..n" Involvement_ #line:DarkRed;text:DarkRed
@@ -174,7 +171,7 @@ Restriction::source .down.> "CodeList:NACE::code" #line:Gray;text:DarkRed
 Restriction::source .down.> "CodeList:eService::code" #line:Gray;text:DarkRed
 Restriction::source .down.> "CodeList:EconomicOperator" #line:Gray;text:DarkRed
 Restriction::source .down.> "CodeList:SpacialExtent::code" #line:Gray;text:DarkRed
-'point to the uri code, not the whole code list.
+Restriction::source .down.> "CodeList:Financial::code" #line:Gray;text:DarkRed
 Person::identificationDocument -down-> IdentificationDocument
 IdentificationDocument::type .right.> "CodeList:identificationDocumentType::code" #line:Gray;text:DarkRed
 
@@ -182,12 +179,12 @@ Role::inOrganisation -left-> "EconomicOperator" #line:DarkRed;text:DarkRed
 
 Scope::hasRestriction "1" -down-> "0..n" Restriction #line:DarkRed;text:DarkRed
 
-'Document -left- Scope #line:white
 AssignmentRule -down-> Document #line:White
 Role -right- Person #line:White
 Person -right- Machine #line:White
 Role -left- Person #line:White
-Involvement__ -right- Authorisation_ #line:White
+EconomicOperator__ -left- Involvement__ #line:White
+Involvement -right- PeriodOfTime #line:White
 
 class Authorisation #LightYellow;line:DarkRed;text:DarkRed
 class Law #LightYellow;line:DarkRed;text:DarkRed
