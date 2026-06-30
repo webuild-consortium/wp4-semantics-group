@@ -78,7 +78,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-06-25",
+    "dc:date": "2026-06-30",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -835,7 +835,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Company", "ebwv:LegalEntity", "ebwv:A1Certificate", "ebwv:WorkAssignment"]
+            "owl:unionOf": ["ebwv:Company", "ebwv:LegalEntity", "ebwv:A1Certificate", "ebwv:WorkAssignment", "ebwv:PublicSectorBody"]
         },
         "rdfs:range": "ebwv:CountryCode",
         "rdfs:label": "jurisdiction",
@@ -885,11 +885,11 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:EconomicOperator"]
+            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:EconomicOperator", "ebwv:PublicSectorBody"]
         },
         "rdfs:range": {
             "@type": "ows:Class",
-            "owl:unionOf": ["ebwv:PublicBodyId", "ebwv:Euid"]
+            "owl:unionOf": ["ebwv:PublicSectorBodyId", "ebwv:Euid"]
         },
         "rdfs:label": "legal identifier",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier",
@@ -903,7 +903,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:EconomicOperator", "ebwv:LegalEntity"]
+            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:EconomicOperator", "ebwv:LegalEntity", "ebwv:PublicSectorBody"]
         },
         "rdfs:range": "xsd:string",
         "rdfs:label": "legal name",
@@ -2013,6 +2013,20 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:PublicSectorBody",
+        "@type": "rdfs:Class",
+        "rdfs:label": "public sector body",
+        "rdfs:comment": {
+            "@value": "<div>public sector body’ means a Union entity, a national, state, regional or local authority, a body governed by public law or an association formed by one or several such entities or bodies , or a private entity mandated by at least one such entities, authorities, bodies or associations to provide public services, when acting under such a mandate</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:LeiRegistration",
         "@type": "rdfs:Class",
         "rdfs:label": "LEI Registration",
@@ -2531,11 +2545,11 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:PublicBodyId",
+        "@id": "ebwv:PublicSectorBodyId",
         "@type": "rdfs:Datatype",
         "rdfs:subClassOf": ["xsd:string"],
         "rdfs:label": "unique identifier of public body",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorBodyId",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",

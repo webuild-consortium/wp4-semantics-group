@@ -649,6 +649,21 @@
                 }
             }
         },
+        "PublicSectorBody": {
+            "@id": "https://w3id.org/ebwv#PublicSectorBody",
+            "@context": {
+                "@protected": true,
+                "jurisdiction": {
+                    "@id": "https://w3id.org/ebwv#jurisdiction",
+                    "@type": "https://w3id.org/ebwv#CountryCode"
+                },
+                "legalIdentifier": "https://w3id.org/ebwv#legalIdentifier",
+                "legalName": {
+                    "@id": "https://w3id.org/ebwv#legalName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
         "LeiRegistration": {
             "@id": "https://w3id.org/ebwv#LeiRegistration",
             "@context": {
@@ -777,6 +792,10 @@
             }
         },
         "description": "https://schema.org/description",
+        "issuer": {
+            "@id": "https://www.w3.org/2018/credentials#issuer",
+            "@type": "@id"
+        },
         "name": "https://schema.org/name",
         "Alone": "https://w3id.org/ebwv#Alone",
         "CPT": "https://w3id.org/ebwv#CPT",
@@ -809,7 +828,7 @@
         "Nace21": "https://w3id.org/ebwv#Nace21",
         "NationalBankCode": "https://w3id.org/ebwv#NationalBankCode",
         "PeppolId": "https://w3id.org/ebwv#PeppolId",
-        "PublicBodyId": "https://w3id.org/ebwv#PublicBodyId",
+        "PublicSectorBodyId": "https://w3id.org/ebwv#PublicSectorBodyId",
         "Tin": "https://w3id.org/ebwv#Tin",
         "VatId": "https://w3id.org/ebwv#VatId"
     }

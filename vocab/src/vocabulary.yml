@@ -731,6 +731,11 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
+  - id: PublicSectorBody
+    label: public sector body
+    comment: public sector body’ means a Union entity, a national, state, regional or local authority, a body governed by public law or an association formed by one or several such entities or bodies , or a private entity mandated by at least one such entities, authorities, bodies or associations to provide public services, when acting under such a mandate
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody
+
   - id: LeiRegistration
     label: LEI Registration
     comment: Registration Meta Data of LEI provided and maintained by LEI issuer
@@ -1229,6 +1234,14 @@ property:
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
 
+  - id: cred:issuer
+    label: issuer
+    range:
+      - EconomicOperator
+      - PublicSectorBody
+    defined_by: https://www.w3.org/2018/credentials/#issuer
+    context: https://www.w3.org/ns/credentials/v2
+
   - id: jobTitle
     label: job title
     domain: Person
@@ -1243,6 +1256,7 @@ property:
       - LegalEntity
       - A1Certificate
       - WorkAssignment
+      - PublicSectorBody
     range:
       - CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
@@ -1270,8 +1284,9 @@ property:
       - EuropeanBusinessWalletOwner
       - LegalPerson
       - EconomicOperator
+      - PublicSectorBody
     range:
-      - PublicBodyId
+      - PublicSectorBodyId
       - Euid
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier
@@ -1283,6 +1298,7 @@ property:
       - LegalPerson
       - EconomicOperator
       - LegalEntity
+      - PublicSectorBody
     range: xsd:string
     comment: the name under which the legal entity is legally registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
@@ -1766,10 +1782,10 @@ datatype:
     - https://docs.peppol.eu/edelivery/
     - https://docs.peppol.eu/poacc/billing/3.0/codelist/ICD/
 
-  - id: PublicBodyId
+  - id: PublicSectorBodyId
     label: unique identifier of public body
     upper_value: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorBodyId
 
   - id: Tin
     label: tax reference number

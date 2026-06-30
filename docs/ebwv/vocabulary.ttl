@@ -15,7 +15,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-06-25"^^xsd:date ;
+    dc:date "2026-06-30"^^xsd:date ;
 .
 
 # Property definitions
@@ -448,7 +448,7 @@ ebwv:jobTitle a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:jurisdiction a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:LegalEntity ebwv:A1Certificate ebwv:WorkAssignment) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:LegalEntity ebwv:A1Certificate ebwv:WorkAssignment ebwv:PublicSectorBody) ] ;
     rdfs:range ebwv:CountryCode ;
     rdfs:label "jurisdiction" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction>, <https://w3id.org/ebwv#> ;
@@ -474,15 +474,15 @@ ebwv:legalForm a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:legalIdentifier a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuropeanBusinessWalletOwner ebwv:LegalPerson ebwv:EconomicOperator) ] ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:PublicBodyId ebwv:Euid) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuropeanBusinessWalletOwner ebwv:LegalPerson ebwv:EconomicOperator ebwv:PublicSectorBody) ] ;
+    rdfs:range [ a owl:Class; owl:unionOf (ebwv:PublicSectorBodyId ebwv:Euid) ] ;
     rdfs:label "legal identifier" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:legalName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuropeanBusinessWalletOwner ebwv:LegalPerson ebwv:EconomicOperator ebwv:LegalEntity) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuropeanBusinessWalletOwner ebwv:LegalPerson ebwv:EconomicOperator ebwv:LegalEntity ebwv:PublicSectorBody) ] ;
     rdfs:range xsd:string ;
     rdfs:label "legal name" ;
     rdfs:comment """<div>the name under which the legal entity is legally registered</div>"""^^rdf:HTML ;
@@ -1116,6 +1116,13 @@ ebwv:PostedWorkerNotification a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
+ebwv:PublicSectorBody a rdfs:Class ;
+    rdfs:label "public sector body" ;
+    rdfs:comment """<div>public sector body’ means a Union entity, a national, state, regional or local authority, a body governed by public law or an association formed by one or several such entities or bodies , or a private entity mandated by at least one such entities, authorities, bodies or associations to provide public services, when acting under such a mandate</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:LeiRegistration a rdfs:Class ;
     rdfs:label "LEI Registration" ;
     rdfs:comment """<div>Registration Meta Data of LEI provided and maintained by LEI issuer</div>"""^^rdf:HTML ;
@@ -1406,10 +1413,10 @@ ebwv:PeppolId a rdfs:Datatype ;
     vs:term_status "stable" ;
 .
 
-ebwv:PublicBodyId a rdfs:Datatype ;
+ebwv:PublicSectorBodyId a rdfs:Datatype ;
     rdfs:subClassOf xsd:string ;
     rdfs:label "unique identifier of public body" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorBodyId>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
