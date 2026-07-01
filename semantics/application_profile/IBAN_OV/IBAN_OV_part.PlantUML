@@ -1,7 +1,7 @@
 @startuml
-title IBAN OV Model
+title IBAN Model
 
-class IBAN_OV {
+class "IBAN \n<size:11><color:gray><i>A standardized international numbering system\n<size:11><color:gray><i>used to uniquely identify a bank account.</i></color></size>" as IBAN {
  *id : string
  *name :string
  *dateStart : date [YYYY-MM-DD]
@@ -9,21 +9,21 @@ class IBAN_OV {
  *hasABankAccount :
 }
 
-class BankAccount {
- *accountName : string
- *iban : string [[A-Z]{2}[0-9A-Z]{13,30}]
- *type :
- *currency :
- *hasOwner :
- *hasProvider :
+class "BankAccount\n<size:11><color:gray><i>Attributes representing the bank account.</i></color></size>" as BankAccount {
+  *accountName : string
+  *iban : string [[A-Z]{2}[0-9A-Z]{13,30}]
+  *type :
+  *currency :
+  *hasOwner :
+  *hasProvider :
 }
 
-class AccountOwnership {
+class "AccountOwnership\n<size:11><color:gray><i>Attributes representing the account ownership.</i></color></size>" as AccountOwnership {
  *owner : RegisteredOrganisation.statutoryName
  *EUID : RegisteredOrganisation.EUID
 }
 
-class AccountProvider {
+class "AccountProvider\n<size:11><color:gray><i>Attributes representing the account provider.</i></color></size>" as AccountProvider {
  *provider : RegisteredOrganisation.statutoryName
  *bankIdentifier : RegisteredOrganisation.EUID
  *providerCountry : RegisteredOrganisation.registeredAddress.
@@ -68,7 +68,7 @@ class CodeList:ISO4217:20215
  *description : string
 }
 
-IBAN_OV::hasABankAccount "1" -down-> "1" BankAccount #line:DarkRed;text:DarkRed
+IBAN::hasABankAccount "1" -down-> "1" BankAccount #line:DarkRed;text:DarkRed
 BankAccount::type "1" -left-> "CodeList:accountType" #line:285F17;text:DarkRed
 BankAccount::currency "1" -right-> "1..n" "CodeList:ISO4217:20215" #line:285F17;text:DarkRed
 BankAccount::hasOwner "1" -down-> "1" AccountOwnership #line:DarkRed;text:DarkRed
@@ -80,7 +80,7 @@ RegisteredOrganisation -left-> Country #line:White
 RegisteredOrganisation -right-> "CodeList:NACE" #line:White
 AccountOwnership -left- AccountProvider #line:White
 
-class IBAN_OV #LightYellow;line:DarkRed;text:DarkRed
+class IBAN #LightYellow;line:DarkRed;text:DarkRed
 class BankAccount #LightYellow;line:DarkRed;text:DarkRed
 class AccountProvider #LightYellow;line:DarkRed;text:DarkRed
 class AccountOwnership #LightYellow;line:DarkRed;text:DarkRed
