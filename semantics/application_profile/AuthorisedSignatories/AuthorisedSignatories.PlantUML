@@ -1,23 +1,20 @@
 @startuml
 title Authorised Signatories application profile
 
-class AuthorisedSignatories {
-
-
+class "AuthorisedSignatories\n<size:11><color:gray><i>An attestation — the attestation type defined in this Rulebook, providing a\n<size:11><color:gray><i>verifiable list of natural persons authorised to act on behalf of a legal entity.</i></color></size>" as AuthorisedSignatories {
 }
 
-class  LegalEntity {
+class  "LegalEntity\n<size:11><color:gray><i>Not yet defined in the rulebook.</i></color></size>" as LegalEntity {
  *legalPerson : 
  *identifier :
  *hasAuthorisedPersons :
 }
 
-class AuthorisedPerson {
-' Membership
+class "AuthorisedPerson\n<size:11><color:gray><i>[Authorised Signatory]\n<size:11><color:gray><i>A natural person who is authorised to act on behalf of a legal entity in financial\n<size:11><color:gray><i> and contractual settings, either through statutory power or delegated power.</i></color></size>" as AuthorisedPerson {
  *naturalPerson :
- +naturalPersonIdentifier :
- *birthPlace :
  *personRole :
+ *birthPlace :
+ +naturalPersonIdentifier :
  *citizenship :
 }
 
@@ -28,7 +25,7 @@ class LegalPerson {
  
 class Identifier {
  *euid : string
- +lei : string
+ +lei : ISO 17442
  +tax : string
 }
 
@@ -39,13 +36,13 @@ class IdentifyingDocument {
  *expiryDate : date
  }
 
-class NaturalPerson {
+class "NaturalPerson\n<size:11><color:gray><i>The full legal name and date\n<size:11><color:gray><i>of birth of the signatory.</i></color></size>" as NaturalPerson {
  *firstName : string
  *surname : string
  *dateOfBirth : date
 }
 
-class Role {
+class "Role\n<size:11><color:gray><i>the role within the company.</i></color></size>" as Role {
  +role : string
  *representationType :
 }
@@ -56,15 +53,14 @@ class Place {
  +region :
  }
  
-class CodeList:citizenship
-{
- *code:
- *name :
-}
+'class CodeList:citizenship
+'{
+' *code:
+' *name :
+'}
 
-class CodeList:representationType
-{
- *code:
+class "CodeList:representationType\n<size:11><color:gray><i>A single signatory has full authority to act,\n<size:11><color:gray><i>or two or more signatories are required to act together.</i></color></size>" as CodeList:representationType {
+ *code: [SOLE, JOINT]
  *name :
 }
 
@@ -76,7 +72,7 @@ class CodeList:region
 
 class CodeList:country
 {
- *code:
+ *code:ISO 3166-1 alpha-3
  *name :
 }
 
@@ -91,23 +87,23 @@ class Entity {
  +optional
 }
 
-AuthorisedSignatories "1" -right-> "1" LegalEntity #line:DarkRed;text:DarkRed
+AuthorisedSignatories "1" -down-> "1" LegalEntity #line:DarkRed;text:DarkRed
 AuthorisedSignatories "1" -down-> "1..n" AuthorisedPerson #line:DarkRed;text:DarkRed
 AuthorisedPerson::naturalPerson "1" -right-> "1" NaturalPerson #line:DarkRed;text:White :_____
 AuthorisedPerson::naturalPersonIdentifier "1" -down-> "1" IdentifyingDocument #line:DarkRed;text:White :_____
 AuthorisedPerson::birthPlace "1" -down-> "1" Place #line:DarkRed;text:White :_____
-AuthorisedPerson::citizenship "1" -down-> "1" "CodeList:citizenship" #line:DarkRed;text:White :_____
+AuthorisedPerson::citizenship "1" -down-> "1" "CodeList:country" #line:DarkRed;text:White :_____
 AuthorisedPerson::personRole "1" -left-> "1" Role #line:DarkRed;text:White :_____
 LegalEntity::legalPerson "1" -right-> "1" LegalPerson
 LegalEntity::identifier "1" -down-> "1" Identifier
 Role::representationType "1" -left-> "1" "CodeList:representationType" #line:DarkRed;text:DarkRed
 Place::country "1" -down-> "1" "CodeList:country" #line:DarkRed;text:White :_____
 Place::region "1" -down-> "1" "CodeList:region" #line:DarkRed;text:White :_____
-IdentifyingDocument::documentType "1" -right-> "1" "CodeList:documentType" #line:DarkRed;text:White :_____
+IdentifyingDocument::documentType "1" -left-> "1" "CodeList:documentType" #line:DarkRed;text:White :_____
 IdentifyingDocument::issuingCountry "1" -right-> "1" "CodeList:country" #line:DarkRed;text:White :_____
 
 
-"CodeList:citizenship" -right- Place #line:white
+'"CodeList:citizenship" -right- Place #line:white
 "CodeList:representationType" -up- Entity #line:white
 
 class AuthorisedPerson #LightYellow;line:DarkRed;text:DarkRed
@@ -121,7 +117,7 @@ class NaturalPerson #LightYellow;line:DarkRed;text:DarkRed
 class LegalEntity #LightYellow;line:DarkRed;text:DarkRed
 class Entity #LightYellow;line:DarkRed;text:DarkRed
 class CodeList:representationType #CEEED0;line:285F17;text:285F17
-class CodeList:citizenship #CEEED0;line:285F17;text:285F17
+'class CodeList:citizenship #CEEED0;line:285F17;text:285F17
 class CodeList:country #CEEED0;line:285F17;text:285F17
 class CodeList:region #CEEED0;line:285F17;text:285F17
 class CodeList:documentType #CEEED0;line:285F17;text:285F17
