@@ -1,0 +1,95 @@
+@startuml
+title IBAN Model
+
+class "IBAN \n<size:11><color:gray><i>A standardized international numbering system\n<size:11><color:gray><i>used to uniquely identify a bank account.</i></color></size>" as IBAN {
+ *id : string
+ *name :string
+ *dateStart : date [YYYY-MM-DD]
+ *dateEnd : date [YYYY-MM-DD]
+ *hasABankAccount :
+}
+
+class "BankAccount\n<size:11><color:gray><i>Attributes representing the bank account.</i></color></size>" as BankAccount {
+  *accountName : string
+  *iban : string [[A-Z]{2}[0-9A-Z]{13,30}]
+  *type :
+  *currency :
+  *hasOwner :
+  *hasProvider :
+}
+
+class "AccountOwnership\n<size:11><color:gray><i>Attributes representing the account ownership.</i></color></size>" as AccountOwnership {
+ *owner : RegisteredOrganisation.statutoryName
+ *EUID : RegisteredOrganisation.EUID
+}
+
+class "AccountProvider\n<size:11><color:gray><i>Attributes representing the account provider.</i></color></size>" as AccountProvider {
+ *provider : RegisteredOrganisation.statutoryName
+ *bankIdentifier : RegisteredOrganisation.EUID
+ *providerCountry : RegisteredOrganisation.registeredAddress.
+ Address.country.Country.ISO3166-1_alpha3
+ *bicSwift : string [[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3}]
+ +nationalBankCode : sting
+ *naceCode : RegisteredOrganisation.NACEcode
+ +clearingNumber : string
+}
+
+class RegisteredOrganisation {
+ +EUID : string [BRIS]
+ *statutoryName : string
+ *registeredAddress :
+ *NACEcode :
+}
+
+class Address {
+ *country : 
+}
+
+class Country {
+ *name : string
+ *ISO3166-1_alpha3 : string
+}
+
+class CodeList:NACE
+{
+ *code : string
+ *description : string
+}
+
+class CodeList:accountType
+{
+ *code : string
+ *description : string
+}
+
+class CodeList:ISO4217:20215
+{
+ *code : string
+ *description : string
+}
+
+IBAN::hasABankAccount "1" -down-> "1" BankAccount #line:DarkRed;text:DarkRed
+BankAccount::type "1" -left-> "CodeList:accountType" #line:285F17;text:DarkRed
+BankAccount::currency "1" -right-> "1..n" "CodeList:ISO4217:20215" #line:285F17;text:DarkRed
+BankAccount::hasOwner "1" -down-> "1" AccountOwnership #line:DarkRed;text:DarkRed
+BankAccount::hasProvider "1" -down-> "1" AccountProvider #line:DarkRed;text:DarkRed
+
+AccountOwnership -down- RegisteredOrganisation #line:White
+RegisteredOrganisation -left-> Address #line:White
+RegisteredOrganisation -left-> Country #line:White
+RegisteredOrganisation -right-> "CodeList:NACE" #line:White
+AccountOwnership -left- AccountProvider #line:White
+
+class IBAN #LightYellow;line:DarkRed;text:DarkRed
+class BankAccount #LightYellow;line:DarkRed;text:DarkRed
+class AccountProvider #LightYellow;line:DarkRed;text:DarkRed
+class AccountOwnership #LightYellow;line:DarkRed;text:DarkRed
+class RegisteredOrganisation #LightYellow;line:DarkRed;text:DarkRed
+class Address #LightYellow;line:DarkRed;text:DarkRed
+class Country #LightYellow;line:DarkRed;text:DarkRed
+class "CodeList:NACE" #CEEED0;line:285F17;text:285F17
+class "CodeList:accountType" #CEEED0;line:285F17;text:285F17
+class "CodeList:ISO4217:20215" #CEEED0;line:285F17;text:285F17
+hide circle
+
+@enduml
