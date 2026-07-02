@@ -81,7 +81,7 @@ class Role {
 
 class Restriction {
  *operator : ISO80000-2
- *value : NumericValue
+ *value : RestrictionValue
  *unit : Unit
  +source : uri
  'the source points to the code, not the code list..
@@ -89,11 +89,11 @@ class Restriction {
  }
  
 class Unit {
- *exponent : NumericValue
+ *exponent : RestrictionValue
  *unit : Unit
  }
 
-class "DataType:NumericValue\n<size:11><color:gray><i>Allowed numeric value types.</i></color></size>" as NumericValue{
+class "DataType:RestrictionValue\n<size:11><color:gray><i>Allowed numeric value types.</i></color></size>" as RestrictionValue{
   <font:monospaced><color:gray>type      example  definition</color></font>
   --
   <font:monospaced>integer   -2       whole number</font>
@@ -203,7 +203,7 @@ Authorisation::entityConcerned "1" -up-> "1..n" EconomicOperator__ #line:DarkRed
 skinparam groupInheritance 2
 _Role  <|-- [ABS]LegalBasis_ #line:DarkRed;text:White :_____
 
-NumericValue -down- ISO80000Unit #line:White;text:White :_____
+RestrictionValue -down- ISO80000Unit #line:White;text:White :_____
 
 [ABS]LegalBasis_  <|-- Law #line:DarkRed;text:White :_____
 [ABS]LegalBasis_  <|-- By'Law #line:DarkRed;text:White :_____
@@ -224,9 +224,9 @@ Involvement_::member "1" -down-> "0..1" Machine_  #line:DarkRed;text:DarkRed
 Involvement_::inOrganisation "1" -down-> "0..1" EconomicOperator_  #line:DarkRed;text:DarkRed
 
 Restriction::operator "1" .left.> "1" "ISO80000-2" #line:Gray;text:DarkRed
-Restriction::value "1" .right.> "1" "NumericValue::type" #line:Gray;text:DarkRed
+Restriction::value "1" .right.> "1" "RestrictionValue::type" #line:Gray;text:DarkRed
 Restriction::unit "1" .right.> "n" "Unit" #line:Gray;text:DarkRed
-Unit::exponent .up.> "NumericValue::type" #line:Gray;text:White :_
+Unit::exponent .up.> "RestrictionValue::type" #line:Gray;text:White :_
 Unit::unit "1" .down.> "1..n" "ISO4217:20215::code" #line:Gray;text:DarkRed
 Unit::unit "1" .right.> "1..n" "ISO80000Unit::exponent" #line:Gray;text:White :__
 
@@ -265,6 +265,7 @@ class AssignmentRule #LightYellow;line:DarkRed;text:DarkRed
 class Restriction #LightYellow;line:DarkRed;text:DarkRed
 class Entity #LightYellow;line:DarkRed;text:DarkRed
 class PeriodOfTime #LightYellow;line:DarkRed;text:DarkRed
+class Unit #LightYellow;line:DarkRed;text:DarkRed
 
 class eService #CEEED0;line:285F17;text:285F17
 class ISO4217:20215 #CEEED0;line:285F17;text:285F17
@@ -273,8 +274,7 @@ class SpacialExtent #CEEED0;line:285F17;text:285F17
 class identificationDocumentType #CEEED0;line:285F17;text:285F17
 class ISO80000Unit #CEEED0;line:285F17;text:285F17
 class ISO80000-2 #CEEED0;line:285F17;text:285F17
-class NumericValue #CEEED0;line:285F17;text:285F17
-class Unit #CEEED0;line:285F17;text:285F17
+class RestrictionValue #CEEED0;line:285F17;text:285F17
 
 hide circle
 
