@@ -4,14 +4,13 @@ Purpose: Capture the story and high-level purpose of the use case of the IBAN Ow
 
 This iteration is based on:
 
-The IBAN OV [file]((https://portal.webuildconsortium.eu/group/14/files/6861/collabora-online/view/3335).
-This is besed on WP 2.3 within the EWC Consortia together with Archipels in accordance with [PSD2](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb003_IBAN_attestation.md)
+The IBAN OV is besed on WP 2.3 within the EWC Consortia together with Archipels in accordance with [PSD2](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/rulebooks/rb003_IBAN_attestation.md) and the [IBAN_OV rulebook](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/rb-iban-ov/README.md)
 
 Other sources are yet to be incorporated.
 
 <img width="330" height="330" alt="funnel" src="https://github.com/webuild-consortium/wp4-semantics-group/blob/11-iban-ov-bart-bink/img/Funnel_03.jpg" />
 
-Input: IBAN OV document.
+Input: IBAN OV description and IBAN_OV rulebook.
 
 
 ## Storyline
@@ -182,3 +181,4 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 | Q001 | Account ownership is a role of a registered organisation. It passes on the EUID and the stautory name or registered name. Are these all the attributes? Or are there also attributes like owner since <date> | Ownership as a class can heve more attributes and relations. |
 | Q002 | AccountProvider is a financial institution, so why not model it as a FinancialInstitution with a relation "provider"? |
 | Q003 | hasOwner points to one wonership, shouldn't multiple owners be possible in the attestation? | The ownership however can be joint. |
+| Q004 | In the rulebook there is mention of surname and name of the account ownership. It is not explained anywhere in the rulebook. Are these attributes relevant? | No further mention of surname and name. |
