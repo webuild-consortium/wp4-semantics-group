@@ -99,6 +99,7 @@ class "DataType:RestrictionValue\n<size:11><color:gray><i>Allowed numeric value 
   <font:monospaced>integer   -2       whole number</font>
   <font:monospaced>decimal   3.14     exact decimal value</font>
   <font:monospaced>rational  1/3      exact fraction</font>
+  <font:monospaced>string    Oslo     exact fraction</font>
 }
 
 class "CodeList:ISO80000Unit\n<size:11><color:gray><i>Scientific unit symbols based on ISO/IEC 80000.</i></color></size>" as ISO80000Unit {
