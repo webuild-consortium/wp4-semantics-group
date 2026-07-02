@@ -37,16 +37,16 @@ The account holder can present the attestation to third parties as required by b
 # Information Model from the intake
 
 Purpose: Capture the entities, attributes, and relationships.
-![](https://img.plantuml.biz/plantuml/svg/fLPRRzem67tthx3IbsbT486LRa6QocqIKe49Tb67gigr3LXD7UIOCOJuxxETn1126Ddwqi-NSxxZxnRk8ec4NBq6G38PKDXljuPmz1qEGa830720eiXiFgdDBO1l6O4-ZAHWVAvM7BrIwDibGP9EDA6wesquVL1_xc3WThkFoNcFauBJ1OfQRSHVMXY7Awuum2vLSBYjLQ3O7XhtUpdi6N6xXjDfo_tvkAtjfbNtep6z-hjwTQTzoSrI8PM1Lq9GZZTceHICrfoATF55XByOCMih9P5XxaKBjZHwmXW5ntJE8aa59ICnHvn5IBAGLrIGvKg6OgC5g-kzR_rkyMrzclDdfMXtIwlhKeygC2zzGhbaCtOEPtpl7NIqQx4flY_iTeiGGQEe0c1guHXSIKWg_ScexZKQhlU4WkK2rRKiXYThDfEvf3Ls-h_AcyxV6slNTVAkkV6D0bqL7LMe1fqM9AR9Le7YOQlJm-g6ui41HThfSFNwR8AI59AD_MaAdOBh98MfwlQuFz5rbOdxOMdc0cLgB1MJAR3aN2SQs_ZlpzESR6t_xRqSX_Z4ctHqxfKKN_i6iHEI8I4qme8jpLFFu9CU_AewwNzebEJtDU_MhrLhtaqfecGi-Vxnu70y1xf4zQJxITcL2dSo0-GgO9pwNIHUnfGq9VqjqmKukERxPaOOhe3EfEOwzNOduQjzkFditPwXivF6K0esNyYzFkTqF2ucjvCh-tOdFwukVVtX-2iWjUTdE45EG4nKr5inrOy5anGKN4dJaJPA2KZQEvT0R8Oo7UDaiFd76KS50OenHn_Lgtljvu46GRXk5iSn_nqi1Sm9-WVmGGsLGHSbkfI2DDLbG3RPPK2vR7TwlLwtsiorOMpdKDd9K19ytFj_WIzKAY5cGdt70BYZdEZVSU0F)
+![](https://img.plantuml.biz/plantuml/png/jLTRRo8t57wVNs6HjrncGxARRGb22uJkegOGGPAgQgkLyHXmCzZ8zYIbg_tlFSTpORYOIwNoa0oUS_DtldFXax5KssGM1rROc9DkgzdxsdyclwY8nq70OceCgUIdVyYw4V_mMhNQg3CLArsRQBfer4NZSPhgalwRvDfCnPmySot6Wb4hb2JKMWwktFDSgrSHSKEiJepb4G4VYQQISMALtuMT2XsHEOGhK7TABQ74p3b3BwbpOKZC9pIE5qH1714PBK06N8c9fEZ9lILSmcKNOVsTQDJVEIVm7xqsAX1BWS6tW9nEgNcWYrZHYDI2xmKWBIfVceofH5f_m6scfAL2Oh2SCAKvX087iI5gxCxeFXF26XwFpub9s3GFxPomH6iksUASK1aHkvXpxrrAWU9zo6dciaTddDI8iLh82PwB4PLmq1tsgzStrPkBQktgykgo990fFe8tW69vqCw2IGy1ByU0ujj3ccoz0byMKS4LFm3T29CrJZFEi_mfvs4LmtCY98kJ2A8b4Y-7q7IUkdTUQDQ3SFbsfZDm1dmYW9-QHtqzeL8OHzyGQPnOfHSe1Yey4P5V6aC8o1aGt4K5i9nb3njmv53vqRZZXcanoi0O2mb58m0Gu1WmEd7LvGf3G4K1tK7ARom3pW4r0rv6r592HognAQxBYjq7OP5ZH32hxly1nC9q6vtgXLzU5yVDADBSc30W-HDBbSFCI0YClwxU0E6_qdW-fTVWPoJOy4sCRLeFvCVhcokeXkhxeXeWXUY7nbXURMYLhfJoLundHvxeUirsXu442BEOKpJPIsOZh97SGy6DxIOGw3C4fT0WlxS6tU6V4FmAigKIFzq01SbucWTJ9cJ-7jCPXlaVLg2-bCmpWP9opTywi5jkXpZTGr0rZ2Buvfn4AqOYn_YvktHPNohBaO43FkROVdWR3NBJW_DWA-DXGXaEZNG-LnfJHLYgGIZqvRHtOCKeF8V1jTXk1IlZbSP9sb-K5XCXiHD1c-RCpJ8BCOuIg1qmYeMqtOwR1cvcgQB_l9O7vWm7C9RZAm-z5rguu04BLx4pc3LmmT5V44dH7LUgUAM20mutG1o3O1kA90nzx3j1_rwbd3sxfNBcx9Qgh32aaaddVRDuMPfD_dxNZ6FrXXdA-XxEpJINnjlWjdbmSxG-XjbUcocfp1mAFbfBBf0OFn677YqGiwLnL6o0XOkBRMRQJuD1f_T8I3fMRTvYbteRAiFcSxVtUKZ8aBu2hyq1AgtciDl605lKmEw4NUm0hVi-q1K_zmfsXVto_SSldG7Azu69EXVylfa-w1JlhweVSUEeVjYVm7pzEJXvA_OFJT_nkUiyuMqxYLOxG7aQte7G4rY6cmoXCg5HtAaOUiuEfLx_Pr3gAVq61GdOlsWb-Gxvpwq7a7-0_4G4wpS6NkmGvvQ51CejBEKeMu9hjM7QKCgBPALQ8HSHDAwBXdiklpi1NxnsH_NBW4Utblzjyoz1IQosKb3ENip7DhEtjR0hcUch7pxyLFsuttAnbphhqAYdgVamb1KVzmxsKQovwr1iB9M7ub5UbJr6Y_SxR0QUbhq6GcNPfVssTfagihK6PzQc_KPplni15GDXn-NMWKX1yeufP-dNgS0Hb_QS_AVToJrw_erZHxdrEqoLLkXzZE96tlw3Seb9nsZx83agWfmYnoWLQJn6QOC_xKwdStTvkr6CwVEk-N-yyde7sAC-XLGI9ZIixa7m2NQeP1R_2m00)
 
 
 **Entity: IBAN_OV**
 |Name|Description/Definition|
 |--|--|
-| IBAN_OV | is an attestation that provides verified information about the bank account details of the account owner. It ensures that a third party can confidently confirm that a specific IBAN is owned by a designated natural or legal person. |
+| IBAN_OV | is an attestation that provides trusted assurance to third parties that a specific IBAN is legally owned by a designated legal entity or sole trader. |
 | BankAccount | is a class containing the core details of the account itself, such as IBAN, currency, and type. |
-| AccountOwnership | is a class identifying the legal owner of the account, including name and the roles of any associated individuals. |
-| AccountProvider | is a class describing the financial institution that issued the account and metadata about the attestation. |
+| AccountOwnership | is a class that identifies the legal owner of the account, including name and EUID. |
+| AccountProvider | is a class that describes the financial institution that issued the account and metadata about the attestation. |
 
 
 |Attribute| Description | req?| datatype | 
@@ -56,47 +56,35 @@ Purpose: Capture the entities, attributes, and relationships.
 | accountType | Nature of the bank account. | M | <CodeList> |
 | accountCurrency | Currency codes used in the account, as defined in ISO 4217:2015. | M | [code list] |
 | ownerName | Legal name of the legal person, or natural person in case of sole trader, owning the account. | M | <query> |
-| EUID | European Unique Identification conform BRIS. | M | <query> |
+| euid | European Unique Identification conform BRIS. | M | <query> |
 | providerName | Name of the financial institution providing the account. | M | <query> |
-| bankIdentifier | Bank identification number of the issuing entity. | M | <query> |
+| euid | Bank identification number of the issuing entity. | M | <query> |
 | providerCountry | providers country represented by Alpha-3 country code, as defined in ISO 3166-1, of the provider country or territory. | M | <query> |
 | bicSwift | International code (i.e. BIC or SWIFT code), as defined in ISO 9362, of the financial institution. | M | <string> [A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3}) |
 | nationalBankCode | Country-specific code for e.g. internal routing within a specific country‚ clearing system (e.g. BLZ, Sort Code) | O | <string> |
 | naceCode | NACE code for activity specification (e.g. 64.19). | O | <query> |
 | clearingNumber | Clearing number, only used in some countries, of the identification of the financial institution. | O | <string> |
-| dateStart | Date of the issuance of the attestation according to ISO 8601. | M | <dateStart> (YYYY-MM-DD) |
-| dateEnd | Date when the attestation expires according to ISO 8601. | M | <date> (YYYY-MM-DD) |
+| dateIssuance | Date of the issuance of the attestation according to ISO 8601. | M | <dateStart> (YYYY-MM-DD) |
+| dateExpiry | Date when the attestation expires according to ISO 8601. | M | <date> (YYYY-MM-DD) |
 
 
 | Relation | Description | Left Entity | Right Entity | Cardinality | Optional |
 |--|--|--|--|--|--|
-| hasABankAccount | An IBAN OV attestation contains one bank account. | IBAN_OV | BankAccount | 1 - 1 | no |
+| hasPayload | An IBAN OV attestation contains one bank account. | IBAN_OV | BankAccount | 1 - 1 | no |
 | hasOwner | A bank account has one ownership. | BankAccount | AccountOwnership | 1 - 1 | no |
 | hasProvider | A bank account has one provider | BankAccount | AccountProvider | 1 - 1 | no |
-
-> Questions to ask per relation:
-> Check whether the direction (Hello ? World) reflects the dominant
-> flow of meaning.
-> If both sides can have multiple relations (n?n), consider
-> refactoring the relationship into a separate class (e.g.,
-> GreetingEvent)
 
 # Workflow of the Attestation
 
 Purpose: Map the flow of actions, data, and interactions between entities.
 
-Trigger Event: What initiates the workflow? a request from the holder’s wallet to obtain the “Hello World” attestation from the Hello Authority.
-
-Post-condition: What is the result of the workflow? The holder’s wallet contains an active, verifiable Hello World attestation bound to the ID attestation.
-
-Notable Interactions / Dependencies: Are there cross-border or cross-domain steps?
+No extra entities or attributes needed.
 
 # Life Cycle of the Attestation
 
 Purpose: Capture how the attestation evolves over time.
 
-| Stage | Description |
-|--|--|
+No extra entities or attributes needed.
 
 # Requirements and Constraints
 
@@ -182,3 +170,4 @@ Purpose: Capture explicit and implicit technical or policy requirements.
 | Q002 | AccountProvider is a financial institution, so why not model it as a FinancialInstitution with a relation "provider"? |
 | Q003 | hasOwner points to one wonership, shouldn't multiple owners be possible in the attestation? | The ownership however can be joint. |
 | Q004 | In the rulebook there is mention of surname and name of the account ownership. It is not explained anywhere in the rulebook. Are these attributes relevant? | No further mention of surname and name. |
+| Q005 | Why is the accountype string and not ENUM? | The values of the account type is based on a codelist. |
