@@ -4,7 +4,7 @@ title General Authorisation Model
 class Authorisation {
  +dct:identifier : uri
  *dct:title : Literal
- *hasOwner :
+ *entityConcerned :
  +isWitnessedBy :
  +hasLegalBasisIn :
  *principal :
@@ -192,13 +192,13 @@ class Entity {
 }
 
 Authorisation::principal "1" -left-> "1..n" Involvement #line:DarkRed;text:White :_____
-Authorisation::isWitnessedBy "1" -up-> "0..n" Involvement__ #line:DarkRed;text:DarkRed
-Authorisation::hasLegalBasisIn "1" -up-> "0..n" [ABS]LegalBasis #line:DarkRed;text:DarkRed
-Authorisation::hasScope "1" -down-> "0..n" Scope #line:DarkRed;text:DarkRed
-Authorisation::isDocumentedIn "1" -down-> "0..1" Document #line:DarkRed;text:DarkRed
+Authorisation::isWitnessedBy "0..1" -up-> "1..n" Involvement__ #line:DarkRed;text:DarkRed
+Authorisation::hasLegalBasisIn "1" -up-> "1..n" [ABS]LegalBasis #line:DarkRed;text:DarkRed
+Authorisation::hasScope "0..1" -down-> "1..n" Scope #line:DarkRed;text:DarkRed
+Authorisation::isDocumentedIn "0..1" -down-> "1..n" Document #line:DarkRed;text:DarkRed
 Authorisation::hasRule "1" -right-> "1" AssignmentRule #line:DarkRed;text:White :_____
 Authorisation::temporal "1" -left-> "1" PeriodOfTime #line:DarkRed;text:White :_____
-Authorisation::hasOwner "1" -up-> "1" EconomicOperator__ #line:DarkRed;text:White :_____
+Authorisation::entityConcerned "1" -up-> "1..n" EconomicOperator__ #line:DarkRed;text:White :_____
 
 skinparam groupInheritance 2
 _Role  <|-- [ABS]LegalBasis_ #line:DarkRed;text:White :_____
