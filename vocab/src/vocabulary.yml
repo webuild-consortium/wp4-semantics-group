@@ -4,20 +4,20 @@ vocab:
     context: https://w3id.org/ebwv/v0.1
 
 prefix:
-  - id: schema
-    value: https://schema.org/
-
-  - id: time
-    value: http://www.w3.org/2006/time#
+  - id: cred
+    value: https://www.w3.org/2018/credentials#
 
   - id: jsonld
     value: http://www.w3.org/ns/json-ld#
 
-  - id: cred
-    value: https://www.w3.org/2018/credentials#
+  - id: schema
+    value: https://schema.org/
 
   - id: skos
     value: http://www.w3.org/2004/02/skos/core#
+
+  - id: time
+    value: http://www.w3.org/2006/time#
 
 ontology:
   - property: dc:title
@@ -342,6 +342,20 @@ class:
     label: Governance rulebook
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/governancerulebook
 
+  - id: Incoterms
+    label: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms
+
+  - id: LegalEntity
+    label: Legal entity
+    comment: an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
+
+  - id: LegalEntityIdentifier
+    label: Legal entity identifier
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentityidentifier
+
   - id: LegalPerson
     label: Legal Person
     upper_value:
@@ -376,25 +390,16 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
-  
-  - id: Incoterms
-    label: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms
-
-  - id: LegalEntityIdentifier
-    label: Legal entity identifier
-    upper_value: cred:CredentialSubject
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentityidentifier
-
-  - id: LegalEntity
-    label: Legal entity
-    comment: an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: LegalRepresentative
     label: Legal representative
     comment: a natural person or economic operator that has authority, under law, the company's statutes, a register entry or another recognised legal basis, to represent a company in dealings with third parties, authorities or courts
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
+
+  - id: LeiRegistration
+    label: LEI Registration
+    comment: Registration Meta Data of LEI provided and maintained by LEI issuer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registration
 
   - id: LimitedLiabilityCompany
     label: limited liability company
@@ -646,10 +651,6 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
-  - id: PeriodOfTime
-    label: Period of Time
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
-    
   - id: PaymentTerms
     label: terms of payment
     upper_value: cred:CredentialSubject
@@ -691,6 +692,10 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
+
+  - id: PeriodOfTime
+    label: Period of Time
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
 
   - id: Person
     label: Person
@@ -798,20 +803,15 @@ class:
     comment: public sector body’ means a Union entity, a national, state, regional or local authority, a body governed by public law or an association formed by one or several such entities or bodies , or a private entity mandated by at least one such entities, authorities, bodies or associations to provide public services, when acting under such a mandate
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody
 
-  - id: LeiRegistration
-    label: LEI Registration
-    comment: Registration Meta Data of LEI provided and maintained by LEI issuer
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registration
+  - id: ScopeOfAuthorization
+    label: Scope Of Authorization
+    comment: the actions, matters, transactions, roles or circumstances for which an agent is authorised to act on behalf of another person or entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
 
   - id: Site
     label: Site
     comment: a place, premises or location at which an organisation is present or located
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/site
-
-  - id: ScopeOfAuthorization
-    label: Scope Of Authorization
-    comment: the actions, matters, transactions, roles or circumstances for which an agent is authorised to act on behalf of another person or entity
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
 
   - id: SocialSecurityContribution
     label: Social Security Contribution
@@ -847,15 +847,15 @@ individual:   # code lists
     type: ScopeOfAuthorization
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
 
-  - id: CPT
-    label: Carriage Paid To
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt
-
   - id: CIP
     label: Carriage & Insurance Paid To
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cip
+
+  - id: CPT
+    label: Carriage Paid To
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt
 
   - id: DAP
     label: Delivered At Place
@@ -877,15 +877,15 @@ individual:   # code lists
     type: DataSpaceRole
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/datarightsholder
 
-  - id: DPU
-    label: Delivered Place Unloaded
-    type: Incoterms
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu
-
   - id: DDP
     label: Delivered Duty Paid
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp
+
+  - id: DPU
+    label: Delivered Place Unloaded
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu
 
   - id: EAA
     label: electronic attestation of attributes
@@ -995,19 +995,19 @@ property:
     range: Person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/administrativerepresentative
 
-  - id: adminUnitL2
-    label: administrative unit level 2
-    domain: Address
-    range: xsd:string
-    comment: The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2
-
   - id: adminUnitL1
     label: administrative unit level 1
     domain: Address
     range: CountryCode
     comment: the name of the uppermost level of the address, almost always a country
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1
+
+  - id: adminUnitL2
+    label: administrative unit level 2
+    domain: Address
+    range: xsd:string
+    comment: The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2
 
   - id: alternativeName
     label: alternative name
@@ -1048,25 +1048,12 @@ property:
     range: xsd:anyURI
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/buyer
 
-  - id: person
-    label: person
-    domain: A1Certificate
-    range: Person
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject
-
   - id: citizenship
     label: citizenship
     domain: Person
     range: CountryCode
     comment: the legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
-
-  - id: contributor
-    label: contributor
-    comment: The economic operator that is the employer subject of a social security contribution attestation.
-    domain: SocialSecurityContribution
-    range: EconomicOperator
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contributor
 
   - id: constructionSector
     label: construction sector
@@ -1082,6 +1069,13 @@ property:
     range: ContactPoint
     comment: a designated communication channel or organisational function through which an entity can be contacted for a specific purpose
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
+
+  - id: contributor
+    label: contributor
+    comment: The economic operator that is the employer subject of a social security contribution attestation.
+    domain: SocialSecurityContribution
+    range: EconomicOperator
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contributor
 
   - id: correspondenceAddress
     label: correspondence Address
@@ -1159,14 +1153,6 @@ property:
     range: Address
     comment: the address representing the place that a person treats as their permanent home, as recorded, declared, or attested in a given context
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile
-
-  - id: paymentDue
-    label: due period of payment
-    domain: PaymentTerms
-    range:
-     - xsd:duration
-     - time:TemporalDuration
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue
 
   - id: duration
     label: duration
@@ -1262,12 +1248,11 @@ property:
     comment: the name(s) that identify the person within a family with a common surname
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
 
-  - id: organisation
-    label: organisation
-    domain: GLN
-    range: EconomicOperator
-    comment: organisation legally registered as economic operator
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/organisation
+  - id: hasEmail
+    label: email
+    domain: ContactPoint
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
 
   - id: hash
     label: hash
@@ -1275,12 +1260,6 @@ property:
     range: xsd:string
     comment: SHA-256 hash of the rulebook, for quick comparison.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hash
-
-  - id: hasEmail
-    label: email
-    domain: ContactPoint
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
 
   - id: hasSite
     label: has site
@@ -1449,17 +1428,17 @@ property:
     range: LeiRegistration
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistration
 
-  - id: leiRegistrationStatus
-    label: lei registration status
-    domain: LeiRegistration
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationstatus
-
   - id: leiRegistrationDate
     label: lei registration date
     domain: LeiRegistration
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationdate
+
+  - id: leiRegistrationStatus
+    label: lei registration status
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationstatus
 
   - id: liabilityOrContribution
     label: liability or contribution of the limited partner
@@ -1518,20 +1497,6 @@ property:
     comment: The DSI or dataspace the holder is member of.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof
 
-  - id: operator
-    label: operator
-    domain: Platform
-    range: EconomicOperator
-    comment: The organisation that hosts the platform and onboards new members.
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/operator
-
-  - id: platformId
-    label: platform id
-    domain: Platform
-    range: xsd:anyURI
-    comment: DID of the plaform (e.g. data change initiative)
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/platformid
-
   - id: schema:name
     label: name
     defined_by: https://schema.org/name
@@ -1550,6 +1515,20 @@ property:
     range: Platform
     comment: Platform that has onboarded the member.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork
+
+  - id: operator
+    label: operator
+    domain: Platform
+    range: EconomicOperator
+    comment: The organisation that hosts the platform and onboards new members.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/operator
+
+  - id: organisation
+    label: organisation
+    domain: GLN
+    range: EconomicOperator
+    comment: organisation legally registered as economic operator
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/organisation
 
   - id: owner
     label: owner
@@ -1588,7 +1567,21 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
-  
+
+  - id: paymentDue
+    label: due period of payment
+    domain: PaymentTerms
+    range:
+     - xsd:duration
+     - time:TemporalDuration
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue
+
+  - id: person
+    label: person
+    domain: A1Certificate
+    range: Person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject
+
   - id: personalAdministrativeNumber
     label: personal administrative number
     domain: Person
@@ -1621,7 +1614,14 @@ property:
     range_union: true
     comment: the location where a worker performs, is expected to perform, or is assigned to perform work during an employment, posting or work assignment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork
-    
+
+  - id: platformId
+    label: platform id
+    domain: Platform
+    range: xsd:anyURI
+    comment: DID of the plaform (e.g. data change initiative)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/platformid
+
   - id: poBox
     label: post office box
     domain: Address
@@ -1689,7 +1689,7 @@ property:
     domain: SocialSecurityContribution
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingmonth
-    
+
   - id: residency
     label: residency
     domain: Person
@@ -1777,14 +1777,14 @@ property:
     domain: EconomicOperator
     range: xsd:boolean
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporaryworkagency
-    
+
   - id: terms
     label: terms 
     domain: PaymentTerms
     range: Incoterms
     one_of:  [EXW, FCA, CPT, CIP, DAP, DPU, DDP, FAS, FOB ]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/terms
-    
+
   - id: cred:termsOfUse
     label: terms of use
     domain: VerifiableCredential
@@ -1842,19 +1842,11 @@ property:
     comment: Version of the online rulebook at the time of acceptance.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/version
 
-
 datatype:
   - id: AccountType
     label: account type
     upper_value: xsd:string
     comment: list of account types TBD
-
-  - id: CountryCode
-    label: Country Code
-    upper_value: xsd:string
-    pattern: '[A-Z]{2}(-.*)?'
-    comment: 2 letter country code according to ISO-3166
-    defined_by: https://www.iso.org/iso-3166-country-codes.html
 
   - id: Bic
     label: Business Identifier Code aka Swift Code
@@ -1867,6 +1859,13 @@ datatype:
     label: ClearingNumber
     upper_value: xsd:string
     comment: Clearing number, only used in some countries, of the identification of the financial institution.
+
+  - id: CountryCode
+    label: Country Code
+    upper_value: xsd:string
+    pattern: '[A-Z]{2}(-.*)?'
+    comment: 2 letter country code according to ISO-3166
+    defined_by: https://www.iso.org/iso-3166-country-codes.html
 
   - id: Currency
     label: Currency
@@ -1954,3 +1953,4 @@ datatype:
     label: unique vat identifier
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vatid
+
