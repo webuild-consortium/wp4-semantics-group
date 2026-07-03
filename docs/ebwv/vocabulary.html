@@ -185,12 +185,12 @@
         <dl class="terms" id="namespaces">
             <dt><code>ebwv</code></dt>
             <dd><code>https://w3id.org/ebwv#</code></dd>
+            <dt><code>cred</code></dt>
+            <dd><code>https://www.w3.org/2018/credentials#</code></dd>
             <dt><code>schema</code></dt>
             <dd><code>https://schema.org/</code></dd>
             <dt><code>time</code></dt>
             <dd><code>http://www.w3.org/2006/time#</code></dd>
-            <dt><code>cred</code></dt>
-            <dd><code>https://www.w3.org/2018/credentials#</code></dd>
             <dt><code>dc</code></dt>
             <dd><code>http://purl.org/dc/terms/</code></dd>
             <dt><code>owl</code></dt>
@@ -267,7 +267,6 @@
                         <li><a href="#Bic"><code>Bic<code></code></code></a></li>
                         <li><a href="#CIP"><code>CIP<code></code></code></a></li>
                         <li><a href="#CPT"><code>CPT<code></code></code></a></li>
-                        <li><a href="#Capital"><code>Capital<code></code></code></a></li>
                         <li><a href="#ClearingNumber"><code>ClearingNumber<code></code></code></a></li>
                         <li><a href="#Company"><code>Company<code></code></code></a></li>
                         <li><a href="#ContactPoint"><code>ContactPoint<code></code></code></a></li>
@@ -590,22 +589,6 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="adminUnitL2">
-                <h4><code>adminUnitL2</code></h4>
-                <p><em>administrative unit level 2</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2">formal definition of the term</a>.</p>
-                <div>The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.</div>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#Address"><code>Address</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="adminUnitL1">
                 <h4><code>adminUnitL1</code></h4>
                 <p><em>administrative unit level 1</em></p>
@@ -616,6 +599,22 @@
                     <dd><a href="#Address"><code>Address</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#CountryCode"><code>CountryCode</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="adminUnitL2">
+                <h4><code>adminUnitL2</code></h4>
+                <p><em>administrative unit level 2</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2">formal definition of the term</a>.</p>
+                <div>The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Address"><code>Address</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -643,7 +642,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/amount">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Capital"><code>Capital</code></a> ⊔&nbsp;<a href="#MonetaryAmount"><code>MonetaryAmount</code></a></dd>
+                    <dd><a href="#MonetaryAmount"><code>MonetaryAmount</code></a></dd>
                     <dt>Range:</dt>
                     <dd><code>xsd:float</code></dd>
                 </dl>
@@ -718,21 +717,6 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="person">
-                <h4><code>person</code></h4>
-                <p><em>person</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><a href="#Person"><code>Person</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="citizenship">
                 <h4><code>citizenship</code></h4>
                 <p><em>citizenship</em></p>
@@ -743,22 +727,6 @@
                     <dd><a href="#Person"><code>Person</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#CountryCode"><code>CountryCode</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="contributor">
-                <h4><code>contributor</code></h4>
-                <p><em>contributor</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/contributor">formal definition of the term</a>.</p>
-                <div>The economic operator that is the employer subject of a social security contribution attestation.</div>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#SocialSecurityContribution"><code>SocialSecurityContribution</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -790,6 +758,22 @@
                     <dd><a href="#Person"><code>Person</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#ContactPoint"><code>ContactPoint</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="contributor">
+                <h4><code>contributor</code></h4>
+                <p><em>contributor</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/contributor">formal definition of the term</a>.</p>
+                <div>The economic operator that is the employer subject of a social security contribution attestation.</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#SocialSecurityContribution"><code>SocialSecurityContribution</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -850,7 +834,7 @@
                 <div>a recognised monetary unit used to express prices, payments, liabilities, values, or other monetary amounts in a business, financial, administrative, or regulatory context</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Capital"><code>Capital</code></a> ⊔&nbsp;<a href="#MonetaryAmount"><code>MonetaryAmount</code></a> ⊔&nbsp;<a href="#PaymentTerms"><code>PaymentTerms</code></a></dd>
+                    <dd><a href="#MonetaryAmount"><code>MonetaryAmount</code></a> ⊔&nbsp;<a href="#PaymentTerms"><code>PaymentTerms</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Currency"><code>Currency</code></a></dd>
                 </dl>
@@ -946,21 +930,6 @@
                     <dd><a href="#Person"><code>Person</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="paymentDue">
-                <h4><code>paymentDue</code></h4>
-                <p><em>due period of payment</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#PaymentTerms"><code>PaymentTerms</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><code>xsd:duration</code> ⊓&nbsp;<a href="http://www.w3.org/2006/time#TemporalDuration"><code>time:TemporalDuration</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1169,16 +1138,15 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="organisation">
-                <h4><code>organisation</code></h4>
-                <p><em>organisation</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/organisation">formal definition of the term</a>.</p>
-                <div>organisation legally registered as economic operator</div>
+            <section id="hasEmail">
+                <h4><code>hasEmail</code></h4>
+                <p><em>email</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/email">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#GLN"><code>GLN</code></a></dd>
+                    <dd><a href="#ContactPoint"><code>ContactPoint</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1193,21 +1161,6 @@
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#GovernanceRulebook"><code>GovernanceRulebook</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="hasEmail">
-                <h4><code>hasEmail</code></h4>
-                <p><em>email</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/email">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#ContactPoint"><code>ContactPoint</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -1510,10 +1463,10 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="leiRegistrationStatus">
-                <h4><code>leiRegistrationStatus</code></h4>
-                <p><em>lei registration status</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationstatus">formal definition of the term</a>.</p>
+            <section id="leiRegistrationDate">
+                <h4><code>leiRegistrationDate</code></h4>
+                <p><em>lei registration date</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationdate">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#LeiRegistration"><code>LeiRegistration</code></a></dd>
@@ -1525,10 +1478,10 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="leiRegistrationDate">
-                <h4><code>leiRegistrationDate</code></h4>
-                <p><em>lei registration date</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationdate">formal definition of the term</a>.</p>
+            <section id="leiRegistrationStatus">
+                <h4><code>leiRegistrationStatus</code></h4>
+                <p><em>lei registration status</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationstatus">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#LeiRegistration"><code>LeiRegistration</code></a></dd>
@@ -1548,7 +1501,7 @@
                     <dt>Domain:</dt>
                     <dd><a href="#LimitedPartner"><code>LimitedPartner</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#Capital"><code>Capital</code></a></dd>
+                    <dd><a href="#MonetaryAmount"><code>MonetaryAmount</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1666,38 +1619,6 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="operator">
-                <h4><code>operator</code></h4>
-                <p><em>operator</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/operator">formal definition of the term</a>.</p>
-                <div>The organisation that hosts the platform and onboards new members.</div>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#Platform"><code>Platform</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="platformId">
-                <h4><code>platformId</code></h4>
-                <p><em>platform id</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/platformid">formal definition of the term</a>.</p>
-                <div>DID of the plaform (e.g. data change initiative)</div>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#Platform"><code>Platform</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><code>xsd:anyURI</code></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37">
                 <h4><code>name</code></h4>
                 <p><em>name</em></p>
@@ -1738,6 +1659,38 @@
                     <dd><a href="#Membership"><code>Membership</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Platform"><code>Platform</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="operator">
+                <h4><code>operator</code></h4>
+                <p><em>operator</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/operator">formal definition of the term</a>.</p>
+                <div>The organisation that hosts the platform and onboards new members.</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Platform"><code>Platform</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="organisation">
+                <h4><code>organisation</code></h4>
+                <p><em>organisation</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/organisation">formal definition of the term</a>.</p>
+                <div>organisation legally registered as economic operator</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#GLN"><code>GLN</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1806,6 +1759,36 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="paymentDue">
+                <h4><code>paymentDue</code></h4>
+                <p><em>due period of payment</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#PaymentTerms"><code>PaymentTerms</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:duration</code> ⊓&nbsp;<a href="http://www.w3.org/2006/time#TemporalDuration"><code>time:TemporalDuration</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="person">
+                <h4><code>person</code></h4>
+                <p><em>person</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Person"><code>Person</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="personalAdministrativeNumber">
                 <h4><code>personalAdministrativeNumber</code></h4>
                 <p><em>personal administrative number</em></p>
@@ -1862,6 +1845,22 @@
                     <dd><a href="#A1Certificate"><code>A1Certificate</code></a> ⊔&nbsp;<a href="#WorkAssignment"><code>WorkAssignment</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Address"><code>Address</code></a> ⊔&nbsp;<a href="#CountryCode"><code>CountryCode</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#Vessel"><code>Vessel</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="platformId">
+                <h4><code>platformId</code></h4>
+                <p><em>platform id</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/platformid">formal definition of the term</a>.</p>
+                <div>DID of the plaform (e.g. data change initiative)</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Platform"><code>Platform</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:anyURI</code></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2147,7 +2146,7 @@
                     <dt>Domain:</dt>
                     <dd><a href="#LimitedLiabilityCompany"><code>LimitedLiabilityCompany</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#Capital"><code>Capital</code></a></dd>
+                    <dd><a href="#MonetaryAmount"><code>MonetaryAmount</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2363,7 +2362,7 @@
                 </dl>
                 <dl class="terms">
                     <dt>Domain of:</dt>
-                    <dd><a href="#person"><code>person</code></a>, <a href="#fullPeriodCovered"><code>fullPeriodCovered</code></a>, <a href="#noFixedPlaceOfWork"><code>noFixedPlaceOfWork</code></a>, <a href="#provisionalDetermination"><code>provisionalDetermination</code></a>, <a href="#statusConfirmation"><code>statusConfirmation</code></a>, <a href="#transitionalRules"><code>transitionalRules</code></a></dd>
+                    <dd><a href="#fullPeriodCovered"><code>fullPeriodCovered</code></a>, <a href="#noFixedPlaceOfWork"><code>noFixedPlaceOfWork</code></a>, <a href="#person"><code>person</code></a>, <a href="#provisionalDetermination"><code>provisionalDetermination</code></a>, <a href="#statusConfirmation"><code>statusConfirmation</code></a>, <a href="#transitionalRules"><code>transitionalRules</code></a></dd>
                     <dt>In the domain of:</dt>
                     <dd><a href="#employer"><code>employer</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#placeOfWork"><code>placeOfWork</code></a>, <a href="#typeOfEmployment"><code>typeOfEmployment</code></a></dd>
                 </dl>
@@ -2382,7 +2381,7 @@
                     <dt>Includes the range of:</dt>
                     <dd><a href="#deliveryLocation"><code>deliveryLocation</code></a>, <a href="#placeOfWork"><code>placeOfWork</code></a></dd>
                     <dt>Domain of:</dt>
-                    <dd><a href="#addressArea"><code>addressArea</code></a>, <a href="#adminUnitL2"><code>adminUnitL2</code></a>, <a href="#adminUnitL1"><code>adminUnitL1</code></a>, <a href="#fullAddress"><code>fullAddress</code></a>, <a href="#locatorDesignator"><code>locatorDesignator</code></a>, <a href="#locatorName"><code>locatorName</code></a>, <a href="#poBox"><code>poBox</code></a>, <a href="#postCode"><code>postCode</code></a>, <a href="#postName"><code>postName</code></a>, <a href="#thoroughfare"><code>thoroughfare</code></a></dd>
+                    <dd><a href="#addressArea"><code>addressArea</code></a>, <a href="#adminUnitL1"><code>adminUnitL1</code></a>, <a href="#adminUnitL2"><code>adminUnitL2</code></a>, <a href="#fullAddress"><code>fullAddress</code></a>, <a href="#locatorDesignator"><code>locatorDesignator</code></a>, <a href="#locatorName"><code>locatorName</code></a>, <a href="#poBox"><code>poBox</code></a>, <a href="#postCode"><code>postCode</code></a>, <a href="#postName"><code>postName</code></a>, <a href="#thoroughfare"><code>thoroughfare</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2460,21 +2459,6 @@
 }
 </pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3Af0adc5fe-3558-40f8-b1e2-97713ec44dff%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22urn%3Auuid%3Aeb887cd3-5080-44e6-8b3d-e008d80e19fc%22%2C%0A++++%22%40type%22%3A+%22BankAccount%22%2C%0A++++%22accountName%22%3A+%22ACME%3A+Business+expenses+HR%22%2C%0A++++%22accountType%22%3A+%22Corporate+Account%22%2C%0A++++%22iban%22%3A+%22DE02500105170137075030%22%2C%0A++++%22owner%22+%3A+%22did%3Akey%3A%24publicKeyOfOwner%24%22%2C%0A++++%22provider%22+%3A+%22did%3Akey%3A%24publicKeyOfProvider%24%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfProvider%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
                 </div>
-            </section>
-            <section id="Capital">
-                <h4><code>Capital</code></h4>
-                <p><em>Capital</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/capital">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#liabilityOrContribution"><code>liabilityOrContribution</code></a>, <a href="#subscribedCapital"><code>subscribedCapital</code></a></dd>
-                    <dt>In the domain of:</dt>
-                    <dd><a href="#amount"><code>amount</code></a>, <a href="#currency"><code>currency</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
             </section>
             <section id="Company">
                 <h4><code>Company</code></h4>
@@ -2620,7 +2604,7 @@
                 </dl>
                 <dl class="terms">
                     <dt>Range of:</dt>
-                    <dd><a href="#contributor"><code>contributor</code></a>, <a href="#employer"><code>employer</code></a>, <a href="#organisation"><code>organisation</code></a>, <a href="#hostEntity"><code>hostEntity</code></a>, <a href="#member"><code>member</code></a>, <a href="#operator"><code>operator</code></a></dd>
+                    <dd><a href="#contributor"><code>contributor</code></a>, <a href="#employer"><code>employer</code></a>, <a href="#hostEntity"><code>hostEntity</code></a>, <a href="#member"><code>member</code></a>, <a href="#operator"><code>operator</code></a>, <a href="#organisation"><code>organisation</code></a></dd>
                     <dt>Includes the range of:</dt>
                     <dd><a href="#79a6029425e48d25277bb0f069aa517894431c11815f186f1522399373c7ea3e"><code>issuer</code></a>, <a href="#owner"><code>owner</code></a>, <a href="#placeOfWork"><code>placeOfWork</code></a>, <a href="#provider"><code>provider</code></a></dd>
                     <dt>Domain of:</dt>
@@ -2719,7 +2703,7 @@
                 </dl>
                 <dl class="terms">
                     <dt>Domain of:</dt>
-                    <dd><a href="#organisation"><code>organisation</code></a>, <a href="#licenceKey"><code>licenceKey</code></a></dd>
+                    <dd><a href="#licenceKey"><code>licenceKey</code></a>, <a href="#organisation"><code>organisation</code></a></dd>
                     <dt>In the domain of:</dt>
                     <dd><a href="#identifier"><code>identifier</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
                 </dl>
@@ -2855,6 +2839,60 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="Incoterms">
+                <h4><code>Incoterms</code></h4>
+                <p><em>Incoterms</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#terms"><code>terms</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Individuals:</dt>
+                    <dd><a href="#CIP"><code>CIP</code></a>, <a href="#CPT"><code>CPT</code></a>, <a href="#DAP"><code>DAP</code></a>, <a href="#DDP"><code>DDP</code></a>, <a href="#DPU"><code>DPU</code></a>, <a href="#EXW"><code>EXW</code></a>, <a href="#FAS"><code>FAS</code></a>, <a href="#FCA"><code>FCA</code></a>, <a href="#FOB"><code>FOB</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="LegalEntity">
+                <h4><code>LegalEntity</code></h4>
+                <p><em>Legal entity</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity">formal definition of the term</a>.</p>
+                <div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>
+                <dl class="terms">
+                    <dt>Superclass of:</dt>
+                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a>, <a href="#NaturalPerson"><code>NaturalPerson</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#legalEntity"><code>legalEntity</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#legalForm"><code>legalForm</code></a>, <a href="#legalName"><code>legalName</code></a>, <a href="#legalStatus"><code>legalStatus</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="LegalEntityIdentifier">
+                <h4><code>LegalEntityIdentifier</code></h4>
+                <p><em>Legal entity identifier</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentityidentifier">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="https://www.w3.org/2018/credentials#CredentialSubject"><code>cred:CredentialSubject</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Domain of:</dt>
+                    <dd><a href="#legalEntity"><code>legalEntity</code></a>, <a href="#lei"><code>lei</code></a>, <a href="#leiRegistration"><code>leiRegistration</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="LegalPerson">
                 <h4><code>LegalPerson</code></h4>
                 <p><em>Legal Person</em></p>
@@ -2902,60 +2940,6 @@
 </pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A8c076e09-c680-4fa0-b346-630096770c3e%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%22LegalPerson%22%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++%22legalForm%22%3A+%22Inc.%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
                 </div>
             </section>
-            <section id="Incoterms">
-                <h4><code>Incoterms</code></h4>
-                <p><em>Incoterms</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#terms"><code>terms</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Individuals:</dt>
-                    <dd><a href="#CPT"><code>CPT</code></a>, <a href="#CIP"><code>CIP</code></a>, <a href="#DAP"><code>DAP</code></a>, <a href="#DPU"><code>DPU</code></a>, <a href="#DDP"><code>DDP</code></a>, <a href="#EXW"><code>EXW</code></a>, <a href="#FAS"><code>FAS</code></a>, <a href="#FCA"><code>FCA</code></a>, <a href="#FOB"><code>FOB</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="LegalEntityIdentifier">
-                <h4><code>LegalEntityIdentifier</code></h4>
-                <p><em>Legal entity identifier</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentityidentifier">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Subclass of:</dt>
-                    <dd><a href="https://www.w3.org/2018/credentials#CredentialSubject"><code>cred:CredentialSubject</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Domain of:</dt>
-                    <dd><a href="#legalEntity"><code>legalEntity</code></a>, <a href="#lei"><code>lei</code></a>, <a href="#leiRegistration"><code>leiRegistration</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="LegalEntity">
-                <h4><code>LegalEntity</code></h4>
-                <p><em>Legal entity</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity">formal definition of the term</a>.</p>
-                <div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>
-                <dl class="terms">
-                    <dt>Superclass of:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a>, <a href="#NaturalPerson"><code>NaturalPerson</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#legalEntity"><code>legalEntity</code></a></dd>
-                    <dt>In the domain of:</dt>
-                    <dd><a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#legalForm"><code>legalForm</code></a>, <a href="#legalName"><code>legalName</code></a>, <a href="#legalStatus"><code>legalStatus</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="LegalRepresentative">
                 <h4><code>LegalRepresentative</code></h4>
                 <p><em>Legal representative</em></p>
@@ -2968,6 +2952,22 @@
                     <dd><a href="#legalRepresentativeId"><code>legalRepresentativeId</code></a></dd>
                     <dt>In the domain of:</dt>
                     <dd><a href="#role"><code>role</code></a>, <a href="#scopeOfAuthorization"><code>scopeOfAuthorization</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="LeiRegistration">
+                <h4><code>LeiRegistration</code></h4>
+                <p><em>LEI Registration</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/registration">formal definition of the term</a>.</p>
+                <div>Registration Meta Data of LEI provided and maintained by LEI issuer</div>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#leiRegistration"><code>leiRegistration</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#leiLastUpdate"><code>leiLastUpdate</code></a>, <a href="#leiNextRenewal"><code>leiNextRenewal</code></a>, <a href="#leiRegistrationDate"><code>leiRegistrationDate</code></a>, <a href="#leiRegistrationStatus"><code>leiRegistrationStatus</code></a>, <a href="#managingLeiIssuer"><code>managingLeiIssuer</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -3039,7 +3039,7 @@
     "legalStatus": "active",
     "activity": "10.82",
     "subscribedCapital": {
-      "@type": "Capital",
+      "@type": "MonetaryAmount",
       "amount": 100000,
       "currency": "EUR"
     },
@@ -3062,7 +3062,7 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
-</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Ad5dfeb39-edc7-40b1-a2fc-3968dbd3eac8%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%5B%0A++++++%22EconomicOperator%22%2C%0A++++++%22Company%22%2C%0A++++++%22LimitedLiabilityCompany%22%0A++++%5D%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++%22legalForm%22%3A+%22Inc.%22%2C%0A++++%22registeredAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22correspondenceAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22dateOfRegistration%22%3A+%222023-10-11%22%2C%0A++++%22legalStatus%22%3A+%22active%22%2C%0A++++%22activity%22%3A+%2210.82%22%2C%0A++++%22subscribedCapital%22%3A+%7B%0A++++++%22%40type%22%3A+%22Capital%22%2C%0A++++++%22amount%22%3A+100000%2C%0A++++++%22currency%22%3A+%22EUR%22%0A++++%7D%2C%0A++++%22legalRepresentative%22%3A+%5B%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LegalRepresentative%22%2C%0A++++++++%22legalRepresentativeId%22%3A+%22did%3Akey%3A%24publicKeyOfRepresentative1%24%22%2C%0A++++++++%22role%22%3A+%22CEO%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Alone%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LegalRepresentative%22%2C%0A++++++++%22legalRepresentativeId%22%3A+%22did%3Akey%3A%24publicKeyOfRepresentative2%24%22%2C%0A++++++++%22role%22%3A+%22CFO%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Alone%22%0A++++++%7D%0A++++%5D%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Ad5dfeb39-edc7-40b1-a2fc-3968dbd3eac8%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%5B%0A++++++%22EconomicOperator%22%2C%0A++++++%22Company%22%2C%0A++++++%22LimitedLiabilityCompany%22%0A++++%5D%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++%22legalForm%22%3A+%22Inc.%22%2C%0A++++%22registeredAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22correspondenceAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22dateOfRegistration%22%3A+%222023-10-11%22%2C%0A++++%22legalStatus%22%3A+%22active%22%2C%0A++++%22activity%22%3A+%2210.82%22%2C%0A++++%22subscribedCapital%22%3A+%7B%0A++++++%22%40type%22%3A+%22MonetaryAmount%22%2C%0A++++++%22amount%22%3A+100000%2C%0A++++++%22currency%22%3A+%22EUR%22%0A++++%7D%2C%0A++++%22legalRepresentative%22%3A+%5B%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LegalRepresentative%22%2C%0A++++++++%22legalRepresentativeId%22%3A+%22did%3Akey%3A%24publicKeyOfRepresentative1%24%22%2C%0A++++++++%22role%22%3A+%22CEO%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Alone%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LegalRepresentative%22%2C%0A++++++++%22legalRepresentativeId%22%3A+%22did%3Akey%3A%24publicKeyOfRepresentative2%24%22%2C%0A++++++++%22role%22%3A+%22CFO%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Alone%22%0A++++++%7D%0A++++%5D%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
                 </div>
             </section>
             <section id="LimitedPartner">
@@ -3178,9 +3178,11 @@
                 <div>A structured representation of a sum of money, consisting at minimum of a numeric amount and the currency in which that amount is expressed. It is used in business attestations, credentials, invoices, payments, taxes, fees, capital, turnover, balances, and other economic or financial statements where the monetary value must be interpreted unambiguously across systems and jurisdictions.</div>
                 <dl class="terms">
                     <dt>Range of:</dt>
-                    <dd><a href="#totalPayroll"><code>totalPayroll</code></a></dd>
+                    <dd><a href="#liabilityOrContribution"><code>liabilityOrContribution</code></a>, <a href="#subscribedCapital"><code>subscribedCapital</code></a>, <a href="#totalPayroll"><code>totalPayroll</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#amount"><code>amount</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#amount"><code>amount</code></a>, <a href="#currency"><code>currency</code></a></dd>
+                    <dd><a href="#currency"><code>currency</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -3291,7 +3293,7 @@
         "@type": "LimitedPartner",
         "partnerId": "did:key:$publicKeyOfPartner2$",
         "liabilityOrContribution": {
-          "@type": "Capital",
+          "@type": "MonetaryAmount",
           "amount": 100000,
           "currency": "EUR"
         }
@@ -3308,25 +3310,8 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
-</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Ad5dfeb39-edc7-40b1-a2fc-3968dbd3eac8%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%5B%0A++++++++%22EconomicOperator%22%2C%0A++++++++%22Company%22%2C%0A++++++++%22Partnership%22%0A++++%5D%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme%22%2C%0A++++%22legalForm%22%3A+%22Partnership%22%2C%0A++++%22registeredAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22partner%22%3A+%5B%0A++++++%7B%0A++++++++%22%40type%22%3A+%22GeneralPartner%22%2C%0A++++++++%22partnerId%22%3A+%22did%3Akey%3A%24publicKeyOfPartner1%24%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LimitedPartner%22%2C%0A++++++++%22partnerId%22%3A+%22did%3Akey%3A%24publicKeyOfPartner2%24%22%2C%0A++++++++%22liabilityOrContribution%22%3A+%7B%0A++++++++++%22%40type%22%3A+%22Capital%22%2C%0A++++++++++%22amount%22%3A+100000%2C%0A++++++++++%22currency%22%3A+%22EUR%22%0A++++++++%7D%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22StatutoryPartner%22%2C%0A++++++++%22partnerId%22%3A+%22did%3Akey%3A%24publicKeyOfPartner3%24%22%2C%0A++++++++%22role%22%3A+%22Head+of+HR%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Jointly%22%0A++++++%7D%0A++++%5D%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Ad5dfeb39-edc7-40b1-a2fc-3968dbd3eac8%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%5B%0A++++++++%22EconomicOperator%22%2C%0A++++++++%22Company%22%2C%0A++++++++%22Partnership%22%0A++++%5D%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme%22%2C%0A++++%22legalForm%22%3A+%22Partnership%22%2C%0A++++%22registeredAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22partner%22%3A+%5B%0A++++++%7B%0A++++++++%22%40type%22%3A+%22GeneralPartner%22%2C%0A++++++++%22partnerId%22%3A+%22did%3Akey%3A%24publicKeyOfPartner1%24%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LimitedPartner%22%2C%0A++++++++%22partnerId%22%3A+%22did%3Akey%3A%24publicKeyOfPartner2%24%22%2C%0A++++++++%22liabilityOrContribution%22%3A+%7B%0A++++++++++%22%40type%22%3A+%22MonetaryAmount%22%2C%0A++++++++++%22amount%22%3A+100000%2C%0A++++++++++%22currency%22%3A+%22EUR%22%0A++++++++%7D%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22StatutoryPartner%22%2C%0A++++++++%22partnerId%22%3A+%22did%3Akey%3A%24publicKeyOfPartner3%24%22%2C%0A++++++++%22role%22%3A+%22Head+of+HR%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Jointly%22%0A++++++%7D%0A++++%5D%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
                 </div>
-            </section>
-            <section id="PeriodOfTime">
-                <h4><code>PeriodOfTime</code></h4>
-                <p><em>Period of Time</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#duration"><code>duration</code></a></dd>
-                    <dt>Domain of:</dt>
-                    <dd><a href="#startDate"><code>startDate</code></a></dd>
-                    <dt>In the domain of:</dt>
-                    <dd><a href="#endDate"><code>endDate</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
             </section>
             <section id="PaymentTerms">
                 <h4><code>PaymentTerms</code></h4>
@@ -3384,13 +3369,30 @@
 </pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A06aeb5bc-e4a1-46a5-920e-d15eaba7f35c%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22urn%3Auuid%3A08f36c51-27f9-4aa2-a09e-b02fa5b778c2%22%2C%0A++++%22%40type%22%3A+%22PaymentTerms%22%2C%0A++++%22paymentDue%22%3A+%22P30D%22%2C%0A++++%22deliveryLocation%22%3A+%7B%0A++++++++%22%40type%22%3A%22Address%22%2C%0A++++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++++%22postName%22%3A+%22Rome%22%2C%0A++++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++++%22postCode%22%3A+%2200100%22%2C%0A++++++++%22adminUnitL1%22%3A+%22IT%22%0A++++++%7D%2C%0A++++%22supplier%22%3A+%22did%3Akey%3A%24publicKeyOfSupplier%22%2C%0A++++%22buyer%22%3A+%22did%3Akey%3A%24publicKeyOfBuyer%22%2C%0A++++%22terms%22%3A+%22DAP%22%2C%0A++++%22currency%22%3A+%22EUR%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
                 </div>
             </section>
+            <section id="PeriodOfTime">
+                <h4><code>PeriodOfTime</code></h4>
+                <p><em>Period of Time</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#duration"><code>duration</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#startDate"><code>startDate</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#endDate"><code>endDate</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="Person">
                 <h4><code>Person</code></h4>
                 <p><em>Person</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/person">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Range of:</dt>
-                    <dd><a href="#administrativeRepresentative"><code>administrativeRepresentative</code></a>, <a href="#person"><code>person</code></a>, <a href="#employee"><code>employee</code></a>, <a href="#postedWorker"><code>postedWorker</code></a>, <a href="#socialRepresentative"><code>socialRepresentative</code></a></dd>
+                    <dd><a href="#administrativeRepresentative"><code>administrativeRepresentative</code></a>, <a href="#employee"><code>employee</code></a>, <a href="#person"><code>person</code></a>, <a href="#postedWorker"><code>postedWorker</code></a>, <a href="#socialRepresentative"><code>socialRepresentative</code></a></dd>
                     <dt>Includes the range of:</dt>
                     <dd><a href="#owner"><code>owner</code></a></dd>
                     <dt>Domain of:</dt>
@@ -3541,16 +3543,18 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="LeiRegistration">
-                <h4><code>LeiRegistration</code></h4>
-                <p><em>LEI Registration</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/registration">formal definition of the term</a>.</p>
-                <div>Registration Meta Data of LEI provided and maintained by LEI issuer</div>
+            <section id="ScopeOfAuthorization">
+                <h4><code>ScopeOfAuthorization</code></h4>
+                <p><em>Scope Of Authorization</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization">formal definition of the term</a>.</p>
+                <div>the actions, matters, transactions, roles or circumstances for which an agent is authorised to act on behalf of another person or entity</div>
                 <dl class="terms">
                     <dt>Range of:</dt>
-                    <dd><a href="#leiRegistration"><code>leiRegistration</code></a></dd>
-                    <dt>Domain of:</dt>
-                    <dd><a href="#leiLastUpdate"><code>leiLastUpdate</code></a>, <a href="#leiNextRenewal"><code>leiNextRenewal</code></a>, <a href="#leiRegistrationStatus"><code>leiRegistrationStatus</code></a>, <a href="#leiRegistrationDate"><code>leiRegistrationDate</code></a>, <a href="#managingLeiIssuer"><code>managingLeiIssuer</code></a></dd>
+                    <dd><a href="#scopeOfAuthorization"><code>scopeOfAuthorization</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Individuals:</dt>
+                    <dd><a href="#Alone"><code>Alone</code></a>, <a href="#Jointly"><code>Jointly</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -3567,24 +3571,6 @@
                     <dd><a href="#hasSite"><code>hasSite</code></a></dd>
                     <dt>In the domain of:</dt>
                     <dd><a href="#identifier"><code>identifier</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
-            <section id="ScopeOfAuthorization">
-                <h4><code>ScopeOfAuthorization</code></h4>
-                <p><em>Scope Of Authorization</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization">formal definition of the term</a>.</p>
-                <div>the actions, matters, transactions, roles or circumstances for which an agent is authorised to act on behalf of another person or entity</div>
-                <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#scopeOfAuthorization"><code>scopeOfAuthorization</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Individuals:</dt>
-                    <dd><a href="#Alone"><code>Alone</code></a>, <a href="#Jointly"><code>Jointly</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -3715,30 +3701,6 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="CountryCode">
-                <h4><code>CountryCode</code></h4>
-                <p><em>Country Code</em></p>
-                <p>See the <a href="https://www.iso.org/iso-3166-country-codes.html">formal definition of the term</a>.</p>
-                <div>2 letter country code according to ISO-3166</div>
-                <dl class="terms">
-                    <dt>Derived from:</dt>
-                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Restriction pattern: </dt>
-                    <dd>"[A-Z]{2}(-.*)?"</dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#adminUnitL1"><code>adminUnitL1</code></a>, <a href="#citizenship"><code>citizenship</code></a>, <a href="#flagState"><code>flagState</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#residency"><code>residency</code></a>, <a href="#stateOfInsurance"><code>stateOfInsurance</code></a></dd>
-                    <dt>Includes the range of:</dt>
-                    <dd><a href="#placeOfWork"><code>placeOfWork</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="Bic">
                 <h4><code>Bic</code></h4>
                 <p><em>Business Identifier Code aka Swift Code</em></p>
@@ -3772,6 +3734,30 @@
                 <dl class="terms">
                     <dt>Includes the range of:</dt>
                     <dd><a href="#identifier"><code>identifier</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="CountryCode">
+                <h4><code>CountryCode</code></h4>
+                <p><em>Country Code</em></p>
+                <p>See the <a href="https://www.iso.org/iso-3166-country-codes.html">formal definition of the term</a>.</p>
+                <div>2 letter country code according to ISO-3166</div>
+                <dl class="terms">
+                    <dt>Derived from:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Restriction pattern: </dt>
+                    <dd>"[A-Z]{2}(-.*)?"</dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#adminUnitL1"><code>adminUnitL1</code></a>, <a href="#citizenship"><code>citizenship</code></a>, <a href="#flagState"><code>flagState</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#residency"><code>residency</code></a>, <a href="#stateOfInsurance"><code>stateOfInsurance</code></a></dd>
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#placeOfWork"><code>placeOfWork</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -4069,19 +4055,19 @@
             <section id="individuals_of_ebwv_Incoterms">
                 <h4><a href="#Incoterms"><code>Incoterms</code></a></h4>
                 <p>This chapter lists the individuals of type <a href="#Incoterms"><code>Incoterms</code></a>.</p>
-                <section id="CPT">
-                    <h4><code>CPT</code></h4>
-                    <p><em>Carriage Paid To</em></p>
-                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt">formal definition of the term</a>.</p>
+                <section id="CIP">
+                    <h4><code>CIP</code></h4>
+                    <p><em>Carriage &amp; Insurance Paid To</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/cip">formal definition of the term</a>.</p>
                     <dl class="terms">
                         <dt>Relevant <code>@context</code>:</dt>
                         <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                     </dl>
                 </section>
-                <section id="CIP">
-                    <h4><code>CIP</code></h4>
-                    <p><em>Carriage &amp; Insurance Paid To</em></p>
-                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/cip">formal definition of the term</a>.</p>
+                <section id="CPT">
+                    <h4><code>CPT</code></h4>
+                    <p><em>Carriage Paid To</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt">formal definition of the term</a>.</p>
                     <dl class="terms">
                         <dt>Relevant <code>@context</code>:</dt>
                         <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
@@ -4096,19 +4082,19 @@
                         <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                     </dl>
                 </section>
-                <section id="DPU">
-                    <h4><code>DPU</code></h4>
-                    <p><em>Delivered Place Unloaded</em></p>
-                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu">formal definition of the term</a>.</p>
+                <section id="DDP">
+                    <h4><code>DDP</code></h4>
+                    <p><em>Delivered Duty Paid</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp">formal definition of the term</a>.</p>
                     <dl class="terms">
                         <dt>Relevant <code>@context</code>:</dt>
                         <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                     </dl>
                 </section>
-                <section id="DDP">
-                    <h4><code>DDP</code></h4>
-                    <p><em>Delivered Duty Paid</em></p>
-                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp">formal definition of the term</a>.</p>
+                <section id="DPU">
+                    <h4><code>DPU</code></h4>
+                    <p><em>Delivered Place Unloaded</em></p>
+                    <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu">formal definition of the term</a>.</p>
                     <dl class="terms">
                         <dt>Relevant <code>@context</code>:</dt>
                         <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
