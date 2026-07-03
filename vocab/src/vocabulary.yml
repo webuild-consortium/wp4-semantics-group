@@ -81,10 +81,6 @@ class:
             "issuer": "did:key:$publicKeyOfProvider$"
           }
 
-  - id: Capital
-    label: Capital
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
-
   - id: Company
     label: Company as defined in directive-EU-2025/25
     upper_value:
@@ -455,7 +451,7 @@ class:
               "legalStatus": "active",
               "activity": "10.82",
               "subscribedCapital": {
-                "@type": "Capital",
+                "@type": "MonetaryAmount",
                 "amount": 100000,
                 "currency": "EUR"
               },
@@ -632,7 +628,7 @@ class:
                   "@type": "LimitedPartner",
                   "partnerId": "did:key:$publicKeyOfPartner2$",
                   "liabilityOrContribution": {
-                    "@type": "Capital",
+                    "@type": "MonetaryAmount",
                     "amount": 100000,
                     "currency": "EUR"
                   }
@@ -1021,9 +1017,7 @@ property:
 
   - id: amount
     label: amount
-    domain: 
-      - Capital
-      - MonetaryAmount
+    domain: MonetaryAmount
     range: xsd:float
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
 
@@ -1115,7 +1109,6 @@ property:
   - id: currency
     label: currency
     domain: 
-      - Capital
       - MonetaryAmount
       - PaymentTerms
     range: Currency
@@ -1471,7 +1464,7 @@ property:
   - id: liabilityOrContribution
     label: liability or contribution of the limited partner
     domain: LimitedPartner
-    range: Capital
+    range: MonetaryAmount
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution
 
   - id: licenceKey
@@ -1762,7 +1755,7 @@ property:
     label: subscribed capital
     domain:
       - LimitedLiabilityCompany
-    range: Capital
+    range: MonetaryAmount
     comment: the total monetary amount of capital that shareholders or members have formally committed to contribute to a company under its constitutive documents
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital
 
