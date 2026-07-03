@@ -192,7 +192,7 @@
                 }
             }
         },
-        "CredentialSubject": "https://www.w3.org/2018/credentials#CredentialSubject",
+        "DataSpaceRole": "https://w3id.org/ebwv#DataSpaceRole",
         "EconomicOperator": {
             "@id": "https://w3id.org/ebwv#EconomicOperator",
             "@context": {
@@ -286,6 +286,28 @@
                 "registeredAddress": {
                     "@id": "https://w3id.org/ebwv#registeredAddress",
                     "@type": "@id"
+                }
+            }
+        },
+        "GovernanceRulebook": {
+            "@id": "https://w3id.org/ebwv#GovernanceRulebook",
+            "@context": {
+                "@protected": true,
+                "acceptedAt": {
+                    "@id": "https://w3id.org/ebwv#acceptedAt",
+                    "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                },
+                "hash": {
+                    "@id": "https://w3id.org/ebwv#hash",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "url": {
+                    "@id": "https://w3id.org/ebwv#url",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "version": {
+                    "@id": "https://w3id.org/ebwv#version",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
         },
@@ -418,6 +440,28 @@
                 },
                 "geographicName": {
                     "@id": "https://w3id.org/ebwv#geographicName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Membership": {
+            "@id": "https://w3id.org/ebwv#Membership",
+            "@context": {
+                "@protected": true,
+                "member": {
+                    "@id": "https://w3id.org/ebwv#member",
+                    "@type": "@id"
+                },
+                "memberOf": {
+                    "@id": "https://w3id.org/ebwv#memberOf",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "onboardedBy": {
+                    "@id": "https://w3id.org/ebwv#onboardedBy",
+                    "@type": "@id"
+                },
+                "role": {
+                    "@id": "https://w3id.org/ebwv#role",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
@@ -614,6 +658,20 @@
                 }
             }
         },
+        "Platform": {
+            "@id": "https://w3id.org/ebwv#Platform",
+            "@context": {
+                "@protected": true,
+                "operator": {
+                    "@id": "https://w3id.org/ebwv#operator",
+                    "@type": "@id"
+                },
+                "platformId": {
+                    "@id": "https://w3id.org/ebwv#platformId",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                }
+            }
+        },
         "PostedWorkerNotification": {
             "@id": "https://w3id.org/ebwv#PostedWorkerNotification",
             "@context": {
@@ -797,10 +855,17 @@
             "@type": "@id"
         },
         "name": "https://schema.org/name",
+        "termsOfUse": {
+            "@id": "https://www.w3.org/2018/credentials#termsOfUse",
+            "@type": "@id"
+        },
         "Alone": "https://w3id.org/ebwv#Alone",
         "CPT": "https://w3id.org/ebwv#CPT",
         "CIP": "https://w3id.org/ebwv#CIP",
         "DAP": "https://w3id.org/ebwv#DAP",
+        "DataConsumer": "https://w3id.org/ebwv#DataConsumer",
+        "DataProvider": "https://w3id.org/ebwv#DataProvider",
+        "DataRightsHolder": "https://w3id.org/ebwv#DataRightsHolder",
         "DPU": "https://w3id.org/ebwv#DPU",
         "DDP": "https://w3id.org/ebwv#DDP",
         "EAA": "https://w3id.org/ebwv#EAA",
@@ -809,6 +874,8 @@
         "FCA": "https://w3id.org/ebwv#FCA",
         "FOB": "https://w3id.org/ebwv#FOB",
         "Jointly": "https://w3id.org/ebwv#Jointly",
+        "OnboardingServiceProvider": "https://w3id.org/ebwv#OnboardingServiceProvider",
+        "Operator": "https://w3id.org/ebwv#Operator",
         "Permanent": "https://w3id.org/ebwv#Permanent",
         "Pub-EAA": "https://w3id.org/ebwv#Pub-EAA",
         "QEAA": "https://w3id.org/ebwv#QEAA",

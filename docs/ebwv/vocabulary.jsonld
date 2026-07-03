@@ -78,7 +78,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-07-01",
+    "dc:date": "2026-07-03",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -86,6 +86,22 @@
         "rdfs:range": "xsd:anyURI",
         "rdfs:label": "a1 certificate",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/a1",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:acceptedAt",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:GovernanceRulebook",
+        "rdfs:range": "xsd:dateTime",
+        "rdfs:label": "accepted at",
+        "rdfs:comment": {
+            "@value": "<div>Datetime when the rulebook was accepted. May differ from issuance time in an outbound flow where a credential is issued to an existing member based on a previously completed onboarding flow.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/acceptedat",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -725,6 +741,22 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:hash",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:GovernanceRulebook",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "hash",
+        "rdfs:comment": {
+            "@value": "<div>SHA-256 hash of the rulebook, for quick comparison.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/hash",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:hasEmail",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:ContactPoint",
@@ -1132,6 +1164,70 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:member",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:Membership",
+        "rdfs:range": "ebwv:EconomicOperator",
+        "rdfs:label": "member",
+        "rdfs:comment": {
+            "@value": "<div>holder of the membership</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/member",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:memberOf",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:Membership",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "member of",
+        "rdfs:comment": {
+            "@value": "<div>The DSI or dataspace the holder is member of.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:operator",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:Platform",
+        "rdfs:range": "ebwv:EconomicOperator",
+        "rdfs:label": "operator",
+        "rdfs:comment": {
+            "@value": "<div>The organisation that hosts the platform and onboards new members.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/operator",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:platformId",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:Platform",
+        "rdfs:range": "xsd:anyURI",
+        "rdfs:label": "platform id",
+        "rdfs:comment": {
+            "@value": "<div>DID of the plaform (e.g. data change initiative)</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/platformid",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:noFixedPlaceOfWork",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:A1Certificate",
@@ -1139,6 +1235,22 @@
         "rdfs:label": "no fixed place of work",
         "rdfs:comment": {
             "@value": "<div>Indicates that no fixed address or fixed place of work exists for the work or self-employment activity covered by the A1 certificate.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:onboardedBy",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:Membership",
+        "rdfs:range": "ebwv:Platform",
+        "rdfs:label": "onboarded by",
+        "rdfs:comment": {
+            "@value": "<div>Platform that has onboarded the member.</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork",
@@ -1434,13 +1546,16 @@
         }]
     }, {
         "@id": "ebwv:role",
-        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "@type": "rdf:Property",
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:LegalRepresentative", "ebwv:StatutoryPartner"]
+            "owl:unionOf": ["ebwv:LegalRepresentative", "ebwv:StatutoryPartner", "ebwv:Membership"]
         },
-        "rdfs:range": "xsd:string",
-        "rdfs:label": "role of representative",
+        "rdfs:range": {
+            "@type": "ows:Class",
+            "owl:unionOf": ["xsd:string", "ebwv:DataSpaceRole"]
+        },
+        "rdfs:label": "role of the entity (e.g. the role of a legal representative in the company or the role of a dataspace member in the dataspace)",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/role",
         "vs:term_status": "stable",
         "mentioned": [{
@@ -1690,6 +1805,38 @@
             "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
+    }, {
+        "@id": "ebwv:url",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:GovernanceRulebook",
+        "rdfs:range": "xsd:anyURI",
+        "rdfs:label": "url",
+        "rdfs:comment": {
+            "@value": "<div>Reference (URL) to the online dataspace governance rulebook for the given DSI or DS.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/url",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:version",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:GovernanceRulebook",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "verson",
+        "rdfs:comment": {
+            "@value": "<div>Version of the online rulebook at the time of acceptance.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/version",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
     }],
     "rdfs_classes": [{
         "@id": "ebwv:A1Certificate",
@@ -1787,6 +1934,16 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:DataSpaceRole",
+        "@type": "rdfs:Class",
+        "rdfs:label": "role of dataspace member",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dataspacerole",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://www.w3.org/ns/credentials/v2",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:EconomicOperator",
         "@type": "rdfs:Class",
         "rdfs:label": "Economic Operator",
@@ -1838,6 +1995,16 @@
         "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "Global Location Number",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/gln",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:GovernanceRulebook",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Governance rulebook",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/governancerulebook",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1935,6 +2102,17 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:Membership",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
+        "rdfs:label": "Membership",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/membership",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:MonetaryAmount",
         "@type": "rdfs:Class",
         "rdfs:label": "Monetary Amount",
@@ -1996,6 +2174,20 @@
         "@type": "rdfs:Class",
         "rdfs:label": "Person",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/person",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:Platform",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Platform",
+        "rdfs:comment": {
+            "@value": "<div>Data sharing initiative that onboarded the member</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/platform",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -2180,6 +2372,36 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:DataConsumer",
+        "@type": "ebwv:DataSpaceRole",
+        "rdfs:label": "Partner that wants to use data, e.g. by calling an API.",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dataconsumer",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:DataProvider",
+        "@type": "ebwv:DataSpaceRole",
+        "rdfs:label": "Partner that enables sharing data, e.g. via an API.",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dataprovider",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:DataRightsHolder",
+        "@type": "ebwv:DataSpaceRole",
+        "rdfs:label": "Owns the rights to the data (e.g. farmers) and can consent to data being shared from a data provider to a data consumer.",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/datarightsholder",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:DPU",
         "@type": "ebwv:Incoterms",
         "rdfs:label": "Delivered Place Unloaded",
@@ -2254,6 +2476,26 @@
         "@type": "ebwv:ScopeOfAuthorization",
         "rdfs:label": "scope of authorization Jointly",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:OnboardingServiceProvider",
+        "@type": "ebwv:DataSpaceRole",
+        "rdfs:label": "Partner that onboards members into Agri-X; may be a DSI or another technology partner.",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingserviceprovider",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:Operator",
+        "@type": "ebwv:DataSpaceRole",
+        "rdfs:label": "Partner providing DSSC building-block services (identity management, consent management, logging, …).",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/operator",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
