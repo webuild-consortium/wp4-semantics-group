@@ -1927,7 +1927,7 @@
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/dataspacerole",
         "vs:term_status": "stable",
         "mentioned": [{
-            "@id": "https://www.w3.org/ns/credentials/v2",
+            "@id": "https://w3id.org/ebwv/v0.1",
             "@type": "jsonld:Context"
         }]
     }, {

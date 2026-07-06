@@ -173,11 +173,11 @@ class:
   - id: cred:CredentialSubject
     label: Credential Subject
     defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
+    context: https://www.w3.org/ns/credentials/v2
 
   - id: DataSpaceRole
     label: role of dataspace member
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dataspacerole
-    context: https://www.w3.org/ns/credentials/v2
 
   - id: EconomicOperator
     label: Economic Operator
