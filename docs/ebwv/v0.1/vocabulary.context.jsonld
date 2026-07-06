@@ -178,6 +178,7 @@
                 }
             }
         },
+        "CredentialSubject": "https://www.w3.org/2018/credentials#CredentialSubject",
         "DataSpaceRole": "https://w3id.org/ebwv#DataSpaceRole",
         "EconomicOperator": {
             "@id": "https://w3id.org/ebwv#EconomicOperator",

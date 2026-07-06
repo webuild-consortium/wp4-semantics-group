@@ -170,6 +170,10 @@ class:
     comment: a designated communication channel or organisational function through which an entity can be contacted for a specific purpose
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
 
+  - id: cred:CredentialSubject
+    label: Credential Subject
+    defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
+
   - id: DataSpaceRole
     label: role of dataspace member
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dataspacerole
