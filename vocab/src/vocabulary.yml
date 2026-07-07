@@ -1755,6 +1755,12 @@ property:
     range: xsd:boolean
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statusconfirmation
 
+  - id: statutoryName
+    label: statutory name
+    domain: Organisation
+    range: xsd:sting
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutoryName
+
   - id: subscribedCapital
     label: subscribed capital
     domain:
@@ -3193,29 +3199,35 @@ individual:   # code lists
     defined_by: https://w3id.org/ebwv/terminology#/concept/temporary
 
 datatype:
-  - id: AccountType
+  - id: accountType
     label: account type
     upper_value: xsd:string
-    comment: list of account types TBD
+    comment: code list of account types
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/accountType    
 
-  - id: CountryCode
+  - id: countryCode
     label: Country Code
     upper_value: xsd:string
     pattern: '[A-Z]{2}(-.*)?'
     comment: 2 letter country code according to ISO-3166
-    defined_by: https://www.iso.org/iso-3166-country-codes.html
+    defined_by:
+      - https://sanastot.suomi.fi/en/terminology/webuild/concept/countryCode
+      - https://www.iso.org/iso-3166-country-codes.html
 
-  - id: Bic
+  - id: bic
     label: Business Identifier Code aka Swift Code
     upper_value: xsd:string
     pattern: '[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})'
     comment: International code (i.e. BIC or SWIFT code), as defined in ISO 9362, of the financial institution
-    defined_by: https://www.iso.org/standard/84108.html
+    defined_by:
+      - https://sanastot.suomi.fi/en/terminology/webuild/concept/bic
+      - https://www.iso.org/standard/84108.html
 
-  - id: ClearingNumber
-    label: ClearingNumber
+  - id: clearingNumber
+    label: Clearing Number
     upper_value: xsd:string
     comment: Clearing number, only used in some countries, of the identification of the financial institution.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/clearingNumber
 
   - id: Currency
     label: Currency
@@ -3223,35 +3235,39 @@ datatype:
     pattern: '[A-Z]{3}'
     comment: 3 letter currency code according to the European controlled vocabulary 'Currency'
     defined_by:
+      - https://sanastot.suomi.fi/en/terminology/webuild/concept/Currency
       - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/currency
       - http://publications.europa.eu/resource/authority/currency
 
-  - id: Euid
+  - id: euid
     label: EUID
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/euid
 
-  - id: Iban
+  - id: iban
     label: IBAN
     upper_value: xsd:string
     pattern: '[A-Z]{2}[0-9A-Z]{13,30}'
     comment: IBAN as defined by ISO 13616:2020
     defined_by:
+      - https://sanastot.suomi.fi/en/terminology/webuild/concept/iban
       - https://www.iso.org/standard/81090.html
 
-  - id: Nace21
+  - id: nace21
     label: Nace Rev. 2.1
     upper_value: xsd:string
     comment: notation of the main activity of the company according to the European controlled vocabulary 'Nace Rev. 2.1'
     defined_by:
+      - https://sanastot.suomi.fi/en/terminology/webuild/concept/nace21
       - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/ux2/nace2.1/nace2.1
       - http://data.europa.eu/ux2/nace2.1/nace2.1
 
-  - id: NationalBankCode
+  - id: nationalBankCode
     label: National Bank Code
     upper_value: xsd:string
     comment: Country-specific code for e.g. internal routing within a specific country’s clearing system (e.g. BLZ, Sort Code)
-
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nationalBankCode
+    
   - id: PublicBodyId
     label: unique identifier of public body
     upper_value: xsd:string
