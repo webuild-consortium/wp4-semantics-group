@@ -55,9 +55,9 @@ Purpose: Capture the entities, attributes, and relationships.
 | iban | International Bank Account Number, as defined in ISO 13616:2020. | M | string [A-Z]{2}[0-9A-Z]{13,30} |
 | accountType | Nature of the bank account. | M | <CodeList> |
 | accountCurrency | Currency codes used in the account, as defined in ISO 4217:2015. | M | [code list] |
-| ownerName | Legal name of the legal person, or natural person in case of sole trader, owning the account. | M | <query> |
+| ownerName | Name of the economic operator as in the registry, owning the account. | M | <query> |
 | euid | European Unique Identification conform BRIS. | M | <query> |
-| providerName | Name of the financial institution providing the account. | M | <query> |
+| providerName | Name of the economic operator as in the registry, providing the account. | M | <query> |
 | euid | Bank identification number of the issuing entity. | M | <query> |
 | providerCountry | providers country represented by Alpha-3 country code, as defined in ISO 3166-1, of the provider country or territory. | M | <query> |
 | bicSwift | International code (i.e. BIC or SWIFT code), as defined in ISO 9362, of the financial institution. | M | <string> [A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3}) |
