@@ -199,7 +199,7 @@ Authorisation::hasScope "0..1" -down-> "1..n" Scope #line:DarkRed;text:DarkRed
 Authorisation::isDocumentedIn "0..1" -down-> "1..n" Document #line:DarkRed;text:DarkRed
 Authorisation::hasRule "1" -right-> "1" AssignmentRule #line:DarkRed;text:White :_____
 Authorisation::temporal "1" -left-> "1" PeriodOfTime #line:DarkRed;text:White :_____
-Authorisation::entityConcerned "1" -up-> "1..n" EconomicOperator__ #line:DarkRed;text:White :_____
+Authorisation::entityConcerned "1" -up-> "1..n" Involvement___ #line:DarkRed;text:White :_____
 
 skinparam groupInheritance 2
 _Role  <|-- [ABS]LegalBasis_ #line:DarkRed;text:White :_____
@@ -245,7 +245,7 @@ AssignmentRule -down-> Document #line:White
 Role -right- Person #line:White
 "ISO4217:20215" -up- ISO80000Unit #line:White
 Role -left- Person #line:White
-EconomicOperator__ -left- Involvement__ #line:White
+Involvement__ -left- Involvement___ #line:White
 EconomicOperator -left- Person #line:White
 Involvement -right- PeriodOfTime #line:White
 AssignmentRule_ -right- AssignmentRule__ #line:White
