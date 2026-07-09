@@ -1,0 +1,116 @@
+# baseURI: http://data.webuildconsortium.eu/mandateinstance.ttl
+# imports: http://data.webuildconsortium.eu/top.ttl
+# prefix: mi
+
+@prefix auth: <http://data.webuildconsortium.eu/authorisation.ttl#> .
+@prefix mi: <http://data.webuildconsortium.eu/mandateinstance.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pmr: <http://data.webuildconsortium.eu/PRIMER#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.webuildconsortium.eu/mandateinstance.ttl>
+  a owl:Ontology ;
+  owl:imports <http://data.webuildconsortium.eu/authorisation.ttl> ;
+  owl:versionInfo "Created for WEBUILD" ;
+.
+mi:ACTIVE
+  a rdfs:Resource ;
+.
+mi:BartBink
+  a auth:Person ;
+  auth:dateOfBirth "1967-07-06"^^xsd:date ;
+  auth:familyName "Bink" ;
+  auth:firstName "Bart" ;
+.
+mi:Braindex
+  a auth:RegisteredOrganisation ;
+  auth:EUID "NL.NHR.67435955" ;
+  auth:statutoryName "Braindex"@nl ;
+.
+mi:Bronnoysundregistrene
+  a auth:RegisteredOrganisation ;
+  auth:EUID "NO.NBR.67435955" ;
+  auth:hasAuthorisations mi:InformationModelling ;
+  auth:hasAuthorisations mi:UnitManager ;
+  auth:statutoryName "Brønnøysundregistrene"@no ;
+.
+mi:CountryCodeList
+  a auth:CodeList ;
+  auth:code "001" ;
+  auth:hasOwner mi:Bronnoysundregistrene ;
+  auth:name "Europe" ;
+.
+mi:InfModAssignment
+  a auth:AssignmentRule ;
+  auth:isAssignedTo mi:InfModMembership10024 ;
+  auth:jointNumberOfAssignees 1 ;
+  auth:totalNumberOfAssignees 1 ;
+.
+mi:InfModMembership10023
+  a auth:Membership ;
+  auth:code "BrAcc10023" ;
+  auth:hasRole mi:InformationArchitect ;
+  auth:member mi:ToreHelland ;
+  auth:memberOf mi:Bronnoysundregistrene ;
+  auth:name "Information modelling"@en ;
+.
+mi:InfModMembership10024
+  a auth:Membership ;
+  auth:code "BrAcc10024" ;
+  auth:hasRole mi:InformationArchitect ;
+  auth:member mi:BartBink ;
+  auth:memberOf mi:Braindex ;
+  auth:name "Information modelling"@en ;
+.
+mi:InformationArchitect
+  a auth:Role ;
+  auth:name "Information Architect"@en ;
+  auth:roleIn mi:Braindex ;
+.
+mi:InformationModelling
+  a auth:Authorisation ;
+  pmr:dateOfEnd "2027-09-30"^^xsd:date ;
+  pmr:dateOfStart "2026-03-18"^^xsd:date ;
+  auth:hasRule mi:InfModAssignment ;
+  auth:hasScope mi:WEBIULD ;
+  auth:isAssignedBy mi:InfModMembership10023 ;
+  auth:isDelegable false ;
+  auth:isGroundedIn mi:UnitManager ;
+  auth:name "Information modeller assignment"@en ;
+.
+mi:OncePerMonth
+  a auth:FrequencyValue ;
+  auth:unit mi:PerMonth ;
+  auth:value "1"^^xsd:float ;
+.
+mi:PerMonth
+  a rdfs:Resource ;
+.
+mi:Person_1
+  a auth:Person ;
+.
+mi:ToreHelland
+  a auth:Person ;
+  auth:dateOfBirth "1971-09-22"^^xsd:date ;
+  auth:familyName "Helland" ;
+  auth:firstName "Torre" ;
+.
+mi:Travel1
+  a auth:Restriction ;
+  auth:hasFrequency mi:OncePerMonth ;
+  auth:onSubject mi:CountryCodeList ;
+.
+mi:UnitManager
+  a auth:Authorisation ;
+.
+mi:WEBIULD
+  a auth:Scope ;
+  auth:hasRestriction mi:Travel1 ;
+  auth:name "The WEBIULD Project" ;
+.
+mi:statusList
+  a rdf:List ;
+  rdf:first mi:ACTIVE ;
+.

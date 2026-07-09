@@ -1,0 +1,107 @@
+classDiagram
+    direction LR
+%% =========================
+%% Core EBW Classes
+%% =========================
+    class Company {
+        <<EBW>>
+        +legalName: string
+        +legalForm: string
+        +legalIdentifier: Euid
+        +activity: Nace21
+        +identifier: List
+        +registeredAddress: Address
+        +correspondenceAddress: Address
+        +dateOfRegistration: date
+        +legalStatus: string
+    }
+
+    class NaturalPerson {
+        <<EBW>>
+        +givenName: string
+        +familyName: string
+        +birthDate: date
+    }
+
+    class LegalPerson {
+        <<EBW>>
+        +legalName: string
+        +legalForm: string
+        +legalIdentifier: Euid
+    }
+
+    class LimitedLiabilityCompany {
+        <<EBW>>
+        +legalRepresentative: LegalRepresentative
+        +subscribedCapital: Capital
+    }
+
+    class Partnership {
+        <<EBW>>
+        +partner: GeneralPartner, LimitedPartner
+    }
+
+    class GeneralPartner {
+        <<EBW>>
+        +partnerId: NaturalPerson, LegalPerson
+    }
+
+    class LimitedPartner {
+        <<EBW>>
+        +partnerId: NaturalPerson, LegalPerson
+        +liabilityOrContribution: Capital
+    }
+
+    class StatutoryPartner {
+        <<EBW>>
+        +partnerId: NaturalPerson, LegalPerson
+        +role: string
+        +scopeOfAuthorization: ScopeOfAuthorization
+    }
+
+    class LegalRepresentative {
+        <<EBW>>
+        +legalRepresentativeId: uri
+        +role: string
+        +scopeOfAuthorization: ScopeOfAuthorization
+    }
+
+
+%% =========================
+%% External / Referenced Types
+%% =========================
+    class CredentialSubject {
+        <<external>>
+    }
+
+%% =========================
+%% Inheritance
+%% =========================
+    CredentialSubject <|-- NaturalPerson
+    CredentialSubject <|-- LegalPerson
+    CredentialSubject <|-- Company
+    Company <|-- LimitedLiabilityCompany
+    Company <|-- Partnership
+
+%% =========================
+%% Properties (Object relations)
+%% =========================
+    Company --> Lei : identifier
+    Company --> VatId : identifier
+    Company --> Tin : identifier
+    Company --> Eori : identifier
+    Company --> Excise : identifier
+    Company --> PeppolId : identifier
+
+    LegalRepresentative --> NaturalPerson: legalRepresentativeId
+    LegalRepresentative --> LegalPerson: legalRepresentativeId
+    LimitedLiabilityCompany --> LegalRepresentative: legalRepresentative
+    Partnership --> GeneralPartner: partner
+    Partnership --> LimitedPartner: partner
+    Partnership --> StatutoryPartner: partner
+    GeneralPartner --> NaturalPerson: partnerId
+    GeneralPartner --> LegalPerson: partnerId
+    LimitedPartner --> NaturalPerson: partnerId
+    LimitedPartner --> LegalPerson: partnerId
+    StatutoryPartner --> NaturalPerson: partnerId
+    StatutoryPartner --> LegalPerson: partnerId

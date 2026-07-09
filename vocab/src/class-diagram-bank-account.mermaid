@@ -1,0 +1,44 @@
+classDiagram
+    direction LR
+%% =========================
+%% Core EBW Classes
+%% =========================
+    class BankAccount {
+        <<EBW>>
+        +accountName: string
+        +accountType: string
+        +iban: Iban
+        +owner: EconomicOperator
+        +provider: EconomicOperator
+    }
+
+    class EconomicOperator {
+        identifier: List
+    }
+
+    class Bic
+
+    class Iban
+
+    class ClearingNumber
+
+%% =========================
+%% External / Referenced Types
+%% =========================
+    class CredentialSubject {
+        <<external>>
+    }
+
+%% =========================
+%% Inheritance
+%% =========================
+    CredentialSubject <|-- BankAccount
+
+%% =========================
+%% Properties (Object relations)
+%% =========================
+    BankAccount --> EconomicOperator: owner
+    BankAccount --> EconomicOperator: provider
+    BankAccount --> Iban : iban
+    EconomicOperator --> ClearingNumber : identifier
+    EconomicOperator --> Bic : identifier
