@@ -78,7 +78,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-07-06",
+    "dc:date": "2026-07-13",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -1105,6 +1105,18 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:mandatee",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:PowerOfAttorney",
+        "rdfs:range": "xsd:anyURI",
+        "rdfs:label": "mandatee",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/mandatee",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:matronymicName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Person",
@@ -1460,6 +1472,18 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:provenanceProof",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:ElectronicAttestationOfAttributes",
+        "rdfs:range": "ebwv:ElectronicAttestationOfAttributes",
+        "rdfs:label": "provenance proof",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/provenanceproof",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:provider",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:BankAccount",
@@ -1489,6 +1513,18 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:proxiedPermission",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:PowerOfAttorney",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "proxied permission",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/scope",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -2200,6 +2236,17 @@
         "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "Posted Worker Notification",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworkernotification",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:PowerOfAttorney",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
+        "rdfs:label": "Power of attorney",
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/powerofattorney",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",

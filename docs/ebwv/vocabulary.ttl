@@ -15,7 +15,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-07-06"^^xsd:date ;
+    dc:date "2026-07-13"^^xsd:date ;
 .
 
 # Property definitions
@@ -601,6 +601,14 @@ ebwv:managingLeiIssuer a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
+ebwv:mandatee a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:PowerOfAttorney ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "mandatee" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/mandatee>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:matronymicName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
@@ -801,6 +809,14 @@ ebwv:postName a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
+ebwv:provenanceProof a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:ElectronicAttestationOfAttributes ;
+    rdfs:range ebwv:ElectronicAttestationOfAttributes ;
+    rdfs:label "provenance proof" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/provenanceproof>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:provider a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:BankAccount ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:LegalPerson ebwv:EconomicOperator) ] ;
@@ -816,6 +832,14 @@ ebwv:provisionalDetermination a rdf:Property, owl:DatatypeProperty ;
     rdfs:label "provisional determination" ;
     rdfs:comment """<div>A determination that has legal or administrative effect on a provisional basis and remains subject to confirmation, amendment, or withdrawal under the applicable procedure.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:proxiedPermission a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:PowerOfAttorney ;
+    rdfs:range xsd:string ;
+    rdfs:label "proxied permission" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scope>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1221,6 +1245,13 @@ ebwv:PostedWorkerNotification a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Posted Worker Notification" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworkernotification>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:PowerOfAttorney a rdfs:Class ;
+    rdfs:subClassOf cred:CredentialSubject ;
+    rdfs:label "Power of attorney" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/powerofattorney>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

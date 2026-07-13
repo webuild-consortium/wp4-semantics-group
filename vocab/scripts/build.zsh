@@ -25,7 +25,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 # generate vocab from yaml
-updatedecho Generating static page vocabulary
+echo Generating static page vocabulary
 if [[ "$YML2VOCAB" == 'npx' ]]; then
   npx yml2vocab -v "$SRC/vocabulary.yml" -t "$SRC/template.html" -c
 else

@@ -233,6 +233,10 @@
                         "EAA": "https://w3id.org/ebwv#EAA",
                         "@vocab": "ebwv:INVALID_VALUE:"
                     }
+                },
+                "provenanceProof": {
+                    "@id": "https://w3id.org/ebwv#provenanceProof",
+                    "@type": "@id"
                 }
             }
         },
@@ -717,6 +721,20 @@
                         "Temporary": "https://w3id.org/ebwv#Temporary",
                         "@vocab": "ebwv:INVALID_VALUE:"
                     }
+                }
+            }
+        },
+        "PowerOfAttorney": {
+            "@id": "https://w3id.org/ebwv#PowerOfAttorney",
+            "@context": {
+                "@protected": true,
+                "mandatee": {
+                    "@id": "https://w3id.org/ebwv#mandatee",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "proxiedPermission": {
+                    "@id": "https://w3id.org/ebwv#proxiedPermission",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
         },

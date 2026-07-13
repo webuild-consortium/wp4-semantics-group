@@ -145,8 +145,8 @@
             box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
         }
     </style>
-    <link href="vocab/src/vocabulary.jsonld" rel="alternate" type="application/ld+json">
-    <link href="vocab/src/vocabulary.ttl" rel="alternate" type="text/turtle">
+    <link href="/Users/ronald/IdeaProjects/wp4-semantics-group/vocab/src/vocabulary.jsonld" rel="alternate" type="application/ld+json">
+    <link href="/Users/ronald/IdeaProjects/wp4-semantics-group/vocab/src/vocabulary.ttl" rel="alternate" type="text/turtle">
 </head>
 
 <body>
@@ -161,7 +161,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-07-06</time>
+                <time property="dc:date" id="time">2026-07-13</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -322,6 +322,7 @@
                         <li><a href="#Person"><code>Person<code></code></code></a></li>
                         <li><a href="#Platform"><code>Platform<code></code></code></a></li>
                         <li><a href="#PostedWorkerNotification"><code>PostedWorkerNotification<code></code></code></a></li>
+                        <li><a href="#PowerOfAttorney"><code>PowerOfAttorney<code></code></code></a></li>
                         <li><a href="#Pub-EAA"><code>Pub-EAA<code></code></code></a></li>
                         <li><a href="#PublicSectorBody"><code>PublicSectorBody<code></code></code></a></li>
                         <li><a href="#PublicSectorBodyId"><code>PublicSectorBodyId<code></code></code></a></li>
@@ -405,6 +406,7 @@
                         <li><a href="#locatorDesignator"><code>locatorDesignator<code></code></code></a></li>
                         <li><a href="#locatorName"><code>locatorName<code></code></code></a></li>
                         <li><a href="#managingLeiIssuer"><code>managingLeiIssuer<code></code></code></a></li>
+                        <li><a href="#mandatee"><code>mandatee<code></code></code></a></li>
                         <li><a href="#matronymicName"><code>matronymicName<code></code></code></a></li>
                         <li><a href="#member"><code>member<code></code></code></a></li>
                         <li><a href="#memberOf"><code>memberOf<code></code></code></a></li>
@@ -428,8 +430,10 @@
                         <li><a href="#postCode"><code>postCode<code></code></code></a></li>
                         <li><a href="#postName"><code>postName<code></code></code></a></li>
                         <li><a href="#postedWorker"><code>postedWorker<code></code></code></a></li>
+                        <li><a href="#provenanceProof"><code>provenanceProof<code></code></code></a></li>
                         <li><a href="#provider"><code>provider<code></code></code></a></li>
                         <li><a href="#provisionalDetermination"><code>provisionalDetermination<code></code></code></a></li>
+                        <li><a href="#proxiedPermission"><code>proxiedPermission<code></code></code></a></li>
                         <li><a href="#registeredAddress"><code>registeredAddress<code></code></code></a></li>
                         <li><a href="#reportingMonth"><code>reportingMonth<code></code></code></a></li>
                         <li><a href="#residency"><code>residency<code></code></code></a></li>
@@ -1572,6 +1576,21 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="mandatee">
+                <h4><code>mandatee</code></h4>
+                <p><em>mandatee</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/mandatee">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#PowerOfAttorney"><code>PowerOfAttorney</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:anyURI</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="matronymicName">
                 <h4><code>matronymicName</code></h4>
                 <p><em>matronymic name</em></p>
@@ -1947,6 +1966,21 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="provenanceProof">
+                <h4><code>provenanceProof</code></h4>
+                <p><em>provenance proof</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/provenanceproof">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#ElectronicAttestationOfAttributes"><code>ElectronicAttestationOfAttributes</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#ElectronicAttestationOfAttributes"><code>ElectronicAttestationOfAttributes</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="provider">
                 <h4><code>provider</code></h4>
                 <p><em>provider</em></p>
@@ -1973,6 +2007,21 @@
                     <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
                     <dt>Range:</dt>
                     <dd><code>xsd:boolean</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="proxiedPermission">
+                <h4><code>proxiedPermission</code></h4>
+                <p><em>proxied permission</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/scope">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#PowerOfAttorney"><code>PowerOfAttorney</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2588,7 +2637,7 @@
                 </p>
                 <dl class="terms">
                     <dt>Superclass of:</dt>
-                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a>, <a href="#BankAccount"><code>BankAccount</code></a>, <a href="#Company"><code>Company</code></a>, <a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a>, <a href="#GLN"><code>GLN</code></a>, <a href="#LegalEntityIdentifier"><code>LegalEntityIdentifier</code></a>, <a href="#LegalPerson"><code>LegalPerson</code></a>, <a href="#Membership"><code>Membership</code></a>, <a href="#NaturalPerson"><code>NaturalPerson</code></a>, <a href="#PaymentTerms"><code>PaymentTerms</code></a>, <a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a>, <a href="#SocialSecurityContribution"><code>SocialSecurityContribution</code></a></dd>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a>, <a href="#BankAccount"><code>BankAccount</code></a>, <a href="#Company"><code>Company</code></a>, <a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a>, <a href="#GLN"><code>GLN</code></a>, <a href="#LegalEntityIdentifier"><code>LegalEntityIdentifier</code></a>, <a href="#LegalPerson"><code>LegalPerson</code></a>, <a href="#Membership"><code>Membership</code></a>, <a href="#NaturalPerson"><code>NaturalPerson</code></a>, <a href="#PaymentTerms"><code>PaymentTerms</code></a>, <a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a>, <a href="#PowerOfAttorney"><code>PowerOfAttorney</code></a>, <a href="#SocialSecurityContribution"><code>SocialSecurityContribution</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2645,8 +2694,10 @@
                     <dd><a href="https://www.w3.org/2018/credentials#VerifiableCredential"><code>cred:VerifiableCredential</code></a></dd>
                 </dl>
                 <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#provenanceProof"><code>provenanceProof</code></a></dd>
                     <dt>Domain of:</dt>
-                    <dd><a href="#attestationLegalCategory"><code>attestationLegalCategory</code></a></dd>
+                    <dd><a href="#attestationLegalCategory"><code>attestationLegalCategory</code></a>, <a href="#provenanceProof"><code>provenanceProof</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -3163,7 +3214,7 @@
     "acceptedAt": "2026-06-20T14:30:00Z"
   },
   "credentialSubject": {
-    "@id": "urn:uuid:650805cd-8abf-4f2d-bc23-9552511c7e01",
+    "@id": "did:web:farm-example-bv.org",
     "@type": "Membership",
     "member": {
       "@type": "EconomicOperator",
@@ -3187,7 +3238,7 @@
     }
   }
 }
-</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A8d6f0e3c-1c2a-4e2b-9f1a-1234567890ab%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22issuer%22%3A+%22did%3Aweb%3Adjustconnect.be%22%2C%0A++%22validFrom%22%3A+%222026-06-23T09%3A00%3A00Z%22%2C%0A++%22validUntil%22%3A+%222027-06-23T09%3A00%3A00Z%22%2C%0A++%22attestationLegalCategory%22%3A+%22EAA%22%2C%0A++%22credentialStatus%22%3A+%7B%0A++++%22%40id%22%3A+%22https%3A%2F%2Fdjustconnect.be%2Fstatus%2Fmembership%2342%22%2C%0A++++%22%40type%22%3A+%22BitstringStatusListEntry%22%0A++%7D%2C%0A++%22termsOfUse%22%3A+%7B%0A++++%22%40type%22%3A%22GovernanceRulebook%22%2C%0A++++%22url%22%3A+%22https%3A%2F%2Fagri-x.eu%2Frulebook%22%2C%0A++++%22version%22%3A+%221.2%22%2C%0A++++%22hash%22%3A+%229f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08%22%2C%0A++++%22acceptedAt%22%3A+%222026-06-20T14%3A30%3A00Z%22%0A++%7D%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22urn%3Auuid%3A650805cd-8abf-4f2d-bc23-9552511c7e01%22%2C%0A++++%22%40type%22%3A+%22Membership%22%2C%0A++++%22member%22%3A+%7B%0A++++++%22%40type%22%3A+%22EconomicOperator%22%2C%0A++++++%22legalIdentifier%22%3A%22BEEUID0123456789%22%2C%0A++++++%22legalName%22%3A+%22Farm+Example+BV%22%0A++++%7D%2C%0A++++%22memberOf%22%3A+%22Agri-X%22%2C%0A++++%22role%22%3A+%5B%22DataRightsHolder%22%2C+%22DataProvider%22%5D%2C%0A++++%22onboardedBy%22%3A+%7B%0A++++++%22%40type%22%3A+%22Platform%22%2C%0A++++++%22platformId%22%3A+%22did%3Aweb%3Adjustconnect.be%22%2C%0A++++++%22name%22%3A+%22DjustConnect%22%2C%0A++++++%22operator%22%3A%7B%0A++++++++%22%40type%22%3A+%22EconomicOperator%22%2C%0A++++++++%22legalName%22%3A+%22ILVO%22%2C%0A++++++++%22identifier%22%3A+%7B%0A++++++++++%22%40type%22%3A+%22VatId%22%2C%0A++++++++++%22%40value%22%3A+%22BE0123456789%22%0A++++++++%7D%0A++++++%7D%0A++++%7D%0A++%7D%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A8d6f0e3c-1c2a-4e2b-9f1a-1234567890ab%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22issuer%22%3A+%22did%3Aweb%3Adjustconnect.be%22%2C%0A++%22validFrom%22%3A+%222026-06-23T09%3A00%3A00Z%22%2C%0A++%22validUntil%22%3A+%222027-06-23T09%3A00%3A00Z%22%2C%0A++%22attestationLegalCategory%22%3A+%22EAA%22%2C%0A++%22credentialStatus%22%3A+%7B%0A++++%22%40id%22%3A+%22https%3A%2F%2Fdjustconnect.be%2Fstatus%2Fmembership%2342%22%2C%0A++++%22%40type%22%3A+%22BitstringStatusListEntry%22%0A++%7D%2C%0A++%22termsOfUse%22%3A+%7B%0A++++%22%40type%22%3A%22GovernanceRulebook%22%2C%0A++++%22url%22%3A+%22https%3A%2F%2Fagri-x.eu%2Frulebook%22%2C%0A++++%22version%22%3A+%221.2%22%2C%0A++++%22hash%22%3A+%229f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08%22%2C%0A++++%22acceptedAt%22%3A+%222026-06-20T14%3A30%3A00Z%22%0A++%7D%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Aweb%3Afarm-example-bv.org%22%2C%0A++++%22%40type%22%3A+%22Membership%22%2C%0A++++%22member%22%3A+%7B%0A++++++%22%40type%22%3A+%22EconomicOperator%22%2C%0A++++++%22legalIdentifier%22%3A%22BEEUID0123456789%22%2C%0A++++++%22legalName%22%3A+%22Farm+Example+BV%22%0A++++%7D%2C%0A++++%22memberOf%22%3A+%22Agri-X%22%2C%0A++++%22role%22%3A+%5B%22DataRightsHolder%22%2C+%22DataProvider%22%5D%2C%0A++++%22onboardedBy%22%3A+%7B%0A++++++%22%40type%22%3A+%22Platform%22%2C%0A++++++%22platformId%22%3A+%22did%3Aweb%3Adjustconnect.be%22%2C%0A++++++%22name%22%3A+%22DjustConnect%22%2C%0A++++++%22operator%22%3A%7B%0A++++++++%22%40type%22%3A+%22EconomicOperator%22%2C%0A++++++++%22legalName%22%3A+%22ILVO%22%2C%0A++++++++%22identifier%22%3A+%7B%0A++++++++++%22%40type%22%3A+%22VatId%22%2C%0A++++++++++%22%40value%22%3A+%22BE0123456789%22%0A++++++++%7D%0A++++++%7D%0A++++%7D%0A++%7D%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
                 </div>
             </section>
             <section id="MonetaryAmount">
@@ -3544,6 +3595,84 @@
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
 </pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fschema.org%22%2C%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3Af0adc5fe-3558-40f8-b1e2-97713ec44dff%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%22PostedWorkerNotification%22%2C%0A++++%22postedWorker%22+%3A+%7B%0A++++++%22%40type%22%3A+%22Person%22%2C%0A++++++%22gender%22%3A+%22male%22%2C%0A++++++%22familyName%22%3A+%22Miller%22%2C%0A++++++%22givenName%22%3A+%22Joe%22%2C%0A++++++%22birthName%22%3A+%22Miller%22%2C%0A++++++%22dateOfBirth%22%3A+%221956-12-02%22%2C%0A++++++%22citizenship%22%3A+%22IT%22%2C%0A++++++%22placeOfBirth%22%3A+%7B%0A++++++++%22%40type%22+%3A+%22Address%22%2C%0A++++++++%22postName%22%3A+%22Rome%22%2C%0A++++++++%22adminUnitL1%22%3A+%22IT%22%0A++++++%7D%2C%0A++++++%22domicile%22%3A+%7B%0A++++++++%22%40type%22%3A%22Address%22%2C%0A++++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++++%22postName%22%3A+%22Rome%22%2C%0A++++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++++%22postCode%22%3A+%2200100%22%2C%0A++++++++%22adminUnitL1%22%3A+%22IT%22%0A++++++%7D%2C%0A++++++%22temporaryAddress%22%3A%7B%0A++++++++%22%40type%22%3A%22Address%22%2C%0A++++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++++%22postName%22%3A+%22Rome%22%2C%0A++++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++++%22postCode%22%3A+%2200100%22%2C%0A++++++++%22adminUnitL1%22%3A+%22IT%22%0A++++++%7D%0A++++%7D%2C%0A++++%22assignment%22%3A+%7B%0A++++++%22%40type%22%3A%22WorkAssignment%22%2C%0A++++++%22jurisdiction%22%3A+%22IT%22%2C%0A++++++%22description%22%3A+%22job+duties%22%2C+%0A++++++%22duration%22%3A+%7B%0A++++++++%22%40type%22+%3A+%22PeriodOfTime%22%2C%0A++++++++%22startDate%22%3A+%222020-01-01%22%2C%0A++++++++%22endDate%22%3A+%222020-06-30%22%0A++++++%7D%0A++++%7D%2C%0A++++%22a1%22%3A+%22urn%3Auuid%3A35b7bf25-0629-48d0-8269-20eac38dd2d7%22%2C%0A++++%22employer%22%3A+%7B%0A++++++%22%40type%22+%3A+%22EconomicOperator%22%2C%0A++++++%22legalIdentifier%22%3A+%7B%0A++++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++++%7D%2C%0A++++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++++%22temporaryWorkAgency%22%3A+false%0A++++%7D%2C%0A++++%22hostEntity%22%3A+%7B%0A++++++%22%40type%22+%3A+%22EconomicOperator%22%2C%0A++++++%22legalIdentifier%22%3A+%7B%0A++++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++++%22%40value%22+%3A+%22ITFOR.987654321%22%0A++++++%7D%2C%0A++++++%22legalName%22%3A+%22Hosting+Service+Corporation%22%2C%0A++++++%22temporaryWorkAgency%22%3A+true%0A++++%7D%2C%0A++++%22typeOfEmployment%22%3A+%22Permanent%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
+            </section>
+            <section id="PowerOfAttorney">
+                <h4><code>PowerOfAttorney</code></h4>
+                <p><em>Power of attorney</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/powerofattorney">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Domain of:</dt>
+                    <dd><a href="#mandatee"><code>mandatee</code></a>, <a href="#proxiedPermission"><code>proxiedPermission</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type PowerOfAttorney">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+  ],
+  "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+  "@type": [
+    "VerifiableCredential",
+    "ElectronicAttestationOfAttributes"
+  ],
+  "attestationLegalCategory": "EAA",
+  "credentialSubject": {
+    "@id": "urnd:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
+    "@type": "PowerOfAttorney",
+    "mandatee": "did:key:$publicKeyOfMandatee$",
+    "proxiedPermission": "Opening bank account"
+  },
+  "provenanceProof": {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://w3id.org/ebwv/v0.1"
+    ],
+    "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+    "@type": [
+      "VerifiableCredential",
+      "ElectronicAttestationOfAttributes"
+    ],
+    "attestationLegalCategory": "QEAA",
+    "credentialSubject": {
+      "@id": "did:key:$publicKeyOfOrganisationOfMandater$",
+      "@type": [
+        "EconomicOperator",
+        "Company",
+        "LimitedLiabilityCompany"
+      ],
+      "legalIdentifier": {
+        "@type" : "Euid",
+        "@value" : "NOFOR.987654321"
+      },
+      "legalName": "acme Corporation",
+      "legalForm": "Inc.",
+      "legalRepresentative": [
+        {
+          "@type": "LegalRepresentative",
+          "legalRepresentativeId": "did:key:$publicKeyOfMandater$",
+          "role": "CEO",
+          "scopeOfAuthorization": "Alone"
+        }
+      ]
+    },
+    "validUntil": "2029-12-03T12:19:52Z",
+    "validFrom": "2019-12-03T12:19:52Z",
+    "issuer": "did:key:$publicKeyOfBusinessRegister$"
+  },
+  "validUntil": "2029-12-03T12:19:52Z",
+  "validFrom": "2019-12-03T12:19:52Z",
+  "issuer": "did:key:$publicKeyOfMandater$"
+}
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Febw-vocabulary.spherity.dev%2Febw-context%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Auuid%3A8c076e09-c680-4fa0-b346-630096770c3e%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22EAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22urnd%3Auuid%3Af59f2815-9ddc-4276-aa93-bb9c52516606%22%2C%0A++++%22%40type%22%3A+%22PowerOfAttorney%22%2C%0A++++%22mandatee%22%3A+%22did%3Akey%3A%24publicKeyOfMandatee%24%22%2C%0A++++%22proxiedPermission%22%3A+%22Opening+bank+account%22%0A++%7D%2C%0A++%22provenanceProof%22%3A+%7B%0A++++%22%40context%22%3A+%5B%0A++++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++++%5D%2C%0A++++%22%40id%22%3A+%22urn%3Ad5dfeb39-edc7-40b1-a2fc-3968dbd3eac8%22%2C%0A++++%22%40type%22%3A+%5B%0A++++++%22VerifiableCredential%22%2C%0A++++++%22ElectronicAttestationOfAttributes%22%0A++++%5D%2C%0A++++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++++%22credentialSubject%22%3A+%7B%0A++++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfOrganisationOfMandater%24%22%2C%0A++++++%22%40type%22%3A+%5B%0A++++++++%22EconomicOperator%22%2C%0A++++++++%22Company%22%2C%0A++++++++%22LimitedLiabilityCompany%22%0A++++++%5D%2C%0A++++++%22legalIdentifier%22%3A+%7B%0A++++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++++%7D%2C%0A++++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++++%22legalForm%22%3A+%22Inc.%22%2C%0A++++++%22legalRepresentative%22%3A+%5B%0A++++++++%7B%0A++++++++++%22%40type%22%3A+%22LegalRepresentative%22%2C%0A++++++++++%22legalRepresentativeId%22%3A+%22did%3Akey%3A%24publicKeyOfMandater%24%22%2C%0A++++++++++%22role%22%3A+%22CEO%22%2C%0A++++++++++%22scopeOfAuthorization%22%3A+%22Alone%22%0A++++++++%7D%0A++++++%5D%0A++++%7D%2C%0A++++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfBusinessRegister%24%22%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfMandater%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
                 </div>
             </section>
             <section id="PublicSectorBody">
