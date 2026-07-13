@@ -298,7 +298,6 @@
                         <li><a href="#Iban"><code>Iban<code></code></code></a></li>
                         <li><a href="#Incoterms"><code>Incoterms<code></code></code></a></li>
                         <li><a href="#Jointly"><code>Jointly<code></code></code></a></li>
-                        <li><a href="#LegalEntity"><code>LegalEntity<code></code></code></a></li>
                         <li><a href="#LegalEntityIdentifier"><code>LegalEntityIdentifier<code></code></code></a></li>
                         <li><a href="#LegalPerson"><code>LegalPerson<code></code></code></a></li>
                         <li><a href="#LegalRepresentative"><code>LegalRepresentative<code></code></code></a></li>
@@ -392,10 +391,10 @@
                         <li><a href="#legalIdentifier"><code>legalIdentifier<code></code></code></a></li>
                         <li><a href="#legalName"><code>legalName<code></code></code></a></li>
                         <li><a href="#legalRepresentative"><code>legalRepresentative<code></code></code></a></li>
-                        <li><a href="#legalRepresentativeId"><code>legalRepresentativeId<code></code></code></a></li>
                         <li><a href="#legalStatus"><code>legalStatus<code></code></code></a></li>
                         <li><a href="#lei"><code>lei<code></code></code></a></li>
                         <li><a href="#leiLastUpdate"><code>leiLastUpdate<code></code></code></a></li>
+                        <li><a href="#leiLegalEntity"><code>leiLegalEntity<code></code></code></a></li>
                         <li><a href="#leiNextRenewal"><code>leiNextRenewal<code></code></code></a></li>
                         <li><a href="#leiRegistration"><code>leiRegistration<code></code></code></a></li>
                         <li><a href="#leiRegistrationDate"><code>leiRegistrationDate<code></code></code></a></li>
@@ -787,7 +786,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
                 </dl>
@@ -883,7 +882,7 @@
                 <div>the date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a></dd>
                     <dt>Range:</dt>
                     <dd><code>xsd:date</code></dd>
                 </dl>
@@ -1284,7 +1283,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a> ⊔&nbsp;<a href="#A1Certificate"><code>A1Certificate</code></a> ⊔&nbsp;<a href="#WorkAssignment"><code>WorkAssignment</code></a> ⊔&nbsp;<a href="#PublicSectorBody"><code>PublicSectorBody</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#A1Certificate"><code>A1Certificate</code></a> ⊔&nbsp;<a href="#WorkAssignment"><code>WorkAssignment</code></a> ⊔&nbsp;<a href="#PublicSectorBody"><code>PublicSectorBody</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#CountryCode"><code>CountryCode</code></a></dd>
                 </dl>
@@ -1295,14 +1294,14 @@
             </section>
             <section id="legalEntity">
                 <h4><code>legalEntity</code></h4>
-                <p><em>legal entity as registered at lei issuer</em></p>
+                <p><em>legal entity recognized by law</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity">formal definition of the term</a>.</p>
-                <div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>
+                <div>A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalEntityIdentifier"><code>LegalEntityIdentifier</code></a></dd>
+                    <dd><a href="#LegalRepresentative"><code>LegalRepresentative</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#LegalEntity"><code>LegalEntity</code></a></dd>
+                    <dd><a href="#NaturalPerson"><code>NaturalPerson</code></a> ⊓&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1316,7 +1315,7 @@
                 <div>the juridical classification of a legal entity according to the law under which it is constituted, determining its legal personality, governance structure, and liability regime</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
+                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#Company"><code>Company</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -1347,7 +1346,7 @@
                 <div>the name under which the legal entity is legally registered</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a> ⊔&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a> ⊔&nbsp;<a href="#PublicSectorBody"><code>PublicSectorBody</code></a></dd>
+                    <dd><a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a> ⊔&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#PublicSectorBody"><code>PublicSectorBody</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -1372,21 +1371,6 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="legalRepresentativeId">
-                <h4><code>legalRepresentativeId</code></h4>
-                <p><em>unique ID of the identity of the representative</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#LegalRepresentative"><code>LegalRepresentative</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><code>xsd:anyURI</code></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="legalStatus">
                 <h4><code>legalStatus</code></h4>
                 <p><em>status of the company</em></p>
@@ -1394,7 +1378,7 @@
                 <div>the officially recorded status of a registered business entity as determined or maintained by the competent register authority</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
@@ -1428,6 +1412,22 @@
                     <dd><a href="#LeiRegistration"><code>LeiRegistration</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="leiLegalEntity">
+                <h4><code>leiLegalEntity</code></h4>
+                <p><em>legal entity as registered at lei issuer</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/leilegalentity">formal definition of the term</a>.</p>
+                <div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#LegalEntityIdentifier"><code>LegalEntityIdentifier</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊓&nbsp;<a href="#PublicSectorBody"><code>PublicSectorBody</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1986,7 +1986,7 @@
                 <div>the address at which the legal entity is legally registered</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#LegalEntity"><code>LegalEntity</code></a> ⊔&nbsp;<a href="#GLN"><code>GLN</code></a></dd>
+                    <dd><a href="#Company"><code>Company</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#GLN"><code>GLN</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Address"><code>Address</code></a></dd>
                 </dl>
@@ -2875,26 +2875,6 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="LegalEntity">
-                <h4><code>LegalEntity</code></h4>
-                <p><em>Legal entity</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity">formal definition of the term</a>.</p>
-                <div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>
-                <dl class="terms">
-                    <dt>Superclass of:</dt>
-                    <dd><a href="#LegalPerson"><code>LegalPerson</code></a>, <a href="#NaturalPerson"><code>NaturalPerson</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#legalEntity"><code>legalEntity</code></a></dd>
-                    <dt>In the domain of:</dt>
-                    <dd><a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#legalForm"><code>legalForm</code></a>, <a href="#legalName"><code>legalName</code></a>, <a href="#legalStatus"><code>legalStatus</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="LegalEntityIdentifier">
                 <h4><code>LegalEntityIdentifier</code></h4>
                 <p><em>Legal entity identifier</em></p>
@@ -2905,7 +2885,7 @@
                 </dl>
                 <dl class="terms">
                     <dt>Domain of:</dt>
-                    <dd><a href="#legalEntity"><code>legalEntity</code></a>, <a href="#lei"><code>lei</code></a>, <a href="#leiRegistration"><code>leiRegistration</code></a></dd>
+                    <dd><a href="#lei"><code>lei</code></a>, <a href="#leiLegalEntity"><code>leiLegalEntity</code></a>, <a href="#leiRegistration"><code>leiRegistration</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2918,13 +2898,13 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Subclass of:</dt>
-                    <dd><a href="#LegalEntity"><code>LegalEntity</code></a> ⊓&nbsp;<a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                    <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Includes the range of:</dt>
-                    <dd><a href="#owner"><code>owner</code></a>, <a href="#provider"><code>provider</code></a></dd>
+                    <dd><a href="#legalEntity"><code>legalEntity</code></a>, <a href="#leiLegalEntity"><code>leiLegalEntity</code></a>, <a href="#owner"><code>owner</code></a>, <a href="#provider"><code>provider</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#legalForm"><code>legalForm</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#legalName"><code>legalName</code></a></dd>
+                    <dd><a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#dateOfRegistration"><code>dateOfRegistration</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#legalForm"><code>legalForm</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#legalName"><code>legalName</code></a>, <a href="#legalStatus"><code>legalStatus</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2968,7 +2948,7 @@
                     <dt>Range of:</dt>
                     <dd><a href="#legalRepresentative"><code>legalRepresentative</code></a></dd>
                     <dt>Domain of:</dt>
-                    <dd><a href="#legalRepresentativeId"><code>legalRepresentativeId</code></a></dd>
+                    <dd><a href="#legalEntity"><code>legalEntity</code></a></dd>
                     <dt>In the domain of:</dt>
                     <dd><a href="#role"><code>role</code></a>, <a href="#scopeOfAuthorization"><code>scopeOfAuthorization</code></a></dd>
                 </dl>
@@ -3065,13 +3045,13 @@
     "legalRepresentative": [
       {
         "@type": "LegalRepresentative",
-        "legalRepresentativeId": "did:key:$publicKeyOfRepresentative1$",
+        "legalEntity": "did:key:$publicKeyOfRepresentative1$",
         "role": "CEO",
         "scopeOfAuthorization": "Alone"
       },
       {
         "@type": "LegalRepresentative",
-        "legalRepresentativeId": "did:key:$publicKeyOfRepresentative2$",
+        "legalEntity": "did:key:$publicKeyOfRepresentative2$",
         "role": "CFO",
         "scopeOfAuthorization": "Alone"
       }
@@ -3081,7 +3061,7 @@
   "validFrom": "2019-12-03T12:19:52Z",
   "issuer": "did:key:$publicKeyOfIssuer$"
 }
-</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Ad5dfeb39-edc7-40b1-a2fc-3968dbd3eac8%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%5B%0A++++++%22EconomicOperator%22%2C%0A++++++%22Company%22%2C%0A++++++%22LimitedLiabilityCompany%22%0A++++%5D%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++%22legalForm%22%3A+%22Inc.%22%2C%0A++++%22registeredAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22correspondenceAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22dateOfRegistration%22%3A+%222023-10-11%22%2C%0A++++%22legalStatus%22%3A+%22active%22%2C%0A++++%22activity%22%3A+%2210.82%22%2C%0A++++%22subscribedCapital%22%3A+%7B%0A++++++%22%40type%22%3A+%22MonetaryAmount%22%2C%0A++++++%22amount%22%3A+100000%2C%0A++++++%22currency%22%3A+%22EUR%22%0A++++%7D%2C%0A++++%22legalRepresentative%22%3A+%5B%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LegalRepresentative%22%2C%0A++++++++%22legalRepresentativeId%22%3A+%22did%3Akey%3A%24publicKeyOfRepresentative1%24%22%2C%0A++++++++%22role%22%3A+%22CEO%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Alone%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LegalRepresentative%22%2C%0A++++++++%22legalRepresentativeId%22%3A+%22did%3Akey%3A%24publicKeyOfRepresentative2%24%22%2C%0A++++++++%22role%22%3A+%22CFO%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Alone%22%0A++++++%7D%0A++++%5D%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A++%22%40context%22%3A+%5B%0A++++%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A++++%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A++%5D%2C%0A++%22%40id%22%3A+%22urn%3Ad5dfeb39-edc7-40b1-a2fc-3968dbd3eac8%22%2C%0A++%22%40type%22%3A+%5B%0A++++%22VerifiableCredential%22%2C%0A++++%22ElectronicAttestationOfAttributes%22%0A++%5D%2C%0A++%22attestationLegalCategory%22%3A+%22QEAA%22%2C%0A++%22credentialSubject%22%3A+%7B%0A++++%22%40id%22%3A+%22did%3Akey%3A%24publicKeyOfHolder%24%22%2C%0A++++%22%40type%22%3A+%5B%0A++++++%22EconomicOperator%22%2C%0A++++++%22Company%22%2C%0A++++++%22LimitedLiabilityCompany%22%0A++++%5D%2C%0A++++%22legalIdentifier%22%3A+%7B%0A++++++%22%40type%22+%3A+%22Euid%22%2C%0A++++++%22%40value%22+%3A+%22NOFOR.987654321%22%0A++++%7D%2C%0A++++%22legalName%22%3A+%22acme+Corporation%22%2C%0A++++%22legalForm%22%3A+%22Inc.%22%2C%0A++++%22registeredAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22correspondenceAddress%22%3A+%7B%0A++++++%22%40type%22%3A%22Address%22%2C%0A++++++%22fullAddress%22%3A+%22Via+Appia+123%2C+00100+Rome%2C+Italy%22%2C%0A++++++%22thoroughfare%22%3A+%22Via+Appia%22%2C%0A++++++%22locatorDesignator%22%3A+%22123%22%2C%0A++++++%22postName%22%3A+%22Rome%22%2C%0A++++++%22adminUnitL2%22%3A+%22Lazio%22%2C%0A++++++%22postCode%22%3A+%2200100%22%2C%0A++++++%22adminUnitL1%22%3A+%22IT%22%0A++++%7D%2C%0A++++%22dateOfRegistration%22%3A+%222023-10-11%22%2C%0A++++%22legalStatus%22%3A+%22active%22%2C%0A++++%22activity%22%3A+%2210.82%22%2C%0A++++%22subscribedCapital%22%3A+%7B%0A++++++%22%40type%22%3A+%22MonetaryAmount%22%2C%0A++++++%22amount%22%3A+100000%2C%0A++++++%22currency%22%3A+%22EUR%22%0A++++%7D%2C%0A++++%22legalRepresentative%22%3A+%5B%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LegalRepresentative%22%2C%0A++++++++%22legalEntity%22%3A+%22did%3Akey%3A%24publicKeyOfRepresentative1%24%22%2C%0A++++++++%22role%22%3A+%22CEO%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Alone%22%0A++++++%7D%2C%0A++++++%7B%0A++++++++%22%40type%22%3A+%22LegalRepresentative%22%2C%0A++++++++%22legalEntity%22%3A+%22did%3Akey%3A%24publicKeyOfRepresentative2%24%22%2C%0A++++++++%22role%22%3A+%22CFO%22%2C%0A++++++++%22scopeOfAuthorization%22%3A+%22Alone%22%0A++++++%7D%0A++++%5D%0A++%7D%2C%0A++%22validUntil%22%3A+%222029-12-03T12%3A19%3A52Z%22%2C%0A++%22validFrom%22%3A+%222019-12-03T12%3A19%3A52Z%22%2C%0A++%22issuer%22%3A+%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
                 </div>
             </section>
             <section id="LimitedPartner">
@@ -3214,11 +3194,11 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Subclass of:</dt>
-                    <dd><a href="#LegalEntity"><code>LegalEntity</code></a> ⊓&nbsp;<a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                    <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Includes the range of:</dt>
-                    <dd><a href="#owner"><code>owner</code></a></dd>
+                    <dd><a href="#legalEntity"><code>legalEntity</code></a>, <a href="#owner"><code>owner</code></a></dd>
                     <dt>In the domain of:</dt>
                     <dd><a href="#dateOfBirth"><code>dateOfBirth</code></a>, <a href="#familyName"><code>familyName</code></a>, <a href="#givenName"><code>givenName</code></a></dd>
                 </dl>
@@ -3553,7 +3533,7 @@
                 <div>public sector body’ means a Union entity, a national, state, regional or local authority, a body governed by public law or an association formed by one or several such entities or bodies , or a private entity mandated by at least one such entities, authorities, bodies or associations to provide public services, when acting under such a mandate</div>
                 <dl class="terms">
                     <dt>Includes the range of:</dt>
-                    <dd><a href="#79a6029425e48d25277bb0f069aa517894431c11815f186f1522399373c7ea3e"><code>issuer</code></a></dd>
+                    <dd><a href="#79a6029425e48d25277bb0f069aa517894431c11815f186f1522399373c7ea3e"><code>issuer</code></a>, <a href="#leiLegalEntity"><code>leiLegalEntity</code></a></dd>
                     <dt>In the domain of:</dt>
                     <dd><a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#legalIdentifier"><code>legalIdentifier</code></a>, <a href="#legalName"><code>legalName</code></a></dd>
                 </dl>

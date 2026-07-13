@@ -350,11 +350,6 @@ class:
     label: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms
 
-  - id: LegalEntity
-    label: Legal entity
-    comment: an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
-
   - id: LegalEntityIdentifier
     label: Legal entity identifier
     upper_value: cred:CredentialSubject
@@ -362,9 +357,7 @@ class:
 
   - id: LegalPerson
     label: Legal Person
-    upper_value:
-      - LegalEntity
-      - cred:CredentialSubject
+    upper_value: cred:CredentialSubject
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson
     example:
       - label: Credential with credential subject of type LegalPerson
@@ -467,13 +460,13 @@ class:
               "legalRepresentative": [
                 {
                   "@type": "LegalRepresentative",
-                  "legalRepresentativeId": "did:key:$publicKeyOfRepresentative1$",
+                  "legalEntity": "did:key:$publicKeyOfRepresentative1$",
                   "role": "CEO",
                   "scopeOfAuthorization": "Alone"
                 },
                 {
                   "@type": "LegalRepresentative",
-                  "legalRepresentativeId": "did:key:$publicKeyOfRepresentative2$",
+                  "legalEntity": "did:key:$publicKeyOfRepresentative2$",
                   "role": "CFO",
                   "scopeOfAuthorization": "Alone"
                 }
@@ -557,9 +550,7 @@ class:
 
   - id: NaturalPerson
     label: Natural Person Identification Data
-    upper_value:
-      - LegalEntity
-      - cred:CredentialSubject
+    upper_value: cred:CredentialSubject
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson
     example:
       - label: Credential with credential subject of type NaturalPerson
@@ -1085,7 +1076,7 @@ property:
     label: correspondence Address
     domain:
       - Company
-      - LegalEntity
+      - LegalPerson
     range:
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
@@ -1133,7 +1124,7 @@ property:
     label: date of registration
     domain:
       - Company
-      - LegalEntity
+      - LegalPerson
     range: xsd:date
     comment: the date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
@@ -1334,7 +1325,7 @@ property:
     label: jurisdiction
     domain:
       - Company
-      - LegalEntity
+      - LegalPerson
       - A1Certificate
       - WorkAssignment
       - PublicSectorBody
@@ -1343,10 +1334,12 @@ property:
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
 
   - id: legalEntity
-    label: legal entity as registered at lei issuer
-    domain: LegalEntityIdentifier
-    range: LegalEntity
-    comment: an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System
+    label: legal entity recognized by law
+    domain: LegalRepresentative
+    range:
+      - NaturalPerson
+      - LegalPerson
+    comment: A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: legalForm
@@ -1354,7 +1347,6 @@ property:
     domain:
       - LegalPerson
       - Company
-      - LegalEntity
     range: xsd:string
     comment: the juridical classification of a legal entity according to the law under which it is constituted, determining its legal personality, governance structure, and liability regime
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalform
@@ -1378,7 +1370,6 @@ property:
       - EuropeanBusinessWalletOwner
       - LegalPerson
       - EconomicOperator
-      - LegalEntity
       - PublicSectorBody
     range: xsd:string
     comment: the name under which the legal entity is legally registered
@@ -1391,17 +1382,11 @@ property:
     comment: a natural person or economic operator that has authority, under law, the company's statutes, a register entry or another recognised legal basis, to represent a company in dealings with third parties, authorities or courts
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
 
-  - id: legalRepresentativeId
-    label: unique ID of the identity of the representative
-    domain: LegalRepresentative
-    range: xsd:anyURI
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid
-
   - id: legalStatus
     label: status of the company
     domain:
       - Company
-      - LegalEntity
+      - LegalPerson
     range: xsd:string
     comment: the officially recorded status of a registered business entity as determined or maintained by the competent register authority
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalstatus
@@ -1419,6 +1404,15 @@ property:
     domain: LeiRegistration
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leilastupdate
+
+  - id: leiLegalEntity
+    label: legal entity as registered at lei issuer
+    domain: LegalEntityIdentifier
+    range:
+      - LegalPerson
+      - PublicSectorBody
+    comment: an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leilegalentity
 
   - id: leiNextRenewal
     label: lei next renewal
@@ -1682,7 +1676,7 @@ property:
     domain:
       - Company
       - EconomicOperator
-      - LegalEntity
+      - LegalPerson
       - GLN
     range: Address
     comment: the address at which the legal entity is legally registered

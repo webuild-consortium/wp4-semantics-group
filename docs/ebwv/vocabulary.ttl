@@ -182,7 +182,7 @@ ebwv:contributor a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:correspondenceAddress a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:LegalEntity) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:LegalPerson) ] ;
     rdfs:range ebwv:Address ;
     rdfs:label "correspondence Address" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress>, <https://w3id.org/ebwv#> ;
@@ -235,7 +235,7 @@ ebwv:dateOfDeath a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:dateOfRegistration a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:LegalEntity) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:LegalPerson) ] ;
     rdfs:range xsd:date ;
     rdfs:label "date of registration" ;
     rdfs:comment """<div>the date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes</div>"""^^rdf:HTML ;
@@ -441,7 +441,7 @@ ebwv:jobTitle a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:jurisdiction a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:LegalEntity ebwv:A1Certificate ebwv:WorkAssignment ebwv:PublicSectorBody) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:LegalPerson ebwv:A1Certificate ebwv:WorkAssignment ebwv:PublicSectorBody) ] ;
     rdfs:range ebwv:CountryCode ;
     rdfs:label "jurisdiction" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction>, <https://w3id.org/ebwv#> ;
@@ -449,16 +449,16 @@ ebwv:jurisdiction a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:legalEntity a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:LegalEntityIdentifier ;
-    rdfs:range ebwv:LegalEntity ;
-    rdfs:label "legal entity as registered at lei issuer" ;
-    rdfs:comment """<div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>"""^^rdf:HTML ;
+    rdfs:domain ebwv:LegalRepresentative ;
+    rdfs:range ebwv:NaturalPerson, ebwv:LegalPerson ;
+    rdfs:label "legal entity recognized by law" ;
+    rdfs:comment """<div>A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:legalForm a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalPerson ebwv:Company ebwv:LegalEntity) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalPerson ebwv:Company) ] ;
     rdfs:range xsd:string ;
     rdfs:label "legal form" ;
     rdfs:comment """<div>the juridical classification of a legal entity according to the law under which it is constituted, determining its legal personality, governance structure, and liability regime</div>"""^^rdf:HTML ;
@@ -475,7 +475,7 @@ ebwv:legalIdentifier a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:legalName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuropeanBusinessWalletOwner ebwv:LegalPerson ebwv:EconomicOperator ebwv:LegalEntity ebwv:PublicSectorBody) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EuropeanBusinessWalletOwner ebwv:LegalPerson ebwv:EconomicOperator ebwv:PublicSectorBody) ] ;
     rdfs:range xsd:string ;
     rdfs:label "legal name" ;
     rdfs:comment """<div>the name under which the legal entity is legally registered</div>"""^^rdf:HTML ;
@@ -492,16 +492,8 @@ ebwv:legalRepresentative a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:legalRepresentativeId a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:LegalRepresentative ;
-    rdfs:range xsd:anyURI ;
-    rdfs:label "unique ID of the identity of the representative" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:legalStatus a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:LegalEntity) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:LegalPerson) ] ;
     rdfs:range xsd:string ;
     rdfs:label "status of the company" ;
     rdfs:comment """<div>the officially recorded status of a registered business entity as determined or maintained by the competent register authority</div>"""^^rdf:HTML ;
@@ -523,6 +515,15 @@ ebwv:leiLastUpdate a rdf:Property, owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "lei last update date" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/leilastupdate>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:leiLegalEntity a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:LegalEntityIdentifier ;
+    rdfs:range ebwv:LegalPerson, ebwv:PublicSectorBody ;
+    rdfs:label "legal entity as registered at lei issuer" ;
+    rdfs:comment """<div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/leilegalentity>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -820,7 +821,7 @@ ebwv:provisionalDetermination a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:registeredAddress a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:EconomicOperator ebwv:LegalEntity ebwv:GLN) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:EconomicOperator ebwv:LegalPerson ebwv:GLN) ] ;
     rdfs:range ebwv:Address ;
     rdfs:label "registered address" ;
     rdfs:comment """<div>the address at which the legal entity is legally registered</div>"""^^rdf:HTML ;
@@ -1109,13 +1110,6 @@ ebwv:Incoterms a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebwv:LegalEntity a rdfs:Class ;
-    rdfs:label "Legal entity" ;
-    rdfs:comment """<div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:LegalEntityIdentifier a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Legal entity identifier" ;
@@ -1124,7 +1118,7 @@ ebwv:LegalEntityIdentifier a rdfs:Class ;
 .
 
 ebwv:LegalPerson a rdfs:Class ;
-    rdfs:subClassOf ebwv:LegalEntity, cred:CredentialSubject ;
+    rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Legal Person" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -1178,7 +1172,7 @@ ebwv:MonetaryAmount a rdfs:Class ;
 .
 
 ebwv:NaturalPerson a rdfs:Class ;
-    rdfs:subClassOf ebwv:LegalEntity, cred:CredentialSubject ;
+    rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Natural Person Identification Data" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;

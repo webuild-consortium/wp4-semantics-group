@@ -358,7 +358,7 @@
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Company", "ebwv:LegalEntity"]
+            "owl:unionOf": ["ebwv:Company", "ebwv:LegalPerson"]
         },
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "correspondence Address",
@@ -459,7 +459,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Company", "ebwv:LegalEntity"]
+            "owl:unionOf": ["ebwv:Company", "ebwv:LegalPerson"]
         },
         "rdfs:range": "xsd:date",
         "rdfs:label": "date of registration",
@@ -824,7 +824,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Company", "ebwv:LegalEntity", "ebwv:A1Certificate", "ebwv:WorkAssignment", "ebwv:PublicSectorBody"]
+            "owl:unionOf": ["ebwv:Company", "ebwv:LegalPerson", "ebwv:A1Certificate", "ebwv:WorkAssignment", "ebwv:PublicSectorBody"]
         },
         "rdfs:range": "ebwv:CountryCode",
         "rdfs:label": "jurisdiction",
@@ -837,11 +837,11 @@
     }, {
         "@id": "ebwv:legalEntity",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:LegalEntityIdentifier",
-        "rdfs:range": "ebwv:LegalEntity",
-        "rdfs:label": "legal entity as registered at lei issuer",
+        "rdfs:domain": "ebwv:LegalRepresentative",
+        "rdfs:range": ["ebwv:NaturalPerson", "ebwv:LegalPerson"],
+        "rdfs:label": "legal entity recognized by law",
         "rdfs:comment": {
-            "@value": "<div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>",
+            "@value": "<div>A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity",
@@ -855,7 +855,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:LegalPerson", "ebwv:Company", "ebwv:LegalEntity"]
+            "owl:unionOf": ["ebwv:LegalPerson", "ebwv:Company"]
         },
         "rdfs:range": "xsd:string",
         "rdfs:label": "legal form",
@@ -892,7 +892,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:EconomicOperator", "ebwv:LegalEntity", "ebwv:PublicSectorBody"]
+            "owl:unionOf": ["ebwv:EuropeanBusinessWalletOwner", "ebwv:LegalPerson", "ebwv:EconomicOperator", "ebwv:PublicSectorBody"]
         },
         "rdfs:range": "xsd:string",
         "rdfs:label": "legal name",
@@ -923,23 +923,11 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:legalRepresentativeId",
-        "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:LegalRepresentative",
-        "rdfs:range": "xsd:anyURI",
-        "rdfs:label": "unique ID of the identity of the representative",
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid",
-        "vs:term_status": "stable",
-        "mentioned": [{
-            "@id": "https://w3id.org/ebwv/v0.1",
-            "@type": "jsonld:Context"
-        }]
-    }, {
         "@id": "ebwv:legalStatus",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Company", "ebwv:LegalEntity"]
+            "owl:unionOf": ["ebwv:Company", "ebwv:LegalPerson"]
         },
         "rdfs:range": "xsd:string",
         "rdfs:label": "status of the company",
@@ -976,6 +964,22 @@
         "rdfs:range": "xsd:string",
         "rdfs:label": "lei last update date",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/leilastupdate",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:leiLegalEntity",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:LegalEntityIdentifier",
+        "rdfs:range": ["ebwv:LegalPerson", "ebwv:PublicSectorBody"],
+        "rdfs:label": "legal entity as registered at lei issuer",
+        "rdfs:comment": {
+            "@value": "<div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/leilegalentity",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1499,7 +1503,7 @@
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Company", "ebwv:EconomicOperator", "ebwv:LegalEntity", "ebwv:GLN"]
+            "owl:unionOf": ["ebwv:Company", "ebwv:EconomicOperator", "ebwv:LegalPerson", "ebwv:GLN"]
         },
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "registered address",
@@ -2008,20 +2012,6 @@
             "@type": "jsonld:Context"
         }]
     }, {
-        "@id": "ebwv:LegalEntity",
-        "@type": "rdfs:Class",
-        "rdfs:label": "Legal entity",
-        "rdfs:comment": {
-            "@value": "<div>an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System</div>",
-            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-        },
-        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity",
-        "vs:term_status": "stable",
-        "mentioned": [{
-            "@id": "https://w3id.org/ebwv/v0.1",
-            "@type": "jsonld:Context"
-        }]
-    }, {
         "@id": "ebwv:LegalEntityIdentifier",
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["cred:CredentialSubject"],
@@ -2035,7 +2025,7 @@
     }, {
         "@id": "ebwv:LegalPerson",
         "@type": "rdfs:Class",
-        "rdfs:subClassOf": ["ebwv:LegalEntity", "cred:CredentialSubject"],
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "Legal Person",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson",
         "vs:term_status": "stable",
@@ -2130,7 +2120,7 @@
     }, {
         "@id": "ebwv:NaturalPerson",
         "@type": "rdfs:Class",
-        "rdfs:subClassOf": ["ebwv:LegalEntity", "cred:CredentialSubject"],
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "Natural Person Identification Data",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson",
         "vs:term_status": "stable",
