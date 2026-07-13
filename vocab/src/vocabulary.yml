@@ -525,7 +525,7 @@ class:
               "acceptedAt": "2026-06-20T14:30:00Z"
             },
             "credentialSubject": {
-              "@id": "urn:uuid:650805cd-8abf-4f2d-bc23-9552511c7e01",
+              "@id": "did:web:farm-example-bv.org",
               "@type": "Membership",
               "member": {
                 "@type": "EconomicOperator",
