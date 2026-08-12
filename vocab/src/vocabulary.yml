@@ -365,6 +365,11 @@ class:
     label: Statutory Partner
     defined_by: https:/w3id.org/ebwv/terminology#/concept/statutorypartner
 
+  - id: UBO
+    label: UBO
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/UBO
+
+
 property:
   - id: activity
     label: main activity of company
@@ -553,6 +558,12 @@ property:
     domain: Person
     range: Identifier
     defined_by: https:/w3id.org/ebwv/terminology#/concept/identifier
+
+  - id: justification
+    label: justification
+    domain: Person, UBO
+    range: Document
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/justification
 
   - id: legalName
     label: legal name
