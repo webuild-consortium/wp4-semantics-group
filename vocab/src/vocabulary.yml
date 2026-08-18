@@ -977,6 +977,13 @@ property:
     comment: organised doing, operation or process carried out for a purpose or result
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
 
+  - id: address
+    label: address
+    domain: VATRegistrationUnit
+    range: Address
+    comment: A generic address type used for different kind of entities.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
+
   - id: addressArea
     label: address area
     domain: Address
@@ -1825,7 +1832,9 @@ property:
 
   - id: type
     label: type
-    domain: VATRegistrationUnit
+    domain: 
+      - Address
+      - VATRegistrationUnit
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/type
 
