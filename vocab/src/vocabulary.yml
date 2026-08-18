@@ -969,9 +969,11 @@ property:
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/banktype
 
   - id: activity
-    label: main activity of company
+    label: main activity of a business entity 
     domain:
       - Company
+      - EconomicOperator
+      - VATRegistrationUnit
     range:
       - Nace21
     comment: organised doing, operation or process carried out for a purpose or result
