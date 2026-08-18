@@ -1682,6 +1682,12 @@ property:
     comment: the address at which the legal entity is legally registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
 
+  - id: references
+    label: references
+    domain: VATRegistrationUnit
+    range: xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/references
+
   - id: reportingMonth
     label: reporting month
     domain: SocialSecurityContribution
