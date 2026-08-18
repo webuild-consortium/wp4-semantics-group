@@ -1633,6 +1633,13 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait
 
+  - id: postalAddress
+    label: postal address
+    domain: EconomicOperator
+    range: Address
+    comment: The address to which an entity like an economic operator wants its postal deliveries to be delivered to. Can alternatively be called "correspondence address".
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postaladdress
+
   - id: postCode
     label: post code
     domain: Address
