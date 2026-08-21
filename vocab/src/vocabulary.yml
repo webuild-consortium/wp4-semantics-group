@@ -246,6 +246,10 @@ class:
     label: General Partner
     defined_by: https:/w3id.org/ebwv/terminology#/concept/generalpartner
 
+  - id: Identifier
+    label: Identifier
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/Identifier
+
   - id: Jurisdiction
     label: Jurisdiction
     defined_by: https:/w3id.org/ebwv/terminology#/concept/jurisdiction
@@ -633,6 +637,12 @@ property:
     domain: Person
     range: xsd:string
     defined_by: https:/w3id.org/ebwv/terminology#/concept/matronymicname
+
+  - id: ownershipPercentage
+    label: ownership percentage
+    domain: TBD
+    range: xsd:float
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/ownershipPercentage
 
   - id: partner
     label: partner
