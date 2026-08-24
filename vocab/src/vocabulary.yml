@@ -10,6 +10,9 @@ prefix:
   - id: dct
     value: http://purl.org/dc/elements/1.1/
 
+  - id: foaf
+    value: http://xmlns.com/foaf/0.1/
+
   - id: jsonld
     value: http://www.w3.org/ns/json-ld#
 
@@ -42,9 +45,9 @@ class:
     label: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
 
-  - id: Agent
+  - id: foaf:Agent
     label: Agent
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/agent
+    defined_by: http://xmlns.com/foaf/0.1/Agent
 
   - id: AttestationLegalCategory
     label: Attestation Legal Category
@@ -653,6 +656,10 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
+  - id: Party
+  - label: Party
+  - defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/party    
+    
   - id: PaymentDueCondition
   - label: Payment Due Condition
   - defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentduecondition    
@@ -828,6 +835,10 @@ class:
   - id: StatutoryPartner
     label: Statutory Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
+
+  - id: TradeAgreement
+    label: Trade Agreement
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tradeagreement
 
   - id: TypeOfEmployment
     label: Type Of Employment
@@ -1014,6 +1025,12 @@ property:
     range: xsd:string
     comment: The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2
+
+  - id: agreementDate
+    label: agreement date
+    domain: TradeAgreement
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/agreementdate
 
   - id: alternativeName
     label: alternative name
@@ -1278,6 +1295,18 @@ property:
     range: PaymentDueCondition
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentduecondition
 
+  - id: hasPaymentTerms
+    label: has payment terms
+    domain: TradeAgreement
+    range: PaymentTerms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentsterms
+
+  - id: hasParty
+    label: has party
+    domain: TradeAgreement
+    range: Party
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/party
+
   - id: hasSite
     label: has site
     domain: SocialSecurityContribution
@@ -1309,9 +1338,10 @@ property:
     label: identifier
     domain: 
       - EconomicOperator
-      - Site
-      - VATRegistrationUnit
       - GLN
+      - Site
+      - TradeAgreement
+      - VATRegistrationUnit      
     range:
       - Bic
       - ClearingNumber
@@ -1574,12 +1604,22 @@ property:
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
 
   - id: partnerId
-    label: unique ID of the identity of the partner
+    label: partner identifier
     domain:
       - GeneralPartner
       - LimitedPartner
       - StatutoryPartner
     range: xsd:anyURI
+    comment: unique ID of the identity of the partner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid
+
+  - id: partyAgent
+    label: party agent
+    domain:
+      - Party
+    range: 
+      - foaf:Agent
+      - EconomicOperator
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid
 
   - id: patronymicName
@@ -1676,6 +1716,16 @@ property:
     comment: a name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postname
 
+  - id: partyAgent
+    label: party agent
+    domain: Party
+    range: 
+      - Agent
+      - Economi
+    comment: a name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postname
+
+
   - id: provider
     label: provider
     domain: BankAccount
@@ -1721,9 +1771,11 @@ property:
     label: role of the entity (e.g. the role of a legal representative in the company or the role of a dataspace member in the dataspace)
     domain:
       - LegalRepresentative
-      - StatutoryPartner
       - Membership
+      - Party
+      - StatutoryPartner
     range:
+      - skos:Concept
       - xsd:string
       - DataSpaceRole
     range_union: true
@@ -1864,7 +1916,7 @@ property:
     range: xsd:anyURI
     comment: Reference (URL) to the online dataspace governance rulebook for the given DSI or DS.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/url
-
+  
   - id: version
     label: verson
     domain: GovernanceRulebook
