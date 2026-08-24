@@ -7,6 +7,9 @@ prefix:
   - id: cred
     value: https://www.w3.org/2018/credentials#
 
+  - id: dct
+    value: http://purl.org/dc/elements/1.1/
+
   - id: jsonld
     value: http://www.w3.org/ns/json-ld#
 
@@ -178,6 +181,10 @@ class:
   - id: DataSpaceRole
     label: role of dataspace member
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dataspacerole
+
+  - id: DeliveryTerms
+    label: Delivery Terms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/deliveryterms
 
   - id: EconomicOperator
     label: Economic Operator
@@ -1831,10 +1838,14 @@ property:
     comment: a temporary legal or administrative rule set that applies to a case because the relevant situation falls within a transition from one regime, framework, or procedure to another
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transitionalrules
 
-  - id: type
+  - id: dct:type
     label: type
-    domain: VATRegistrationUnit
-    range: xsd:string
+    domain: 
+      - DeliveryTerms
+      - VATRegistrationUnit
+    range: 
+      - xsd:string
+      - skos:Concept
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/type
 
   - id: typeOfEmployment
