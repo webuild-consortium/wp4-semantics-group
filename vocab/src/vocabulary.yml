@@ -646,6 +646,10 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
+  - id: PaymentDueCondition
+  - label: Payment Due Condition
+  - defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentduecondition    
+  
   - id: PaymentTerms
     label: terms of payment
     upper_value: cred:CredentialSubject
@@ -1151,8 +1155,13 @@ property:
 
   - id: duration
     label: duration
-    domain: WorkAssignment
-    range: PeriodOfTime
+    domain: 
+      - PaymentDueCondition
+      - WorkAssignment
+    range: 
+      - xsd:duration
+      - time:Duration
+      - PeriodOfTime
     comment: a temporal length representing how long an activity, status, validity period, assignment, mandate, process, event, or other time-bound condition lasts
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/duration
 
@@ -1255,6 +1264,12 @@ property:
     range: xsd:string
     comment: SHA-256 hash of the rulebook, for quick comparison.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hash
+
+  - id: hasPaymentDueCondition
+    label: has payment due condition
+    domain: PaymentTerms
+    range: PaymentDueCondition
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentduecondition
 
   - id: hasSite
     label: has site
@@ -1802,6 +1817,12 @@ property:
     domain: SocialSecurityContribution
     range: MonetaryAmount
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/totalpayroll
+
+  - id: transactionAmount
+    label: transaction amount
+    domain: PaymentTerms
+    range: MonetaryAmount
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transactionamount
 
   - id: transitionalRules
     label: transitional rules
