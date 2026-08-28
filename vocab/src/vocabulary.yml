@@ -942,6 +942,11 @@ individual:   # code lists
     type: TypeOfEmployment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary
 
+  - id: UBO
+    label: UBO
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/UBO
+
+
 property:
   - id: a1
     label: a1 certificate
@@ -1539,6 +1544,12 @@ property:
     range_union: true
     comment: an agent that holds an ownership right, title or legally recognised control over an asset, resource, business entity, credential, account, property or other object
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/owner
+
+  - id: ownershipPercentage
+    label: ownership percentage
+    domain: TBD
+    range: xsd:float
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/ownershipPercentage
 
   - id: partner
     label: partner
