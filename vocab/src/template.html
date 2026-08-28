@@ -2,6 +2,7 @@
 <head>
     <meta charset='utf-8'/>
     <title></title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
     <script>
         function remove_status_remark() {
@@ -16,8 +17,8 @@
           },
           specStatus:  "unofficial",
           shortName:   "ebwv/v0.1",
-          latestVersion: "https://w3id.org/ebwv/ebwv",
-          thisVersion: "https://w3id.org/ebwv/ebwv",
+          latestVersion: "https://w3id.org/ebwv",
+          thisVersion: "https://w3id.org/ebwv",
           doJsonLd:    true,
           editors: [{
             name:       "Ronald Koenig",
@@ -40,7 +41,7 @@
             companyURL: "https://www.kvk.nl",
           },
           {
-            name:       "Rene Bonte",
+            name:       "René Bonte",
             company:    "Reconi",
             companyURL: "https://www.reconi.nl",
           },
@@ -108,6 +109,30 @@
           font-weight: normal !important;
         }
 
+      .example-with-playground {
+        position: relative;
+      }
+      a.jsonld-playground-button {
+        position: absolute;
+        top: 4.4em;
+        right: 1.4em;
+        z-index: 1;
+        padding: 0.3em 0.7em;
+        font-size: 0.8em;
+        font-weight: bold;
+        color: #000000;
+        background-color: #ffffff;
+        opacity: .4;
+        border-radius: 4px;
+        text-decoration: none;
+        box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.1);
+      }
+      a.jsonld-playground-button:hover {
+        background-color: #f0f0f0;
+        opacity: 1;
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.1);
+      }
+
     </style>
 </head>
 <body typeof="owl:Ontology">
@@ -153,12 +178,43 @@
     <p>The ontology can be browsed <a href="https://webvowl.semantic-treehouse.nl/#iri=https://webuild-consortium.github.io/wp4-semantics-group/ebwv/vocabulary.ttl">here</a> using the WEBVOWL browser.</p>
     <p>The following class diagram shows the data structure of the credential subjects using the vocabulary defined in this specification.</p>
     <figure id="figure1">
-        <img src="class-diagram.svg" alt="class diagram" />
+        <img src="class-diagram-metadata.svg" alt="class diagram" />
         <figcaption>
-            Class diagram of vocabulary.<br> A separate stand-alone <a href="class-diagram.svg">SVG Version</a> of the diagram is also available.
+            Class diagram of the additional credential metadata.<br> A separate stand-alone <a href="class-diagram.metadata.svg">SVG Version</a> of the diagram is also available.
+        </figcaption>
+    </figure>
+    <figure id="figure2">
+        <img src="class-diagram-ebwo.svg" alt="class diagram" />
+        <figcaption>
+            Class diagram of the european business wallet owner credential.<br> A separate stand-alone <a href="class-diagram-ebwo.svg">SVG Version</a> of the diagram is also available.
+        </figcaption>
+    </figure>
+    <figure id="figure3">
+        <img src="class-diagram-eucc.svg" alt="class diagram" />
+        <figcaption>
+            Class diagram of the European Company Certificate vocabulary.<br> A separate stand-alone <a href="class-diagram-eucc.svg">SVG Version</a> of the diagram is also available.
+        </figcaption>
+    </figure>
+    <figure id="figure4">
+        <img src="class-diagram-bank-account.svg" alt="class diagram" />
+        <figcaption>
+            Class diagram of the bank account vocabulary.<br> A separate stand-alone <a href="class-diagram-bank-account.svg">SVG Version</a> of the diagram is also available.
         </figcaption>
     </figure>
 </section>
+<figure id="figure5">
+    <img src="class-diagram-lei.svg" alt="class diagram" />
+    <figcaption>
+        Class diagram of the legal identifier vocabulary.<br> A separate stand-alone <a href="class-diagram-bank-account.svg">SVG Version</a> of the diagram is also available.
+    </figcaption>
+</figure>
+<figure id="figure6">
+    <img src="class-diagram-payment-terms.svg" alt="class diagram" />
+    <figcaption>
+        Class diagram of the payment terms vocabulary.<br> A separate stand-alone <a href="class-diagram-bank-account.svg">SVG Version</a> of the diagram is also available.
+    </figcaption>
+</figure>
+
 
 <section>
     <h2><code>@context</code> files</h2>

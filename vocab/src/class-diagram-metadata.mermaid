@@ -1,0 +1,30 @@
+classDiagram
+    direction LR
+%% =========================
+%% Core EBW Classes
+%% =========================
+    class ElectronicAttestationOfAttributes {
+        <<EBW>>
+        +attestationLegalCategory: AttestationLegalCategory
+    }
+
+%% =========================
+%% External / Referenced Types
+%% =========================
+    class VerifiableCredential {
+        <<external>>
+    }
+
+    class CredentialSubject {
+        <<external>>
+    }
+
+%% =========================
+%% Inheritance
+%% =========================
+    VerifiableCredential <|-- ElectronicAttestationOfAttributes
+
+%% =========================
+%% Properties (Object relations)
+%% =========================
+    VerifiableCredential *-- CredentialSubject

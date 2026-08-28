@@ -1,0 +1,115 @@
+@startuml
+title IBAN_OV Model
+
+class "IBAN_OV \n<size:11><color:gray><i>The IBAN Ownership Verification attestation provides trusted assurance to\n<size:11><color:gray><i>third parties that a specific IBAN is legally owned by a designated legal entity.</i></color></size>" as IBAN_OV {
+ *hasPayload :
+}
+
+class "BankAccount\n<size:11><color:gray><i>Ccontains the core details of the account\n<size:11><color:gray><i>itself, such as IBAN, currency, and type.</i></color></size>" as BankAccount {
+  *accountName : string
+  *iban : ISO13616-1:2020 string
+  *accountType :
+  *accountCurrency :
+  *hasOwner :
+  *hasProvider :
+}
+
+class "AccountOwnership\n<size:11><color:gray><i>Identifies the legal owner of the account, including name and EUID.</i></color></size>" as AccountOwnership {
+ *ownerName : RegisteredOrganisation.statutoryName
+ *euid : RegisteredOrganisation.EUID
+ +surname :
+ +name :
+}
+
+class "AccountProvider\n<size:11><color:gray><i>Describes the financial institution that issued the\n<size:11><color:gray><i>account and metadata about the attestation.</i></color></size>" as AccountProvider {
+ *providerName : RegisteredOrganisation.statutoryName
+ *euid : RegisteredOrganisation.EUID
+ *providerCountry : RegisteredOrganisation.registeredAddress.
+ Address.country.Country.ISO3166-1_alpha3
+ *bicSwift : ISO 9362:2014 string
+ +nationalBankCode : sting
+ +naceCode : RegisteredOrganisation.NACEcode
+ +clearingNumber : string
+}
+
+class RegisteredOrganisation {
+ +EUID : string [BRIS]
+ *statutoryName : string
+ *registeredAddress :
+ *NACEcode :
+}
+
+class Address {
+ *..
+ *..
+ *country : 
+}
+
+class Country {
+ *name : string
+ *ISO3166-1_alpha3 : string
+}
+
+class CodeList:NACE
+{
+ *code : string
+ *description : string
+}
+
+note as ReferenceClassesNote
+<size:11><color:gray>These supporting classes are included to clarify
+<size:11><color:gray>the value and origin of selected attributes in the
+<size:11><color:gray>core IBAN ownership verification model above.
+<size:11><color:gray>They are not the main subject of the attestation.</color></size>
+end note
+
+ReferenceClassesNote .. RegisteredOrganisation #gray
+ReferenceClassesNote .. Address #gray
+ReferenceClassesNote .. Country #gray
+ReferenceClassesNote .. "CodeList:NACE" #gray
+
+class "CodeList:accountType\n<size:11><color:gray><i>Allowed account type values.</i></color></size>" as CodeList:accountType {
+  <font:monospaced><color:gray>code     definition</color></font>
+  --
+  <font:monospaced>CURRENT  Current Account</font>
+  <font:monospaced>SAVINGS  Savings Account</font>
+  <font:monospaced>BASIC    Basic Bank Account</font>
+  <font:monospaced>LOAN     Loan Account</font>
+  <font:monospaced>OTHER    Other</font>
+}
+
+class "CodeList:ISO4217:20215\n<size:11><color:gray><i>Allowed currency values.</i></color></size>" as CodeList:ISO4217:20215 {
+  <font:monospaced><color:gray>code  definition</color></font>
+  --
+  <font:monospaced>EUR   Euro</font>
+  <font:monospaced>USD   United States Dollar</font>
+  <font:monospaced>NOK   Norwegian krone</font>
+  <font:monospaced>GBP   Pound sterling</font>
+  <font:monospaced>etc.  ...</font>
+}
+
+IBAN_OV::SubjectBankAccount "1" -down-> "1" BankAccount #line:DarkRed;text:DarkRed
+BankAccount::accountType "1" -left-> "1" "CodeList:accountType" #line:285F17;text:DarkRed
+BankAccount::accountCurrency "1" -right-> "1..n" "CodeList:ISO4217:20215" #line:285F17;text:DarkRed
+BankAccount::hasOwner "1" -down-> "1" AccountOwnership #line:DarkRed;text:DarkRed
+BankAccount::hasProvider "1" -down-> "1" AccountProvider #line:DarkRed;text:DarkRed
+
+RegisteredOrganisation "1" -right-> "1" Address #line:DarkRed;text:DarkRed
+RegisteredOrganisation "1" -left-> "1..n" "CodeList:NACE" #line:DarkRed;text:DarkRed
+Address "1" -right-> "1" Country #line:DarkRed;text:DarkRed
+
+AccountProvider -down- RegisteredOrganisation #line:White
+
+class IBAN_OV #LightYellow;line:DarkRed;text:DarkRed
+class BankAccount #LightYellow;line:DarkRed;text:DarkRed
+class AccountProvider #LightYellow;line:DarkRed;text:DarkRed
+class AccountOwnership #LightYellow;line:DarkRed;text:DarkRed
+class RegisteredOrganisation #LightYellow;line:DarkRed;text:DarkRed
+class Address #LightYellow;line:DarkRed;text:DarkRed
+class Country #LightYellow;line:DarkRed;text:DarkRed
+class "CodeList:NACE" #CEEED0;line:285F17;text:285F17
+class "CodeList:accountType" #CEEED0;line:285F17;text:285F17
+class "CodeList:ISO4217:20215" #CEEED0;line:285F17;text:285F17
+hide circle
+
+@enduml
