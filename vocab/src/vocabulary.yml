@@ -663,6 +663,10 @@ class:
   - id: PaymentDueCondition
   - label: Payment Due Condition
   - defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentduecondition    
+
+  - id: PaymentReferenceEvent
+  - label: Payment Reference Event
+  - defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentreferenceevent    
   
   - id: PaymentTerms
     label: terms of payment
@@ -894,6 +898,11 @@ individual:   # code lists
     type: DataSpaceRole
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/datarightsholder
 
+  - id: DeliveryDate
+    label: trigger delivery date
+    type: PaymentReferenceEvent
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverydate
+
   - id: DDP
     label: Delivered Duty Paid
     type: Incoterms
@@ -929,6 +938,11 @@ individual:   # code lists
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
 
+  - id: InvoiceDate
+    label: trigger invoice date
+    type: PaymentReferenceEvent
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/invoicedate
+
   - id: Jointly
     label: scope of authorization Jointly
     type: ScopeOfAuthorization
@@ -943,6 +957,11 @@ individual:   # code lists
     label: Partner providing DSSC building-block services (identity management, consent management, logging, …).
     type: DataSpaceRole
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/operator
+
+  - id: OrderDate
+    label: trigger order date
+    type: PaymentReferenceEvent
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/orderdate
 
   - id: Permanent
     label: type of employment Permanent
@@ -1630,11 +1649,21 @@ property:
 
   - id: paymentDue
     label: due period of payment
-    domain: PaymentTerms
+    domain: PaymentDueCondition
     range:
      - xsd:duration
      - time:TemporalDuration
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentdue
+
+  - id: paymentReferenceEvent
+    label: payment reference event
+    domain: PaymentDueCondition
+    range: 
+      - skos:Concept
+      - DeliveryDate
+      - InvoiceDate
+      - OrderDate
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentreferenceevent
 
   - id: person
     label: person
