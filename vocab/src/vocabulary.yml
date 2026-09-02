@@ -1087,8 +1087,9 @@ property:
   - id: contactPoint
     label: contact point
     domain:
-      - Person
       - EconomicOperator
+      - Person
+      - PublicSectorBody
     range: ContactPoint
     comment: a designated communication channel or organisational function through which an entity can be contacted for a specific purpose
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
