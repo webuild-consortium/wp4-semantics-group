@@ -982,6 +982,14 @@ property:
     comment: organised doing, operation or process carried out for a purpose or result
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
 
+  - id: hasAddress
+    label: hasAddress
+    domain: Site
+    range: Address
+    comment: the address of an entity, provided the address is not of a specific type like registered address or temporary address 
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress
+
+
   - id: addressArea
     label: address area
     domain: Address
@@ -1720,10 +1728,12 @@ property:
     domain:
       - Company
       - EconomicOperator
-      - LegalPerson
       - GLN
+      - LegalPerson
+      - LegalEntity
+      - Site
     range: Address
-    comment: the address at which the legal entity is legally registered
+    comment: the address at which the legal entity is legally registered; if an entity is not considered to be a registered organisation, use "hasAddress" or similar property to express the address of the entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
 
   - id: reportingMonth
