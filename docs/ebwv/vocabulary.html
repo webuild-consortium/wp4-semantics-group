@@ -161,7 +161,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-07-13</time>
+                <time property="dc:date" id="time">2026-09-02</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -332,6 +332,7 @@
                         <li><a href="#Temporary"><code>Temporary<code></code></code></a></li>
                         <li><a href="#Tin"><code>Tin<code></code></code></a></li>
                         <li><a href="#TypeOfEmployment"><code>TypeOfEmployment<code></code></code></a></li>
+                        <li><a href="#UBO"><code>UBO<code></code></code></a></li>
                         <li><a href="#VATRegistrationUnit"><code>VATRegistrationUnit<code></code></code></a></li>
                         <li><a href="#VatId"><code>VatId<code></code></code></a></li>
                         <li><a href="#Vessel"><code>Vessel<code></code></code></a></li>
@@ -381,6 +382,7 @@
                         <li><a href="#hasSite"><code>hasSite<code></code></code></a></li>
                         <li><a href="#hasTelephone"><code>hasTelephone<code></code></code></a></li>
                         <li><a href="#hash"><code>hash<code></code></code></a></li>
+                        <li><a href="#holderIdentifier"><code>holderIdentifier<code></code></code></a></li>
                         <li><a href="#hostEntity"><code>hostEntity<code></code></code></a></li>
                         <li><a href="#iban"><code>iban<code></code></code></a></li>
                         <li><a href="#identifier"><code>identifier<code></code></code></a></li>
@@ -412,6 +414,7 @@
                         <li><a href="#operator"><code>operator<code></code></code></a></li>
                         <li><a href="#organisation"><code>organisation<code></code></code></a></li>
                         <li><a href="#owner"><code>owner<code></code></code></a></li>
+                        <li><a href="#ownershipPercentage"><code>ownershipPercentage<code></code></code></a></li>
                         <li><a href="#partner"><code>partner<code></code></code></a></li>
                         <li><a href="#partnerId"><code>partnerId<code></code></code></a></li>
                         <li><a href="#patronymicName"><code>patronymicName<code></code></code></a></li>
@@ -1216,6 +1219,22 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="holderIdentifier">
+                <h4><code>holderIdentifier</code></h4>
+                <p><em>holder identifier</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity">formal definition of the term</a>.</p>
+                <div>unique identifier used within the DSI or data space to refer to the holder of the credential</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Membership"><code>Membership</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="iban">
                 <h4><code>iban</code></h4>
                 <p><em>IBAN</em></p>
@@ -1608,12 +1627,10 @@
                 <h4><code>memberOf</code></h4>
                 <p><em>member of</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof">formal definition of the term</a>.</p>
-                <div>The DSI or dataspace the holder is member of.</div>
+                <div>The DSI or dataspace the holder is member of.<br><br>The property's value should be a URL, i.e., not a literal.</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
                     <dd><a href="#Membership"><code>Membership</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1708,6 +1725,21 @@
                     <dd><a href="#BankAccount"><code>BankAccount</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#LegalPerson"><code>LegalPerson</code></a> ⊔&nbsp;<a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#NaturalPerson"><code>NaturalPerson</code></a> ⊔&nbsp;<a href="#Person"><code>Person</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="ownershipPercentage">
+                <h4><code>ownershipPercentage</code></h4>
+                <p><em>ownership percentage</em></p>
+                <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/ownershipPercentage">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#TBD"><code>TBD</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:float</code></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2034,7 +2066,7 @@
                     <dt>Domain:</dt>
                     <dd><a href="#LegalRepresentative"><code>LegalRepresentative</code></a> ⊔&nbsp;<a href="#StatutoryPartner"><code>StatutoryPartner</code></a> ⊔&nbsp;<a href="#Membership"><code>Membership</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a> ⊔&nbsp;<a href="#DataSpaceRole"><code>DataSpaceRole</code></a></dd>
+                    <dd><a href="#DataSpaceRole"><code>DataSpaceRole</code></a> ⊔&nbsp;<a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -3108,7 +3140,7 @@
                 </dl>
                 <dl class="terms">
                     <dt>Domain of:</dt>
-                    <dd><a href="#member"><code>member</code></a>, <a href="#memberOf"><code>memberOf</code></a>, <a href="#onboardedBy"><code>onboardedBy</code></a></dd>
+                    <dd><a href="#holderIdentifier"><code>holderIdentifier</code></a>, <a href="#member"><code>member</code></a>, <a href="#memberOf"><code>memberOf</code></a>, <a href="#onboardedBy"><code>onboardedBy</code></a></dd>
                     <dt>In the domain of:</dt>
                     <dd><a href="#role"><code>role</code></a></dd>
                 </dl>
@@ -4237,6 +4269,15 @@
                         <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                     </dl>
                 </section>
+            </section>
+            <section id="UBO">
+                <h4><code>UBO</code></h4>
+                <p><em>UBO</em></p>
+                <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/UBO">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
             </section>
         </section>
     </section>

@@ -1281,6 +1281,13 @@ property:
     comment: an economic operator established or operating in the host country that receives, supervises, coordinates or otherwise benefits from the work carried out by a posted worker during a posting period
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity
 
+  - id: holderIdentifier
+    label: holder identifier
+    domain: Membership
+    range: xsd:string
+    comment: unique identifier used within the DSI or data space to refer to the holder of the credential
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity
+
   - id: iban
     label: IBAN
     domain: BankAccount
@@ -1496,7 +1503,7 @@ property:
   - id: memberOf
     label: member of
     domain: Membership
-    range: xsd:string
+    range: IRI
     comment: The DSI or dataspace the holder is member of.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof
 
@@ -1713,8 +1720,8 @@ property:
       - StatutoryPartner
       - Membership
     range:
-      - xsd:string
       - DataSpaceRole
+      - xsd:string
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 

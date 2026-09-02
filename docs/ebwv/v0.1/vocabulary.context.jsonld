@@ -362,7 +362,7 @@
                 },
                 "role": {
                     "@id": "https://w3id.org/ebwv#role",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                    "@type": "@id"
                 },
                 "scopeOfAuthorization": {
                     "@id": "https://w3id.org/ebwv#scopeOfAuthorization",
@@ -447,13 +447,17 @@
             "@id": "https://w3id.org/ebwv#Membership",
             "@context": {
                 "@protected": true,
+                "holderIdentifier": {
+                    "@id": "https://w3id.org/ebwv#holderIdentifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
                 "member": {
                     "@id": "https://w3id.org/ebwv#member",
                     "@type": "@id"
                 },
                 "memberOf": {
                     "@id": "https://w3id.org/ebwv#memberOf",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                    "@type": "@id"
                 },
                 "onboardedBy": {
                     "@id": "https://w3id.org/ebwv#onboardedBy",
@@ -461,7 +465,7 @@
                 },
                 "role": {
                     "@id": "https://w3id.org/ebwv#role",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                    "@type": "@id"
                 }
             }
         },
@@ -765,7 +769,7 @@
                 },
                 "role": {
                     "@id": "https://w3id.org/ebwv#role",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                    "@type": "@id"
                 },
                 "scopeOfAuthorization": {
                     "@id": "https://w3id.org/ebwv#scopeOfAuthorization",
@@ -828,6 +832,10 @@
             "@type": "@id"
         },
         "name": "https://schema.org/name",
+        "ownershipPercentage": {
+            "@id": "https://w3id.org/ebwv#ownershipPercentage",
+            "@type": "http://www.w3.org/2001/XMLSchema#float"
+        },
         "termsOfUse": {
             "@id": "https://www.w3.org/2018/credentials#termsOfUse",
             "@type": "@id"
@@ -853,6 +861,7 @@
         "Pub-EAA": "https://w3id.org/ebwv#Pub-EAA",
         "QEAA": "https://w3id.org/ebwv#QEAA",
         "Temporary": "https://w3id.org/ebwv#Temporary",
+        "UBO": "https://w3id.org/ebwv#UBO",
         "AccountType": "https://w3id.org/ebwv#AccountType",
         "Bic": "https://w3id.org/ebwv#Bic",
         "ClearingNumber": "https://w3id.org/ebwv#ClearingNumber",

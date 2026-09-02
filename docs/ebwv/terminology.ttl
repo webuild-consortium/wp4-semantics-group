@@ -12,6 +12,1131 @@ PREFIX term:       <https://iri.suomi.fi/model/term/>
 PREFIX webuild:    <https://iri.suomi.fi/terminology/webuild/>
 PREFIX xsd:        <http://www.w3.org/2001/XMLSchema#>
 
+webuild:terms  rdf:type               skos:Concept;
+        dcterms:created               "2026-08-17T14:33:44.901Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:33:44.901Z"^^xsd:dateTime;
+        skos:definition               "provisions that establish the rights, obligations, conditions, limitations, and other rules governing an agreement, transaction, or business relationship"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "In contracts and business documents, terms may address matters such as price, payment, delivery, performance, liability, validity, termination, and dispute resolution. They may be stated directly in the document or incorporated by reference. The concept should be distinguished from term meaning a word or expression used in a terminology."@en;
+        skos:prefLabel                <urn:uuid:bf9ab528-b364-460c-930f-b450afdb41f5>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "In contracts and business documents, terms may address matters such as price, payment, delivery, performance, liability, validity, termination, and dispute resolution. They may be stated directly in the document or incorporated by reference. The concept should be distinguished from term meaning a word or expression used in a terminology."@en ) .
+
+<urn:uuid:bf9ab528-b364-460c-930f-b450afdb41f5>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "terms"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:temporaryworkagency
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-17T14:32:03.408Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:32:03.408Z"^^xsd:dateTime;
+        skos:definition               "an agent that employs temporary agency workers for the purpose of assigning them to user undertakings, where they work temporarily under the supervision and direction of those undertakings"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "The temporary-work agency remains the worker’s employer while the user undertaking directs the worker’s day-to-day work. In a PWN context, the agency may act as the posting undertaking when it assigns a worker across borders. It should be distinguished from a recruitment or placement agency that only introduces workers to employers."@en;
+        skos:prefLabel                <urn:uuid:aef4ea02-1d91-4023-b069-d7cfd263bb73>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The temporary-work agency remains the worker’s employer while the user undertaking directs the worker’s day-to-day work. In a PWN context, the agency may act as the posting undertaking when it assigns a worker across borders. It should be distinguished from a recruitment or placement agency that only introduces workers to employers."@en ) .
+
+<urn:uuid:aef4ea02-1d91-4023-b069-d7cfd263bb73>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "temporary work agency"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:supplier  rdf:type            skos:Concept;
+        dcterms:created               "2026-08-17T14:30:07.731Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:30:07.731Z"^^xsd:dateTime;
+        skos:definition               "an agent that provides or undertakes to provide goods, services, works, or other deliverables to another agent within a business relationship or transaction"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "A supplier may act as a seller, service provider, contractor, producer, distributor, or other provider, depending on the transaction. The role does not by itself imply that the supplier is the manufacturer, exporter, consignor, invoice issuer, or ultimate seller unless the same agent also performs those roles."@en;
+        skos:prefLabel                <urn:uuid:ae548c2e-96f7-4fe8-91d2-97b6085b3a00>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "A supplier may act as a seller, service provider, contractor, producer, distributor, or other provider, depending on the transaction. The role does not by itself imply that the supplier is the manufacturer, exporter, consignor, invoice issuer, or ultimate seller unless the same agent also performs those roles."@en ) .
+
+<urn:uuid:ae548c2e-96f7-4fe8-91d2-97b6085b3a00>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "supplier"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:statusconfirmation
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-17T14:28:16.528Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:28:16.528Z"^^xsd:dateTime;
+        skos:definition               "an assertion by a competent agent confirming that a particular status applies to an entity, relationship, process, right, or obligation at a specified time or during a specified period"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "A status confirmation concerns the verification or formal acknowledgement of a status, rather than the status itself. It may be expressed as data, a statement, or an attestation and should identify the confirmed status, its subject, the confirming agent and, where relevant, its temporal validity. It should also be distinguished from the status of the confirmation process."@en;
+        skos:prefLabel                <urn:uuid:ced0df0d-4963-47c4-a3a3-2273b9bd8b6e>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "A status confirmation concerns the verification or formal acknowledgement of a status, rather than the status itself. It may be expressed as data, a statement, or an attestation and should identify the confirmed status, its subject, the confirming agent and, where relevant, its temporal validity. It should also be distinguished from the status of the confirmation process."@en ) .
+
+<urn:uuid:ced0df0d-4963-47c4-a3a3-2273b9bd8b6e>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "status confirmation"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:stateofinsurance
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-17T14:26:28.307Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:26:28.307Z"^^xsd:dateTime;
+        skos:definition               "the state whose social security legislation applies to a person and under whose social security system the person is insured or otherwise covered during a specified period or activity"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "In the A1 and Posted Worker Notification contexts, the state of insurance is generally the State identified by the A1 certificate as having applicable social security legislation. It may differ from the person’s State of residence, nationality, employer establishment, or temporary place of work."@en;
+        skos:prefLabel                <urn:uuid:85798cb4-b6c0-4179-849d-81b77ef38b49>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "In the A1 and Posted Worker Notification contexts, the state of insurance is generally the State identified by the A1 certificate as having applicable social security legislation. It may differ from the person’s State of residence, nationality, employer establishment, or temporary place of work."@en ) .
+
+<urn:uuid:85798cb4-b6c0-4179-849d-81b77ef38b49>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "state of insurance"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:3f0fd494-e98a-4d29-b99d-9399f3eb017b>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "end date"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:startdate  rdf:type           skos:Concept;
+        dcterms:created               "2026-08-17T14:24:14.884Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:24:14.884Z"^^xsd:dateTime;
+        skos:definition               "the calendar date on which an activity, period, relationship, status, right, obligation, or other temporally bounded circumstance begins"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "The meaning of the start date is determined by its context. It should be distinguished from an issue date, registration date, submission date, or validity date unless the relevant process explicitly treats them as equivalent."@en;
+        skos:prefLabel                <urn:uuid:23b65578-687d-4f46-9456-e627d5136fde>;
+        skos:related                  webuild:enddate;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The meaning of the start date is determined by its context. It should be distinguished from an issue date, registration date, submission date, or validity date unless the relevant process explicitly treats them as equivalent."@en );
+        term:orderedRelated           ( webuild:enddate ) .
+
+<urn:uuid:23b65578-687d-4f46-9456-e627d5136fde>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "start date"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:staffaverage  rdf:type        skos:Concept;
+        dcterms:created               "2026-08-17T14:22:30.152Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:22:30.152Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:648f1370-0b4e-4748-b1dd-ccf3c2ecdbdf> , <urn:uuid:b62adc8a-9355-4aa7-83d0-4c15b065691c> , <urn:uuid:112c021f-35d1-4880-928a-d0fe03ff413f> , <urn:uuid:5fdb8334-fee3-4209-8f31-33b863b6db2c> , <urn:uuid:aa492878-153a-4824-b7c5-ac561ce9a473>;
+        skos:definition               "the average number of persons employed by an employer during a specified reporting period, calculated in accordance with the applicable rules for reporting or determining social security contributions"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "The applicable legislation or reporting scheme determines the reference period, averaging method and categories of persons included. The measure should not be interpreted as a full-time-equivalent figure unless the relevant rules explicitly require an FTE calculation. For EU-wide use, average number of employees is the clearest preferred label when only employees are counted."@en;
+        skos:prefLabel                <urn:uuid:bacc4ce4-18b2-4b11-be02-2c2c26affb87>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The applicable legislation or reporting scheme determines the reference period, averaging method and categories of persons included. The measure should not be interpreted as a full-time-equivalent figure unless the relevant rules explicitly require an FTE calculation. For EU-wide use, average number of employees is the clearest preferred label when only employees are counted."@en );
+        term:orderedSynonym           ( <urn:uuid:aa492878-153a-4824-b7c5-ac561ce9a473> <urn:uuid:5fdb8334-fee3-4209-8f31-33b863b6db2c> <urn:uuid:112c021f-35d1-4880-928a-d0fe03ff413f> <urn:uuid:b62adc8a-9355-4aa7-83d0-4c15b065691c> <urn:uuid:648f1370-0b4e-4748-b1dd-ccf3c2ecdbdf> ) .
+
+<urn:uuid:bacc4ce4-18b2-4b11-be02-2c2c26affb87>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "staff average"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:aa492878-153a-4824-b7c5-ac561ce9a473>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "average number of employees"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:5fdb8334-fee3-4209-8f31-33b863b6db2c>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "average employee headcount"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:112c021f-35d1-4880-928a-d0fe03ff413f>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "average staff headcount"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:b62adc8a-9355-4aa7-83d0-4c15b065691c>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "average workforce size"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:648f1370-0b4e-4748-b1dd-ccf3c2ecdbdf>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "average number of persons employed"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:role  rdf:type                skos:Concept;
+        dcterms:created               "2026-08-17T14:18:18.282Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:18:18.282Z"^^xsd:dateTime;
+        skos:definition               "a function, capacity, or position assumed by or assigned to an agent within a particular context, relationship, or process"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "A role is context-dependent and may be limited to a particular period or activity. The same agent may hold several roles simultaneously, such as issuer, holder, representative, employer, buyer, or seller. A role should be distinguished from the agent’s inherent type, occupation, legal status, or organisational position."@en;
+        skos:prefLabel                <urn:uuid:b57b9057-77eb-42d2-8b1b-0dd793208aa2>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "A role is context-dependent and may be limited to a particular period or activity. The same agent may hold several roles simultaneously, such as issuer, holder, representative, employer, buyer, or seller. A role should be distinguished from the agent’s inherent type, occupation, legal status, or organisational position."@en ) .
+
+<urn:uuid:b57b9057-77eb-42d2-8b1b-0dd793208aa2>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "role"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:reportingmonth
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-17T14:16:07.958Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:16:07.958Z"^^xsd:dateTime;
+        skos:definition               "the calendar month to which reported information relates"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "The reporting month identifies the reference period of the reported facts or activities and should be distinguished from the month in which the report was created, submitted, or received. It is commonly expressed as a year-and-month value."@en;
+        skos:prefLabel                <urn:uuid:9664ef97-4b89-4adc-9e78-32d5c48edb02>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The reporting month identifies the reference period of the reported facts or activities and should be distinguished from the month in which the report was created, submitted, or received. It is commonly expressed as a year-and-month value."@en ) .
+
+<urn:uuid:9664ef97-4b89-4adc-9e78-32d5c48edb02>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "reporting month"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:b8a430a1-8ace-46ec-9c47-483967e840c8>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "registered address"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:16c46f66-6bb9-4be9-b352-171d64eb6bdc>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "legal address"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:portrait  rdf:type            skos:Concept;
+        dcterms:created               "2026-08-17T14:13:04.778Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:13:04.778Z"^^xsd:dateTime;
+        skos:definition               "TBD"@en;
+        skos:inScheme                 webuild:;
+        skos:prefLabel                <urn:uuid:d20548fe-86e2-4703-adcb-1ad2964f4355>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:d20548fe-86e2-4703-adcb-1ad2964f4355>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "portrait"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:platformid  rdf:type          skos:Concept;
+        dcterms:created               "2026-08-17T14:12:14.129Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:12:14.129Z"^^xsd:dateTime;
+        skos:definition               "TBD"@en;
+        skos:inScheme                 webuild:;
+        skos:prefLabel                <urn:uuid:e6efaaca-d01f-4903-939d-0512ffcda443>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:e6efaaca-d01f-4903-939d-0512ffcda443>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "platform ID"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:78420860-61d1-48b2-8fc0-e0aa224d03f7>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "place of death"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:personaladministrativenumber
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-17T14:09:15.578Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:09:15.578Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:7875116f-68bd-41c0-9ac3-d4fa9ce5dea9> , <urn:uuid:20626e3b-6ad8-4cda-8086-57deea4fed31> , <urn:uuid:88009b7d-0fbb-4135-bd89-7d975db7e67f> , <urn:uuid:d11dec25-9f63-4a48-95d0-bc9405e8fff5>;
+        skos:broader                  webuild:identifier;
+        skos:definition               "an identifier assigned to a natural person by a public authority or another competent body for identifying and managing that person within a specific administrative system or procedure"@en;
+        skos:inScheme                 webuild:;
+        skos:prefLabel                <urn:uuid:1bf21caa-3880-4488-a4b2-fe0c9aba991e>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedBroader           ( webuild:identifier );
+        term:orderedSynonym           ( <urn:uuid:7875116f-68bd-41c0-9ac3-d4fa9ce5dea9> <urn:uuid:20626e3b-6ad8-4cda-8086-57deea4fed31> <urn:uuid:88009b7d-0fbb-4135-bd89-7d975db7e67f> <urn:uuid:d11dec25-9f63-4a48-95d0-bc9405e8fff5> ) .
+
+<urn:uuid:1bf21caa-3880-4488-a4b2-fe0c9aba991e>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "personal administrative number"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:7875116f-68bd-41c0-9ac3-d4fa9ce5dea9>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "administrative personal identifier"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:20626e3b-6ad8-4cda-8086-57deea4fed31>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "personal administrative identifier"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:88009b7d-0fbb-4135-bd89-7d975db7e67f>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "administrative identification number"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:d11dec25-9f63-4a48-95d0-bc9405e8fff5>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "personal administration number"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:paymentdue  rdf:type          skos:Concept;
+        dcterms:created               "2026-08-17T14:05:42.593Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:05:42.593Z"^^xsd:dateTime;
+        skos:definition               "the state of a monetary obligation for which the agreed or legally prescribed time for payment has been reached, making the outstanding amount payable"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "Distinguish payment due from the payment due date, which specifies when the obligation becomes due, and from the amount due, which specifies the monetary amount payable."@en;
+        skos:prefLabel                <urn:uuid:f3fea0f9-5782-4aca-928a-0f317ad1553d>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "Distinguish payment due from the payment due date, which specifies when the obligation becomes due, and from the amount due, which specifies the monetary amount payable."@en ) .
+
+<urn:uuid:f3fea0f9-5782-4aca-928a-0f317ad1553d>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "payment due"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:partnerid  rdf:type           skos:Concept;
+        dcterms:created               "2026-08-17T14:02:11.348Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:02:11.348Z"^^xsd:dateTime;
+        skos:definition               "TBD"@en;
+        skos:inScheme                 webuild:;
+        skos:prefLabel                <urn:uuid:dd55cd25-5b49-4f77-8744-09d835d4d7eb>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:dd55cd25-5b49-4f77-8744-09d835d4d7eb>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "partner ID"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:organisation  rdf:type        skos:Concept;
+        dcterms:created               "2026-08-11T13:02:13.077Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-11T13:02:13.077Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:5c04db60-09b1-46d2-b459-3c37083e0437>;
+        skos:broader                  webuild:concept-41;
+        skos:definition               "an agent formed by persons or other agents that has an identifiable structure and pursues a shared purpose as a collective entity"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "An organisation may be legally constituted or informal and may include a company, partnership, association, foundation, public authority, international organisation, consortium or comparable collective entity. An organisation does not necessarily have legal personality unless it is also classified as a legal person. An organisation becomes an economic operator when it acts in a commercial or professional capacity. Economic operator is therefore a contextual capacity rather than a narrower synonym of organisation: an economic operator may also be a natural person, such as a sole trader or self-employed person."@en;
+        skos:prefLabel                <urn:uuid:54e8001c-da24-45b5-af92-da7f0c723b08>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedBroader           ( webuild:concept-41 );
+        term:orderedNote              ( "An organisation may be legally constituted or informal and may include a company, partnership, association, foundation, public authority, international organisation, consortium or comparable collective entity. An organisation does not necessarily have legal personality unless it is also classified as a legal person. An organisation becomes an economic operator when it acts in a commercial or professional capacity. Economic operator is therefore a contextual capacity rather than a narrower synonym of organisation: an economic operator may also be a natural person, such as a sole trader or self-employed person."@en );
+        term:orderedSynonym           ( <urn:uuid:5c04db60-09b1-46d2-b459-3c37083e0437> ) .
+
+<urn:uuid:54e8001c-da24-45b5-af92-da7f0c723b08>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "organisation"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:5c04db60-09b1-46d2-b459-3c37083e0437>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "organization"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:operator  rdf:type            skos:Concept;
+        dcterms:created               "2026-08-11T12:55:44.889Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-11T12:55:44.889Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:2cf14d21-2ec9-4f37-96d5-2cf6b3eb543b>;
+        skos:definition               "an economic operator that hosts and operates a platform and is responsible for onboarding members through it"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "In the EBWV membership context, the operator is the organization responsible for the operation and administration of the platform used by members of a data-sharing initiative or data space. Its responsibilities may include maintaining the technical service, managing onboarding procedures and supporting membership administration. Being the operator does not by itself imply ownership of the platform or data space, governance authority over the initiative, ownership of exchanged data, or authority to act on behalf of its members."@en;
+        skos:prefLabel                <urn:uuid:29bd39a2-a148-435e-b56c-86c882dd8559>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "In the EBWV membership context, the operator is the organization responsible for the operation and administration of the platform used by members of a data-sharing initiative or data space. Its responsibilities may include maintaining the technical service, managing onboarding procedures and supporting membership administration. Being the operator does not by itself imply ownership of the platform or data space, governance authority over the initiative, ownership of exchanged data, or authority to act on behalf of its members."@en );
+        term:orderedSynonym           ( <urn:uuid:2cf14d21-2ec9-4f37-96d5-2cf6b3eb543b> ) .
+
+<urn:uuid:29bd39a2-a148-435e-b56c-86c882dd8559>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "operator"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:2cf14d21-2ec9-4f37-96d5-2cf6b3eb543b>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "platform operator"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:nofixedplaceofwork
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-11T12:49:37.098Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-11T12:49:37.098Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:603c0d47-07c4-4807-9bff-b7354630da23> , <urn:uuid:86b6bf12-c551-4eff-9fee-b0ed999f3985>;
+        skos:definition               "an indication that the work or self-employment activity covered by an attestation is not performed at a single identifiable and stable workplace"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "The concept applies to the activity, assignment and period covered by the relevant attestation, rather than to the person’s employment or working arrangements in general. It may apply to mobile or itinerant work, work performed along a route, or work carried out at multiple or changing locations. It does not imply that the country of work is unknown or that no information about the anticipated locations can be provided. In EBWV, it is intended to be represented as a Boolean value."@en;
+        skos:prefLabel                <urn:uuid:d3c66386-58f6-455d-889b-1e3c6130d299>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The concept applies to the activity, assignment and period covered by the relevant attestation, rather than to the person’s employment or working arrangements in general. It may apply to mobile or itinerant work, work performed along a route, or work carried out at multiple or changing locations. It does not imply that the country of work is unknown or that no information about the anticipated locations can be provided. In EBWV, it is intended to be represented as a Boolean value."@en );
+        term:orderedSynonym           ( <urn:uuid:603c0d47-07c4-4807-9bff-b7354630da23> <urn:uuid:86b6bf12-c551-4eff-9fee-b0ed999f3985> ) .
+
+<urn:uuid:d3c66386-58f6-455d-889b-1e3c6130d299>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "no fixed place of work"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:603c0d47-07c4-4807-9bff-b7354630da23>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "no fixed workplace"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:86b6bf12-c551-4eff-9fee-b0ed999f3985>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "variable place of work"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:onboardedby  rdf:type         skos:Concept;
+        dcterms:created               "2026-08-11T12:46:36.293Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-11T12:46:36.293Z"^^xsd:dateTime;
+        skos:definition               "a platform through which the member associated with a membership was admitted to and registered in a data-sharing initiative or data space"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "In the current EBWV model, “onboarded by” identifies the platform used to perform or facilitate the member’s onboarding. It does not necessarily identify the organization legally responsible for approving the membership or operating the platform. The onboarding date, responsible organization, onboarding decision, membership status and assigned roles should be represented separately."@en;
+        skos:prefLabel                <urn:uuid:3b0f8ab2-02d4-4d10-ac95-b0be2e789186>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "In the current EBWV model, “onboarded by” identifies the platform used to perform or facilitate the member’s onboarding. It does not necessarily identify the organization legally responsible for approving the membership or operating the platform. The onboarding date, responsible organization, onboarding decision, membership status and assigned roles should be represented separately."@en ) .
+
+<urn:uuid:3b0f8ab2-02d4-4d10-ac95-b0be2e789186>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "onboarded by"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:member  rdf:type              skos:Concept;
+        dcterms:created               "2026-08-10T15:49:57.576Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:49:57.576Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:a335330a-06ab-4129-9ea5-cfb1604973f7>;
+        skos:definition               "an agent that holds a recognized membership in an organization, data-sharing initiative, data space or other governed community"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "A member may be a natural person, organization, legal entity, economic operator or another agent capable of holding membership. In the EBWV context, the member is the agent that is the subject of a membership relationship or membership attestation. Membership may specify the community to which the agent belongs, the platform through which the agent was onboarded and the roles assigned to the agent. Being identified as a member does not by itself specify membership status, access rights, responsibilities or authority to act on behalf of another agent."@en;
+        skos:prefLabel                <urn:uuid:944b4ee6-093f-4bd6-a5da-5fb6e8909b78>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "A member may be a natural person, organization, legal entity, economic operator or another agent capable of holding membership. In the EBWV context, the member is the agent that is the subject of a membership relationship or membership attestation. Membership may specify the community to which the agent belongs, the platform through which the agent was onboarded and the roles assigned to the agent. Being identified as a member does not by itself specify membership status, access rights, responsibilities or authority to act on behalf of another agent."@en );
+        term:orderedSynonym           ( <urn:uuid:a335330a-06ab-4129-9ea5-cfb1604973f7> ) .
+
+<urn:uuid:944b4ee6-093f-4bd6-a5da-5fb6e8909b78>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "member"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:a335330a-06ab-4129-9ea5-cfb1604973f7>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "membership holder"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:adb38aa1-86f7-4a8d-ba23-e04aa4730f53>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "license key"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:gs1companyprefix
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-10T15:39:37.336Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:39:37.336Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:a18bdd51-7645-4cb7-a841-04c9b4a9d7c8> , <urn:uuid:92925ff6-d2b2-4f7a-9e92-1dd3562fd20c> , <urn:uuid:3f136bb2-a5e4-4ee3-8f27-3da1423d81e2>;
+        skos:definition               "a GS1 Company Prefix licensed to an organization by GS1 for use as the basis for creating GS1 identification keys"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "A GS1 Company Prefix is a numeric prefix from which an authorized organization can create GS1 identification keys, such as GTINs, GLNs and SSCCs. In the EBWV GLN context, it corresponds to the licenseValue contained in a GS1CompanyPrefixLicenseCredential and may be obtained by resolving the GS1 digital licence credential chain. It is not a complete GS1 identification key, a cryptographic key or a software licence key. Possession of the value alone does not demonstrate a current right to use the prefix; that right should be established through a valid GS1 licence or verifiable licence credential."@en;
+        skos:prefLabel                <urn:uuid:feda81ef-6712-4d10-9e35-f683384d7e49>;
+        skos:related                  webuild:licensekey;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "A GS1 Company Prefix is a numeric prefix from which an authorized organization can create GS1 identification keys, such as GTINs, GLNs and SSCCs. In the EBWV GLN context, it corresponds to the licenseValue contained in a GS1CompanyPrefixLicenseCredential and may be obtained by resolving the GS1 digital licence credential chain. It is not a complete GS1 identification key, a cryptographic key or a software licence key. Possession of the value alone does not demonstrate a current right to use the prefix; that right should be established through a valid GS1 licence or verifiable licence credential."@en );
+        term:orderedRelated           ( webuild:licensekey );
+        term:orderedSynonym           ( <urn:uuid:3f136bb2-a5e4-4ee3-8f27-3da1423d81e2> <urn:uuid:92925ff6-d2b2-4f7a-9e92-1dd3562fd20c> <urn:uuid:a18bdd51-7645-4cb7-a841-04c9b4a9d7c8> ) .
+
+<urn:uuid:feda81ef-6712-4d10-9e35-f683384d7e49>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "GS1 Company Prefix"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:3f136bb2-a5e4-4ee3-8f27-3da1423d81e2>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "GS1 licence key"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:92925ff6-d2b2-4f7a-9e92-1dd3562fd20c>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "GS1 license key"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:a18bdd51-7645-4cb7-a841-04c9b4a9d7c8>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "GCP"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:licensekey  rdf:type          skos:Concept;
+        dcterms:created               "2026-08-10T15:37:55.545Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:39:55.04Z"^^xsd:dateTime;
+        skos:definition               "see \"GS1 Company Prefix\""@en;
+        skos:inScheme                 webuild:;
+        skos:prefLabel                <urn:uuid:adb38aa1-86f7-4a8d-ba23-e04aa4730f53>;
+        skos:related                  webuild:gs1companyprefix;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedRelated           ( webuild:gs1companyprefix ) .
+
+webuild:liabilityorcontribution
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-10T15:32:59.786Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:32:59.786Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:3a4e507e-e6d9-4cc4-9e6f-4fc7dfa774ed>;
+        skos:definition               "a monetary amount recorded for a limited partner that represents either the partner’s maximum liability for the obligations of the partnership or the partner’s contribution to the partnership"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "This is a cross-jurisdictional umbrella concept corresponding to the wording of Directive (EU) 2025/25. Depending on the applicable national company law and the information maintained in the national register, the recorded amount may represent maximum liability or contribution. Because these alternatives have different legal meanings, the amount should be qualified using a more specific concept or property."@en;
+        skos:prefLabel                <urn:uuid:7e20eb00-9e59-4209-a18c-6ed83a7f311b>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "This is a cross-jurisdictional umbrella concept corresponding to the wording of Directive (EU) 2025/25. Depending on the applicable national company law and the information maintained in the national register, the recorded amount may represent maximum liability or contribution. Because these alternatives have different legal meanings, the amount should be qualified using a more specific concept or property."@en );
+        term:orderedSynonym           ( <urn:uuid:3a4e507e-e6d9-4cc4-9e6f-4fc7dfa774ed> ) .
+
+<urn:uuid:7e20eb00-9e59-4209-a18c-6ed83a7f311b>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "liability or contribution"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:3a4e507e-e6d9-4cc4-9e6f-4fc7dfa774ed>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "limited partner liability or contribution amount"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:leiregistrationstatus
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-10T15:22:50.882Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:22:50.882Z"^^xsd:dateTime;
+        skos:definition               "a status assigned to an LEI registration by its managing LEI issuing organization within the Global LEI System"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "The LEI registration status describes the administrative and lifecycle state of an LEI registration. Its value should be selected from the GLEIF RegistrationStatusEnum, which includes statuses such as PENDING_VALIDATION, ISSUED, LAPSED, DUPLICATE, RETIRED, ANNULLED, CANCELLED, TRANSFERRED, PENDING_TRANSFER and PENDING_ARCHIVAL. The status applies to the LEI registration record and should not be treated as equivalent to the legal or operational status of the identified entity. In particular, a LAPSED status indicates that renewal is overdue but does not make the LEI code invalid as an identifier."@en;
+        skos:prefLabel                <urn:uuid:3ba120a5-ab6e-4ee9-86df-074debf3b6d7>;
+        skos:related                  webuild:lei;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The LEI registration status describes the administrative and lifecycle state of an LEI registration. Its value should be selected from the GLEIF RegistrationStatusEnum, which includes statuses such as PENDING_VALIDATION, ISSUED, LAPSED, DUPLICATE, RETIRED, ANNULLED, CANCELLED, TRANSFERRED, PENDING_TRANSFER and PENDING_ARCHIVAL. The status applies to the LEI registration record and should not be treated as equivalent to the legal or operational status of the identified entity. In particular, a LAPSED status indicates that renewal is overdue but does not make the LEI code invalid as an identifier."@en );
+        term:orderedRelated           ( webuild:lei ) .
+
+<urn:uuid:3ba120a5-ab6e-4ee9-86df-074debf3b6d7>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "LEI registration status"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:leiregistrationdate
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-10T15:21:10.259Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:21:10.259Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:144cba80-9886-455d-ab43-887a5a313486> , <urn:uuid:8e3d4b8c-a95f-45e5-bd2f-b741364b211a>;
+        skos:definition               "date and time at which the information for an LEI registration was first collected by the managing LEI issuing organization"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "The LEI registration date marks the beginning of the LEI registration record in the Global LEI System. It does not represent the date on which the legal entity was established, incorporated or entered in a business register, nor the issuance date of an EBWV attestation containing the LEI data. The value should be expressed as an ISO 8601 date and time, including the time zone, and normally remains unchanged when the LEI record is renewed, updated or transferred to another LEI issuing organization."@en;
+        skos:prefLabel                <urn:uuid:08ac17ed-8a1b-4512-8c4e-985298a11bdd>;
+        skos:related                  webuild:lei;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The LEI registration date marks the beginning of the LEI registration record in the Global LEI System. It does not represent the date on which the legal entity was established, incorporated or entered in a business register, nor the issuance date of an EBWV attestation containing the LEI data. The value should be expressed as an ISO 8601 date and time, including the time zone, and normally remains unchanged when the LEI record is renewed, updated or transferred to another LEI issuing organization."@en );
+        term:orderedRelated           ( webuild:lei );
+        term:orderedSynonym           ( <urn:uuid:144cba80-9886-455d-ab43-887a5a313486> <urn:uuid:8e3d4b8c-a95f-45e5-bd2f-b741364b211a> ) .
+
+<urn:uuid:08ac17ed-8a1b-4512-8c4e-985298a11bdd>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "LEI registration date"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:144cba80-9886-455d-ab43-887a5a313486>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "LEI initial registration date"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:8e3d4b8c-a95f-45e5-bd2f-b741364b211a>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "initial LEI registration date"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:leiregistration
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-10T15:19:25.098Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:19:25.098Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:6331e42f-3e01-408a-846c-404d92ac418b>;
+        skos:definition               "a registration record containing information about the administration of a Legal Entity Identifier by its managing LEI issuing organization"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "A LEI registration describes the lifecycle and administrative status of an LEI within the Global LEI System. It may contain the initial registration date, last update, next renewal, registration status, managing LEI issuing organization and information about the validation of the associated reference data. It is distinct from the LEI code, the legal entity identified by that code and the reference data describing the entity. Consequently, the status of an LEI registration should not be interpreted as the legal or operational status of the entity itself."@en;
+        skos:prefLabel                <urn:uuid:7920a8c0-2261-4789-ae50-646d9c578dcd>;
+        skos:related                  webuild:lei;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "A LEI registration describes the lifecycle and administrative status of an LEI within the Global LEI System. It may contain the initial registration date, last update, next renewal, registration status, managing LEI issuing organization and information about the validation of the associated reference data. It is distinct from the LEI code, the legal entity identified by that code and the reference data describing the entity. Consequently, the status of an LEI registration should not be interpreted as the legal or operational status of the entity itself."@en );
+        term:orderedRelated           ( webuild:lei );
+        term:orderedSynonym           ( <urn:uuid:6331e42f-3e01-408a-846c-404d92ac418b> ) .
+
+<urn:uuid:7920a8c0-2261-4789-ae50-646d9c578dcd>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "LEI registration"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:6331e42f-3e01-408a-846c-404d92ac418b>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "LEI registration record"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:leinextrenewal
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-10T15:17:45.663Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:17:45.663Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:142afb8f-f945-4c25-a497-4e96d594fa39> , <urn:uuid:b88071cd-1127-451e-ac43-05d943b31ac7>;
+        skos:definition               "date and time by which the LEI information must next be renewed and re-certified by the legal entity"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "The LEI next renewal indicates the renewal deadline recorded for an LEI registration in the Global LEI System. Renewal involves confirming and, where necessary, updating the LEI reference data so that it can be revalidated by the managing LEI issuing organization. Passing this date without renewal may cause the LEI registration status to become LAPSED; it does not mean that the LEI code ceases to identify the entity. The value is distinct from the LEI initial registration date, LEI last update, an entity’s dissolution date, and the validity period of an EBWV attestation containing the LEI data."@en;
+        skos:prefLabel                <urn:uuid:a3343d25-c030-455a-b0c3-e066807b6285>;
+        skos:related                  webuild:lei;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The LEI next renewal indicates the renewal deadline recorded for an LEI registration in the Global LEI System. Renewal involves confirming and, where necessary, updating the LEI reference data so that it can be revalidated by the managing LEI issuing organization. Passing this date without renewal may cause the LEI registration status to become LAPSED; it does not mean that the LEI code ceases to identify the entity. The value is distinct from the LEI initial registration date, LEI last update, an entity’s dissolution date, and the validity period of an EBWV attestation containing the LEI data."@en );
+        term:orderedRelated           ( webuild:lei );
+        term:orderedSynonym           ( <urn:uuid:142afb8f-f945-4c25-a497-4e96d594fa39> <urn:uuid:b88071cd-1127-451e-ac43-05d943b31ac7> ) .
+
+<urn:uuid:a3343d25-c030-455a-b0c3-e066807b6285>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "LEI next renewal"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:142afb8f-f945-4c25-a497-4e96d594fa39>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "LEI next renewal date"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:b88071cd-1127-451e-ac43-05d943b31ac7>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "next LEI renewal"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:db8e3f2a-96ea-4848-bfe8-915bcf9bd988>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "LEI legal entity"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:leilegalentity
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-10T15:15:18.464Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:15:36.584Z"^^xsd:dateTime;
+        skos:definition               "an entity described by an LEI record and uniquely identified within the Global LEI System by a Legal Entity Identifier"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "An LEI legal entity is the subject identified by the LEI, rather than the LEI code, LEI record, registration entry or LEI issuing organization. It may be incorporated or constituted in another manner and may include, subject to Global LEI System eligibility rules, companies, partnerships, trusts, funds, governmental organizations, supranational organizations and certain branches or sole proprietors acting in a business capacity. It does not ordinarily include a natural person acting solely in a private capacity. The status of the LEI registration should be represented separately and may, for example, indicate that the registration is issued, lapsed, retired or annulled."@en;
+        skos:prefLabel                <urn:uuid:db8e3f2a-96ea-4848-bfe8-915bcf9bd988>;
+        skos:related                  webuild:lei;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "An LEI legal entity is the subject identified by the LEI, rather than the LEI code, LEI record, registration entry or LEI issuing organization. It may be incorporated or constituted in another manner and may include, subject to Global LEI System eligibility rules, companies, partnerships, trusts, funds, governmental organizations, supranational organizations and certain branches or sole proprietors acting in a business capacity. It does not ordinarily include a natural person acting solely in a private capacity. The status of the LEI registration should be represented separately and may, for example, indicate that the registration is issued, lapsed, retired or annulled."@en );
+        term:orderedRelated           ( webuild:lei ) .
+
+webuild:leilastupdate
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-10T15:13:47.801Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:13:47.801Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:7fb3600f-a4fe-4899-b6a2-c2506c33e7dc> , <urn:uuid:09788dcb-beaf-4655-a98e-d64c6c7bbe79>;
+        skos:definition               "date and time at which the information contained in an LEI record was most recently updated by the managing LEI issuing organization"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "The LEI last update concerns the LEI record maintained in the Global LEI System, rather than the time at which the legal entity itself last changed or the LEI data was retrieved for an EBWV attestation. It does not identify which data element changed or the effective date of an underlying legal entity event. The value should be expressed as an ISO 8601 date and time, including the time zone. It is distinct from the LEI initial registration date, next renewal date and the issuance date of an attestation containing the LEI data."@en;
+        skos:prefLabel                <urn:uuid:ca888b32-1fa5-486e-bfb6-b0b88453a62d>;
+        skos:related                  webuild:lei;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The LEI last update concerns the LEI record maintained in the Global LEI System, rather than the time at which the legal entity itself last changed or the LEI data was retrieved for an EBWV attestation. It does not identify which data element changed or the effective date of an underlying legal entity event. The value should be expressed as an ISO 8601 date and time, including the time zone. It is distinct from the LEI initial registration date, next renewal date and the issuance date of an attestation containing the LEI data."@en );
+        term:orderedRelated           ( webuild:lei );
+        term:orderedSynonym           ( <urn:uuid:7fb3600f-a4fe-4899-b6a2-c2506c33e7dc> <urn:uuid:09788dcb-beaf-4655-a98e-d64c6c7bbe79> ) .
+
+<urn:uuid:ca888b32-1fa5-486e-bfb6-b0b88453a62d>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "LEI last update"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:7fb3600f-a4fe-4899-b6a2-c2506c33e7dc>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "LEI record last update"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:09788dcb-beaf-4655-a98e-d64c6c7bbe79>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "LEI last update date"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:51e14407-4bda-4017-9b6c-16bb5c229bc5>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "jurisdiction"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:5bbb6c28-e049-4db9-8737-8856ae889934>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "legal jurisdiction"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:5c30f025-89ac-4fd8-96e4-ff61dab1db9e>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "identifier"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:9cb5a28e-f401-4731-a792-89803cbf93b3>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "telephone"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:7c026a1b-c532-485b-9c8c-04902719321b>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "telephone number"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:802b9b11-4a97-4f27-ad17-f31d4120870c>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "phone number"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:hash  rdf:type                skos:Concept;
+        dcterms:created               "2026-08-10T15:05:02.997Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:05:02.997Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:9626e98a-d6b2-44e8-8ec3-45a7b75e32eb> , <urn:uuid:dd95b250-3ad6-4bdf-96b1-47446c16ef9f>;
+        skos:definition               "a SHA-256 digest calculated from a defined digital representation of a rulebook to enable efficient comparison and detection of changes"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "The hash is a fixed-length value derived from the rulebook content. Two hashes can be compared to determine efficiently whether the hashed representations are the same. The specification must define the exact content, serialization, character encoding and encoding of the resulting hash value, such as hexadecimal or Base64. A hash supports integrity checking but does not by itself establish the origin, authenticity or legal validity of the rulebook; these require a digital signature or another trust mechanism."@en;
+        skos:prefLabel                <urn:uuid:55636c56-f258-414a-81cc-3a64547024c6>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The hash is a fixed-length value derived from the rulebook content. Two hashes can be compared to determine efficiently whether the hashed representations are the same. The specification must define the exact content, serialization, character encoding and encoding of the resulting hash value, such as hexadecimal or Base64. A hash supports integrity checking but does not by itself establish the origin, authenticity or legal validity of the rulebook; these require a digital signature or another trust mechanism."@en );
+        term:orderedSynonym           ( <urn:uuid:9626e98a-d6b2-44e8-8ec3-45a7b75e32eb> <urn:uuid:dd95b250-3ad6-4bdf-96b1-47446c16ef9f> ) .
+
+<urn:uuid:55636c56-f258-414a-81cc-3a64547024c6>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "hash"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:9626e98a-d6b2-44e8-8ec3-45a7b75e32eb>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "rulebook hash"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:dd95b250-3ad6-4bdf-96b1-47446c16ef9f>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "SHA-256 digest"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:e7c941ab-8d68-4b8e-ba72-344ff0db43ba>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "email"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:679ff440-0af1-4ac0-acff-dd64e01ebaca>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "email address"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:4dd0eea6-1e19-4944-b159-597dd41d6e27>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "location"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:a6565663-5d7b-4ac0-b18b-1ca150f5f832>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "geographic location"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:9491f690-6932-4d62-a68b-b92ea85264fb>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "geographic identifier"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:geographicname
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-10T14:58:31.092Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T14:58:31.092Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:22541cd3-d5c4-42a2-995e-68cd044286f2>;
+        skos:definition               "a proper noun applied to a location or spatial object"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "A geographic name may designate an area, region, locality, settlement or geographic or topographic feature. A location may have several geographic names reflecting different languages, scripts, spelling conventions, endonyms, exonyms, historical names or official statuses. In the EU Core Location Vocabulary, standardized geographic codes, such as country codes, may also be represented as geographic names. A geographic name is distinct from a geographic identifier expressed as a URI and from an address, geometry or geographic coordinates."@en;
+        skos:prefLabel                <urn:uuid:a9d84db8-f4d8-43b3-b770-f30898931433>;
+        skos:related                  webuild:geographicidentifier , webuild:concept-86;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "A geographic name may designate an area, region, locality, settlement or geographic or topographic feature. A location may have several geographic names reflecting different languages, scripts, spelling conventions, endonyms, exonyms, historical names or official statuses. In the EU Core Location Vocabulary, standardized geographic codes, such as country codes, may also be represented as geographic names. A geographic name is distinct from a geographic identifier expressed as a URI and from an address, geometry or geographic coordinates."@en );
+        term:orderedRelated           ( webuild:geographicidentifier webuild:concept-86 );
+        term:orderedSynonym           ( <urn:uuid:22541cd3-d5c4-42a2-995e-68cd044286f2> ) .
+
+<urn:uuid:a9d84db8-f4d8-43b3-b770-f30898931433>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "geographic name"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:22541cd3-d5c4-42a2-995e-68cd044286f2>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "place name"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:geographicidentifier
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-10T14:54:33.54Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T15:00:36.821Z"^^xsd:dateTime;
+        skos:definition               "a reference in the form of a Uniform Resource Identifier that uniquely identifies a location"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "A geographic identifier identifies the location itself and is distinct from its geographic name, address, coordinates or geometry. Consistent with INSPIRE identifier management, the identifier should be globally unique and remain stable throughout the lifecycle of the identified location. An INSPIRE identifier may combine a namespace and a locally unique identifier, with an optional version identifier. In the EU Core Location Vocabulary, the geographic identifier is represented as a URI, preferably originating from an authoritative and maintained geographic identification system."@en;
+        skos:prefLabel                <urn:uuid:9491f690-6932-4d62-a68b-b92ea85264fb>;
+        skos:related                  webuild:geographicname , webuild:concept-86;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "A geographic identifier identifies the location itself and is distinct from its geographic name, address, coordinates or geometry. Consistent with INSPIRE identifier management, the identifier should be globally unique and remain stable throughout the lifecycle of the identified location. An INSPIRE identifier may combine a namespace and a locally unique identifier, with an optional version identifier. In the EU Core Location Vocabulary, the geographic identifier is represented as a URI, preferably originating from an authoritative and maintained geographic identification system."@en );
+        term:orderedRelated           ( webuild:concept-86 webuild:geographicname ) .
+
+<urn:uuid:823ee193-d4ca-4ae9-bb02-58f5a6e543da>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "name"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:fullname  rdf:type            skos:Concept;
+        dcterms:created               "2026-08-10T14:39:20.779Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T14:39:20.779Z"^^xsd:dateTime;
+        skos:broader                  webuild:name;
+        skos:definition               "the name of a person expressed as a single textual value rather than as separately represented name components"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "A full name may comprise given names, family names and other name components, arranged according to the relevant linguistic, cultural or administrative convention. It should not be assumed to be a mechanical concatenation of structured name fields. The concept does not necessarily mean a person’s legal or officially registered name unless this is required by the applicable context or application profile."@en;
+        skos:prefLabel                <urn:uuid:10736405-a046-4be9-b565-1182fae02cfe>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedBroader           ( webuild:name );
+        term:orderedNote              ( "A full name may comprise given names, family names and other name components, arranged according to the relevant linguistic, cultural or administrative convention. It should not be assumed to be a mechanical concatenation of structured name fields. The concept does not necessarily mean a person’s legal or officially registered name unless this is required by the applicable context or application profile."@en ) .
+
+<urn:uuid:10736405-a046-4be9-b565-1182fae02cfe>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "full name"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:ae0011ac-ae17-499a-b6d9-58e96649345a>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "flag state"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:241421a3-d980-417e-be2e-480892645055>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "ship flag state"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:13c961ea-0795-4ee8-87de-7660e96b094b>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "vessel flag state"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:vessel  rdf:type              skos:Concept;
+        dcterms:created               "2026-08-10T14:37:06.699Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T14:37:06.699Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:487252f7-64f0-4ea9-9ea9-14b6561a16b6>;
+        skos:definition               "a watercraft used or capable of being used for navigation, transport, work or other operations on water"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "A vessel may include a ship, boat, barge or other navigable craft, irrespective of its purpose, propulsion method or whether it operates at sea or on inland waterways. In the EBWV context, a vessel may constitute a workplace or place of employment and may be identified by attributes such as its name, registration or IMO number and flag state. Whether offshore installations, floating platforms or permanently moored structures are treated as vessels depends on the applicable legislation or application profile."@en;
+        skos:prefLabel                <urn:uuid:b48c907e-8e00-49a7-b03c-6addd121647b>;
+        skos:related                  webuild:flagstate;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "A vessel may include a ship, boat, barge or other navigable craft, irrespective of its purpose, propulsion method or whether it operates at sea or on inland waterways. In the EBWV context, a vessel may constitute a workplace or place of employment and may be identified by attributes such as its name, registration or IMO number and flag state. Whether offshore installations, floating platforms or permanently moored structures are treated as vessels depends on the applicable legislation or application profile."@en );
+        term:orderedRelated           ( webuild:flagstate );
+        term:orderedSynonym           ( <urn:uuid:487252f7-64f0-4ea9-9ea9-14b6561a16b6> ) .
+
+<urn:uuid:b48c907e-8e00-49a7-b03c-6addd121647b>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "vessel"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:487252f7-64f0-4ea9-9ea9-14b6561a16b6>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "watercraft"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:flagstate  rdf:type           skos:Concept;
+        dcterms:created               "2026-08-10T14:35:16.491Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T14:37:25.058Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:241421a3-d980-417e-be2e-480892645055> , <urn:uuid:13c961ea-0795-4ee8-87de-7660e96b094b>;
+        skos:definition               "a state that has granted its nationality to a vessel and authorised the vessel to fly its flag"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "The flag state is normally the state in whose ship register the vessel is registered. It is responsible for exercising jurisdiction and control over the vessel in administrative, technical and social matters. In maritime employment contexts, the flag state may be relevant to labour conditions, occupational safety, vessel certification and social-security obligations. It is distinct from the port state, coastal state and the states associated with the vessel owner, employer or crew member."@en;
+        skos:prefLabel                <urn:uuid:ae0011ac-ae17-499a-b6d9-58e96649345a>;
+        skos:related                  webuild:vessel;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The flag state is normally the state in whose ship register the vessel is registered. It is responsible for exercising jurisdiction and control over the vessel in administrative, technical and social matters. In maritime employment contexts, the flag state may be relevant to labour conditions, occupational safety, vessel certification and social-security obligations. It is distinct from the port state, coastal state and the states associated with the vessel owner, employer or crew member."@en );
+        term:orderedRelated           ( webuild:vessel );
+        term:orderedSynonym           ( <urn:uuid:241421a3-d980-417e-be2e-480892645055> <urn:uuid:13c961ea-0795-4ee8-87de-7660e96b094b> ) .
+
+webuild:enddate  rdf:type             skos:Concept;
+        dcterms:created               "2026-08-10T14:31:39.363Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:24:33.763Z"^^xsd:dateTime;
+        skos:definition               "a calendar date that marks the end of a period, activity, status, relationship, validity or other time-bounded occurrence"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "Whether the end date is inclusive or exclusive, and whether a specific time or time zone applies, depends on the relevant context or application profile."@en;
+        skos:prefLabel                <urn:uuid:3f0fd494-e98a-4d29-b99d-9399f3eb017b>;
+        skos:related                  webuild:startdate;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "Whether the end date is inclusive or exclusive, and whether a specific time or time zone applies, depends on the relevant context or application profile."@en );
+        term:orderedRelated           ( webuild:startdate ) .
+
+<urn:uuid:df903aaf-4125-4bc0-932d-282529638f0d>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "employer"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:employee  rdf:type            skos:Concept;
+        dcterms:created               "2026-08-10T14:29:05.324Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T14:29:05.324Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:fa63b1d4-a7df-45e4-85d8-41d87494eca5>;
+        skos:definition               "a role of a person who is engaged by an employer to perform work under an employment relationship, with the associated rights and obligations"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "Employee is a role held in relation to a particular employer and is distinct from an independent contractor or self-employed person. In a posting context, a posted worker is an employee temporarily assigned to work in a state other than the state in which the employee normally works."@en;
+        skos:prefLabel                <urn:uuid:d1246ebe-90b0-4b36-94fe-29a2135e0cce>;
+        skos:related                  webuild:employer;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "Employee is a role held in relation to a particular employer and is distinct from an independent contractor or self-employed person. In a posting context, a posted worker is an employee temporarily assigned to work in a state other than the state in which the employee normally works."@en );
+        term:orderedRelated           ( webuild:employer );
+        term:orderedSynonym           ( <urn:uuid:fa63b1d4-a7df-45e4-85d8-41d87494eca5> ) .
+
+<urn:uuid:d1246ebe-90b0-4b36-94fe-29a2135e0cce>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "employee"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:fa63b1d4-a7df-45e4-85d8-41d87494eca5>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "employed person"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:7c56e78d-ff9b-4048-be67-dd1ee657ed18>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "delivery location"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:f45f3dab-5771-46ab-8251-c7fefb1f43b5>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "deliver-to location"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:b0c87238-f023-44f8-bc86-60b5e4698a22>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "place of delivery"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:deliverylocation
+        rdf:type                      skos:Concept;
+        dcterms:created               "2026-08-10T09:43:56.855Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T09:44:45.705Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:f45f3dab-5771-46ab-8251-c7fefb1f43b5> , <urn:uuid:b0c87238-f023-44f8-bc86-60b5e4698a22>;
+        skos:broader                  webuild:concept-86;
+        skos:definition               "a place specified in a transaction or agreement at which goods are to be delivered or a service is to be performed"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "A delivery location may be identified by a postal address, geographic identifier, geographic name, site, facility, terminal or another designated delivery point. It does not necessarily identify the consignee or the goods’ final destination. Under applicable trade terms, it may indicate the place at which the supplier’s delivery obligation is fulfilled."@en;
+        skos:prefLabel                <urn:uuid:7c56e78d-ff9b-4048-be67-dd1ee657ed18>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedBroader           ( webuild:concept-86 );
+        term:orderedNote              ( "A delivery location may be identified by a postal address, geographic identifier, geographic name, site, facility, terminal or another designated delivery point. It does not necessarily identify the consignee or the goods’ final destination. Under applicable trade terms, it may indicate the place at which the supplier’s delivery obligation is fulfilled."@en );
+        term:orderedSynonym           ( <urn:uuid:b0c87238-f023-44f8-bc86-60b5e4698a22> <urn:uuid:f45f3dab-5771-46ab-8251-c7fefb1f43b5> ) .
+
+<urn:uuid:89a93934-b3a9-49bc-bacb-13b3bf3f8bf3>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "correspondence address"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:7a8e8b92-283b-4504-9917-80bc419d8339>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "mailing address"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:contributor  rdf:type         skos:Concept;
+        dcterms:created               "2026-08-10T09:37:19.932Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T09:37:19.932Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:f7e1f96b-2579-4bec-8bad-fbe0932dad2a> , <urn:uuid:49cdb1af-5913-418a-a151-53384f08d9bb>;
+        skos:definition               "the role of an economic operator whose fulfilment of legal obligations to declare and pay social security contributions is the subject of a social security contribution attestation"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "In an employment context, the contributor is normally the employer liable for contributions arising from the employment of workers. The concept may also cover a self-employed economic operator where applicable. The contributor is distinct from the authority issuing the attestation and from a third party that merely submits declarations or transmits payments on its behalf."@en;
+        skos:prefLabel                <urn:uuid:7399d50e-ecdd-4269-86b9-8037475bf432>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "In an employment context, the contributor is normally the employer liable for contributions arising from the employment of workers. The concept may also cover a self-employed economic operator where applicable. The contributor is distinct from the authority issuing the attestation and from a third party that merely submits declarations or transmits payments on its behalf."@en );
+        term:orderedSynonym           ( <urn:uuid:f7e1f96b-2579-4bec-8bad-fbe0932dad2a> <urn:uuid:49cdb1af-5913-418a-a151-53384f08d9bb> ) .
+
+<urn:uuid:7399d50e-ecdd-4269-86b9-8037475bf432>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "contributor"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:f7e1f96b-2579-4bec-8bad-fbe0932dad2a>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "social security contributor"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:49cdb1af-5913-418a-a151-53384f08d9bb>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "liable contributor"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:62edeaaa-6c33-4869-8c2e-f4c0703f22ee>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "construction sector"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:bd831ea7-bc8f-4ac6-b47e-ef434d1876d8>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "construction industry"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:buyer  rdf:type               skos:Concept;
+        dcterms:created               "2026-08-10T09:30:12.222Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T09:30:12.222Z"^^xsd:dateTime;
+        skos:definition               "the role of a party that purchases or is responsible for purchasing goods, services or works, either for itself or on behalf of another party"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "Buyer is a transaction-specific role that may be performed by a person or organisation. The buyer is not necessarily the same party as the customer, order originator, invoicee, payer, consignee or end user."@en;
+        skos:prefLabel                <urn:uuid:1e64db4d-db40-43e1-a8c3-a4cbe7b155c9>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "Buyer is a transaction-specific role that may be performed by a person or organisation. The buyer is not necessarily the same party as the customer, order originator, invoicee, payer, consignee or end user."@en ) .
+
+<urn:uuid:1e64db4d-db40-43e1-a8c3-a4cbe7b155c9>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "buyer"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:af92d068-17df-48a6-9348-1f715c7e20d1>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "amount"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:915590c2-1907-4d4e-9883-e24bd195dcc2>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "social representative"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:0903ea8e-594d-4f96-b9b1-192be807e77e>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "administrative representative"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:accounttype  rdf:type         skos:Concept;
+        dcterms:created               "2026-08-10T09:16:42.317Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T09:16:42.317Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:322dfca7-5ba6-4a32-9f35-e9cf9be11ec2>;
+        skos:definition               "a classification of a bank account according to its purpose and functional characteristics"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "Examples of account types include current, savings, basic and loan accounts. Account type is distinct from the account currency and the type of account owner."@en;
+        skos:prefLabel                <urn:uuid:825e1875-59d3-47c3-a38d-e305856ccdd6>;
+        skos:related                  webuild:bankaccount;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "Examples of account types include current, savings, basic and loan accounts. Account type is distinct from the account currency and the type of account owner."@en );
+        term:orderedRelated           ( webuild:bankaccount );
+        term:orderedSynonym           ( <urn:uuid:322dfca7-5ba6-4a32-9f35-e9cf9be11ec2> ) .
+
+<urn:uuid:825e1875-59d3-47c3-a38d-e305856ccdd6>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "account type"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:322dfca7-5ba6-4a32-9f35-e9cf9be11ec2>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "bank account type"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:accountname  rdf:type         skos:Concept;
+        dcterms:created               "2026-08-10T09:13:51.091Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T09:13:51.091Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:6f12a2d2-59d5-4a25-902f-fa02c3b659a5>;
+        skos:definition               "a human-readable designation assigned to a bank account by the account-servicing financial institution or chosen by the account owner"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "An account name is distinct from a bank account identifier, such as an IBAN, and from the legal name of the account owner."@en;
+        skos:prefLabel                <urn:uuid:0f44f7d8-40d0-4923-b048-3b44c98eddad>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "An account name is distinct from a bank account identifier, such as an IBAN, and from the legal name of the account owner."@en );
+        term:orderedSynonym           ( <urn:uuid:6f12a2d2-59d5-4a25-902f-fa02c3b659a5> ) .
+
+<urn:uuid:0f44f7d8-40d0-4923-b048-3b44c98eddad>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "account name"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:6f12a2d2-59d5-4a25-902f-fa02c3b659a5>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "bank account name"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:acceptedat  rdf:type          skos:Concept;
+        dcterms:created               "2026-08-10T09:10:00.893Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T09:10:00.893Z"^^xsd:dateTime;
+        skos:definition               "tbd"@en;
+        skos:inScheme                 webuild:;
+        skos:prefLabel                <urn:uuid:7e5f3013-0d2c-4d30-9d0e-f0a84388ab65>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:7e5f3013-0d2c-4d30-9d0e-f0a84388ab65>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "accepted at"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+webuild:a1  rdf:type                  skos:Concept;
+        dcterms:created               "2026-08-10T09:08:11.973Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T09:08:11.973Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:d341529b-bbc7-4bce-a094-ed6f9b558541>;
+        skos:definition               "a certificate issued by a competent social security institution that attests which state’s social security legislation applies to a person under the rules on the coordination of social security systems and, where applicable, the period and conditions of that application"@en;
+        skos:inScheme                 webuild:;
+        skos:note                     "An A1 certificate is used particularly when a person is posted to work in another state or works in two or more states. It does not constitute a work permit or attest compliance with employment or posted-worker conditions."@en;
+        skos:prefLabel                <urn:uuid:5efb140e-db79-428a-969f-7cd9c8589c9a>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "An A1 certificate is used particularly when a person is posted to work in another state or works in two or more states. It does not constitute a work permit or attest compliance with employment or posted-worker conditions."@en );
+        term:orderedSynonym           ( <urn:uuid:d341529b-bbc7-4bce-a094-ed6f9b558541> ) .
+
+<urn:uuid:5efb140e-db79-428a-969f-7cd9c8589c9a>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "a1"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
+<urn:uuid:d341529b-bbc7-4bce-a094-ed6f9b558541>
+        rdf:type                      skos-xl:Label;
+        skos-xl:literalForm           "a1 certificate"@en;
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+
 webuild:transitionalrules
         rdf:type                      skos:Concept;
         dcterms:created               "2026-05-12T09:06:15.726Z"^^xsd:dateTime;
@@ -208,20 +1333,17 @@ webuild:temporaryaddress
 webuild:socialrepresentative
         rdf:type                      skos:Concept;
         dcterms:created               "2026-04-28T14:58:11.984Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-28T14:58:11.984Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T09:22:49.032Z"^^xsd:dateTime;
         skos:definition               "a person or entity designated to represent or assist an employer or posted worker in relation to social security, labour, employment or posting-related obligations during a posting period"@en;
         skos:inScheme                 webuild:;
         skos:note                     "In the Posted Worker Notification context, social representative should denote the representative identified for social, employment or posting-related matters in the host country. The representative may act as a contact point for authorities, provide or receive information, support compliance with posting obligations, or assist with documentation relating to the posted worker’s social security or labour-law status. The concept should be distinguished from the employer, the host entity, the legal representative of the company, the posted worker, and a purely technical or administrative contact person."@en;
-        skos:prefLabel                <urn:uuid:1e19d696-b4d0-483d-84d7-7e83018ddda7>;
+        skos:prefLabel                <urn:uuid:915590c2-1907-4d4e-9883-e24bd195dcc2>;
+        skos:related                  webuild:administrativerepresentative;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
-        term:orderedNote              ( "In the Posted Worker Notification context, social representative should denote the representative identified for social, employment or posting-related matters in the host country. The representative may act as a contact point for authorities, provide or receive information, support compliance with posting obligations, or assist with documentation relating to the posted worker’s social security or labour-law status. The concept should be distinguished from the employer, the host entity, the legal representative of the company, the posted worker, and a purely technical or administrative contact person."@en ) .
-
-<urn:uuid:1e19d696-b4d0-483d-84d7-7e83018ddda7>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "social representative"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+        term:orderedNote              ( "In the Posted Worker Notification context, social representative should denote the representative identified for social, employment or posting-related matters in the host country. The representative may act as a contact point for authorities, provide or receive information, support compliance with posting obligations, or assist with documentation relating to the posted worker’s social security or labour-law status. The concept should be distinguished from the employer, the host entity, the legal representative of the company, the posted worker, and a purely technical or administrative contact person."@en );
+        term:orderedRelated           ( webuild:administrativerepresentative ) .
 
 <urn:uuid:7b893c19-8b10-498a-a402-3d1bce8c3be2>
         rdf:type                      skos-xl:Label;
@@ -431,20 +1553,19 @@ webuild:placeofwork  rdf:type         skos:Concept;
 
 webuild:placeofdeath  rdf:type        skos:Concept;
         dcterms:created               "2026-04-28T14:42:33.923Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-28T14:42:33.923Z"^^xsd:dateTime;
-        skos:definition               "TBD"@en;
+        dcterms:modified              "2026-08-17T14:11:12.328Z"^^xsd:dateTime;
+        skos:broader                  webuild:concept-86;
+        skos:definition               "the location where a natural person’s death occurred"@en;
         skos:inScheme                 webuild:;
-        skos:prefLabel                <urn:uuid:f6782316-095b-4609-81a3-e289e44e0b3c>;
+        skos:note                     "The place of death may be expressed as an address, geographic location, administrative area, healthcare facility, or other identifiable place. It should be distinguished from the place where the death was registered and from the deceased person’s residence or domicile at the time of death."@en;
+        skos:prefLabel                <urn:uuid:78420860-61d1-48b2-8fc0-e0aa224d03f7>;
         skos:related                  webuild:placeofbirth;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedBroader           ( webuild:concept-86 );
+        term:orderedNote              ( "The place of death may be expressed as an address, geographic location, administrative area, healthcare facility, or other identifiable place. It should be distinguished from the place where the death was registered and from the deceased person’s residence or domicile at the time of death."@en );
         term:orderedRelated           ( webuild:placeofbirth ) .
-
-<urn:uuid:f6782316-095b-4609-81a3-e289e44e0b3c>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "place of death"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 <urn:uuid:94efcb37-30a1-45df-9c85-c30cb900adfd>
         rdf:type                      skos-xl:Label;
@@ -579,25 +1700,20 @@ webuild:owner  rdf:type               skos:Concept;
         skos-xl:literalForm           "asset owner"@en;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
-<urn:uuid:8f68402d-1d40-437a-954f-96e349246150>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "name"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
 webuild:name  rdf:type                skos:Concept;
         dcterms:created               "2026-04-28T14:30:47.195Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-28T14:31:21.509Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T14:50:49.726Z"^^xsd:dateTime;
         skos:definition               "a word, phrase or structured set of name components used to identify, designate or refer to an entity"@en;
         skos:example                  "A business identity attestation includes the registered legal name of the company, while a person identification attestation includes the person’s given name and family name."@en;
         skos:inScheme                 webuild:;
-        skos:narrower                 webuild:matronymicname , webuild:birthname , webuild:concept-6012 , webuild:concept-51 , webuild:concept-24 , webuild:concept-26 , webuild:givenname , webuild:familyname , webuild:legalname , webuild:postname , webuild:locatorname , webuild:alternativename;
+        skos:narrower                 webuild:fullname , webuild:matronymicname , webuild:concept-51 , webuild:concept-24 , webuild:concept-26 , webuild:givenname , webuild:familyname , webuild:legalname , webuild:postname , webuild:locatorname , webuild:alternativename , webuild:birthname;
         skos:note                     "In the EBWV context, name is a generic concept that may apply to a person, legal entity, organisation, product, place, service, document, credential or other identifiable thing. Where more precise concepts are available, they should be used instead, such as given name, family name, legal name, trade name, business name, registered name or preferred name. A name may be official, registered, commonly used, localised, multilingual, historical or context-specific."@en;
-        skos:prefLabel                <urn:uuid:8f68402d-1d40-437a-954f-96e349246150>;
+        skos:prefLabel                <urn:uuid:823ee193-d4ca-4ae9-bb02-58f5a6e543da>;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
         term:orderedExample           ( "A business identity attestation includes the registered legal name of the company, while a person identification attestation includes the person’s given name and family name."@en );
-        term:orderedNarrower          ( webuild:familyname webuild:givenname webuild:postname webuild:locatorname webuild:alternativename webuild:matronymicname webuild:concept-24 webuild:legalname webuild:concept-51 webuild:concept-6012 webuild:concept-26 webuild:birthname );
+        term:orderedNarrower          ( webuild:familyname webuild:givenname webuild:postname webuild:locatorname webuild:alternativename webuild:matronymicname webuild:concept-24 webuild:legalname webuild:concept-51 webuild:concept-26 webuild:birthname webuild:fullname );
         term:orderedNote              ( "In the EBWV context, name is a generic concept that may apply to a person, legal entity, organisation, product, place, service, document, credential or other identifiable thing. Where more precise concepts are available, they should be used instead, such as given name, family name, legal name, trade name, business name, registered name or preferred name. A name may be official, registered, commonly used, localised, multilingual, historical or context-specific."@en ) .
 
 <urn:uuid:0c303e32-3721-4988-b081-5cea2f7e1dd2>
@@ -844,48 +1960,47 @@ webuild:iban  rdf:type                skos:Concept;
 
 webuild:jurisdiction  rdf:type        skos:Concept;
         dcterms:created               "2026-04-28T14:03:12.656Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-28T14:03:12.656Z"^^xsd:dateTime;
-        skos:definition               "TBD"@en;
+        dcterms:modified              "2026-08-10T15:10:14.878Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:5bbb6c28-e049-4db9-8737-8856ae889934>;
+        skos:definition               "a territory, legal system or sphere of competence within which an authority is empowered to make, apply or enforce law"@en;
         skos:inScheme                 webuild:;
-        skos:prefLabel                <urn:uuid:e4a6f866-588f-44f1-8e59-bf91455f8395>;
+        skos:note                     "A jurisdiction may be supranational, national, regional, local or defined by subject matter rather than territory. In the EBWV context, it may identify the legal or administrative framework relevant to matters such as business registration, establishment, taxation, employment, social security or regulatory supervision. Although a jurisdiction may be associated with a geographic area or public authority, it denotes legal competence rather than merely a location. Where jurisdictions overlap, identifying one jurisdiction does not necessarily determine the applicable law."@en;
+        skos:prefLabel                <urn:uuid:51e14407-4bda-4017-9b6c-16bb5c229bc5>;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
-<urn:uuid:e4a6f866-588f-44f1-8e59-bf91455f8395>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "jurisdiction"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "A jurisdiction may be supranational, national, regional, local or defined by subject matter rather than territory. In the EBWV context, it may identify the legal or administrative framework relevant to matters such as business registration, establishment, taxation, employment, social security or regulatory supervision. Although a jurisdiction may be associated with a geographic area or public authority, it denotes legal competence rather than merely a location. Where jurisdictions overlap, identifying one jurisdiction does not necessarily determine the applicable law."@en );
+        term:orderedSynonym           ( <urn:uuid:5bbb6c28-e049-4db9-8737-8856ae889934> ) .
 
 webuild:telephone  rdf:type           skos:Concept;
         dcterms:created               "2026-04-28T14:02:26.749Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-28T14:02:26.749Z"^^xsd:dateTime;
-        skos:definition               "TBD"@en;
+        dcterms:modified              "2026-08-10T15:06:58.19Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:7c026a1b-c532-485b-9c8c-04902719321b> , <urn:uuid:802b9b11-4a97-4f27-ad17-f31d4120870c>;
+        skos:definition               "a telephone number through which an entity can be contacted"@en;
         skos:inScheme                 webuild:;
-        skos:prefLabel                <urn:uuid:938c20c8-c9e4-4a42-8c15-cfe4a14f6d81>;
+        skos:note                     "A telephone is associated with a contact point and may be a fixed-line, mobile, organizational, functional or service-specific number. The value should include the international country calling code when used in cross-border contexts. Its presence does not imply that the number supports text messaging or that it is verified, preferred or continuously monitored. Formatting and cardinality requirements should be defined in the applicable SHACL application profile."@en;
+        skos:prefLabel                <urn:uuid:9cb5a28e-f401-4731-a792-89803cbf93b3>;
+        skos:related                  webuild:contactpoint;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
-<urn:uuid:938c20c8-c9e4-4a42-8c15-cfe4a14f6d81>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "telephone"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "A telephone is associated with a contact point and may be a fixed-line, mobile, organizational, functional or service-specific number. The value should include the international country calling code when used in cross-border contexts. Its presence does not imply that the number supports text messaging or that it is verified, preferred or continuously monitored. Formatting and cardinality requirements should be defined in the applicable SHACL application profile."@en );
+        term:orderedRelated           ( webuild:contactpoint );
+        term:orderedSynonym           ( <urn:uuid:7c026a1b-c532-485b-9c8c-04902719321b> <urn:uuid:802b9b11-4a97-4f27-ad17-f31d4120870c> ) .
 
 webuild:email  rdf:type               skos:Concept;
         dcterms:created               "2026-04-28T14:01:48.529Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-28T14:01:48.529Z"^^xsd:dateTime;
-        skos:definition               "TBD"@en;
+        dcterms:modified              "2026-08-10T15:02:51.788Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:679ff440-0af1-4ac0-acff-dd64e01ebaca>;
+        skos:definition               "an electronic mail address through which an entity can be contacted"@en;
         skos:inScheme                 webuild:;
-        skos:prefLabel                <urn:uuid:1406ed47-6c82-4ffb-9680-79202414d4d9>;
+        skos:note                     "An email is associated with a contact point and provides an address for sending electronic messages to the entity represented by that contact point. It may be a personal, organizational, functional or service-specific address. Its presence does not imply that the address is verified, preferred or actively monitored. Formatting and cardinality requirements should be specified in the applicable SHACL application profile."@en;
+        skos:prefLabel                <urn:uuid:e7c941ab-8d68-4b8e-ba72-344ff0db43ba>;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
-<urn:uuid:1406ed47-6c82-4ffb-9680-79202414d4d9>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "email"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "An email is associated with a contact point and provides an address for sending electronic messages to the entity represented by that contact point. It may be a personal, organizational, functional or service-specific address. Its presence does not imply that the address is verified, preferred or actively monitored. Formatting and cardinality requirements should be specified in the applicable SHACL application profile."@en );
+        term:orderedSynonym           ( <urn:uuid:679ff440-0af1-4ac0-acff-dd64e01ebaca> ) .
 
 webuild:gender  rdf:type              skos:Concept;
         dcterms:created               "2026-04-28T11:58:47.045Z"^^xsd:dateTime;
@@ -904,18 +2019,15 @@ webuild:gender  rdf:type              skos:Concept;
 
 webuild:employer  rdf:type            skos:Concept;
         dcterms:created               "2026-04-28T11:57:35.962Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-28T11:57:35.962Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-10T14:29:22.727Z"^^xsd:dateTime;
         skos:definition               "a party that engages a person to perform work under an employment relationship, with associated rights, duties, reporting obligations, or liabilities"@en;
         skos:inScheme                 webuild:;
-        skos:prefLabel                <urn:uuid:be37c5e6-09bb-4ca7-bf79-e9608a78aa5a>;
+        skos:prefLabel                <urn:uuid:df903aaf-4125-4bc0-932d-282529638f0d>;
+        skos:related                  webuild:employee;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
-<urn:uuid:be37c5e6-09bb-4ca7-bf79-e9608a78aa5a>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "employer"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedRelated           ( webuild:employee ) .
 
 webuild:duration  rdf:type            skos:Concept;
         dcterms:created               "2026-04-28T11:56:31.671Z"^^xsd:dateTime;
@@ -999,34 +2111,36 @@ webuild:address  rdf:type             skos:Concept;
 webuild:correspondenceaddress
         rdf:type                      skos:Concept;
         dcterms:created               "2026-04-28T11:45:50.776Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-28T11:45:50.776Z"^^xsd:dateTime;
-        skos:definition               "TBD"@en;
+        dcterms:modified              "2026-08-10T09:39:14.099Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:7a8e8b92-283b-4504-9917-80bc419d8339>;
+        skos:broader                  webuild:address;
+        skos:definition               "a postal address designated by a person or organisation for receiving correspondence"@en;
         skos:inScheme                 webuild:;
-        skos:prefLabel                <urn:uuid:60a737cc-7a24-4431-aeb6-1d81dce07e70>;
+        skos:note                     "A correspondence address may differ from a registered address, residential address, domicile or principal place of business. Its designation does not necessarily indicate legal registration, residence or physical presence at that address."@en;
+        skos:prefLabel                <urn:uuid:89a93934-b3a9-49bc-bacb-13b3bf3f8bf3>;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
-<urn:uuid:60a737cc-7a24-4431-aeb6-1d81dce07e70>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "correspondence address"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedBroader           ( webuild:address );
+        term:orderedNote              ( "A correspondence address may differ from a registered address, residential address, domicile or principal place of business. Its designation does not necessarily indicate legal registration, residence or physical presence at that address."@en );
+        term:orderedSynonym           ( <urn:uuid:7a8e8b92-283b-4504-9917-80bc419d8339> ) .
 
 webuild:constructionsector
         rdf:type                      skos:Concept;
         dcterms:created               "2026-04-28T11:41:46.836Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-28T11:41:46.836Z"^^xsd:dateTime;
-        skos:definition               "TBD"@en;
+        dcterms:modified              "2026-08-10T09:33:48.236Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:bd831ea7-bc8f-4ac6-b47e-ef434d1876d8>;
+        skos:definition               "a sector of economic activity comprising the development, construction, alteration, renovation, repair and demolition of buildings and civil engineering works, including site preparation, installation, finishing and other specialised construction activities"@en;
         skos:inScheme                 webuild:;
-        skos:prefLabel                <urn:uuid:52976d49-daae-44d2-ae2d-d75d03fe1b06>;
+        skos:note                     "In the context of Posted Worker Notifications, the concept is used to indicate whether an employer or another economic operator using the services of a posted worker is active in the construction sector. Sector membership may be determined using an applicable economic activity classification or national rules."@en;
+        skos:prefLabel                <urn:uuid:62edeaaa-6c33-4869-8c2e-f4c0703f22ee>;
+        skos:related                  webuild:activity;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
-<urn:uuid:52976d49-daae-44d2-ae2d-d75d03fe1b06>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "construction sector"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "In the context of Posted Worker Notifications, the concept is used to indicate whether an employer or another economic operator using the services of a posted worker is active in the construction sector. Sector membership may be determined using an applicable economic activity classification or national rules."@en );
+        term:orderedRelated           ( webuild:activity );
+        term:orderedSynonym           ( <urn:uuid:bd831ea7-bc8f-4ac6-b47e-ef434d1876d8> ) .
 
 <urn:uuid:760b4be2-8c0d-46e2-be0e-30d77cb2a146>
         rdf:type                      skos-xl:Label;
@@ -1076,34 +2190,32 @@ webuild:applicablejurisdiction
 
 webuild:amount  rdf:type              skos:Concept;
         dcterms:created               "2026-04-28T11:34:30.579Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-28T11:34:30.579Z"^^xsd:dateTime;
-        skos:definition               "TBD"@en;
+        dcterms:modified              "2026-08-10T09:25:10.691Z"^^xsd:dateTime;
+        skos:definition               "a quantitative value representing the magnitude, extent or total of something, expressed as a number and, where applicable, in relation to a unit of measure or currency"@en;
         skos:inScheme                 webuild:;
-        skos:prefLabel                <urn:uuid:3bca9a3d-4517-465b-928f-8d1744adf359>;
+        skos:narrower                 webuild:concept-85;
+        skos:note                     "The applicable unit, currency, datatype and other constraints depend on the context in which the amount is used."@en;
+        skos:prefLabel                <urn:uuid:af92d068-17df-48a6-9348-1f715c7e20d1>;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
-<urn:uuid:3bca9a3d-4517-465b-928f-8d1744adf359>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "amount"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNarrower          ( webuild:concept-85 );
+        term:orderedNote              ( "The applicable unit, currency, datatype and other constraints depend on the context in which the amount is used."@en ) .
 
 webuild:administrativerepresentative
         rdf:type                      skos:Concept;
         dcterms:created               "2026-04-28T11:33:34.865Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-28T11:33:34.865Z"^^xsd:dateTime;
-        skos:definition               "TBD"@en;
+        dcterms:modified              "2026-08-10T09:22:22.73Z"^^xsd:dateTime;
+        skos:definition               "the role of a person designated by an employer to submit and manage Posted Worker Notifications on the employer’s behalf"@en;
         skos:inScheme                 webuild:;
-        skos:prefLabel                <urn:uuid:e306af88-fa91-4982-9096-c453bd4da794>;
+        skos:note                     "The administrative representative handles administrative matters concerning the notification, including communication with competent authorities where required. The role is distinct from that of a social representative responsible for labour or social matters relating to the posting."@en;
+        skos:prefLabel                <urn:uuid:0903ea8e-594d-4f96-b9b1-192be807e77e>;
+        skos:related                  webuild:socialrepresentative;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
-<urn:uuid:e306af88-fa91-4982-9096-c453bd4da794>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "administrative representative"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNote              ( "The administrative representative handles administrative matters concerning the notification, including communication with competent authorities where required. The role is distinct from that of a social representative responsible for labour or social matters relating to the posting."@en );
+        term:orderedRelated           ( webuild:socialrepresentative ) .
 
 webuild:bankaccount  rdf:type         skos:Concept;
         dcterms:created               "2026-04-27T13:49:03.025Z"^^xsd:dateTime;
@@ -1161,11 +2273,6 @@ webuild:person  rdf:type              skos:Concept;
         skos-xl:literalForm           "natural person"@en;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
-<urn:uuid:3906e481-d9c7-4655-98d6-b3009d5365b9>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "identifier"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
 <urn:uuid:6fb558b9-ac6f-44e5-938f-c2c6989b7cbe>
         rdf:type                      skos-xl:Label;
         skos-xl:literalForm           "legal identifier"@en;
@@ -1213,15 +2320,17 @@ webuild:person  rdf:type              skos:Concept;
 
 webuild:identifier  rdf:type          skos:Concept;
         dcterms:created               "2026-04-14T05:48:44.149Z"^^xsd:dateTime;
-        dcterms:modified              "2026-04-14T07:14:10.031Z"^^xsd:dateTime;
-        skos:definition               "TBD"@en;
+        dcterms:modified              "2026-08-10T15:08:31.398Z"^^xsd:dateTime;
+        skos:definition               "a reference assigned to an entity to distinguish it from other entities within a specified identification scheme or context"@en;
         skos:inScheme                 webuild:;
         skos:narrower                 webuild:legalidentifier;
-        skos:prefLabel                <urn:uuid:3906e481-d9c7-4655-98d6-b3009d5365b9>;
+        skos:note                     "An identifier may identify a person, organization, location, object, document, attestation or other entity. It may be represented by a string, number, code or URI, or as a structured resource containing the identifier value, identification scheme, issuing authority and validity information. An identifier is not necessarily globally unique; its uniqueness depends on the identification scheme and relevant context. Specific types of identifiers should be represented as narrower concepts or classified using an identifier type."@en;
+        skos:prefLabel                <urn:uuid:5c30f025-89ac-4fd8-96e4-ff61dab1db9e>;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
-        term:orderedNarrower          ( webuild:legalidentifier ) .
+        term:orderedNarrower          ( webuild:legalidentifier );
+        term:orderedNote              ( "An identifier may identify a person, organization, location, object, document, attestation or other entity. It may be represented by a string, number, code or URI, or as a structured resource containing the identifier value, identification scheme, issuing authority and validity information. An identifier is not necessarily globally unique; its uniqueness depends on the identification scheme and relevant context. Specific types of identifiers should be represented as narrower concepts or classified using an identifier type."@en ) .
 
 <urn:uuid:9dd6aa36-d9d6-41c2-81d8-3f268dbf5789>
         rdf:type                      skos-xl:Label;
@@ -1954,32 +3063,24 @@ webuild:dateofregistration
         term:orderedSource            ( "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.2.0/#LegalEntity.registrationdate" );
         term:orderedSynonym           ( <urn:uuid:563f235a-d44a-4fa4-a40e-f5b4c47d8204> ) .
 
-<urn:uuid:b75e2235-2097-472c-9122-c426c8a3306f>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "registered address"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
 webuild:registeredaddress
         rdf:type                      skos:Concept;
         dcterms:created               "2026-02-03T15:18:48.614Z"^^xsd:dateTime;
-        dcterms:modified              "2026-02-03T15:18:48.614Z"^^xsd:dateTime;
+        dcterms:modified              "2026-08-17T14:14:26.112Z"^^xsd:dateTime;
         dcterms:source                "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.2.0/#LegalEntity.registeredaddress";
-        skos:altLabel                 <urn:uuid:6d74117a-7060-4a98-9acb-9274b59cdb8c>;
+        skos:altLabel                 <urn:uuid:16c46f66-6bb9-4be9-b352-171d64eb6bdc>;
+        skos:broader                  webuild:address;
         skos:definition               "the address at which the legal entity is legally registered"@en;
         skos:inScheme                 webuild:;
         skos:note                     "In almost all jurisdictions, Legal Entities must register a public address. This may or may not be the actual address at which the Legal Entity does its business, it is commonly the address of their lawyer or accountant, but it is the address to which formal communications can be sent. The registered address property points to the Address of the Registered Site. This property can be seen as a shorthand for this property path."@en;
-        skos:prefLabel                <urn:uuid:b75e2235-2097-472c-9122-c426c8a3306f>;
+        skos:prefLabel                <urn:uuid:b8a430a1-8ace-46ec-9c47-483967e840c8>;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedBroader           ( webuild:address );
         term:orderedNote              ( "In almost all jurisdictions, Legal Entities must register a public address. This may or may not be the actual address at which the Legal Entity does its business, it is commonly the address of their lawyer or accountant, but it is the address to which formal communications can be sent. The registered address property points to the Address of the Registered Site. This property can be seen as a shorthand for this property path."@en );
         term:orderedSource            ( "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.2.0/#LegalEntity.registeredaddress" );
-        term:orderedSynonym           ( <urn:uuid:6d74117a-7060-4a98-9acb-9274b59cdb8c> ) .
-
-<urn:uuid:6d74117a-7060-4a98-9acb-9274b59cdb8c>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "legal address"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+        term:orderedSynonym           ( <urn:uuid:16c46f66-6bb9-4be9-b352-171d64eb6bdc> ) .
 
 <urn:uuid:101bb874-365b-49c3-8438-5aec5be318ec>
         rdf:type                      skos-xl:Label;
@@ -2694,13 +3795,21 @@ webuild:concept-3009  rdf:type        skos:Concept;
 
 webuild:concept-86  rdf:type          skos:Concept;
         dcterms:created               "2025-10-06T08:38:16.293Z"^^xsd:dateTime;
-        dcterms:modified              "2025-10-06T08:38:16.293Z"^^xsd:dateTime;
-        skos:definition               "TBD"@en;
+        dcterms:modified              "2026-08-10T15:01:00.333Z"^^xsd:dateTime;
+        skos:altLabel                 <urn:uuid:a6565663-5d7b-4ac0-b18b-1ca150f5f832>;
+        skos:definition               "a identifiable geographic place, area or position, including natural, administrative and constructed places"@en;
         skos:inScheme                 webuild:;
-        skos:prefLabel                <urn:uuid:9b27e723-d4d7-4a09-90cc-46b210de8f19>;
+        skos:narrower                 webuild:deliverylocation;
+        skos:note                     "A location may be described by a geographic name, identifier, address, geometry, coordinates or its relationship to another location. Examples include a country, region, city, property, building, facility, terminal or designated point. A location may have an address, but not every location is addressable."@en;
+        skos:prefLabel                <urn:uuid:4dd0eea6-1e19-4944-b159-597dd41d6e27>;
+        skos:related                  webuild:geographicidentifier , webuild:geographicname;
         suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
         suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT>;
+        term:orderedNarrower          ( webuild:deliverylocation );
+        term:orderedNote              ( "A location may be described by a geographic name, identifier, address, geometry, coordinates or its relationship to another location. Examples include a country, region, city, property, building, facility, terminal or designated point. A location may have an address, but not every location is addressable."@en );
+        term:orderedRelated           ( webuild:geographicidentifier webuild:geographicname );
+        term:orderedSynonym           ( <urn:uuid:a6565663-5d7b-4ac0-b18b-1ca150f5f832> ) .
 
 webuild:concept-22  rdf:type          skos:Concept;
         dcterms:created               "2022-02-02T12:57:53Z";
@@ -3587,11 +4696,6 @@ webuild:concept-83  rdf:type          skos:Concept;
 <urn:uuid:f8607a1b-a379-406c-b458-b5edfb461839>
         rdf:type                      skos-xl:Label;
         skos-xl:literalForm           "object"@en;
-        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
-
-<urn:uuid:9b27e723-d4d7-4a09-90cc-46b210de8f19>
-        rdf:type                      skos-xl:Label;
-        skos-xl:literalForm           "location"@en;
         suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/DRAFT> .
 
 <urn:uuid:972d3d32-d19c-4275-bf28-4c5f97252106>

@@ -78,7 +78,7 @@
         "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-    "dc:date": "2026-07-13",
+    "dc:date": "2026-09-02",
     "rdfs_properties": [{
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -770,6 +770,22 @@
             "@type": "jsonld:Context"
         }]
     }, {
+        "@id": "ebwv:holderIdentifier",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:Membership",
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "holder identifier",
+        "rdfs:comment": {
+            "@value": "<div>unique identifier used within the DSI or data space to refer to the holder of the credential</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
         "@id": "ebwv:iban",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:BankAccount",
@@ -1142,9 +1158,8 @@
         }]
     }, {
         "@id": "ebwv:memberOf",
-        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:Membership",
-        "rdfs:range": "xsd:string",
         "rdfs:label": "member of",
         "rdfs:comment": {
             "@value": "<div>The DSI or dataspace the holder is member of.</div>",
@@ -1234,6 +1249,18 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/owner",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:ownershipPercentage",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:TBD",
+        "rdfs:range": "xsd:float",
+        "rdfs:label": "ownership percentage",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/ownershipPercentage",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",
@@ -1554,7 +1581,7 @@
         },
         "rdfs:range": {
             "@type": "ows:Class",
-            "owl:unionOf": ["xsd:string", "ebwv:DataSpaceRole"]
+            "owl:unionOf": ["ebwv:DataSpaceRole", "xsd:string"]
         },
         "rdfs:label": "role of the entity (e.g. the role of a legal representative in the company or the role of a dataspace member in the dataspace)",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/role",
@@ -2513,6 +2540,16 @@
         "@type": "ebwv:TypeOfEmployment",
         "rdfs:label": "type of employment Temporary",
         "rdfs:isDefinedBy": "https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary",
+        "vs:term_status": "stable",
+        "mentioned": [{
+            "@id": "https://w3id.org/ebwv/v0.1",
+            "@type": "jsonld:Context"
+        }]
+    }, {
+        "@id": "ebwv:UBO",
+        "@type": "rdfs:Resource",
+        "rdfs:label": "UBO",
+        "rdfs:isDefinedBy": "https:/w3id.org/ebwv/terminology#/concept/UBO",
         "vs:term_status": "stable",
         "mentioned": [{
             "@id": "https://w3id.org/ebwv/v0.1",

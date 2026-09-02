@@ -15,7 +15,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-07-13"^^xsd:date ;
+    dc:date "2026-09-02"^^xsd:date ;
 .
 
 # Property definitions
@@ -414,6 +414,15 @@ ebwv:hostEntity a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
+ebwv:holderIdentifier a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Membership ;
+    rdfs:range xsd:string ;
+    rdfs:label "holder identifier" ;
+    rdfs:comment """<div>unique identifier used within the DSI or data space to refer to the holder of the credential</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:iban a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:BankAccount ;
     rdfs:range ebwv:Iban ;
@@ -620,9 +629,8 @@ ebwv:member a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:memberOf a rdf:Property, owl:DatatypeProperty ;
+ebwv:memberOf a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Membership ;
-    rdfs:range xsd:string ;
     rdfs:label "member of" ;
     rdfs:comment """<div>The DSI or dataspace the holder is member of.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof>, <https://w3id.org/ebwv#> ;
@@ -671,6 +679,14 @@ ebwv:owner a rdf:Property, owl:ObjectProperty ;
     rdfs:label "owner" ;
     rdfs:comment """<div>an agent that holds an ownership right, title or legally recognised control over an asset, resource, business entity, credential, account, property or other object</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/owner>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:ownershipPercentage a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:TBD ;
+    rdfs:range xsd:float ;
+    rdfs:label "ownership percentage" ;
+    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/ownershipPercentage>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -848,7 +864,7 @@ ebwv:residency a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:role a rdf:Property ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:StatutoryPartner ebwv:Membership) ] ;
-    rdfs:range [ a owl:Class; owl:unionOf (xsd:string ebwv:DataSpaceRole) ] ;
+    rdfs:range [ a owl:Class; owl:unionOf (ebwv:DataSpaceRole xsd:string) ] ;
     rdfs:label "role of the entity (e.g. the role of a legal representative in the company or the role of a dataspace member in the dataspace)" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/role>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -1405,6 +1421,12 @@ ebwv:QEAA a ebwv:AttestationLegalCategory ;
 ebwv:Temporary a ebwv:TypeOfEmployment ;
     rdfs:label "type of employment Temporary" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:UBO a rdfs:Resource ;
+    rdfs:label "UBO" ;
+    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/UBO>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
