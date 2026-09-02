@@ -1100,6 +1100,15 @@ property:
     comment: the sovereign state within whose territory a person's death was officially registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath
 
+  - id: coveredObligationType
+    label: covered obligation type
+    domain: SocialSecurityContribution
+    range: 
+      - xsd:string
+      - skos:Concept
+    comment: the type of obligation that is covered by the attestation; in the case of a SSC, this covers for example social security, employment-related contribution, reporting, or payment obligation
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/coveredobligationtype
+
   - id: currency
     label: currency
     domain: 
