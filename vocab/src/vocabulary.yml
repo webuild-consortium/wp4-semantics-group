@@ -1036,6 +1036,13 @@ property:
     comment: a categorization of electronic attestations of attributes into three primary types, each associated with a distinct level of assurance and legal effect
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
+  - id: averagePeriodWorkforce
+    label: average period workforce
+    domain: SocialSecurityContribution
+    range: xsd:string
+    comment: average number of employed persons for the reporting period
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/averageperiodworkforce
+
   - id: birthName
     label: birth name
     domain: Person
@@ -1054,6 +1061,15 @@ property:
     range: CountryCode
     comment: the legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
+
+  - id: complianceStatus
+    label: compliance status
+    domain: SocialSecurityContribution
+    range: 
+      - xsd:string
+      - skos:Concept
+    comment: in the SSC context, the assessed status of the fulfilment of the covered obligations
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/compliancestatus
 
   - id: constructionSector
     label: construction sector
