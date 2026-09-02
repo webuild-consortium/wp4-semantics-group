@@ -1339,6 +1339,13 @@ property:
       - CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
 
+  - id: legalBasis
+    label: legal basis
+    domain: SocialSecurityContribution
+    range: xsd:string
+    comment: legal provision or framework under which the attestation is issued
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalbasis
+
   - id: legalEntity
     label: legal entity recognized by law
     domain: LegalRepresentative
