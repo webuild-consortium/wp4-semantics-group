@@ -1173,6 +1173,7 @@ property:
     domain: 
       - A1Certificate
       - PostedWorkerNotification
+      - SocialSecurityContribution
     range: EconomicOperator
     comment: a party that engages a person to perform work under an employment relationship, with associated rights, duties, reporting obligations, or liabilities
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/employer
