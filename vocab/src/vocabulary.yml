@@ -1820,7 +1820,10 @@ property:
   - id: statusConfirmation
     label: status confirmation
     domain: A1Certificate
-    range: xsd:boolean
+    comment: the A1 Rulebook mentions 12 code values for this property: Posted employed person; Employed, working in two or more States, Posted self-employed person etc.
+    range: 
+      - xsd:string
+      - skos:Concept
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statusconfirmation
 
   - id: subscribedCapital
