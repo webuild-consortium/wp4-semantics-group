@@ -1756,6 +1756,12 @@ property:
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingmonth
 
+  - id: reportingPeriod
+    label: reporting period
+    domain: SocialSecurityContribution
+    range: PeriodOfTime
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingperiod
+
   - id: residency
     label: residency
     domain: Person
