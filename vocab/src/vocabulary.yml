@@ -982,13 +982,12 @@ property:
     comment: organised doing, operation or process carried out for a purpose or result
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
 
-  - id: hasAddress
-    label: hasAddress
-    domain: Site
-    range: Address
-    comment: the address of an entity, provided the address is not of a specific type like registered address or temporary address 
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress
-
+  - id: activityDurationCovered
+    label: activity duration covered
+    domain: A1Certificate
+    range: xsd:boolean
+    comment: an indicator of whether an A1 certificate applies for the entire duration of the stay in the host country 
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activitydurationcovered
 
   - id: addressArea
     label: address area
@@ -1088,8 +1087,9 @@ property:
   - id: contactPoint
     label: contact point
     domain:
-      - Person
       - EconomicOperator
+      - Person
+      - PublicSectorBody
     range: ContactPoint
     comment: a designated communication channel or organisational function through which an entity can be contacted for a specific purpose
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
@@ -1254,13 +1254,6 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname
 
-  - id: fullPeriodCovered
-    label: full period covered
-    domain: A1Certificate
-    range: xsd:boolean
-    comment: indicates that the PD A1 certificate applies for the entire duration of the cross-border work activity or posting for which the certificate is issued
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullperiodcovered
-
   - id: gender
     label: gender
     domain: Person
@@ -1289,11 +1282,18 @@ property:
     comment: the name(s) that identify the person within a family with a common surname
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
 
+  - id: hasAddress
+    label: hasAddress
+    domain: Site
+    range: Address
+    comment: the address of an entity, provided the address is not of a specific type like registered address or temporary address 
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress
+
   - id: hasEmail
     label: email
     domain: ContactPoint
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasemail
 
   - id: hash
     label: hash
@@ -1307,13 +1307,13 @@ property:
     domain: SocialSecurityContribution
     range: Site
     comment: a place, premises or location at which an organisation is present or located
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/site
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hassite
 
   - id: hasTelephone
     label: telephone
     domain: ContactPoint
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/telephone
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hastelephone
 
   - id: hostEntity
     label: host entity
@@ -1377,11 +1377,12 @@ property:
   - id: jurisdiction
     label: jurisdiction
     domain:
+      - A1Certificate
       - Company
       - LegalPerson
-      - A1Certificate
-      - WorkAssignment
       - PublicSectorBody
+      - WorkAssignment
+    comment: indicator of the country which legislation an entity needs to follow (draft)
     range:
       - CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
@@ -1827,7 +1828,10 @@ property:
   - id: statusConfirmation
     label: status confirmation
     domain: A1Certificate
-    range: xsd:boolean
+    comment: the A1 Rulebook mentions 12 code values for this property: Posted employed person; Employed, working in two or more States, Posted self-employed person etc.
+    range: 
+      - xsd:string
+      - skos:Concept
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statusconfirmation
 
   - id: subscribedCapital
