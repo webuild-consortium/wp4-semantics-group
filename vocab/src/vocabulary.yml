@@ -216,7 +216,7 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
-      - label: Credential with credential subject of type Company, holding business defined by and addition explicite claims
+      - label: Credential with credential subject of type Company, holding business defined by explicit claims
         json: |
           {
             "@context": [
@@ -242,8 +242,8 @@ class:
                 "@id": "did:key:$publicKeyOfBusinessEntity$",
                 "@type": [
                   "EconomicOperator",
-                  "Company"]
-                ,
+                  "Company"
+                ],
                 "legalName": "acme Corporation",
                 "legalForm": "Inc.",
                 "registeredAddress": {
