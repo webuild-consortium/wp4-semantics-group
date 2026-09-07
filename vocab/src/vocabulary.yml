@@ -133,6 +133,10 @@ class:
                   "@value" : "12345678"
                 },
                 {
+                  "@type" : "DunsNumber",
+                  "@value" : "123456789"
+                },
+                {
                   "@type": "VatId",
                   "@value": "123456789MVA"
                 },
@@ -178,6 +182,86 @@ class:
   - id: DataSpaceRole
     label: role of dataspace member
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dataspacerole
+
+  - id: DUNS
+    label: DUNS
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/duns
+    example:
+      - label: Credential with credential subject of type DUNS, holding business defined by DID
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:af1383ab-b4e0-496f-8bf4-ce3e4228ece3",
+              "@type": [
+                "DUNS"
+              ],
+              "identifier": {
+                "@type" : "DunsNumber",
+                "@value" : "123456789"
+              },
+              "businessEntity": "did:key:$publicKeyOfBusinessEntity$" 
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+      - label: Credential with credential subject of type Company, holding business defined by and addition explicite claims
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:af1383ab-b4e0-496f-8bf4-ce3e4228ece3",
+              "@type": [
+                "DUNS"
+              ],
+              "identifier": {
+                "@type" : "DunsNumber",
+                "@value" : "123456789"
+              },
+              "businessEntity": {
+                "@id": "did:key:$publicKeyOfBusinessEntity$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company"]
+                ,
+                "legalName": "acme Corporation",
+                "legalForm": "Inc.",
+                "registeredAddress": {
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                }
+              }
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
 
   - id: EconomicOperator
     label: Economic Operator
@@ -1057,6 +1141,12 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname
 
+  - id: businessEntity
+    label: business entity
+    domain: DUNS
+    range: Company
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/businessEntity
+
   - id: buyer
     label: buyer
     domain: PaymentTerms
@@ -1136,7 +1226,6 @@ property:
     domain: SocialSecurityContribution
     range: 
       - xsd:string
-      - skos:Concept
     comment: the type of obligation that is covered by the attestation; in the case of a SSC, this covers for example social security, employment-related contribution, reporting, or payment obligation
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/coveredobligationtype
 
@@ -1343,9 +1432,11 @@ property:
       - Site
       - VATRegistrationUnit
       - GLN
+      - DUNS
     range:
       - Bic
       - ClearingNumber
+      - DunsNumber
       - Eori
       - Excise
       - GlobalLocationNumber
@@ -1959,6 +2050,13 @@ datatype:
     label: economic operator registration and identification
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
+
+  - id: DunsNumber
+    label: DUNS number
+    upper_value: xsd:string
+    pattern: '[0-9]{9}'
+    comment: The Data Universal Numbering System, abbreviated as DUNS or D-U-N-S, is a proprietary system developed and managed by Dun & Bradstreet (D&B) that assigns a unique numeric identifier, referred to as a "DUNS number" to a single business entity.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dunsnumber
 
   - id: Euid
     label: EUID
