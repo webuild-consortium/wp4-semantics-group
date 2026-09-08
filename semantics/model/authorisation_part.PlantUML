@@ -5,14 +5,12 @@ class Authorisation {
  +dct:identifier : uri
  *dct:title : Literal
  *entityConcerned :
- +isWitnessedBy :
+ *dct:temporal :
  +hasLegalBasisIn :
- *principal :
+ *authorisationRule :
  +status : ENUM [active, inactive]
  *dateOfIssue : date
- *dct:temporal :
  +type : Skos Concept
- 'type is optional, just in case property. 
  +replaces :
  +delegable : [Y/N]
  *hasRule :
@@ -20,8 +18,15 @@ class Authorisation {
  +hasScope :
 }
 
+class AuthorisationRule {
+ +name: string
+ +hasSubrule:
+ *hasInvolvement :
+}
+
 class AssignmentRule {
- +hasSubassignmentRule:
+ +name: string
+ +hasSubrule:
  *grantee :
  *jointType : ENUM [Alone, All, Majority,
  One of y, At Least x of y]
@@ -53,7 +58,6 @@ class Rule {
  +hasPart:
 }
 
-
 class Law {
  *hasJurisdiction : 
  *code : string
@@ -65,13 +69,10 @@ class By'Law {
  *hasApplicableLaw :
 }
 
-
-
 class PeriodOfTime {
  *startDate : date
  +endDate : date
 }
-
 
 class IdentificationDocument {
  *number : string
@@ -84,8 +85,8 @@ class Involvement {
  *name : string
  *dct:temporal :
  *member :
- *inOrganisation :
  +hasRole :
+ *inOrganisation :
 }
 
 class Machine {
@@ -96,6 +97,7 @@ class Machine {
 class Person {
  *nameFirst : string
  *nameLast : string
+ +title: string
  +dateOfBirth : date
  +placeOfBirth :
  +fullAdress :
@@ -145,24 +147,6 @@ class "CodeList:ISO80000Unit\n<size:11><color:gray><i>Scientific unit symbols ba
   <font:monospaced>W       watt</font>
 }
 
-'class "CodeList:ISO80000-2\n<size:11><color:gray><i>Allowed operators for expressions and constraints.</i></color></size>" as ISO80000-2 {
-'  <font:monospaced><color:gray>code   symbol  definition</color></font>
-'  --
-'  <font:monospaced>ADD    +       addition</font>
-'  <font:monospaced>SUB    -       subtraction</font>
-'  <font:monospaced>MUL    *       multiplication</font>
-'  <font:monospaced>DIV    /       division</font>
-'  <font:monospaced>EQ     =       equal to</font>
-'  <font:monospaced>NEQ    !=      not equal to</font>
-'  <font:monospaced>LT     <       less than</font>
-'  <font:monospaced>LTE    <=      less than or equal to</font>
-'  <font:monospaced>GT     >       greater than</font>
-'  <font:monospaced>GTE    >=      greater than or equal to</font>
-'  <font:monospaced>AND    AND     logical conjunction</font>
-'  <font:monospaced>OR     OR      logical disjunction</font>
-'  <font:monospaced>NOT    NOT     logical negation</font>
-'}
-
 class "CodeList:ISO4217:20215\n<size:11><color:gray><i>Allowed currency values.</i></color></size>" as ISO4217:20215 {
   <font:monospaced><color:gray>code  definition</color></font>
   --
@@ -188,6 +172,7 @@ class "CodeList:identificationDocumentType\n<size:11><color:gray><i>Document typ
   <font:monospaced>VISA      Machine readable visa</font>
   <font:monospaced>EMERGENCY Emergency travel document</font>
 }
+
 class "CodeList:eService\n<size:11><color:gray><i>Allowed eService codes based on service provider.</i></color></size>" as eService {
   <font:monospaced><color:gray>code   definition</color></font>
   --
@@ -204,8 +189,7 @@ class "CodeList:SpacialExtent\n<size:11><color:gray><i>Allowed regions codes bas
   <font:monospaced>FR  Friesland (GIS standard)</font>
 }
 
-class  EconomicOperator
-{
+class  EconomicOperator {
  *legalName : string
  +registryNumber : string
  *EUID : identifier
@@ -223,14 +207,13 @@ class Entity {
  +optional
 }
 
-Authorisation::principal "1" -left-> "1..n" Involvement #line:DarkRed;text:White :_____
-Authorisation::isWitnessedBy "0..1" -up-> "1..n" Involvement__ #line:DarkRed;text:DarkRed
+Authorisation::authorisationRule "1" -left-> "1..n" AuthorisationRule #line:DarkRed;text:White :_____
 Authorisation::hasLegalBasisIn "1" -up-> "1..n" LegalBasis_ #line:DarkRed;text:DarkRed
 Authorisation::hasScope "0..1" -down-> "1..n" Scope #line:DarkRed;text:DarkRed
 Authorisation::isDocumentedIn "0..1" -down-> "1..n" Document #line:DarkRed;text:DarkRed
 Authorisation::hasRule "1" -right-> "1" AssignmentRule #line:DarkRed;text:White :_____
-Authorisation::temporal "1" -left-> "1" PeriodOfTime #line:DarkRed;text:White :_____
-Authorisation::entityConcerned "1" -up-> "1..n" Involvement___ #line:DarkRed;text:White :_____
+Authorisation::temporal "1" -up-> "1" PeriodOfTime #line:DarkRed;text:White :_____
+Authorisation::entityConcerned "1" -up-> "1..n" Involvement__ #line:DarkRed;text:White :_____
 
 skinparam groupInheritance 2
 _Role  <|-- LegalBasis #line:DarkRed;text:White :_____
@@ -253,8 +236,13 @@ Law "1" <-up- "1" Rule::isApplicableWhithin #line:DarkRed;text:White :_____
 
 By'Law::hasApplicableLaw "1" --> "1..n" Law #line:DarkRed;text:DarkRed
 
+AuthorisationRule::hasSubrule "1" -up-> "1" Operator__ #line:DarkRed;text:DarkRed
+Operator__ "1" -down-> "1" AuthorisationRule
+AuthorisationRule::hasInvolvement "1" -left-> "1" Involvement #line:DarkRed;text:DarkRed
+
+
 AssignmentRule::isAssignedTo "1" -right-> "1..n" Involvement_ #line:DarkRed;text:DarkRed
-AssignmentRule::hasSubassignmentRule "1" -up-> "1" Operator_ #line:DarkRed;text:DarkRed
+AssignmentRule::hasSubrule "1" -up-> "1" Operator_ #line:DarkRed;text:DarkRed
 Operator_ "1" --> "1" AssignmentRule
 
 Involvement::hasRole "1" -down-> "0..1" Role #line:DarkRed;text:DarkRed
@@ -274,20 +262,16 @@ Restriction::unit "1" .down.> "n" ISO80000Unit #line:Gray;text:DarkRed
 Restriction::unit .down.> "NACE::code" #line:Gray;text:DarkRed
 Restriction::unit .down.> "eService::code" #line:Gray;text:DarkRed
 Restriction::unit .down.> "SpacialExtent::code" #line:Gray;text:DarkRed
+Restriction::unit .down.> "ISO4217:20215" #line:Gray;text:DarkRed
 
 Person::identificationDocument "1" -down-> "1" IdentificationDocument
-IdentificationDocument::type .right.> "identificationDocumentType::code" #line:Gray;text:DarkRed
+IdentificationDocument::type .down.> "identificationDocumentType::code" #line:Gray;text:DarkRed
 
 Role::inOrganisation "1" -left-> "1" "EconomicOperator" #line:DarkRed;text:DarkRed
 Scope::hasRestriction "1" -down-> "0..n" Restriction #line:DarkRed;text:DarkRed
 
-
 Role -right- Person #line:White
-"ISO4217:20215" -up- ISO80000Unit #line:White
-Role -left- Person #line:White
-Involvement__ -left- Involvement___ #line:White
 EconomicOperator -left- Person #line:White
-Involvement -right- PeriodOfTime #line:White
 AssignmentRule -down-> Document #line:White
 Entity -right- _Role #line:White
 
@@ -312,6 +296,7 @@ class Unit #LightYellow;line:DarkRed;text:DarkRed
 class Presidence #LightYellow;line:DarkRed;text:DarkRed
 class Operator #LightYellow;line:DarkRed;text:DarkRed
 class Rule #LightYellow;line:DarkRed;text:DarkRed
+class AuthorisationRule #LightYellow;line:DarkRed;text:DarkRed
 
 class eService #CEEED0;line:285F17;text:285F17
 class ISO4217:20215 #CEEED0;line:285F17;text:285F17
