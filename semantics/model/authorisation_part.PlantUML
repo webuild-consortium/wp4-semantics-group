@@ -21,24 +21,51 @@ class Authorisation {
 }
 
 class AssignmentRule {
+ +hasSubassignmentRule:
  *grantee :
  *jointType : ENUM [Alone, All, Majority,
  One of y, At Least x of y]
  *totalNumberOfGranteesInRule : Integer
- +and:
- +or:
 }
 
-class [ABS]LegalBasis {
+class LegalBasis {
 ' Legal Basis is a Role that the law or an other
 ' authorisation gan give.
+ *hasApplicableLaw:
+ *hasApplicableAuthorisation:
+ +isInfluencedBy
 }
 
+class Presidence {
+ +name:
+ *description: string
+ *hasJurisdiction:
+ *influences:
+}
+
+class Jurisdiction {
+ 
+}
+
+class Rule {
+ *isApplicableWhithin:
+ *isDerivedFrom:
+ +hasPart:
+}
+
+
 class Law {
- *jurisdiction : string
+ *hasJurisdiction : 
  *code : string
  *name : string
+ *authority :
 }
+
+class By'Law {
+ *hasApplicableLaw :
+}
+
+
 
 class PeriodOfTime {
  *startDate : date
@@ -55,6 +82,7 @@ class IdentificationDocument {
 class Involvement {
  +code : string
  *name : string
+ *dct:temporal :
  *member :
  *inOrganisation :
  +hasRole :
@@ -74,18 +102,21 @@ class Person {
  +identificationDocument :
 }
 
+class Operator {
+ *type: [AND, OR, NOT]
+ *hasRestriction:
+}
+
 class Role {
  *name :
  *inOrganisation :
 }
 
 class Restriction {
- *operator : ISO80000-2
- *value : RestrictionValue
- *unit : Unit
- +source : uri
- 'the source points to the code, not the code list..
- 'make as much restrictions as you need to define the scope.
+ *operator : [!=, <, <=, =, =>, >]
+ *value : [Literal]
+ *unit : [skos:Concept]
+ +hasSubrestriction:
  }
  
 class Unit {
@@ -114,23 +145,23 @@ class "CodeList:ISO80000Unit\n<size:11><color:gray><i>Scientific unit symbols ba
   <font:monospaced>W       watt</font>
 }
 
-class "CodeList:ISO80000-2\n<size:11><color:gray><i>Allowed operators for expressions and constraints.</i></color></size>" as ISO80000-2 {
-  <font:monospaced><color:gray>code   symbol  definition</color></font>
-  --
-  <font:monospaced>ADD    +       addition</font>
-  <font:monospaced>SUB    -       subtraction</font>
-  <font:monospaced>MUL    *       multiplication</font>
-  <font:monospaced>DIV    /       division</font>
-  <font:monospaced>EQ     =       equal to</font>
-  <font:monospaced>NEQ    !=      not equal to</font>
-  <font:monospaced>LT     <       less than</font>
-  <font:monospaced>LTE    <=      less than or equal to</font>
-  <font:monospaced>GT     >       greater than</font>
-  <font:monospaced>GTE    >=      greater than or equal to</font>
-  <font:monospaced>AND    AND     logical conjunction</font>
-  <font:monospaced>OR     OR      logical disjunction</font>
-  <font:monospaced>NOT    NOT     logical negation</font>
-}
+'class "CodeList:ISO80000-2\n<size:11><color:gray><i>Allowed operators for expressions and constraints.</i></color></size>" as ISO80000-2 {
+'  <font:monospaced><color:gray>code   symbol  definition</color></font>
+'  --
+'  <font:monospaced>ADD    +       addition</font>
+'  <font:monospaced>SUB    -       subtraction</font>
+'  <font:monospaced>MUL    *       multiplication</font>
+'  <font:monospaced>DIV    /       division</font>
+'  <font:monospaced>EQ     =       equal to</font>
+'  <font:monospaced>NEQ    !=      not equal to</font>
+'  <font:monospaced>LT     <       less than</font>
+'  <font:monospaced>LTE    <=      less than or equal to</font>
+'  <font:monospaced>GT     >       greater than</font>
+'  <font:monospaced>GTE    >=      greater than or equal to</font>
+'  <font:monospaced>AND    AND     logical conjunction</font>
+'  <font:monospaced>OR     OR      logical disjunction</font>
+'  <font:monospaced>NOT    NOT     logical negation</font>
+'}
 
 class "CodeList:ISO4217:20215\n<size:11><color:gray><i>Allowed currency values.</i></color></size>" as ISO4217:20215 {
   <font:monospaced><color:gray>code  definition</color></font>
@@ -194,7 +225,7 @@ class Entity {
 
 Authorisation::principal "1" -left-> "1..n" Involvement #line:DarkRed;text:White :_____
 Authorisation::isWitnessedBy "0..1" -up-> "1..n" Involvement__ #line:DarkRed;text:DarkRed
-Authorisation::hasLegalBasisIn "1" -up-> "1..n" [ABS]LegalBasis #line:DarkRed;text:DarkRed
+Authorisation::hasLegalBasisIn "1" -up-> "1..n" LegalBasis_ #line:DarkRed;text:DarkRed
 Authorisation::hasScope "0..1" -down-> "1..n" Scope #line:DarkRed;text:DarkRed
 Authorisation::isDocumentedIn "0..1" -down-> "1..n" Document #line:DarkRed;text:DarkRed
 Authorisation::hasRule "1" -right-> "1" AssignmentRule #line:DarkRed;text:White :_____
@@ -202,18 +233,29 @@ Authorisation::temporal "1" -left-> "1" PeriodOfTime #line:DarkRed;text:White :_
 Authorisation::entityConcerned "1" -up-> "1..n" Involvement___ #line:DarkRed;text:White :_____
 
 skinparam groupInheritance 2
-_Role  <|-- [ABS]LegalBasis_ #line:DarkRed;text:White :_____
+_Role  <|-- LegalBasis #line:DarkRed;text:White :_____
 
 RestrictionValue -down- ISO80000Unit #line:White;text:White :_____
 
-[ABS]LegalBasis_  <|-- Law #line:DarkRed;text:White :_____
-[ABS]LegalBasis_  <|-- By'Law #line:DarkRed;text:White :_____
-[ABS]LegalBasis_  <|-- Authorisation_ #line:DarkRed;text:White :_____
+LegalBasis::hasApplicableLaw "1" --> "0..n" Law #line:DarkRed;text:Darkred
+LegalBasis::isInfluencedBy "1" --> "0..n" Presidence #line:DarkRed;text:Darkred
+LegalBasis::hasApplicableAuthorisation "1"  --> "0..n" Authorisation_ #line:DarkRed;text:Darkred
 
+Rule::isDerivedFrom "1" --> "1..n" LegalBasis #line:DarkRed;text:Darkred
+Rule::hasPart "0..1" --> "1..n" Rule_ #line:DarkRed;text:Darkred
+
+Presidence::hasJurisdiction "1" --> "1" Jurisdiction
+
+Law  <|-- By'Law #line:DarkRed;text:White :_____
+Law::authority "1" --> "1" Authority #line:DarkRed;text:White :_____
+Law::hasJurisdiction "1" --> "1" Jurisdiction #line:DarkRed;text:White :_____
+Law "1" <-up- "1" Rule::isApplicableWhithin #line:DarkRed;text:White :_____
+
+By'Law::hasApplicableLaw "1" --> "1..n" Law #line:DarkRed;text:DarkRed
 
 AssignmentRule::isAssignedTo "1" -right-> "1..n" Involvement_ #line:DarkRed;text:DarkRed
-AssignmentRule::and "1" -down-> "0..n" AssignmentRule__ #line:DarkRed;text:DarkRed
-AssignmentRule::or "1" -down-> "0..n" AssignmentRule_ #line:DarkRed;text:DarkRed
+AssignmentRule::hasSubassignmentRule "1" -up-> "1" Operator_ #line:DarkRed;text:DarkRed
+Operator_ "1" --> "1" AssignmentRule
 
 Involvement::hasRole "1" -down-> "0..1" Role #line:DarkRed;text:DarkRed
 Involvement::member "1" -down-> "0..1" Person  #line:DarkRed;text:DarkRed
@@ -224,38 +266,38 @@ Involvement_::member "1" -down-> "0..1" Person_  #line:DarkRed;text:DarkRed
 Involvement_::member "1" -down-> "0..1" Machine_  #line:DarkRed;text:DarkRed
 Involvement_::inOrganisation "1" -down-> "0..1" EconomicOperator_  #line:DarkRed;text:DarkRed
 
-Restriction::operator "1" .left.> "1" "ISO80000-2" #line:Gray;text:DarkRed
-Restriction::value "1" .right.> "1" "RestrictionValue::type" #line:Gray;text:DarkRed
-Restriction::unit "1" .right.> "n" "Unit" #line:Gray;text:DarkRed
-Unit::exponent .up.> "RestrictionValue::type" #line:Gray;text:White :_
-Unit::unit "1" .down.> "1..n" "ISO4217:20215::code" #line:Gray;text:DarkRed
-Unit::unit "1" .right.> "1..n" "ISO80000Unit::exponent" #line:Gray;text:White :__
+Restriction::hasSubrestriction "0..1" -up-> "1..n" Operator #line:DarkRed;text:DarkRed
+Operator::hasRestriction "1" -down-> "1..n" Restriction #line:DarkRed;text:DarkRed
 
-Restriction::source .down.> "NACE::code" #line:Gray;text:DarkRed
-Restriction::source .down.> "eService::code" #line:Gray;text:DarkRed
-Restriction::source .down.> "SpacialExtent::code" #line:Gray;text:DarkRed
-Person::identificationDocument -down-> IdentificationDocument
+Restriction::value "1" .down.> "1" "RestrictionValue::type" #line:Gray;text:DarkRed
+Restriction::unit "1" .down.> "n" ISO80000Unit #line:Gray;text:DarkRed
+Restriction::unit .down.> "NACE::code" #line:Gray;text:DarkRed
+Restriction::unit .down.> "eService::code" #line:Gray;text:DarkRed
+Restriction::unit .down.> "SpacialExtent::code" #line:Gray;text:DarkRed
+
+Person::identificationDocument "1" -down-> "1" IdentificationDocument
 IdentificationDocument::type .right.> "identificationDocumentType::code" #line:Gray;text:DarkRed
 
-Role::inOrganisation -left-> "EconomicOperator" #line:DarkRed;text:DarkRed
-
+Role::inOrganisation "1" -left-> "1" "EconomicOperator" #line:DarkRed;text:DarkRed
 Scope::hasRestriction "1" -down-> "0..n" Restriction #line:DarkRed;text:DarkRed
 
-AssignmentRule -down-> Document #line:White
+
 Role -right- Person #line:White
 "ISO4217:20215" -up- ISO80000Unit #line:White
 Role -left- Person #line:White
 Involvement__ -left- Involvement___ #line:White
 EconomicOperator -left- Person #line:White
 Involvement -right- PeriodOfTime #line:White
-AssignmentRule_ -right- AssignmentRule__ #line:White
+AssignmentRule -down-> Document #line:White
 Entity -right- _Role #line:White
 
 class Authorisation #LightYellow;line:DarkRed;text:DarkRed
 class Law #LightYellow;line:DarkRed;text:DarkRed
 class Scope #LightYellow;line:DarkRed;text:DarkRed
 class Document #LightYellow;line:DarkRed;text:DarkRed
-class [ABS]LegalBasis #LightYellow;line:DarkRed;text:DarkRed
+class LegalBasis #LightYellow;line:DarkRed;text:DarkRed
+class Jurisdiction  #LightYellow;line:DarkRed;text:DarkRed
+class By'Law #LightYellow;line:DarkRed;text:DarkRed
 class IdentificationDocument #LightYellow;line:DarkRed;text:DarkRed
 class EconomicOperator #LightYellow;line:DarkRed;text:DarkRed
 class Involvement #LightYellow;line:DarkRed;text:DarkRed
@@ -267,6 +309,9 @@ class Restriction #LightYellow;line:DarkRed;text:DarkRed
 class Entity #LightYellow;line:DarkRed;text:DarkRed
 class PeriodOfTime #LightYellow;line:DarkRed;text:DarkRed
 class Unit #LightYellow;line:DarkRed;text:DarkRed
+class Presidence #LightYellow;line:DarkRed;text:DarkRed
+class Operator #LightYellow;line:DarkRed;text:DarkRed
+class Rule #LightYellow;line:DarkRed;text:DarkRed
 
 class eService #CEEED0;line:285F17;text:285F17
 class ISO4217:20215 #CEEED0;line:285F17;text:285F17
@@ -274,7 +319,6 @@ class NACE #CEEED0;line:285F17;text:285F17
 class SpacialExtent #CEEED0;line:285F17;text:285F17
 class identificationDocumentType #CEEED0;line:285F17;text:285F17
 class ISO80000Unit #CEEED0;line:285F17;text:285F17
-class ISO80000-2 #CEEED0;line:285F17;text:285F17
 class RestrictionValue #CEEED0;line:285F17;text:285F17
 
 hide circle
