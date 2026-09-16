@@ -458,10 +458,6 @@
             "@id": "https://w3id.org/ebwv#Membership",
             "@context": {
                 "@protected": true,
-                "holderIdentifier": {
-                    "@id": "https://w3id.org/ebwv#holderIdentifier",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
                 "member": {
                     "@id": "https://w3id.org/ebwv#member",
                     "@type": "@id"
@@ -508,6 +504,24 @@
                 },
                 "givenName": {
                     "@id": "https://w3id.org/ebwv#givenName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "OnboardingDetails": {
+            "@id": "https://w3id.org/ebwv#OnboardingDetails",
+            "@context": {
+                "@protected": true,
+                "member": {
+                    "@id": "https://w3id.org/ebwv#member",
+                    "@type": "@id"
+                },
+                "operator": {
+                    "@id": "https://w3id.org/ebwv#operator",
+                    "@type": "@id"
+                },
+                "platform": {
+                    "@id": "https://w3id.org/ebwv#platform",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
@@ -669,20 +683,6 @@
                 "temporaryAddress": {
                     "@id": "https://w3id.org/ebwv#temporaryAddress",
                     "@type": "@id"
-                }
-            }
-        },
-        "Platform": {
-            "@id": "https://w3id.org/ebwv#Platform",
-            "@context": {
-                "@protected": true,
-                "operator": {
-                    "@id": "https://w3id.org/ebwv#operator",
-                    "@type": "@id"
-                },
-                "platformId": {
-                    "@id": "https://w3id.org/ebwv#platformId",
-                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
                 }
             }
         },
@@ -877,12 +877,10 @@
                 }
             }
         },
-        "description": "https://schema.org/description",
         "issuer": {
             "@id": "https://www.w3.org/2018/credentials#issuer",
             "@type": "@id"
         },
-        "name": "https://schema.org/name",
         "ownershipPercentage": {
             "@id": "https://w3id.org/ebwv#ownershipPercentage",
             "@type": "http://www.w3.org/2001/XMLSchema#float"
@@ -925,6 +923,7 @@
         "GlobalLocationNumber": "https://w3id.org/ebwv#GlobalLocationNumber",
         "GS1CompanyPrefix": "https://w3id.org/ebwv#GS1CompanyPrefix",
         "Iban": "https://w3id.org/ebwv#Iban",
+        "KmgMid": "https://w3id.org/ebwv#KmgMid",
         "Lei": "https://w3id.org/ebwv#Lei",
         "Nace21": "https://w3id.org/ebwv#Nace21",
         "NationalBankCode": "https://w3id.org/ebwv#NationalBankCode",

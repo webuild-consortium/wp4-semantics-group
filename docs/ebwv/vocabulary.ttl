@@ -1,7 +1,7 @@
 @prefix ebwv: <https://w3id.org/ebwv#> .
 @prefix cred: <https://www.w3.org/2018/credentials#> .
 @prefix jsonld: <http://www.w3.org/ns/json-ld#> .
-@prefix schema: <https://schema.org/> .
+@prefix schema: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix dc: <http://purl.org/dc/terms/> .
@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-09-07"^^xsd:date ;
+    dc:date "2026-09-16"^^xsd:date ;
 .
 
 # Property definitions
@@ -468,15 +468,6 @@ ebwv:hostEntity a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:holderIdentifier a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Membership ;
-    rdfs:range xsd:string ;
-    rdfs:label "holder identifier" ;
-    rdfs:comment """<div>unique identifier used within the DSI or data space to refer to the holder of the credential</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:iban a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:BankAccount ;
     rdfs:range ebwv:Iban ;
@@ -684,7 +675,7 @@ ebwv:matronymicName a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:member a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:Membership ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Membership ebwv:OnboardingDetails) ] ;
     rdfs:range ebwv:EconomicOperator ;
     rdfs:label "member" ;
     rdfs:comment """<div>holder of the membership</div>"""^^rdf:HTML ;
@@ -711,15 +702,15 @@ ebwv:noFixedPlaceOfWork a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:onboardedBy a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:Membership ;
-    rdfs:range ebwv:Platform ;
+    rdfs:range ebwv:OnboardingDetails ;
     rdfs:label "onboarded by" ;
-    rdfs:comment """<div>Platform that has onboarded the member.</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>Onboarding details of member.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:operator a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:Platform ;
+    rdfs:domain ebwv:OnboardingDetails ;
     rdfs:range ebwv:EconomicOperator ;
     rdfs:label "operator" ;
     rdfs:comment """<div>The organisation that hosts the platform and onboards new members.</div>"""^^rdf:HTML ;
@@ -828,12 +819,12 @@ ebwv:placeOfWork a rdf:Property ;
     vs:term_status "stable" ;
 .
 
-ebwv:platformId a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Platform ;
-    rdfs:range xsd:anyURI ;
-    rdfs:label "platform id" ;
-    rdfs:comment """<div>DID of the plaform (e.g. data change initiative)</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/platformid>, <https://w3id.org/ebwv#> ;
+ebwv:platform a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:OnboardingDetails ;
+    rdfs:range xsd:string ;
+    rdfs:label "platform" ;
+    rdfs:comment """<div>name of the plaform that onboarded the member (e.g. data sharing initiative)</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/platform>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1281,6 +1272,12 @@ ebwv:NaturalPerson a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
+ebwv:OnboardingDetails a rdfs:Class ;
+    rdfs:label "onboarding details" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingdetails>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:Partnership a rdfs:Class ;
     rdfs:subClassOf ebwv:Company ;
     rdfs:label "partnership" ;
@@ -1304,13 +1301,6 @@ ebwv:PeriodOfTime a rdfs:Class ;
 ebwv:Person a rdfs:Class ;
     rdfs:label "Person" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/person>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:Platform a rdfs:Class ;
-    rdfs:label "Platform" ;
-    rdfs:comment """<div>Data sharing initiative that onboarded the member</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/platform>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1620,6 +1610,16 @@ ebwv:Iban a rdfs:Datatype ;
     rdfs:label "IBAN" ;
     rdfs:comment """<div>IBAN as defined by ISO 13616:2020</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://www.iso.org/standard/81090.html>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:KmgMid a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([xsd:pattern "[0-9]{9}"]) ;
+    rdfs:label "KMG-ID" ;
+    rdfs:comment """<div>A nationally unique identifier assigned to an agricultural holding registered in the Slovenian Register of Agricultural Holdings (Register kmetijskih gospodarstev, RKG). The identifier uniquely identifies a farm or agricultural holding for administrative, regulatory, subsidy, traceability, and agricultural data exchange purposes.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/kmgmid>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
