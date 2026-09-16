@@ -586,42 +586,65 @@ class:
               "VerifiableCredential",
               "ElectronicAttestationOfAttributes"
             ],
-            "issuer": "did:web:djustconnect.be",
+            "issuer": "did:web:example.org:ds-issuer",
             "validFrom": "2026-06-23T09:00:00Z",
             "validUntil": "2027-06-23T09:00:00Z",
             "attestationLegalCategory": "EAA",
             "credentialStatus": {
-              "@id": "https://djustconnect.be/status/membership#42",
+              "@id": "https://example.org/status/membership#42",
               "@type": "BitstringStatusListEntry"
             },
             "termsOfUse": {
-              "@type":"GovernanceRulebook",
+              "@type": "GovernanceRulebook",
               "url": "https://agri-x.eu/rulebook",
               "version": "1.2",
               "hash": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
               "acceptedAt": "2026-06-20T14:30:00Z"
             },
             "credentialSubject": {
-              "@id": "did:web:farm-example-bv.org",
+              "@id": "did:web:example.org:holder",
               "@type": "Membership",
               "member": {
                 "@type": "EconomicOperator",
-                "legalIdentifier":"BEEUID0123456789",
-                "legalName": "Farm Example BV"
+                "legalIdentifier": "BEEUID0123456789",
+                "legalName": "Farm Example BV",
+                "identifier": [
+                  {
+                    "@type": "VatId",
+                    "@value": "BE0123456789"
+                  },
+                  {
+                    "@type": "Lei",
+                    "@value": "5493001KJTIIGC8Y1R12"
+                  }
+                ]
               },
-              "memberOf": "Agri-X",
-              "role": ["DataRightsHolder", "DataProvider"],
+              "memberOf": "https://agri-X.eu",
+              "role": [
+                "DataRightsHolder",
+                "DataProvider"
+              ],
               "onboardedBy": {
-                "@type": "Platform",
-                "platformId": "did:web:djustconnect.be",
-                "name": "DjustConnect",
-                "operator":{
+                "@type": "OnboardingDetails",
+                "platform": "DjustConnect",
+                "operator": {
                   "@type": "EconomicOperator",
-                  "legalName": "ILVO",
+                  "legalName": "Instituut voor Landbouw-, Visserij- en Voedingsonderzoek (ILVO)",
                   "identifier": {
                     "@type": "VatId",
                     "@value": "BE0123456789"
                   }
+                },
+                "member": {
+                  "@type": "EconomicOperator",
+                  "legalIdentifier": "BEEUID0123456789",
+                  "legalName": "Farm Example BV",
+                  "identifier": [
+                    {
+                      "@type": "VatId",
+                      "@value": "BE0123456789"
+                    }
+                  ]
                 }
               }
             }
@@ -661,6 +684,10 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
+
+  - id: OnboardingDetails
+    label: onboarding details
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingdetails
 
   - id: Partnership
     label: partnership
@@ -779,11 +806,6 @@ class:
   - id: Person
     label: Person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
-
-  - id: Platform
-    label: Platform
-    comment: Data sharing initiative that onboarded the member
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/platform
 
   - id: PostedWorkerNotification
     label: Posted Worker Notification
@@ -1271,11 +1293,6 @@ property:
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverylocation
 
-  - id: schema:description
-    label: description
-    defined_by: https://schema.org/description
-    context: https://schema.org/docs/jsonldcontext.json
-
   - id: domicile
     label: domicile
     domain: Person
@@ -1409,13 +1426,6 @@ property:
     domain: PostedWorkerNotification     
     range: EconomicOperator
     comment: an economic operator established or operating in the host country that receives, supervises, coordinates or otherwise benefits from the work carried out by a posted worker during a posting period
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity
-
-  - id: holderIdentifier
-    label: holder identifier
-    domain: Membership
-    range: xsd:string
-    comment: unique identifier used within the DSI or data space to refer to the holder of the credential
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity
 
   - id: iban
@@ -1634,7 +1644,9 @@ property:
 
   - id: member
     label: member
-    domain: Membership
+    domain:
+      - Membership
+      - OnboardingDetails
     range: EconomicOperator
     comment: holder of the membership
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/member
@@ -1646,11 +1658,6 @@ property:
     comment: The DSI or dataspace the holder is member of.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof
 
-  - id: schema:name
-    label: name
-    defined_by: https://schema.org/name
-    context: https://schema.org/docs/jsonldcontext.json
-
   - id: noFixedPlaceOfWork
     label: no fixed place of work
     domain: A1Certificate
@@ -1661,13 +1668,13 @@ property:
   - id: onboardedBy
     label: onboarded by
     domain: Membership
-    range: Platform
-    comment: Platform that has onboarded the member.
+    range: OnboardingDetails
+    comment: Onboarding details of member.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork
 
   - id: operator
     label: operator
-    domain: Platform
+    domain: OnboardingDetails
     range: EconomicOperator
     comment: The organisation that hosts the platform and onboards new members.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/operator
@@ -1770,12 +1777,12 @@ property:
     comment: the location where a worker performs, is expected to perform, or is assigned to perform work during an employment, posting or work assignment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork
 
-  - id: platformId
-    label: platform id
-    domain: Platform
-    range: xsd:anyURI
-    comment: DID of the plaform (e.g. data change initiative)
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/platformid
+  - id: platform
+    label: platform
+    domain: OnboardingDetails
+    range: xsd:string
+    comment: name of the plaform that onboarded the member (e.g. data sharing initiative)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/platform
 
   - id: poBox
     label: post office box
@@ -2087,6 +2094,13 @@ datatype:
     comment: IBAN as defined by ISO 13616:2020
     defined_by:
       - https://www.iso.org/standard/81090.html
+
+  - id: KmgMid
+    label: KMG-ID
+    pattern: '[0-9]{9}'
+    upper_value: xsd:string
+    comment: A nationally unique identifier assigned to an agricultural holding registered in the Slovenian Register of Agricultural Holdings (Register kmetijskih gospodarstev, RKG). The identifier uniquely identifies a farm or agricultural holding for administrative, regulatory, subsidy, traceability, and agricultural data exchange purposes.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/kmgmid
 
   - id: Lei
     label: legal entity identifier
