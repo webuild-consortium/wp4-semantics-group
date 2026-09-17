@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-09-16"^^xsd:date ;
+    dc:date "2026-09-17"^^xsd:date ;
 .
 
 # Property definitions
@@ -1502,7 +1502,8 @@ ebwv:Temporary a ebwv:TypeOfEmployment ;
 .
 
 ebwv:UBO a rdfs:Resource ;
-    rdfs:label "UBO" ;
+    rdfs:label "Ultimate Beneficiary Owner" ;
+    rdfs:comment """<div>An Ultimate Beneficial Owner (UBO) is the natural person (real human) who ultimately owns, controls, or profits from a legal person (company).</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/UBO>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -1617,7 +1618,7 @@ ebwv:KmgMid a rdfs:Datatype ;
     rdfs:subClassOf xsd:string ;
     owl:onDatatype xsd:string ;
     owl:withRestrictions ([xsd:pattern "[0-9]{9}"]) ;
-    rdfs:label "KMG-ID" ;
+    rdfs:label "KMG-MID" ;
     rdfs:comment """<div>A nationally unique identifier assigned to an agricultural holding registered in the Slovenian Register of Agricultural Holdings (Register kmetijskih gospodarstev, RKG). The identifier uniquely identifies a farm or agricultural holding for administrative, regulatory, subsidy, traceability, and agricultural data exchange purposes.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/kmgmid>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;

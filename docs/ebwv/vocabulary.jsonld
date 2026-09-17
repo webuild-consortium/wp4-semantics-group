@@ -64,7 +64,7 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-        "dc:date": "2026-09-16"
+        "dc:date": "2026-09-17"
     }, {
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -1914,7 +1914,11 @@
     }, {
         "@id": "ebwv:UBO",
         "@type": "rdfs:Resource",
-        "rdfs:label": "UBO",
+        "rdfs:label": "Ultimate Beneficiary Owner",
+        "rdfs:comment": {
+            "@value": "<div>An Ultimate Beneficial Owner (UBO) is the natural person (real human) who ultimately owns, controls, or profits from a legal person (company).</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
         "rdfs:isDefinedBy": ["https:/w3id.org/ebwv/terminology#/concept/UBO", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
@@ -2081,7 +2085,7 @@
                 "xsd:pattern": "[0-9]{9}"
             }]
         },
-        "rdfs:label": "KMG-ID",
+        "rdfs:label": "KMG-MID",
         "rdfs:comment": {
             "@value": "<div>A nationally unique identifier assigned to an agricultural holding registered in the Slovenian Register of Agricultural Holdings (Register kmetijskih gospodarstev, RKG). The identifier uniquely identifies a farm or agricultural holding for administrative, regulatory, subsidy, traceability, and agricultural data exchange purposes.</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"

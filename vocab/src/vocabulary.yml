@@ -1049,7 +1049,8 @@ individual:   # code lists
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary
 
   - id: UBO
-    label: UBO
+    label: Ultimate Beneficiary Owner
+    comment: An Ultimate Beneficial Owner (UBO) is the natural person (real human) who ultimately owns, controls, or profits from a legal person (company).
     defined_by: https:/w3id.org/ebwv/terminology#/concept/UBO
 
 
@@ -2096,7 +2097,7 @@ datatype:
       - https://www.iso.org/standard/81090.html
 
   - id: KmgMid
-    label: KMG-ID
+    label: KMG-MID
     pattern: '[0-9]{9}'
     upper_value: xsd:string
     comment: A nationally unique identifier assigned to an agricultural holding registered in the Slovenian Register of Agricultural Holdings (Register kmetijskih gospodarstev, RKG). The identifier uniquely identifies a farm or agricultural holding for administrative, regulatory, subsidy, traceability, and agricultural data exchange purposes.
