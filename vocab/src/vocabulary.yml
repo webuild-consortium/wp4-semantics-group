@@ -133,6 +133,10 @@ class:
                   "@value" : "12345678"
                 },
                 {
+                  "@type" : "DunsNumber",
+                  "@value" : "123456789"
+                },
+                {
                   "@type": "VatId",
                   "@value": "123456789MVA"
                 },
@@ -178,6 +182,86 @@ class:
   - id: DataSpaceRole
     label: role of dataspace member
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dataspacerole
+
+  - id: DUNS
+    label: DUNS
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/duns
+    example:
+      - label: Credential with credential subject of type DUNS, holding business defined by DID
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:af1383ab-b4e0-496f-8bf4-ce3e4228ece3",
+              "@type": [
+                "DUNS"
+              ],
+              "identifier": {
+                "@type" : "DunsNumber",
+                "@value" : "123456789"
+              },
+              "businessEntity": "did:key:$publicKeyOfBusinessEntity$" 
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+      - label: Credential with credential subject of type Company, holding business defined by explicit claims
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:af1383ab-b4e0-496f-8bf4-ce3e4228ece3",
+              "@type": [
+                "DUNS"
+              ],
+              "identifier": {
+                "@type" : "DunsNumber",
+                "@value" : "123456789"
+              },
+              "businessEntity": {
+                "@id": "did:key:$publicKeyOfBusinessEntity$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company"
+                ],
+                "legalName": "acme Corporation",
+                "legalForm": "Inc.",
+                "registeredAddress": {
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                }
+              }
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
 
   - id: EconomicOperator
     label: Economic Operator
@@ -350,11 +434,6 @@ class:
     label: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms
 
-  - id: LegalEntity
-    label: Legal entity
-    comment: an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
-
   - id: LegalEntityIdentifier
     label: Legal entity identifier
     upper_value: cred:CredentialSubject
@@ -362,9 +441,7 @@ class:
 
   - id: LegalPerson
     label: Legal Person
-    upper_value:
-      - LegalEntity
-      - cred:CredentialSubject
+    upper_value: cred:CredentialSubject
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson
     example:
       - label: Credential with credential subject of type LegalPerson
@@ -467,13 +544,13 @@ class:
               "legalRepresentative": [
                 {
                   "@type": "LegalRepresentative",
-                  "legalRepresentativeId": "did:key:$publicKeyOfRepresentative1$",
+                  "legalEntity": "did:key:$publicKeyOfRepresentative1$",
                   "role": "CEO",
                   "scopeOfAuthorization": "Alone"
                 },
                 {
                   "@type": "LegalRepresentative",
-                  "legalRepresentativeId": "did:key:$publicKeyOfRepresentative2$",
+                  "legalEntity": "did:key:$publicKeyOfRepresentative2$",
                   "role": "CFO",
                   "scopeOfAuthorization": "Alone"
                 }
@@ -509,42 +586,65 @@ class:
               "VerifiableCredential",
               "ElectronicAttestationOfAttributes"
             ],
-            "issuer": "did:web:djustconnect.be",
+            "issuer": "did:web:example.org:ds-issuer",
             "validFrom": "2026-06-23T09:00:00Z",
             "validUntil": "2027-06-23T09:00:00Z",
             "attestationLegalCategory": "EAA",
             "credentialStatus": {
-              "@id": "https://djustconnect.be/status/membership#42",
+              "@id": "https://example.org/status/membership#42",
               "@type": "BitstringStatusListEntry"
             },
             "termsOfUse": {
-              "@type":"GovernanceRulebook",
+              "@type": "GovernanceRulebook",
               "url": "https://agri-x.eu/rulebook",
               "version": "1.2",
               "hash": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
               "acceptedAt": "2026-06-20T14:30:00Z"
             },
             "credentialSubject": {
-              "@id": "did:web:farm-example-bv.org",
+              "@id": "did:web:example.org:holder",
               "@type": "Membership",
               "member": {
                 "@type": "EconomicOperator",
-                "legalIdentifier":"BEEUID0123456789",
-                "legalName": "Farm Example BV"
+                "legalIdentifier": "BEEUID0123456789",
+                "legalName": "Farm Example BV",
+                "identifier": [
+                  {
+                    "@type": "VatId",
+                    "@value": "BE0123456789"
+                  },
+                  {
+                    "@type": "Lei",
+                    "@value": "5493001KJTIIGC8Y1R12"
+                  }
+                ]
               },
-              "memberOf": "Agri-X",
-              "role": ["DataRightsHolder", "DataProvider"],
+              "memberOf": "https://agri-X.eu",
+              "role": [
+                "DataRightsHolder",
+                "DataProvider"
+              ],
               "onboardedBy": {
-                "@type": "Platform",
-                "platformId": "did:web:djustconnect.be",
-                "name": "DjustConnect",
-                "operator":{
+                "@type": "OnboardingDetails",
+                "platform": "DjustConnect",
+                "operator": {
                   "@type": "EconomicOperator",
-                  "legalName": "ILVO",
+                  "legalName": "Instituut voor Landbouw-, Visserij- en Voedingsonderzoek (ILVO)",
                   "identifier": {
                     "@type": "VatId",
                     "@value": "BE0123456789"
                   }
+                },
+                "member": {
+                  "@type": "EconomicOperator",
+                  "legalIdentifier": "BEEUID0123456789",
+                  "legalName": "Farm Example BV",
+                  "identifier": [
+                    {
+                      "@type": "VatId",
+                      "@value": "BE0123456789"
+                    }
+                  ]
                 }
               }
             }
@@ -557,9 +657,7 @@ class:
 
   - id: NaturalPerson
     label: Natural Person Identification Data
-    upper_value:
-      - LegalEntity
-      - cred:CredentialSubject
+    upper_value: cred:CredentialSubject
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson
     example:
       - label: Credential with credential subject of type NaturalPerson
@@ -586,6 +684,10 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
+
+  - id: OnboardingDetails
+    label: onboarding details
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingdetails
 
   - id: Partnership
     label: partnership
@@ -704,11 +806,6 @@ class:
   - id: Person
     label: Person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
-
-  - id: Platform
-    label: Platform
-    comment: Data sharing initiative that onboarded the member
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/platform
 
   - id: PostedWorkerNotification
     label: Posted Worker Notification
@@ -1017,6 +1114,12 @@ individual:   # code lists
     type: TypeOfEmployment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary
 
+  - id: UBO
+    label: Ultimate Beneficiary Owner
+    comment: An Ultimate Beneficial Owner (UBO) is the natural person (real human) who ultimately owns, controls, or profits from a legal person (company).
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/UBO
+
+
 property:
   - id: a1
     label: a1 certificate
@@ -1051,6 +1154,14 @@ property:
       - Nace21
     comment: organised doing, operation or process carried out for a purpose or result
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
+
+  - id: hasAddress
+    label: hasAddress
+    domain: Site
+    range: Address
+    comment: the address of an entity, provided the address is not of a specific type like registered address or temporary address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress
+
 
   - id: addressArea
     label: address area
@@ -1106,11 +1217,24 @@ property:
     comment: a categorization of electronic attestations of attributes into three primary types, each associated with a distinct level of assurance and legal effect
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
+  - id: averagePeriodWorkforce
+    label: average period workforce
+    domain: SocialSecurityContribution
+    range: xsd:string
+    comment: average number of employed persons for the reporting period
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/averageperiodworkforce
+
   - id: birthName
     label: birth name
     domain: Person
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname
+
+  - id: businessEntity
+    label: business entity
+    domain: DUNS
+    range: Company
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/businessEntity
 
   - id: buyer
     label: buyer
@@ -1124,6 +1248,15 @@ property:
     range: CountryCode
     comment: the legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
+
+  - id: complianceStatus
+    label: compliance status
+    domain: SocialSecurityContribution
+    range:
+      - xsd:string
+      - skos:Concept
+    comment: in the SSC context, the assessed status of the fulfilment of the covered obligations
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/compliancestatus
 
   - id: constructionSector
     label: construction sector
@@ -1151,7 +1284,7 @@ property:
     label: correspondence Address
     domain:
       - Company
-      - LegalEntity
+      - LegalPerson
     range:
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
@@ -1169,6 +1302,21 @@ property:
     range: Location
     comment: the sovereign state within whose territory a person's death was officially registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath
+
+  - id: coverageStatement
+    label: coverage statement
+    domain: SocialSecurityContribution
+    range: xsd:string
+    comment: a human-readable statement describing the reporting scope covered by the attestation
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/coveragestatement
+
+  - id: coveredObligationType
+    label: covered obligation type
+    domain: SocialSecurityContribution
+    range:
+      - xsd:string
+    comment: the type of obligation that is covered by the attestation; in the case of a SSC, this covers for example social security, employment-related contribution, reporting, or payment obligation
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/coveredobligationtype
 
   - id: currency
     label: currency
@@ -1199,7 +1347,7 @@ property:
     label: date of registration
     domain:
       - Company
-      - LegalEntity
+      - LegalPerson
     range: xsd:date
     comment: the date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
@@ -1211,11 +1359,6 @@ property:
       - Location
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverylocation
-
-  - id: schema:description
-    label: description
-    defined_by: https://schema.org/description
-    context: https://schema.org/docs/jsonldcontext.json
 
   - id: domicile
     label: domicile
@@ -1243,6 +1386,7 @@ property:
     domain:
       - A1Certificate
       - PostedWorkerNotification
+      - SocialSecurityContribution
     range: EconomicOperator
     comment: a party that engages a person to perform work under an employment relationship, with associated rights, duties, reporting obligations, or liabilities
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/employer
@@ -1365,9 +1509,11 @@ property:
       - Site
       - VATRegistrationUnit
       - GLN
+      - DUNS
     range:
       - Bic
       - ClearingNumber
+      - DunsNumber
       - Eori
       - Excise
       - GlobalLocationNumber
@@ -1400,7 +1546,7 @@ property:
     label: jurisdiction
     domain:
       - Company
-      - LegalEntity
+      - LegalPerson
       - A1Certificate
       - WorkAssignment
       - PublicSectorBody
@@ -1408,11 +1554,20 @@ property:
       - CountryCode
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
 
+  - id: legalBasis
+    label: legal basis
+    domain: SocialSecurityContribution
+    range: xsd:string
+    comment: legal provision or framework under which the attestation is issued
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalbasis
+
   - id: legalEntity
-    label: legal entity as registered at lei issuer
-    domain: LegalEntityIdentifier
-    range: LegalEntity
-    comment: an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System
+    label: legal entity recognized by law
+    domain: LegalRepresentative
+    range:
+      - NaturalPerson
+      - LegalPerson
+    comment: A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: legalForm
@@ -1420,7 +1575,6 @@ property:
     domain:
       - LegalPerson
       - Company
-      - LegalEntity
     range: xsd:string
     comment: the juridical classification of a legal entity according to the law under which it is constituted, determining its legal personality, governance structure, and liability regime
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalform
@@ -1444,7 +1598,6 @@ property:
       - EuropeanBusinessWalletOwner
       - LegalPerson
       - EconomicOperator
-      - LegalEntity
       - PublicSectorBody
     range: xsd:string
     comment: the name under which the legal entity is legally registered
@@ -1457,17 +1610,11 @@ property:
     comment: a natural person or economic operator that has authority, under law, the company's statutes, a register entry or another recognised legal basis, to represent a company in dealings with third parties, authorities or courts
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
 
-  - id: legalRepresentativeId
-    label: unique ID of the identity of the representative
-    domain: LegalRepresentative
-    range: xsd:anyURI
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid
-
   - id: legalStatus
     label: status of the company
     domain:
       - Company
-      - LegalEntity
+      - LegalPerson
     range: xsd:string
     comment: the officially recorded status of a registered business entity as determined or maintained by the competent register authority
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalstatus
@@ -1485,6 +1632,15 @@ property:
     domain: LeiRegistration
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leilastupdate
+
+  - id: leiLegalEntity
+    label: legal entity as registered at lei issuer
+    domain: LegalEntityIdentifier
+    range:
+      - LegalPerson
+      - PublicSectorBody
+    comment: an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leilegalentity
 
   - id: leiNextRenewal
     label: lei next renewal
@@ -1562,7 +1718,9 @@ property:
 
   - id: member
     label: member
-    domain: Membership
+    domain:
+      - Membership
+      - OnboardingDetails
     range: EconomicOperator
     comment: holder of the membership
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/member
@@ -1570,14 +1728,9 @@ property:
   - id: memberOf
     label: member of
     domain: Membership
-    range: xsd:string
+    range: IRI
     comment: The DSI or dataspace the holder is member of.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof
-
-  - id: schema:name
-    label: name
-    defined_by: https://schema.org/name
-    context: https://schema.org/docs/jsonldcontext.json
 
   - id: noFixedPlaceOfWork
     label: no fixed place of work
@@ -1589,13 +1742,13 @@ property:
   - id: onboardedBy
     label: onboarded by
     domain: Membership
-    range: Platform
-    comment: Platform that has onboarded the member.
+    range: OnboardingDetails
+    comment: Onboarding details of member.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork
 
   - id: operator
     label: operator
-    domain: Platform
+    domain: OnboardingDetails
     range: EconomicOperator
     comment: The organisation that hosts the platform and onboards new members.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/operator
@@ -1618,6 +1771,12 @@ property:
     range_union: true
     comment: an agent that holds an ownership right, title or legally recognised control over an asset, resource, business entity, credential, account, property or other object
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/owner
+
+  - id: ownershipPercentage
+    label: ownership percentage
+    domain: TBD
+    range: xsd:float
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/ownershipPercentage
 
   - id: partner
     label: partner
@@ -1692,12 +1851,12 @@ property:
     comment: the location where a worker performs, is expected to perform, or is assigned to perform work during an employment, posting or work assignment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork
 
-  - id: platformId
-    label: platform id
-    domain: Platform
-    range: xsd:anyURI
-    comment: DID of the plaform (e.g. data change initiative)
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/platformid
+  - id: platform
+    label: platform
+    domain: OnboardingDetails
+    range: xsd:string
+    comment: name of the plaform that onboarded the member (e.g. data sharing initiative)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/platform
 
   - id: poBox
     label: post office box
@@ -1757,6 +1916,13 @@ property:
     comment: A determination that has legal or administrative effect on a provisional basis and remains subject to confirmation, amendment, or withdrawal under the applicable procedure.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination
 
+  - id: qualificationNote
+    label: qualification note
+    domain: SocialSecurityContribution
+    range: xsd:string
+    comment: A human-readable note about caveat, limitation, condition that qualifies the interpretation of the attestation.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/qualificationnote
+
   - id: proxiedPermission
     label: proxied permission
     domain: PowerOfAttorney
@@ -1769,10 +1935,12 @@ property:
     domain:
       - Company
       - EconomicOperator
-      - LegalEntity
       - GLN
+      - LegalPerson
+      - LegalEntity
+      - Site
     range: Address
-    comment: the address at which the legal entity is legally registered
+    comment: the address at which the legal entity is legally registered; if an entity is not considered to be a registered organisation, use "hasAddress" or similar property to express the address of the entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
 
   - id: reportingMonth
@@ -1780,6 +1948,12 @@ property:
     domain: SocialSecurityContribution
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingmonth
+
+  - id: reportingPeriod
+    label: reporting period
+    domain: SocialSecurityContribution
+    range: PeriodOfTime
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingperiod
 
   - id: residency
     label: residency
@@ -1795,8 +1969,8 @@ property:
       - StatutoryPartner
       - Membership
     range:
-      - xsd:string
       - DataSpaceRole
+      - xsd:string
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 
@@ -1972,6 +2146,13 @@ datatype:
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
 
+  - id: DunsNumber
+    label: DUNS number
+    upper_value: xsd:string
+    pattern: '[0-9]{9}'
+    comment: The Data Universal Numbering System, abbreviated as DUNS or D-U-N-S, is a proprietary system developed and managed by Dun & Bradstreet (D&B) that assigns a unique numeric identifier, referred to as a "DUNS number" to a single business entity.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dunsnumber
+
   - id: Euid
     label: EUID
     upper_value: xsd:string
@@ -2001,6 +2182,13 @@ datatype:
     comment: IBAN as defined by ISO 13616:2020
     defined_by:
       - https://www.iso.org/standard/81090.html
+
+  - id: KmgMid
+    label: KMG-MID
+    pattern: '[0-9]{9}'
+    upper_value: xsd:string
+    comment: A nationally unique identifier assigned to an agricultural holding registered in the Slovenian Register of Agricultural Holdings (Register kmetijskih gospodarstev, RKG). The identifier uniquely identifies a farm or agricultural holding for administrative, regulatory, subsidy, traceability, and agricultural data exchange purposes.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/kmgmid
 
   - id: Lei
     label: legal entity identifier
