@@ -731,7 +731,11 @@
                 "@protected": true,
                 "mandatee": {
                     "@id": "https://w3id.org/ebwv#mandatee",
-                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                    "@type": "@id"
+                },
+                "principal": {
+                    "@id": "https://w3id.org/ebwv#principal",
+                    "@type": "@id"
                 },
                 "proxiedPermission": {
                     "@id": "https://w3id.org/ebwv#proxiedPermission",

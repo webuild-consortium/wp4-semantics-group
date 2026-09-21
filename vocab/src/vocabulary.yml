@@ -902,9 +902,10 @@ class:
   - id: PowerOfAttorney
     label: Power of attorney
     upper_value: cred:CredentialSubject
+    comment: A power of attorney is a verifiable authorization that allows a principal (natural person) or a group of principals to delegate authority to a mandatee (natural person). The power of attorney needs to be signed by the principal. In case of the power of attorney is given by a goup principals, each principal needs to sign the power of attorney. A power of attorney is limited to a certain scope. The power of attorney enables the mandatee to represent or act on behalf of the principals within the defined scope.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/powerofattorney
     example:
-      - label: Credential with credential subject of type PowerOfAttorney
+      - label: PowerOfAttorney given by a single legal representative (alone)
         json: |
           {
             "@context": [
@@ -921,6 +922,7 @@ class:
               "@id": "urnd:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
               "@type": "PowerOfAttorney",
               "mandatee": "did:key:$publicKeyOfMandatee$",
+              "principal": "did:key:$publicKeyOfPrincipal$",
               "proxiedPermission": "Opening bank account"
             },
             "provenanceProof": {
@@ -950,9 +952,79 @@ class:
                 "legalRepresentative": [
                   {
                     "@type": "LegalRepresentative",
-                    "legalRepresentativeId": "did:key:$publicKeyOfMandater$",
+                    "legalRepresentativeId": "did:key:$publicKeyOfPrincipal$",
                     "role": "CEO",
                     "scopeOfAuthorization": "Alone"
+                  }
+                ]
+              },
+              "validUntil": "2029-12-03T12:19:52Z",
+              "validFrom": "2019-12-03T12:19:52Z",
+              "issuer": "did:key:$publicKeyOfBusinessRegister$"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfMandater$"
+          }
+      - label: PowerOfAttorney given by two legal representatives (jointly)
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urnd:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
+              "@type": "PowerOfAttorney",
+              "mandatee": "did:key:$publicKeyOfMandatee$",
+              "principal": [
+                "did:key:$publicKeyOfPrincipal1$",
+                "did:key:$publicKeyOfPrincipal2$",
+              ]          
+              "proxiedPermission": "Opening bank account"
+            },
+            "provenanceProof": {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://w3id.org/ebwv/v0.1"
+              ],
+              "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+              "@type": [
+                "VerifiableCredential",
+                "ElectronicAttestationOfAttributes"
+              ],
+              "attestationLegalCategory": "QEAA",
+              "credentialSubject": {
+                "@id": "did:key:$publicKeyOfOrganisationOfMandater$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company",
+                  "LimitedLiabilityCompany"
+                ],
+                "legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation",
+                "legalForm": "Inc.",
+                "legalRepresentative": [
+                  {
+                    "@type": "LegalRepresentative",
+                    "legalRepresentativeId": "did:key:$publicKeyOfPrincipal1$",
+                    "role": "CEO",
+                    "scopeOfAuthorization": "Jointly"
+                  },
+                  {
+                    "@type": "LegalRepresentative",
+                    "legalRepresentativeId": "did:key:$publicKeyOfPrincipal2$",
+                    "role": "CFO",
+                    "scopeOfAuthorization": "Jointly"
                   }
                 ]
               },
@@ -1706,7 +1778,8 @@ property:
     label: mandatee
     domain: PowerOfAttorney
     range:
-      - xsd:anyURI
+      - NaturalPerson
+    comment: The person who gets power.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/mandatee
 
   - id: matronymicName
@@ -1892,11 +1965,20 @@ property:
     comment: a name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postname
 
+  - id: principal
+    label: principal
+    domain: PowerOfAttorney
+    range:
+      - NaturalPerson
+    comment: The person or the group (list) of persons who gives power.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/principal
+
   - id: provenanceProof
     label: provenance proof
     domain: ElectronicAttestationOfAttributes
     range:
       - ElectronicAttestationOfAttributes
+    comment: Proof required to establish trust in the issuer of the credential. The proof allows the relying party to verify if the issuer is authorized to issue the credential and to make the claims about the credential subject. E.g. in the case of an power of attorney the provenanceProof provides the proof that the principal is authorized to give power to the mandatee.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provenanceproof
 
   - id: provider
@@ -1928,7 +2010,8 @@ property:
     domain: PowerOfAttorney
     range:
       - xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scope
+    comment: The scope of the power given to a mandatee.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/proxiedpermission
 
   - id: registeredAddress
     label: registered address

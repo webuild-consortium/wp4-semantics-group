@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-09-17"^^xsd:date ;
+    dc:date "2026-09-21"^^xsd:date ;
 .
 
 # Property definitions
@@ -665,6 +665,15 @@ ebwv:managingLeiIssuer a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
+ebwv:mandatee a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:PowerOfAttorney ;
+    rdfs:range ebwv:NaturalPerson ;
+    rdfs:label "mandatee" ;
+    rdfs:comment """<div>The person who gets power.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/mandatee>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:matronymicName a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Person ;
     rdfs:range xsd:string ;
@@ -872,6 +881,24 @@ ebwv:postName a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
+ebwv:principal a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:PowerOfAttorney ;
+    rdfs:range ebwv:NaturalPerson ;
+    rdfs:label "principal" ;
+    rdfs:comment """<div>The person or the group (list) of persons who gives power.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/principal>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:provenanceProof a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:ElectronicAttestationOfAttributes ;
+    rdfs:range ebwv:ElectronicAttestationOfAttributes ;
+    rdfs:label "provenance proof" ;
+    rdfs:comment """<div>Proof required to establish trust in the issuer of the credential. The proof allows the relying party to verify if the issuer is authorized to issue the credential and to make the claims about the credential subject. E.g. in the case of an power of attorney the provenanceProof provides the proof that the principal is authorized to give power to the mandatee.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/provenanceproof>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:provider a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:BankAccount ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:LegalPerson ebwv:EconomicOperator) ] ;
@@ -896,6 +923,15 @@ ebwv:qualificationNote a rdf:Property, owl:DatatypeProperty ;
     rdfs:label "qualification note" ;
     rdfs:comment """<div>A human-readable note about caveat, limitation, condition that qualifies the interpretation of the attestation.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/qualificationnote>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:proxiedPermission a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:PowerOfAttorney ;
+    rdfs:range xsd:string ;
+    rdfs:label "proxied permission" ;
+    rdfs:comment """<div>The scope of the power given to a mandatee.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/proxiedpermission>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1308,6 +1344,14 @@ ebwv:PostedWorkerNotification a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Posted Worker Notification" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworkernotification>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:PowerOfAttorney a rdfs:Class ;
+    rdfs:subClassOf cred:CredentialSubject ;
+    rdfs:label "Power of attorney" ;
+    rdfs:comment """<div>A power of attorney is a verifiable authorization that allows a principal (natural person) or a group of principals to delegate authority to a mandatee (natural person). The power of attorney needs to be signed by the principal. In case of the power of attorney is given by a goup principals, each principal needs to sign the power of attorney. A power of attorney is limited to a certain scope. The power of attorney enables the mandatee to represent or act on behalf of the principals within the defined scope.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/powerofattorney>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
