@@ -1,138 +1,229 @@
 @startuml
 title General Authorisation Model
 
-class Authorisation {
- +dct:identifier : uri
- *dct:title : Literal
- *entityConcerned :
- *dct:temporal :
- +hasLegalBasisIn :
- *authorisationRule :
- +status : ENUM [active, inactive]
- *dateOfIssue : date
- +type : Skos Concept
- +replaces :
- +delegable : [Y/N]
- *hasRule :
- +isDocumentedIn : uri
- +hasScope :
-}
-
-class AuthorisationRule {
- +name: string
- +hasSubrule:
- *hasInvolvement :
-}
+'#############################################
+'#              Classes                      #
+'#############################################
 
 class AssignmentRule {
  +name: string
+ +operator: [AND, OR, NOT, NULL]
  +hasSubrule:
- *grantee :
- *jointType : ENUM [Alone, All, Majority,
- One of y, At Least x of y]
- *totalNumberOfGranteesInRule : Integer
+ +authorisee:
+ +jointType: ENUM [Alone, All, Majority,
+ At Least x of y]
+ +requiredNumberOfAuthorisees: Integer
+ +totalNumberOfGranteesInRule: Integer
 }
 
-class LegalBasis {
-' Legal Basis is a Role that the law or an other
-' authorisation gan give.
+class "<i>AssignmentRule (Alias)</i>" as AssignmentRule_
+
+class Authorisation {
+ +dct:identifier: uri
+ *dct:title: Literal
+ *entityConcerned:
+ *dct:temporal:
+ *hasLegalBasisIn:
+ *authoriser:
+ +status: ENUM [active, inactive]
+ *dateOfIssue: date
+ +type: Skos Concept
+ +replaces:
+ +delegable: [Y/N]
+ *hasAssignmentRule:
+ +isDocumentedIn: uri
+ +hasScope:
+}
+
+class "<i>Authorisation (Alias)</i>" as Authorisation_
+
+class Authority {
+
+}
+
+class By'Law {
  *hasApplicableLaw:
- *hasApplicableAuthorisation:
- +isInfluencedBy
 }
 
-class Presidence {
- +name:
- *description: string
- *hasJurisdiction:
- *influences:
+class CodeListReference {
+ *listIdentifier: string
+ *listVersion: string
+ *entryCode: string
+ +label: string
+ +uri: uri
 }
+
+class  EconomicOperator {
+ *legalName: string
+ +registryNumber: string
+ *EUID: identifier
+}
+
+class "<i>EconomicOperator (Alias)</i>" as EconomicOperator_
+
+class IdentificationDocument {
+ *number: string
+ *name: string
+ +type: CodeListReference
+}
+
+class Involvement {
+ +code: string
+ *name: string
+ *dct:temporal:
+ +member:
+ +hasRole:
+ *inOrganisation:
+}
+
+note left: involvement name is Principal, Attorney, Entity Concerned, Witness, etc.
+
+class "<i>Involvement (Alias1)</i>" as Involvement_
+
+class "<i>Involvement (Alias2)</i>" as Involvement__
 
 class Jurisdiction {
  
 }
 
+class Law {
+ *hasJurisdiction: 
+ *code: string
+ *name: string
+ *authority:
+}
+
+class LegalBasis {
+' Legal Basis is a Role that the law or an other
+' authorisation gan give.
+ +hasApplicableLaw:
+ +hasApplicableAuthorisation:
+ +isInfluencedBy:
+}
+
+class "<i>LegalBasis (Alias)</i>" as LegalBasis_
+
+class Machine {
+ *id: url
+ +name: string
+}
+
+class "<i>Machine (Alias)</i>" as Machine_
+
+class PeriodOfTime {
+ +startDate: date
+ +endDate: date
+}
+
+class Person {
+ *nameFirst: string
+ *nameLast: string
+ +title: string
+ +dateOfBirth: date
+ +placeOfBirth: CodeListReference
+ +fullAddress:
+ +identificationDocument:
+}
+
+class "<i>Person (Alias)</i>" as Person_
+
+class Precedent {
+ +name:
+ *description: string
+ +hasJurisdiction:
+ +inOrganisation:
+ +aroseUnderRule:
+ +influences:
+}
+
+'The modelling of restriction results is preliminary
+
+class PrivateEvaluationDefinition {
+ *identifier: uri
+ *serviceEndpoint: uri
+ *checkDefinition: uri
+ *evaluatedBy:
+}
+
+class PrivateRestrictionResult {
+ *restriction:
+ *transactionIdentifier: uri
+ *evaluationDefinition:
+ *outcome: ENUM [satisfied, not satisfied, undetermined]
+}
+
+class Restriction {
+ +evaluationMode: ENUM [Local, Private]
+ +inputDefinition: uri
+ +privateEvaluationDefinition:
+ *operator: [!=, <, <=, =, >=, >, AND, OR, NOT]
+ +value: [Literal or CodeListReference]
+ +unit: [Unit or CodeListReference]
+ +hasSubrestriction:
+ }
+ 
+class "<i>Restriction (Alias)</i>" as Restriction_
+
+class Role {
+ *name:
+ *inOrganisation:
+}
+
+class "<i>Role (Alias)</i>" as Role_
+
+class "<i>Role (upper ontology)</i>" as _Role
+
 class Rule {
- *isApplicableWhithin:
+ *isApplicableWithin:
  *isDerivedFrom:
  +hasPart:
 }
 
-class Law {
- *hasJurisdiction : 
- *code : string
- *name : string
- *authority :
+class "<i>Rule (Alias)</i>" as Rule_
+
+class Scope {
+ *title: string
+ +hasRestriction:
 }
 
-class By'Law {
- *hasApplicableLaw :
-}
-
-class PeriodOfTime {
- *startDate : date
- +endDate : date
-}
-
-class IdentificationDocument {
- *number : string
- *name : string
- +type :
-}
-
-class Involvement {
- +code : string
- *name : string
- *dct:temporal :
- *member :
- +hasRole :
- *inOrganisation :
-}
-
-class Machine {
- *id : url
- +name : string
-}
-
-class Person {
- *nameFirst : string
- *nameLast : string
- +title: string
- +dateOfBirth : date
- +placeOfBirth :
- +fullAdress :
- +identificationDocument :
-}
-
-class Operator {
- *type: [AND, OR, NOT]
- *hasRestriction:
-}
-
-class Role {
- *name :
- *inOrganisation :
-}
-
-class Restriction {
- *operator : [!=, <, <=, =, =>, >]
- *value : [Literal]
- *unit : [skos:Concept]
- +hasSubrestriction:
- }
- 
 class Unit {
- *exponent : RestrictionValue
- *unit : Unit
+ *exponent: RestrictionValue
+ *unit: CodeListReference
  }
 
-class "DataType:RestrictionValue\n<size:11><color:gray><i>Allowed numeric value types.</i></color></size>" as RestrictionValue{
-  <font:monospaced><color:gray>type      example  definition</color></font>
+class Entity {
+ *mandatory
+ +optional
+}
+
+'#############################################
+'#              Code lists                   #
+'#############################################
+
+class "CodeList:eService\n<size:11><color:gray><i>Allowed eService codes based on service provider.</i></color></size>" as eService {
+  <font:monospaced><color:gray>code   definition</color></font>
   --
-  <font:monospaced>integer   -2       whole number</font>
-  <font:monospaced>decimal   3.14     exact decimal value</font>
-  <font:monospaced>rational  1/3      exact fraction</font>
-  <font:monospaced>string    Oslo     exact fraction</font>
+  <font:monospaced>2026.Q2  stating 2026 Q2 VAT</font>
+  <font:monospaced>2026     stating 2026 revenue</font>
+  <font:monospaced>ALL      state all taxes</font>
+}
+
+class "CodeList:identificationDocumentType\n<size:11><color:gray><i>Document types aligned with ICAO Doc 9303 MRTD categories.</i></color></size>" as identificationDocumentType {
+  <font:monospaced><color:gray>code      definition</color></font>
+  --
+  <font:monospaced>PASSPORT  Machine readable passport</font>
+  <font:monospaced>ID_CARD   Machine readable official travel document</font>
+  <font:monospaced>VISA      Machine readable visa</font>
+  <font:monospaced>EMERGENCY Emergency travel document</font>
+}
+
+class "CodeList:ISO4217\n<size:11><color:gray><i>Allowed currency values. Version to be specified.</i></color></size>" as ISO4217 {
+  <font:monospaced><color:gray>code  definition</color></font>
+  --
+  <font:monospaced>EUR   Euro</font>
+  <font:monospaced>USD   United States Dollar</font>
+  <font:monospaced>NOK   Norwegian krone</font>
+  <font:monospaced>GBP   Pound sterling</font>
 }
 
 class "CodeList:ISO80000Unit\n<size:11><color:gray><i>Scientific unit symbols based on ISO/IEC 80000.</i></color></size>" as ISO80000Unit {
@@ -147,15 +238,6 @@ class "CodeList:ISO80000Unit\n<size:11><color:gray><i>Scientific unit symbols ba
   <font:monospaced>W       watt</font>
 }
 
-class "CodeList:ISO4217:20215\n<size:11><color:gray><i>Allowed currency values.</i></color></size>" as ISO4217:20215 {
-  <font:monospaced><color:gray>code  definition</color></font>
-  --
-  <font:monospaced>EUR   Euro</font>
-  <font:monospaced>USD   United States Dollar</font>
-  <font:monospaced>NOK   Norwegian krone</font>
-  <font:monospaced>GBP   Pound sterling</font>
-}
-
 class "CodeList:NACE\n<size:11><color:gray><i>Allowed economic activity codes based on NACE.</i></color></size>" as NACE {
   <font:monospaced><color:gray>code   definition</color></font>
   --
@@ -164,86 +246,48 @@ class "CodeList:NACE\n<size:11><color:gray><i>Allowed economic activity codes ba
   <font:monospaced>64.19  Other monetary intermediation</font>
 }
 
-class "CodeList:identificationDocumentType\n<size:11><color:gray><i>Document types aligned with ICAO Doc 9303 MRTD categories.</i></color></size>" as identificationDocumentType {
-  <font:monospaced><color:gray>code      definition</color></font>
-  --
-  <font:monospaced>PASSPORT  Machine readable passport</font>
-  <font:monospaced>ID_CARD   Machine readable official travel document</font>
-  <font:monospaced>VISA      Machine readable visa</font>
-  <font:monospaced>EMERGENCY Emergency travel document</font>
-}
-
-class "CodeList:eService\n<size:11><color:gray><i>Allowed eService codes based on service provider.</i></color></size>" as eService {
-  <font:monospaced><color:gray>code   definition</color></font>
-  --
-  <font:monospaced>2026.Q2  stating 2026 Q3 VAT</font>
-  <font:monospaced>2026     stating 2026 revenue</font>
-  <font:monospaced>ALL      state all taxex</font>
-}
-
-
-class "CodeList:SpacialExtent\n<size:11><color:gray><i>Allowed regions codes based on\n<size:11><color:gray><i>several ISO's or online published lists.</i></color></size>" as SpacialExtent {
+class "CodeList:SpatialExtent\n<size:11><color:gray><i>Allowed regions codes based on\n<size:11><color:gray><i>several ISO's or online published lists.</i></color></size>" as SpatialExtent {
   <font:monospaced><color:gray>code   definition</color></font>
   --
   <font:monospaced>NL  Netherlands (ISO3166-1 alpha2)</font>
   <font:monospaced>FR  Friesland (GIS standard)</font>
 }
 
-class  EconomicOperator {
- *legalName : string
- +registryNumber : string
- *EUID : identifier
- pattern : "^[A-Z]{2}[A-Z]{3}\\.
- [a-zA-Z0-9]+\\.[a-zA-Z0-9]+$"
+class "DataType:RestrictionValue\n<size:11><color:gray><i>Allowed literal value types.</i></color></size>" as RestrictionValue{
+  <font:monospaced><color:gray>type      example  definition</color></font>
+  --
+  <font:monospaced>integer   -2       whole number</font>
+  <font:monospaced>decimal   3.14     exact decimal value</font>
+  <font:monospaced>rational  1/3      exact fraction</font>
+  <font:monospaced>string    Oslo     text value</font>
 }
 
-class Scope {
- *title : string
- +hasRestriction :[operator in subproperty]
-}
+'#############################################
+'#             Relations                     #
+'#############################################
 
-class Entity {
- *mandatory
- +optional
-}
+AssignmentRule::authorisee "1" -right-> "0..n" Involvement_ #line:DarkRed;text:DarkRed
+AssignmentRule::hasSubrule "1" -up-> "0..n" AssignmentRule_ #line:DarkRed;text:DarkRed
 
-Authorisation::authorisationRule "1" -left-> "1..n" AuthorisationRule #line:DarkRed;text:White :_____
+Authorisation::authoriser "1" -left-> "1..n" Involvement #line:DarkRed;text:White :_____
 Authorisation::hasLegalBasisIn "1" -up-> "1..n" LegalBasis_ #line:DarkRed;text:DarkRed
 Authorisation::hasScope "0..1" -down-> "1..n" Scope #line:DarkRed;text:DarkRed
 Authorisation::isDocumentedIn "0..1" -down-> "1..n" Document #line:DarkRed;text:DarkRed
-Authorisation::hasRule "1" -right-> "1" AssignmentRule #line:DarkRed;text:White :_____
-Authorisation::temporal "1" -up-> "1" PeriodOfTime #line:DarkRed;text:White :_____
+Authorisation::hasAssignmentRule "1" -right-> "1" AssignmentRule #line:DarkRed;text:White :_____
+"Authorisation::dct:temporal" "1" -up-> "1" PeriodOfTime #line:DarkRed;text:White :_____
 Authorisation::entityConcerned "1" -up-> "1..n" Involvement__ #line:DarkRed;text:White :_____
 
-skinparam groupInheritance 2
-_Role  <|-- LegalBasis #line:DarkRed;text:White :_____
+"By'Law::hasApplicableLaw" "1" --> "1..n" Law::code #line:DarkRed;text:DarkRed
 
-RestrictionValue -down- ISO80000Unit #line:White;text:White :_____
+CodeListReference::uri "1" ..> "1" eService::code
+CodeListReference::uri "1" ..> "1" identificationDocumentType::code
+CodeListReference::uri "1" ..> "1" ISO4217::code
+CodeListReference::uri "1" ..> "1" ISO80000Unit::symbol
+CodeListReference::uri "1" ..> "1" NACE::code
+CodeListReference::uri "1" ..> "1" RestrictionValue::code
+CodeListReference::uri "1" ..> "1" SpatialExtent::code
 
-LegalBasis::hasApplicableLaw "1" --> "0..n" Law #line:DarkRed;text:Darkred
-LegalBasis::isInfluencedBy "1" --> "0..n" Presidence #line:DarkRed;text:Darkred
-LegalBasis::hasApplicableAuthorisation "1"  --> "0..n" Authorisation_ #line:DarkRed;text:Darkred
-
-Rule::isDerivedFrom "1" --> "1..n" LegalBasis #line:DarkRed;text:Darkred
-Rule::hasPart "0..1" --> "1..n" Rule_ #line:DarkRed;text:Darkred
-
-Presidence::hasJurisdiction "1" --> "1" Jurisdiction
-
-Law  <|-- By'Law #line:DarkRed;text:White :_____
-Law::authority "1" --> "1" Authority #line:DarkRed;text:White :_____
-Law::hasJurisdiction "1" --> "1" Jurisdiction #line:DarkRed;text:White :_____
-Law "1" <-up- "1" Rule::isApplicableWhithin #line:DarkRed;text:White :_____
-
-By'Law::hasApplicableLaw "1" --> "1..n" Law #line:DarkRed;text:DarkRed
-
-AuthorisationRule::hasSubrule "1" -up-> "1" Operator__ #line:DarkRed;text:DarkRed
-Operator__ "1" -down-> "1" AuthorisationRule
-AuthorisationRule::hasInvolvement "1" -left-> "1" Involvement #line:DarkRed;text:DarkRed
-
-
-AssignmentRule::isAssignedTo "1" -right-> "1..n" Involvement_ #line:DarkRed;text:DarkRed
-AssignmentRule::hasSubrule "1" -up-> "1" Operator_ #line:DarkRed;text:DarkRed
-Operator_ "1" --> "1" AssignmentRule
+IdentificationDocument::type "0..n" --> "0..1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
 
 Involvement::hasRole "1" -down-> "0..1" Role #line:DarkRed;text:DarkRed
 Involvement::member "1" -down-> "0..1" Person  #line:DarkRed;text:DarkRed
@@ -254,57 +298,92 @@ Involvement_::member "1" -down-> "0..1" Person_  #line:DarkRed;text:DarkRed
 Involvement_::member "1" -down-> "0..1" Machine_  #line:DarkRed;text:DarkRed
 Involvement_::inOrganisation "1" -down-> "0..1" EconomicOperator_  #line:DarkRed;text:DarkRed
 
-Restriction::hasSubrestriction "0..1" -up-> "1..n" Operator #line:DarkRed;text:DarkRed
-Operator::hasRestriction "1" -down-> "1..n" Restriction #line:DarkRed;text:DarkRed
+Law  <|-- "By'Law" #line:DarkRed;text:White :_____
+Law::authority "1" --> "1" Authority #line:DarkRed;text:White :__________
+Law::hasJurisdiction "1" -up-> "1" Jurisdiction #line:DarkRed;text:White :_____
+Law "1" <-up- "1" Rule::isApplicableWithin #line:DarkRed;text:White :_____
 
-Restriction::value "1" .down.> "1" "RestrictionValue::type" #line:Gray;text:DarkRed
-Restriction::unit "1" .down.> "n" ISO80000Unit #line:Gray;text:DarkRed
-Restriction::unit .down.> "NACE::code" #line:Gray;text:DarkRed
-Restriction::unit .down.> "eService::code" #line:Gray;text:DarkRed
-Restriction::unit .down.> "SpacialExtent::code" #line:Gray;text:DarkRed
-Restriction::unit .down.> "ISO4217:20215" #line:Gray;text:DarkRed
+LegalBasis -up-|> _Role #line:DarkRed;text:Darkred
+LegalBasis::hasApplicableLaw "1" --> "0..n" Law #line:DarkRed;text:Darkred
+LegalBasis::isInfluencedBy "1" --> "0..n" Precedent #line:DarkRed;text:Darkred
+LegalBasis::hasApplicableAuthorisation "1"  -left-> "0..n" Authorisation_ #line:DarkRed;text:White :_____
 
 Person::identificationDocument "1" -down-> "1" IdentificationDocument
-IdentificationDocument::type .down.> "identificationDocumentType::code" #line:Gray;text:DarkRed
+Person::placeOfBirth "0..n" --> "0..1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+
+Precedent::hasJurisdiction "0..n" --> "0..1" Jurisdiction #line:DarkRed;text:Darkred
+Precedent::inOrganisation "0..n" --> "0..1" EconomicOperator_ #line:DarkRed;text:Darkred
+Precedent::aroseUnderRule "0..n" --> "0..n" Rule #line:DarkRed;text:Darkred
+Precedent::influences "0..n" --> "0..n" Rule #line:DarkRed;text:Darkred
+
+PrivateEvaluationDefinition::evaluatedBy "0..n" --> "1" EconomicOperator #line:DarkRed;text:DarkRed
+PrivateRestrictionResult::restriction "0..n" --> "1" Restriction #line:DarkRed;text:DarkRed
+PrivateRestrictionResult::evaluationDefinition "0..n" --> "1" PrivateEvaluationDefinition #line:DarkRed;text:DarkRed
+
+Restriction::privateEvaluationDefinition "0..n" --> "0..1" PrivateEvaluationDefinition #line:DarkRed;text:DarkRed
+Restriction::hasSubrestriction "0..n" -up-> "0..n" Restriction_ #line:DarkRed;text:DarkRed
+Restriction::value .down.> RestrictionValue #line:Gray;text:DarkRed : literal alternative
+Restriction::value "0..n" --> "0..1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+Restriction::unit "0..n" --> "0..1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+Restriction::unit "0..n" --> "0..n" Unit #line:DarkRed;text:DarkRed
 
 Role::inOrganisation "1" -left-> "1" "EconomicOperator" #line:DarkRed;text:DarkRed
-Scope::hasRestriction "1" -down-> "0..n" Restriction #line:DarkRed;text:DarkRed
 
-Role -right- Person #line:White
-EconomicOperator -left- Person #line:White
+Rule::isDerivedFrom "1" --> "1..n" LegalBasis #line:DarkRed;text:Darkred
+Rule::hasPart "0..1" --> "1..n" Rule_ #line:DarkRed;text:Darkred
+
+Scope::hasRestriction "0..n" -down-> "0..n" Restriction #line:DarkRed;text:DarkRed
+
+Unit::unit "0..n" --> "1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+
+'#############################################
+'#                  Layout                   #
+'#############################################
+
 AssignmentRule -down-> Document #line:White
-Entity -right- _Role #line:White
+Authority -right- "By'Law" #line:White
+EconomicOperator -left- Person #line:White
+RestrictionValue -down- ISO80000Unit #line:White;text:White :_____
+Role -right- Person #line:White
+Rule -right- _Role #line:White
+LegalBasis -right- Rule_ #line:White
 
-class Authorisation #LightYellow;line:DarkRed;text:DarkRed
-class Law #LightYellow;line:DarkRed;text:DarkRed
-class Scope #LightYellow;line:DarkRed;text:DarkRed
-class Document #LightYellow;line:DarkRed;text:DarkRed
-class LegalBasis #LightYellow;line:DarkRed;text:DarkRed
-class Jurisdiction  #LightYellow;line:DarkRed;text:DarkRed
-class By'Law #LightYellow;line:DarkRed;text:DarkRed
-class IdentificationDocument #LightYellow;line:DarkRed;text:DarkRed
-class EconomicOperator #LightYellow;line:DarkRed;text:DarkRed
-class Involvement #LightYellow;line:DarkRed;text:DarkRed
-class Role #LightYellow;line:DarkRed;text:DarkRed
-class Person #LightYellow;line:DarkRed;text:DarkRed
-class Machine #LightYellow;line:DarkRed;text:DarkRed
+'#############################################
+'#             Coloring                      #
+'#############################################
+
 class AssignmentRule #LightYellow;line:DarkRed;text:DarkRed
-class Restriction #LightYellow;line:DarkRed;text:DarkRed
+class Authorisation #LightYellow;line:DarkRed;text:DarkRed
+class Authority #LightYellow;line:DarkRed;text:DarkRed
+class By'Law #LightYellow;line:DarkRed;text:DarkRed
+class CodeListReference #LightYellow;line:DarkRed;text:DarkRed
+class Document #LightYellow;line:DarkRed;text:DarkRed
+class EconomicOperator #LightYellow;line:DarkRed;text:DarkRed
 class Entity #LightYellow;line:DarkRed;text:DarkRed
+class IdentificationDocument #LightYellow;line:DarkRed;text:DarkRed
+class Involvement #LightYellow;line:DarkRed;text:DarkRed
+class Jurisdiction  #LightYellow;line:DarkRed;text:DarkRed
+class Law #LightYellow;line:DarkRed;text:DarkRed
+class LegalBasis #LightYellow;line:DarkRed;text:DarkRed
+class Machine #LightYellow;line:DarkRed;text:DarkRed
 class PeriodOfTime #LightYellow;line:DarkRed;text:DarkRed
-class Unit #LightYellow;line:DarkRed;text:DarkRed
-class Presidence #LightYellow;line:DarkRed;text:DarkRed
-class Operator #LightYellow;line:DarkRed;text:DarkRed
+class Person #LightYellow;line:DarkRed;text:DarkRed
+class Precedent #LightYellow;line:DarkRed;text:DarkRed
+class Restriction #LightYellow;line:DarkRed;text:DarkRed
+class PrivateEvaluationDefinition #LightYellow;line:DarkRed;text:DarkRed
+class PrivateRestrictionResult #LightYellow;line:DarkRed;text:DarkRed
+class Role #LightYellow;line:DarkRed;text:DarkRed
 class Rule #LightYellow;line:DarkRed;text:DarkRed
-class AuthorisationRule #LightYellow;line:DarkRed;text:DarkRed
+class Scope #LightYellow;line:DarkRed;text:DarkRed
+class Unit #LightYellow;line:DarkRed;text:DarkRed
 
 class eService #CEEED0;line:285F17;text:285F17
-class ISO4217:20215 #CEEED0;line:285F17;text:285F17
-class NACE #CEEED0;line:285F17;text:285F17
-class SpacialExtent #CEEED0;line:285F17;text:285F17
 class identificationDocumentType #CEEED0;line:285F17;text:285F17
+class ISO4217 #CEEED0;line:285F17;text:285F17
 class ISO80000Unit #CEEED0;line:285F17;text:285F17
+class NACE #CEEED0;line:285F17;text:285F17
 class RestrictionValue #CEEED0;line:285F17;text:285F17
+class SpatialExtent #CEEED0;line:285F17;text:285F17
 
 hide circle
 
