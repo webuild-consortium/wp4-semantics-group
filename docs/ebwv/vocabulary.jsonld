@@ -64,7 +64,7 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-        "dc:date": "2026-09-21"
+        "dc:date": "2026-09-22"
     }, {
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -1763,7 +1763,7 @@
         "rdfs:subClassOf": ["cred:CredentialSubject"],
         "rdfs:label": "Power of attorney",
         "rdfs:comment": {
-            "@value": "<div>A power of attorney is a verifiable authorization that allows a principal (natural person) or a group of principals to delegate authority to a mandatee (natural person). The power of attorney needs to be signed by the principal. In case of the power of attorney is given by a group of principals, each principal needs to sign the power of attorney. A power of attorney is limited to a certain scope. The power of attorney enables the mandatee to represent or act on behalf of the principals within the defined scope.</div>",
+            "@value": "<div>A power of attorney is a verifiable authorisation that allows a principal (a natural person) or group of principals to delegate authority to a mandatee (a natural person). The power of attorney must be signed by the principal. If the power of attorney is given by a group of principals, each principal must sign it. A power of attorney is limited in scope. It enables the mandatee to represent or act on behalf of the principals within this scope.<br> The power of attorney must prove that the principals are legitimate holders of the power they are delegating. Proof of provenance must be provided in the credential to establish this trust.</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/powerofattorney", "https://w3id.org/ebwv#"],
