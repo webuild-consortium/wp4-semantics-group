@@ -932,46 +932,49 @@ class:
               "principal": "did:key:$publicKeyOfPrincipal$",
               "scopeOfPower": "Opening bank account"
             },
-            "provenanceProof": {
-              "@context": [
-                "https://www.w3.org/ns/credentials/v2",
-                "https://w3id.org/ebwv/v0.1"
-              ],
-              "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
-              "@type": [
-                "VerifiableCredential",
-                "ElectronicAttestationOfAttributes"
-              ],
-              "attestationLegalCategory": "QEAA",
-              "credentialSubject": {
-                "@id": "did:key:$publicKeyOfOrganisationOfPrincipal$",
-                "@type": [
-                  "EconomicOperator",
-                  "Company",
-                  "LimitedLiabilityCompany"
-                ],
-                "legalIdentifier": {
-                  "@type" : "Euid",
-                  "@value" : "NOFOR.987654321"
-                },
-                "legalName": "acme Corporation",
-                "legalForm": "Inc.",
-                "legalRepresentative": [
-                  {
-                    "@id": "did:key:$publicKeyOfPrincipal$",
-                    "@type": "LegalRepresentative",
-                    "role": "CEO",
-                    "scopeOfPresentation": "Alone"
-                  }
-                ]
-              },
-              "validUntil": "2029-12-03T12:19:52Z",
-              "validFrom": "2019-12-03T12:19:52Z",
-              "issuer": "did:key:$publicKeyOfBusinessRegister$"
-            },
+            "provenanceProof": "ewogICJAY29udGV4dCI6IFsKICAgICJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLAogICAgImh0dHBzOi8vdzNpZC5vcmcvZWJ3di92MC4xIgogIF0sCiAgIkBpZCI6ICJ1cm46ZDVkZmViMzktZWRjNy00MGIxLWEyZmMtMzk2OGRiZDNlYWM4IiwKICAiQHR5cGUiOiBbCiAgICAiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLAogICAgIkVsZWN0cm9uaWNBdHRlc3RhdGlvbk9mQXR0cmlidXRlcyIKICBdLAogICJhdHRlc3RhdGlvbkxlZ2FsQ2F0ZWdvcnkiOiAiUUVBQSIsCiAgImNyZWRlbnRpYWxTdWJqZWN0IjogewogICAgIkBpZCI6ICJkaWQ6a2V5OiRwdWJsaWNLZXlPZk9yZ2FuaXNhdGlvbk9mUHJpbmNpcGFsJCIsCiAgICAiQHR5cGUiOiBbCiAgICAgICJFY29ub21pY09wZXJhdG9yIiwKICAgICAgIkNvbXBhbnkiLAogICAgICAiTGltaXRlZExpYWJpbGl0eUNvbXBhbnkiCiAgICBdLAogICAgImxlZ2FsSWRlbnRpZmllciI6IHsKICAgICAgIkB0eXBlIiA6ICJFdWlkIiwKICAgICAgIkB2YWx1ZSIgOiAiTk9GT1IuOTg3NjU0MzIxIgogICAgfSwKICAgICJsZWdhbE5hbWUiOiAiYWNtZSBDb3Jwb3JhdGlvbiIsCiAgICAibGVnYWxGb3JtIjogIkluYy4iLAogICAgImxlZ2FsUmVwcmVzZW50YXRpdmUiOiBbCiAgICAgIHsKICAgICAgICAiQGlkIjogImRpZDprZXk6JHB1YmxpY0tleU9mUHJpbmNpcGFsJCIsCiAgICAgICAgIkB0eXBlIjogIkxlZ2FsUmVwcmVzZW50YXRpdmUiLAogICAgICAgICJyb2xlIjogIkNFTyIsCiAgICAgICAgInNjb3BlT2ZQcmVzZW50YXRpb24iOiAiQWxvbmUiCiAgICAgIH0KICAgIF0KICB9LAogICJ2YWxpZFVudGlsIjogIjIwMjktMTItMDNUMTI6MTk6NTJaIiwKICAidmFsaWRGcm9tIjogIjIwMTktMTItMDNUMTI6MTk6NTJaIiwKICAiaXNzdWVyIjogImRpZDprZXk6JHB1YmxpY0tleU9mQnVzaW5lc3NSZWdpc3RlciQiCn0=",
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfPrincipal$"
+          }
+      - label: decoded provenanceProof of PowerOfAttorney given by a single legal representative (alone)
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfOrganisationOfPrincipal$",
+              "@type": [
+                "EconomicOperator",
+                "Company",
+                "LimitedLiabilityCompany"
+              ],
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
+              "legalName": "acme Corporation",
+              "legalForm": "Inc.",
+              "legalRepresentative": [
+                {
+                  "@id": "did:key:$publicKeyOfPrincipal$",
+                  "@type": "LegalRepresentative",
+                  "role": "CEO",
+                  "scopeOfPresentation": "Alone"
+                }
+              ]
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfBusinessRegister$"
           }
       - label: PowerOfAttorney given by two legal representatives (jointly)
         json: |
@@ -996,55 +999,58 @@ class:
               ],
               "scopeOfPower": "Opening bank account"
             },
-            "provenanceProof": {
-              "@context": [
-                "https://www.w3.org/ns/credentials/v2",
-                "https://w3id.org/ebwv/v0.1"
-              ],
-              "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
-              "@type": [
-                "VerifiableCredential",
-                "ElectronicAttestationOfAttributes"
-              ],
-              "attestationLegalCategory": "QEAA",
-              "credentialSubject": {
-                "@id": "did:key:$publicKeyOfOrganisationOfPrincipals$",
-                "@type": [
-                  "EconomicOperator",
-                  "Company",
-                  "LimitedLiabilityCompany"
-                ],
-                "legalIdentifier": {
-                  "@type" : "Euid",
-                  "@value" : "NOFOR.987654321"
-                },
-                "legalName": "acme Corporation",
-                "legalForm": "Inc.",
-                "legalRepresentative": [
-                  {
-                    "@id": "did:key:$publicKeyOfPrincipal1$",
-                    "@type": "LegalRepresentative",
-                    "role": "CEO",
-                    "scopeOfPresentation": "Jointly"
-                  },
-                  {
-                    "@id": "did:key:$publicKeyOfPrincipal2$",
-                    "@type": "LegalRepresentative",
-                    "role": "CFO",
-                    "scopeOfPresentation": "Jointly"
-                  }
-                ]
-              },
-              "validUntil": "2029-12-03T12:19:52Z",
-              "validFrom": "2019-12-03T12:19:52Z",
-              "issuer": "did:key:$publicKeyOfBusinessRegister$"
-            },
+            "provenanceProof": "ewogICJAY29udGV4dCI6IFsKICAgICJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLAogICAgImh0dHBzOi8vdzNpZC5vcmcvZWJ3di92MC4xIgogIF0sCiAgIkBpZCI6ICJ1cm46ZDVkZmViMzktZWRjNy00MGIxLWEyZmMtMzk2OGRiZDNlYWM4IiwKICAiQHR5cGUiOiBbCiAgICAiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLAogICAgIkVsZWN0cm9uaWNBdHRlc3RhdGlvbk9mQXR0cmlidXRlcyIKICBdLAogICJhdHRlc3RhdGlvbkxlZ2FsQ2F0ZWdvcnkiOiAiUUVBQSIsCiAgImNyZWRlbnRpYWxTdWJqZWN0IjogewogICAgIkBpZCI6ICJkaWQ6a2V5OiRwdWJsaWNLZXlPZk9yZ2FuaXNhdGlvbk9mUHJpbmNpcGFscyQiLAogICAgIkB0eXBlIjogWwogICAgICAiRWNvbm9taWNPcGVyYXRvciIsCiAgICAgICJDb21wYW55IiwKICAgICAgIkxpbWl0ZWRMaWFiaWxpdHlDb21wYW55IgogICAgXSwKICAgICJsZWdhbElkZW50aWZpZXIiOiB7CiAgICAgICJAdHlwZSIgOiAiRXVpZCIsCiAgICAgICJAdmFsdWUiIDogIk5PRk9SLjk4NzY1NDMyMSIKICAgIH0sCiAgICAibGVnYWxOYW1lIjogImFjbWUgQ29ycG9yYXRpb24iLAogICAgImxlZ2FsRm9ybSI6ICJJbmMuIiwKICAgICJsZWdhbFJlcHJlc2VudGF0aXZlIjogWwogICAgICB7CiAgICAgICAgIkBpZCI6ICJkaWQ6a2V5OiRwdWJsaWNLZXlPZlByaW5jaXBhbDEkIiwKICAgICAgICAiQHR5cGUiOiAiTGVnYWxSZXByZXNlbnRhdGl2ZSIsCiAgICAgICAgInJvbGUiOiAiQ0VPIiwKICAgICAgICAic2NvcGVPZlByZXNlbnRhdGlvbiI6ICJKb2ludGx5IgogICAgICB9LAogICAgICB7CiAgICAgICAgIkBpZCI6ICJkaWQ6a2V5OiRwdWJsaWNLZXlPZlByaW5jaXBhbDIkIiwKICAgICAgICAiQHR5cGUiOiAiTGVnYWxSZXByZXNlbnRhdGl2ZSIsCiAgICAgICAgInJvbGUiOiAiQ0ZPIiwKICAgICAgICAic2NvcGVPZlByZXNlbnRhdGlvbiI6ICJKb2ludGx5IgogICAgICB9CiAgICBdCiAgfSwKICAidmFsaWRVbnRpbCI6ICIyMDI5LTEyLTAzVDEyOjE5OjUyWiIsCiAgInZhbGlkRnJvbSI6ICIyMDE5LTEyLTAzVDEyOjE5OjUyWiIsCiAgImlzc3VlciI6ICJkaWQ6a2V5OiRwdWJsaWNLZXlPZkJ1c2luZXNzUmVnaXN0ZXIkIgp9",
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": [
               "did:key:$publicKeyOfPrincipal1$",
               "did:key:$publicKeyOfPrincipal2$"
             ]
+          }
+      - label: decoded provenanceProof of PowerOfAttorney given by two legal representatives (jointly)
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfOrganisationOfPrincipals$",
+              "@type": [
+                "EconomicOperator",
+                "Company",
+                "LimitedLiabilityCompany"
+              ],
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
+              "legalName": "acme Corporation",
+              "legalForm": "Inc.",
+              "legalRepresentative": [
+                {
+                  "@id": "did:key:$publicKeyOfPrincipal1$",
+                  "@type": "LegalRepresentative",
+                  "role": "CEO",
+                  "scopeOfPresentation": "Jointly"
+                },
+                {
+                  "@id": "did:key:$publicKeyOfPrincipal2$",
+                  "@type": "LegalRepresentative",
+                  "role": "CFO",
+                  "scopeOfPresentation": "Jointly"
+                }
+              ]
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfBusinessRegister$"
           }
 
   - id: PublicSectorBody
