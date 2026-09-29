@@ -554,13 +554,13 @@ class:
                   "@type": "LegalRepresentative",
                   "legalEntity": "did:key:$publicKeyOfRepresentative1$",
                   "role": "CEO",
-                  "scopeOfPresentation": "Alone"
+                  "typeOfPresentation": "Alone"
                 },
                 {
                   "@type": "LegalRepresentative",
                   "legalEntity": "did:key:$publicKeyOfRepresentative2$",
                   "role": "CFO",
-                  "scopeOfPresentation": "Alone"
+                  "typeOfPresentation": "Alone"
                 }
               ]
             },
@@ -759,7 +759,7 @@ class:
                   "@id": "did:key:$publicKeyOfPartner3$",
                   "@type": "StatutoryPartner",
                   "role": "Head of HR",
-                  "scopeOfPresentation": "Jointly"
+                  "typeOfPresentation": "Jointly"
                 }
               ]
             },
@@ -968,7 +968,7 @@ class:
                   "@id": "did:key:$publicKeyOfPrincipal$",
                   "@type": "LegalRepresentative",
                   "role": "CEO",
-                  "scopeOfPresentation": "Alone"
+                  "typeOfPresentation": "Alone"
                 }
               ]
             },
@@ -1038,13 +1038,13 @@ class:
                   "@id": "did:key:$publicKeyOfPrincipal1$",
                   "@type": "LegalRepresentative",
                   "role": "CEO",
-                  "scopeOfPresentation": "Jointly"
+                  "typeOfPresentation": "Jointly"
                 },
                 {
                   "@id": "did:key:$publicKeyOfPrincipal2$",
                   "@type": "LegalRepresentative",
                   "role": "CFO",
-                  "scopeOfPresentation": "Jointly"
+                  "typeOfPresentation": "Jointly"
                 }
               ]
             },
