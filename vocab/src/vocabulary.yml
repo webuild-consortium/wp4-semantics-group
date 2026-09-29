@@ -434,6 +434,11 @@ class:
     label: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms
 
+  - id: LegalEntity
+    label: legal entity recognized by law
+    comment: A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
+
   - id: LegalEntityIdentifier
     label: Legal entity identifier
     upper_value: cred:CredentialSubject
@@ -441,7 +446,10 @@ class:
 
   - id: LegalPerson
     label: Legal Person
-    upper_value: cred:CredentialSubject
+    upper_value:
+      - cred:CredentialSubject
+      - LegalEntity
+    comment: A legal person is an entity the law recognises as having its own rights and obligations, separate from its members. It can own property, enter contracts, sue and be sued, and be held liable.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson
     example:
       - label: Credential with credential subject of type LegalPerson
@@ -546,13 +554,13 @@ class:
                   "@type": "LegalRepresentative",
                   "legalEntity": "did:key:$publicKeyOfRepresentative1$",
                   "role": "CEO",
-                  "scopeOfAuthorization": "Alone"
+                  "scopeOfPresentation": "Alone"
                 },
                 {
                   "@type": "LegalRepresentative",
                   "legalEntity": "did:key:$publicKeyOfRepresentative2$",
                   "role": "CFO",
-                  "scopeOfAuthorization": "Alone"
+                  "scopeOfPresentation": "Alone"
                 }
               ]
             },
@@ -656,8 +664,11 @@ class:
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/monetaryamount
 
   - id: NaturalPerson
-    label: Natural Person Identification Data
-    upper_value: cred:CredentialSubject
+    label: Natural Person
+    upper_value:
+      - cred:CredentialSubject
+      - LegalEntity
+    comment: A natural person is a human being with legal capacity, holding rights and obligations simply by being a person. The contrast is a legal person. It always acts through natural persons, such as managing directors, "Prokuristen", or authorised agents. Legal person credentials link the two - see <a href="#LegalRepresentative">LegalRepresentative</a>
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson
     example:
       - label: Credential with credential subject of type NaturalPerson
@@ -732,12 +743,12 @@ class:
               },
               "partner": [
                 {
-                  "@type": "GeneralPartner",
-                  "partnerId": "did:key:$publicKeyOfPartner1$"
+                  "@id": "did:key:$publicKeyOfPartner1$",
+                  "@type": "GeneralPartner"
                 },
                 {
+                  "@id": "did:key:$publicKeyOfPartner2$",
                   "@type": "LimitedPartner",
-                  "partnerId": "did:key:$publicKeyOfPartner2$",
                   "liabilityOrContribution": {
                     "@type": "MonetaryAmount",
                     "amount": 100000,
@@ -745,10 +756,10 @@ class:
                   }
                 },
                 {
+                  "@id": "did:key:$publicKeyOfPartner3$",
                   "@type": "StatutoryPartner",
-                  "partnerId": "did:key:$publicKeyOfPartner3$",
                   "role": "Head of HR",
-                  "scopeOfAuthorization": "Jointly"
+                  "scopeOfPresentation": "Jointly"
                 }
               ]
             },
@@ -803,10 +814,6 @@ class:
     label: Period of Time
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
 
-  - id: Person
-    label: Person
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
-
   - id: PostedWorkerNotification
     label: Posted Worker Notification
     upper_value: cred:CredentialSubject
@@ -830,7 +837,7 @@ class:
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": "PostedWorkerNotification",
               "postedWorker" : {
-                "@type": "Person",
+                "@type": "NaturalPerson",
                 "gender": "male",
                 "familyName": "Miller",
                 "givenName": "Joe",
@@ -910,7 +917,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+              "https://w3id.org/ebwv/v0.1"
             ],
             "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
             "@type": [
@@ -923,7 +930,7 @@ class:
               "@type": "PowerOfAttorney",
               "mandatee": "did:key:$publicKeyOfMandatee$",
               "principal": "did:key:$publicKeyOfPrincipal$",
-              "proxiedPermission": "Opening bank account"
+              "scopeOfPower": "Opening bank account"
             },
             "provenanceProof": {
               "@context": [
@@ -951,10 +958,10 @@ class:
                 "legalForm": "Inc.",
                 "legalRepresentative": [
                   {
+                    "@id": "did:key:$publicKeyOfPrincipal$",
                     "@type": "LegalRepresentative",
-                    "legalRepresentativeId": "did:key:$publicKeyOfPrincipal$",
                     "role": "CEO",
-                    "scopeOfAuthorization": "Alone"
+                    "scopeOfPresentation": "Alone"
                   }
                 ]
               },
@@ -964,14 +971,14 @@ class:
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfMandater$"
+            "issuer": "did:key:$publicKeyOfPrincipal$"
           }
       - label: PowerOfAttorney given by two legal representatives (jointly)
         json: |
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://ebw-vocabulary.spherity.dev/ebw-context/v0.1"
+              "https://w3id.org/ebwv/v0.1"
             ],
             "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
             "@type": [
@@ -985,9 +992,9 @@ class:
               "mandatee": "did:key:$publicKeyOfMandatee$",
               "principal": [
                 "did:key:$publicKeyOfPrincipal1$",
-                "did:key:$publicKeyOfPrincipal2$",
-              ]          
-              "proxiedPermission": "Opening bank account"
+                "did:key:$publicKeyOfPrincipal2$"
+              ],
+              "scopeOfPower": "Opening bank account"
             },
             "provenanceProof": {
               "@context": [
@@ -1015,16 +1022,16 @@ class:
                 "legalForm": "Inc.",
                 "legalRepresentative": [
                   {
+                    "@id": "did:key:$publicKeyOfPrincipal1$",
                     "@type": "LegalRepresentative",
-                    "legalRepresentativeId": "did:key:$publicKeyOfPrincipal1$",
                     "role": "CEO",
-                    "scopeOfAuthorization": "Jointly"
+                    "scopeOfPresentation": "Jointly"
                   },
                   {
+                    "@id": "did:key:$publicKeyOfPrincipal2$",
                     "@type": "LegalRepresentative",
-                    "legalRepresentativeId": "did:key:$publicKeyOfPrincipal2$",
                     "role": "CFO",
-                    "scopeOfAuthorization": "Jointly"
+                    "scopeOfPresentation": "Jointly"
                   }
                 ]
               },
@@ -1034,7 +1041,10 @@ class:
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfMandater$"
+            "issuer": [
+              "did:key:$publicKeyOfPrincipal1$",
+              "did:key:$publicKeyOfPrincipal2$"
+            ]
           }
 
   - id: PublicSectorBody
@@ -1042,10 +1052,10 @@ class:
     comment: public sector body’ means a Union entity, a national, state, regional or local authority, a body governed by public law or an association formed by one or several such entities or bodies , or a private entity mandated by at least one such entities, authorities, bodies or associations to provide public services, when acting under such a mandate
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody
 
-  - id: ScopeOfAuthorization
-    label: Scope Of Authorization
-    comment: the actions, matters, transactions, roles or circumstances for which an agent is authorised to act on behalf of another person or entity
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
+  - id: TypeOfPresentation
+    label: type of presentation
+    comment: type of presentation meaning Alone or Jointly
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation
 
   - id: Site
     label: Site
@@ -1082,8 +1092,9 @@ class:
 
 individual:   # code lists
   - id: Alone
-    label: scope of authorization Alone
-    type: ScopeOfAuthorization
+    label: Alone
+    type: TypeOfPresentation
+    comment: the representative can bind the company or principal alone, with their signature only.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
 
   - id: CIP
@@ -1127,7 +1138,7 @@ individual:   # code lists
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu
 
   - id: EAA
-    label: electronic attestation of attributes
+    label: Electronic Attestation of Attributes
     type: AttestationLegalCategory
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA
 
@@ -1152,37 +1163,40 @@ individual:   # code lists
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
 
   - id: Jointly
-    label: scope of authorization Jointly
-    type: ScopeOfAuthorization
+    label: Jointly
+    type: TypeOfPresentation
+    comment: the representative can only act together with one or more other authorised representatives. A typical rule is "two managing directors jointly."
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly
 
   - id: OnboardingServiceProvider
-    label: Partner that onboards members into Agri-X; may be a DSI or another technology partner.
+    label: Onboarding Service Provider
     type: DataSpaceRole
+    comment: Partner that onboards members into Agri-X; may be a DSI or another technology partner.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingserviceprovider
 
   - id: Operator
-    label: Partner providing DSSC building-block services (identity management, consent management, logging, …).
+    label: Operator
     type: DataSpaceRole
+    comment: Partner providing DSSC building-block services (identity management, consent management, logging, …).
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/operator
 
   - id: Permanent
-    label: type of employment Permanent
+    label: Permanent
     type: TypeOfEmployment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/permanent
 
   - id: Pub-EAA
-    label: public electronic attestation of attributes
+    label: Public Electronic Attestation of Attributes
     type: AttestationLegalCategory
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA
 
   - id: QEAA
-    label: qualified electronic attestation of attributes
+    label: Qualified Electronic Attestation of Attributes
     type: AttestationLegalCategory
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA
 
   - id: Temporary
-    label: type of employment Temporary
+    label: Temporary
     type: TypeOfEmployment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary
 
@@ -1245,7 +1259,7 @@ property:
   - id: administrativeRepresentative
     label: administrative representative
     domain: EconomicOperator
-    range: Person
+    range: NaturalPerson
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/administrativerepresentative
 
   - id: adminUnitL1
@@ -1264,7 +1278,7 @@ property:
 
   - id: alternativeName
     label: alternative name
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename
 
@@ -1298,7 +1312,7 @@ property:
 
   - id: birthName
     label: birth name
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname
 
@@ -1316,7 +1330,7 @@ property:
 
   - id: citizenship
     label: citizenship
-    domain: Person
+    domain: NaturalPerson
     range: CountryCode
     comment: the legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
@@ -1339,7 +1353,7 @@ property:
   - id: contactPoint
     label: contact point
     domain:
-      - Person
+      - NaturalPerson
       - EconomicOperator
     range: ContactPoint
     comment: a designated communication channel or organisational function through which an entity can be contacted for a specific purpose
@@ -1363,14 +1377,14 @@ property:
 
   - id: countryOfBirth
     label: country of birth
-    domain: Person
+    domain: NaturalPerson
     range: Location
     comment: the sovereign state within whose territory a person's birth was officially registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofbirth
 
   - id: countryOfDeath
     label: country of death
-    domain: Person
+    domain: NaturalPerson
     range: Location
     comment: the sovereign state within whose territory a person's death was officially registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath
@@ -1402,7 +1416,6 @@ property:
   - id: dateOfBirth
     label: date of birth
     domain:
-      -  Person
       -  NaturalPerson
     range: xsd:date
     comment: the point in time on which the person was born
@@ -1410,7 +1423,7 @@ property:
 
   - id: dateOfDeath
     label: date of death
-    domain: Person
+    domain: NaturalPerson
     range: xsd:date
     comment: the calendar date on which a person is recorded or attested as having died
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath
@@ -1434,7 +1447,7 @@ property:
 
   - id: domicile
     label: domicile
-    domain: Person
+    domain: NaturalPerson
     range: Address
     comment: the address representing the place that a person treats as their permanent home, as recorded, declared, or attested in a given context
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile
@@ -1450,7 +1463,7 @@ property:
     label: employee
     domain:
       - EconomicOperator
-    range: Person
+    range: NaturalPerson
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/employee
 
   - id: employer
@@ -1475,7 +1488,6 @@ property:
     label: family name
     domain:
       - NaturalPerson
-      - Person
     range: xsd:string
     comment: the hereditary surname of a family
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
@@ -1495,7 +1507,7 @@ property:
 
   - id: fullName
     label: full name
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname
 
@@ -1508,7 +1520,7 @@ property:
 
   - id: gender
     label: gender
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     comment: a recorded, declared, or attested classification of a person according to gender in a given administrative, legal, or business context
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gender
@@ -1529,7 +1541,6 @@ property:
     label: given name
     domain:
       - NaturalPerson
-      - Person
     range: xsd:string
     comment: the name(s) that identify the person within a family with a common surname
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
@@ -1609,7 +1620,7 @@ property:
 
   - id: jobTitle
     label: job title
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     comment: the name or designation of a worker's role, position or function in relation to an employment relationship, posting arrangement or work assignment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jobtitle
@@ -1632,15 +1643,6 @@ property:
     range: xsd:string
     comment: legal provision or framework under which the attestation is issued
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalbasis
-
-  - id: legalEntity
-    label: legal entity recognized by law
-    domain: LegalRepresentative
-    range:
-      - NaturalPerson
-      - LegalPerson
-    comment: A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: legalForm
     label: legal form
@@ -1784,7 +1786,7 @@ property:
 
   - id: matronymicName
     label: matronymic name
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     comment: a name component derived from the given name of a person's mother
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname
@@ -1840,7 +1842,6 @@ property:
       - LegalPerson
       - EconomicOperator
       - NaturalPerson
-      - Person
     range_union: true
     comment: an agent that holds an ownership right, title or legally recognised control over an asset, resource, business entity, credential, account, property or other object
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/owner
@@ -1862,18 +1863,9 @@ property:
     comment: a person or legal entity that is a member of a partnership or comparable company-law entity and whose status as partner is recorded or recognised by the competent business register or company register
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
 
-  - id: partnerId
-    label: unique ID of the identity of the partner
-    domain:
-      - GeneralPartner
-      - LimitedPartner
-      - StatutoryPartner
-    range: xsd:anyURI
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid
-
   - id: patronymicName
     label: patronymic name
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
 
@@ -1888,25 +1880,25 @@ property:
   - id: person
     label: person
     domain: A1Certificate
-    range: Person
+    range: NaturalPerson
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject
 
   - id: personalAdministrativeNumber
     label: personal administrative number
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber
 
   - id: placeOfBirth
     label: place of birth
-    domain: Person
+    domain: NaturalPerson
     range: Location
     comment: the location where a person was born
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofbirth
 
   - id: placeOfDeath
     label: place of death
-    domain: Person
+    domain: NaturalPerson
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath
 
@@ -1940,7 +1932,7 @@ property:
 
   - id: portrait
     label: portrait
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait
 
@@ -1954,7 +1946,7 @@ property:
   - id: postedWorker
     label: posted worker
     domain: PostedWorkerNotification
-    range: Person
+    range: NaturalPerson
     comment: a worker who is sent by an employer to perform work temporarily in a country other than the country in which the worker normally works
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker
 
@@ -2005,13 +1997,13 @@ property:
     comment: A human-readable note about caveat, limitation, condition that qualifies the interpretation of the attestation.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/qualificationnote
 
-  - id: proxiedPermission
-    label: proxied permission
+  - id: scopeOfPower
+    label: scope of power
     domain: PowerOfAttorney
     range:
       - xsd:string
     comment: The scope of the power given to a mandatee.
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/proxiedpermission
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
 
   - id: registeredAddress
     label: registered address
@@ -2040,7 +2032,7 @@ property:
 
   - id: residency
     label: residency
-    domain: Person
+    domain: NaturalPerson
     range: CountryCode
     comment: a jurisdiction in which a person has their dwelling or is officially regarded as living or residing
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
@@ -2057,19 +2049,20 @@ property:
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 
-  - id: scopeOfAuthorization
-    label: scope of authorization (alone or jointly)
+  - id: typeOfPresentation
+    label: type of presentation
     domain:
       - LegalRepresentative
       - StatutoryPartner
-    range: ScopeOfAuthorization
+    range: TypeOfPresentation
+    comment: specifies how a representative may act on behalf of the principal, meaning whether they can act alone or only together with others.
     one_of: [Alone, Jointly]
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation
 
   - id: socialRepresentative
     label: social representative
     domain: EconomicOperator
-    range: Person
+    range: NaturalPerson
     comment: a person or entity designated to represent or assist an employer or posted worker in relation to social security, labour, employment or posting-related obligations during a posting period
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialrepresentative
 
@@ -2115,7 +2108,7 @@ property:
 
   - id: temporaryAddress
     label: temporary address
-    domain: Person
+    domain: NaturalPerson
     range: Address
     comment: an address at which a person resides, stays or can be reached for a limited period, without it being the person's permanent home or domicile address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporaryaddress

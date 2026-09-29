@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-09-22"^^xsd:date ;
+    dc:date "2026-09-29"^^xsd:date ;
 .
 
 # Property definitions
@@ -82,7 +82,7 @@ ebwv:addressArea a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:administrativeRepresentative a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:EconomicOperator ;
-    rdfs:range ebwv:Person ;
+    rdfs:range ebwv:NaturalPerson ;
     rdfs:label "administrative representative" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/administrativerepresentative>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -107,7 +107,7 @@ ebwv:adminUnitL2 a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:alternativeName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:label "alternative name" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename>, <https://w3id.org/ebwv#> ;
@@ -150,7 +150,7 @@ ebwv:averagePeriodWorkforce a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:birthName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:label "birth name" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname>, <https://w3id.org/ebwv#> ;
@@ -174,7 +174,7 @@ ebwv:buyer a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:citizenship a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range ebwv:CountryCode ;
     rdfs:label "citizenship" ;
     rdfs:comment """<div>the legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations</div>"""^^rdf:HTML ;
@@ -200,7 +200,7 @@ ebwv:constructionSector a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:contactPoint a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Person ebwv:EconomicOperator) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:NaturalPerson ebwv:EconomicOperator) ] ;
     rdfs:range ebwv:ContactPoint ;
     rdfs:label "contact point" ;
     rdfs:comment """<div>a designated communication channel or organisational function through which an entity can be contacted for a specific purpose</div>"""^^rdf:HTML ;
@@ -226,7 +226,7 @@ ebwv:correspondenceAddress a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:countryOfBirth a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range ebwv:Location ;
     rdfs:label "country of birth" ;
     rdfs:comment """<div>the sovereign state within whose territory a person's birth was officially registered</div>"""^^rdf:HTML ;
@@ -235,7 +235,7 @@ ebwv:countryOfBirth a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:countryOfDeath a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range ebwv:Location ;
     rdfs:label "country of death" ;
     rdfs:comment """<div>the sovereign state within whose territory a person's death was officially registered</div>"""^^rdf:HTML ;
@@ -271,7 +271,7 @@ ebwv:currency a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:dateOfBirth a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Person ebwv:NaturalPerson) ] ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:date ;
     rdfs:label "date of birth" ;
     rdfs:comment """<div>the point in time on which the person was born</div>"""^^rdf:HTML ;
@@ -280,7 +280,7 @@ ebwv:dateOfBirth a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:dateOfDeath a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:date ;
     rdfs:label "date of death" ;
     rdfs:comment """<div>the calendar date on which a person is recorded or attested as having died</div>"""^^rdf:HTML ;
@@ -306,7 +306,7 @@ ebwv:deliveryLocation a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:domicile a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range ebwv:Address ;
     rdfs:label "domicile" ;
     rdfs:comment """<div>the address representing the place that a person treats as their permanent home, as recorded, declared, or attested in a given context</div>"""^^rdf:HTML ;
@@ -325,7 +325,7 @@ ebwv:duration a rdf:Property, owl:ObjectProperty ;
 
 ebwv:employee a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:EconomicOperator ;
-    rdfs:range ebwv:Person ;
+    rdfs:range ebwv:NaturalPerson ;
     rdfs:label "employee" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/employee>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -349,7 +349,7 @@ ebwv:endDate a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:familyName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:NaturalPerson ebwv:Person) ] ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:label "family name" ;
     rdfs:comment """<div>the hereditary surname of a family</div>"""^^rdf:HTML ;
@@ -375,7 +375,7 @@ ebwv:fullAddress a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:fullName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:label "full name" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname>, <https://w3id.org/ebwv#> ;
@@ -392,7 +392,7 @@ ebwv:fullPeriodCovered a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:gender a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:label "gender" ;
     rdfs:comment """<div>a recorded, declared, or attested classification of a person according to gender in a given administrative, legal, or business context</div>"""^^rdf:HTML ;
@@ -417,7 +417,7 @@ ebwv:geographicName a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:givenName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:NaturalPerson ebwv:Person) ] ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:label "given name" ;
     rdfs:comment """<div>the name(s) that identify the person within a family with a common surname</div>"""^^rdf:HTML ;
@@ -486,7 +486,7 @@ ebwv:identifier a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:jobTitle a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:label "job title" ;
     rdfs:comment """<div>the name or designation of a worker's role, position or function in relation to an employment relationship, posting arrangement or work assignment</div>"""^^rdf:HTML ;
@@ -508,15 +508,6 @@ ebwv:legalBasis a rdf:Property, owl:DatatypeProperty ;
     rdfs:label "legal basis" ;
     rdfs:comment """<div>legal provision or framework under which the attestation is issued</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalbasis>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:legalEntity a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:LegalRepresentative ;
-    rdfs:range ebwv:NaturalPerson, ebwv:LegalPerson ;
-    rdfs:label "legal entity recognized by law" ;
-    rdfs:comment """<div>A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -675,7 +666,7 @@ ebwv:mandatee a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:matronymicName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:label "matronymic name" ;
     rdfs:comment """<div>a name component derived from the given name of a person's mother</div>"""^^rdf:HTML ;
@@ -738,7 +729,7 @@ ebwv:organisation a rdf:Property, owl:ObjectProperty ;
 
 ebwv:owner a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:BankAccount ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:LegalPerson ebwv:EconomicOperator ebwv:NaturalPerson ebwv:Person) ] ;
+    rdfs:range [ a owl:Class; owl:unionOf (ebwv:LegalPerson ebwv:EconomicOperator ebwv:NaturalPerson) ] ;
     rdfs:label "owner" ;
     rdfs:comment """<div>an agent that holds an ownership right, title or legally recognised control over an asset, resource, business entity, credential, account, property or other object</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/owner>, <https://w3id.org/ebwv#> ;
@@ -762,16 +753,8 @@ ebwv:partner a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:partnerId a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:GeneralPartner ebwv:LimitedPartner ebwv:StatutoryPartner) ] ;
-    rdfs:range xsd:anyURI ;
-    rdfs:label "unique ID of the identity of the partner" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:patronymicName a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:label "patronymic name" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname>, <https://w3id.org/ebwv#> ;
@@ -788,14 +771,14 @@ ebwv:paymentDue a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:person a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:A1Certificate ;
-    rdfs:range ebwv:Person ;
+    rdfs:range ebwv:NaturalPerson ;
     rdfs:label "person" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:personalAdministrativeNumber a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:label "personal administrative number" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber>, <https://w3id.org/ebwv#> ;
@@ -803,7 +786,7 @@ ebwv:personalAdministrativeNumber a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:placeOfBirth a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range ebwv:Location ;
     rdfs:label "place of birth" ;
     rdfs:comment """<div>the location where a person was born</div>"""^^rdf:HTML ;
@@ -812,7 +795,7 @@ ebwv:placeOfBirth a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:placeOfDeath a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range ebwv:Location ;
     rdfs:label "place of death" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath>, <https://w3id.org/ebwv#> ;
@@ -847,7 +830,7 @@ ebwv:poBox a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:portrait a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:label "portrait" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait>, <https://w3id.org/ebwv#> ;
@@ -865,7 +848,7 @@ ebwv:postCode a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:postedWorker a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:PostedWorkerNotification ;
-    rdfs:range ebwv:Person ;
+    rdfs:range ebwv:NaturalPerson ;
     rdfs:label "posted worker" ;
     rdfs:comment """<div>a worker who is sent by an employer to perform work temporarily in a country other than the country in which the worker normally works</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker>, <https://w3id.org/ebwv#> ;
@@ -926,12 +909,12 @@ ebwv:qualificationNote a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:proxiedPermission a rdf:Property, owl:DatatypeProperty ;
+ebwv:scopeOfPower a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:PowerOfAttorney ;
     rdfs:range xsd:string ;
-    rdfs:label "proxied permission" ;
+    rdfs:label "scope of power" ;
     rdfs:comment """<div>The scope of the power given to a mandatee.</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/proxiedpermission>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -961,7 +944,7 @@ ebwv:reportingPeriod a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:residency a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range ebwv:CountryCode ;
     rdfs:label "residency" ;
     rdfs:comment """<div>a jurisdiction in which a person has their dwelling or is officially regarded as living or residing</div>"""^^rdf:HTML ;
@@ -977,17 +960,18 @@ ebwv:role a rdf:Property ;
     vs:term_status "stable" ;
 .
 
-ebwv:scopeOfAuthorization a rdf:Property, owl:ObjectProperty ;
+ebwv:typeOfPresentation a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:StatutoryPartner) ] ;
-    rdfs:range ebwv:ScopeOfAuthorization, [ a owl:Class; owl:oneOf (ebwv:Alone ebwv:Jointly) ] ;
-    rdfs:label "scope of authorization (alone or jointly)" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization>, <https://w3id.org/ebwv#> ;
+    rdfs:range ebwv:TypeOfPresentation, [ a owl:Class; owl:oneOf (ebwv:Alone ebwv:Jointly) ] ;
+    rdfs:label "type of presentation" ;
+    rdfs:comment """<div>specifies how a representative may act on behalf of the principal, meaning whether they can act alone or only together with others.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:socialRepresentative a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:EconomicOperator ;
-    rdfs:range ebwv:Person ;
+    rdfs:range ebwv:NaturalPerson ;
     rdfs:label "social representative" ;
     rdfs:comment """<div>a person or entity designated to represent or assist an employer or posted worker in relation to social security, labour, employment or posting-related obligations during a posting period</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/socialrepresentative>, <https://w3id.org/ebwv#> ;
@@ -1046,7 +1030,7 @@ ebwv:supplier a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:temporaryAddress a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:Person ;
+    rdfs:domain ebwv:NaturalPerson ;
     rdfs:range ebwv:Address ;
     rdfs:label "temporary address" ;
     rdfs:comment """<div>an address at which a person resides, stays or can be reached for a limited period, without it being the person's permanent home or domicile address</div>"""^^rdf:HTML ;
@@ -1240,6 +1224,13 @@ ebwv:Incoterms a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
+ebwv:LegalEntity a rdfs:Class ;
+    rdfs:label "legal entity recognized by law" ;
+    rdfs:comment """<div>A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:LegalEntityIdentifier a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Legal entity identifier" ;
@@ -1248,8 +1239,9 @@ ebwv:LegalEntityIdentifier a rdfs:Class ;
 .
 
 ebwv:LegalPerson a rdfs:Class ;
-    rdfs:subClassOf cred:CredentialSubject ;
+    rdfs:subClassOf cred:CredentialSubject, ebwv:LegalEntity ;
     rdfs:label "Legal Person" ;
+    rdfs:comment """<div>A legal person is an entity the law recognises as having its own rights and obligations, separate from its members. It can own property, enter contracts, sue and be sued, and be held liable.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -1302,8 +1294,9 @@ ebwv:MonetaryAmount a rdfs:Class ;
 .
 
 ebwv:NaturalPerson a rdfs:Class ;
-    rdfs:subClassOf cred:CredentialSubject ;
-    rdfs:label "Natural Person Identification Data" ;
+    rdfs:subClassOf cred:CredentialSubject, ebwv:LegalEntity ;
+    rdfs:label "Natural Person" ;
+    rdfs:comment """<div>A natural person is a human being with legal capacity, holding rights and obligations simply by being a person. The contrast is a legal person. It always acts through natural persons, such as managing directors, "Prokuristen", or authorised agents. Legal person credentials link the two - see <a href="#LegalRepresentative">LegalRepresentative</a></div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -1334,12 +1327,6 @@ ebwv:PeriodOfTime a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebwv:Person a rdfs:Class ;
-    rdfs:label "Person" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/person>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:PostedWorkerNotification a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Posted Worker Notification" ;
@@ -1362,10 +1349,10 @@ ebwv:PublicSectorBody a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebwv:ScopeOfAuthorization a rdfs:Class ;
-    rdfs:label "Scope Of Authorization" ;
-    rdfs:comment """<div>the actions, matters, transactions, roles or circumstances for which an agent is authorised to act on behalf of another person or entity</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization>, <https://w3id.org/ebwv#> ;
+ebwv:TypeOfPresentation a rdfs:Class ;
+    rdfs:label "type of presentation" ;
+    rdfs:comment """<div>type of presentation meaning Alone or Jointly</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1419,8 +1406,9 @@ ebwv:WorkAssignment a rdfs:Class ;
 
 
 # Definitions of individuals
-ebwv:Alone a ebwv:ScopeOfAuthorization ;
-    rdfs:label "scope of authorization Alone" ;
+ebwv:Alone a ebwv:TypeOfPresentation ;
+    rdfs:label "Alone" ;
+    rdfs:comment """<div>the representative can bind the company or principal alone, with their signature only.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -1474,7 +1462,7 @@ ebwv:DPU a ebwv:Incoterms ;
 .
 
 ebwv:EAA a ebwv:AttestationLegalCategory ;
-    rdfs:label "electronic attestation of attributes" ;
+    rdfs:label "Electronic Attestation of Attributes" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -1503,44 +1491,47 @@ ebwv:FOB a ebwv:Incoterms ;
     vs:term_status "stable" ;
 .
 
-ebwv:Jointly a ebwv:ScopeOfAuthorization ;
-    rdfs:label "scope of authorization Jointly" ;
+ebwv:Jointly a ebwv:TypeOfPresentation ;
+    rdfs:label "Jointly" ;
+    rdfs:comment """<div>the representative can only act together with one or more other authorised representatives. A typical rule is "two managing directors jointly."</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:OnboardingServiceProvider a ebwv:DataSpaceRole ;
-    rdfs:label "Partner that onboards members into Agri-X; may be a DSI or another technology partner." ;
+    rdfs:label "Onboarding Service Provider" ;
+    rdfs:comment """<div>Partner that onboards members into Agri-X; may be a DSI or another technology partner.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingserviceprovider>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Operator a ebwv:DataSpaceRole ;
-    rdfs:label "Partner providing DSSC building-block services (identity management, consent management, logging, …)." ;
+    rdfs:label "Operator" ;
+    rdfs:comment """<div>Partner providing DSSC building-block services (identity management, consent management, logging, …).</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/operator>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Permanent a ebwv:TypeOfEmployment ;
-    rdfs:label "type of employment Permanent" ;
+    rdfs:label "Permanent" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/permanent>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Pub-EAA a ebwv:AttestationLegalCategory ;
-    rdfs:label "public electronic attestation of attributes" ;
+    rdfs:label "Public Electronic Attestation of Attributes" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:QEAA a ebwv:AttestationLegalCategory ;
-    rdfs:label "qualified electronic attestation of attributes" ;
+    rdfs:label "Qualified Electronic Attestation of Attributes" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:Temporary a ebwv:TypeOfEmployment ;
-    rdfs:label "type of employment Temporary" ;
+    rdfs:label "Temporary" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .

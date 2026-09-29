@@ -64,7 +64,7 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-        "dc:date": "2026-09-22"
+        "dc:date": "2026-09-29"
     }, {
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -141,7 +141,7 @@
         "@id": "ebwv:administrativeRepresentative",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:EconomicOperator",
-        "rdfs:range": "ebwv:Person",
+        "rdfs:range": "ebwv:NaturalPerson",
         "rdfs:label": "administrative representative",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/administrativerepresentative", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
@@ -172,7 +172,7 @@
     }, {
         "@id": "ebwv:alternativeName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:string",
         "rdfs:label": "alternative name",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename", "https://w3id.org/ebwv#"],
@@ -227,7 +227,7 @@
     }, {
         "@id": "ebwv:birthName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:string",
         "rdfs:label": "birth name",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname", "https://w3id.org/ebwv#"],
@@ -251,7 +251,7 @@
     }, {
         "@id": "ebwv:citizenship",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "ebwv:CountryCode",
         "rdfs:label": "citizenship",
         "rdfs:comment": {
@@ -285,7 +285,7 @@
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Person", "ebwv:EconomicOperator"]
+            "owl:unionOf": ["ebwv:NaturalPerson", "ebwv:EconomicOperator"]
         },
         "rdfs:range": "ebwv:ContactPoint",
         "rdfs:label": "contact point",
@@ -321,7 +321,7 @@
     }, {
         "@id": "ebwv:countryOfBirth",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "ebwv:Location",
         "rdfs:label": "country of birth",
         "rdfs:comment": {
@@ -333,7 +333,7 @@
     }, {
         "@id": "ebwv:countryOfDeath",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "ebwv:Location",
         "rdfs:label": "country of death",
         "rdfs:comment": {
@@ -384,10 +384,7 @@
     }, {
         "@id": "ebwv:dateOfBirth",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": {
-            "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Person", "ebwv:NaturalPerson"]
-        },
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:date",
         "rdfs:label": "date of birth",
         "rdfs:comment": {
@@ -399,7 +396,7 @@
     }, {
         "@id": "ebwv:dateOfDeath",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:date",
         "rdfs:label": "date of death",
         "rdfs:comment": {
@@ -434,7 +431,7 @@
     }, {
         "@id": "ebwv:domicile",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "domicile",
         "rdfs:comment": {
@@ -459,7 +456,7 @@
         "@id": "ebwv:employee",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:EconomicOperator",
-        "rdfs:range": "ebwv:Person",
+        "rdfs:range": "ebwv:NaturalPerson",
         "rdfs:label": "employee",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/employee", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
@@ -492,10 +489,7 @@
     }, {
         "@id": "ebwv:familyName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": {
-            "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:NaturalPerson", "ebwv:Person"]
-        },
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:string",
         "rdfs:label": "family name",
         "rdfs:comment": {
@@ -527,7 +521,7 @@
     }, {
         "@id": "ebwv:fullName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:string",
         "rdfs:label": "full name",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname", "https://w3id.org/ebwv#"],
@@ -547,7 +541,7 @@
     }, {
         "@id": "ebwv:gender",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:string",
         "rdfs:label": "gender",
         "rdfs:comment": {
@@ -575,10 +569,7 @@
     }, {
         "@id": "ebwv:givenName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": {
-            "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:NaturalPerson", "ebwv:Person"]
-        },
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:string",
         "rdfs:label": "given name",
         "rdfs:comment": {
@@ -668,7 +659,7 @@
     }, {
         "@id": "ebwv:jobTitle",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:string",
         "rdfs:label": "job title",
         "rdfs:comment": {
@@ -699,18 +690,6 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalbasis", "https://w3id.org/ebwv#"],
-        "vs:term_status": "stable"
-    }, {
-        "@id": "ebwv:legalEntity",
-        "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:LegalRepresentative",
-        "rdfs:range": ["ebwv:NaturalPerson", "ebwv:LegalPerson"],
-        "rdfs:label": "legal entity recognized by law",
-        "rdfs:comment": {
-            "@value": "<div>A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.</div>",
-            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-        },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:legalForm",
@@ -917,7 +896,7 @@
     }, {
         "@id": "ebwv:matronymicName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:string",
         "rdfs:label": "matronymic name",
         "rdfs:comment": {
@@ -1006,7 +985,7 @@
         "rdfs:domain": "ebwv:BankAccount",
         "rdfs:range": {
             "@type": "ows:Class",
-            "owl:unionOf": ["ebwv:LegalPerson", "ebwv:EconomicOperator", "ebwv:NaturalPerson", "ebwv:Person"]
+            "owl:unionOf": ["ebwv:LegalPerson", "ebwv:EconomicOperator", "ebwv:NaturalPerson"]
         },
         "rdfs:label": "owner",
         "rdfs:comment": {
@@ -1039,20 +1018,9 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/partner", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
-        "@id": "ebwv:partnerId",
-        "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": {
-            "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:GeneralPartner", "ebwv:LimitedPartner", "ebwv:StatutoryPartner"]
-        },
-        "rdfs:range": "xsd:anyURI",
-        "rdfs:label": "unique ID of the identity of the partner",
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid", "https://w3id.org/ebwv#"],
-        "vs:term_status": "stable"
-    }, {
         "@id": "ebwv:patronymicName",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:string",
         "rdfs:label": "patronymic name",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname", "https://w3id.org/ebwv#"],
@@ -1069,14 +1037,14 @@
         "@id": "ebwv:person",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:A1Certificate",
-        "rdfs:range": "ebwv:Person",
+        "rdfs:range": "ebwv:NaturalPerson",
         "rdfs:label": "person",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:personalAdministrativeNumber",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:string",
         "rdfs:label": "personal administrative number",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber", "https://w3id.org/ebwv#"],
@@ -1084,7 +1052,7 @@
     }, {
         "@id": "ebwv:placeOfBirth",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "ebwv:Location",
         "rdfs:label": "place of birth",
         "rdfs:comment": {
@@ -1096,7 +1064,7 @@
     }, {
         "@id": "ebwv:placeOfDeath",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "ebwv:Location",
         "rdfs:label": "place of death",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath", "https://w3id.org/ebwv#"],
@@ -1146,7 +1114,7 @@
     }, {
         "@id": "ebwv:portrait",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "xsd:string",
         "rdfs:label": "portrait",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait", "https://w3id.org/ebwv#"],
@@ -1167,7 +1135,7 @@
         "@id": "ebwv:postedWorker",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:PostedWorkerNotification",
-        "rdfs:range": "ebwv:Person",
+        "rdfs:range": "ebwv:NaturalPerson",
         "rdfs:label": "posted worker",
         "rdfs:comment": {
             "@value": "<div>a worker who is sent by an employer to perform work temporarily in a country other than the country in which the worker normally works</div>",
@@ -1251,16 +1219,16 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/qualificationnote", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
-        "@id": "ebwv:proxiedPermission",
+        "@id": "ebwv:scopeOfPower",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:PowerOfAttorney",
         "rdfs:range": "xsd:string",
-        "rdfs:label": "proxied permission",
+        "rdfs:label": "scope of power",
         "rdfs:comment": {
             "@value": "<div>The scope of the power given to a mandatee.</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/proxiedpermission", "https://w3id.org/ebwv#"],
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:registeredAddress",
@@ -1296,7 +1264,7 @@
     }, {
         "@id": "ebwv:residency",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "ebwv:CountryCode",
         "rdfs:label": "residency",
         "rdfs:comment": {
@@ -1320,24 +1288,28 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/role", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
-        "@id": "ebwv:scopeOfAuthorization",
+        "@id": "ebwv:typeOfPresentation",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
             "owl:unionOf": ["ebwv:LegalRepresentative", "ebwv:StatutoryPartner"]
         },
-        "rdfs:range": ["ebwv:ScopeOfAuthorization", {
+        "rdfs:range": ["ebwv:TypeOfPresentation", {
             "@type": "owl:class",
             "owl:oneOf": ["ebwv:Alone", "ebwv:Jointly"]
         }],
-        "rdfs:label": "scope of authorization (alone or jointly)",
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization", "https://w3id.org/ebwv#"],
+        "rdfs:label": "type of presentation",
+        "rdfs:comment": {
+            "@value": "<div>specifies how a representative may act on behalf of the principal, meaning whether they can act alone or only together with others.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:socialRepresentative",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:EconomicOperator",
-        "rdfs:range": "ebwv:Person",
+        "rdfs:range": "ebwv:NaturalPerson",
         "rdfs:label": "social representative",
         "rdfs:comment": {
             "@value": "<div>a person or entity designated to represent or assist an employer or posted worker in relation to social security, labour, employment or posting-related obligations during a posting period</div>",
@@ -1408,7 +1380,7 @@
     }, {
         "@id": "ebwv:temporaryAddress",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:Person",
+        "rdfs:domain": "ebwv:NaturalPerson",
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "temporary address",
         "rdfs:comment": {
@@ -1642,6 +1614,16 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:LegalEntity",
+        "@type": "rdfs:Class",
+        "rdfs:label": "legal entity recognized by law",
+        "rdfs:comment": {
+            "@value": "<div>A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:LegalEntityIdentifier",
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["cred:CredentialSubject"],
@@ -1651,8 +1633,12 @@
     }, {
         "@id": "ebwv:LegalPerson",
         "@type": "rdfs:Class",
-        "rdfs:subClassOf": ["cred:CredentialSubject"],
+        "rdfs:subClassOf": ["cred:CredentialSubject", "ebwv:LegalEntity"],
         "rdfs:label": "Legal Person",
+        "rdfs:comment": {
+            "@value": "<div>A legal person is an entity the law recognises as having its own rights and obligations, separate from its members. It can own property, enter contracts, sue and be sued, and be held liable.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
@@ -1714,8 +1700,12 @@
     }, {
         "@id": "ebwv:NaturalPerson",
         "@type": "rdfs:Class",
-        "rdfs:subClassOf": ["cred:CredentialSubject"],
-        "rdfs:label": "Natural Person Identification Data",
+        "rdfs:subClassOf": ["cred:CredentialSubject", "ebwv:LegalEntity"],
+        "rdfs:label": "Natural Person",
+        "rdfs:comment": {
+            "@value": "<div>A natural person is a human being with legal capacity, holding rights and obligations simply by being a person. The contrast is a legal person. It always acts through natural persons, such as managing directors, \"Prokuristen\", or authorised agents. Legal person credentials link the two - see <a href=\"#LegalRepresentative\">LegalRepresentative</a></div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
@@ -1743,12 +1733,6 @@
         "@type": "rdfs:Class",
         "rdfs:label": "Period of Time",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime", "https://w3id.org/ebwv#"],
-        "vs:term_status": "stable"
-    }, {
-        "@id": "ebwv:Person",
-        "@type": "rdfs:Class",
-        "rdfs:label": "Person",
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/person", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:PostedWorkerNotification",
@@ -1779,14 +1763,14 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
-        "@id": "ebwv:ScopeOfAuthorization",
+        "@id": "ebwv:TypeOfPresentation",
         "@type": "rdfs:Class",
-        "rdfs:label": "Scope Of Authorization",
+        "rdfs:label": "type of presentation",
         "rdfs:comment": {
-            "@value": "<div>the actions, matters, transactions, roles or circumstances for which an agent is authorised to act on behalf of another person or entity</div>",
+            "@value": "<div>type of presentation meaning Alone or Jointly</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization", "https://w3id.org/ebwv#"],
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:Site",
@@ -1846,8 +1830,12 @@
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:Alone",
-        "@type": "ebwv:ScopeOfAuthorization",
-        "rdfs:label": "scope of authorization Alone",
+        "@type": "ebwv:TypeOfPresentation",
+        "rdfs:label": "Alone",
+        "rdfs:comment": {
+            "@value": "<div>the representative can bind the company or principal alone, with their signature only.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
@@ -1901,7 +1889,7 @@
     }, {
         "@id": "ebwv:EAA",
         "@type": "ebwv:AttestationLegalCategory",
-        "rdfs:label": "electronic attestation of attributes",
+        "rdfs:label": "Electronic Attestation of Attributes",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
@@ -1930,44 +1918,56 @@
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:Jointly",
-        "@type": "ebwv:ScopeOfAuthorization",
-        "rdfs:label": "scope of authorization Jointly",
+        "@type": "ebwv:TypeOfPresentation",
+        "rdfs:label": "Jointly",
+        "rdfs:comment": {
+            "@value": "<div>the representative can only act together with one or more other authorised representatives. A typical rule is \"two managing directors jointly.\"</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:OnboardingServiceProvider",
         "@type": "ebwv:DataSpaceRole",
-        "rdfs:label": "Partner that onboards members into Agri-X; may be a DSI or another technology partner.",
+        "rdfs:label": "Onboarding Service Provider",
+        "rdfs:comment": {
+            "@value": "<div>Partner that onboards members into Agri-X; may be a DSI or another technology partner.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingserviceprovider", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:Operator",
         "@type": "ebwv:DataSpaceRole",
-        "rdfs:label": "Partner providing DSSC building-block services (identity management, consent management, logging, …).",
+        "rdfs:label": "Operator",
+        "rdfs:comment": {
+            "@value": "<div>Partner providing DSSC building-block services (identity management, consent management, logging, …).</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/operator", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:Permanent",
         "@type": "ebwv:TypeOfEmployment",
-        "rdfs:label": "type of employment Permanent",
+        "rdfs:label": "Permanent",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/permanent", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:Pub-EAA",
         "@type": "ebwv:AttestationLegalCategory",
-        "rdfs:label": "public electronic attestation of attributes",
+        "rdfs:label": "Public Electronic Attestation of Attributes",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:QEAA",
         "@type": "ebwv:AttestationLegalCategory",
-        "rdfs:label": "qualified electronic attestation of attributes",
+        "rdfs:label": "Qualified Electronic Attestation of Attributes",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:Temporary",
         "@type": "ebwv:TypeOfEmployment",
-        "rdfs:label": "type of employment Temporary",
+        "rdfs:label": "Temporary",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
@@ -2225,7 +2225,7 @@
     }, {
         "@id": "https://w3id.org/ebwv/v0.1",
         "@type": "jsonld:Context",
-        "mentions": ["cred:termsOfUse", "ebwv:A1Certificate", "ebwv:AccountType", "ebwv:Address", "ebwv:Agent", "ebwv:Alone", "ebwv:AttestationLegalCategory", "ebwv:BankAccount", "ebwv:Bic", "ebwv:CIP", "ebwv:CPT", "ebwv:ClearingNumber", "ebwv:Company", "ebwv:ContactPoint", "ebwv:CountryCode", "ebwv:Currency", "ebwv:DAP", "ebwv:DDP", "ebwv:DPU", "ebwv:DUNS", "ebwv:DataConsumer", "ebwv:DataProvider", "ebwv:DataRightsHolder", "ebwv:DataSpaceRole", "ebwv:DunsNumber", "ebwv:EAA", "ebwv:EXW", "ebwv:EconomicOperator", "ebwv:ElectronicAttestationOfAttributes", "ebwv:Eori", "ebwv:Euid", "ebwv:EuropeanBusinessWalletOwner", "ebwv:Excise", "ebwv:FAS", "ebwv:FCA", "ebwv:FOB", "ebwv:GLN", "ebwv:GS1CompanyPrefix", "ebwv:GeneralPartner", "ebwv:GlobalLocationNumber", "ebwv:GovernanceRulebook", "ebwv:Iban", "ebwv:Incoterms", "ebwv:Jointly", "ebwv:KmgMid", "ebwv:LegalEntityIdentifier", "ebwv:LegalPerson", "ebwv:LegalRepresentative", "ebwv:Lei", "ebwv:LeiRegistration", "ebwv:LimitedLiabilityCompany", "ebwv:LimitedPartner", "ebwv:Location", "ebwv:Membership", "ebwv:MonetaryAmount", "ebwv:Nace21", "ebwv:NationalBankCode", "ebwv:NaturalPerson", "ebwv:OnboardingDetails", "ebwv:OnboardingServiceProvider", "ebwv:Operator", "ebwv:Partnership", "ebwv:PaymentTerms", "ebwv:PeppolId", "ebwv:PeriodOfTime", "ebwv:Permanent", "ebwv:Person", "ebwv:PostedWorkerNotification", "ebwv:PowerOfAttorney", "ebwv:Pub-EAA", "ebwv:PublicSectorBody", "ebwv:PublicSectorBodyId", "ebwv:QEAA", "ebwv:ScopeOfAuthorization", "ebwv:Site", "ebwv:SocialSecurityContribution", "ebwv:StatutoryPartner", "ebwv:Temporary", "ebwv:Tin", "ebwv:TypeOfEmployment", "ebwv:UBO", "ebwv:VATRegistrationUnit", "ebwv:VatId", "ebwv:Vessel", "ebwv:WorkAssignment", "ebwv:a1", "ebwv:acceptedAt", "ebwv:accountName", "ebwv:accountType", "ebwv:activity", "ebwv:addressArea", "ebwv:adminUnitL1", "ebwv:adminUnitL2", "ebwv:administrativeRepresentative", "ebwv:alternativeName", "ebwv:amount", "ebwv:assignment", "ebwv:attestationLegalCategory", "ebwv:averagePeriodWorkforce", "ebwv:birthName", "ebwv:businessEntity", "ebwv:buyer", "ebwv:citizenship", "ebwv:complianceStatus", "ebwv:constructionSector", "ebwv:contactPoint", "ebwv:contributor", "ebwv:correspondenceAddress", "ebwv:countryOfBirth", "ebwv:countryOfDeath", "ebwv:coverageStatement", "ebwv:coveredObligationType", "ebwv:currency", "ebwv:dateOfBirth", "ebwv:dateOfDeath", "ebwv:dateOfRegistration", "ebwv:deliveryLocation", "ebwv:domicile", "ebwv:duration", "ebwv:employee", "ebwv:employer", "ebwv:endDate", "ebwv:familyName", "ebwv:flagState", "ebwv:fullAddress", "ebwv:fullName", "ebwv:fullPeriodCovered", "ebwv:gender", "ebwv:geographicIdentifier", "ebwv:geographicName", "ebwv:givenName", "ebwv:hasAddress", "ebwv:hasEmail", "ebwv:hasSite", "ebwv:hasTelephone", "ebwv:hash", "ebwv:hostEntity", "ebwv:iban", "ebwv:identifier", "ebwv:jobTitle", "ebwv:jurisdiction", "ebwv:legalBasis", "ebwv:legalEntity", "ebwv:legalForm", "ebwv:legalIdentifier", "ebwv:legalName", "ebwv:legalRepresentative", "ebwv:legalStatus", "ebwv:lei", "ebwv:leiLastUpdate", "ebwv:leiLegalEntity", "ebwv:leiNextRenewal", "ebwv:leiRegistration", "ebwv:leiRegistrationDate", "ebwv:leiRegistrationStatus", "ebwv:liabilityOrContribution", "ebwv:licenceKey", "ebwv:locatorDesignator", "ebwv:locatorName", "ebwv:managingLeiIssuer", "ebwv:mandatee", "ebwv:matronymicName", "ebwv:member", "ebwv:memberOf", "ebwv:noFixedPlaceOfWork", "ebwv:onboardedBy", "ebwv:operator", "ebwv:organisation", "ebwv:owner", "ebwv:ownershipPercentage", "ebwv:partner", "ebwv:partnerId", "ebwv:patronymicName", "ebwv:paymentDue", "ebwv:person", "ebwv:personalAdministrativeNumber", "ebwv:placeOfBirth", "ebwv:placeOfDeath", "ebwv:placeOfWork", "ebwv:platform", "ebwv:poBox", "ebwv:portrait", "ebwv:postCode", "ebwv:postName", "ebwv:postedWorker", "ebwv:principal", "ebwv:provenanceProof", "ebwv:provider", "ebwv:provisionalDetermination", "ebwv:proxiedPermission", "ebwv:qualificationNote", "ebwv:registeredAddress", "ebwv:reportingMonth", "ebwv:reportingPeriod", "ebwv:residency", "ebwv:role", "ebwv:scopeOfAuthorization", "ebwv:socialRepresentative", "ebwv:staffAverage", "ebwv:startDate", "ebwv:stateOfInsurance", "ebwv:statusConfirmation", "ebwv:subscribedCapital", "ebwv:supplier", "ebwv:temporaryAddress", "ebwv:temporaryWorkAgency", "ebwv:terms", "ebwv:thoroughfare", "ebwv:totalPayroll", "ebwv:transitionalRules", "ebwv:type", "ebwv:typeOfEmployment", "ebwv:url", "ebwv:version"]
+        "mentions": ["cred:termsOfUse", "ebwv:A1Certificate", "ebwv:AccountType", "ebwv:Address", "ebwv:Agent", "ebwv:Alone", "ebwv:AttestationLegalCategory", "ebwv:BankAccount", "ebwv:Bic", "ebwv:CIP", "ebwv:CPT", "ebwv:ClearingNumber", "ebwv:Company", "ebwv:ContactPoint", "ebwv:CountryCode", "ebwv:Currency", "ebwv:DAP", "ebwv:DDP", "ebwv:DPU", "ebwv:DUNS", "ebwv:DataConsumer", "ebwv:DataProvider", "ebwv:DataRightsHolder", "ebwv:DataSpaceRole", "ebwv:DunsNumber", "ebwv:EAA", "ebwv:EXW", "ebwv:EconomicOperator", "ebwv:ElectronicAttestationOfAttributes", "ebwv:Eori", "ebwv:Euid", "ebwv:EuropeanBusinessWalletOwner", "ebwv:Excise", "ebwv:FAS", "ebwv:FCA", "ebwv:FOB", "ebwv:GLN", "ebwv:GS1CompanyPrefix", "ebwv:GeneralPartner", "ebwv:GlobalLocationNumber", "ebwv:GovernanceRulebook", "ebwv:Iban", "ebwv:Incoterms", "ebwv:Jointly", "ebwv:KmgMid", "ebwv:LegalEntity", "ebwv:LegalEntityIdentifier", "ebwv:LegalPerson", "ebwv:LegalRepresentative", "ebwv:Lei", "ebwv:LeiRegistration", "ebwv:LimitedLiabilityCompany", "ebwv:LimitedPartner", "ebwv:Location", "ebwv:Membership", "ebwv:MonetaryAmount", "ebwv:Nace21", "ebwv:NationalBankCode", "ebwv:NaturalPerson", "ebwv:OnboardingDetails", "ebwv:OnboardingServiceProvider", "ebwv:Operator", "ebwv:Partnership", "ebwv:PaymentTerms", "ebwv:PeppolId", "ebwv:PeriodOfTime", "ebwv:Permanent", "ebwv:PostedWorkerNotification", "ebwv:PowerOfAttorney", "ebwv:Pub-EAA", "ebwv:PublicSectorBody", "ebwv:PublicSectorBodyId", "ebwv:QEAA", "ebwv:Site", "ebwv:SocialSecurityContribution", "ebwv:StatutoryPartner", "ebwv:Temporary", "ebwv:Tin", "ebwv:TypeOfEmployment", "ebwv:TypeOfPresentation", "ebwv:UBO", "ebwv:VATRegistrationUnit", "ebwv:VatId", "ebwv:Vessel", "ebwv:WorkAssignment", "ebwv:a1", "ebwv:acceptedAt", "ebwv:accountName", "ebwv:accountType", "ebwv:activity", "ebwv:addressArea", "ebwv:adminUnitL1", "ebwv:adminUnitL2", "ebwv:administrativeRepresentative", "ebwv:alternativeName", "ebwv:amount", "ebwv:assignment", "ebwv:attestationLegalCategory", "ebwv:averagePeriodWorkforce", "ebwv:birthName", "ebwv:businessEntity", "ebwv:buyer", "ebwv:citizenship", "ebwv:complianceStatus", "ebwv:constructionSector", "ebwv:contactPoint", "ebwv:contributor", "ebwv:correspondenceAddress", "ebwv:countryOfBirth", "ebwv:countryOfDeath", "ebwv:coverageStatement", "ebwv:coveredObligationType", "ebwv:currency", "ebwv:dateOfBirth", "ebwv:dateOfDeath", "ebwv:dateOfRegistration", "ebwv:deliveryLocation", "ebwv:domicile", "ebwv:duration", "ebwv:employee", "ebwv:employer", "ebwv:endDate", "ebwv:familyName", "ebwv:flagState", "ebwv:fullAddress", "ebwv:fullName", "ebwv:fullPeriodCovered", "ebwv:gender", "ebwv:geographicIdentifier", "ebwv:geographicName", "ebwv:givenName", "ebwv:hasAddress", "ebwv:hasEmail", "ebwv:hasSite", "ebwv:hasTelephone", "ebwv:hash", "ebwv:hostEntity", "ebwv:iban", "ebwv:identifier", "ebwv:jobTitle", "ebwv:jurisdiction", "ebwv:legalBasis", "ebwv:legalForm", "ebwv:legalIdentifier", "ebwv:legalName", "ebwv:legalRepresentative", "ebwv:legalStatus", "ebwv:lei", "ebwv:leiLastUpdate", "ebwv:leiLegalEntity", "ebwv:leiNextRenewal", "ebwv:leiRegistration", "ebwv:leiRegistrationDate", "ebwv:leiRegistrationStatus", "ebwv:liabilityOrContribution", "ebwv:licenceKey", "ebwv:locatorDesignator", "ebwv:locatorName", "ebwv:managingLeiIssuer", "ebwv:mandatee", "ebwv:matronymicName", "ebwv:member", "ebwv:memberOf", "ebwv:noFixedPlaceOfWork", "ebwv:onboardedBy", "ebwv:operator", "ebwv:organisation", "ebwv:owner", "ebwv:ownershipPercentage", "ebwv:partner", "ebwv:patronymicName", "ebwv:paymentDue", "ebwv:person", "ebwv:personalAdministrativeNumber", "ebwv:placeOfBirth", "ebwv:placeOfDeath", "ebwv:placeOfWork", "ebwv:platform", "ebwv:poBox", "ebwv:portrait", "ebwv:postCode", "ebwv:postName", "ebwv:postedWorker", "ebwv:principal", "ebwv:provenanceProof", "ebwv:provider", "ebwv:provisionalDetermination", "ebwv:qualificationNote", "ebwv:registeredAddress", "ebwv:reportingMonth", "ebwv:reportingPeriod", "ebwv:residency", "ebwv:role", "ebwv:scopeOfPower", "ebwv:socialRepresentative", "ebwv:staffAverage", "ebwv:startDate", "ebwv:stateOfInsurance", "ebwv:statusConfirmation", "ebwv:subscribedCapital", "ebwv:supplier", "ebwv:temporaryAddress", "ebwv:temporaryWorkAgency", "ebwv:terms", "ebwv:thoroughfare", "ebwv:totalPayroll", "ebwv:transitionalRules", "ebwv:type", "ebwv:typeOfEmployment", "ebwv:typeOfPresentation", "ebwv:url", "ebwv:version"]
     }, {
         "@id": "https://www.w3.org/ns/credentials/v2",
         "@type": "jsonld:Context",
