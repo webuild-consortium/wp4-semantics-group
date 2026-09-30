@@ -15,7 +15,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - IRI capitalisation: use `UpperCamelCase` for class names, such as `RegisteredOrganization`, and `lowerCamelCase` for property names, such as `hasRegisteredAddress`.
 - English labels: use British English spelling and the language tag `en-GB`, for example `"Organisation"@en-GB`.
 - Label annotations: use `skos:prefLabel` for the preferred display label and `skos:altLabel` for synonyms or alternative names. These annotations apply directly to OWL entities without typing them as `skos:Concept`.
-- Definition types: a mandatory taxonomic definition, an optional legal definition derived from legislation or regulations, and an optional business definition in everyday language. For a property without a meaningful superproperty, a mandatory base definition fulfils the first requirement. Keep the three definition types distinct.
+- Definition types: a mandatory taxonomic definition, an optional legal definition quoted verbatim from legislation or regulations, and an optional business definition in everyday language. For a property without a meaningful superproperty, a mandatory base definition fulfils the first requirement. Keep the three definition types distinct.
 - Status: draft model intended for joint development, not an approved project release.
 - Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
 - Property applicability: describe the use of both object and datatype properties in the relevant classes through OWL restrictions, without global `rdfs:domain` statements on those properties.
@@ -81,7 +81,7 @@ Keep three distinct types of definition rather than one undifferentiated definit
 | Definition type | Requirement | Content |
 | --- | --- | --- |
 | Taxonomic definition | Mandatory | For a class, name its superclass and the distinguishing characteristics. For a property, name its meaningful superproperty and the distinguishing characteristics; if none exists, provide a base definition of the relation. |
-| Legal definition | Optional | A definition derived from the relevant legislative or regulatory text when the term is used in law or regulation. |
+| Legal definition | Optional | A definition quoted verbatim from the relevant legislative or regulatory text when the term is used in law or regulation. |
 | Business definition | Optional | A definition in everyday language. |
 
 For example, if `CentrifugalPump` is a subclass of `Pump`, the taxonomic definition is: “A centrifugal pump is a pump with a rotating impeller.” This illustrates the definition pattern only; neither class has been added to the WEBUILD ontology.
@@ -91,7 +91,7 @@ The optional legal and business definitions do not replace the mandatory taxonom
 | Annotation property | Use |
 | --- | --- |
 | `:taxonomicDefinition` | Mandatory taxonomic definition; also holds the mandatory base definition for a property without a meaningful superproperty. |
-| `:legalDefinition` | Optional legal definition; a source reference is mandatory whenever a legal definition is provided, preferably as a URI. |
+| `:legalDefinition` | Optional verbatim legal definition; a source reference is mandatory whenever a legal definition is provided, preferably as a URI. |
 | `:businessDefinition` | Optional definition in everyday language. |
 
 In Protégé, add these annotations to the class or property being defined. The mandatory definition is an editorial requirement; declaring an annotation property does not enforce its presence. Automated validation has not yet been configured. No extra definition type or formal hierarchy is introduced by these declarations.
@@ -134,7 +134,9 @@ The `owl:annotatedTarget` must match the definition literal exactly, including i
 
 References: [Dublin Core source](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/source/) and [W3C OWL axiom annotations in RDF](https://www.w3.org/TR/owl2-mapping-to-rdf/#Axioms_that_Generate_a_Main_Triple).
 
-Handling of legal quotations or paraphrases remains pending. The handling of classes without a meaningful named superclass is not yet determined by the property-specific decision above.
+Legal definitions must be literal quotations from the cited source. Preserve the source wording, including its spelling; do not paraphrase or silently rewrite the text to match the label spelling convention. Explanations in everyday language belong in `:businessDefinition` and must not be presented as quotations from legislation. Each legal quotation retains its own required source reference as described above.
+
+The handling of classes without a meaningful named superclass is not yet determined by the property-specific decision above.
 
 Reference: [W3C OWL 2 object subproperties](https://www.w3.org/TR/owl2-syntax/#Object_Subproperties) and [data subproperties](https://www.w3.org/TR/owl2-syntax/#Data_Subproperties).
 
