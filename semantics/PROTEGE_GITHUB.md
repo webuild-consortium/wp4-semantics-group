@@ -65,7 +65,11 @@ For each term, allow at most one preferred label per language tag. Do not use th
 
 Both properties are OWL annotation properties and can annotate OWL classes and properties directly. Their use does not require or imply `rdf:type skos:Concept`. The ontology declares only these two reused annotation properties under their original SKOS IRIs; it does not import the complete SKOS ontology or add SKOS concept classifications. Separate duplicate `rdfs:label` annotations are not required by this convention.
 
-The intended Protégé display is `skos:prefLabel` with language preference `en-GB`. Rendering preferences are local application settings and are not distributed by the Turtle file; each modeller needs to configure them.
+Protégé is configured on this workstation to display `skos:prefLabel`, with the language preference field set to `en-GB, en, !` so British English has first priority. Both the Annotation Renderer and Preferences dialogs were confirmed. The ontology has no domain entities with labels yet, so display of actual domain labels has not been exercised.
+
+To reproduce the setting, open **View → Custom rendering…**, select **Render by annotation property**, and click **Configure…**. Use `http://www.w3.org/2004/02/skos/core#prefLabel` as the annotation IRI, enter `en-GB, en, !` in **Set Language**, and confirm both dialogs with **OK**. Do not select `skos:altLabel` as the display property.
+
+Rendering preferences are local application settings and are not distributed by the Turtle file; each modeller needs to configure them. These preferences affect the local Protégé display, not the ontology's term IRIs or stored label values.
 
 Reference: [W3C SKOS lexical labels, including their domain and integrity conditions](https://www.w3.org/TR/skos-reference/#labels).
 
