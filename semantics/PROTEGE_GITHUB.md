@@ -4,7 +4,7 @@ This guide describes the technical setup for collaborative ontology development 
 
 ## Starting file
 
-Open `semantics/model/webuild.ttl`. The ontology contains its ontology declaration and the two label annotation property declarations, `skos:prefLabel` and `skos:altLabel`. No domain classes, object properties, datatype properties, or imports have been added. This is a draft model intended for joint development. Its temporary ontology IRI is `https://example.org/webuild/ontology`, and its temporary term namespace is `https://example.org/webuild/ontology#`. These development placeholders are applied in the file; they are not published project identifiers. The definitive namespace and its governance remain to be agreed before external use.
+Open `semantics/model/webuild.ttl`. The ontology contains its ontology declaration and the two reused label annotation properties, `skos:prefLabel` and `skos:altLabel`, and the three local definition annotation properties, `taxonomicDefinition`, `legalDefinition`, and `businessDefinition`. The local definition properties have British English preferred labels and definitions. No domain classes, object properties, datatype properties, or imports have been added. This is a draft model intended for joint development. Its temporary ontology IRI is `https://example.org/webuild/ontology`, and its temporary term namespace is `https://example.org/webuild/ontology#`. These development placeholders are applied in the file; they are not published project identifiers. The definitive namespace and its governance remain to be agreed before external use.
 
 The three earlier Turtle models have been preserved unchanged in `semantics/model/Archive`, as requested. The new ontology does not import them. `authorisation_part.PlantUML` is also in `Archive`. The `modelling_considerations` directory has been retained and relates to earlier modelling work.
 
@@ -38,7 +38,7 @@ The agreed reference is [EBUCorePlus](http://www.ebu.ch/metadata/ontologies/ebuc
 
 Verified features of that source include `owl:Class`, `owl:ObjectProperty`, `owl:DatatypeProperty`, and class-level `owl:Restriction` expressions, including value restrictions and qualified cardinalities. No `rdfs:domain` statements occur in the inspected graph. Global `rdfs:range` statements do occur: for 222 datatype properties, one annotation property, and the object property `ec:isAbout`, whose range is `ec:Asset`. Therefore, the reference must not be described as universally avoiding global ranges. These observations concern the inspected source graph, not its imported ontologies.
 
-The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. Permitted restriction patterns, the annotation properties for the three agreed definition types, other annotations, and validation remain to be agreed one decision at a time. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
+The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. The annotation properties for the three definition types are agreed below. Permitted restriction patterns, other annotations, and validation remain to be agreed one decision at a time. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
 
 ## Object property modelling rule
 
@@ -64,7 +64,7 @@ For each newly authored WEBUILD class or property, provide exactly one British E
 
 For each term, allow at most one preferred label per language tag. Do not use the same literal, including its language tag, as both preferred and alternative label on that term. These are editorial rules to be checked during review; automated enforcement has not yet been configured.
 
-Both properties are OWL annotation properties and can annotate OWL classes and properties directly. Their use does not require or imply `rdf:type skos:Concept`. The ontology declares only these two reused annotation properties under their original SKOS IRIs; it does not import the complete SKOS ontology or add SKOS concept classifications. Separate duplicate `rdfs:label` annotations are not required by this convention.
+Both properties are OWL annotation properties and can annotate OWL classes and properties directly. Their use does not require or imply `rdf:type skos:Concept`. The ontology declares these two reused annotation properties under their original SKOS IRIs; it does not import the complete SKOS ontology or add SKOS concept classifications. Separate duplicate `rdfs:label` annotations are not required by this convention.
 
 Protégé is configured on this workstation to display `skos:prefLabel`, with the language preference field set to `en-GB, en, !` so British English has first priority. Both the Annotation Renderer and Preferences dialogs were confirmed. The ontology has no domain entities with labels yet, so display of actual domain labels has not been exercised.
 
@@ -86,7 +86,15 @@ Keep three distinct types of definition rather than one undifferentiated definit
 
 For example, if `CentrifugalPump` is a subclass of `Pump`, the taxonomic definition is: “A centrifugal pump is a pump with a rotating impeller.” This illustrates the definition pattern only; neither class has been added to the WEBUILD ontology.
 
-The optional legal and business definitions do not replace the mandatory taxonomic definition or, for a property without a meaningful superproperty, its mandatory base definition. The annotation property IRIs for the three fields are still to be agreed, so no definition properties have yet been added to the ontology. The proposal to use a single `skos:definition` field has not been adopted.
+The optional legal and business definitions do not replace the mandatory taxonomic definition or, for a property without a meaningful superproperty, its mandatory base definition. Use the three local OWL annotation properties listed below. They have been added to the ontology under the temporary term namespace `https://example.org/webuild/ontology#`. The proposal to use a single `skos:definition` field has not been adopted.
+
+| Annotation property | Use |
+| --- | --- |
+| `:taxonomicDefinition` | Mandatory taxonomic definition; also holds the mandatory base definition for a property without a meaningful superproperty. |
+| `:legalDefinition` | Optional legal definition. |
+| `:businessDefinition` | Optional definition in everyday language. |
+
+In Protégé, add these annotations to the class or property being defined. The mandatory definition is an editorial requirement; declaring an annotation property does not enforce its presence. Automated validation has not yet been configured. No extra definition type or formal hierarchy is introduced by these declarations.
 
 For both object and datatype properties, apply the following agreed rule:
 
