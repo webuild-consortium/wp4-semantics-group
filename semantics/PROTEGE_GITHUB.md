@@ -1,62 +1,62 @@
-# Samenwerken met Protégé en GitHub
+# Working together with Protégé and GitHub
 
-Deze handleiding beschrijft de technische voorbereiding voor gezamenlijk ontologiewerk in `webuild-consortium/wp4-semantics-group`. Protégé bewerkt lokale bestanden; Git bewaart versies en GitHub ondersteunt uitwisseling en review. De onderstaande werkwijze is een voorstel voor het team, geen vaststelling van inhoudelijke modelleerregels.
+This guide describes the technical setup for collaborative ontology development in `webuild-consortium/wp4-semantics-group`. Protégé edits local files; Git records versions, and GitHub supports sharing and review. The workflow below is a proposal for the team and does not establish substantive modelling rules. English is the working language for new documentation and other files prepared for GitHub.
 
-## Startbestand
+## Starting file
 
-Open `semantics/model/webuild.ttl`. Dit is een lege ontologie zonder klassen, properties, imports of inhoudelijke modelleerregels. `https://example.org/webuild/ontology` en de bijbehorende namespace zijn uitsluitend tijdelijke placeholders. Stel samen de definitieve IRIs vast voordat jullie termen toevoegen.
+Open `semantics/model/webuild.ttl`. This is an empty ontology with no classes, properties, imports, or substantive modelling rules. `https://example.org/webuild/ontology` and its associated namespace are temporary placeholders only. Agree on the final IRIs before adding terms.
 
-De drie eerdere Turtle-modellen staan op verzoek ongewijzigd in `semantics/model/Archive`. Zij worden niet door de nieuwe ontologie geïmporteerd. Ook `authorisation_part.PlantUML` staat in `Archive`. De map `modelling_considerations` is behouden; deze hoort bij eerder modelleerwerk.
+The three earlier Turtle models have been preserved unchanged in `semantics/model/Archive`, as requested. The new ontology does not import them. `authorisation_part.PlantUML` is also in `Archive`. The `modelling_considerations` directory has been retained and relates to earlier modelling work.
 
-## Bestanden en opslag
+## Files and storage
 
-Gebruik voor handmatig bewerkte ontologieën in `semantics/model` Turtle met de extensie `.ttl`. Kies bij een nieuw bestand in Protégé via **File → Save as…** expliciet **Turtle Syntax**. Alleen de extensie wijzigen verandert het opslagformaat niet. Gebruik daarna **File → Save** voor hetzelfde bestand.
+Use Turtle with the `.ttl` extension for manually edited ontologies in `semantics/model`. When saving a new file in Protégé, explicitly select **Turtle Syntax** through **File → Save as…**. Changing the extension alone does not change the storage format. Then use **File → Save** for subsequent saves to the same file.
 
-Spreek dezelfde Protégé-versie en opslaginstellingen af. Turtle maakt tekstverschillen leesbaar, maar een editor kan bij opslaan de volgorde en opmaak herschrijven. Controleer daarom ook een opslagronde zonder inhoudelijke wijzigingen. Bewaar betekenisvolle toelichtingen als annotaties, bijvoorbeeld `rdfs:comment`, of in documentatie: losse Turtle-commentaarregels zijn geen RDF-triples en kunnen bij opnieuw opslaan verdwijnen.
+Agree on the same Protégé version and save settings. Turtle makes textual differences readable, but an editor may reorder and reformat content when saving. Therefore, also check a save cycle without substantive changes. Keep meaningful explanations as annotations, such as `rdfs:comment`, or in documentation: standalone Turtle comments are not RDF triples and may disappear when the file is saved again.
 
-`docs/ebwv` bevat volgens `vocab/README.md` gegenereerde publicatiebestanden. Bewerk deze niet als handmatige Protégé-bron; de bron en generator staan onder `vocab`. De relatie tussen dat publicatieproces en de ontologie onder `semantics/model` moet het team nog vastleggen.
+According to `vocab/README.md`, `docs/ebwv` contains generated publication files. Do not use these as manually edited Protégé sources; the source files and generator are under `vocab`. The team still needs to define the relationship between that publication process and the ontology under `semantics/model`.
 
-## Een werksessie
+## A working session
 
-1. Sla je werk in Protégé op en sluit het betreffende ontologievenster voordat Git bestanden gaat vervangen.
-2. Controleer je lokale wijzigingen. Bewaar afgerond werk in een commit voordat je van branch wisselt.
-3. Haal op `main` de laatste versie op en maak een korte werkbranch, bijvoorbeeld `bart/onderwerp`. De lokale voorbereidingsbranch heet `bart/protege-setup`.
-4. Open het lokale `.ttl`-bestand vanaf die werkmap in Protégé. Werk aan één afgebakende wijziging.
-5. Sla op, bekijk de verschillen en controleer dat er geen onverwachte verwijderingen, IRI-wijzigingen of importwijzigingen zijn.
-6. Controleer de Turtle-syntax. Gebruik daarnaast de afgesproken reasoner of SHACL-validatie wanneer dat bij het model past. Een geslaagde syntaxcontrole bewijst geen inhoudelijke juistheid.
-7. Commit de bedoelde bestanden, push de werkbranch en maak een pull request. Laat je collega de betekenis van de wijziging beoordelen voordat deze naar `main` gaat.
-8. Open na een pull, merge of branchwissel het bestand opnieuw. Een nog geopend Protégé-venster kan anders een oude geheugenkopie terugschrijven.
+1. Save your work in Protégé and close the relevant ontology window before Git replaces files.
+2. Review your local changes. Commit completed work before switching branches.
+3. Update `main` to the latest version and create a short-lived working branch, such as `bart/topic`. The local setup branch is called `bart/protege-setup`.
+4. Open the local `.ttl` file from that working directory in Protégé. Work on one clearly scoped change.
+5. Save, review the diff, and check for unexpected deletions, IRI changes, or import changes.
+6. Check the Turtle syntax. Also use the agreed reasoner or SHACL validation where appropriate for the model. Passing a syntax check does not establish semantic correctness.
+7. Commit the intended files, push the working branch, and create a pull request. Have your colleague review the meaning of the change before it is merged into `main`.
+8. Reopen the file after a pull, merge, or branch switch. Otherwise, an open Protégé window may write an outdated in-memory copy back to disk.
 
-Branches isoleren wijzigingen, maar voorkomen geen mergeconflicten als jullie dezelfde regels aanpassen. Spreek bij één gezamenlijk bestand af wie welk onderdeel bewerkt, houd branches kort en stem overlappend werk af. Deelbestanden kunnen helpen, mits ze een inhoudelijk logische grens hebben. Leg per module de ontology-IRI, bestandsnaam, eigenaar van wijzigingen en imports vast; voorkom dubbele definities in meerdere bestanden.
+Branches isolate changes, but do not prevent merge conflicts when both contributors change the same lines. When sharing one file, agree on who edits which part, keep branches short-lived, and coordinate overlapping work. Separate files can help if they follow meaningful module boundaries. Record each module's ontology IRI, filename, responsibility for changes, and imports; avoid duplicate definitions across files.
 
-## Lokale imports
+## Local imports
 
-Een ontology-IRI is de identiteit van de ontologie; het pad naar het `.ttl`-bestand is de opslaglocatie. Laat die identiteit niet afhangen van iemands lokale gebruikersmap.
+An ontology IRI identifies the ontology; the path to the `.ttl` file specifies its storage location. Do not make that identity depend on someone's local user directory.
 
-Protégé kan lokale imports via een `catalog-v001.xml` vinden. Deel zo'n catalogus alleen met gecontroleerde, relatieve bestandspaden. Negeer catalogi niet zonder meer: ze kunnen nodig zijn om het model op een andere computer correct te openen. Wijs een ontbrekende import niet stilzwijgend naar een ontologie met een andere IRI.
+Protégé can resolve local imports through a `catalog-v001.xml` file. Share such a catalogue only with reviewed, relative file paths. Do not automatically ignore catalogues: they may be needed to open the model correctly on another computer. Do not silently redirect a missing import to an ontology with a different IRI.
 
-In de gearchiveerde modellen is op 30 september 2026 vastgesteld:
+The following was observed in the archived models on 30 September 2026:
 
-- `Archive/PRIMER.ttl` declareert `http://data.webuildconsortium.eu/PRIMER`.
-- `Archive/authorisation_part.ttl` importeert `http://www.braindex.nl/data/PRIMER` en gebruikt zowel de Braindex-namespace als `http://data.webuildconsortium.eu/primer#` met kleine letters.
-- `Archive/authorisation_part_instance.ttl` importeert `http://data.webuildconsortium.eu/authorisation.ttl`, de ontology-IRI van `authorisation_part.ttl`.
+- `Archive/PRIMER.ttl` declares `http://data.webuildconsortium.eu/PRIMER`.
+- `Archive/authorisation_part.ttl` imports `http://www.braindex.nl/data/PRIMER` and uses both the Braindex namespace and `http://data.webuildconsortium.eu/primer#`, with lowercase `primer`.
+- `Archive/authorisation_part_instance.ttl` imports `http://data.webuildconsortium.eu/authorisation.ttl`, the ontology IRI of `authorisation_part.ttl`.
 
-De verschillende PRIMER-IRIs zijn niet automatisch dezelfde identiteit. Het team moet bepalen welke identiteit bedoeld is; tijdens deze technische voorbereiding zijn deze bronnen niet aangepast.
+The different PRIMER IRIs do not automatically identify the same ontology. The team must determine the intended identity; these sources were not changed during the technical setup.
 
-## Afspraken voor de start
+## Agreements before modelling
 
-Leg samen de definitieve namespace en IRI-uitgifte vast, evenals taal en naamgeving, modulegrenzen, bronverwijzingen naar usecases, en wie inhoudelijke wijzigingen beoordeelt. Spreek ook af welk RDF(S)- of OWL-gebruik Protégé moet kunnen behouden; een syntactisch geldig Turtle-bestand is niet automatisch zonder veranderingen via een OWL-editor op te slaan. Controleer dit bij bestaande bronnen met een kopie en een vergelijking van de RDF-triples.
+Agree on the final namespace and IRI allocation, naming conventions, module boundaries, source references to use cases, and responsibility for reviewing substantive changes. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Also agree on the RDF(S) or OWL constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
 
-Een Git-merge zonder tekstconflict kan alsnog tegenstrijdige modelleerkeuzes samenbrengen. Review daarom steeds betekenis en relevante usecasevoorbeelden. Overweeg bescherming van `main` met verplichte review nadat het team deze werkwijze heeft afgesproken.
+A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. Consider protecting `main` with mandatory review once the team has agreed on this workflow.
 
-De opgegeven werkmap staat onder OneDrive. Mijn advies is om de actieve Git-werkmap uiteindelijk buiten een synchronisatiemap te plaatsen en via GitHub samen te werken; twee onafhankelijke synchronisatiemechanismen maken de werkmap moeilijker te beheren. Tot die tijd: houd bestanden volledig lokaal beschikbaar en gebruik deze checkout op één computer tegelijk. De map is tijdens de voorbereiding niet verplaatst.
+The selected working directory is under OneDrive. The recommendation is to eventually place the active Git working directory outside a synchronised folder and collaborate through GitHub; two independent synchronisation mechanisms make the working directory harder to manage. Until then, keep the files fully available locally and use this checkout on one computer at a time. The directory was not relocated during setup.
 
-De bestaande GitHub-repository is openbaar. Publiceren gebeurt door een push; lokaal opslaan of een lokale commit publiceren nog niets.
+The existing GitHub repository is public. A push publishes changes; saving locally or making a local commit does not.
 
-Bij deze lokale checkout veranderden uitvoerbaarheidsbits van veel bestanden zonder inhoudelijke wijziging. Daarom staat uitsluitend in deze checkout `core.filemode=false`, zodat deze verschillen de review niet vervuilen. Dit is een lokale Git-instelling en wordt niet met de repository gedeeld.
+In this local checkout, executable bits changed on many files without content changes. Therefore, `core.filemode=false` is set for this checkout only, so those differences do not clutter the review. This is a local Git setting and is not shared with the repository.
 
-## Bronnen
+## Sources
 
-- [Protégé menu en opslagfuncties](https://protegeproject.github.io/protege/menus/)
-- [GitHub over mergeconflicten](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)
-- [Publicatieproces in deze repository](../vocab/README.md)
+- [Protégé menus and save functions](https://protegeproject.github.io/protege/menus/)
+- [GitHub documentation on merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)
+- [Publication process in this repository](../vocab/README.md)
