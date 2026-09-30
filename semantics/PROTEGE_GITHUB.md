@@ -22,6 +22,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - Property applicability: describe the use of both object and datatype properties in the relevant classes through OWL restrictions, without global `rdfs:domain` statements on those properties.
 - Object properties: use class-level OWL restrictions consistently. Do not assert global `rdfs:domain` or `rdfs:range` for object properties in the jointly developed ontology.
 - Datatype properties: a global `rdfs:range` is permitted, for example `xsd:date`. This is permission, not a requirement to declare a global range on every datatype property. Do not assert global `rdfs:domain`; describe class-specific use through restrictions on the relevant classes.
+- Central model and application profiles: put only generally applicable restrictions in the central model. Use-case-specific requirements for the presence of relations or values and their cardinalities belong in the relevant application profile.
 - Temporary term namespace: `https://example.org/webuild/ontology#`. For example, a term named `Organization` would have the IRI `https://example.org/webuild/ontology#Organization`; this example does not introduce a class.
 - Temporary ontology IRI: `https://example.org/webuild/ontology`. This identifies the draft ontology as a whole.
 - Substantive change approval: Bart and his modelling colleague must both approve a change before it is considered agreed. Until both have approved it, the change remains a proposal.
@@ -48,6 +49,14 @@ For object properties, express class-specific conditions through OWL restriction
 This decision establishes where conditions are expressed. It does not prescribe a universal restriction or cardinality for every relation. Decide the appropriate restriction for each intended meaning; do not add existence or cardinality requirements merely because an object property is used by a class. Datatype properties follow the same class-level approach to applicability, while their ranges follow the separate rule below.
 
 This rule governs the new jointly developed model. Archived originals and the existing implementation vocabulary remain unchanged.
+
+## Central model and application profiles
+
+The central model contains only restrictions that hold generally for the meaning of the relevant class or property, independently of a particular use case. Requirements that apply only within a specific use case, including mandatory relations or values and minimum or maximum counts, belong in that use case's application profile.
+
+For example, an address may be mandatory for a particular application without requiring every organisation in the central model to have an address. This is an illustration of the separation, not a new class, property, or cardinality axiom.
+
+This agreement does not prohibit cardinalities in the central model: include them there when they express a generally valid condition for the modelled concept. Do not promote a use-case-specific requirement into the central model merely because one implementation needs it. Reviewers must check the scope and justification of each restriction. The representation and validation mechanism for application profiles remain to be agreed; this decision does not introduce profile files or new ontology axioms.
 
 ## Datatype property modelling rule
 
@@ -192,7 +201,7 @@ Automated checks cover:
 - No global domain for declared object or datatype properties in the authored graph, and no global range for object properties. Datatype ranges remain optional and permitted.
 - A source attached to each exact legal-definition assertion, including its language tag or datatype. Stale or mismatched source annotations fail. A non-empty textual citation is accepted with a review warning because a URI is preferred rather than mandatory.
 
-Human review covers what these checks cannot establish: meaningful superclass/superproperty choices and differentiae, correct use of class restrictions, American English term names and British English labels, genuine synonymy, exact legal quotations and the relevance of the cited article and version, business-language clarity, use-case coverage, and approval by both modellers before merging substantive changes. Source availability is not automatically tested. No OWL reasoner, consistency check, or SHACL application-profile validation is configured yet; select these together with the relevant modelling rules. A green automated result does not certify these human checks.
+Human review covers what these checks cannot establish: meaningful superclass/superproperty choices and differentiae, correct use of class restrictions and separation of general conditions from use-case-specific requirements, American English term names and British English labels, genuine synonymy, exact legal quotations and the relevance of the cited article and version, business-language clarity, use-case coverage, and approval by both modellers before merging substantive changes. Source availability is not automatically tested. No OWL reasoner, consistency check, or SHACL application-profile validation is configured yet; select these together with the relevant modelling rules. A green automated result does not certify these human checks.
 
 ## Local imports
 
