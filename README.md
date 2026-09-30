@@ -12,4 +12,4 @@ More information see the Semantics Group's café on the webuild portal: https://
 
 ## Ontology editing with Protégé
 
-The new ontology starts in [semantics/model/webuild.ttl](semantics/model/webuild.ttl). See the [Protégé and GitHub working guide](semantics/PROTEGE_GITHUB.md) for the proposed workflow and pending namespace decision. Earlier model files are preserved in [Archive](semantics/model/Archive).
+The new ontology starts in [semantics/model/webuild.ttl](semantics/model/webuild.ttl). See the [Protégé and GitHub working guide](semantics/PROTEGE_GITHUB.md) for the proposed workflow and confirmed term namespace and ontology IRI. Earlier model files are preserved in [Archive](semantics/model/Archive).
