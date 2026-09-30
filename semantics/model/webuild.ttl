@@ -17,11 +17,11 @@ dcterms:source rdf:type owl:AnnotationProperty .
 # Definition annotations for the jointly developed model.
 :taxonomicDefinition rdf:type owl:AnnotationProperty ;
     skos:prefLabel "Taxonomic definition"@en-GB ;
-    :taxonomicDefinition "An annotation property that associates a term with its taxonomic definition, naming its meaningful superclass or superproperty and distinguishing characteristics, or with a base definition for a property without a meaningful superproperty."@en-GB .
+    :taxonomicDefinition "An annotation property that associates a term with its taxonomic definition, naming its meaningful superclass or superproperty and distinguishing characteristics, or with a base definition for a class without a meaningful superclass or a property without a meaningful superproperty."@en-GB .
 
 :legalDefinition rdf:type owl:AnnotationProperty ;
     skos:prefLabel "Legal definition"@en-GB ;
-    :taxonomicDefinition "An annotation property that associates a term with an optional definition derived from relevant legislation or regulations."@en-GB .
+    :taxonomicDefinition "An annotation property that associates a term with an optional definition quoted verbatim from relevant legislation or regulations."@en-GB .
 
 :businessDefinition rdf:type owl:AnnotationProperty ;
     skos:prefLabel "Business definition"@en-GB ;
