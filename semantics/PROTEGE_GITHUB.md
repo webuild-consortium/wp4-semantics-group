@@ -15,6 +15,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - IRI capitalisation: use `UpperCamelCase` for class names, such as `RegisteredOrganization`, and `lowerCamelCase` for property names, such as `hasRegisteredAddress`.
 - English labels: use British English spelling and the language tag `en-GB`, for example `"Organisation"@en-GB`.
 - Label annotations: use `skos:prefLabel` for the preferred display label and `skos:altLabel` for synonyms or alternative names. These annotations apply directly to OWL entities without typing them as `skos:Concept`.
+- Definition types: a mandatory taxonomic definition, an optional legal definition derived from legislation or regulations, and an optional business definition in everyday language. Keep these three types distinct.
 - Status: draft model intended for joint development, not an approved project release.
 - Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
 - Property applicability: describe the use of both object and datatype properties in the relevant classes through OWL restrictions, without global `rdfs:domain` statements on those properties.
@@ -37,7 +38,7 @@ The agreed reference is [EBUCorePlus](http://www.ebu.ch/metadata/ontologies/ebuc
 
 Verified features of that source include `owl:Class`, `owl:ObjectProperty`, `owl:DatatypeProperty`, and class-level `owl:Restriction` expressions, including value restrictions and qualified cardinalities. No `rdfs:domain` statements occur in the inspected graph. Global `rdfs:range` statements do occur: for 222 datatype properties, one annotation property, and the object property `ec:isAbout`, whose range is `ec:Asset`. Therefore, the reference must not be described as universally avoiding global ranges. These observations concern the inspected source graph, not its imported ontologies.
 
-The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. Permitted restriction patterns, annotations other than the agreed label properties, and validation remain to be agreed one decision at a time. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
+The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. Permitted restriction patterns, the annotation properties for the three agreed definition types, other annotations, and validation remain to be agreed one decision at a time. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
 
 ## Object property modelling rule
 
@@ -72,6 +73,22 @@ To reproduce the setting, open **View → Custom rendering…**, select **Render
 Rendering preferences are local application settings and are not distributed by the Turtle file; each modeller needs to configure them. These preferences affect the local Protégé display, not the ontology's term IRIs or stored label values.
 
 Reference: [W3C SKOS lexical labels, including their domain and integrity conditions](https://www.w3.org/TR/skos-reference/#labels).
+
+## Definition types
+
+Keep three distinct types of definition rather than one undifferentiated definition field:
+
+| Definition type | Requirement | Content |
+| --- | --- | --- |
+| Taxonomic definition | Mandatory | For a class, explicitly use the name of its superclass and state the characteristics that distinguish the subclass. |
+| Legal definition | Optional | A definition derived from the relevant legislative or regulatory text when the term is used in law or regulation. |
+| Business definition | Optional | A definition in everyday language. |
+
+For example, if `CentrifugalPump` is a subclass of `Pump`, the taxonomic definition is: “A centrifugal pump is a pump with a rotating impeller.” This illustrates the definition pattern only; neither class has been added to the WEBUILD ontology.
+
+The optional legal and business definitions do not replace the mandatory taxonomic definition. The annotation property IRIs for the three fields are still to be agreed, so no definition properties have yet been added to the ontology. The proposal to use a single `skos:definition` field has not been adopted.
+
+The superclass-based pattern is established for classes. How the taxonomic definition requirement applies to properties remains to be clarified; do not assume a superproperty-based pattern without agreement. Source citation and handling of legal quotations or paraphrases also remain to be specified.
 
 ## Files and storage
 
