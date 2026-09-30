@@ -12,6 +12,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 
 - Working language: English for new documentation and other files prepared for GitHub.
 - Status: draft model intended for joint development, not an approved project release.
+- Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
 - Temporary term namespace: `https://example.org/webuild/ontology#`. For example, a term named `Organisation` would have the IRI `https://example.org/webuild/ontology#Organisation`; this example does not introduce a class.
 - Temporary ontology IRI: `https://example.org/webuild/ontology`. This identifies the draft ontology as a whole.
 - Substantive change approval: Bart and his modelling colleague must both approve a change before it is considered agreed. Until both have approved it, the change remains a proposal.
@@ -22,6 +23,14 @@ This decision supersedes the earlier choice of `https://w3id.org/ebwv` and `http
 The existing implementation vocabulary and publication files remain unchanged. They can inform the joint modelling work, but reuse and any mappings require review of each term's meaning. This draft does not assert replacement of, or equivalence with, that vocabulary. Substantive model changes require joint approval by Bart and his modelling colleague. Their joint approval establishes acceptance of the change; the process for publishing releases remains to be agreed. This documentation does not configure or enforce GitHub branch protection.
 
 Confirm further starting decisions one at a time before implementing them.
+
+## Modelling reference
+
+The agreed reference is [EBUCorePlus](http://www.ebu.ch/metadata/ontologies/ebucoreplus). Its official documentation redirects to the [EBUCorePlus documentation site](https://ebu.github.io/ebucoreplus/). The source inspected for this decision is [`ontology/EBUCorePlus/ebucoreplus.owl` at commit `880d36abfd59b6c08a4794e9a5d4b93b0afda200`](https://github.com/ebu/ebucoreplus/blob/880d36abfd59b6c08a4794e9a5d4b93b0afda200/ontology/EBUCorePlus/ebucoreplus.owl). It declares version 2.0.0 and uses Turtle syntax despite its `.owl` extension. WEBUILD retains the agreed `.ttl` extension.
+
+Verified features of that source include `owl:Class`, `owl:ObjectProperty`, `owl:DatatypeProperty`, and class-level `owl:Restriction` expressions, including value restrictions and qualified cardinalities. No `rdfs:domain` statements occur in the inspected graph. Global `rdfs:range` statements do occur: for 222 datatype properties, one annotation property, and the object property `ec:isAbout`, whose range is `ec:Asset`. Therefore, the reference must not be described as universally avoiding global ranges. These observations concern the inspected source graph, not its imported ontologies.
+
+The confirmed direction is OWL modelling following this reference approach. The exact WEBUILD policy for global domains and ranges, permitted restrictions, annotations, and validation remains to be agreed one decision at a time. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
 
 ## Files and storage
 
@@ -60,7 +69,7 @@ The different PRIMER IRIs do not automatically identify the same ontology. The t
 
 ## Agreements before modelling
 
-The temporary identifiers, draft status, and joint approval of substantive changes are confirmed above. The definitive identifiers, namespace stewardship, and release publication process remain pending. Agree next on term IRI allocation, naming conventions, module boundaries, and source references to use cases. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Also agree on the RDF(S) or OWL constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
+The temporary identifiers, draft status, and joint approval of substantive changes are confirmed above. The definitive identifiers, namespace stewardship, and release publication process remain pending. Agree next on term IRI allocation, naming conventions, module boundaries, and source references to use cases. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Within the agreed OWL approach, agree on the constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
 
 A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. Consider protecting `main` with mandatory review once the team has agreed on this workflow.
 
