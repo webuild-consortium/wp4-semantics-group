@@ -91,7 +91,7 @@ The optional legal and business definitions do not replace the mandatory taxonom
 | Annotation property | Use |
 | --- | --- |
 | `:taxonomicDefinition` | Mandatory taxonomic definition; also holds the mandatory base definition for a property without a meaningful superproperty. |
-| `:legalDefinition` | Optional legal definition. |
+| `:legalDefinition` | Optional legal definition; a source reference is mandatory whenever a legal definition is provided, preferably as a URI. |
 | `:businessDefinition` | Optional definition in everyday language. |
 
 In Protégé, add these annotations to the class or property being defined. The mandatory definition is an editorial requirement; declaring an annotation property does not enforce its presence. Automated validation has not yet been configured. No extra definition type or formal hierarchy is introduced by these declarations.
@@ -105,7 +105,9 @@ For example, if `hasRegisteredAddress` is a subproperty of `hasAddress`, a defin
 
 Record the definition as an annotation and the formal property hierarchy separately using `rdfs:subPropertyOf`. Definition text alone does not establish the formal hierarchy. Sharing a datatype alone does not justify a subproperty relationship. The existing rules for class-level applicability and global ranges remain unchanged.
 
-Source citation and handling of legal quotations or paraphrases still need to be specified. The handling of classes without a meaningful named superclass is also not yet determined by this property-specific decision.
+Every legal definition must have a source reference identifying the relevant legislation or regulation and the specific article. Prefer a URI pointing to the official source and, where available, the specific article. The source reference is mandatory; use of a URI is a preference, not an absolute requirement when no suitable URI is available.
+
+The annotation property and the precise mechanism for associating the source with its definition remain to be agreed. Handling of legal quotations or paraphrases also remains pending. The handling of classes without a meaningful named superclass is not yet determined by the property-specific decision above.
 
 Reference: [W3C OWL 2 object subproperties](https://www.w3.org/TR/owl2-syntax/#Object_Subproperties) and [data subproperties](https://www.w3.org/TR/owl2-syntax/#Data_Subproperties).
 
