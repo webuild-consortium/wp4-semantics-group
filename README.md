@@ -9,3 +9,7 @@ The latest version is published here: https://w3id.org/ebwv
 The nordics interoperability platform is used for defining the concepts. Links are included in the vocabulary.
 
 More information see the Semantics Group's café on the webuild portal: https://portal.webuildconsortium.eu/group/semantics/about
+
+## Ontology editing with Protégé
+
+The new ontology starts in [semantics/model/webuild.ttl](semantics/model/webuild.ttl). See the [Protégé and GitHub working guide](semantics/PROTEGE_GITHUB.md) for the proposed workflow and pending namespace decision. Earlier model files are preserved in [Archive](semantics/model/Archive).

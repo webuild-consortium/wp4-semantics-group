@@ -1,1 +1,9 @@
 /vocab/scripts/yml2vocab
+
+# Local workstation files and ontology backups
+.DS_Store
+.local/
+*.ttl.bak
+*.ttl~
+*.owl.bak
+*.owl~
