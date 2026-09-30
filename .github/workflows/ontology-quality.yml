@@ -1,0 +1,22 @@
+name: Ontology quality
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ontology-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validation dependency
+        run: python -m pip install -r semantics/quality/requirements.txt
+      - name: Run all automated ontology quality checks
+        run: python -B semantics/quality/run.py

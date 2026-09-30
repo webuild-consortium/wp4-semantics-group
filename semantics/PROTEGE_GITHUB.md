@@ -16,6 +16,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - English labels: use British English spelling and the language tag `en-GB`, for example `"Organisation"@en-GB`.
 - Label annotations: use `skos:prefLabel` for the preferred display label and `skos:altLabel` for synonyms or alternative names. These annotations apply directly to OWL entities without typing them as `skos:Concept`.
 - Definition types: a mandatory taxonomic definition, an optional legal definition quoted verbatim from legislation or regulations, and an optional business definition in everyday language. For a class without a meaningful superclass or a property without a meaningful superproperty, a mandatory base definition fulfils the first requirement. Keep the three definition types distinct.
+- Quality checks: run the complete automated suite and the applicable human review before every GitHub synchronisation. GitHub repeats the automated suite on pushes and pull requests.
 - Status: draft model intended for joint development, not an approved project release.
 - Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
 - Property applicability: describe the use of both object and datatype properties in the relevant classes through OWL restrictions, without global `rdfs:domain` statements on those properties.
@@ -38,7 +39,7 @@ The agreed reference is [EBUCorePlus](http://www.ebu.ch/metadata/ontologies/ebuc
 
 Verified features of that source include `owl:Class`, `owl:ObjectProperty`, `owl:DatatypeProperty`, and class-level `owl:Restriction` expressions, including value restrictions and qualified cardinalities. No `rdfs:domain` statements occur in the inspected graph. Global `rdfs:range` statements do occur: for 222 datatype properties, one annotation property, and the object property `ec:isAbout`, whose range is `ec:Asset`. Therefore, the reference must not be described as universally avoiding global ranges. These observations concern the inspected source graph, not its imported ontologies.
 
-The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. The annotation properties for the three definition types are agreed below. Permitted restriction patterns, other annotations, and validation remain to be agreed one decision at a time. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
+The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. The annotation properties for the three definition types are agreed below. Permitted restriction patterns and other annotations remain to be agreed one decision at a time. Automated editorial validation is configured as described below; logical consistency checks await the choice of reasoner. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
 
 ## Object property modelling rule
 
@@ -62,7 +63,7 @@ These conventions apply to newly authored WEBUILD terms and labels. Preserve ide
 
 For each newly authored WEBUILD class or property, provide exactly one British English preferred label using `skos:prefLabel` with `en-GB`. Use zero or more `skos:altLabel` annotations for synonyms and alternative names of the same meaning, each with a language tag. Related but distinct meanings require separate terms rather than alternative labels.
 
-For each term, allow at most one preferred label per language tag. Do not use the same literal, including its language tag, as both preferred and alternative label on that term. These are editorial rules to be checked during review; automated enforcement has not yet been configured.
+For each term, allow at most one preferred label per language tag. Do not use the same literal, including its language tag, as both preferred and alternative label on that term. The automated quality checker enforces these structural label rules; spelling and whether alternative labels express the same meaning require human review.
 
 Both properties are OWL annotation properties and can annotate OWL classes and properties directly. Their use does not require or imply `rdf:type skos:Concept`. The ontology declares these two reused annotation properties under their original SKOS IRIs; it does not import the complete SKOS ontology or add SKOS concept classifications. Separate duplicate `rdfs:label` annotations are not required by this convention.
 
@@ -94,7 +95,7 @@ The optional legal and business definitions do not replace the mandatory taxonom
 | `:legalDefinition` | Optional verbatim legal definition; a source reference is mandatory whenever a legal definition is provided, preferably as a URI. |
 | `:businessDefinition` | Optional definition in everyday language. |
 
-In Protégé, add these annotations to the class or property being defined. The mandatory definition is an editorial requirement; declaring an annotation property does not enforce its presence. Automated validation has not yet been configured. No extra definition type or formal hierarchy is introduced by these declarations.
+In Protégé, add these annotations to the class or property being defined. The mandatory definition is an editorial requirement; declaring an annotation property does not enforce its presence. The automated quality checker verifies the presence of non-empty definition text; reviewers assess its meaning and taxonomic structure. No extra definition type or formal hierarchy is introduced by these declarations.
 
 For both object and datatype properties, apply the following agreed rule:
 
@@ -109,7 +110,7 @@ Every legal definition must have a source reference identifying the relevant leg
 
 Use `dcterms:source` (`http://purl.org/dc/terms/source`) as an OWL annotation property on the specific `:legalDefinition` annotation assertion. This associates the source with that definition text. A source annotation on the class or property alone does not establish which definition it supports. The ontology declares `dcterms:source` without importing the Dublin Core vocabulary.
 
-In Protégé, add the legal definition to the entity, then annotate that definition assertion with `dcterms:source`. Enter the source as an IRI value when a suitable URI is available, rather than a text literal containing a URL. If several legal definitions exist for one term, attach the appropriate source to each definition separately. The source requirement remains an editorial rule until automated validation is configured.
+In Protégé, add the legal definition to the entity, then annotate that definition assertion with `dcterms:source`. Enter the source as an IRI value when a suitable URI is available, rather than a text literal containing a URL. If several legal definitions exist for one term, attach the appropriate source to each definition separately. The automated quality checker verifies that every legal definition has a source on its exact annotation assertion. Reviewers verify the source and quotation.
 
 The following Turtle illustrates the agreed pattern using placeholders only. It is documentation, not a legal assertion or an addition of domain terms to `webuild.ttl`:
 
@@ -155,11 +156,43 @@ According to `vocab/README.md`, `docs/ebwv` contains generated publication files
 3. Update `main` to the latest version and create a short-lived working branch, such as `bart/topic`. The local setup branch is called `bart/protege-setup`.
 4. Open the local `.ttl` file from that working directory in Protégé. Work on one clearly scoped change.
 5. Save, review the diff, and check for unexpected deletions, IRI changes, or import changes.
-6. Check the Turtle syntax. Also use the agreed reasoner or SHACL validation where appropriate for the model. Passing a syntax check does not establish semantic correctness.
+6. Run the complete quality suite described below and review the applicable human checks before every synchronisation. Resolve errors before pushing; repeat the suite after any changes or incoming merge. Passing the automated suite does not establish semantic correctness.
 7. Commit the intended files, push the working branch, and create a pull request. Record approval by both Bart and his modelling colleague before treating a substantive change as agreed and merging it into `main`. The author's explicit agreement and the other modeller's review can record their respective approvals.
 8. Reopen the file after a pull, merge, or branch switch. Otherwise, an open Protégé window may write an outdated in-memory copy back to disk.
 
 Branches isolate changes, but do not prevent merge conflicts when both contributors change the same lines. When sharing one file, agree on who edits which part, keep branches short-lived, and coordinate overlapping work. Separate files can help if they follow meaningful module boundaries. Record each module's ontology IRI, filename, responsibility for changes, and imports; avoid duplicate definitions across files.
+
+## Quality checks before every GitHub synchronisation
+
+Run all automated checks on the saved files before every push, including a push to a working branch. Complete the applicable human review below and review the Git diff. If a pull or merge changes the model, run the checks again on the resulting files before continuing or pushing. Protégé changes must be saved first; these checks read the files on disk.
+
+From the repository root, install the pinned dependency once in a local virtual environment:
+
+```sh
+python3 -m venv .local/quality-venv
+.local/quality-venv/bin/python -m pip install -r semantics/quality/requirements.txt
+```
+
+Run the full automated suite:
+
+```sh
+.local/quality-venv/bin/python -B semantics/quality/run.py
+```
+
+A non-zero exit status means the checks failed. Fix the reported errors before synchronising. The suite runs the checker regression tests and validates the active model. The same suite is configured in `.github/workflows/ontology-quality.yml` for every push, pull request, and manual workflow run. It runs on GitHub once the workflow is pushed. Local execution is a working agreement, not an installed Git hook. This workflow does not configure branch protection or enforce the human approval process.
+
+The checks parse all `.ttl` files under `semantics/model` except `Archive` and `modelling_considerations`, and validate their combined graph. `webuild.ttl` must exist. Archived originals, `vocab`, and generated `docs/ebwv` are outside this draft model's validation scope. Imports and source URIs are not fetched. Namespace-specific checks currently target `https://example.org/webuild/ontology#`; update the checker together with the ontology when the definitive namespace is agreed.
+
+Automated checks cover:
+
+- Valid Turtle, the agreed ontology declaration, and the required annotation property declarations.
+- UpperCamelCase class names and lowerCamelCase property names for authored terms; this checks the lexical pattern, not English spelling.
+- Exactly one non-empty `en-GB` preferred label, at most one preferred label per language, language-tagged synonyms, and no identical preferred and alternative label on one term.
+- A non-empty taxonomic or base definition for authored classes and properties, including local annotation properties. Optional legal and business definitions must contain text when present.
+- No global domain for declared object or datatype properties in the authored graph, and no global range for object properties. Datatype ranges remain optional and permitted.
+- A source attached to each exact legal-definition assertion, including its language tag or datatype. Stale or mismatched source annotations fail. A non-empty textual citation is accepted with a review warning because a URI is preferred rather than mandatory.
+
+Human review covers what these checks cannot establish: meaningful superclass/superproperty choices and differentiae, correct use of class restrictions, American English term names and British English labels, genuine synonymy, exact legal quotations and the relevance of the cited article and version, business-language clarity, use-case coverage, and approval by both modellers before merging substantive changes. Source availability is not automatically tested. No OWL reasoner, consistency check, or SHACL application-profile validation is configured yet; select these together with the relevant modelling rules. A green automated result does not certify these human checks.
 
 ## Local imports
 
