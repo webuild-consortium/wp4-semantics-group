@@ -22,6 +22,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - Property applicability: describe the use of both object and datatype properties in the relevant classes through OWL restrictions, without global `rdfs:domain` statements on those properties.
 - Object properties: use class-level OWL restrictions consistently. Do not assert global `rdfs:domain` or `rdfs:range` for object properties in the jointly developed ontology.
 - Datatype properties: a global `rdfs:range` is permitted, for example `xsd:date`. This is permission, not a requirement to declare a global range on every datatype property. Do not assert global `rdfs:domain`; describe class-specific use through restrictions on the relevant classes.
+- Use-case traceability: record which use cases require each class or property in the separate [use-case traceability register](USE_CASE_TRACEABILITY.md), outside the ontology.
 - Central model and application profiles: put only generally applicable restrictions in the central model. Use-case-specific requirements for the presence of relations or values and their cardinalities belong in the relevant application profile.
 - Temporary term namespace: `https://example.org/webuild/ontology#`. For example, a term named `Organization` would have the IRI `https://example.org/webuild/ontology#Organization`; this example does not introduce a class.
 - Temporary ontology IRI: `https://example.org/webuild/ontology`. This identifies the draft ontology as a whole.
@@ -171,6 +172,12 @@ According to `vocab/README.md`, `docs/ebwv` contains generated publication files
 
 Branches isolate changes, but do not prevent merge conflicts when both contributors change the same lines. When sharing one file, agree on who edits which part, keep branches short-lived, and coordinate overlapping work. Separate files can help if they follow meaningful module boundaries. Record each module's ontology IRI, filename, responsibility for changes, and imports; avoid duplicate definitions across files.
 
+## Use-case traceability outside the ontology
+
+Maintain the links between classes or properties and their supporting use-case requirements in [USE_CASE_TRACEABILITY.md](USE_CASE_TRACEABILITY.md). Use the full term IRI, the project's use-case identifier, the source requirement or passage, and the reason the term is needed. Update the register alongside the related model change so reviewers can assess both together.
+
+These links belong in repository documentation, not in ontology annotations or domain relations. Review use-case coverage and unresolved mappings through the register. No use-case links have been added to `model/webuild.ttl` by this decision.
+
 ## Quality checks before every GitHub synchronisation
 
 Run all automated checks on the saved files before every push, including a push to a working branch. Complete the applicable human review below and review the Git diff. If a pull or merge changes the model, run the checks again on the resulting files before continuing or pushing. Protégé changes must be saved first; these checks read the files on disk.
@@ -201,7 +208,7 @@ Automated checks cover:
 - No global domain for declared object or datatype properties in the authored graph, and no global range for object properties. Datatype ranges remain optional and permitted.
 - A source attached to each exact legal-definition assertion, including its language tag or datatype. Stale or mismatched source annotations fail. A non-empty textual citation is accepted with a review warning because a URI is preferred rather than mandatory.
 
-Human review covers what these checks cannot establish: meaningful superclass/superproperty choices and differentiae, correct use of class restrictions and separation of general conditions from use-case-specific requirements, American English term names and British English labels, genuine synonymy, exact legal quotations and the relevance of the cited article and version, business-language clarity, use-case coverage, and approval by both modellers before merging substantive changes. Source availability is not automatically tested. No OWL reasoner, consistency check, or SHACL application-profile validation is configured yet; select these together with the relevant modelling rules. A green automated result does not certify these human checks.
+Human review covers what these checks cannot establish: meaningful superclass/superproperty choices and differentiae, correct use of class restrictions and separation of general conditions from use-case-specific requirements, American English term names and British English labels, genuine synonymy, exact legal quotations and the relevance of the cited article and version, business-language clarity, use-case coverage through the separate traceability register, and approval by both modellers before merging substantive changes. Source availability is not automatically tested. No OWL reasoner, consistency check, or SHACL application-profile validation is configured yet; select these together with the relevant modelling rules. A green automated result does not certify these human checks.
 
 ## Local imports
 
@@ -219,7 +226,7 @@ The different PRIMER IRIs do not automatically identify the same ontology. The t
 
 ## Agreements before modelling
 
-The temporary identifiers, draft status, and joint approval of substantive changes are confirmed above. The definitive identifiers, namespace stewardship, and release publication process remain pending. Readable American English term IRIs and British English labels are agreed above. IRI capitalisation is also agreed above. Preferred and alternative label properties are also agreed above. Agree next on module boundaries and source references to use cases. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Within the agreed OWL approach, agree on the constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
+The temporary identifiers, draft status, and joint approval of substantive changes are confirmed above. The definitive identifiers, namespace stewardship, and release publication process remain pending. Readable American English term IRIs and British English labels are agreed above. IRI capitalisation is also agreed above. Preferred and alternative label properties are also agreed above. Use-case traceability is recorded outside the ontology as agreed above. Module boundaries remain to be agreed. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Within the agreed OWL approach, agree on the constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
 
 A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. Consider protecting `main` with mandatory review once the team has agreed on this workflow.
 

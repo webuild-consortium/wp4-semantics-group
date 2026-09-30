@@ -13,3 +13,5 @@ More information see the Semantics Group's café on the webuild portal: https://
 ## Ontology editing with Protégé
 
 The draft ontology for joint development starts in [semantics/model/webuild.ttl](semantics/model/webuild.ttl). It uses temporary development identifiers, separate from the existing EBWV implementation vocabulary. See the [Protégé and GitHub working guide](semantics/PROTEGE_GITHUB.md) for the proposed workflow, confirmed draft status, and pending decisions on definitive identifiers and governance. Earlier model files are preserved in [Archive](semantics/model/Archive).
+
+Use-case links and modelling rationale are maintained outside the ontology in the [use-case traceability register](semantics/USE_CASE_TRACEABILITY.md).
