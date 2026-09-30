@@ -4,6 +4,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @base <https://example.org/webuild/ontology#> .
 
@@ -11,6 +12,7 @@
 
 skos:prefLabel rdf:type owl:AnnotationProperty .
 skos:altLabel rdf:type owl:AnnotationProperty .
+dcterms:source rdf:type owl:AnnotationProperty .
 
 # Definition annotations for the jointly developed model.
 :taxonomicDefinition rdf:type owl:AnnotationProperty ;

@@ -4,7 +4,7 @@ This guide describes the technical setup for collaborative ontology development 
 
 ## Starting file
 
-Open `semantics/model/webuild.ttl`. The ontology contains its ontology declaration and the two reused label annotation properties, `skos:prefLabel` and `skos:altLabel`, and the three local definition annotation properties, `taxonomicDefinition`, `legalDefinition`, and `businessDefinition`. The local definition properties have British English preferred labels and definitions. No domain classes, object properties, datatype properties, or imports have been added. This is a draft model intended for joint development. Its temporary ontology IRI is `https://example.org/webuild/ontology`, and its temporary term namespace is `https://example.org/webuild/ontology#`. These development placeholders are applied in the file; they are not published project identifiers. The definitive namespace and its governance remain to be agreed before external use.
+Open `semantics/model/webuild.ttl`. The ontology contains its ontology declaration and the two reused label annotation properties, `skos:prefLabel` and `skos:altLabel`, and the three local definition annotation properties, `taxonomicDefinition`, `legalDefinition`, and `businessDefinition`. The local definition properties have British English preferred labels and definitions. The reused annotation property `dcterms:source` records the source of a specific legal definition. No domain classes, object properties, datatype properties, or imports have been added. This is a draft model intended for joint development. Its temporary ontology IRI is `https://example.org/webuild/ontology`, and its temporary term namespace is `https://example.org/webuild/ontology#`. These development placeholders are applied in the file; they are not published project identifiers. The definitive namespace and its governance remain to be agreed before external use.
 
 The three earlier Turtle models have been preserved unchanged in `semantics/model/Archive`, as requested. The new ontology does not import them. `authorisation_part.PlantUML` is also in `Archive`. The `modelling_considerations` directory has been retained and relates to earlier modelling work.
 
@@ -107,7 +107,34 @@ Record the definition as an annotation and the formal property hierarchy separat
 
 Every legal definition must have a source reference identifying the relevant legislation or regulation and the specific article. Prefer a URI pointing to the official source and, where available, the specific article. The source reference is mandatory; use of a URI is a preference, not an absolute requirement when no suitable URI is available.
 
-The annotation property and the precise mechanism for associating the source with its definition remain to be agreed. Handling of legal quotations or paraphrases also remains pending. The handling of classes without a meaningful named superclass is not yet determined by the property-specific decision above.
+Use `dcterms:source` (`http://purl.org/dc/terms/source`) as an OWL annotation property on the specific `:legalDefinition` annotation assertion. This associates the source with that definition text. A source annotation on the class or property alone does not establish which definition it supports. The ontology declares `dcterms:source` without importing the Dublin Core vocabulary.
+
+In Protégé, add the legal definition to the entity, then annotate that definition assertion with `dcterms:source`. Enter the source as an IRI value when a suitable URI is available, rather than a text literal containing a URL. If several legal definitions exist for one term, attach the appropriate source to each definition separately. The source requirement remains an editorial rule until automated validation is configured.
+
+The following Turtle illustrates the agreed pattern using placeholders only. It is documentation, not a legal assertion or an addition of domain terms to `webuild.ttl`:
+
+```turtle
+@prefix : <https://example.org/webuild/ontology#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+:legalDefinition a owl:AnnotationProperty .
+dcterms:source a owl:AnnotationProperty .
+:ExampleTerm a owl:Class ;
+    :legalDefinition "Placeholder legal definition."@en-GB .
+
+[] a owl:Axiom ;
+    owl:annotatedSource :ExampleTerm ;
+    owl:annotatedProperty :legalDefinition ;
+    owl:annotatedTarget "Placeholder legal definition."@en-GB ;
+    dcterms:source <https://example.org/legislation/example/article/1> .
+```
+
+The `owl:annotatedTarget` must match the definition literal exactly, including its language tag or datatype. When editing a definition, preserve or update its source annotation on the resulting assertion. This pattern uses the standard OWL axiom annotation representation; it does not introduce an intermediate domain class for definitions.
+
+References: [Dublin Core source](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/source/) and [W3C OWL axiom annotations in RDF](https://www.w3.org/TR/owl2-mapping-to-rdf/#Axioms_that_Generate_a_Main_Triple).
+
+Handling of legal quotations or paraphrases remains pending. The handling of classes without a meaningful named superclass is not yet determined by the property-specific decision above.
 
 Reference: [W3C OWL 2 object subproperties](https://www.w3.org/TR/owl2-syntax/#Object_Subproperties) and [data subproperties](https://www.w3.org/TR/owl2-syntax/#Data_Subproperties).
 
