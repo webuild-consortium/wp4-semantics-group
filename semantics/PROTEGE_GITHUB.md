@@ -11,12 +11,14 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 ## Confirmed starting decisions
 
 - Working language: English for new documentation and other files prepared for GitHub.
+- Term IRIs: use readable American English terms, for example `Organization`.
+- English labels: use British English spelling and the language tag `en-GB`, for example `"Organisation"@en-GB`.
 - Status: draft model intended for joint development, not an approved project release.
 - Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
 - Property applicability: describe the use of both object and datatype properties in the relevant classes through OWL restrictions, without global `rdfs:domain` statements on those properties.
 - Object properties: use class-level OWL restrictions consistently. Do not assert global `rdfs:domain` or `rdfs:range` for object properties in the jointly developed ontology.
 - Datatype properties: a global `rdfs:range` is permitted, for example `xsd:date`. This is permission, not a requirement to declare a global range on every datatype property. Do not assert global `rdfs:domain`; describe class-specific use through restrictions on the relevant classes.
-- Temporary term namespace: `https://example.org/webuild/ontology#`. For example, a term named `Organisation` would have the IRI `https://example.org/webuild/ontology#Organisation`; this example does not introduce a class.
+- Temporary term namespace: `https://example.org/webuild/ontology#`. For example, a term named `Organization` would have the IRI `https://example.org/webuild/ontology#Organization`; this example does not introduce a class.
 - Temporary ontology IRI: `https://example.org/webuild/ontology`. This identifies the draft ontology as a whole.
 - Substantive change approval: Bart and his modelling colleague must both approve a change before it is considered agreed. Until both have approved it, the change remains a proposal.
 - Definitive ontology IRI, term namespace, namespace stewardship, and release publication process: pending joint agreement before external use.
@@ -46,6 +48,12 @@ This rule governs the new jointly developed model. Archived originals and the ex
 ## Datatype property modelling rule
 
 A datatype property may have a global `rdfs:range`, such as `xsd:date`. Declaring a global range is optional and must reflect the intended meaning of the property across its uses. Describe the use of a datatype property in the relevant class through OWL restrictions; do not declare a global `rdfs:domain` on the property. In Protégé, leave the datatype property's global Domains empty. This is a class-level modelling convention, not an instruction to attach `rdfs:domain` statements to classes or a claim that class restrictions are semantically equivalent to global domain axioms. No datatype properties or range axioms have been added to the empty draft ontology by recording this decision.
+
+## Term names and label language
+
+Use readable American English terms for the local names in term IRIs. Use British English for English labels, with the RDF language tag `en-GB`. For example, the IRI `https://example.org/webuild/ontology#Organization` would have the English label `"Organisation"@en-GB`. The IRI spelling and the label spelling deliberately differ.
+
+These conventions apply to newly authored WEBUILD terms and labels. Preserve identifiers and original annotations in imported sources and archived material. Capitalisation conventions and the annotation property used for labels remain to be agreed. The example illustrates naming only; it does not add an Organization class to the ontology or determine the spelling convention for all prose documentation.
 
 ## Files and storage
 
@@ -84,7 +92,7 @@ The different PRIMER IRIs do not automatically identify the same ontology. The t
 
 ## Agreements before modelling
 
-The temporary identifiers, draft status, and joint approval of substantive changes are confirmed above. The definitive identifiers, namespace stewardship, and release publication process remain pending. Agree next on term IRI allocation, naming conventions, module boundaries, and source references to use cases. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Within the agreed OWL approach, agree on the constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
+The temporary identifiers, draft status, and joint approval of substantive changes are confirmed above. The definitive identifiers, namespace stewardship, and release publication process remain pending. Readable American English term IRIs and British English labels are agreed above. Agree next on capitalisation conventions, the label annotation property, module boundaries, and source references to use cases. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Within the agreed OWL approach, agree on the constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
 
 A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. Consider protecting `main` with mandatory review once the team has agreed on this workflow.
 
