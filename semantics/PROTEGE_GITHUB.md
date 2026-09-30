@@ -14,11 +14,12 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - Status: draft model intended for joint development, not an approved project release.
 - Temporary term namespace: `https://example.org/webuild/ontology#`. For example, a term named `Organisation` would have the IRI `https://example.org/webuild/ontology#Organisation`; this example does not introduce a class.
 - Temporary ontology IRI: `https://example.org/webuild/ontology`. This identifies the draft ontology as a whole.
-- Definitive ontology IRI, term namespace, and governance: pending joint agreement before external use.
+- Substantive change approval: Bart and his modelling colleague must both approve a change before it is considered agreed. Until both have approved it, the change remains a proposal.
+- Definitive ontology IRI, term namespace, namespace stewardship, and release publication process: pending joint agreement before external use.
 
 This decision supersedes the earlier choice of `https://w3id.org/ebwv` and `https://w3id.org/ebwv#` for this draft. The existing implementation vocabulary uses the EBWV term namespace; keeping a separate development namespace avoids assigning competing definitions to the same term IRIs while the relationship between the models and their governance is unresolved.
 
-The existing implementation vocabulary and publication files remain unchanged. They can inform the joint modelling work, but reuse and any mappings require review of each term's meaning. This draft does not assert replacement of, or equivalence with, that vocabulary. Agreement on review responsibilities and release approval is still pending.
+The existing implementation vocabulary and publication files remain unchanged. They can inform the joint modelling work, but reuse and any mappings require review of each term's meaning. This draft does not assert replacement of, or equivalence with, that vocabulary. Substantive model changes require joint approval by Bart and his modelling colleague. Their joint approval establishes acceptance of the change; the process for publishing releases remains to be agreed. This documentation does not configure or enforce GitHub branch protection.
 
 Confirm further starting decisions one at a time before implementing them.
 
@@ -38,7 +39,7 @@ According to `vocab/README.md`, `docs/ebwv` contains generated publication files
 4. Open the local `.ttl` file from that working directory in Protégé. Work on one clearly scoped change.
 5. Save, review the diff, and check for unexpected deletions, IRI changes, or import changes.
 6. Check the Turtle syntax. Also use the agreed reasoner or SHACL validation where appropriate for the model. Passing a syntax check does not establish semantic correctness.
-7. Commit the intended files, push the working branch, and create a pull request. Have your colleague review the meaning of the change before it is merged into `main`.
+7. Commit the intended files, push the working branch, and create a pull request. Record approval by both Bart and his modelling colleague before treating a substantive change as agreed and merging it into `main`. The author's explicit agreement and the other modeller's review can record their respective approvals.
 8. Reopen the file after a pull, merge, or branch switch. Otherwise, an open Protégé window may write an outdated in-memory copy back to disk.
 
 Branches isolate changes, but do not prevent merge conflicts when both contributors change the same lines. When sharing one file, agree on who edits which part, keep branches short-lived, and coordinate overlapping work. Separate files can help if they follow meaningful module boundaries. Record each module's ontology IRI, filename, responsibility for changes, and imports; avoid duplicate definitions across files.
@@ -59,7 +60,7 @@ The different PRIMER IRIs do not automatically identify the same ontology. The t
 
 ## Agreements before modelling
 
-The temporary identifiers and draft status are confirmed above. The definitive identifiers and governance remain pending. Agree next on term IRI allocation, naming conventions, module boundaries, source references to use cases, and responsibility for reviewing substantive changes. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Also agree on the RDF(S) or OWL constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
+The temporary identifiers, draft status, and joint approval of substantive changes are confirmed above. The definitive identifiers, namespace stewardship, and release publication process remain pending. Agree next on term IRI allocation, naming conventions, module boundaries, and source references to use cases. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Also agree on the RDF(S) or OWL constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
 
 A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. Consider protecting `main` with mandatory review once the team has agreed on this workflow.
 
