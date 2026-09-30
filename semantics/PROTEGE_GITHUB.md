@@ -4,17 +4,23 @@ This guide describes the technical setup for collaborative ontology development 
 
 ## Starting file
 
-Open `semantics/model/webuild.ttl`. This is an empty ontology with no classes, properties, imports, or substantive modelling rules. The ontology IRI is `https://w3id.org/ebwv`, and the term namespace is `https://w3id.org/ebwv#`. Both confirmed decisions are applied in the file.
+Open `semantics/model/webuild.ttl`. This is an empty ontology with no classes, properties, imports, or substantive modelling rules. This is a draft model intended for joint development. Its temporary ontology IRI is `https://example.org/webuild/ontology`, and its temporary term namespace is `https://example.org/webuild/ontology#`. These development placeholders are applied in the file; they are not published project identifiers. The definitive namespace and its governance remain to be agreed before external use.
 
 The three earlier Turtle models have been preserved unchanged in `semantics/model/Archive`, as requested. The new ontology does not import them. `authorisation_part.PlantUML` is also in `Archive`. The `modelling_considerations` directory has been retained and relates to earlier modelling work.
 
 ## Confirmed starting decisions
 
 - Working language: English for new documentation and other files prepared for GitHub.
-- Term namespace: `https://w3id.org/ebwv#`. For example, a term named `Organisation` would have the IRI `https://w3id.org/ebwv#Organisation`; this example does not introduce a class.
-- Ontology IRI: `https://w3id.org/ebwv`, without a trailing hash or full stop. This identifies the ontology as a whole.
+- Status: draft model intended for joint development, not an approved project release.
+- Temporary term namespace: `https://example.org/webuild/ontology#`. For example, a term named `Organisation` would have the IRI `https://example.org/webuild/ontology#Organisation`; this example does not introduce a class.
+- Temporary ontology IRI: `https://example.org/webuild/ontology`. This identifies the draft ontology as a whole.
+- Definitive ontology IRI, term namespace, and governance: pending joint agreement before external use.
 
-Confirm further starting decisions one at a time before implementing them. No relationship of replacement or equivalence with the generated vocabulary is asserted by this namespace decision.
+This decision supersedes the earlier choice of `https://w3id.org/ebwv` and `https://w3id.org/ebwv#` for this draft. The existing implementation vocabulary uses the EBWV term namespace; keeping a separate development namespace avoids assigning competing definitions to the same term IRIs while the relationship between the models and their governance is unresolved.
+
+The existing implementation vocabulary and publication files remain unchanged. They can inform the joint modelling work, but reuse and any mappings require review of each term's meaning. This draft does not assert replacement of, or equivalence with, that vocabulary. Agreement on review responsibilities and release approval is still pending.
+
+Confirm further starting decisions one at a time before implementing them.
 
 ## Files and storage
 
@@ -53,7 +59,7 @@ The different PRIMER IRIs do not automatically identify the same ontology. The t
 
 ## Agreements before modelling
 
-The term namespace and ontology IRI are confirmed above. Agree next on term IRI allocation, naming conventions, module boundaries, source references to use cases, and responsibility for reviewing substantive changes. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Also agree on the RDF(S) or OWL constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
+The temporary identifiers and draft status are confirmed above. The definitive identifiers and governance remain pending. Agree next on term IRI allocation, naming conventions, module boundaries, source references to use cases, and responsibility for reviewing substantive changes. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Also agree on the RDF(S) or OWL constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
 
 A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. Consider protecting `main` with mandatory review once the team has agreed on this workflow.
 
