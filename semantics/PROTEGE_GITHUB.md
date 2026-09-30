@@ -14,6 +14,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - Status: draft model intended for joint development, not an approved project release.
 - Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
 - Object properties: use class-level OWL restrictions consistently. Do not assert global `rdfs:domain` or `rdfs:range` for object properties in the jointly developed ontology.
+- Datatype properties: a global `rdfs:range` is permitted, for example `xsd:date`. This is permission, not a requirement to declare a global range on every datatype property. The policy for global `rdfs:domain` on datatype properties is still pending.
 - Temporary term namespace: `https://example.org/webuild/ontology#`. For example, a term named `Organisation` would have the IRI `https://example.org/webuild/ontology#Organisation`; this example does not introduce a class.
 - Temporary ontology IRI: `https://example.org/webuild/ontology`. This identifies the draft ontology as a whole.
 - Substantive change approval: Bart and his modelling colleague must both approve a change before it is considered agreed. Until both have approved it, the change remains a proposal.
@@ -31,15 +32,19 @@ The agreed reference is [EBUCorePlus](http://www.ebu.ch/metadata/ontologies/ebuc
 
 Verified features of that source include `owl:Class`, `owl:ObjectProperty`, `owl:DatatypeProperty`, and class-level `owl:Restriction` expressions, including value restrictions and qualified cardinalities. No `rdfs:domain` statements occur in the inspected graph. Global `rdfs:range` statements do occur: for 222 datatype properties, one annotation property, and the object property `ec:isAbout`, whose range is `ec:Asset`. Therefore, the reference must not be described as universally avoiding global ranges. These observations concern the inspected source graph, not its imported ontologies.
 
-The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. The policy for datatype properties, permitted restriction patterns, annotations, and validation remains to be agreed one decision at a time. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
+The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. The policy for global domains on datatype properties, permitted restriction patterns, annotations, and validation remains to be agreed one decision at a time. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
 
 ## Object property modelling rule
 
 For object properties, express class-specific conditions through OWL restrictions on the relevant classes. Do not attach global `rdfs:domain` or `rdfs:range` statements to those properties. In Protégé, record the restrictions in the relevant class descriptions and leave the object property's global Domains and Ranges empty.
 
-This decision establishes where conditions are expressed. It does not prescribe a universal restriction or cardinality for every relation. Decide the appropriate restriction for each intended meaning; do not add existence or cardinality requirements merely because an object property is used by a class. Datatype property policy is a separate, pending decision.
+This decision establishes where conditions are expressed. It does not prescribe a universal restriction or cardinality for every relation. Decide the appropriate restriction for each intended meaning; do not add existence or cardinality requirements merely because an object property is used by a class. Datatype property ranges follow the separate rule below; their domain policy remains pending.
 
 This rule governs the new jointly developed model. Archived originals and the existing implementation vocabulary remain unchanged.
+
+## Datatype property modelling rule
+
+A datatype property may have a global `rdfs:range`, such as `xsd:date`. Declaring a global range is optional and must reflect the intended meaning of the property across its uses. This decision does not authorise a global `rdfs:domain` for datatype properties; that question remains open. No datatype properties or range axioms have been added to the empty draft ontology by recording this decision.
 
 ## Files and storage
 
