@@ -4,7 +4,7 @@ This guide describes the technical setup for collaborative ontology development 
 
 ## Starting file
 
-Open `semantics/model/webuild.ttl`. This is an empty ontology with no classes, properties, imports, or substantive modelling rules. This is a draft model intended for joint development. Its temporary ontology IRI is `https://example.org/webuild/ontology`, and its temporary term namespace is `https://example.org/webuild/ontology#`. These development placeholders are applied in the file; they are not published project identifiers. The definitive namespace and its governance remain to be agreed before external use.
+Open `semantics/model/webuild.ttl`. The ontology contains its ontology declaration and the two label annotation property declarations, `skos:prefLabel` and `skos:altLabel`. No domain classes, object properties, datatype properties, or imports have been added. This is a draft model intended for joint development. Its temporary ontology IRI is `https://example.org/webuild/ontology`, and its temporary term namespace is `https://example.org/webuild/ontology#`. These development placeholders are applied in the file; they are not published project identifiers. The definitive namespace and its governance remain to be agreed before external use.
 
 The three earlier Turtle models have been preserved unchanged in `semantics/model/Archive`, as requested. The new ontology does not import them. `authorisation_part.PlantUML` is also in `Archive`. The `modelling_considerations` directory has been retained and relates to earlier modelling work.
 
@@ -14,6 +14,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - Term IRIs: use readable American English terms, for example `Organization`.
 - IRI capitalisation: use `UpperCamelCase` for class names, such as `RegisteredOrganization`, and `lowerCamelCase` for property names, such as `hasRegisteredAddress`.
 - English labels: use British English spelling and the language tag `en-GB`, for example `"Organisation"@en-GB`.
+- Label annotations: use `skos:prefLabel` for the preferred display label and `skos:altLabel` for synonyms or alternative names. These annotations apply directly to OWL entities without typing them as `skos:Concept`.
 - Status: draft model intended for joint development, not an approved project release.
 - Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
 - Property applicability: describe the use of both object and datatype properties in the relevant classes through OWL restrictions, without global `rdfs:domain` statements on those properties.
@@ -36,7 +37,7 @@ The agreed reference is [EBUCorePlus](http://www.ebu.ch/metadata/ontologies/ebuc
 
 Verified features of that source include `owl:Class`, `owl:ObjectProperty`, `owl:DatatypeProperty`, and class-level `owl:Restriction` expressions, including value restrictions and qualified cardinalities. No `rdfs:domain` statements occur in the inspected graph. Global `rdfs:range` statements do occur: for 222 datatype properties, one annotation property, and the object property `ec:isAbout`, whose range is `ec:Asset`. Therefore, the reference must not be described as universally avoiding global ranges. These observations concern the inspected source graph, not its imported ontologies.
 
-The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. Permitted restriction patterns, annotations, and validation remain to be agreed one decision at a time. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
+The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. Permitted restriction patterns, annotations other than the agreed label properties, and validation remain to be agreed one decision at a time. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
 
 ## Object property modelling rule
 
@@ -48,13 +49,25 @@ This rule governs the new jointly developed model. Archived originals and the ex
 
 ## Datatype property modelling rule
 
-A datatype property may have a global `rdfs:range`, such as `xsd:date`. Declaring a global range is optional and must reflect the intended meaning of the property across its uses. Describe the use of a datatype property in the relevant class through OWL restrictions; do not declare a global `rdfs:domain` on the property. In Protégé, leave the datatype property's global Domains empty. This is a class-level modelling convention, not an instruction to attach `rdfs:domain` statements to classes or a claim that class restrictions are semantically equivalent to global domain axioms. No datatype properties or range axioms have been added to the empty draft ontology by recording this decision.
+A datatype property may have a global `rdfs:range`, such as `xsd:date`. Declaring a global range is optional and must reflect the intended meaning of the property across its uses. Describe the use of a datatype property in the relevant class through OWL restrictions; do not declare a global `rdfs:domain` on the property. In Protégé, leave the datatype property's global Domains empty. This is a class-level modelling convention, not an instruction to attach `rdfs:domain` statements to classes or a claim that class restrictions are semantically equivalent to global domain axioms. No datatype properties or range axioms have been added to the draft ontology by recording this decision.
 
 ## Term names and label language
 
 Use readable American English terms for the local names in term IRIs. Use British English for English labels, with the RDF language tag `en-GB`. For example, the IRI `https://example.org/webuild/ontology#Organization` would have the English label `"Organisation"@en-GB`. The IRI spelling and the label spelling deliberately differ.
 
-These conventions apply to newly authored WEBUILD terms and labels. Preserve identifiers and original annotations in imported sources and archived material. Use `UpperCamelCase` for class local names and `lowerCamelCase` for property local names. For example, use `RegisteredOrganization` and `hasRegisteredAddress`. These are IRI naming conventions; they do not require CamelCase in human-readable labels. The annotation property used for labels remains to be agreed. The example illustrates naming only; it does not add an Organization class to the ontology or determine the spelling convention for all prose documentation.
+These conventions apply to newly authored WEBUILD terms and labels. Preserve identifiers and original annotations in imported sources and archived material. Use `UpperCamelCase` for class local names and `lowerCamelCase` for property local names. For example, use `RegisteredOrganization` and `hasRegisteredAddress`. These are IRI naming conventions; they do not require CamelCase in human-readable labels. Use `skos:prefLabel` and `skos:altLabel` as specified below. The example illustrates naming only; it does not add an Organization class to the ontology or determine the spelling convention for all prose documentation.
+
+## Preferred labels and synonyms
+
+For each newly authored WEBUILD class or property, provide exactly one British English preferred label using `skos:prefLabel` with `en-GB`. Use zero or more `skos:altLabel` annotations for synonyms and alternative names of the same meaning, each with a language tag. Related but distinct meanings require separate terms rather than alternative labels.
+
+For each term, allow at most one preferred label per language tag. Do not use the same literal, including its language tag, as both preferred and alternative label on that term. These are editorial rules to be checked during review; automated enforcement has not yet been configured.
+
+Both properties are OWL annotation properties and can annotate OWL classes and properties directly. Their use does not require or imply `rdf:type skos:Concept`. The ontology declares only these two reused annotation properties under their original SKOS IRIs; it does not import the complete SKOS ontology or add SKOS concept classifications. Separate duplicate `rdfs:label` annotations are not required by this convention.
+
+The intended Protégé display is `skos:prefLabel` with language preference `en-GB`. Rendering preferences are local application settings and are not distributed by the Turtle file; each modeller needs to configure them.
+
+Reference: [W3C SKOS lexical labels, including their domain and integrity conditions](https://www.w3.org/TR/skos-reference/#labels).
 
 ## Files and storage
 
@@ -93,7 +106,7 @@ The different PRIMER IRIs do not automatically identify the same ontology. The t
 
 ## Agreements before modelling
 
-The temporary identifiers, draft status, and joint approval of substantive changes are confirmed above. The definitive identifiers, namespace stewardship, and release publication process remain pending. Readable American English term IRIs and British English labels are agreed above. IRI capitalisation is also agreed above. Agree next on the label annotation property, module boundaries, and source references to use cases. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Within the agreed OWL approach, agree on the constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
+The temporary identifiers, draft status, and joint approval of substantive changes are confirmed above. The definitive identifiers, namespace stewardship, and release publication process remain pending. Readable American English term IRIs and British English labels are agreed above. IRI capitalisation is also agreed above. Preferred and alternative label properties are also agreed above. Agree next on module boundaries and source references to use cases. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Within the agreed OWL approach, agree on the constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
 
 A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. Consider protecting `main` with mandatory review once the team has agreed on this workflow.
 
