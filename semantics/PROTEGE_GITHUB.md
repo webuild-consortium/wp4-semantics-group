@@ -15,7 +15,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - IRI capitalisation: use `UpperCamelCase` for class names, such as `RegisteredOrganization`, and `lowerCamelCase` for property names, such as `hasRegisteredAddress`.
 - English labels: use British English spelling and the language tag `en-GB`, for example `"Organisation"@en-GB`.
 - Label annotations: use `skos:prefLabel` for the preferred display label and `skos:altLabel` for synonyms or alternative names. These annotations apply directly to OWL entities without typing them as `skos:Concept`.
-- Definition types: a mandatory taxonomic definition, an optional legal definition derived from legislation or regulations, and an optional business definition in everyday language. Keep these three types distinct.
+- Definition types: a mandatory taxonomic definition, an optional legal definition derived from legislation or regulations, and an optional business definition in everyday language. For a property without a meaningful superproperty, a mandatory base definition fulfils the first requirement. Keep the three definition types distinct.
 - Status: draft model intended for joint development, not an approved project release.
 - Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
 - Property applicability: describe the use of both object and datatype properties in the relevant classes through OWL restrictions, without global `rdfs:domain` statements on those properties.
@@ -80,15 +80,26 @@ Keep three distinct types of definition rather than one undifferentiated definit
 
 | Definition type | Requirement | Content |
 | --- | --- | --- |
-| Taxonomic definition | Mandatory | For a class, explicitly use the name of its superclass and state the characteristics that distinguish the subclass. |
+| Taxonomic definition | Mandatory | For a class, name its superclass and the distinguishing characteristics. For a property, name its meaningful superproperty and the distinguishing characteristics; if none exists, provide a base definition of the relation. |
 | Legal definition | Optional | A definition derived from the relevant legislative or regulatory text when the term is used in law or regulation. |
 | Business definition | Optional | A definition in everyday language. |
 
 For example, if `CentrifugalPump` is a subclass of `Pump`, the taxonomic definition is: “A centrifugal pump is a pump with a rotating impeller.” This illustrates the definition pattern only; neither class has been added to the WEBUILD ontology.
 
-The optional legal and business definitions do not replace the mandatory taxonomic definition. The annotation property IRIs for the three fields are still to be agreed, so no definition properties have yet been added to the ontology. The proposal to use a single `skos:definition` field has not been adopted.
+The optional legal and business definitions do not replace the mandatory taxonomic definition or, for a property without a meaningful superproperty, its mandatory base definition. The annotation property IRIs for the three fields are still to be agreed, so no definition properties have yet been added to the ontology. The proposal to use a single `skos:definition` field has not been adopted.
 
-The superclass-based pattern is established for classes. How the taxonomic definition requirement applies to properties remains to be clarified; do not assume a superproperty-based pattern without agreement. Source citation and handling of legal quotations or paraphrases also remain to be specified.
+For both object and datatype properties, apply the following agreed rule:
+
+- If a meaningful superproperty exists, the taxonomic definition names it and explains the distinguishing characteristic. Every relation asserted using the subproperty must also be a valid relation of the superproperty.
+- If no meaningful superproperty exists, provide a mandatory base definition stating the relation, its direction, and the meaning of the related entities or value. Do not introduce an artificial superproperty solely to satisfy the definition format. The base definition is the fallback for the required definition, not an additional optional definition type.
+
+For example, if `hasRegisteredAddress` is a subproperty of `hasAddress`, a definition can state: “Has registered address is a has-address relation in which the address is officially registered for the entity.” For a datatype property without a meaningful superproperty, a base definition can state: “Birth date is a relation between an entity and the date on which it was born.” These are illustrative examples only; no corresponding properties or hierarchy axioms have been added.
+
+Record the definition as an annotation and the formal property hierarchy separately using `rdfs:subPropertyOf`. Definition text alone does not establish the formal hierarchy. Sharing a datatype alone does not justify a subproperty relationship. The existing rules for class-level applicability and global ranges remain unchanged.
+
+Source citation and handling of legal quotations or paraphrases still need to be specified. The handling of classes without a meaningful named superclass is also not yet determined by this property-specific decision.
+
+Reference: [W3C OWL 2 object subproperties](https://www.w3.org/TR/owl2-syntax/#Object_Subproperties) and [data subproperties](https://www.w3.org/TR/owl2-syntax/#Data_Subproperties).
 
 ## Files and storage
 
