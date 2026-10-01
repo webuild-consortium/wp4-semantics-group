@@ -14,6 +14,9 @@ Existing profile diagrams and documentation are source material for review. This
 
 ## Validation and review
 
+Use SHACL to check requirements against the data actually supplied. An OWL reasoner's consistency result does not establish that those data contain all required values. Any inference applied before SHACL validation must be explicitly agreed and documented; the settings remain pending. See the [conservative OWL reasoning policy](../PROTEGE_GITHUB.md#conservative-use-of-owl-reasoning).
+
+
 For each profile, prepare example data that should pass and example data that should fail its requirements. Record the expected result and use these examples to check the profile when its requirements change. Review the targets, property paths, datatypes, cardinalities, and use-case justification together.
 
 The SHACL validation engine, inference settings, and integration into the automated quality suite remain to be agreed and configured. The current ontology checker does not validate application-profile data. No new SHACL profile or example dataset has been authored yet because the draft model has no domain classes or properties.

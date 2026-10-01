@@ -16,6 +16,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - English labels: use British English spelling and the language tag `en-GB`, for example `"Organisation"@en-GB`.
 - Label annotations: use `skos:prefLabel` for the preferred display label and `skos:altLabel` for synonyms or alternative names. These annotations apply directly to OWL entities without typing them as `skos:Concept`.
 - Definition types: a mandatory taxonomic definition, an optional legal definition quoted verbatim from legislation or regulations, and an optional business definition in everyday language. For a class without a meaningful superclass or a property without a meaningful superproperty, a mandatory base definition fulfils the first requirement. Keep the three definition types distinct.
+- OWL reasoning: include logical checks of the central model with restraint. Use OWL axioms only when their open-world meaning expresses the intended semantics; use SHACL for requirements on the data actually supplied. The reasoner and failure policy remain to be selected.
 - Quality checks: run the complete automated suite and the applicable human review before every GitHub synchronisation. GitHub repeats the automated suite on pushes and pull requests.
 - Status: draft model intended for joint development, not an approved project release.
 - Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
@@ -174,6 +175,20 @@ According to `vocab/README.md`, `docs/ebwv` contains generated publication files
 
 Branches isolate changes, but do not prevent merge conflicts when both contributors change the same lines. When sharing one file, agree on who edits which part, keep branches short-lived, and coordinate overlapping work. The agreed initial arrangement is one central model file, `semantics/model/webuild.ttl`, with each modeller working on a separate branch. Keep this arrangement until clear, meaningful module boundaries have been jointly established. At that point, agree on the split and record each module's ontology IRI, filename, responsibility for changes, and imports; avoid duplicate definitions across files. Do not split the model solely by use case or modeller without an agreed conceptual boundary. This decision concerns the central model; application profiles and the external traceability register keep their separate roles.
 
+## Conservative use of OWL reasoning
+
+Logical checks with an OWL reasoner are agreed as an additional quality measure for the central model. Use them to examine consistency, unsatisfiable classes, and inferred relationships. Review the relevant axioms and explanations before changing the model in response to a result.
+
+OWL reasoning uses open-world semantics. Missing assertions may represent unknown information, and a consistent ontology does not establish that supplied data are complete or conform to a use-case profile. The open-world assumption cannot be switched off for selected OWL restrictions. Adopt an OWL axiom only when its formal meaning matches the intended general semantics of the concept.
+
+Use SHACL when a requirement concerns the values actually supplied in a data graph, including checking that required values are present and that recorded counts meet a profile's requirements. For example, an OWL existential restriction may remain consistent when no address is explicitly recorded; a SHACL minimum-count requirement can report that absence in the validated graph. This example introduces no terms or axioms into the draft.
+
+The earlier separation remains in force: generally applicable conceptual restrictions belong in the central model, while use-case-specific requirements belong in separate application profiles. Where a generally applicable data-validation rule is also needed, document its scope before deciding how to share it across profiles; open-world reasoning alone is not its completeness check.
+
+The reasoner implementation, supported OWL profile, treatment of reported findings, and integration into the automated suite remain to be selected. The current automated suite still runs the agreed structural/editorial checks only. SHACL inference settings also remain pending.
+
+References: [W3C OWL 2 Primer on open-world semantics](https://www.w3.org/TR/owl2-primer/) and [W3C SHACL minimum-count constraints](https://www.w3.org/TR/shacl/#MinCountConstraintComponent).
+
 ## Use-case traceability outside the ontology
 
 Maintain the links between classes or properties and their supporting use-case requirements in [USE_CASE_TRACEABILITY.md](USE_CASE_TRACEABILITY.md). Use the full term IRI, the project's use-case identifier, the source requirement or passage, and the reason the term is needed. Update the register alongside the related model change so reviewers can assess both together.
@@ -210,7 +225,7 @@ Automated checks cover:
 - No global domain for declared object or datatype properties in the authored graph, and no global range for object properties. Datatype ranges remain optional and permitted.
 - A source attached to each exact legal-definition assertion, including its language tag or datatype. Stale or mismatched source annotations fail. A non-empty textual citation is accepted with a review warning because a URI is preferred rather than mandatory.
 
-Human review covers what these checks cannot establish: meaningful superclass/superproperty choices and differentiae, correct use of class restrictions and separation of general conditions from use-case-specific requirements, American English term names and British English labels, genuine synonymy, exact legal quotations and the relevance of the cited article and version, business-language clarity, use-case coverage through the separate traceability register, and approval by both modellers before merging substantive changes. Source availability is not automatically tested. The separate SHACL format for application profiles is agreed. No OWL reasoner, consistency check, or SHACL application-profile validation engine is configured yet; select and configure these together with the relevant modelling rules. A green automated result does not certify these human checks.
+Human review covers what these checks cannot establish: meaningful superclass/superproperty choices and differentiae, correct use of class restrictions and separation of general conditions from use-case-specific requirements, American English term names and British English labels, genuine synonymy, exact legal quotations and the relevance of the cited article and version, business-language clarity, use-case coverage through the separate traceability register, and approval by both modellers before merging substantive changes. Source availability is not automatically tested. The separate SHACL format for application profiles is agreed. Conservative OWL logical checks are agreed above, but no reasoner, automated consistency check, or SHACL application-profile validation engine is configured yet. Their implementations and settings remain to be selected. A green automated result does not certify these human checks.
 
 ## Local imports
 
