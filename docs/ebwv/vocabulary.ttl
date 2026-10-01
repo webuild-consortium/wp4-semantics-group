@@ -909,9 +909,9 @@ ebwv:qualificationNote a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:scopeOfPower a rdf:Property ;
+ebwv:scopeOfPower a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:PowerOfAttorney ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:ScopeOfPower xsd:string) ] ;
+    rdfs:range ebwv:ScopeOfPower ;
     rdfs:label "scope of power" ;
     rdfs:comment """<div>The scope of the power given to a mandatee.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower>, <https://w3id.org/ebwv#> ;

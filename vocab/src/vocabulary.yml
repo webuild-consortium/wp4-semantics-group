@@ -926,13 +926,49 @@ class:
             ],
             "attestationLegalCategory": "EAA",
             "credentialSubject": {
-              "@id": "urnd:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
+              "@id": "urn:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
               "@type": "PowerOfAttorney",
               "mandatee": "did:key:$publicKeyOfMandatee$",
               "principal": "did:key:$publicKeyOfPrincipal$",
               "scopeOfPower": "RegistrationAndClosingOfBranches"
             },
-            "provenanceProof": "ewogICJAY29udGV4dCI6IFsKICAgICJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLAogICAgImh0dHBzOi8vdzNpZC5vcmcvZWJ3di92MC4xIgogIF0sCiAgIkBpZCI6ICJ1cm46ZDVkZmViMzktZWRjNy00MGIxLWEyZmMtMzk2OGRiZDNlYWM4IiwKICAiQHR5cGUiOiBbCiAgICAiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLAogICAgIkVsZWN0cm9uaWNBdHRlc3RhdGlvbk9mQXR0cmlidXRlcyIKICBdLAogICJhdHRlc3RhdGlvbkxlZ2FsQ2F0ZWdvcnkiOiAiUUVBQSIsCiAgImNyZWRlbnRpYWxTdWJqZWN0IjogewogICAgIkBpZCI6ICJkaWQ6a2V5OiRwdWJsaWNLZXlPZk9yZ2FuaXNhdGlvbk9mUHJpbmNpcGFsJCIsCiAgICAiQHR5cGUiOiBbCiAgICAgICJFY29ub21pY09wZXJhdG9yIiwKICAgICAgIkNvbXBhbnkiLAogICAgICAiTGltaXRlZExpYWJpbGl0eUNvbXBhbnkiCiAgICBdLAogICAgImxlZ2FsSWRlbnRpZmllciI6IHsKICAgICAgIkB0eXBlIiA6ICJFdWlkIiwKICAgICAgIkB2YWx1ZSIgOiAiTk9GT1IuOTg3NjU0MzIxIgogICAgfSwKICAgICJsZWdhbE5hbWUiOiAiYWNtZSBDb3Jwb3JhdGlvbiIsCiAgICAibGVnYWxGb3JtIjogIkluYy4iLAogICAgImxlZ2FsUmVwcmVzZW50YXRpdmUiOiBbCiAgICAgIHsKICAgICAgICAiQGlkIjogImRpZDprZXk6JHB1YmxpY0tleU9mUHJpbmNpcGFsJCIsCiAgICAgICAgIkB0eXBlIjogIkxlZ2FsUmVwcmVzZW50YXRpdmUiLAogICAgICAgICJyb2xlIjogIkNFTyIsCiAgICAgICAgInR5cGVPZlByZXNlbnRhdGlvbiI6ICJBbG9uZSIKICAgICAgfQogICAgXQogIH0sCiAgInZhbGlkVW50aWwiOiAiMjAyOS0xMi0wM1QxMjoxOTo1MloiLAogICJ2YWxpZEZyb20iOiAiMjAxOS0xMi0wM1QxMjoxOTo1MloiLAogICJpc3N1ZXIiOiAiZGlkOmtleTokcHVibGljS2V5T2ZCdXNpbmVzc1JlZ2lzdGVyJCIKfQ==",
+            "provenanceProof": {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://w3id.org/ebwv/v0.1"
+              ],
+              "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+              "@type": [
+                "VerifiableCredential",
+                "ElectronicAttestationOfAttributes"
+              ],
+              "attestationLegalCategory": "QEAA",
+              "credentialSubject": {
+                "@id": "did:key:$publicKeyOfOrganisationOfPrincipal$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company",
+                  "LimitedLiabilityCompany"
+                ],
+                "legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation",
+                "legalForm": "Inc.",
+                "legalRepresentative": [
+                  {
+                    "@id": "did:key:$publicKeyOfPrincipal$",
+                    "@type": "LegalRepresentative",
+                    "role": "CEO",
+                    "typeOfPresentation": "Alone"
+                  }
+                ]
+              },
+              "validUntil": "2029-12-03T12:19:52Z",
+              "validFrom": "2019-12-03T12:19:52Z",
+              "issuer": "did:key:$publicKeyOfBusinessRegister$"
+            }
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfPrincipal$"
@@ -951,55 +987,52 @@ class:
             ],
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
-              "@id": "urnd:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
+              "@id": "urn:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
               "@type": "PowerOfAttorney",
               "mandatee": "did:key:$publicKeyOfMandatee$",
               "principal": "did:key:$publicKeyOfPrincipal$",
               "scopeOfPower": "RegistrationAndClosingOfBranches"
             },
-            "provenanceProof": "ewogICJAY29udGV4dCI6IFsKICAgICJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLAogICAgImh0dHBzOi8vdzNpZC5vcmcvZWJ3di92MC4xIgogIF0sCiAgIkBpZCI6ICJ1cm46ZDVkZmViMzktZWRjNy00MGIxLWEyZmMtMzk2OGRiZDNlYWM4IiwKICAiQHR5cGUiOiBbCiAgICAiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLAogICAgIkVsZWN0cm9uaWNBdHRlc3RhdGlvbk9mQXR0cmlidXRlcyIKICBdLAogICJhdHRlc3RhdGlvbkxlZ2FsQ2F0ZWdvcnkiOiAiUUVBQSIsCiAgImNyZWRlbnRpYWxTdWJqZWN0IjogewogICAgIkBpZCI6ICJkaWQ6a2V5OiRwdWJsaWNLZXlPZk9yZ2FuaXNhdGlvbk9mUHJpbmNpcGFsJCIsCiAgICAiQHR5cGUiOiBbCiAgICAgICJFY29ub21pY09wZXJhdG9yIiwKICAgICAgIkNvbXBhbnkiLAogICAgICAiTGltaXRlZExpYWJpbGl0eUNvbXBhbnkiCiAgICBdLAogICAgImxlZ2FsSWRlbnRpZmllciI6IHsKICAgICAgIkB0eXBlIiA6ICJFdWlkIiwKICAgICAgIkB2YWx1ZSIgOiAiTk9GT1IuOTg3NjU0MzIxIgogICAgfSwKICAgICJsZWdhbE5hbWUiOiAiYWNtZSBDb3Jwb3JhdGlvbiIsCiAgICAibGVnYWxGb3JtIjogIkluYy4iLAogICAgImxlZ2FsUmVwcmVzZW50YXRpdmUiOiBbCiAgICAgIHsKICAgICAgICAiQGlkIjogImRpZDprZXk6JHB1YmxpY0tleU9mUHJpbmNpcGFsJCIsCiAgICAgICAgIkB0eXBlIjogIkxlZ2FsUmVwcmVzZW50YXRpdmUiLAogICAgICAgICJyb2xlIjogIkNFTyIsCiAgICAgICAgInR5cGVPZlByZXNlbnRhdGlvbiI6ICJBbG9uZSIKICAgICAgfQogICAgXQogIH0sCiAgInZhbGlkVW50aWwiOiAiMjAyOS0xMi0wM1QxMjoxOTo1MloiLAogICJ2YWxpZEZyb20iOiAiMjAxOS0xMi0wM1QxMjoxOTo1MloiLAogICJpc3N1ZXIiOiAiZGlkOmtleTokcHVibGljS2V5T2ZCdXNpbmVzc1JlZ2lzdGVyJCIKfQ==",
-            "validUntil": "2029-12-03T12:19:52Z",
-            "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfNotary$"
-          }
-      - label: decoded provenanceProof of PowerOfAttorney given by a single legal representative (alone)
-        json: |
-          {
-            "@context": [
-              "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/ebwv/v0.1"
-            ],
-            "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
-            "@type": [
-              "VerifiableCredential",
-              "ElectronicAttestationOfAttributes"
-            ],
-            "attestationLegalCategory": "QEAA",
-            "credentialSubject": {
-              "@id": "did:key:$publicKeyOfOrganisationOfPrincipal$",
-              "@type": [
-                "EconomicOperator",
-                "Company",
-                "LimitedLiabilityCompany"
+            "provenanceProof":{
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://w3id.org/ebwv/v0.1"
               ],
-              "legalIdentifier": {
-                "@type" : "Euid",
-                "@value" : "NOFOR.987654321"
+              "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+              "@type": [
+                "VerifiableCredential",
+                "ElectronicAttestationOfAttributes"
+              ],
+              "attestationLegalCategory": "QEAA",
+              "credentialSubject": {
+                "@id": "did:key:$publicKeyOfOrganisationOfPrincipal$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company",
+                  "LimitedLiabilityCompany"
+                ],
+                "legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation",
+                "legalForm": "Inc.",
+                "legalRepresentative": [
+                  {
+                    "@id": "did:key:$publicKeyOfPrincipal$",
+                    "@type": "LegalRepresentative",
+                    "role": "CEO",
+                    "typeOfPresentation": "Alone"
+                  }
+                ]
               },
-              "legalName": "acme Corporation",
-              "legalForm": "Inc.",
-              "legalRepresentative": [
-                {
-                  "@id": "did:key:$publicKeyOfPrincipal$",
-                  "@type": "LegalRepresentative",
-                  "role": "CEO",
-                  "typeOfPresentation": "Alone"
-                }
-              ]
+              "validUntil": "2029-12-03T12:19:52Z",
+              "validFrom": "2019-12-03T12:19:52Z",
+              "issuer": "did:key:$publicKeyOfBusinessRegister$"
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfBusinessRegister$"
+            "issuer": "did:key:$publicKeyOfNotary$"
           }
       - label: PowerOfAttorney given by two legal representatives (jointly)
         json: |
@@ -1024,58 +1057,55 @@ class:
               ],
               "scopeOfPower": "Opening bank account"
             },
-            "provenanceProof": "ewogICJAY29udGV4dCI6IFsKICAgICJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLAogICAgImh0dHBzOi8vdzNpZC5vcmcvZWJ3di92MC4xIgogIF0sCiAgIkBpZCI6ICJ1cm46ZDVkZmViMzktZWRjNy00MGIxLWEyZmMtMzk2OGRiZDNlYWM4IiwKICAiQHR5cGUiOiBbCiAgICAiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLAogICAgIkVsZWN0cm9uaWNBdHRlc3RhdGlvbk9mQXR0cmlidXRlcyIKICBdLAogICJhdHRlc3RhdGlvbkxlZ2FsQ2F0ZWdvcnkiOiAiUUVBQSIsCiAgImNyZWRlbnRpYWxTdWJqZWN0IjogewogICAgIkBpZCI6ICJkaWQ6a2V5OiRwdWJsaWNLZXlPZk9yZ2FuaXNhdGlvbk9mUHJpbmNpcGFscyQiLAogICAgIkB0eXBlIjogWwogICAgICAiRWNvbm9taWNPcGVyYXRvciIsCiAgICAgICJDb21wYW55IiwKICAgICAgIkxpbWl0ZWRMaWFiaWxpdHlDb21wYW55IgogICAgXSwKICAgICJsZWdhbElkZW50aWZpZXIiOiB7CiAgICAgICJAdHlwZSIgOiAiRXVpZCIsCiAgICAgICJAdmFsdWUiIDogIk5PRk9SLjk4NzY1NDMyMSIKICAgIH0sCiAgICAibGVnYWxOYW1lIjogImFjbWUgQ29ycG9yYXRpb24iLAogICAgImxlZ2FsRm9ybSI6ICJJbmMuIiwKICAgICJsZWdhbFJlcHJlc2VudGF0aXZlIjogWwogICAgICB7CiAgICAgICAgIkBpZCI6ICJkaWQ6a2V5OiRwdWJsaWNLZXlPZlByaW5jaXBhbDEkIiwKICAgICAgICAiQHR5cGUiOiAiTGVnYWxSZXByZXNlbnRhdGl2ZSIsCiAgICAgICAgInJvbGUiOiAiQ0VPIiwKICAgICAgICAidHlwZU9mUHJlc2VudGF0aW9uIjogIkpvaW50bHkiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiQGlkIjogImRpZDprZXk6JHB1YmxpY0tleU9mUHJpbmNpcGFsMiQiLAogICAgICAgICJAdHlwZSI6ICJMZWdhbFJlcHJlc2VudGF0aXZlIiwKICAgICAgICAicm9sZSI6ICJDRk8iLAogICAgICAgICJ0eXBlT2ZQcmVzZW50YXRpb24iOiAiSm9pbnRseSIKICAgICAgfQogICAgXQogIH0sCiAgInZhbGlkVW50aWwiOiAiMjAyOS0xMi0wM1QxMjoxOTo1MloiLAogICJ2YWxpZEZyb20iOiAiMjAxOS0xMi0wM1QxMjoxOTo1MloiLAogICJpc3N1ZXIiOiAiZGlkOmtleTokcHVibGljS2V5T2ZCdXNpbmVzc1JlZ2lzdGVyJCIKfQ==",
+            "provenanceProof": {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://w3id.org/ebwv/v0.1"
+              ],
+              "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+              "@type": [
+                "VerifiableCredential",
+                "ElectronicAttestationOfAttributes"
+              ],
+              "attestationLegalCategory": "QEAA",
+              "credentialSubject": {
+                "@id": "did:key:$publicKeyOfOrganisationOfPrincipals$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company",
+                  "LimitedLiabilityCompany"
+                ],
+                "legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation",
+                "legalForm": "Inc.",
+                "legalRepresentative": [
+                  {
+                    "@id": "did:key:$publicKeyOfPrincipal1$",
+                    "@type": "LegalRepresentative",
+                    "role": "CEO",
+                    "typeOfPresentation": "Jointly"
+                  },
+                  {
+                    "@id": "did:key:$publicKeyOfPrincipal2$",
+                    "@type": "LegalRepresentative",
+                    "role": "CFO",
+                    "typeOfPresentation": "Jointly"
+                  }
+                ]
+              },
+              "validUntil": "2029-12-03T12:19:52Z",
+              "validFrom": "2019-12-03T12:19:52Z",
+              "issuer": "did:key:$publicKeyOfBusinessRegister$"
+            }
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": [
               "did:key:$publicKeyOfPrincipal1$",
               "did:key:$publicKeyOfPrincipal2$"
             ]
-          }
-      - label: decoded provenanceProof of PowerOfAttorney given by two legal representatives (jointly)
-        json: |
-          {
-            "@context": [
-              "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/ebwv/v0.1"
-            ],
-            "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
-            "@type": [
-              "VerifiableCredential",
-              "ElectronicAttestationOfAttributes"
-            ],
-            "attestationLegalCategory": "QEAA",
-            "credentialSubject": {
-              "@id": "did:key:$publicKeyOfOrganisationOfPrincipals$",
-              "@type": [
-                "EconomicOperator",
-                "Company",
-                "LimitedLiabilityCompany"
-              ],
-              "legalIdentifier": {
-                "@type" : "Euid",
-                "@value" : "NOFOR.987654321"
-              },
-              "legalName": "acme Corporation",
-              "legalForm": "Inc.",
-              "legalRepresentative": [
-                {
-                  "@id": "did:key:$publicKeyOfPrincipal1$",
-                  "@type": "LegalRepresentative",
-                  "role": "CEO",
-                  "typeOfPresentation": "Jointly"
-                },
-                {
-                  "@id": "did:key:$publicKeyOfPrincipal2$",
-                  "@type": "LegalRepresentative",
-                  "role": "CFO",
-                  "typeOfPresentation": "Jointly"
-                }
-              ]
-            },
-            "validUntil": "2029-12-03T12:19:52Z",
-            "validFrom": "2019-12-03T12:19:52Z",
-            "issuer": "did:key:$publicKeyOfBusinessRegister$"
           }
 
   - id: PublicSectorBody
@@ -2040,6 +2070,7 @@ property:
     domain: ElectronicAttestationOfAttributes
     range:
       - ElectronicAttestationOfAttributes
+    dataset: true
     comment: Proof required to establish trust in the issuer of the credential. The proof allows the relying party to verify if the issuer is authorized to issue the credential and to make the claims about the credential subject. E.g. in the case of an power of attorney the provenanceProof provides the proof that the principal is authorized to give power to the mandatee.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provenanceproof
 
@@ -2072,7 +2103,6 @@ property:
     domain: PowerOfAttorney
     range:
       - ScopeOfPower
-      - xsd:string
     range_union: true
     comment: The scope of the power given to a mandatee.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower

@@ -247,7 +247,8 @@
                 },
                 "provenanceProof": {
                     "@id": "https://w3id.org/ebwv#provenanceProof",
-                    "@type": "@id"
+                    "@type": "@id",
+                    "@container": "@graph"
                 }
             }
         },
