@@ -16,7 +16,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - English labels: use British English spelling and the language tag `en-GB`, for example `"Organisation"@en-GB`.
 - Label annotations: use `skos:prefLabel` for the preferred display label and `skos:altLabel` for synonyms or alternative names. These annotations apply directly to OWL entities without typing them as `skos:Concept`.
 - Definition types: a mandatory taxonomic definition, an optional legal definition quoted verbatim from legislation or regulations, and an optional business definition in everyday language. For a class without a meaningful superclass or a property without a meaningful superproperty, a mandatory base definition fulfils the first requirement. Keep the three definition types distinct.
-- OWL reasoning: include logical checks of the central model with restraint. Use OWL axioms only when their open-world meaning expresses the intended semantics; use SHACL for requirements on the data actually supplied. The reasoner and failure policy remain to be selected.
+- OWL reasoning: include logical checks of the central model with restraint. Use OWL axioms only when their open-world meaning expresses the intended semantics; use SHACL for requirements on the data actually supplied. Logical inconsistency and unintentionally unsatisfiable classes block merging by default; exceptions require explicit joint approval and publication disclosure. The reasoner remains to be selected.
 - Quality checks: run the complete automated suite and the applicable human review before every GitHub synchronisation. GitHub repeats the automated suite on pushes and pull requests.
 - Status: draft model intended for joint development, not an approved project release.
 - Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
@@ -29,6 +29,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - Central model and application profiles: put only generally applicable restrictions in the central model. Use-case-specific requirements for the presence of relations or values and their cardinalities belong in the relevant application profile.
 - Temporary term namespace: `https://example.org/webuild/ontology#`. For example, a term named `Organization` would have the IRI `https://example.org/webuild/ontology#Organization`; this example does not introduce a class.
 - Temporary ontology IRI: `https://example.org/webuild/ontology`. This identifies the draft ontology as a whole.
+- Conflicts in `main`: only approved, non-conflicting changes are accepted by default. A justified exception must be specifically approved by both modellers, registered, and prominently disclosed with the affected publication; see [QUALITY_EXCEPTIONS.md](QUALITY_EXCEPTIONS.md).
 - Substantive change approval: Bart and his modelling colleague must both approve a change before it is considered agreed. Until both have approved it, the change remains a proposal.
 - Definitive ontology IRI, term namespace, namespace stewardship, and release publication process: pending joint agreement before external use.
 
@@ -185,7 +186,9 @@ Use SHACL when a requirement concerns the values actually supplied in a data gra
 
 The earlier separation remains in force: generally applicable conceptual restrictions belong in the central model, while use-case-specific requirements belong in separate application profiles. Where a generally applicable data-validation rule is also needed, document its scope before deciding how to share it across profiles; open-world reasoning alone is not its completeness check.
 
-The reasoner implementation, supported OWL profile, treatment of reported findings, and integration into the automated suite remain to be selected. The current automated suite still runs the agreed structural/editorial checks only. SHACL inference settings also remain pending.
+Logical inconsistency and unintentionally unsatisfiable classes block merging into `main` by default. A justified publication with a known conflict requires a specific exception approved by both modellers and disclosed with the publication. The [quality exception register](QUALITY_EXCEPTIONS.md) records the finding, rationale, consequences, scope, approvals, and resolution plan. Approval does not turn a conflicting result into a clean result.
+
+Use the [ontology pull request template](../.github/PULL_REQUEST_TEMPLATE/ontology.md) to record the quality evidence and both approvals. The reasoner implementation, supported OWL profile, automated exception handling, required GitHub checks and reviews, and integration into the automated suite remain to be configured. The current automated suite still runs the agreed structural/editorial checks only. SHACL inference settings also remain pending.
 
 References: [W3C OWL 2 Primer on open-world semantics](https://www.w3.org/TR/owl2-primer/) and [W3C SHACL minimum-count constraints](https://www.w3.org/TR/shacl/#MinCountConstraintComponent).
 
@@ -245,7 +248,7 @@ The different PRIMER IRIs do not automatically identify the same ontology. The t
 
 The temporary identifiers, draft status, and joint approval of substantive changes are confirmed above. The definitive identifiers, namespace stewardship, and release publication process remain pending. Readable American English term IRIs and British English labels are agreed above. IRI capitalisation is also agreed above. Preferred and alternative label properties are also agreed above. Use-case traceability is recorded outside the ontology as agreed above. The central model initially stays in one `webuild.ttl` file; a future split requires jointly agreed, meaningful module boundaries. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Within the agreed OWL approach, agree on the constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
 
-A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. Consider protecting `main` with mandatory review once the team has agreed on this workflow.
+A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. Protection of `main` with required checks and reviews is needed to enforce the agreed merge and exception policy on GitHub; it has not yet been configured.
 
 The selected working directory is under OneDrive. The recommendation is to eventually place the active Git working directory outside a synchronised folder and collaborate through GitHub; two independent synchronisation mechanisms make the working directory harder to manage. Until then, keep the files fully available locally and use this checkout on one computer at a time. The directory was not relocated during setup.
 
