@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-09-29"^^xsd:date ;
+    dc:date "2026-10-01"^^xsd:date ;
 .
 
 # Property definitions
@@ -495,7 +495,7 @@ ebwv:jobTitle a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:jurisdiction a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Company ebwv:LegalPerson ebwv:A1Certificate ebwv:WorkAssignment ebwv:PublicSectorBody) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EconomicOperator ebwv:A1Certificate ebwv:WorkAssignment ebwv:PublicSectorBody) ] ;
     rdfs:range ebwv:CountryCode ;
     rdfs:label "jurisdiction" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction>, <https://w3id.org/ebwv#> ;
@@ -909,9 +909,9 @@ ebwv:qualificationNote a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:scopeOfPower a rdf:Property, owl:DatatypeProperty ;
+ebwv:scopeOfPower a rdf:Property ;
     rdfs:domain ebwv:PowerOfAttorney ;
-    rdfs:range xsd:string ;
+    rdfs:range [ a owl:Class; owl:unionOf (ebwv:ScopeOfPower xsd:string) ] ;
     rdfs:label "scope of power" ;
     rdfs:comment """<div>The scope of the power given to a mandatee.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower>, <https://w3id.org/ebwv#> ;
@@ -1356,6 +1356,13 @@ ebwv:TypeOfPresentation a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
+ebwv:ScopeOfPower a rdfs:Class ;
+    rdfs:label "scope of power" ;
+    rdfs:comment """<div>the scope of power delegated to a mandatee in the context of representing a company</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:Site a rdfs:Class ;
     rdfs:label "Site" ;
     rdfs:comment """<div>a place, premises or location at which an organisation is present or located</div>"""^^rdf:HTML ;
@@ -1381,6 +1388,13 @@ ebwv:TypeOfEmployment a rdfs:Class ;
     rdfs:label "Type Of Employment" ;
     rdfs:comment """<div>the category or form of an employment relationship, indicating how a worker is employed or engaged by an employer</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:UBO a rdfs:Class ;
+    rdfs:label "Ultimate Beneficiary Owner" ;
+    rdfs:comment """<div>An Ultimate Beneficial Owner (UBO) is the natural person (real human) who ultimately owns, controls, or profits from a legal person (company).</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/UBO>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1536,10 +1550,45 @@ ebwv:Temporary a ebwv:TypeOfEmployment ;
     vs:term_status "stable" ;
 .
 
-ebwv:UBO a rdfs:Resource ;
-    rdfs:label "Ultimate Beneficiary Owner" ;
-    rdfs:comment """<div>An Ultimate Beneficial Owner (UBO) is the natural person (real human) who ultimately owns, controls, or profits from a legal person (company).</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/UBO>, <https://w3id.org/ebwv#> ;
+ebwv:FormationOfCompanies a ebwv:ScopeOfPower ;
+    rdfs:label "formation of companies" ;
+    rdfs:comment """<div>The formation of companies.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/sopeofpower>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:ConstitutionOfCompanies a ebwv:ScopeOfPower ;
+    rdfs:label "constitution of companies" ;
+    rdfs:comment """<div>Changes to the instrument of constitution of companies and the statutes if contained in a separate instrument.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/constitutionofcompanies>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:RegistrationAndClosingOfBranches a ebwv:ScopeOfPower ;
+    rdfs:label "registration and closing of branches" ;
+    rdfs:comment """<div>Registration and closure of branches of the Company.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/registrationandclosingofbranches>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:CrossBoarderConversions a ebwv:ScopeOfPower ;
+    rdfs:label "cross boarder conversions" ;
+    rdfs:comment """<div>All legal transactions regarding cross-border conversions involving the Company.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/crossboarderconversions>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:CrossBoarderMergers a ebwv:ScopeOfPower ;
+    rdfs:label "cross boarder mergers" ;
+    rdfs:comment """<div>All legal transactions regarding cross border mergers involving the Company.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/crossboardermergers>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:CrossBorderDivisions a ebwv:ScopeOfPower ;
+    rdfs:label "cross border divisions" ;
+    rdfs:comment """<div>All legal transactions regarding cross border divisions involving the Company</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https:/w3id.org/ebwv/terminology#/concept/crossborderdivisions>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

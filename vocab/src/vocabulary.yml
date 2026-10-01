@@ -551,14 +551,14 @@ class:
               },
               "legalRepresentative": [
                 {
+                  "@id": "did:key:$publicKeyOfRepresentative1$",
                   "@type": "LegalRepresentative",
-                  "legalEntity": "did:key:$publicKeyOfRepresentative1$",
                   "role": "CEO",
                   "typeOfPresentation": "Alone"
                 },
                 {
+                  "@id": "did:key:$publicKeyOfRepresentative2$",
                   "@type": "LegalRepresentative",
-                  "legalEntity": "did:key:$publicKeyOfRepresentative2$",
                   "role": "CFO",
                   "typeOfPresentation": "Alone"
                 }
@@ -930,12 +930,37 @@ class:
               "@type": "PowerOfAttorney",
               "mandatee": "did:key:$publicKeyOfMandatee$",
               "principal": "did:key:$publicKeyOfPrincipal$",
-              "scopeOfPower": "Opening bank account"
+              "scopeOfPower": "RegistrationAndClosingOfBranches"
             },
             "provenanceProof": "ewogICJAY29udGV4dCI6IFsKICAgICJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLAogICAgImh0dHBzOi8vdzNpZC5vcmcvZWJ3di92MC4xIgogIF0sCiAgIkBpZCI6ICJ1cm46ZDVkZmViMzktZWRjNy00MGIxLWEyZmMtMzk2OGRiZDNlYWM4IiwKICAiQHR5cGUiOiBbCiAgICAiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLAogICAgIkVsZWN0cm9uaWNBdHRlc3RhdGlvbk9mQXR0cmlidXRlcyIKICBdLAogICJhdHRlc3RhdGlvbkxlZ2FsQ2F0ZWdvcnkiOiAiUUVBQSIsCiAgImNyZWRlbnRpYWxTdWJqZWN0IjogewogICAgIkBpZCI6ICJkaWQ6a2V5OiRwdWJsaWNLZXlPZk9yZ2FuaXNhdGlvbk9mUHJpbmNpcGFsJCIsCiAgICAiQHR5cGUiOiBbCiAgICAgICJFY29ub21pY09wZXJhdG9yIiwKICAgICAgIkNvbXBhbnkiLAogICAgICAiTGltaXRlZExpYWJpbGl0eUNvbXBhbnkiCiAgICBdLAogICAgImxlZ2FsSWRlbnRpZmllciI6IHsKICAgICAgIkB0eXBlIiA6ICJFdWlkIiwKICAgICAgIkB2YWx1ZSIgOiAiTk9GT1IuOTg3NjU0MzIxIgogICAgfSwKICAgICJsZWdhbE5hbWUiOiAiYWNtZSBDb3Jwb3JhdGlvbiIsCiAgICAibGVnYWxGb3JtIjogIkluYy4iLAogICAgImxlZ2FsUmVwcmVzZW50YXRpdmUiOiBbCiAgICAgIHsKICAgICAgICAiQGlkIjogImRpZDprZXk6JHB1YmxpY0tleU9mUHJpbmNpcGFsJCIsCiAgICAgICAgIkB0eXBlIjogIkxlZ2FsUmVwcmVzZW50YXRpdmUiLAogICAgICAgICJyb2xlIjogIkNFTyIsCiAgICAgICAgInR5cGVPZlByZXNlbnRhdGlvbiI6ICJBbG9uZSIKICAgICAgfQogICAgXQogIH0sCiAgInZhbGlkVW50aWwiOiAiMjAyOS0xMi0wM1QxMjoxOTo1MloiLAogICJ2YWxpZEZyb20iOiAiMjAxOS0xMi0wM1QxMjoxOTo1MloiLAogICJpc3N1ZXIiOiAiZGlkOmtleTokcHVibGljS2V5T2ZCdXNpbmVzc1JlZ2lzdGVyJCIKfQ==",
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfPrincipal$"
+          }
+      - label: PowerOfAttorney given by a single legal representative (alone) and notarized by a QTSP
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urnd:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
+              "@type": "PowerOfAttorney",
+              "mandatee": "did:key:$publicKeyOfMandatee$",
+              "principal": "did:key:$publicKeyOfPrincipal$",
+              "scopeOfPower": "RegistrationAndClosingOfBranches"
+            },
+            "provenanceProof": "ewogICJAY29udGV4dCI6IFsKICAgICJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLAogICAgImh0dHBzOi8vdzNpZC5vcmcvZWJ3di92MC4xIgogIF0sCiAgIkBpZCI6ICJ1cm46ZDVkZmViMzktZWRjNy00MGIxLWEyZmMtMzk2OGRiZDNlYWM4IiwKICAiQHR5cGUiOiBbCiAgICAiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLAogICAgIkVsZWN0cm9uaWNBdHRlc3RhdGlvbk9mQXR0cmlidXRlcyIKICBdLAogICJhdHRlc3RhdGlvbkxlZ2FsQ2F0ZWdvcnkiOiAiUUVBQSIsCiAgImNyZWRlbnRpYWxTdWJqZWN0IjogewogICAgIkBpZCI6ICJkaWQ6a2V5OiRwdWJsaWNLZXlPZk9yZ2FuaXNhdGlvbk9mUHJpbmNpcGFsJCIsCiAgICAiQHR5cGUiOiBbCiAgICAgICJFY29ub21pY09wZXJhdG9yIiwKICAgICAgIkNvbXBhbnkiLAogICAgICAiTGltaXRlZExpYWJpbGl0eUNvbXBhbnkiCiAgICBdLAogICAgImxlZ2FsSWRlbnRpZmllciI6IHsKICAgICAgIkB0eXBlIiA6ICJFdWlkIiwKICAgICAgIkB2YWx1ZSIgOiAiTk9GT1IuOTg3NjU0MzIxIgogICAgfSwKICAgICJsZWdhbE5hbWUiOiAiYWNtZSBDb3Jwb3JhdGlvbiIsCiAgICAibGVnYWxGb3JtIjogIkluYy4iLAogICAgImxlZ2FsUmVwcmVzZW50YXRpdmUiOiBbCiAgICAgIHsKICAgICAgICAiQGlkIjogImRpZDprZXk6JHB1YmxpY0tleU9mUHJpbmNpcGFsJCIsCiAgICAgICAgIkB0eXBlIjogIkxlZ2FsUmVwcmVzZW50YXRpdmUiLAogICAgICAgICJyb2xlIjogIkNFTyIsCiAgICAgICAgInR5cGVPZlByZXNlbnRhdGlvbiI6ICJBbG9uZSIKICAgICAgfQogICAgXQogIH0sCiAgInZhbGlkVW50aWwiOiAiMjAyOS0xMi0wM1QxMjoxOTo1MloiLAogICJ2YWxpZEZyb20iOiAiMjAxOS0xMi0wM1QxMjoxOTo1MloiLAogICJpc3N1ZXIiOiAiZGlkOmtleTokcHVibGljS2V5T2ZCdXNpbmVzc1JlZ2lzdGVyJCIKfQ==",
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfNotary$"
           }
       - label: decoded provenanceProof of PowerOfAttorney given by a single legal representative (alone)
         json: |
@@ -1063,6 +1088,11 @@ class:
     comment: type of presentation meaning Alone or Jointly
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation
 
+  - id: ScopeOfPower
+    label: scope of power
+    comment: the scope of power delegated to a mandatee in the context of representing a company
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation
+
   - id: Site
     label: Site
     comment: a place, premises or location at which an organisation is present or located
@@ -1082,6 +1112,11 @@ class:
     label: Type Of Employment
     comment: the category or form of an employment relationship, indicating how a worker is employed or engaged by an employer
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
+
+  - id: UBO
+    label: Ultimate Beneficiary Owner
+    comment: An Ultimate Beneficial Owner (UBO) is the natural person (real human) who ultimately owns, controls, or profits from a legal person (company).
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/UBO
 
   - id: VATRegistrationUnit
     label: VAT Registration Unit
@@ -1206,11 +1241,41 @@ individual:   # code lists
     type: TypeOfEmployment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary
 
-  - id: UBO
-    label: Ultimate Beneficiary Owner
-    comment: An Ultimate Beneficial Owner (UBO) is the natural person (real human) who ultimately owns, controls, or profits from a legal person (company).
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/UBO
+  - id: FormationOfCompanies
+    label: formation of companies
+    type: ScopeOfPower
+    comment: The formation of companies.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/sopeofpower
 
+  - id: ConstitutionOfCompanies
+    label: constitution of companies
+    type: ScopeOfPower
+    comment: Changes to the instrument of constitution of companies and the statutes if contained in a separate instrument.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/constitutionofcompanies
+
+  - id: RegistrationAndClosingOfBranches
+    label: registration and closing of branches
+    type: ScopeOfPower
+    comment: Registration and closure of branches of the Company.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/registrationandclosingofbranches
+
+  - id: CrossBoarderConversions
+    label: cross boarder conversions
+    type: ScopeOfPower
+    comment: All legal transactions regarding cross-border conversions involving the Company.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossboarderconversions
+
+  - id: CrossBoarderMergers
+    label: cross boarder mergers
+    type: ScopeOfPower
+    comment: All legal transactions regarding cross border mergers involving the Company.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossboardermergers
+
+  - id: CrossBorderDivisions
+    label: cross border divisions
+    type: ScopeOfPower
+    comment: All legal transactions regarding cross border divisions involving the Company
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossborderdivisions
 
 property:
   - id: a1
@@ -1634,8 +1699,7 @@ property:
   - id: jurisdiction
     label: jurisdiction
     domain:
-      - Company
-      - LegalPerson
+      - EconomicOperator
       - A1Certificate
       - WorkAssignment
       - PublicSectorBody
@@ -2007,7 +2071,9 @@ property:
     label: scope of power
     domain: PowerOfAttorney
     range:
+      - ScopeOfPower
       - xsd:string
+    range_union: true
     comment: The scope of the power given to a mandatee.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
 

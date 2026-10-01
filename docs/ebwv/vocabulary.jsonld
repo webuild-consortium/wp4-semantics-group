@@ -64,7 +64,7 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-        "dc:date": "2026-09-29"
+        "dc:date": "2026-10-01"
     }, {
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -673,7 +673,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:Company", "ebwv:LegalPerson", "ebwv:A1Certificate", "ebwv:WorkAssignment", "ebwv:PublicSectorBody"]
+            "owl:unionOf": ["ebwv:EconomicOperator", "ebwv:A1Certificate", "ebwv:WorkAssignment", "ebwv:PublicSectorBody"]
         },
         "rdfs:range": "ebwv:CountryCode",
         "rdfs:label": "jurisdiction",
@@ -1220,9 +1220,12 @@
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:scopeOfPower",
-        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "@type": "rdf:Property",
         "rdfs:domain": "ebwv:PowerOfAttorney",
-        "rdfs:range": "xsd:string",
+        "rdfs:range": {
+            "@type": "ows:Class",
+            "owl:unionOf": ["ebwv:ScopeOfPower", "xsd:string"]
+        },
         "rdfs:label": "scope of power",
         "rdfs:comment": {
             "@value": "<div>The scope of the power given to a mandatee.</div>",
@@ -1773,6 +1776,16 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:ScopeOfPower",
+        "@type": "rdfs:Class",
+        "rdfs:label": "scope of power",
+        "rdfs:comment": {
+            "@value": "<div>the scope of power delegated to a mandatee in the context of representing a company</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:Site",
         "@type": "rdfs:Class",
         "rdfs:label": "Site",
@@ -1808,6 +1821,16 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:UBO",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Ultimate Beneficiary Owner",
+        "rdfs:comment": {
+            "@value": "<div>An Ultimate Beneficial Owner (UBO) is the natural person (real human) who ultimately owns, controls, or profits from a legal person (company).</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https:/w3id.org/ebwv/terminology#/concept/UBO", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:VATRegistrationUnit",
@@ -1971,14 +1994,64 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
-        "@id": "ebwv:UBO",
-        "@type": "rdfs:Resource",
-        "rdfs:label": "Ultimate Beneficiary Owner",
+        "@id": "ebwv:FormationOfCompanies",
+        "@type": "ebwv:ScopeOfPower",
+        "rdfs:label": "formation of companies",
         "rdfs:comment": {
-            "@value": "<div>An Ultimate Beneficial Owner (UBO) is the natural person (real human) who ultimately owns, controls, or profits from a legal person (company).</div>",
+            "@value": "<div>The formation of companies.</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
-        "rdfs:isDefinedBy": ["https:/w3id.org/ebwv/terminology#/concept/UBO", "https://w3id.org/ebwv#"],
+        "rdfs:isDefinedBy": ["https:/w3id.org/ebwv/terminology#/concept/sopeofpower", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:ConstitutionOfCompanies",
+        "@type": "ebwv:ScopeOfPower",
+        "rdfs:label": "constitution of companies",
+        "rdfs:comment": {
+            "@value": "<div>Changes to the instrument of constitution of companies and the statutes if contained in a separate instrument.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https:/w3id.org/ebwv/terminology#/concept/constitutionofcompanies", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:RegistrationAndClosingOfBranches",
+        "@type": "ebwv:ScopeOfPower",
+        "rdfs:label": "registration and closing of branches",
+        "rdfs:comment": {
+            "@value": "<div>Registration and closure of branches of the Company.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https:/w3id.org/ebwv/terminology#/concept/registrationandclosingofbranches", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:CrossBoarderConversions",
+        "@type": "ebwv:ScopeOfPower",
+        "rdfs:label": "cross boarder conversions",
+        "rdfs:comment": {
+            "@value": "<div>All legal transactions regarding cross-border conversions involving the Company.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https:/w3id.org/ebwv/terminology#/concept/crossboarderconversions", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:CrossBoarderMergers",
+        "@type": "ebwv:ScopeOfPower",
+        "rdfs:label": "cross boarder mergers",
+        "rdfs:comment": {
+            "@value": "<div>All legal transactions regarding cross border mergers involving the Company.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https:/w3id.org/ebwv/terminology#/concept/crossboardermergers", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:CrossBorderDivisions",
+        "@type": "ebwv:ScopeOfPower",
+        "rdfs:label": "cross border divisions",
+        "rdfs:comment": {
+            "@value": "<div>All legal transactions regarding cross border divisions involving the Company</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https:/w3id.org/ebwv/terminology#/concept/crossborderdivisions", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:AccountType",
@@ -2225,7 +2298,7 @@
     }, {
         "@id": "https://w3id.org/ebwv/v0.1",
         "@type": "jsonld:Context",
-        "mentions": ["cred:termsOfUse", "ebwv:A1Certificate", "ebwv:AccountType", "ebwv:Address", "ebwv:Agent", "ebwv:Alone", "ebwv:AttestationLegalCategory", "ebwv:BankAccount", "ebwv:Bic", "ebwv:CIP", "ebwv:CPT", "ebwv:ClearingNumber", "ebwv:Company", "ebwv:ContactPoint", "ebwv:CountryCode", "ebwv:Currency", "ebwv:DAP", "ebwv:DDP", "ebwv:DPU", "ebwv:DUNS", "ebwv:DataConsumer", "ebwv:DataProvider", "ebwv:DataRightsHolder", "ebwv:DataSpaceRole", "ebwv:DunsNumber", "ebwv:EAA", "ebwv:EXW", "ebwv:EconomicOperator", "ebwv:ElectronicAttestationOfAttributes", "ebwv:Eori", "ebwv:Euid", "ebwv:EuropeanBusinessWalletOwner", "ebwv:Excise", "ebwv:FAS", "ebwv:FCA", "ebwv:FOB", "ebwv:GLN", "ebwv:GS1CompanyPrefix", "ebwv:GeneralPartner", "ebwv:GlobalLocationNumber", "ebwv:GovernanceRulebook", "ebwv:Iban", "ebwv:Incoterms", "ebwv:Jointly", "ebwv:KmgMid", "ebwv:LegalEntity", "ebwv:LegalEntityIdentifier", "ebwv:LegalPerson", "ebwv:LegalRepresentative", "ebwv:Lei", "ebwv:LeiRegistration", "ebwv:LimitedLiabilityCompany", "ebwv:LimitedPartner", "ebwv:Location", "ebwv:Membership", "ebwv:MonetaryAmount", "ebwv:Nace21", "ebwv:NationalBankCode", "ebwv:NaturalPerson", "ebwv:OnboardingDetails", "ebwv:OnboardingServiceProvider", "ebwv:Operator", "ebwv:Partnership", "ebwv:PaymentTerms", "ebwv:PeppolId", "ebwv:PeriodOfTime", "ebwv:Permanent", "ebwv:PostedWorkerNotification", "ebwv:PowerOfAttorney", "ebwv:Pub-EAA", "ebwv:PublicSectorBody", "ebwv:PublicSectorBodyId", "ebwv:QEAA", "ebwv:Site", "ebwv:SocialSecurityContribution", "ebwv:StatutoryPartner", "ebwv:Temporary", "ebwv:Tin", "ebwv:TypeOfEmployment", "ebwv:TypeOfPresentation", "ebwv:UBO", "ebwv:VATRegistrationUnit", "ebwv:VatId", "ebwv:Vessel", "ebwv:WorkAssignment", "ebwv:a1", "ebwv:acceptedAt", "ebwv:accountName", "ebwv:accountType", "ebwv:activity", "ebwv:addressArea", "ebwv:adminUnitL1", "ebwv:adminUnitL2", "ebwv:administrativeRepresentative", "ebwv:alternativeName", "ebwv:amount", "ebwv:assignment", "ebwv:attestationLegalCategory", "ebwv:averagePeriodWorkforce", "ebwv:birthName", "ebwv:businessEntity", "ebwv:buyer", "ebwv:citizenship", "ebwv:complianceStatus", "ebwv:constructionSector", "ebwv:contactPoint", "ebwv:contributor", "ebwv:correspondenceAddress", "ebwv:countryOfBirth", "ebwv:countryOfDeath", "ebwv:coverageStatement", "ebwv:coveredObligationType", "ebwv:currency", "ebwv:dateOfBirth", "ebwv:dateOfDeath", "ebwv:dateOfRegistration", "ebwv:deliveryLocation", "ebwv:domicile", "ebwv:duration", "ebwv:employee", "ebwv:employer", "ebwv:endDate", "ebwv:familyName", "ebwv:flagState", "ebwv:fullAddress", "ebwv:fullName", "ebwv:fullPeriodCovered", "ebwv:gender", "ebwv:geographicIdentifier", "ebwv:geographicName", "ebwv:givenName", "ebwv:hasAddress", "ebwv:hasEmail", "ebwv:hasSite", "ebwv:hasTelephone", "ebwv:hash", "ebwv:hostEntity", "ebwv:iban", "ebwv:identifier", "ebwv:jobTitle", "ebwv:jurisdiction", "ebwv:legalBasis", "ebwv:legalForm", "ebwv:legalIdentifier", "ebwv:legalName", "ebwv:legalRepresentative", "ebwv:legalStatus", "ebwv:lei", "ebwv:leiLastUpdate", "ebwv:leiLegalEntity", "ebwv:leiNextRenewal", "ebwv:leiRegistration", "ebwv:leiRegistrationDate", "ebwv:leiRegistrationStatus", "ebwv:liabilityOrContribution", "ebwv:licenceKey", "ebwv:locatorDesignator", "ebwv:locatorName", "ebwv:managingLeiIssuer", "ebwv:mandatee", "ebwv:matronymicName", "ebwv:member", "ebwv:memberOf", "ebwv:noFixedPlaceOfWork", "ebwv:onboardedBy", "ebwv:operator", "ebwv:organisation", "ebwv:owner", "ebwv:ownershipPercentage", "ebwv:partner", "ebwv:patronymicName", "ebwv:paymentDue", "ebwv:person", "ebwv:personalAdministrativeNumber", "ebwv:placeOfBirth", "ebwv:placeOfDeath", "ebwv:placeOfWork", "ebwv:platform", "ebwv:poBox", "ebwv:portrait", "ebwv:postCode", "ebwv:postName", "ebwv:postedWorker", "ebwv:principal", "ebwv:provenanceProof", "ebwv:provider", "ebwv:provisionalDetermination", "ebwv:qualificationNote", "ebwv:registeredAddress", "ebwv:reportingMonth", "ebwv:reportingPeriod", "ebwv:residency", "ebwv:role", "ebwv:scopeOfPower", "ebwv:socialRepresentative", "ebwv:staffAverage", "ebwv:startDate", "ebwv:stateOfInsurance", "ebwv:statusConfirmation", "ebwv:subscribedCapital", "ebwv:supplier", "ebwv:temporaryAddress", "ebwv:temporaryWorkAgency", "ebwv:terms", "ebwv:thoroughfare", "ebwv:totalPayroll", "ebwv:transitionalRules", "ebwv:type", "ebwv:typeOfEmployment", "ebwv:typeOfPresentation", "ebwv:url", "ebwv:version"]
+        "mentions": ["cred:termsOfUse", "ebwv:A1Certificate", "ebwv:AccountType", "ebwv:Address", "ebwv:Agent", "ebwv:Alone", "ebwv:AttestationLegalCategory", "ebwv:BankAccount", "ebwv:Bic", "ebwv:CIP", "ebwv:CPT", "ebwv:ClearingNumber", "ebwv:Company", "ebwv:ConstitutionOfCompanies", "ebwv:ContactPoint", "ebwv:CountryCode", "ebwv:CrossBoarderConversions", "ebwv:CrossBoarderMergers", "ebwv:CrossBorderDivisions", "ebwv:Currency", "ebwv:DAP", "ebwv:DDP", "ebwv:DPU", "ebwv:DUNS", "ebwv:DataConsumer", "ebwv:DataProvider", "ebwv:DataRightsHolder", "ebwv:DataSpaceRole", "ebwv:DunsNumber", "ebwv:EAA", "ebwv:EXW", "ebwv:EconomicOperator", "ebwv:ElectronicAttestationOfAttributes", "ebwv:Eori", "ebwv:Euid", "ebwv:EuropeanBusinessWalletOwner", "ebwv:Excise", "ebwv:FAS", "ebwv:FCA", "ebwv:FOB", "ebwv:FormationOfCompanies", "ebwv:GLN", "ebwv:GS1CompanyPrefix", "ebwv:GeneralPartner", "ebwv:GlobalLocationNumber", "ebwv:GovernanceRulebook", "ebwv:Iban", "ebwv:Incoterms", "ebwv:Jointly", "ebwv:KmgMid", "ebwv:LegalEntity", "ebwv:LegalEntityIdentifier", "ebwv:LegalPerson", "ebwv:LegalRepresentative", "ebwv:Lei", "ebwv:LeiRegistration", "ebwv:LimitedLiabilityCompany", "ebwv:LimitedPartner", "ebwv:Location", "ebwv:Membership", "ebwv:MonetaryAmount", "ebwv:Nace21", "ebwv:NationalBankCode", "ebwv:NaturalPerson", "ebwv:OnboardingDetails", "ebwv:OnboardingServiceProvider", "ebwv:Operator", "ebwv:Partnership", "ebwv:PaymentTerms", "ebwv:PeppolId", "ebwv:PeriodOfTime", "ebwv:Permanent", "ebwv:PostedWorkerNotification", "ebwv:PowerOfAttorney", "ebwv:Pub-EAA", "ebwv:PublicSectorBody", "ebwv:PublicSectorBodyId", "ebwv:QEAA", "ebwv:RegistrationAndClosingOfBranches", "ebwv:ScopeOfPower", "ebwv:Site", "ebwv:SocialSecurityContribution", "ebwv:StatutoryPartner", "ebwv:Temporary", "ebwv:Tin", "ebwv:TypeOfEmployment", "ebwv:TypeOfPresentation", "ebwv:UBO", "ebwv:VATRegistrationUnit", "ebwv:VatId", "ebwv:Vessel", "ebwv:WorkAssignment", "ebwv:a1", "ebwv:acceptedAt", "ebwv:accountName", "ebwv:accountType", "ebwv:activity", "ebwv:addressArea", "ebwv:adminUnitL1", "ebwv:adminUnitL2", "ebwv:administrativeRepresentative", "ebwv:alternativeName", "ebwv:amount", "ebwv:assignment", "ebwv:attestationLegalCategory", "ebwv:averagePeriodWorkforce", "ebwv:birthName", "ebwv:businessEntity", "ebwv:buyer", "ebwv:citizenship", "ebwv:complianceStatus", "ebwv:constructionSector", "ebwv:contactPoint", "ebwv:contributor", "ebwv:correspondenceAddress", "ebwv:countryOfBirth", "ebwv:countryOfDeath", "ebwv:coverageStatement", "ebwv:coveredObligationType", "ebwv:currency", "ebwv:dateOfBirth", "ebwv:dateOfDeath", "ebwv:dateOfRegistration", "ebwv:deliveryLocation", "ebwv:domicile", "ebwv:duration", "ebwv:employee", "ebwv:employer", "ebwv:endDate", "ebwv:familyName", "ebwv:flagState", "ebwv:fullAddress", "ebwv:fullName", "ebwv:fullPeriodCovered", "ebwv:gender", "ebwv:geographicIdentifier", "ebwv:geographicName", "ebwv:givenName", "ebwv:hasAddress", "ebwv:hasEmail", "ebwv:hasSite", "ebwv:hasTelephone", "ebwv:hash", "ebwv:hostEntity", "ebwv:iban", "ebwv:identifier", "ebwv:jobTitle", "ebwv:jurisdiction", "ebwv:legalBasis", "ebwv:legalForm", "ebwv:legalIdentifier", "ebwv:legalName", "ebwv:legalRepresentative", "ebwv:legalStatus", "ebwv:lei", "ebwv:leiLastUpdate", "ebwv:leiLegalEntity", "ebwv:leiNextRenewal", "ebwv:leiRegistration", "ebwv:leiRegistrationDate", "ebwv:leiRegistrationStatus", "ebwv:liabilityOrContribution", "ebwv:licenceKey", "ebwv:locatorDesignator", "ebwv:locatorName", "ebwv:managingLeiIssuer", "ebwv:mandatee", "ebwv:matronymicName", "ebwv:member", "ebwv:memberOf", "ebwv:noFixedPlaceOfWork", "ebwv:onboardedBy", "ebwv:operator", "ebwv:organisation", "ebwv:owner", "ebwv:ownershipPercentage", "ebwv:partner", "ebwv:patronymicName", "ebwv:paymentDue", "ebwv:person", "ebwv:personalAdministrativeNumber", "ebwv:placeOfBirth", "ebwv:placeOfDeath", "ebwv:placeOfWork", "ebwv:platform", "ebwv:poBox", "ebwv:portrait", "ebwv:postCode", "ebwv:postName", "ebwv:postedWorker", "ebwv:principal", "ebwv:provenanceProof", "ebwv:provider", "ebwv:provisionalDetermination", "ebwv:qualificationNote", "ebwv:registeredAddress", "ebwv:reportingMonth", "ebwv:reportingPeriod", "ebwv:residency", "ebwv:role", "ebwv:scopeOfPower", "ebwv:socialRepresentative", "ebwv:staffAverage", "ebwv:startDate", "ebwv:stateOfInsurance", "ebwv:statusConfirmation", "ebwv:subscribedCapital", "ebwv:supplier", "ebwv:temporaryAddress", "ebwv:temporaryWorkAgency", "ebwv:terms", "ebwv:thoroughfare", "ebwv:totalPayroll", "ebwv:transitionalRules", "ebwv:type", "ebwv:typeOfEmployment", "ebwv:typeOfPresentation", "ebwv:url", "ebwv:version"]
     }, {
         "@id": "https://www.w3.org/ns/credentials/v2",
         "@type": "jsonld:Context",

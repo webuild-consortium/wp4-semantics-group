@@ -146,10 +146,6 @@
                     "@id": "https://w3id.org/ebwv#endDate",
                     "@type": "http://www.w3.org/2001/XMLSchema#date"
                 },
-                "jurisdiction": {
-                    "@id": "https://w3id.org/ebwv#jurisdiction",
-                    "@type": "https://w3id.org/ebwv#CountryCode"
-                },
                 "legalForm": {
                     "@id": "https://w3id.org/ebwv#legalForm",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -212,6 +208,10 @@
                     "@type": "@id"
                 },
                 "identifier": "https://w3id.org/ebwv#identifier",
+                "jurisdiction": {
+                    "@id": "https://w3id.org/ebwv#jurisdiction",
+                    "@type": "https://w3id.org/ebwv#CountryCode"
+                },
                 "legalIdentifier": "https://w3id.org/ebwv#legalIdentifier",
                 "legalName": {
                     "@id": "https://w3id.org/ebwv#legalName",
@@ -344,10 +344,6 @@
                 "dateOfRegistration": {
                     "@id": "https://w3id.org/ebwv#dateOfRegistration",
                     "@type": "http://www.w3.org/2001/XMLSchema#date"
-                },
-                "jurisdiction": {
-                    "@id": "https://w3id.org/ebwv#jurisdiction",
-                    "@type": "https://w3id.org/ebwv#CountryCode"
                 },
                 "legalForm": {
                     "@id": "https://w3id.org/ebwv#legalForm",
@@ -714,7 +710,7 @@
                 },
                 "scopeOfPower": {
                     "@id": "https://w3id.org/ebwv#scopeOfPower",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                    "@type": "@id"
                 }
             }
         },
@@ -734,6 +730,7 @@
             }
         },
         "TypeOfPresentation": "https://w3id.org/ebwv#TypeOfPresentation",
+        "ScopeOfPower": "https://w3id.org/ebwv#ScopeOfPower",
         "Site": {
             "@id": "https://w3id.org/ebwv#Site",
             "@context": {
@@ -827,6 +824,7 @@
             }
         },
         "TypeOfEmployment": "https://w3id.org/ebwv#TypeOfEmployment",
+        "UBO": "https://w3id.org/ebwv#UBO",
         "VATRegistrationUnit": {
             "@id": "https://w3id.org/ebwv#VATRegistrationUnit",
             "@context": {
@@ -903,7 +901,12 @@
         "Pub-EAA": "https://w3id.org/ebwv#Pub-EAA",
         "QEAA": "https://w3id.org/ebwv#QEAA",
         "Temporary": "https://w3id.org/ebwv#Temporary",
-        "UBO": "https://w3id.org/ebwv#UBO",
+        "FormationOfCompanies": "https://w3id.org/ebwv#FormationOfCompanies",
+        "ConstitutionOfCompanies": "https://w3id.org/ebwv#ConstitutionOfCompanies",
+        "RegistrationAndClosingOfBranches": "https://w3id.org/ebwv#RegistrationAndClosingOfBranches",
+        "CrossBoarderConversions": "https://w3id.org/ebwv#CrossBoarderConversions",
+        "CrossBoarderMergers": "https://w3id.org/ebwv#CrossBoarderMergers",
+        "CrossBorderDivisions": "https://w3id.org/ebwv#CrossBorderDivisions",
         "AccountType": "https://w3id.org/ebwv#AccountType",
         "Bic": "https://w3id.org/ebwv#Bic",
         "ClearingNumber": "https://w3id.org/ebwv#ClearingNumber",
