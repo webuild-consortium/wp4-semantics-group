@@ -1053,7 +1053,7 @@ class:
             ],
             "attestationLegalCategory": "EAA",
             "credentialSubject": {
-              "@id": "urnd:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
+              "@id": "urn:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
               "@type": "PowerOfAttorney",
               "mandatee": "did:key:$publicKeyOfMandatee$",
               "principal": [
