@@ -596,6 +596,7 @@
                 }
             }
         },
+        "CorporateRole": "https://w3id.org/ebwv#CorporateRole",
         "Partnership": {
             "@id": "https://w3id.org/ebwv#Partnership",
             "@context": {
@@ -882,6 +883,9 @@
             "@type": "@id"
         },
         "Alone": "https://w3id.org/ebwv#Alone",
+        "CEO": "https://w3id.org/ebwv#CEO",
+        "CFO": "https://w3id.org/ebwv#CFO",
+        "HeadOfHR": "https://w3id.org/ebwv#HeadOfHR",
         "CIP": "https://w3id.org/ebwv#CIP",
         "CPT": "https://w3id.org/ebwv#CPT",
         "DAP": "https://w3id.org/ebwv#DAP",

@@ -952,9 +952,9 @@ ebwv:residency a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:role a rdf:Property ;
+ebwv:role a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:StatutoryPartner ebwv:Membership) ] ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:DataSpaceRole xsd:string) ] ;
+    rdfs:range [ a owl:Class; owl:unionOf (ebwv:DataSpaceRole ebwv:CorporateRole) ] ;
     rdfs:label "role of the entity (e.g. the role of a legal representative in the company or the role of a dataspace member in the dataspace)" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/role>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -1307,6 +1307,13 @@ ebwv:OnboardingDetails a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
+ebwv:CorporateRole a rdfs:Class ;
+    rdfs:label "corporate role" ;
+    rdfs:comment """<div>a function held by a legal representative or statutory partner within a company, e.g. CEO or CFO</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/corporaterole>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:Partnership a rdfs:Class ;
     rdfs:subClassOf ebwv:Company ;
     rdfs:label "partnership" ;
@@ -1424,6 +1431,24 @@ ebwv:Alone a ebwv:TypeOfRepresentation ;
     rdfs:label "Alone" ;
     rdfs:comment """<div>the representative can bind the company or principal alone, with their signature only.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:CEO a ebwv:CorporateRole ;
+    rdfs:label "Chief Executive Officer" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/ceo>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:CFO a ebwv:CorporateRole ;
+    rdfs:label "Chief Financial Officer" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/cfo>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:HeadOfHR a ebwv:CorporateRole ;
+    rdfs:label "Head of Human Resources" ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/headofhr>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

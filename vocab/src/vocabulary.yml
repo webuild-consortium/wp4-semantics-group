@@ -700,6 +700,11 @@ class:
     label: onboarding details
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingdetails
 
+  - id: CorporateRole
+    label: corporate role
+    comment: a function held by a legal representative or statutory partner within a company, e.g. CEO or CFO
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/corporaterole
+
   - id: Partnership
     label: partnership
     upper_value: Company
@@ -758,7 +763,7 @@ class:
                 {
                   "@id": "did:key:$publicKeyOfPartner3$",
                   "@type": "StatutoryPartner",
-                  "role": "Head of HR",
+                  "role": "HeadOfHR",
                   "typeOfRepresentation": "Jointly"
                 }
               ]
@@ -937,7 +942,7 @@ class:
                 "https://www.w3.org/ns/credentials/v2",
                 "https://w3id.org/ebwv/v0.1"
               ],
-              "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+              "@id": "urn:uuid:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
               "@type": [
                 "VerifiableCredential",
                 "ElectronicAttestationOfAttributes"
@@ -998,7 +1003,7 @@ class:
                 "https://www.w3.org/ns/credentials/v2",
                 "https://w3id.org/ebwv/v0.1"
               ],
-              "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+              "@id": "urn:uuid:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
               "@type": [
                 "VerifiableCredential",
                 "ElectronicAttestationOfAttributes"
@@ -1055,14 +1060,14 @@ class:
                 "did:key:$publicKeyOfPrincipal1$",
                 "did:key:$publicKeyOfPrincipal2$"
               ],
-              "scopeOfPower": "Opening bank account"
+              "scopeOfPower": "https://example.org/amlscopes#OpeningBankAccount"
             },
             "provenanceProof": {
               "@context": [
                 "https://www.w3.org/ns/credentials/v2",
                 "https://w3id.org/ebwv/v0.1"
               ],
-              "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+              "@id": "urn:uuid:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
               "@type": [
                 "VerifiableCredential",
                 "ElectronicAttestationOfAttributes"
@@ -1167,6 +1172,21 @@ individual:   # code lists
     type: TypeOfRepresentation
     comment: the representative can bind the company or principal alone, with their signature only.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
+
+  - id: CEO
+    label: Chief Executive Officer
+    type: CorporateRole
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ceo
+
+  - id: CFO
+    label: Chief Financial Officer
+    type: CorporateRole
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cfo
+
+  - id: HeadOfHR
+    label: Head of Human Resources
+    type: CorporateRole
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/headofhr
 
   - id: CIP
     label: Carriage & Insurance Paid To
@@ -2145,7 +2165,7 @@ property:
       - Membership
     range:
       - DataSpaceRole
-      - xsd:string
+      - CorporateRole
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 
