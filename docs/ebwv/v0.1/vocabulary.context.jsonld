@@ -373,8 +373,8 @@
                     "@id": "https://w3id.org/ebwv#role",
                     "@type": "@id"
                 },
-                "typeOfPresentation": {
-                    "@id": "https://w3id.org/ebwv#typeOfPresentation",
+                "typeOfRepresentation": {
+                    "@id": "https://w3id.org/ebwv#typeOfRepresentation",
                     "@type": "@vocab",
                     "@context": {
                         "Alone": "https://w3id.org/ebwv#Alone",
@@ -730,7 +730,7 @@
                 }
             }
         },
-        "TypeOfPresentation": "https://w3id.org/ebwv#TypeOfPresentation",
+        "TypeOfRepresentation": "https://w3id.org/ebwv#TypeOfRepresentation",
         "ScopeOfPower": "https://w3id.org/ebwv#ScopeOfPower",
         "Site": {
             "@id": "https://w3id.org/ebwv#Site",
@@ -813,8 +813,8 @@
                     "@id": "https://w3id.org/ebwv#role",
                     "@type": "@id"
                 },
-                "typeOfPresentation": {
-                    "@id": "https://w3id.org/ebwv#typeOfPresentation",
+                "typeOfRepresentation": {
+                    "@id": "https://w3id.org/ebwv#typeOfRepresentation",
                     "@type": "@vocab",
                     "@context": {
                         "Alone": "https://w3id.org/ebwv#Alone",

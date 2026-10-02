@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-10-01"^^xsd:date ;
+    dc:date "2026-10-02"^^xsd:date ;
 .
 
 # Property definitions
@@ -960,12 +960,12 @@ ebwv:role a rdf:Property ;
     vs:term_status "stable" ;
 .
 
-ebwv:typeOfPresentation a rdf:Property, owl:ObjectProperty ;
+ebwv:typeOfRepresentation a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:StatutoryPartner) ] ;
-    rdfs:range ebwv:TypeOfPresentation, [ a owl:Class; owl:oneOf (ebwv:Alone ebwv:Jointly) ] ;
-    rdfs:label "type of presentation" ;
+    rdfs:range ebwv:TypeOfRepresentation, [ a owl:Class; owl:oneOf (ebwv:Alone ebwv:Jointly) ] ;
+    rdfs:label "type of representation" ;
     rdfs:comment """<div>specifies how a representative may act on behalf of the principal, meaning whether they can act alone or only together with others.</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1349,17 +1349,17 @@ ebwv:PublicSectorBody a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebwv:TypeOfPresentation a rdfs:Class ;
-    rdfs:label "type of presentation" ;
-    rdfs:comment """<div>type of presentation meaning Alone or Jointly</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation>, <https://w3id.org/ebwv#> ;
+ebwv:TypeOfRepresentation a rdfs:Class ;
+    rdfs:label "type of representation" ;
+    rdfs:comment """<div>type of representation meaning Alone or Jointly</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
 ebwv:ScopeOfPower a rdfs:Class ;
     rdfs:label "scope of power" ;
     rdfs:comment """<div>the scope of power delegated to a mandatee in the context of representing a company</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofpower>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1420,7 +1420,7 @@ ebwv:WorkAssignment a rdfs:Class ;
 
 
 # Definitions of individuals
-ebwv:Alone a ebwv:TypeOfPresentation ;
+ebwv:Alone a ebwv:TypeOfRepresentation ;
     rdfs:label "Alone" ;
     rdfs:comment """<div>the representative can bind the company or principal alone, with their signature only.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone>, <https://w3id.org/ebwv#> ;
@@ -1505,7 +1505,7 @@ ebwv:FOB a ebwv:Incoterms ;
     vs:term_status "stable" ;
 .
 
-ebwv:Jointly a ebwv:TypeOfPresentation ;
+ebwv:Jointly a ebwv:TypeOfRepresentation ;
     rdfs:label "Jointly" ;
     rdfs:comment """<div>the representative can only act together with one or more other authorised representatives. A typical rule is "two managing directors jointly."</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly>, <https://w3id.org/ebwv#> ;

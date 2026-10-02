@@ -554,13 +554,13 @@ class:
                   "@id": "did:key:$publicKeyOfRepresentative1$",
                   "@type": "LegalRepresentative",
                   "role": "CEO",
-                  "typeOfPresentation": "Alone"
+                  "typeOfRepresentation": "Alone"
                 },
                 {
                   "@id": "did:key:$publicKeyOfRepresentative2$",
                   "@type": "LegalRepresentative",
                   "role": "CFO",
-                  "typeOfPresentation": "Alone"
+                  "typeOfRepresentation": "Alone"
                 }
               ]
             },
@@ -759,7 +759,7 @@ class:
                   "@id": "did:key:$publicKeyOfPartner3$",
                   "@type": "StatutoryPartner",
                   "role": "Head of HR",
-                  "typeOfPresentation": "Jointly"
+                  "typeOfRepresentation": "Jointly"
                 }
               ]
             },
@@ -961,14 +961,14 @@ class:
                     "@id": "did:key:$publicKeyOfPrincipal$",
                     "@type": "LegalRepresentative",
                     "role": "CEO",
-                    "typeOfPresentation": "Alone"
+                    "typeOfRepresentation": "Alone"
                   }
                 ]
               },
               "validUntil": "2029-12-03T12:19:52Z",
               "validFrom": "2019-12-03T12:19:52Z",
               "issuer": "did:key:$publicKeyOfBusinessRegister$"
-            }
+            },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfPrincipal$"
@@ -1022,7 +1022,7 @@ class:
                     "@id": "did:key:$publicKeyOfPrincipal$",
                     "@type": "LegalRepresentative",
                     "role": "CEO",
-                    "typeOfPresentation": "Alone"
+                    "typeOfRepresentation": "Alone"
                   }
                 ]
               },
@@ -1086,20 +1086,20 @@ class:
                     "@id": "did:key:$publicKeyOfPrincipal1$",
                     "@type": "LegalRepresentative",
                     "role": "CEO",
-                    "typeOfPresentation": "Jointly"
+                    "typeOfRepresentation": "Jointly"
                   },
                   {
                     "@id": "did:key:$publicKeyOfPrincipal2$",
                     "@type": "LegalRepresentative",
                     "role": "CFO",
-                    "typeOfPresentation": "Jointly"
+                    "typeOfRepresentation": "Jointly"
                   }
                 ]
               },
               "validUntil": "2029-12-03T12:19:52Z",
               "validFrom": "2019-12-03T12:19:52Z",
               "issuer": "did:key:$publicKeyOfBusinessRegister$"
-            }
+            },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": [
@@ -1113,15 +1113,15 @@ class:
     comment: public sector body’ means a Union entity, a national, state, regional or local authority, a body governed by public law or an association formed by one or several such entities or bodies , or a private entity mandated by at least one such entities, authorities, bodies or associations to provide public services, when acting under such a mandate
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody
 
-  - id: TypeOfPresentation
-    label: type of presentation
-    comment: type of presentation meaning Alone or Jointly
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation
+  - id: TypeOfRepresentation
+    label: type of representation
+    comment: type of representation meaning Alone or Jointly
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation
 
   - id: ScopeOfPower
     label: scope of power
     comment: the scope of power delegated to a mandatee in the context of representing a company
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofpower
 
   - id: Site
     label: Site
@@ -1164,7 +1164,7 @@ class:
 individual:   # code lists
   - id: Alone
     label: Alone
-    type: TypeOfPresentation
+    type: TypeOfRepresentation
     comment: the representative can bind the company or principal alone, with their signature only.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
 
@@ -1235,7 +1235,7 @@ individual:   # code lists
 
   - id: Jointly
     label: Jointly
-    type: TypeOfPresentation
+    type: TypeOfRepresentation
     comment: the representative can only act together with one or more other authorised representatives. A typical rule is "two managing directors jointly."
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly
 
@@ -2101,9 +2101,7 @@ property:
   - id: scopeOfPower
     label: scope of power
     domain: PowerOfAttorney
-    range:
-      - ScopeOfPower
-    range_union: true
+    range: ScopeOfPower
     comment: The scope of the power given to a mandatee.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
 
@@ -2151,15 +2149,15 @@ property:
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 
-  - id: typeOfPresentation
-    label: type of presentation
+  - id: typeOfRepresentation
+    label: type of representation
     domain:
       - LegalRepresentative
       - StatutoryPartner
-    range: TypeOfPresentation
+    range: TypeOfRepresentation
     comment: specifies how a representative may act on behalf of the principal, meaning whether they can act alone or only together with others.
     one_of: [Alone, Jointly]
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofpresentation
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation
 
   - id: socialRepresentative
     label: social representative
