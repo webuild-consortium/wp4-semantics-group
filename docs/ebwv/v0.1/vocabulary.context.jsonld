@@ -371,7 +371,18 @@
                 "@protected": true,
                 "role": {
                     "@id": "https://w3id.org/ebwv#role",
-                    "@type": "@id"
+                    "@type": "@vocab",
+                    "@context": {
+                        "DataConsumer": "https://w3id.org/ebwv#DataConsumer",
+                        "DataProvider": "https://w3id.org/ebwv#DataProvider",
+                        "DataRightsHolder": "https://w3id.org/ebwv#DataRightsHolder",
+                        "OnboardingServiceProvider": "https://w3id.org/ebwv#OnboardingServiceProvider",
+                        "Operator": "https://w3id.org/ebwv#Operator",
+                        "CEO": "https://w3id.org/ebwv#CEO",
+                        "CFO": "https://w3id.org/ebwv#CFO",
+                        "HeadOfHR": "https://w3id.org/ebwv#HeadOfHR",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
                 },
                 "typeOfRepresentation": {
                     "@id": "https://w3id.org/ebwv#typeOfRepresentation",
@@ -466,7 +477,18 @@
                 },
                 "role": {
                     "@id": "https://w3id.org/ebwv#role",
-                    "@type": "@id"
+                    "@type": "@vocab",
+                    "@context": {
+                        "DataConsumer": "https://w3id.org/ebwv#DataConsumer",
+                        "DataProvider": "https://w3id.org/ebwv#DataProvider",
+                        "DataRightsHolder": "https://w3id.org/ebwv#DataRightsHolder",
+                        "OnboardingServiceProvider": "https://w3id.org/ebwv#OnboardingServiceProvider",
+                        "Operator": "https://w3id.org/ebwv#Operator",
+                        "CEO": "https://w3id.org/ebwv#CEO",
+                        "CFO": "https://w3id.org/ebwv#CFO",
+                        "HeadOfHR": "https://w3id.org/ebwv#HeadOfHR",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
                 }
             }
         },
@@ -712,7 +734,16 @@
                 },
                 "scopeOfPower": {
                     "@id": "https://w3id.org/ebwv#scopeOfPower",
-                    "@type": "@id"
+                    "@type": "@vocab",
+                    "@context": {
+                        "FormationOfCompanies": "https://w3id.org/ebwv#FormationOfCompanies",
+                        "ConstitutionOfCompanies": "https://w3id.org/ebwv#ConstitutionOfCompanies",
+                        "RegistrationAndClosingOfBranches": "https://w3id.org/ebwv#RegistrationAndClosingOfBranches",
+                        "CrossBoarderConversions": "https://w3id.org/ebwv#CrossBoarderConversions",
+                        "CrossBoarderMergers": "https://w3id.org/ebwv#CrossBoarderMergers",
+                        "CrossBorderDivisions": "https://w3id.org/ebwv#CrossBorderDivisions",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
                 }
             }
         },
@@ -812,7 +843,18 @@
                 "@protected": true,
                 "role": {
                     "@id": "https://w3id.org/ebwv#role",
-                    "@type": "@id"
+                    "@type": "@vocab",
+                    "@context": {
+                        "DataConsumer": "https://w3id.org/ebwv#DataConsumer",
+                        "DataProvider": "https://w3id.org/ebwv#DataProvider",
+                        "DataRightsHolder": "https://w3id.org/ebwv#DataRightsHolder",
+                        "OnboardingServiceProvider": "https://w3id.org/ebwv#OnboardingServiceProvider",
+                        "Operator": "https://w3id.org/ebwv#Operator",
+                        "CEO": "https://w3id.org/ebwv#CEO",
+                        "CFO": "https://w3id.org/ebwv#CFO",
+                        "HeadOfHR": "https://w3id.org/ebwv#HeadOfHR",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
                 },
                 "typeOfRepresentation": {
                     "@id": "https://w3id.org/ebwv#typeOfRepresentation",

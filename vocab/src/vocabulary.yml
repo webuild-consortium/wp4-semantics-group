@@ -502,7 +502,7 @@ class:
               "https://www.w3.org/ns/credentials/v2",
               "https://w3id.org/ebwv/v0.1"
             ],
-            "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+            "@id": "urn:uuid:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
             "@type": [
               "VerifiableCredential",
               "ElectronicAttestationOfAttributes"
@@ -717,7 +717,7 @@ class:
               "https://www.w3.org/ns/credentials/v2",
               "https://w3id.org/ebwv/v0.1"
             ],
-            "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+            "@id": "urn:uuid:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
             "@type": [
               "VerifiableCredential",
               "ElectronicAttestationOfAttributes"
@@ -2122,6 +2122,13 @@ property:
     label: scope of power
     domain: PowerOfAttorney
     range: ScopeOfPower
+    one_of:
+      - FormationOfCompanies
+      - ConstitutionOfCompanies
+      - RegistrationAndClosingOfBranches
+      - CrossBoarderConversions
+      - CrossBoarderMergers
+      - CrossBorderDivisions
     comment: The scope of the power given to a mandatee.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
 
@@ -2166,6 +2173,15 @@ property:
     range:
       - DataSpaceRole
       - CorporateRole
+    one_of:
+      - DataConsumer
+      - DataProvider
+      - DataRightsHolder
+      - OnboardingServiceProvider
+      - Operator
+      - CEO
+      - CFO
+      - HeadOfHR
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 

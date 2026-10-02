@@ -1222,7 +1222,10 @@
         "@id": "ebwv:scopeOfPower",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:PowerOfAttorney",
-        "rdfs:range": "ebwv:ScopeOfPower",
+        "rdfs:range": ["ebwv:ScopeOfPower", {
+            "@type": "owl:class",
+            "owl:oneOf": ["ebwv:FormationOfCompanies", "ebwv:ConstitutionOfCompanies", "ebwv:RegistrationAndClosingOfBranches", "ebwv:CrossBoarderConversions", "ebwv:CrossBoarderMergers", "ebwv:CrossBorderDivisions"]
+        }],
         "rdfs:label": "scope of power",
         "rdfs:comment": {
             "@value": "<div>The scope of the power given to a mandatee.</div>",
@@ -1280,10 +1283,13 @@
             "@type": "owl:Class",
             "owl:unionOf": ["ebwv:LegalRepresentative", "ebwv:StatutoryPartner", "ebwv:Membership"]
         },
-        "rdfs:range": {
+        "rdfs:range": [{
             "@type": "ows:Class",
             "owl:unionOf": ["ebwv:DataSpaceRole", "ebwv:CorporateRole"]
-        },
+        }, {
+            "@type": "owl:class",
+            "owl:oneOf": ["ebwv:DataConsumer", "ebwv:DataProvider", "ebwv:DataRightsHolder", "ebwv:OnboardingServiceProvider", "ebwv:Operator", "ebwv:CEO", "ebwv:CFO", "ebwv:HeadOfHR"]
+        }],
         "rdfs:label": "role of the entity (e.g. the role of a legal representative in the company or the role of a dataspace member in the dataspace)",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/role", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"

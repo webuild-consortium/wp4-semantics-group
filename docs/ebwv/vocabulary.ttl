@@ -911,7 +911,7 @@ ebwv:qualificationNote a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:scopeOfPower a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:PowerOfAttorney ;
-    rdfs:range ebwv:ScopeOfPower ;
+    rdfs:range ebwv:ScopeOfPower, [ a owl:Class; owl:oneOf (ebwv:FormationOfCompanies ebwv:ConstitutionOfCompanies ebwv:RegistrationAndClosingOfBranches ebwv:CrossBoarderConversions ebwv:CrossBoarderMergers ebwv:CrossBorderDivisions) ] ;
     rdfs:label "scope of power" ;
     rdfs:comment """<div>The scope of the power given to a mandatee.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower>, <https://w3id.org/ebwv#> ;
@@ -954,7 +954,7 @@ ebwv:residency a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:role a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:StatutoryPartner ebwv:Membership) ] ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:DataSpaceRole ebwv:CorporateRole) ] ;
+    rdfs:range [ a owl:Class; owl:unionOf (ebwv:DataSpaceRole ebwv:CorporateRole) ], [ a owl:Class; owl:oneOf (ebwv:DataConsumer ebwv:DataProvider ebwv:DataRightsHolder ebwv:OnboardingServiceProvider ebwv:Operator ebwv:CEO ebwv:CFO ebwv:HeadOfHR) ] ;
     rdfs:label "role of the entity (e.g. the role of a legal representative in the company or the role of a dataspace member in the dataspace)" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/role>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
