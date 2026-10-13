@@ -353,7 +353,7 @@ class:
 
   - id: GeneralPartnerHolding
     label: general partner holding
-    comment: a general partner (Komplementär), natural or legal, of the focus legal entity, with their stake, voting rights and recursive capital and control structure
+    comment: the common attributes of a general partner (Komplementär) of the focus legal entity — the referenced entity, the stake and the voting rights; see its natural-person and legal-person subclasses for the specific attributes
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartnerholding
 
   - id: GLN
@@ -568,10 +568,10 @@ class:
                   ],
                   "companyCategory": "Kapitalgesellschaft",
                   "balanceSheetDate": "2024-12-31",
-                  "website": "https://acme.example",
                   "contactPoint": {
                     "@type": "ContactPoint",
                     "hasTelephone": "+49 89 1234567",
+                    "website": "https://acme.example",
                     "hasFax": "+49 89 1234568"
                   },
                   "leiStatus": "ISSUED",
@@ -633,8 +633,11 @@ class:
                     "currency": "EUR"
                   }
                 },
-                "naturalPersonShareholder": {
-                  "@type": "Shareholder",
+                "shareholder": {
+                  "@type": [
+                    "Shareholder",
+                    "NaturalPersonShareholder"
+                  ],
                   "legalEntity": "did:key:$publicKeyOfShareholder$",
                   "shareholding": {
                     "@type": "Shareholding",
@@ -668,24 +671,77 @@ class:
                     }
                   }
                 },
-                "naturalPersonGeneralPartner": {
-                  "@type": "GeneralPartnerHolding",
-                  "legalEntity": "did:key:$publicKeyOfGeneralPartner$",
-                  "relativeVotingRights": 100.0,
+                "shareholder": {
+                  "@type": [
+                    "Shareholder",
+                    "LegalPersonShareholder"
+                  ],
+                  "legalEntity": "did:key:$publicKeyOfLegalShareholder$",
                   "shareholding": {
                     "@type": "Shareholding",
-                    "relativeShare": 100.0,
+                    "relativeShare": 49.0,
+                    "relativeVotingRights": 49.0,
+                    "isDirectParticipation": true
+                  },
+                  "handover": true,
+                  "handoverDescription": "beneficial ownership structure to be continued manually",
+                  "shareholder": {
+                    "@type": [
+                      "Shareholder",
+                      "NaturalPersonShareholder"
+                    ],
+                    "legalEntity": "did:key:$publicKeyOfUltimateShareholder$",
+                    "shareholding": {
+                      "@type": "Shareholding",
+                      "relativeShare": 100.0,
+                      "relativeVotingRights": 100.0,
+                      "isDirectParticipation": true
+                    }
+                  }
+                },
+                "generalPartnerHolding": {
+                  "@type": [
+                    "GeneralPartnerHolding",
+                    "NaturalPersonGeneralPartnerHolding"
+                  ],
+                  "legalEntity": "did:key:$publicKeyOfNaturalGeneralPartner$",
+                  "relativeVotingRights": 40.0,
+                  "shareholding": {
+                    "@type": "Shareholding",
+                    "relativeShare": 40.0,
                     "absoluteShare": {
                       "@type": "MonetaryAmount",
-                      "amount": 25000,
+                      "amount": 10000,
                       "currency": "EUR"
                     },
-                    "relativeVotingRights": 100.0,
+                    "relativeVotingRights": 40.0,
+                    "isDirectParticipation": true
+                  }
+                },
+                "generalPartnerHolding": {
+                  "@type": [
+                    "GeneralPartnerHolding",
+                    "LegalPersonGeneralPartnerHolding"
+                  ],
+                  "legalEntity": "did:key:$publicKeyOfLegalGeneralPartner$",
+                  "relativeVotingRights": 60.0,
+                  "shareholding": {
+                    "@type": "Shareholding",
+                    "relativeShare": 60.0,
+                    "absoluteShare": {
+                      "@type": "MonetaryAmount",
+                      "amount": 15000,
+                      "currency": "EUR"
+                    },
+                    "relativeVotingRights": 60.0,
                     "isDirectParticipation": true
                   },
                   "handover": false,
-                  "naturalPersonShareholder": {
-                    "@type": "Shareholder",
+                  "shareholder": {
+                    "@type": [
+                      "Shareholder",
+                      "NaturalPersonShareholder"
+                    ],
                     "legalEntity": "did:key:$publicKeyOfSubShareholder$",
                     "shareholding": {
                       "@type": "Shareholding",
@@ -824,6 +880,18 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
+
+  - id: LegalPersonGeneralPartnerHolding
+    label: legal person general partner holding
+    upper_value: GeneralPartnerHolding
+    comment: a general partner (Komplementär) of the focus legal entity that is a legal person; it may carry handover information and its own recursive capital and control structure (shareholders and general partners)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersongeneralpartnerholding
+
+  - id: LegalPersonShareholder
+    label: legal person shareholder
+    upper_value: Shareholder
+    comment: a shareholder of the focus legal entity that is a legal person; it may carry handover information and its own recursive capital and control structure (shareholders and general partners)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonshareholder
 
   - id: LegalRepresentative
     label: Legal representative
@@ -1043,6 +1111,18 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
+
+  - id: NaturalPersonGeneralPartnerHolding
+    label: natural person general partner holding
+    upper_value: GeneralPartnerHolding
+    comment: a general partner (Komplementär) of the focus legal entity that is a natural person; being a natural person it is a terminal node with no further capital and control structure
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersongeneralpartnerholding
+
+  - id: NaturalPersonShareholder
+    label: natural person shareholder
+    upper_value: Shareholder
+    comment: a shareholder of the focus legal entity that is a natural person; being a natural person it is a terminal node with no further capital and control structure
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonshareholder
 
   - id: OnboardingDetails
     label: onboarding details
@@ -1485,7 +1565,7 @@ class:
 
   - id: Shareholder
     label: shareholder
-    comment: a natural or legal person holding shares in the focus legal entity, with their stake and their aggregated share in the focus entity
+    comment: the common attributes of a shareholder of the focus legal entity — the referenced entity, the stake and the aggregated share in the focus entity; see its natural-person and legal-person subclasses for the specific attributes
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholder
 
   - id: Shareholding
@@ -2295,6 +2375,18 @@ property:
     comment: a recorded, declared, or attested classification of a person according to gender in a given administrative, legal, or business context
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gender
 
+  - id: generalPartnerHolding
+    label: general partner holding
+    domain:
+      - FocusLegalEntity
+      - LegalPersonGeneralPartnerHolding
+      - LegalPersonShareholder
+    range:
+      - NaturalPersonGeneralPartnerHolding
+      - LegalPersonGeneralPartnerHolding
+    comment: a natural or legal person holding as general partner (Komplementär) of the entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartnerholding
+
   - id: geographicIdentifier
     label: geographic identifier
     domain: Location
@@ -2319,7 +2411,8 @@ property:
     label: handover
     domain:
       - FocusLegalEntity
-      - GeneralPartnerHolding
+      - LegalPersonGeneralPartnerHolding
+      - LegalPersonShareholder
     range: xsd:boolean
     comment: indicator of whether the KYC research on the focus legal entity must be continued manually
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/handover
@@ -2328,7 +2421,8 @@ property:
     label: handover description
     domain:
       - FocusLegalEntity
-      - GeneralPartnerHolding
+      - LegalPersonGeneralPartnerHolding
+      - LegalPersonShareholder
     range: xsd:string
     comment: reason why a KYC analysis cannot be continued
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/handoverdescription
@@ -2470,18 +2564,6 @@ property:
     comment: whether the participation in the company is direct
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/isdirectparticipation
 
-  - id: legalEntity
-    label: legal entity
-    domain:
-      - LegalRepresentative
-      - Participation
-      - Shareholder
-      - GeneralPartnerHolding
-      - BeneficialOwner
-    range: LegalEntity
-    comment: the legal entity — a legal person or a natural person — referenced by its DID, e.g. the acting representative, the participated entity, the shareholder, the general partner, or the beneficial owner
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
-
   - id: isExemptFromSection181
     label: is exempt from section 181
     domain: LegalRepresentative
@@ -2543,15 +2625,17 @@ property:
     comment: legal provision or framework under which the attestation is issued
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalbasis
 
-  - id: legalPerson
-    label: legal person
-    domain: FocusLegalEntity
-    range:
-      - LimitedLiabilityCompany
-      - Partnership
-    range_union: true
-    comment: the legal person (Rechtseinheit) that the focus legal entity refers to, either a limited liability company or a partnership
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson
+  - id: legalEntity
+    label: legal entity
+    domain:
+      - LegalRepresentative
+      - Participation
+      - Shareholder
+      - GeneralPartnerHolding
+      - BeneficialOwner
+    range: LegalEntity
+    comment: the legal entity — a legal person or a natural person — referenced by its DID, e.g. the acting representative, the participated entity, the shareholder, the general partner, or the beneficial owner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: legalForm
     label: legal form
@@ -2586,30 +2670,25 @@ property:
     comment: the name under which the legal entity is legally registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
 
+  - id: legalPerson
+    label: legal person
+    domain: FocusLegalEntity
+    range:
+      - LimitedLiabilityCompany
+      - Partnership
+    range_union: true
+    comment: the legal person (Rechtseinheit) that the focus legal entity refers to, either a limited liability company or a partnership
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson
+
   - id: legalPersonGeneralPartner
     label: legal person general partner
     domain:
       - FocusLegalEntity
-      - GeneralPartnerHolding
-    range: GeneralPartnerHolding
+      - LegalPersonGeneralPartnerHolding
+      - LegalPersonShareholder
+    range: LegalPersonGeneralPartnerHolding
     comment: a legal person acting as general partner (Komplementär) of the entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersongeneralpartner
-
-  - id: participation
-    label: participation
-    domain: FocusLegalEntity
-    range: Participation
-    comment: a participation held by the focus legal entity in another legal person
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/participation
-
-  - id: legalPersonShareholder
-    label: legal person shareholder
-    domain:
-      - FocusLegalEntity
-      - GeneralPartnerHolding
-    range: Shareholder
-    comment: a legal person holding shares in the entity
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonshareholder
 
   - id: legalRepresentative
     label: legal representative
@@ -2780,24 +2859,6 @@ property:
     comment: The DSI or dataspace the holder is member of.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof
 
-  - id: naturalPersonGeneralPartner
-    label: natural person general partner
-    domain:
-      - FocusLegalEntity
-      - GeneralPartnerHolding
-    range: GeneralPartnerHolding
-    comment: a natural person acting as general partner (Komplementär) of the entity
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersongeneralpartner
-
-  - id: naturalPersonShareholder
-    label: natural person shareholder
-    domain:
-      - FocusLegalEntity
-      - GeneralPartnerHolding
-    range: Shareholder
-    comment: a natural person holding shares in the entity
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonshareholder
-
   - id: noFixedPlaceOfWork
     label: no fixed place of work
     domain: A1Certificate
@@ -2870,6 +2931,13 @@ property:
     domain: TBD
     range: xsd:float
     defined_by: https:/w3id.org/ebwv/terminology#/concept/ownershipPercentage
+
+  - id: participation
+    label: participation
+    domain: FocusLegalEntity
+    range: Participation
+    comment: a participation held by the focus legal entity in another legal person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/participation
 
   - id: partner
     label: partner
@@ -3237,6 +3305,19 @@ property:
     comment: The scope of the power given to a mandatee.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
 
+  - id: shareholder
+    label: shareholder
+    domain:
+      - FocusLegalEntity
+      - LegalPersonGeneralPartnerHolding
+      - LegalPersonShareholder
+    range:
+      - NaturalPersonShareholder
+      - LegalPersonShareholder
+    range_union: true
+    comment: a natural or legal person holding shares in the entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholder
+
   - id: shareholding
     label: shareholding
     domain:
@@ -3479,7 +3560,7 @@ property:
 
   - id: website
     label: website
-    domain: KycLegalEntity
+    domain: ContactPoint
     range: xsd:anyURI
     comment: website of the legal entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/website
@@ -3594,30 +3675,11 @@ datatype:
       - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/ux2/nace2.1/nace2.1
       - http://data.europa.eu/ux2/nace2.1/nace2.1
 
-
   - id: Naics
     label: NAICS 2002
     upper_value: xsd:string
     comment: notation of the main activity of the company according to the North American Industry Classification System (NAICS), edition 2002
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naics
-
-  - id: Sic
-    label: SIC 1987
-    upper_value: xsd:string
-    comment: notation of the main activity of the company according to the Standard Industrial Classification (SIC), edition 1987
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/sic
-
-  - id: Wz2003
-    label: WZ 2003
-    upper_value: xsd:string
-    comment: notation of the main activity of the company according to the German Classification of Economic Activities (Klassifikation der Wirtschaftszweige), edition 2003
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/wz2003
-
-  - id: Wz2008
-    label: WZ 2008
-    upper_value: xsd:string
-    comment: notation of the main activity of the company according to the German Classification of Economic Activities (Klassifikation der Wirtschaftszweige), edition 2008
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/wz2008
 
   - id: NationalBankCode
     label: National Bank Code
@@ -3638,6 +3700,12 @@ datatype:
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorBodyId
 
+  - id: Sic
+    label: SIC 1987
+    upper_value: xsd:string
+    comment: notation of the main activity of the company according to the Standard Industrial Classification (SIC), edition 1987
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/sic
+
   - id: Tin
     label: tax reference number
     upper_value: xsd:string
@@ -3647,4 +3715,16 @@ datatype:
     label: unique vat identifier
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vatid
+
+  - id: Wz2003
+    label: WZ 2003
+    upper_value: xsd:string
+    comment: notation of the main activity of the company according to the German Classification of Economic Activities (Klassifikation der Wirtschaftszweige), edition 2003
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/wz2003
+
+  - id: Wz2008
+    label: WZ 2008
+    upper_value: xsd:string
+    comment: notation of the main activity of the company according to the German Classification of Economic Activities (Klassifikation der Wirtschaftszweige), edition 2008
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/wz2008
 

@@ -935,6 +935,21 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/gender", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:generalPartnerHolding",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:FocusLegalEntity", "ebwv:LegalPersonGeneralPartnerHolding", "ebwv:LegalPersonShareholder"]
+        },
+        "rdfs:range": ["ebwv:NaturalPersonGeneralPartnerHolding", "ebwv:LegalPersonGeneralPartnerHolding"],
+        "rdfs:label": "general partner holding",
+        "rdfs:comment": {
+            "@value": "<div>a natural or legal person holding as general partner (Komplementär) of the entity</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartnerholding", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:geographicIdentifier",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:Location",
@@ -967,7 +982,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:FocusLegalEntity", "ebwv:GeneralPartnerHolding"]
+            "owl:unionOf": ["ebwv:FocusLegalEntity", "ebwv:LegalPersonGeneralPartnerHolding", "ebwv:LegalPersonShareholder"]
         },
         "rdfs:range": "xsd:boolean",
         "rdfs:label": "handover",
@@ -982,7 +997,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:FocusLegalEntity", "ebwv:GeneralPartnerHolding"]
+            "owl:unionOf": ["ebwv:FocusLegalEntity", "ebwv:LegalPersonGeneralPartnerHolding", "ebwv:LegalPersonShareholder"]
         },
         "rdfs:range": "xsd:string",
         "rdfs:label": "handover description",
@@ -1179,21 +1194,6 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/isdirectparticipation", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
-        "@id": "ebwv:legalEntity",
-        "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": {
-            "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:LegalRepresentative", "ebwv:Participation", "ebwv:Shareholder", "ebwv:GeneralPartnerHolding", "ebwv:BeneficialOwner"]
-        },
-        "rdfs:range": "ebwv:LegalEntity",
-        "rdfs:label": "legal entity",
-        "rdfs:comment": {
-            "@value": "<div>the legal entity — a legal person or a natural person — referenced by its DID, e.g. the acting representative, the participated entity, the shareholder, the general partner, or the beneficial owner</div>",
-            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-        },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity", "https://w3id.org/ebwv#"],
-        "vs:term_status": "stable"
-    }, {
         "@id": "ebwv:isExemptFromSection181",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:LegalRepresentative",
@@ -1277,19 +1277,19 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalbasis", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
-        "@id": "ebwv:legalPerson",
+        "@id": "ebwv:legalEntity",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:FocusLegalEntity",
-        "rdfs:range": {
-            "@type": "ows:Class",
-            "owl:unionOf": ["ebwv:LimitedLiabilityCompany", "ebwv:Partnership"]
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:LegalRepresentative", "ebwv:Participation", "ebwv:Shareholder", "ebwv:GeneralPartnerHolding", "ebwv:BeneficialOwner"]
         },
-        "rdfs:label": "legal person",
+        "rdfs:range": "ebwv:LegalEntity",
+        "rdfs:label": "legal entity",
         "rdfs:comment": {
-            "@value": "<div>the legal person (Rechtseinheit) that the focus legal entity refers to, either a limited liability company or a partnership</div>",
+            "@value": "<div>the legal entity — a legal person or a natural person — referenced by its DID, e.g. the acting representative, the participated entity, the shareholder, the general partner, or the beneficial owner</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson", "https://w3id.org/ebwv#"],
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:legalForm",
@@ -1336,46 +1336,34 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:legalPerson",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:FocusLegalEntity",
+        "rdfs:range": {
+            "@type": "ows:Class",
+            "owl:unionOf": ["ebwv:LimitedLiabilityCompany", "ebwv:Partnership"]
+        },
+        "rdfs:label": "legal person",
+        "rdfs:comment": {
+            "@value": "<div>the legal person (Rechtseinheit) that the focus legal entity refers to, either a limited liability company or a partnership</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:legalPersonGeneralPartner",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:FocusLegalEntity", "ebwv:GeneralPartnerHolding"]
+            "owl:unionOf": ["ebwv:FocusLegalEntity", "ebwv:LegalPersonGeneralPartnerHolding", "ebwv:LegalPersonShareholder"]
         },
-        "rdfs:range": "ebwv:GeneralPartnerHolding",
+        "rdfs:range": "ebwv:LegalPersonGeneralPartnerHolding",
         "rdfs:label": "legal person general partner",
         "rdfs:comment": {
             "@value": "<div>a legal person acting as general partner (Komplementär) of the entity</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersongeneralpartner", "https://w3id.org/ebwv#"],
-        "vs:term_status": "stable"
-    }, {
-        "@id": "ebwv:participation",
-        "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:FocusLegalEntity",
-        "rdfs:range": "ebwv:Participation",
-        "rdfs:label": "participation",
-        "rdfs:comment": {
-            "@value": "<div>a participation held by the focus legal entity in another legal person</div>",
-            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-        },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/participation", "https://w3id.org/ebwv#"],
-        "vs:term_status": "stable"
-    }, {
-        "@id": "ebwv:legalPersonShareholder",
-        "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": {
-            "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:FocusLegalEntity", "ebwv:GeneralPartnerHolding"]
-        },
-        "rdfs:range": "ebwv:Shareholder",
-        "rdfs:label": "legal person shareholder",
-        "rdfs:comment": {
-            "@value": "<div>a legal person holding shares in the entity</div>",
-            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-        },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonshareholder", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:legalRepresentative",
@@ -1640,36 +1628,6 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
-        "@id": "ebwv:naturalPersonGeneralPartner",
-        "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": {
-            "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:FocusLegalEntity", "ebwv:GeneralPartnerHolding"]
-        },
-        "rdfs:range": "ebwv:GeneralPartnerHolding",
-        "rdfs:label": "natural person general partner",
-        "rdfs:comment": {
-            "@value": "<div>a natural person acting as general partner (Komplementär) of the entity</div>",
-            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-        },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersongeneralpartner", "https://w3id.org/ebwv#"],
-        "vs:term_status": "stable"
-    }, {
-        "@id": "ebwv:naturalPersonShareholder",
-        "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": {
-            "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:FocusLegalEntity", "ebwv:GeneralPartnerHolding"]
-        },
-        "rdfs:range": "ebwv:Shareholder",
-        "rdfs:label": "natural person shareholder",
-        "rdfs:comment": {
-            "@value": "<div>a natural person holding shares in the entity</div>",
-            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-        },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonshareholder", "https://w3id.org/ebwv#"],
-        "vs:term_status": "stable"
-    }, {
         "@id": "ebwv:noFixedPlaceOfWork",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:A1Certificate",
@@ -1787,6 +1745,18 @@
         "rdfs:range": "xsd:float",
         "rdfs:label": "ownership percentage",
         "rdfs:isDefinedBy": ["https:/w3id.org/ebwv/terminology#/concept/ownershipPercentage", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:participation",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:FocusLegalEntity",
+        "rdfs:range": "ebwv:Participation",
+        "rdfs:label": "participation",
+        "rdfs:comment": {
+            "@value": "<div>a participation held by the focus legal entity in another legal person</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/participation", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:partner",
@@ -2342,6 +2312,24 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:shareholder",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:FocusLegalEntity", "ebwv:LegalPersonGeneralPartnerHolding", "ebwv:LegalPersonShareholder"]
+        },
+        "rdfs:range": {
+            "@type": "ows:Class",
+            "owl:unionOf": ["ebwv:NaturalPersonShareholder", "ebwv:LegalPersonShareholder"]
+        },
+        "rdfs:label": "shareholder",
+        "rdfs:comment": {
+            "@value": "<div>a natural or legal person holding shares in the entity</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholder", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:shareholding",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": {
@@ -2722,7 +2710,7 @@
     }, {
         "@id": "ebwv:website",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
-        "rdfs:domain": "ebwv:KycLegalEntity",
+        "rdfs:domain": "ebwv:ContactPoint",
         "rdfs:range": "xsd:anyURI",
         "rdfs:label": "website",
         "rdfs:comment": {
@@ -2906,7 +2894,7 @@
         "@type": "rdfs:Class",
         "rdfs:label": "general partner holding",
         "rdfs:comment": {
-            "@value": "<div>a general partner (Komplementär), natural or legal, of the focus legal entity, with their stake, voting rights and recursive capital and control structure</div>",
+            "@value": "<div>the common attributes of a general partner (Komplementär) of the focus legal entity — the referenced entity, the stake and the voting rights; see its natural-person and legal-person subclasses for the specific attributes</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartnerholding", "https://w3id.org/ebwv#"],
@@ -2991,6 +2979,28 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:LegalPersonGeneralPartnerHolding",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["ebwv:GeneralPartnerHolding"],
+        "rdfs:label": "legal person general partner holding",
+        "rdfs:comment": {
+            "@value": "<div>a general partner (Komplementär) of the focus legal entity that is a legal person; it may carry handover information and its own recursive capital and control structure (shareholders and general partners)</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersongeneralpartnerholding", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:LegalPersonShareholder",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["ebwv:Shareholder"],
+        "rdfs:label": "legal person shareholder",
+        "rdfs:comment": {
+            "@value": "<div>a shareholder of the focus legal entity that is a legal person; it may carry handover information and its own recursive capital and control structure (shareholders and general partners)</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonshareholder", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:LegalRepresentative",
         "@type": "rdfs:Class",
         "rdfs:label": "Legal representative",
@@ -3056,6 +3066,28 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:NaturalPersonGeneralPartnerHolding",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["ebwv:GeneralPartnerHolding"],
+        "rdfs:label": "natural person general partner holding",
+        "rdfs:comment": {
+            "@value": "<div>a general partner (Komplementär) of the focus legal entity that is a natural person; being a natural person it is a terminal node with no further capital and control structure</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersongeneralpartnerholding", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:NaturalPersonShareholder",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["ebwv:Shareholder"],
+        "rdfs:label": "natural person shareholder",
+        "rdfs:comment": {
+            "@value": "<div>a shareholder of the focus legal entity that is a natural person; being a natural person it is a terminal node with no further capital and control structure</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonshareholder", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:OnboardingDetails",
@@ -3156,7 +3188,7 @@
         "@type": "rdfs:Class",
         "rdfs:label": "shareholder",
         "rdfs:comment": {
-            "@value": "<div>a natural or legal person holding shares in the focus legal entity, with their stake and their aggregated share in the focus entity</div>",
+            "@value": "<div>the common attributes of a shareholder of the focus legal entity — the referenced entity, the stake and the aggregated share in the focus entity; see its natural-person and legal-person subclasses for the specific attributes</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholder", "https://w3id.org/ebwv#"],
@@ -3780,39 +3812,6 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/naics", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
-        "@id": "ebwv:Sic",
-        "@type": "rdfs:Datatype",
-        "rdfs:subClassOf": ["xsd:string"],
-        "rdfs:label": "SIC 1987",
-        "rdfs:comment": {
-            "@value": "<div>notation of the main activity of the company according to the Standard Industrial Classification (SIC), edition 1987</div>",
-            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-        },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/sic", "https://w3id.org/ebwv#"],
-        "vs:term_status": "stable"
-    }, {
-        "@id": "ebwv:Wz2003",
-        "@type": "rdfs:Datatype",
-        "rdfs:subClassOf": ["xsd:string"],
-        "rdfs:label": "WZ 2003",
-        "rdfs:comment": {
-            "@value": "<div>notation of the main activity of the company according to the German Classification of Economic Activities (Klassifikation der Wirtschaftszweige), edition 2003</div>",
-            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-        },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/wz2003", "https://w3id.org/ebwv#"],
-        "vs:term_status": "stable"
-    }, {
-        "@id": "ebwv:Wz2008",
-        "@type": "rdfs:Datatype",
-        "rdfs:subClassOf": ["xsd:string"],
-        "rdfs:label": "WZ 2008",
-        "rdfs:comment": {
-            "@value": "<div>notation of the main activity of the company according to the German Classification of Economic Activities (Klassifikation der Wirtschaftszweige), edition 2008</div>",
-            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-        },
-        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/wz2008", "https://w3id.org/ebwv#"],
-        "vs:term_status": "stable"
-    }, {
         "@id": "ebwv:NationalBankCode",
         "@type": "rdfs:Datatype",
         "rdfs:subClassOf": ["xsd:string"],
@@ -3848,6 +3847,17 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorBodyId", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:Sic",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "rdfs:label": "SIC 1987",
+        "rdfs:comment": {
+            "@value": "<div>notation of the main activity of the company according to the Standard Industrial Classification (SIC), edition 1987</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/sic", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:Tin",
         "@type": "rdfs:Datatype",
         "rdfs:subClassOf": ["xsd:string"],
@@ -3862,9 +3872,31 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/vatid", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:Wz2003",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "rdfs:label": "WZ 2003",
+        "rdfs:comment": {
+            "@value": "<div>notation of the main activity of the company according to the German Classification of Economic Activities (Klassifikation der Wirtschaftszweige), edition 2003</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/wz2003", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:Wz2008",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "rdfs:label": "WZ 2008",
+        "rdfs:comment": {
+            "@value": "<div>notation of the main activity of the company according to the German Classification of Economic Activities (Klassifikation der Wirtschaftszweige), edition 2008</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/wz2008", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "https://w3id.org/ebwv/v0.1",
         "@type": "jsonld:Context",
-        "mentions": ["cred:termsOfUse", "ebwv:A1Certificate", "ebwv:AbortedResearch", "ebwv:AccountType", "ebwv:Address", "ebwv:Agent", "ebwv:Alone", "ebwv:AttestationLegalCategory", "ebwv:BankAccount", "ebwv:BanzNumber", "ebwv:BeneficialOwner", "ebwv:BeneficialOwnership", "ebwv:BeneficialOwnershipVariant", "ebwv:Bic", "ebwv:CEO", "ebwv:CFO", "ebwv:CIP", "ebwv:CPT", "ebwv:ClearingNumber", "ebwv:Company", "ebwv:ConstitutionOfCompanies", "ebwv:ContactPoint", "ebwv:CorporateRole", "ebwv:CountryCode", "ebwv:CrossBoarderConversions", "ebwv:CrossBoarderMergers", "ebwv:CrossBorderDivisions", "ebwv:Currency", "ebwv:DAP", "ebwv:DDP", "ebwv:DPU", "ebwv:DUNS", "ebwv:DataConsumer", "ebwv:DataProvider", "ebwv:DataRightsHolder", "ebwv:DataSpaceRole", "ebwv:DeliveryType", "ebwv:DunsNumber", "ebwv:EAA", "ebwv:EXW", "ebwv:EconomicOperator", "ebwv:ElectronicAttestationOfAttributes", "ebwv:Eori", "ebwv:Euid", "ebwv:EuropeanBusinessWalletOwner", "ebwv:Excise", "ebwv:FAS", "ebwv:FCA", "ebwv:FOB", "ebwv:FinancialYear", "ebwv:FocusLegalEntity", "ebwv:FormationOfCompanies", "ebwv:GLN", "ebwv:GS1CompanyPrefix", "ebwv:GeneralPartner", "ebwv:GeneralPartnerHolding", "ebwv:GlobalLocationNumber", "ebwv:GovernanceRulebook", "ebwv:HeadOfHR", "ebwv:Iban", "ebwv:Incoterms", "ebwv:Isin", "ebwv:Jointly", "ebwv:KmgMid", "ebwv:KycCheck", "ebwv:KycEvidence", "ebwv:KycLegalEntity", "ebwv:LegalEntity", "ebwv:LegalEntityIdentifier", "ebwv:LegalPerson", "ebwv:LegalRepresentative", "ebwv:Lei", "ebwv:LeiRegistration", "ebwv:LimitedLiabilityCompany", "ebwv:LimitedPartner", "ebwv:Location", "ebwv:Membership", "ebwv:MonetaryAmount", "ebwv:Nace21", "ebwv:Naics", "ebwv:NationalBankCode", "ebwv:NaturalPerson", "ebwv:OnboardingDetails", "ebwv:OnboardingServiceProvider", "ebwv:Operator", "ebwv:Participation", "ebwv:Partnership", "ebwv:PaymentTerms", "ebwv:PeppolId", "ebwv:PeriodOfTime", "ebwv:Permanent", "ebwv:PostedWorkerNotification", "ebwv:PowerOfAttorney", "ebwv:Pub-EAA", "ebwv:PublicSectorBody", "ebwv:PublicSectorBodyId", "ebwv:QEAA", "ebwv:RegisterIdentification", "ebwv:RegistrationAndClosingOfBranches", "ebwv:Regulator", "ebwv:ResearchedProduct", "ebwv:ScopeOfPower", "ebwv:ShareInFocus", "ebwv:ShareVotingPair", "ebwv:Shareholder", "ebwv:Shareholding", "ebwv:Sic", "ebwv:Site", "ebwv:SocialSecurityContribution", "ebwv:StatutoryPartner", "ebwv:StockExchange", "ebwv:StockExchangeListing", "ebwv:Temporary", "ebwv:Tin", "ebwv:TransparencyRegisterEntry", "ebwv:TransparencyRegisterExtract", "ebwv:TypeOfEmployment", "ebwv:TypeOfRepresentation", "ebwv:UBO", "ebwv:VATRegistrationUnit", "ebwv:VatId", "ebwv:Vessel", "ebwv:WorkAssignment", "ebwv:Wz2003", "ebwv:Wz2008", "ebwv:a1", "ebwv:absoluteShare", "ebwv:academicTitle", "ebwv:accG10", "ebwv:accG25", "ebwv:acceptedAt", "ebwv:accountName", "ebwv:accountType", "ebwv:activity", "ebwv:addressArea", "ebwv:adminUnitL1", "ebwv:adminUnitL2", "ebwv:administrativeRepresentative", "ebwv:alternativeName", "ebwv:amount", "ebwv:applicationNumber", "ebwv:assignment", "ebwv:attestationLegalCategory", "ebwv:averagePeriodWorkforce", "ebwv:balanceSheetDate", "ebwv:balanceSheetTotal", "ebwv:beneficialOwnership", "ebwv:birthName", "ebwv:businessEntity", "ebwv:buyer", "ebwv:capitalBeneficialOwner", "ebwv:cdd", "ebwv:citizenship", "ebwv:companyCategory", "ebwv:companyRegisterId", "ebwv:companyRegisterIdCountry", "ebwv:companySize", "ebwv:complianceStatus", "ebwv:constructionSector", "ebwv:contactPoint", "ebwv:contributor", "ebwv:correspondenceAddress", "ebwv:countryOfBirth", "ebwv:countryOfDeath", "ebwv:coverageStatement", "ebwv:coveredObligationType", "ebwv:currency", "ebwv:dateOfBirth", "ebwv:dateOfDeath", "ebwv:dateOfRegistration", "ebwv:deliveryLocation", "ebwv:deliveryType", "ebwv:directParent", "ebwv:discrepancyReportNumber", "ebwv:dom10", "ebwv:dom25", "ebwv:domicile", "ebwv:duration", "ebwv:employee", "ebwv:employer", "ebwv:endDate", "ebwv:entryDate", "ebwv:evidenceSource", "ebwv:exchange", "ebwv:exchangeCountry", "ebwv:exchangeName", "ebwv:exitDate", "ebwv:familyName", "ebwv:fictitiousBeneficialOwner", "ebwv:fictitiousBoReason", "ebwv:financialYear", "ebwv:flagState", "ebwv:focusEntity", "ebwv:formerName", "ebwv:fullAddress", "ebwv:fullName", "ebwv:fullPeriodCovered", "ebwv:gender", "ebwv:geographicIdentifier", "ebwv:geographicName", "ebwv:givenName", "ebwv:handover", "ebwv:handoverDescription", "ebwv:handoverFlag", "ebwv:hasAddress", "ebwv:hasDiscrepancyNote", "ebwv:hasEmail", "ebwv:hasFax", "ebwv:hasSite", "ebwv:hasTelephone", "ebwv:hash", "ebwv:hostEntity", "ebwv:iban", "ebwv:identifier", "ebwv:insolvencyStatus", "ebwv:interestScope", "ebwv:interestType", "ebwv:isCsrdObligated", "ebwv:isDirectParticipation", "ebwv:isExemptFromSection181", "ebwv:isFoundation", "ebwv:isHighRisk", "ebwv:isTrust", "ebwv:jobTitle", "ebwv:jurisdiction", "ebwv:legalBasis", "ebwv:legalEntity", "ebwv:legalForm", "ebwv:legalIdentifier", "ebwv:legalName", "ebwv:legalPerson", "ebwv:legalPersonGeneralPartner", "ebwv:legalPersonShareholder", "ebwv:legalRepresentative", "ebwv:legalStatus", "ebwv:legalSuccessionReason", "ebwv:lei", "ebwv:leiLastUpdate", "ebwv:leiLegalEntity", "ebwv:leiNextRenewal", "ebwv:leiRegistration", "ebwv:leiRegistrationDate", "ebwv:leiRegistrationStatus", "ebwv:leiStatus", "ebwv:liabilityOrContribution", "ebwv:licenceKey", "ebwv:liquidationStatus", "ebwv:listedOnRegulatedMarket", "ebwv:locatorDesignator", "ebwv:locatorName", "ebwv:managingLeiIssuer", "ebwv:mandatee", "ebwv:marketIdentificationCode", "ebwv:matronymicName", "ebwv:member", "ebwv:memberOf", "ebwv:naturalPersonGeneralPartner", "ebwv:naturalPersonShareholder", "ebwv:noFixedPlaceOfWork", "ebwv:numberOfEmployees", "ebwv:onboardedBy", "ebwv:operatingResult", "ebwv:operator", "ebwv:organisation", "ebwv:otherControlBeneficialOwner", "ebwv:otherControlReason", "ebwv:owner", "ebwv:ownershipPercentage", "ebwv:participation", "ebwv:partner", "ebwv:patronymicName", "ebwv:paymentDue", "ebwv:person", "ebwv:person", "ebwv:personalAdministrativeNumber", "ebwv:placeOfBirth", "ebwv:placeOfDeath", "ebwv:placeOfWork", "ebwv:platform", "ebwv:poBox", "ebwv:portrait", "ebwv:postCode", "ebwv:postName", "ebwv:postedWorker", "ebwv:principal", "ebwv:processingNote", "ebwv:provenClaim", "ebwv:provenanceProof", "ebwv:provider", "ebwv:provisionalDetermination", "ebwv:qualificationNote", "ebwv:referenceNumber", "ebwv:register", "ebwv:registerLocation", "ebwv:registerNumber", "ebwv:registerType", "ebwv:registerTypeDescription", "ebwv:registeredAddress", "ebwv:regulatedId", "ebwv:regulator", "ebwv:regulatorClassification", "ebwv:regulatorName", "ebwv:relativeShare", "ebwv:relativeShareDirect", "ebwv:relativeVotingRights", "ebwv:relativeVotingRightsDirect", "ebwv:reportingMonth", "ebwv:reportingPeriod", "ebwv:researchTerminationReason", "ebwv:researchedSuccessorId", "ebwv:residency", "ebwv:revenue", "ebwv:role", "ebwv:salutation", "ebwv:scopeOfPower", "ebwv:shareInFocusAlongBranch", "ebwv:shareInFocusTotal", "ebwv:shareholding", "ebwv:socialRepresentative", "ebwv:staffAverage", "ebwv:standard", "ebwv:startDate", "ebwv:stateOfInsurance", "ebwv:statementDate", "ebwv:statusConfirmation", "ebwv:stockExchangeListing", "ebwv:subscribedCapital", "ebwv:supplier", "ebwv:temporaryAddress", "ebwv:temporaryWorkAgency", "ebwv:terms", "ebwv:thoroughfare", "ebwv:tickerSymbol", "ebwv:totalPayroll", "ebwv:transitionalRules", "ebwv:transparencyRegister", "ebwv:transparencyRegisterExtract", "ebwv:type", "ebwv:typeOfEmployment", "ebwv:typeOfRepresentation", "ebwv:ultimateParent", "ebwv:url", "ebwv:validFromDate", "ebwv:verificationDate", "ebwv:version", "ebwv:votingRightsBeneficialOwner", "ebwv:website"]
+        "mentions": ["cred:termsOfUse", "ebwv:A1Certificate", "ebwv:AbortedResearch", "ebwv:AccountType", "ebwv:Address", "ebwv:Agent", "ebwv:Alone", "ebwv:AttestationLegalCategory", "ebwv:BankAccount", "ebwv:BanzNumber", "ebwv:BeneficialOwner", "ebwv:BeneficialOwnership", "ebwv:BeneficialOwnershipVariant", "ebwv:Bic", "ebwv:CEO", "ebwv:CFO", "ebwv:CIP", "ebwv:CPT", "ebwv:ClearingNumber", "ebwv:Company", "ebwv:ConstitutionOfCompanies", "ebwv:ContactPoint", "ebwv:CorporateRole", "ebwv:CountryCode", "ebwv:CrossBoarderConversions", "ebwv:CrossBoarderMergers", "ebwv:CrossBorderDivisions", "ebwv:Currency", "ebwv:DAP", "ebwv:DDP", "ebwv:DPU", "ebwv:DUNS", "ebwv:DataConsumer", "ebwv:DataProvider", "ebwv:DataRightsHolder", "ebwv:DataSpaceRole", "ebwv:DeliveryType", "ebwv:DunsNumber", "ebwv:EAA", "ebwv:EXW", "ebwv:EconomicOperator", "ebwv:ElectronicAttestationOfAttributes", "ebwv:Eori", "ebwv:Euid", "ebwv:EuropeanBusinessWalletOwner", "ebwv:Excise", "ebwv:FAS", "ebwv:FCA", "ebwv:FOB", "ebwv:FinancialYear", "ebwv:FocusLegalEntity", "ebwv:FormationOfCompanies", "ebwv:GLN", "ebwv:GS1CompanyPrefix", "ebwv:GeneralPartner", "ebwv:GeneralPartnerHolding", "ebwv:GlobalLocationNumber", "ebwv:GovernanceRulebook", "ebwv:HeadOfHR", "ebwv:Iban", "ebwv:Incoterms", "ebwv:Isin", "ebwv:Jointly", "ebwv:KmgMid", "ebwv:KycCheck", "ebwv:KycEvidence", "ebwv:KycLegalEntity", "ebwv:LegalEntity", "ebwv:LegalEntityIdentifier", "ebwv:LegalPerson", "ebwv:LegalPersonGeneralPartnerHolding", "ebwv:LegalPersonShareholder", "ebwv:LegalRepresentative", "ebwv:Lei", "ebwv:LeiRegistration", "ebwv:LimitedLiabilityCompany", "ebwv:LimitedPartner", "ebwv:Location", "ebwv:Membership", "ebwv:MonetaryAmount", "ebwv:Nace21", "ebwv:Naics", "ebwv:NationalBankCode", "ebwv:NaturalPerson", "ebwv:NaturalPersonGeneralPartnerHolding", "ebwv:NaturalPersonShareholder", "ebwv:OnboardingDetails", "ebwv:OnboardingServiceProvider", "ebwv:Operator", "ebwv:Participation", "ebwv:Partnership", "ebwv:PaymentTerms", "ebwv:PeppolId", "ebwv:PeriodOfTime", "ebwv:Permanent", "ebwv:PostedWorkerNotification", "ebwv:PowerOfAttorney", "ebwv:Pub-EAA", "ebwv:PublicSectorBody", "ebwv:PublicSectorBodyId", "ebwv:QEAA", "ebwv:RegisterIdentification", "ebwv:RegistrationAndClosingOfBranches", "ebwv:Regulator", "ebwv:ResearchedProduct", "ebwv:ScopeOfPower", "ebwv:ShareInFocus", "ebwv:ShareVotingPair", "ebwv:Shareholder", "ebwv:Shareholding", "ebwv:Sic", "ebwv:Site", "ebwv:SocialSecurityContribution", "ebwv:StatutoryPartner", "ebwv:StockExchange", "ebwv:StockExchangeListing", "ebwv:Temporary", "ebwv:Tin", "ebwv:TransparencyRegisterEntry", "ebwv:TransparencyRegisterExtract", "ebwv:TypeOfEmployment", "ebwv:TypeOfRepresentation", "ebwv:UBO", "ebwv:VATRegistrationUnit", "ebwv:VatId", "ebwv:Vessel", "ebwv:WorkAssignment", "ebwv:Wz2003", "ebwv:Wz2008", "ebwv:a1", "ebwv:absoluteShare", "ebwv:academicTitle", "ebwv:accG10", "ebwv:accG25", "ebwv:acceptedAt", "ebwv:accountName", "ebwv:accountType", "ebwv:activity", "ebwv:addressArea", "ebwv:adminUnitL1", "ebwv:adminUnitL2", "ebwv:administrativeRepresentative", "ebwv:alternativeName", "ebwv:amount", "ebwv:applicationNumber", "ebwv:assignment", "ebwv:attestationLegalCategory", "ebwv:averagePeriodWorkforce", "ebwv:balanceSheetDate", "ebwv:balanceSheetTotal", "ebwv:beneficialOwnership", "ebwv:birthName", "ebwv:businessEntity", "ebwv:buyer", "ebwv:capitalBeneficialOwner", "ebwv:cdd", "ebwv:citizenship", "ebwv:companyCategory", "ebwv:companyRegisterId", "ebwv:companyRegisterIdCountry", "ebwv:companySize", "ebwv:complianceStatus", "ebwv:constructionSector", "ebwv:contactPoint", "ebwv:contributor", "ebwv:correspondenceAddress", "ebwv:countryOfBirth", "ebwv:countryOfDeath", "ebwv:coverageStatement", "ebwv:coveredObligationType", "ebwv:currency", "ebwv:dateOfBirth", "ebwv:dateOfDeath", "ebwv:dateOfRegistration", "ebwv:deliveryLocation", "ebwv:deliveryType", "ebwv:directParent", "ebwv:discrepancyReportNumber", "ebwv:dom10", "ebwv:dom25", "ebwv:domicile", "ebwv:duration", "ebwv:employee", "ebwv:employer", "ebwv:endDate", "ebwv:entryDate", "ebwv:evidenceSource", "ebwv:exchange", "ebwv:exchangeCountry", "ebwv:exchangeName", "ebwv:exitDate", "ebwv:familyName", "ebwv:fictitiousBeneficialOwner", "ebwv:fictitiousBoReason", "ebwv:financialYear", "ebwv:flagState", "ebwv:focusEntity", "ebwv:formerName", "ebwv:fullAddress", "ebwv:fullName", "ebwv:fullPeriodCovered", "ebwv:gender", "ebwv:generalPartnerHolding", "ebwv:geographicIdentifier", "ebwv:geographicName", "ebwv:givenName", "ebwv:handover", "ebwv:handoverDescription", "ebwv:handoverFlag", "ebwv:hasAddress", "ebwv:hasDiscrepancyNote", "ebwv:hasEmail", "ebwv:hasFax", "ebwv:hasSite", "ebwv:hasTelephone", "ebwv:hash", "ebwv:hostEntity", "ebwv:iban", "ebwv:identifier", "ebwv:insolvencyStatus", "ebwv:interestScope", "ebwv:interestType", "ebwv:isCsrdObligated", "ebwv:isDirectParticipation", "ebwv:isExemptFromSection181", "ebwv:isFoundation", "ebwv:isHighRisk", "ebwv:isTrust", "ebwv:jobTitle", "ebwv:jurisdiction", "ebwv:legalBasis", "ebwv:legalEntity", "ebwv:legalForm", "ebwv:legalIdentifier", "ebwv:legalName", "ebwv:legalPerson", "ebwv:legalPersonGeneralPartner", "ebwv:legalRepresentative", "ebwv:legalStatus", "ebwv:legalSuccessionReason", "ebwv:lei", "ebwv:leiLastUpdate", "ebwv:leiLegalEntity", "ebwv:leiNextRenewal", "ebwv:leiRegistration", "ebwv:leiRegistrationDate", "ebwv:leiRegistrationStatus", "ebwv:leiStatus", "ebwv:liabilityOrContribution", "ebwv:licenceKey", "ebwv:liquidationStatus", "ebwv:listedOnRegulatedMarket", "ebwv:locatorDesignator", "ebwv:locatorName", "ebwv:managingLeiIssuer", "ebwv:mandatee", "ebwv:marketIdentificationCode", "ebwv:matronymicName", "ebwv:member", "ebwv:memberOf", "ebwv:noFixedPlaceOfWork", "ebwv:numberOfEmployees", "ebwv:onboardedBy", "ebwv:operatingResult", "ebwv:operator", "ebwv:organisation", "ebwv:otherControlBeneficialOwner", "ebwv:otherControlReason", "ebwv:owner", "ebwv:ownershipPercentage", "ebwv:participation", "ebwv:partner", "ebwv:patronymicName", "ebwv:paymentDue", "ebwv:person", "ebwv:person", "ebwv:personalAdministrativeNumber", "ebwv:placeOfBirth", "ebwv:placeOfDeath", "ebwv:placeOfWork", "ebwv:platform", "ebwv:poBox", "ebwv:portrait", "ebwv:postCode", "ebwv:postName", "ebwv:postedWorker", "ebwv:principal", "ebwv:processingNote", "ebwv:provenClaim", "ebwv:provenanceProof", "ebwv:provider", "ebwv:provisionalDetermination", "ebwv:qualificationNote", "ebwv:referenceNumber", "ebwv:register", "ebwv:registerLocation", "ebwv:registerNumber", "ebwv:registerType", "ebwv:registerTypeDescription", "ebwv:registeredAddress", "ebwv:regulatedId", "ebwv:regulator", "ebwv:regulatorClassification", "ebwv:regulatorName", "ebwv:relativeShare", "ebwv:relativeShareDirect", "ebwv:relativeVotingRights", "ebwv:relativeVotingRightsDirect", "ebwv:reportingMonth", "ebwv:reportingPeriod", "ebwv:researchTerminationReason", "ebwv:researchedSuccessorId", "ebwv:residency", "ebwv:revenue", "ebwv:role", "ebwv:salutation", "ebwv:scopeOfPower", "ebwv:shareInFocusAlongBranch", "ebwv:shareInFocusTotal", "ebwv:shareholder", "ebwv:shareholding", "ebwv:socialRepresentative", "ebwv:staffAverage", "ebwv:standard", "ebwv:startDate", "ebwv:stateOfInsurance", "ebwv:statementDate", "ebwv:statusConfirmation", "ebwv:stockExchangeListing", "ebwv:subscribedCapital", "ebwv:supplier", "ebwv:temporaryAddress", "ebwv:temporaryWorkAgency", "ebwv:terms", "ebwv:thoroughfare", "ebwv:tickerSymbol", "ebwv:totalPayroll", "ebwv:transitionalRules", "ebwv:transparencyRegister", "ebwv:transparencyRegisterExtract", "ebwv:type", "ebwv:typeOfEmployment", "ebwv:typeOfRepresentation", "ebwv:ultimateParent", "ebwv:url", "ebwv:validFromDate", "ebwv:verificationDate", "ebwv:version", "ebwv:votingRightsBeneficialOwner", "ebwv:website"]
     }, {
         "@id": "https://www.w3.org/ns/credentials/v2",
         "@type": "jsonld:Context",
