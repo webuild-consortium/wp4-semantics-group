@@ -342,11 +342,6 @@ class:
     comment: an annual financial statement (Geschäftsjahr) of the focus legal entity, reporting size class, revenue, operating result, balance sheet total, headcount and the statement date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/financialyear
 
-  - id: FocusLegalEntity
-    label: focus legal entity
-    comment: the legal entity that is the subject of the KYC investigation, together with KYC process metadata such as handover indicators and research-termination reasons
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/focuslegalentity
-
   - id: GeneralPartner
     label: General Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner
@@ -505,113 +500,110 @@ class:
               "@type": "KycCheck",
               "deliveryType": "ResearchedProduct",
               "focusEntity": {
-                "@type": "FocusLegalEntity",
-                "handoverFlag": true,
-                "handover": false,
-                "legalPerson": {
-                  "@type": [
-                    "EconomicOperator",
-                    "KycLegalEntity",
-                    "Company",
-                    "LimitedLiabilityCompany"
-                  ],
-                  "legalName": "ACME SE",
-                  "legalForm": "SE",
-                  "legalStatus": "active",
-                  "dateOfRegistration": "2001-05-14",
-                  "legalIdentifier": {
-                    "@type": "Euid",
-                    "@value": "DEHRB12345"
+                "@type": [
+                  "EconomicOperator",
+                  "KycLegalEntity",
+                  "Company",
+                  "LimitedLiabilityCompany"
+                ],
+                "legalName": "ACME SE",
+                "legalForm": "SE",
+                "legalStatus": "active",
+                "dateOfRegistration": "2001-05-14",
+                "legalIdentifier": {
+                  "@type": "Euid",
+                  "@value": "DEHRB12345"
+                },
+                "identifier": [
+                  {
+                    "@type": "VatId",
+                    "@value": "DE123456789"
                   },
-                  "identifier": [
-                    {
-                      "@type": "VatId",
-                      "@value": "DE123456789"
-                    },
-                    {
-                      "@type": "BanzNumber",
-                      "@value": "R123456"
-                    },
-                    {
-                      "@type": "Isin",
-                      "@value": "DE000ACME123"
-                    }
-                  ],
-                  "registeredAddress": {
-                    "@type": "Address",
-                    "thoroughfare": "Maximilianstrasse",
-                    "locatorDesignator": "10",
-                    "postCode": "80539",
-                    "postName": "Muenchen",
-                    "adminUnitL2": "Bayern",
-                    "adminUnitL1": "DE"
+                  {
+                    "@type": "BanzNumber",
+                    "@value": "R123456"
                   },
-                  "subscribedCapital": {
-                    "@type": "MonetaryAmount",
-                    "amount": 120000,
-                    "currency": "EUR"
+                  {
+                    "@type": "Isin",
+                    "@value": "DE000ACME123"
+                  }
+                ],
+                "registeredAddress": {
+                  "@type": "Address",
+                  "thoroughfare": "Maximilianstrasse",
+                  "locatorDesignator": "10",
+                  "postCode": "80539",
+                  "postName": "Muenchen",
+                  "adminUnitL2": "Bayern",
+                  "adminUnitL1": "DE"
+                },
+                "subscribedCapital": {
+                  "@type": "MonetaryAmount",
+                  "amount": 120000,
+                  "currency": "EUR"
+                },
+                "liquidationStatus": "none",
+                "insolvencyStatus": "none",
+                "isFoundation": false,
+                "isTrust": false,
+                "isCsrdObligated": true,
+                "activity": [
+                  {
+                    "@type": "Nace21",
+                    "@value": "62.01"
                   },
-                  "liquidationStatus": "none",
-                  "insolvencyStatus": "none",
-                  "isFoundation": false,
-                  "isTrust": false,
-                  "isCsrdObligated": true,
-                  "activity": [
-                    {
-                      "@type": "Nace21",
-                      "@value": "62.01"
-                    },
-                    {
-                      "@type": "Wz2008",
-                      "@value": "62.01.0"
-                    }
-                  ],
-                  "companyCategory": "Kapitalgesellschaft",
-                  "balanceSheetDate": "2024-12-31",
-                  "contactPoint": {
-                    "@type": "ContactPoint",
-                    "hasTelephone": "+49 89 1234567",
-                    "website": "https://acme.example",
-                    "hasFax": "+49 89 1234568"
-                  },
-                  "leiStatus": "ISSUED",
-                  "listedOnRegulatedMarket": true,
-                  "formerName": "ACME GmbH",
-                  "domicile": {
-                    "@type": "Address",
-                    "thoroughfare": "Maximilianstrasse",
-                    "locatorDesignator": "10",
-                    "postCode": "80539",
-                    "postName": "Muenchen",
-                    "adminUnitL1": "DE"
-                  },
-                  "stockExchangeListing": {
-                    "@type": "StockExchangeListing",
-                    "tickerSymbol": "ACM",
-                    "marketIdentificationCode": "XFRA",
-                    "exchange": {
-                      "@type": "StockExchange",
-                      "exchangeName": "Frankfurter Wertpapierboerse",
-                      "exchangeCountry": "DE",
-                      "marketIdentificationCode": "XFRA"
-                    }
-                  },
-                  "regulator": {
-                    "@type": "Regulator",
-                    "regulatorName": "BaFin",
-                    "regulatedId": "100123456",
-                    "regulatorClassification": "Kapitalverwaltungsgesellschaft"
-                  },
-                  "register": {
-                    "@type": "RegisterIdentification",
-                    "registerType": "HRB",
-                    "registerTypeDescription": "Handelsregister Abteilung B",
-                    "registerLocation": "Amtsgericht Muenchen",
-                    "registerNumber": "12345",
-                    "companyRegisterId": "DE-123",
-                    "companyRegisterIdCountry": "DE"
+                  {
+                    "@type": "Wz2008",
+                    "@value": "62.01.0"
+                  }
+                ],
+                "companyCategory": "Kapitalgesellschaft",
+                "balanceSheetDate": "2024-12-31",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "hasTelephone": "+49 89 1234567",
+                  "website": "https://acme.example",
+                  "hasFax": "+49 89 1234568"
+                },
+                "leiStatus": "ISSUED",
+                "listedOnRegulatedMarket": true,
+                "formerName": "ACME GmbH",
+                "domicile": {
+                  "@type": "Address",
+                  "thoroughfare": "Maximilianstrasse",
+                  "locatorDesignator": "10",
+                  "postCode": "80539",
+                  "postName": "Muenchen",
+                  "adminUnitL1": "DE"
+                },
+                "stockExchangeListing": {
+                  "@type": "StockExchangeListing",
+                  "tickerSymbol": "ACM",
+                  "marketIdentificationCode": "XFRA",
+                  "exchange": {
+                    "@type": "StockExchange",
+                    "exchangeName": "Frankfurter Wertpapierboerse",
+                    "exchangeCountry": "DE",
+                    "marketIdentificationCode": "XFRA"
                   }
                 },
+                "regulator": {
+                  "@type": "Regulator",
+                  "regulatorName": "BaFin",
+                  "regulatedId": "100123456",
+                  "regulatorClassification": "Kapitalverwaltungsgesellschaft"
+                },
+                "register": {
+                  "@type": "RegisterIdentification",
+                  "registerType": "HRB",
+                  "registerTypeDescription": "Handelsregister Abteilung B",
+                  "registerLocation": "Amtsgericht Muenchen",
+                  "registerNumber": "12345",
+                  "companyRegisterId": "DE-123",
+                  "companyRegisterIdCountry": "DE"
+                },
+                "handoverFlag": true,
+                "handover": false,
                 "financialYear": {
                   "@type": "FinancialYear",
                   "statementDate": "2024-12-31",
@@ -631,44 +623,6 @@ class:
                     "@type": "MonetaryAmount",
                     "amount": 123000000,
                     "currency": "EUR"
-                  }
-                },
-                "shareholder": {
-                  "@type": [
-                    "Shareholder",
-                    "NaturalPersonShareholder"
-                  ],
-                  "legalEntity": "did:key:$publicKeyOfShareholder$",
-                  "shareholding": {
-                    "@type": "Shareholding",
-                    "relativeShare": 51.0,
-                    "absoluteShare": [
-                      {
-                        "@type": "MonetaryAmount",
-                        "amount": 61200,
-                        "currency": "EUR"
-                      },
-                      {
-                        "@type": "MonetaryAmount",
-                        "amount": 66000,
-                        "currency": "USD"
-                      }
-                    ],
-                    "relativeVotingRights": 51.0,
-                    "isDirectParticipation": true
-                  },
-                  "shareInFocusTotal": {
-                    "@type": "ShareInFocus",
-                    "standard": {
-                      "@type": "ShareVotingPair",
-                      "relativeShare": 51.0,
-                      "relativeVotingRights": 51.0
-                    },
-                    "accG25": {
-                      "@type": "ShareVotingPair",
-                      "relativeShare": 51.0,
-                      "relativeVotingRights": 51.0
-                    }
                   }
                 },
                 "shareholder": {
@@ -697,25 +651,6 @@ class:
                       "relativeVotingRights": 100.0,
                       "isDirectParticipation": true
                     }
-                  }
-                },
-                "generalPartnerHolding": {
-                  "@type": [
-                    "GeneralPartnerHolding",
-                    "NaturalPersonGeneralPartnerHolding"
-                  ],
-                  "legalEntity": "did:key:$publicKeyOfNaturalGeneralPartner$",
-                  "relativeVotingRights": 40.0,
-                  "shareholding": {
-                    "@type": "Shareholding",
-                    "relativeShare": 40.0,
-                    "absoluteShare": {
-                      "@type": "MonetaryAmount",
-                      "amount": 10000,
-                      "currency": "EUR"
-                    },
-                    "relativeVotingRights": 40.0,
-                    "isDirectParticipation": true
                   }
                 },
                 "generalPartnerHolding": {
@@ -1575,7 +1510,7 @@ class:
 
   - id: ShareInFocus
     label: share in focus entity
-    comment: the capital and voting share a holder has in the focus legal entity, broken down by beneficial-ownership calculation method (standard, accumulation and domination thresholds at 10 and 25 percent)
+    comment: the capital and voting share a holder has in the focus legal entity, computed under the several beneficial-ownership calculation methods used in German anti-money-laundering practice (GwG / Transparenzregister). Each method yields a relative capital share together with the relative voting rights; the methods differ in how indirect holdings along an ownership path (Strang) are counted and at which threshold (Grenze) a holding is recognised - see the standard, accG10, accG25, dom10 and dom25 properties
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareinfocus
 
   - id: ShareVotingPair
@@ -1860,7 +1795,7 @@ property:
       - ShareVotingPair
       - BeneficialOwnershipVariant
     range_union: true
-    comment: value computed under the accumulation method at the 10 percent threshold
+    comment: determined under the accumulation (Addition) method with a 10 percent threshold (Grenze) - relative holdings of at least 10 percent are added up across all ownership paths (Straenge) that lead to the focus entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/accg10
 
   - id: accG25
@@ -1872,7 +1807,7 @@ property:
       - ShareVotingPair
       - BeneficialOwnershipVariant
     range_union: true
-    comment: value computed under the accumulation method at the 25 percent threshold
+    comment: determined under the accumulation (Addition) method with a 25 percent threshold (Grenze) - relative holdings of at least 25 percent are added up across all ownership paths (Straenge) that lead to the focus entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/accg25
 
   - id: accountName
@@ -1985,7 +1920,7 @@ property:
 
   - id: beneficialOwnership
     label: beneficial ownership
-    domain: FocusLegalEntity
+    domain: KycLegalEntity
     range: BeneficialOwnership
     comment: the beneficial-ownership analysis of the focus legal entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/beneficialownership
@@ -2012,7 +1947,7 @@ property:
     label: capital beneficial owner
     domain: BeneficialOwnershipVariant
     range: BeneficialOwner
-    comment: a beneficial owner determined on the basis of capital share
+    comment: a beneficial owner determined on the basis of capital - a natural person who, directly or indirectly, holds a share of the capital (Kapitalanteile) of the focus legal entity that reaches the threshold of the enclosing calculation method (more than 25 percent under the standard method, or the 10 or 25 percent threshold of the accumulation and domination methods) (section 3(2) sentence 1 no. 1 GwG)
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capitalbeneficialowner
 
   - id: cdd
@@ -2177,7 +2112,7 @@ property:
 
   - id: directParent
     label: direct parent
-    domain: FocusLegalEntity
+    domain: KycLegalEntity
     range:
       - LimitedLiabilityCompany
       - Partnership
@@ -2201,7 +2136,7 @@ property:
       - ShareVotingPair
       - BeneficialOwnershipVariant
     range_union: true
-    comment: value computed under the domination method at the 10 percent threshold
+    comment: determined under the domination (Beherrschung) method with a 10 percent threshold (Grenze) - a holding is counted only along a chain in which controlling influence of at least 10 percent exists at every level, so that control passes through the chain to the focus entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dom10
 
   - id: dom25
@@ -2213,7 +2148,7 @@ property:
       - ShareVotingPair
       - BeneficialOwnershipVariant
     range_union: true
-    comment: value computed under the domination method at the 25 percent threshold
+    comment: determined under the domination (Beherrschung) method with a 25 percent threshold (Grenze) - a holding is counted only along a chain in which controlling influence of at least 25 percent exists at every level, so that control passes through the chain to the focus entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dom25
 
   - id: domicile
@@ -2311,7 +2246,7 @@ property:
     label: fictitious beneficial owner
     domain: BeneficialOwnershipVariant
     range: BeneficialOwner
-    comment: a fictitious (notional) beneficial owner, i.e. a legal representative treated as beneficial owner where no natural person qualifies
+    comment: a fictitious (notional) beneficial owner (fiktiver wirtschaftlich Berechtigter) - where, after exhausting all available means, no natural person can be identified as beneficial owner by capital, voting rights or other control, the legal representatives, managing partners or managing directors of the focus legal entity are deemed to be the beneficial owners (section 3(2) sentence 5 GwG)
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fictitiousbeneficialowner
 
   - id: fictitiousBoReason
@@ -2323,7 +2258,7 @@ property:
 
   - id: financialYear
     label: financial year
-    domain: FocusLegalEntity
+    domain: KycLegalEntity
     range: FinancialYear
     comment: an annual financial statement of the focus legal entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/financialyear
@@ -2337,8 +2272,8 @@ property:
   - id: focusEntity
     label: focus entity
     domain: KycCheck
-    range: FocusLegalEntity
-    comment: the focus legal entity that is investigated as part of the KYC service
+    range: Company
+    comment: the focus legal entity (a company) that is investigated as part of the KYC service
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/focusentity
 
   - id: formerName
@@ -2378,7 +2313,7 @@ property:
   - id: generalPartnerHolding
     label: general partner holding
     domain:
-      - FocusLegalEntity
+      - KycLegalEntity
       - LegalPersonGeneralPartnerHolding
       - LegalPersonShareholder
     range:
@@ -2410,7 +2345,7 @@ property:
   - id: handover
     label: handover
     domain:
-      - FocusLegalEntity
+      - KycLegalEntity
       - LegalPersonGeneralPartnerHolding
       - LegalPersonShareholder
     range: xsd:boolean
@@ -2420,7 +2355,7 @@ property:
   - id: handoverDescription
     label: handover description
     domain:
-      - FocusLegalEntity
+      - KycLegalEntity
       - LegalPersonGeneralPartnerHolding
       - LegalPersonShareholder
     range: xsd:string
@@ -2429,7 +2364,7 @@ property:
 
   - id: handoverFlag
     label: handover flag
-    domain: FocusLegalEntity
+    domain: KycLegalEntity
     range: xsd:boolean
     comment: statement on whether the examination of the beneficial ownership structure is complete or incomplete
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/handoverflag
@@ -2670,20 +2605,10 @@ property:
     comment: the name under which the legal entity is legally registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
 
-  - id: legalPerson
-    label: legal person
-    domain: FocusLegalEntity
-    range:
-      - LimitedLiabilityCompany
-      - Partnership
-    range_union: true
-    comment: the legal person (Rechtseinheit) that the focus legal entity refers to, either a limited liability company or a partnership
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson
-
   - id: legalPersonGeneralPartner
     label: legal person general partner
     domain:
-      - FocusLegalEntity
+      - KycLegalEntity
       - LegalPersonGeneralPartnerHolding
       - LegalPersonShareholder
     range: LegalPersonGeneralPartnerHolding
@@ -2694,7 +2619,7 @@ property:
     label: legal representative
     domain:
       - LimitedLiabilityCompany
-      - FocusLegalEntity
+      - KycLegalEntity
     range: LegalRepresentative
     comment: a natural person or economic operator that has authority, under law, the company's statutes, a register entry or another recognised legal basis, to represent a company in dealings with third parties, authorities or courts
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
@@ -2710,7 +2635,7 @@ property:
 
   - id: legalSuccessionReason
     label: legal succession reason
-    domain: FocusLegalEntity
+    domain: KycLegalEntity
     range: xsd:string
     comment: reason for the legal succession, such as a change of seat or a change of legal form
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalsuccessionreason
@@ -2905,7 +2830,7 @@ property:
     label: other control beneficial owner
     domain: BeneficialOwnershipVariant
     range: BeneficialOwner
-    comment: a beneficial owner determined on the basis of other forms of control
+    comment: a beneficial owner determined on the basis of control exercised in another comparable way (auf vergleichbare Weise Kontrolle) rather than through capital or voting rights - for example through voting or control agreements, the right to appoint or remove the management, veto rights or another dominant influence; the concrete basis is stated in otherControlReason (section 3(2) sentence 1 no. 3 GwG)
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/othercontrolbeneficialowner
 
   - id: otherControlReason
@@ -2934,7 +2859,7 @@ property:
 
   - id: participation
     label: participation
-    domain: FocusLegalEntity
+    domain: KycLegalEntity
     range: Participation
     comment: a participation held by the focus legal entity in another legal person
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/participation
@@ -3237,14 +3162,14 @@ property:
 
   - id: researchedSuccessorId
     label: researched successor id
-    domain: FocusLegalEntity
+    domain: KycLegalEntity
     range: xsd:string
     comment: successor identifier used when an ordered company was inactive and one or more successor companies were researched instead
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/researchedsuccessorid
 
   - id: researchTerminationReason
     label: research termination reason
-    domain: FocusLegalEntity
+    domain: KycLegalEntity
     range: xsd:string
     comment: reason why a research had to be aborted, for example the company being inactive
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/researchterminationreason
@@ -3308,7 +3233,7 @@ property:
   - id: shareholder
     label: shareholder
     domain:
-      - FocusLegalEntity
+      - KycLegalEntity
       - LegalPersonGeneralPartnerHolding
       - LegalPersonShareholder
     range:
@@ -3366,7 +3291,7 @@ property:
       - ShareVotingPair
       - BeneficialOwnershipVariant
     range_union: true
-    comment: value computed under the standard calculation method
+    comment: share and control determined under the standard method - the statutory GwG calculation under which a natural person qualifies as beneficial owner when holding, directly or indirectly, more than 25 percent of the capital shares or voting rights, or exercising control in a comparable manner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/standard
 
   - id: startDate
@@ -3480,7 +3405,7 @@ property:
 
   - id: transparencyRegisterExtract
     label: transparency register extract
-    domain: FocusLegalEntity
+    domain: KycLegalEntity
     range: TransparencyRegisterExtract
     comment: a transparency register extract obtained for the focus legal entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transparencyregisterextract
@@ -3513,7 +3438,7 @@ property:
 
   - id: ultimateParent
     label: ultimate parent
-    domain: FocusLegalEntity
+    domain: KycLegalEntity
     range:
       - LimitedLiabilityCompany
       - Partnership
@@ -3555,7 +3480,7 @@ property:
     label: voting rights beneficial owner
     domain: BeneficialOwnershipVariant
     range: BeneficialOwner
-    comment: a beneficial owner determined on the basis of voting rights
+    comment: a beneficial owner determined on the basis of voting rights - a natural person who, directly or indirectly, controls a share of the voting rights (Stimmrechte) of the focus legal entity that reaches the threshold of the enclosing calculation method (more than 25 percent under the standard method, or the 10 or 25 percent threshold of the accumulation and domination methods) (section 3(2) sentence 1 no. 2 GwG)
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/votingrightsbeneficialowner
 
   - id: website

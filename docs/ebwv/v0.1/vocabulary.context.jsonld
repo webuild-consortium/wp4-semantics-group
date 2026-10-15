@@ -388,80 +388,6 @@
                 }
             }
         },
-        "FocusLegalEntity": {
-            "@id": "https://w3id.org/ebwv#FocusLegalEntity",
-            "@context": {
-                "@protected": true,
-                "beneficialOwnership": {
-                    "@id": "https://w3id.org/ebwv#beneficialOwnership",
-                    "@type": "@id"
-                },
-                "directParent": {
-                    "@id": "https://w3id.org/ebwv#directParent",
-                    "@type": "@id"
-                },
-                "financialYear": {
-                    "@id": "https://w3id.org/ebwv#financialYear",
-                    "@type": "@id"
-                },
-                "generalPartnerHolding": {
-                    "@id": "https://w3id.org/ebwv#generalPartnerHolding",
-                    "@type": "@id"
-                },
-                "handover": {
-                    "@id": "https://w3id.org/ebwv#handover",
-                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
-                },
-                "handoverDescription": {
-                    "@id": "https://w3id.org/ebwv#handoverDescription",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "handoverFlag": {
-                    "@id": "https://w3id.org/ebwv#handoverFlag",
-                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
-                },
-                "legalPerson": {
-                    "@id": "https://w3id.org/ebwv#legalPerson",
-                    "@type": "@id"
-                },
-                "legalPersonGeneralPartner": {
-                    "@id": "https://w3id.org/ebwv#legalPersonGeneralPartner",
-                    "@type": "@id"
-                },
-                "legalRepresentative": {
-                    "@id": "https://w3id.org/ebwv#legalRepresentative",
-                    "@type": "@id"
-                },
-                "legalSuccessionReason": {
-                    "@id": "https://w3id.org/ebwv#legalSuccessionReason",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "participation": {
-                    "@id": "https://w3id.org/ebwv#participation",
-                    "@type": "@id"
-                },
-                "researchedSuccessorId": {
-                    "@id": "https://w3id.org/ebwv#researchedSuccessorId",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "researchTerminationReason": {
-                    "@id": "https://w3id.org/ebwv#researchTerminationReason",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "shareholder": {
-                    "@id": "https://w3id.org/ebwv#shareholder",
-                    "@type": "@id"
-                },
-                "transparencyRegisterExtract": {
-                    "@id": "https://w3id.org/ebwv#transparencyRegisterExtract",
-                    "@type": "@id"
-                },
-                "ultimateParent": {
-                    "@id": "https://w3id.org/ebwv#ultimateParent",
-                    "@type": "@id"
-                }
-            }
-        },
         "GeneralPartner": "https://w3id.org/ebwv#GeneralPartner",
         "GeneralPartnerHolding": {
             "@id": "https://w3id.org/ebwv#GeneralPartnerHolding",
@@ -569,17 +495,45 @@
                     "@id": "https://w3id.org/ebwv#balanceSheetDate",
                     "@type": "http://www.w3.org/2001/XMLSchema#date"
                 },
+                "beneficialOwnership": {
+                    "@id": "https://w3id.org/ebwv#beneficialOwnership",
+                    "@type": "@id"
+                },
                 "companyCategory": {
                     "@id": "https://w3id.org/ebwv#companyCategory",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "directParent": {
+                    "@id": "https://w3id.org/ebwv#directParent",
+                    "@type": "@id"
                 },
                 "domicile": {
                     "@id": "https://w3id.org/ebwv#domicile",
                     "@type": "@id"
                 },
+                "financialYear": {
+                    "@id": "https://w3id.org/ebwv#financialYear",
+                    "@type": "@id"
+                },
                 "formerName": {
                     "@id": "https://w3id.org/ebwv#formerName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "generalPartnerHolding": {
+                    "@id": "https://w3id.org/ebwv#generalPartnerHolding",
+                    "@type": "@id"
+                },
+                "handover": {
+                    "@id": "https://w3id.org/ebwv#handover",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "handoverDescription": {
+                    "@id": "https://w3id.org/ebwv#handoverDescription",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "handoverFlag": {
+                    "@id": "https://w3id.org/ebwv#handoverFlag",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
                 },
                 "insolvencyStatus": {
                     "@id": "https://w3id.org/ebwv#insolvencyStatus",
@@ -597,6 +551,18 @@
                     "@id": "https://w3id.org/ebwv#isTrust",
                     "@type": "http://www.w3.org/2001/XMLSchema#boolean"
                 },
+                "legalPersonGeneralPartner": {
+                    "@id": "https://w3id.org/ebwv#legalPersonGeneralPartner",
+                    "@type": "@id"
+                },
+                "legalRepresentative": {
+                    "@id": "https://w3id.org/ebwv#legalRepresentative",
+                    "@type": "@id"
+                },
+                "legalSuccessionReason": {
+                    "@id": "https://w3id.org/ebwv#legalSuccessionReason",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
                 "leiStatus": {
                     "@id": "https://w3id.org/ebwv#leiStatus",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -609,6 +575,10 @@
                     "@id": "https://w3id.org/ebwv#listedOnRegulatedMarket",
                     "@type": "http://www.w3.org/2001/XMLSchema#boolean"
                 },
+                "participation": {
+                    "@id": "https://w3id.org/ebwv#participation",
+                    "@type": "@id"
+                },
                 "register": {
                     "@id": "https://w3id.org/ebwv#register",
                     "@type": "@id"
@@ -617,12 +587,32 @@
                     "@id": "https://w3id.org/ebwv#regulator",
                     "@type": "@id"
                 },
+                "researchedSuccessorId": {
+                    "@id": "https://w3id.org/ebwv#researchedSuccessorId",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "researchTerminationReason": {
+                    "@id": "https://w3id.org/ebwv#researchTerminationReason",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "shareholder": {
+                    "@id": "https://w3id.org/ebwv#shareholder",
+                    "@type": "@id"
+                },
                 "stockExchangeListing": {
                     "@id": "https://w3id.org/ebwv#stockExchangeListing",
                     "@type": "@id"
                 },
                 "subscribedCapital": {
                     "@id": "https://w3id.org/ebwv#subscribedCapital",
+                    "@type": "@id"
+                },
+                "transparencyRegisterExtract": {
+                    "@id": "https://w3id.org/ebwv#transparencyRegisterExtract",
+                    "@type": "@id"
+                },
+                "ultimateParent": {
+                    "@id": "https://w3id.org/ebwv#ultimateParent",
                     "@type": "@id"
                 }
             }

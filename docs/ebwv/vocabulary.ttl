@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-10-13"^^xsd:date ;
+    dc:date "2026-10-15"^^xsd:date ;
 .
 
 # Property definitions
@@ -59,7 +59,7 @@ ebwv:accG10 a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:ShareInFocus ebwv:BeneficialOwnership) ] ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:ShareVotingPair ebwv:BeneficialOwnershipVariant) ] ;
     rdfs:label "accumulation 10% method" ;
-    rdfs:comment """<div>value computed under the accumulation method at the 10 percent threshold</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>determined under the accumulation (Addition) method with a 10 percent threshold (Grenze) - relative holdings of at least 10 percent are added up across all ownership paths (Straenge) that lead to the focus entity</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/accg10>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -68,7 +68,7 @@ ebwv:accG25 a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:ShareInFocus ebwv:BeneficialOwnership) ] ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:ShareVotingPair ebwv:BeneficialOwnershipVariant) ] ;
     rdfs:label "accumulation 25% method" ;
-    rdfs:comment """<div>value computed under the accumulation method at the 25 percent threshold</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>determined under the accumulation (Addition) method with a 25 percent threshold (Grenze) - relative holdings of at least 25 percent are added up across all ownership paths (Straenge) that lead to the focus entity</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/accg25>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -204,7 +204,7 @@ ebwv:balanceSheetTotal a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:beneficialOwnership a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:FocusLegalEntity ;
+    rdfs:domain ebwv:KycLegalEntity ;
     rdfs:range ebwv:BeneficialOwnership ;
     rdfs:label "beneficial ownership" ;
     rdfs:comment """<div>the beneficial-ownership analysis of the focus legal entity</div>"""^^rdf:HTML ;
@@ -240,7 +240,7 @@ ebwv:capitalBeneficialOwner a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:BeneficialOwnershipVariant ;
     rdfs:range ebwv:BeneficialOwner ;
     rdfs:label "capital beneficial owner" ;
-    rdfs:comment """<div>a beneficial owner determined on the basis of capital share</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>a beneficial owner determined on the basis of capital - a natural person who, directly or indirectly, holds a share of the capital (Kapitalanteile) of the focus legal entity that reaches the threshold of the enclosing calculation method (more than 25 percent under the standard method, or the 10 or 25 percent threshold of the accumulation and domination methods) (section 3(2) sentence 1 no. 1 GwG)</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/capitalbeneficialowner>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -432,7 +432,7 @@ ebwv:deliveryType a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:directParent a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:FocusLegalEntity ;
+    rdfs:domain ebwv:KycLegalEntity ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:LimitedLiabilityCompany ebwv:Partnership) ] ;
     rdfs:label "direct parent" ;
     rdfs:comment """<div>the direct parent company of the focus legal entity</div>"""^^rdf:HTML ;
@@ -453,7 +453,7 @@ ebwv:dom10 a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:ShareInFocus ebwv:BeneficialOwnership) ] ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:ShareVotingPair ebwv:BeneficialOwnershipVariant) ] ;
     rdfs:label "domination 10% method" ;
-    rdfs:comment """<div>value computed under the domination method at the 10 percent threshold</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>determined under the domination (Beherrschung) method with a 10 percent threshold (Grenze) - a holding is counted only along a chain in which controlling influence of at least 10 percent exists at every level, so that control passes through the chain to the focus entity</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/dom10>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -462,7 +462,7 @@ ebwv:dom25 a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:ShareInFocus ebwv:BeneficialOwnership) ] ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:ShareVotingPair ebwv:BeneficialOwnershipVariant) ] ;
     rdfs:label "domination 25% method" ;
-    rdfs:comment """<div>value computed under the domination method at the 25 percent threshold</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>determined under the domination (Beherrschung) method with a 25 percent threshold (Grenze) - a holding is counted only along a chain in which controlling influence of at least 25 percent exists at every level, so that control passes through the chain to the focus entity</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/dom25>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -577,7 +577,7 @@ ebwv:fictitiousBeneficialOwner a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:BeneficialOwnershipVariant ;
     rdfs:range ebwv:BeneficialOwner ;
     rdfs:label "fictitious beneficial owner" ;
-    rdfs:comment """<div>a fictitious (notional) beneficial owner, i.e. a legal representative treated as beneficial owner where no natural person qualifies</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>a fictitious (notional) beneficial owner (fiktiver wirtschaftlich Berechtigter) - where, after exhausting all available means, no natural person can be identified as beneficial owner by capital, voting rights or other control, the legal representatives, managing partners or managing directors of the focus legal entity are deemed to be the beneficial owners (section 3(2) sentence 5 GwG)</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/fictitiousbeneficialowner>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -592,7 +592,7 @@ ebwv:fictitiousBoReason a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:financialYear a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:FocusLegalEntity ;
+    rdfs:domain ebwv:KycLegalEntity ;
     rdfs:range ebwv:FinancialYear ;
     rdfs:label "financial year" ;
     rdfs:comment """<div>an annual financial statement of the focus legal entity</div>"""^^rdf:HTML ;
@@ -610,9 +610,9 @@ ebwv:flagState a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:focusEntity a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:KycCheck ;
-    rdfs:range ebwv:FocusLegalEntity ;
+    rdfs:range ebwv:Company ;
     rdfs:label "focus entity" ;
-    rdfs:comment """<div>the focus legal entity that is investigated as part of the KYC service</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>the focus legal entity (a company) that is investigated as part of the KYC service</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/focusentity>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -662,7 +662,7 @@ ebwv:gender a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:generalPartnerHolding a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:FocusLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
     rdfs:range ebwv:NaturalPersonGeneralPartnerHolding, ebwv:LegalPersonGeneralPartnerHolding ;
     rdfs:label "general partner holding" ;
     rdfs:comment """<div>a natural or legal person holding as general partner (Komplementär) of the entity</div>"""^^rdf:HTML ;
@@ -696,7 +696,7 @@ ebwv:givenName a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:handover a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:FocusLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
     rdfs:range xsd:boolean ;
     rdfs:label "handover" ;
     rdfs:comment """<div>indicator of whether the KYC research on the focus legal entity must be continued manually</div>"""^^rdf:HTML ;
@@ -705,7 +705,7 @@ ebwv:handover a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:handoverDescription a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:FocusLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
     rdfs:range xsd:string ;
     rdfs:label "handover description" ;
     rdfs:comment """<div>reason why a KYC analysis cannot be continued</div>"""^^rdf:HTML ;
@@ -714,7 +714,7 @@ ebwv:handoverDescription a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:handoverFlag a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:FocusLegalEntity ;
+    rdfs:domain ebwv:KycLegalEntity ;
     rdfs:range xsd:boolean ;
     rdfs:label "handover flag" ;
     rdfs:comment """<div>statement on whether the examination of the beneficial ownership structure is complete or incomplete</div>"""^^rdf:HTML ;
@@ -951,17 +951,8 @@ ebwv:legalName a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:legalPerson a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:FocusLegalEntity ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:LimitedLiabilityCompany ebwv:Partnership) ] ;
-    rdfs:label "legal person" ;
-    rdfs:comment """<div>the legal person (Rechtseinheit) that the focus legal entity refers to, either a limited liability company or a partnership</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:legalPersonGeneralPartner a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:FocusLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
     rdfs:range ebwv:LegalPersonGeneralPartnerHolding ;
     rdfs:label "legal person general partner" ;
     rdfs:comment """<div>a legal person acting as general partner (Komplementär) of the entity</div>"""^^rdf:HTML ;
@@ -970,7 +961,7 @@ ebwv:legalPersonGeneralPartner a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:legalRepresentative a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LimitedLiabilityCompany ebwv:FocusLegalEntity) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LimitedLiabilityCompany ebwv:KycLegalEntity) ] ;
     rdfs:range ebwv:LegalRepresentative ;
     rdfs:label "legal representative" ;
     rdfs:comment """<div>a natural person or economic operator that has authority, under law, the company's statutes, a register entry or another recognised legal basis, to represent a company in dealings with third parties, authorities or courts</div>"""^^rdf:HTML ;
@@ -988,7 +979,7 @@ ebwv:legalStatus a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:legalSuccessionReason a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:FocusLegalEntity ;
+    rdfs:domain ebwv:KycLegalEntity ;
     rdfs:range xsd:string ;
     rdfs:label "legal succession reason" ;
     rdfs:comment """<div>reason for the legal succession, such as a change of seat or a change of legal form</div>"""^^rdf:HTML ;
@@ -1226,7 +1217,7 @@ ebwv:otherControlBeneficialOwner a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:BeneficialOwnershipVariant ;
     rdfs:range ebwv:BeneficialOwner ;
     rdfs:label "other control beneficial owner" ;
-    rdfs:comment """<div>a beneficial owner determined on the basis of other forms of control</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>a beneficial owner determined on the basis of control exercised in another comparable way (auf vergleichbare Weise Kontrolle) rather than through capital or voting rights - for example through voting or control agreements, the right to appoint or remove the management, veto rights or another dominant influence; the concrete basis is stated in otherControlReason (section 3(2) sentence 1 no. 3 GwG)</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/othercontrolbeneficialowner>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -1258,7 +1249,7 @@ ebwv:ownershipPercentage a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:participation a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:FocusLegalEntity ;
+    rdfs:domain ebwv:KycLegalEntity ;
     rdfs:range ebwv:Participation ;
     rdfs:label "participation" ;
     rdfs:comment """<div>a participation held by the focus legal entity in another legal person</div>"""^^rdf:HTML ;
@@ -1611,7 +1602,7 @@ ebwv:reportingPeriod a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:researchedSuccessorId a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:FocusLegalEntity ;
+    rdfs:domain ebwv:KycLegalEntity ;
     rdfs:range xsd:string ;
     rdfs:label "researched successor id" ;
     rdfs:comment """<div>successor identifier used when an ordered company was inactive and one or more successor companies were researched instead</div>"""^^rdf:HTML ;
@@ -1620,7 +1611,7 @@ ebwv:researchedSuccessorId a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:researchTerminationReason a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:FocusLegalEntity ;
+    rdfs:domain ebwv:KycLegalEntity ;
     rdfs:range xsd:string ;
     rdfs:label "research termination reason" ;
     rdfs:comment """<div>reason why a research had to be aborted, for example the company being inactive</div>"""^^rdf:HTML ;
@@ -1673,7 +1664,7 @@ ebwv:scopeOfPower a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:shareholder a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:FocusLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:NaturalPersonShareholder ebwv:LegalPersonShareholder) ] ;
     rdfs:label "shareholder" ;
     rdfs:comment """<div>a natural or legal person holding shares in the entity</div>"""^^rdf:HTML ;
@@ -1730,7 +1721,7 @@ ebwv:standard a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:ShareInFocus ebwv:BeneficialOwnership) ] ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:ShareVotingPair ebwv:BeneficialOwnershipVariant) ] ;
     rdfs:label "standard method" ;
-    rdfs:comment """<div>value computed under the standard calculation method</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>share and control determined under the standard method - the statutory GwG calculation under which a natural person qualifies as beneficial owner when holding, directly or indirectly, more than 25 percent of the capital shares or voting rights, or exercising control in a comparable manner</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/standard>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -1866,7 +1857,7 @@ ebwv:transparencyRegister a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:transparencyRegisterExtract a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:FocusLegalEntity ;
+    rdfs:domain ebwv:KycLegalEntity ;
     rdfs:range ebwv:TransparencyRegisterExtract ;
     rdfs:label "transparency register extract" ;
     rdfs:comment """<div>a transparency register extract obtained for the focus legal entity</div>"""^^rdf:HTML ;
@@ -1901,7 +1892,7 @@ ebwv:typeOfRepresentation a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:ultimateParent a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:FocusLegalEntity ;
+    rdfs:domain ebwv:KycLegalEntity ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:LimitedLiabilityCompany ebwv:Partnership) ] ;
     rdfs:label "ultimate parent" ;
     rdfs:comment """<div>the ultimate (top) parent company of the focus legal entity</div>"""^^rdf:HTML ;
@@ -1949,7 +1940,7 @@ ebwv:votingRightsBeneficialOwner a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:BeneficialOwnershipVariant ;
     rdfs:range ebwv:BeneficialOwner ;
     rdfs:label "voting rights beneficial owner" ;
-    rdfs:comment """<div>a beneficial owner determined on the basis of voting rights</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>a beneficial owner determined on the basis of voting rights - a natural person who, directly or indirectly, controls a share of the voting rights (Stimmrechte) of the focus legal entity that reaches the threshold of the enclosing calculation method (more than 25 percent under the standard method, or the 10 or 25 percent threshold of the accumulation and domination methods) (section 3(2) sentence 1 no. 2 GwG)</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/votingrightsbeneficialowner>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -2085,13 +2076,6 @@ ebwv:FinancialYear a rdfs:Class ;
     rdfs:label "financial year" ;
     rdfs:comment """<div>an annual financial statement (Geschäftsjahr) of the focus legal entity, reporting size class, revenue, operating result, balance sheet total, headcount and the statement date</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/financialyear>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:FocusLegalEntity a rdfs:Class ;
-    rdfs:label "focus legal entity" ;
-    rdfs:comment """<div>the legal entity that is the subject of the KYC investigation, together with KYC process metadata such as handover indicators and research-termination reasons</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/focuslegalentity>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -2351,7 +2335,7 @@ ebwv:Shareholding a rdfs:Class ;
 
 ebwv:ShareInFocus a rdfs:Class ;
     rdfs:label "share in focus entity" ;
-    rdfs:comment """<div>the capital and voting share a holder has in the focus legal entity, broken down by beneficial-ownership calculation method (standard, accumulation and domination thresholds at 10 and 25 percent)</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>the capital and voting share a holder has in the focus legal entity, computed under the several beneficial-ownership calculation methods used in German anti-money-laundering practice (GwG / Transparenzregister). Each method yields a relative capital share together with the relative voting rights; the methods differ in how indirect holdings along an ownership path (Strang) are counted and at which threshold (Grenze) a holding is recognised - see the standard, accG10, accG25, dom10 and dom25 properties</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/shareinfocus>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
