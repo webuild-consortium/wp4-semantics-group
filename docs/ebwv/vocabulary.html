@@ -167,7 +167,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-10-02</time>
+                <time property="dc:date" id="time">2026-10-16</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -347,6 +347,7 @@
                         <li><a href="#PublicSectorBodyId"><code>PublicSectorBodyId<code></code></code></a></li>
                         <li><a href="#QEAA"><code>QEAA<code></code></code></a></li>
                         <li><a href="#RegistrationAndClosingOfBranches"><code>RegistrationAndClosingOfBranches<code></code></code></a></li>
+                        <li><a href="#Residency"><code>Residency<code></code></code></a></li>
                         <li><a href="#ScopeOfPower"><code>ScopeOfPower<code></code></code></a></li>
                         <li><a href="#Site"><code>Site<code></code></code></a></li>
                         <li><a href="#SocialSecurityContribution"><code>SocialSecurityContribution<code></code></code></a></li>
@@ -371,6 +372,7 @@
                         <li><a href="#administrativeRepresentative"><code>administrativeRepresentative<code></code></code></a></li>
                         <li><a href="#alternativeName"><code>alternativeName<code></code></code></a></li>
                         <li><a href="#amount"><code>amount<code></code></code></a></li>
+                        <li><a href="#arrivalDate"><code>arrivalDate<code></code></code></a></li>
                         <li><a href="#assignment"><code>assignment<code></code></code></a></li>
                         <li><a href="#attestationLegalCategory"><code>attestationLegalCategory<code></code></code></a></li>
                         <li><a href="#averagePeriodWorkforce"><code>averagePeriodWorkforce<code></code></code></a></li>
@@ -585,22 +587,6 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="hasAddress">
-                <h4><code>hasAddress</code></h4>
-                <p><em>hasAddress</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress">formal definition of the term</a>.</p>
-                <div>the address of an entity, provided the address is not of a specific type like registered address or temporary address</div>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#Site"><code>Site</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><a href="#Address"><code>Address</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="addressArea">
                 <h4><code>addressArea</code></h4>
                 <p><em>address area</em></p>
@@ -688,6 +674,22 @@
                     <dd><a href="#MonetaryAmount"><code>MonetaryAmount</code></a></dd>
                     <dt>Range:</dt>
                     <dd><code>xsd:float</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="arrivalDate">
+                <h4><code>arrivalDate</code></h4>
+                <p><em>arrival date</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaldate">formal definition of the term</a>.</p>
+                <div>the date since when the person resides at this address</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Residency"><code>Residency</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:date</code></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1240,6 +1242,22 @@
                     <dd><a href="#NaturalPerson"><code>NaturalPerson</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasAddress">
+                <h4><code>hasAddress</code></h4>
+                <p><em>hasAddress</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress">formal definition of the term</a>.</p>
+                <div>the address of an entity, provided the address is not of a specific type like registered address or temporary address</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Site"><code>Site</code></a> ⊔&nbsp;<a href="#Residency"><code>Residency</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Address"><code>Address</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1889,7 +1907,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a></dd>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a> ⊔&nbsp;<a href="#Residency"><code>Residency</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#NaturalPerson"><code>NaturalPerson</code></a></dd>
                 </dl>
@@ -2136,26 +2154,6 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="scopeOfPower">
-                <h4><code>scopeOfPower</code></h4>
-                <p><em>scope of power</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower">formal definition of the term</a>.</p>
-                <div>The scope of the power given to a mandatee.</div>
-                <dl class="terms">
-                    <dt>Domain:</dt>
-                    <dd><a href="#PowerOfAttorney"><code>PowerOfAttorney</code></a></dd>
-                    <dt>Range:</dt>
-                    <dd><a href="#ScopeOfPower"><code>ScopeOfPower</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Value may be one of:</dt>
-                    <dd><a href="#FormationOfCompanies"><code>FormationOfCompanies</code></a>, <a href="#ConstitutionOfCompanies"><code>ConstitutionOfCompanies</code></a>, <a href="#RegistrationAndClosingOfBranches"><code>RegistrationAndClosingOfBranches</code></a>, <a href="#CrossBoarderConversions"><code>CrossBoarderConversions</code></a>, <a href="#CrossBoarderMergers"><code>CrossBoarderMergers</code></a>, <a href="#CrossBorderDivisions"><code>CrossBorderDivisions</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="registeredAddress">
                 <h4><code>registeredAddress</code></h4>
                 <p><em>registered address</em></p>
@@ -2237,20 +2235,20 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="typeOfRepresentation">
-                <h4><code>typeOfRepresentation</code></h4>
-                <p><em>type of representation</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation">formal definition of the term</a>.</p>
-                <div>specifies how a representative may act on behalf of the principal, meaning whether they can act alone or only together with others.</div>
+            <section id="scopeOfPower">
+                <h4><code>scopeOfPower</code></h4>
+                <p><em>scope of power</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower">formal definition of the term</a>.</p>
+                <div>The scope of the power given to a mandatee.</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalRepresentative"><code>LegalRepresentative</code></a> ⊔&nbsp;<a href="#StatutoryPartner"><code>StatutoryPartner</code></a></dd>
+                    <dd><a href="#PowerOfAttorney"><code>PowerOfAttorney</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#TypeOfRepresentation"><code>TypeOfRepresentation</code></a></dd>
+                    <dd><a href="#ScopeOfPower"><code>ScopeOfPower</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Value may be one of:</dt>
-                    <dd><a href="#Alone"><code>Alone</code></a>, <a href="#Jointly"><code>Jointly</code></a></dd>
+                    <dd><a href="#FormationOfCompanies"><code>FormationOfCompanies</code></a>, <a href="#ConstitutionOfCompanies"><code>ConstitutionOfCompanies</code></a>, <a href="#RegistrationAndClosingOfBranches"><code>RegistrationAndClosingOfBranches</code></a>, <a href="#CrossBoarderConversions"><code>CrossBoarderConversions</code></a>, <a href="#CrossBoarderMergers"><code>CrossBoarderMergers</code></a>, <a href="#CrossBorderDivisions"><code>CrossBorderDivisions</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2513,6 +2511,26 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="typeOfRepresentation">
+                <h4><code>typeOfRepresentation</code></h4>
+                <p><em>type of representation</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation">formal definition of the term</a>.</p>
+                <div>specifies how a representative may act on behalf of the principal, meaning whether they can act alone or only together with others.</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#LegalRepresentative"><code>LegalRepresentative</code></a> ⊔&nbsp;<a href="#StatutoryPartner"><code>StatutoryPartner</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#TypeOfRepresentation"><code>TypeOfRepresentation</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Value may be one of:</dt>
+                    <dd><a href="#Alone"><code>Alone</code></a>, <a href="#Jointly"><code>Jointly</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="url">
                 <h4><code>url</code></h4>
                 <p><em>url</em></p>
@@ -2560,9 +2578,9 @@
                 </dl>
                 <dl class="terms">
                     <dt>Domain of:</dt>
-                    <dd><a href="#fullPeriodCovered"><code>fullPeriodCovered</code></a>, <a href="#noFixedPlaceOfWork"><code>noFixedPlaceOfWork</code></a>, <a href="#person"><code>person</code></a>, <a href="#provisionalDetermination"><code>provisionalDetermination</code></a>, <a href="#statusConfirmation"><code>statusConfirmation</code></a>, <a href="#transitionalRules"><code>transitionalRules</code></a></dd>
+                    <dd><a href="#fullPeriodCovered"><code>fullPeriodCovered</code></a>, <a href="#noFixedPlaceOfWork"><code>noFixedPlaceOfWork</code></a>, <a href="#provisionalDetermination"><code>provisionalDetermination</code></a>, <a href="#statusConfirmation"><code>statusConfirmation</code></a>, <a href="#transitionalRules"><code>transitionalRules</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#employer"><code>employer</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#placeOfWork"><code>placeOfWork</code></a>, <a href="#typeOfEmployment"><code>typeOfEmployment</code></a></dd>
+                    <dd><a href="#employer"><code>employer</code></a>, <a href="#jurisdiction"><code>jurisdiction</code></a>, <a href="#person"><code>person</code></a>, <a href="#placeOfWork"><code>placeOfWork</code></a>, <a href="#typeOfEmployment"><code>typeOfEmployment</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -2575,7 +2593,7 @@
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/address">formal definition of the term</a>.</p>
                 <dl class="terms">
                     <dt>Range of:</dt>
-                    <dd><a href="#hasAddress"><code>hasAddress</code></a>, <a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#domicile"><code>domicile</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a>, <a href="#temporaryAddress"><code>temporaryAddress</code></a></dd>
+                    <dd><a href="#correspondenceAddress"><code>correspondenceAddress</code></a>, <a href="#domicile"><code>domicile</code></a>, <a href="#hasAddress"><code>hasAddress</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a>, <a href="#temporaryAddress"><code>temporaryAddress</code></a></dd>
                     <dt>Includes the range of:</dt>
                     <dd><a href="#deliveryLocation"><code>deliveryLocation</code></a>, <a href="#placeOfWork"><code>placeOfWork</code></a></dd>
                     <dt>Domain of:</dt>
@@ -2780,6 +2798,24 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="CorporateRole">
+                <h4><code>CorporateRole</code></h4>
+                <p><em>corporate role</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/corporaterole">formal definition of the term</a>.</p>
+                <div>a function held by a legal representative or statutory partner within a company, e.g. CEO or CFO</div>
+                <dl class="terms">
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#role"><code>role</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Individuals:</dt>
+                    <dd><a href="#CEO"><code>CEO</code></a>, <a href="#CFO"><code>CFO</code></a>, <a href="#HeadOfHR"><code>HeadOfHR</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1">
                 <h4><code>CredentialSubject</code></h4>
                 <p><em>Credential Subject</em></p>
@@ -2791,7 +2827,7 @@
                 </p>
                 <dl class="terms">
                     <dt>Superclass of:</dt>
-                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a>, <a href="#BankAccount"><code>BankAccount</code></a>, <a href="#Company"><code>Company</code></a>, <a href="#DUNS"><code>DUNS</code></a>, <a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a>, <a href="#GLN"><code>GLN</code></a>, <a href="#LegalEntityIdentifier"><code>LegalEntityIdentifier</code></a>, <a href="#LegalPerson"><code>LegalPerson</code></a>, <a href="#Membership"><code>Membership</code></a>, <a href="#NaturalPerson"><code>NaturalPerson</code></a>, <a href="#PaymentTerms"><code>PaymentTerms</code></a>, <a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a>, <a href="#PowerOfAttorney"><code>PowerOfAttorney</code></a>, <a href="#SocialSecurityContribution"><code>SocialSecurityContribution</code></a></dd>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a>, <a href="#BankAccount"><code>BankAccount</code></a>, <a href="#Company"><code>Company</code></a>, <a href="#DUNS"><code>DUNS</code></a>, <a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a>, <a href="#GLN"><code>GLN</code></a>, <a href="#LegalEntityIdentifier"><code>LegalEntityIdentifier</code></a>, <a href="#LegalPerson"><code>LegalPerson</code></a>, <a href="#Membership"><code>Membership</code></a>, <a href="#NaturalPerson"><code>NaturalPerson</code></a>, <a href="#PaymentTerms"><code>PaymentTerms</code></a>, <a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a>, <a href="#PowerOfAttorney"><code>PowerOfAttorney</code></a>, <a href="#Residency"><code>Residency</code></a>, <a href="#SocialSecurityContribution"><code>SocialSecurityContribution</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -3590,24 +3626,6 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="CorporateRole">
-                <h4><code>CorporateRole</code></h4>
-                <p><em>corporate role</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/corporaterole">formal definition of the term</a>.</p>
-                <div>a function held by a legal representative or statutory partner within a company, e.g. CEO or CFO</div>
-                <dl class="terms">
-                    <dt>Includes the range of:</dt>
-                    <dd><a href="#role"><code>role</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Individuals:</dt>
-                    <dd><a href="#CEO"><code>CEO</code></a>, <a href="#CFO"><code>CFO</code></a>, <a href="#HeadOfHR"><code>HeadOfHR</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="Partnership">
                 <h4><code>Partnership</code></h4>
                 <p><em>partnership</em></p>
@@ -4099,23 +4117,58 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="TypeOfRepresentation">
-                <h4><code>TypeOfRepresentation</code></h4>
-                <p><em>type of representation</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation">formal definition of the term</a>.</p>
-                <div>type of representation meaning Alone or Jointly</div>
+            <section id="Residency">
+                <h4><code>Residency</code></h4>
+                <p><em>residency</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/residency">formal definition of the term</a>.</p>
+                <div>the residency of a natural person at an address, stating the person, the address and the date since when the person resides there</div>
                 <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#typeOfRepresentation"><code>typeOfRepresentation</code></a></dd>
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
                 </dl>
                 <dl class="terms">
-                    <dt>Individuals:</dt>
-                    <dd><a href="#Alone"><code>Alone</code></a>, <a href="#Jointly"><code>Jointly</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#arrivalDate"><code>arrivalDate</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#hasAddress"><code>hasAddress</code></a>, <a href="#person"><code>person</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="Credential with credential subject of type Residency">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/ebwv/v0.1"
+  ],
+  "@id": "urn:uuid:6b5caa7e-2c1d-4a9f-8e7b-0c1a2b3c4d5e",
+  "@type": [
+    "VerifiableCredential",
+    "ElectronicAttestationOfAttributes"
+  ],
+  "attestationLegalCategory": "EAA",
+  "credentialSubject": {
+    "@id": "urn:uuid:b6ef9582-12cf-4287-b009-33f90b6b13bc",
+    "@type": "Residency",
+    "person": "did:key:$publicKeyOfPerson$",
+    "arrivalDate": "2020-06-01",
+    "hasAddress": {
+      "@type": "Address",
+      "thoroughfare": "Musterstrasse",
+      "locatorDesignator": "1",
+      "postCode": "80000",
+      "postName": "München",
+      "adminUnitL2": "Bayern",
+      "adminUnitL1": "DE"
+    }
+  },
+  "validFrom": "2020-06-01T00:00:00Z",
+  "validUntil": "2030-06-01T00:00:00Z",
+  "issuer": "did:key:$publicKeyOfIssuer$"
+}
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A%20%20%22%40context%22%3A%20%5B%0A%20%20%20%20%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A%20%20%20%20%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A%20%20%5D%2C%0A%20%20%22%40id%22%3A%20%22urn%3Auuid%3A6b5caa7e-2c1d-4a9f-8e7b-0c1a2b3c4d5e%22%2C%0A%20%20%22%40type%22%3A%20%5B%0A%20%20%20%20%22VerifiableCredential%22%2C%0A%20%20%20%20%22ElectronicAttestationOfAttributes%22%0A%20%20%5D%2C%0A%20%20%22attestationLegalCategory%22%3A%20%22EAA%22%2C%0A%20%20%22credentialSubject%22%3A%20%7B%0A%20%20%20%20%22%40id%22%3A%20%22urn%3Auuid%3Ab6ef9582-12cf-4287-b009-33f90b6b13bc%22%2C%0A%20%20%20%20%22%40type%22%3A%20%22Residency%22%2C%0A%20%20%20%20%22person%22%3A%20%22did%3Akey%3A%24publicKeyOfPerson%24%22%2C%0A%20%20%20%20%22arrivalDate%22%3A%20%222020-06-01%22%2C%0A%20%20%20%20%22hasAddress%22%3A%20%7B%0A%20%20%20%20%20%20%22%40type%22%3A%20%22Address%22%2C%0A%20%20%20%20%20%20%22thoroughfare%22%3A%20%22Musterstrasse%22%2C%0A%20%20%20%20%20%20%22locatorDesignator%22%3A%20%221%22%2C%0A%20%20%20%20%20%20%22postCode%22%3A%20%2280000%22%2C%0A%20%20%20%20%20%20%22postName%22%3A%20%22M%C3%BCnchen%22%2C%0A%20%20%20%20%20%20%22adminUnitL2%22%3A%20%22Bayern%22%2C%0A%20%20%20%20%20%20%22adminUnitL1%22%3A%20%22DE%22%0A%20%20%20%20%7D%0A%20%20%7D%2C%0A%20%20%22validFrom%22%3A%20%222020-06-01T00%3A00%3A00Z%22%2C%0A%20%20%22validUntil%22%3A%20%222030-06-01T00%3A00%3A00Z%22%2C%0A%20%20%22issuer%22%3A%20%22did%3Akey%3A%24publicKeyOfIssuer%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
             </section>
             <section id="ScopeOfPower">
                 <h4><code>ScopeOfPower</code></h4>
@@ -4128,7 +4181,7 @@
                 </dl>
                 <dl class="terms">
                     <dt>Individuals:</dt>
-                    <dd><a href="#FormationOfCompanies"><code>FormationOfCompanies</code></a>, <a href="#ConstitutionOfCompanies"><code>ConstitutionOfCompanies</code></a>, <a href="#RegistrationAndClosingOfBranches"><code>RegistrationAndClosingOfBranches</code></a>, <a href="#CrossBoarderConversions"><code>CrossBoarderConversions</code></a>, <a href="#CrossBoarderMergers"><code>CrossBoarderMergers</code></a>, <a href="#CrossBorderDivisions"><code>CrossBorderDivisions</code></a></dd>
+                    <dd><a href="#ConstitutionOfCompanies"><code>ConstitutionOfCompanies</code></a>, <a href="#CrossBoarderConversions"><code>CrossBoarderConversions</code></a>, <a href="#CrossBoarderMergers"><code>CrossBoarderMergers</code></a>, <a href="#CrossBorderDivisions"><code>CrossBorderDivisions</code></a>, <a href="#FormationOfCompanies"><code>FormationOfCompanies</code></a>, <a href="#RegistrationAndClosingOfBranches"><code>RegistrationAndClosingOfBranches</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -4143,10 +4196,8 @@
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#hasSite"><code>hasSite</code></a></dd>
-                    <dt>Domain of:</dt>
-                    <dd><a href="#hasAddress"><code>hasAddress</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#identifier"><code>identifier</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
+                    <dd><a href="#hasAddress"><code>hasAddress</code></a>, <a href="#identifier"><code>identifier</code></a>, <a href="#registeredAddress"><code>registeredAddress</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -4200,6 +4251,24 @@
                 <dl class="terms">
                     <dt>Individuals:</dt>
                     <dd><a href="#Permanent"><code>Permanent</code></a>, <a href="#Temporary"><code>Temporary</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="TypeOfRepresentation">
+                <h4><code>TypeOfRepresentation</code></h4>
+                <p><em>type of representation</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation">formal definition of the term</a>.</p>
+                <div>type of representation meaning Alone or Jointly</div>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#typeOfRepresentation"><code>typeOfRepresentation</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Individuals:</dt>
+                    <dd><a href="#Alone"><code>Alone</code></a>, <a href="#Jointly"><code>Jointly</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -4374,23 +4443,6 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
-            <section id="Eori">
-                <h4><code>Eori</code></h4>
-                <p><em>economic operator registration and identification</em></p>
-                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/eori">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Derived from:</dt>
-                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Includes the range of:</dt>
-                    <dd><a href="#identifier"><code>identifier</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                </dl>
-            </section>
             <section id="DunsNumber">
                 <h4><code>DunsNumber</code></h4>
                 <p><em>DUNS number</em></p>
@@ -4403,6 +4455,23 @@
                 <dl class="terms">
                     <dt>Restriction pattern: </dt>
                     <dd>"[0-9]{9}"</dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#identifier"><code>identifier</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="Eori">
+                <h4><code>Eori</code></h4>
+                <p><em>economic operator registration and identification</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/eori">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Derived from:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Includes the range of:</dt>
@@ -4798,6 +4867,70 @@
                     </dl>
                 </section>
             </section>
+            <section id="individuals_of_ebwv_ScopeOfPower">
+                <h4>Individuals of type <a href="#ScopeOfPower"><code>ScopeOfPower</code></a></h4>
+                <p>This section lists the individuals of type <a href="#ScopeOfPower"><code>ScopeOfPower</code></a>.</p>
+                <section id="ConstitutionOfCompanies">
+                    <h4><code>ConstitutionOfCompanies</code></h4>
+                    <p><em>constitution of companies</em></p>
+                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/constitutionofcompanies">formal definition of the term</a>.</p>
+                    <div>Changes to the instrument of constitution of companies and the statutes if contained in a separate instrument.</div>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="CrossBoarderConversions">
+                    <h4><code>CrossBoarderConversions</code></h4>
+                    <p><em>cross boarder conversions</em></p>
+                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/crossboarderconversions">formal definition of the term</a>.</p>
+                    <div>All legal transactions regarding cross-border conversions involving the Company.</div>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="CrossBoarderMergers">
+                    <h4><code>CrossBoarderMergers</code></h4>
+                    <p><em>cross boarder mergers</em></p>
+                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/crossboardermergers">formal definition of the term</a>.</p>
+                    <div>All legal transactions regarding cross border mergers involving the Company.</div>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="CrossBorderDivisions">
+                    <h4><code>CrossBorderDivisions</code></h4>
+                    <p><em>cross border divisions</em></p>
+                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/crossborderdivisions">formal definition of the term</a>.</p>
+                    <div>All legal transactions regarding cross border divisions involving the Company</div>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="FormationOfCompanies">
+                    <h4><code>FormationOfCompanies</code></h4>
+                    <p><em>formation of companies</em></p>
+                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/sopeofpower">formal definition of the term</a>.</p>
+                    <div>The formation of companies.</div>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+                <section id="RegistrationAndClosingOfBranches">
+                    <h4><code>RegistrationAndClosingOfBranches</code></h4>
+                    <p><em>registration and closing of branches</em></p>
+                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/registrationandclosingofbranches">formal definition of the term</a>.</p>
+                    <div>Registration and closure of branches of the Company.</div>
+                    <dl class="terms">
+                        <dt>Relevant <code>@context</code>:</dt>
+                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                    </dl>
+                </section>
+            </section>
             <section id="individuals_of_ebwv_DataSpaceRole">
                 <h4>Individuals of type <a href="#DataSpaceRole"><code>DataSpaceRole</code></a></h4>
                 <p>This section lists the individuals of type <a href="#DataSpaceRole"><code>DataSpaceRole</code></a>.</p>
@@ -4896,70 +5029,6 @@
                     <h4><code>Temporary</code></h4>
                     <p><em>Temporary</em></p>
                     <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary">formal definition of the term</a>.</p>
-                    <dl class="terms">
-                        <dt>Relevant <code>@context</code>:</dt>
-                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                    </dl>
-                </section>
-            </section>
-            <section id="individuals_of_ebwv_ScopeOfPower">
-                <h4>Individuals of type <a href="#ScopeOfPower"><code>ScopeOfPower</code></a></h4>
-                <p>This section lists the individuals of type <a href="#ScopeOfPower"><code>ScopeOfPower</code></a>.</p>
-                <section id="FormationOfCompanies">
-                    <h4><code>FormationOfCompanies</code></h4>
-                    <p><em>formation of companies</em></p>
-                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/sopeofpower">formal definition of the term</a>.</p>
-                    <div>The formation of companies.</div>
-                    <dl class="terms">
-                        <dt>Relevant <code>@context</code>:</dt>
-                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                    </dl>
-                </section>
-                <section id="ConstitutionOfCompanies">
-                    <h4><code>ConstitutionOfCompanies</code></h4>
-                    <p><em>constitution of companies</em></p>
-                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/constitutionofcompanies">formal definition of the term</a>.</p>
-                    <div>Changes to the instrument of constitution of companies and the statutes if contained in a separate instrument.</div>
-                    <dl class="terms">
-                        <dt>Relevant <code>@context</code>:</dt>
-                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                    </dl>
-                </section>
-                <section id="RegistrationAndClosingOfBranches">
-                    <h4><code>RegistrationAndClosingOfBranches</code></h4>
-                    <p><em>registration and closing of branches</em></p>
-                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/registrationandclosingofbranches">formal definition of the term</a>.</p>
-                    <div>Registration and closure of branches of the Company.</div>
-                    <dl class="terms">
-                        <dt>Relevant <code>@context</code>:</dt>
-                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                    </dl>
-                </section>
-                <section id="CrossBoarderConversions">
-                    <h4><code>CrossBoarderConversions</code></h4>
-                    <p><em>cross boarder conversions</em></p>
-                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/crossboarderconversions">formal definition of the term</a>.</p>
-                    <div>All legal transactions regarding cross-border conversions involving the Company.</div>
-                    <dl class="terms">
-                        <dt>Relevant <code>@context</code>:</dt>
-                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                    </dl>
-                </section>
-                <section id="CrossBoarderMergers">
-                    <h4><code>CrossBoarderMergers</code></h4>
-                    <p><em>cross boarder mergers</em></p>
-                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/crossboardermergers">formal definition of the term</a>.</p>
-                    <div>All legal transactions regarding cross border mergers involving the Company.</div>
-                    <dl class="terms">
-                        <dt>Relevant <code>@context</code>:</dt>
-                        <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
-                    </dl>
-                </section>
-                <section id="CrossBorderDivisions">
-                    <h4><code>CrossBorderDivisions</code></h4>
-                    <p><em>cross border divisions</em></p>
-                    <p>See the <a href="https:/w3id.org/ebwv/terminology#/concept/crossborderdivisions">formal definition of the term</a>.</p>
-                    <div>All legal transactions regarding cross border divisions involving the Company</div>
                     <dl class="terms">
                         <dt>Relevant <code>@context</code>:</dt>
                         <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>

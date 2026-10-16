@@ -174,6 +174,11 @@ class:
     comment: a designated communication channel or organisational function through which an entity can be contacted for a specific purpose
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
 
+  - id: CorporateRole
+    label: corporate role
+    comment: a function held by a legal representative or statutory partner within a company, e.g. CEO or CFO
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/corporaterole
+
   - id: cred:CredentialSubject
     label: Credential Subject
     defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
@@ -700,11 +705,6 @@ class:
     label: onboarding details
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingdetails
 
-  - id: CorporateRole
-    label: corporate role
-    comment: a function held by a legal representative or statutory partner within a company, e.g. CEO or CFO
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/corporaterole
-
   - id: Partnership
     label: partnership
     upper_value: Company
@@ -1118,10 +1118,44 @@ class:
     comment: public sector body’ means a Union entity, a national, state, regional or local authority, a body governed by public law or an association formed by one or several such entities or bodies , or a private entity mandated by at least one such entities, authorities, bodies or associations to provide public services, when acting under such a mandate
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody
 
-  - id: TypeOfRepresentation
-    label: type of representation
-    comment: type of representation meaning Alone or Jointly
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation
+  - id: Residency
+    label: residency
+    upper_value: cred:CredentialSubject
+    comment: the residency of a natural person at an address, stating the person, the address and the date since when the person resides there
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
+    example:
+      - label: Credential with credential subject of type Residency
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:6b5caa7e-2c1d-4a9f-8e7b-0c1a2b3c4d5e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:b6ef9582-12cf-4287-b009-33f90b6b13bc",
+              "@type": "Residency",
+              "person": "did:key:$publicKeyOfPerson$",
+              "arrivalDate": "2020-06-01",
+              "hasAddress": {
+                "@type": "Address",
+                "thoroughfare": "Musterstrasse",
+                "locatorDesignator": "1",
+                "postCode": "80000",
+                "postName": "München",
+                "adminUnitL2": "Bayern",
+                "adminUnitL1": "DE"
+              }
+            },
+            "validFrom": "2020-06-01T00:00:00Z",
+            "validUntil": "2030-06-01T00:00:00Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
 
   - id: ScopeOfPower
     label: scope of power
@@ -1147,6 +1181,11 @@ class:
     label: Type Of Employment
     comment: the category or form of an employment relationship, indicating how a worker is employed or engaged by an employer
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
+
+  - id: TypeOfRepresentation
+    label: type of representation
+    comment: type of representation meaning Alone or Jointly
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation
 
   - id: UBO
     label: Ultimate Beneficiary Owner
@@ -1183,20 +1222,39 @@ individual:   # code lists
     type: CorporateRole
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cfo
 
-  - id: HeadOfHR
-    label: Head of Human Resources
-    type: CorporateRole
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/headofhr
-
   - id: CIP
     label: Carriage & Insurance Paid To
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cip
 
+  - id: ConstitutionOfCompanies
+    label: constitution of companies
+    type: ScopeOfPower
+    comment: Changes to the instrument of constitution of companies and the statutes if contained in a separate instrument.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/constitutionofcompanies
+
   - id: CPT
     label: Carriage Paid To
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt
+
+  - id: CrossBoarderConversions
+    label: cross boarder conversions
+    type: ScopeOfPower
+    comment: All legal transactions regarding cross-border conversions involving the Company.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossboarderconversions
+
+  - id: CrossBoarderMergers
+    label: cross boarder mergers
+    type: ScopeOfPower
+    comment: All legal transactions regarding cross border mergers involving the Company.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossboardermergers
+
+  - id: CrossBorderDivisions
+    label: cross border divisions
+    type: ScopeOfPower
+    comment: All legal transactions regarding cross border divisions involving the Company
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossborderdivisions
 
   - id: DAP
     label: Delivered At Place
@@ -1253,6 +1311,17 @@ individual:   # code lists
     type: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
 
+  - id: FormationOfCompanies
+    label: formation of companies
+    type: ScopeOfPower
+    comment: The formation of companies.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/sopeofpower
+
+  - id: HeadOfHR
+    label: Head of Human Resources
+    type: CorporateRole
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/headofhr
+
   - id: Jointly
     label: Jointly
     type: TypeOfRepresentation
@@ -1286,46 +1355,16 @@ individual:   # code lists
     type: AttestationLegalCategory
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA
 
-  - id: Temporary
-    label: Temporary
-    type: TypeOfEmployment
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary
-
-  - id: FormationOfCompanies
-    label: formation of companies
-    type: ScopeOfPower
-    comment: The formation of companies.
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/sopeofpower
-
-  - id: ConstitutionOfCompanies
-    label: constitution of companies
-    type: ScopeOfPower
-    comment: Changes to the instrument of constitution of companies and the statutes if contained in a separate instrument.
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/constitutionofcompanies
-
   - id: RegistrationAndClosingOfBranches
     label: registration and closing of branches
     type: ScopeOfPower
     comment: Registration and closure of branches of the Company.
     defined_by: https:/w3id.org/ebwv/terminology#/concept/registrationandclosingofbranches
 
-  - id: CrossBoarderConversions
-    label: cross boarder conversions
-    type: ScopeOfPower
-    comment: All legal transactions regarding cross-border conversions involving the Company.
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossboarderconversions
-
-  - id: CrossBoarderMergers
-    label: cross boarder mergers
-    type: ScopeOfPower
-    comment: All legal transactions regarding cross border mergers involving the Company.
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossboardermergers
-
-  - id: CrossBorderDivisions
-    label: cross border divisions
-    type: ScopeOfPower
-    comment: All legal transactions regarding cross border divisions involving the Company
-    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossborderdivisions
+  - id: Temporary
+    label: Temporary
+    type: TypeOfEmployment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary
 
 property:
   - id: a1
@@ -1361,14 +1400,6 @@ property:
       - Nace21
     comment: organised doing, operation or process carried out for a purpose or result
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
-
-  - id: hasAddress
-    label: hasAddress
-    domain: Site
-    range: Address
-    comment: the address of an entity, provided the address is not of a specific type like registered address or temporary address
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress
-
 
   - id: addressArea
     label: address area
@@ -1408,6 +1439,13 @@ property:
     domain: MonetaryAmount
     range: xsd:float
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
+
+  - id: arrivalDate
+    label: arrival date
+    domain: Residency
+    range: xsd:date
+    comment: the date since when the person resides at this address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaldate
 
   - id: assignment
     label: assignment
@@ -1665,6 +1703,15 @@ property:
     range: xsd:string
     comment: the name(s) that identify the person within a family with a common surname
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
+
+  - id: hasAddress
+    label: hasAddress
+    domain:
+      - Site
+      - Residency
+    range: Address
+    comment: the address of an entity, provided the address is not of a specific type like registered address or temporary address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress
 
   - id: hasEmail
     label: email
@@ -1999,7 +2046,9 @@ property:
 
   - id: person
     label: person
-    domain: A1Certificate
+    domain:
+      - A1Certificate
+      - Residency
     range: NaturalPerson
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject
 
@@ -2118,20 +2167,6 @@ property:
     comment: A human-readable note about caveat, limitation, condition that qualifies the interpretation of the attestation.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/qualificationnote
 
-  - id: scopeOfPower
-    label: scope of power
-    domain: PowerOfAttorney
-    range: ScopeOfPower
-    one_of:
-      - FormationOfCompanies
-      - ConstitutionOfCompanies
-      - RegistrationAndClosingOfBranches
-      - CrossBoarderConversions
-      - CrossBoarderMergers
-      - CrossBorderDivisions
-    comment: The scope of the power given to a mandatee.
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
-
   - id: registeredAddress
     label: registered address
     domain:
@@ -2185,15 +2220,19 @@ property:
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 
-  - id: typeOfRepresentation
-    label: type of representation
-    domain:
-      - LegalRepresentative
-      - StatutoryPartner
-    range: TypeOfRepresentation
-    comment: specifies how a representative may act on behalf of the principal, meaning whether they can act alone or only together with others.
-    one_of: [Alone, Jointly]
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation
+  - id: scopeOfPower
+    label: scope of power
+    domain: PowerOfAttorney
+    range: ScopeOfPower
+    one_of:
+      - FormationOfCompanies
+      - ConstitutionOfCompanies
+      - RegistrationAndClosingOfBranches
+      - CrossBoarderConversions
+      - CrossBoarderMergers
+      - CrossBorderDivisions
+    comment: The scope of the power given to a mandatee.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
 
   - id: socialRepresentative
     label: social representative
@@ -2305,6 +2344,16 @@ property:
     comment: the category or form of an employment relationship, indicating how a worker is employed or engaged by an employer
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
 
+  - id: typeOfRepresentation
+    label: type of representation
+    domain:
+      - LegalRepresentative
+      - StatutoryPartner
+    range: TypeOfRepresentation
+    comment: specifies how a representative may act on behalf of the principal, meaning whether they can act alone or only together with others.
+    one_of: [Alone, Jointly]
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation
+
   - id: url
     label: url
     domain: GovernanceRulebook
@@ -2353,17 +2402,17 @@ datatype:
       - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/currency
       - http://publications.europa.eu/resource/authority/currency
 
-  - id: Eori
-    label: economic operator registration and identification
-    upper_value: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
-
   - id: DunsNumber
     label: DUNS number
     upper_value: xsd:string
     pattern: '[0-9]{9}'
     comment: The Data Universal Numbering System, abbreviated as DUNS or D-U-N-S, is a proprietary system developed and managed by Dun & Bradstreet (D&B) that assigns a unique numeric identifier, referred to as a "DUNS number" to a single business entity.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dunsnumber
+
+  - id: Eori
+    label: economic operator registration and identification
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
 
   - id: Euid
     label: EUID
