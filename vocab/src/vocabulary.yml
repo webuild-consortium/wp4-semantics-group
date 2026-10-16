@@ -1486,12 +1486,49 @@ class:
     comment: the identification of a legal entity in an official company register, including the register type, the registering court or authority, and the register number
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeridentification
 
-  # --- KYC (delivery-json) ownership & financial classes ---
-
   - id: Regulator
     label: regulator
     comment: a supervisory authority (such as BaFin) at which the legal entity is registered, with the regulator-assigned identifier and the entity's regulatory classification
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/regulator
+
+  - id: Residency
+    label: residency
+    upper_value: cred:CredentialSubject
+    comment: the residency of a natural person at an address, stating the person, the address and the date since when the person resides there
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
+    example:
+      - label: Credential with credential subject of type Residency
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:6b5caa7e-2c1d-4a9f-8e7b-0c1a2b3c4d5e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:b6ef9582-12cf-4287-b009-33f90b6b13bc",
+              "@type": "Residency",
+              "person": "did:key:$publicKeyOfPerson$",
+              "arrivalDate": "2020-06-01",
+              "hasAddress": {
+                "@type": "Address",
+                "thoroughfare": "Musterstrasse",
+                "locatorDesignator": "1",
+                "postCode": "80000",
+                "postName": "München",
+                "adminUnitL2": "Bayern",
+                "adminUnitL1": "DE"
+              }
+            },
+            "validFrom": "2020-06-01T00:00:00Z",
+            "validUntil": "2030-06-01T00:00:00Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
 
   - id: ScopeOfPower
     label: scope of power
@@ -1881,6 +1918,13 @@ property:
     range: xsd:string
     comment: the transaction number assigned by the transparency register for the extract
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/applicationnumber
+
+  - id: arrivalDate
+    label: arrival date
+    domain: Residency
+    range: xsd:date
+    comment: the date since when the person resides at this address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaldate
 
   - id: assignment
     label: assignment
@@ -2382,6 +2426,15 @@ property:
     range: xsd:boolean
     comment: whether the extract carries a note that a discrepancy report (Unstimmigkeitsmeldung) exists
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasdiscrepancynote
+
+  - id: hasAddress
+    label: hasAddress
+    domain:
+      - Site
+      - Residency
+    range: Address
+    comment: the address of an entity, provided the address is not of a specific type like registered address or temporary address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress
 
   - id: hasEmail
     label: email
@@ -2891,7 +2944,9 @@ property:
 
   - id: person
     label: person
-    domain: A1Certificate
+    domain:
+      - A1Certificate
+      - Residency
     range: NaturalPerson
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject
 
@@ -3267,6 +3322,19 @@ property:
     range: ShareInFocus
     comment: the holder's total capital and voting share in the focus legal entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareinfocustotal
+  - id: scopeOfPower
+    label: scope of power
+    domain: PowerOfAttorney
+    range: ScopeOfPower
+    one_of:
+      - FormationOfCompanies
+      - ConstitutionOfCompanies
+      - RegistrationAndClosingOfBranches
+      - CrossBoarderConversions
+      - CrossBoarderMergers
+      - CrossBorderDivisions
+    comment: The scope of the power given to a mandatee.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
 
   - id: socialRepresentative
     label: social representative
