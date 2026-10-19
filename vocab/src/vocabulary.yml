@@ -1111,12 +1111,12 @@ class:
               },
               "partner": [
                 {
-                  "@id": "did:key:$publicKeyOfPartner1$",
-                  "@type": "GeneralPartner"
+                  "@type": "GeneralPartner",
+                  "legalEntity": "did:key:$publicKeyOfPartner1$"
                 },
                 {
-                  "@id": "did:key:$publicKeyOfPartner2$",
                   "@type": "LimitedPartner",
+                  "legalEntity": "did:key:$publicKeyOfPartner2$",
                   "liabilityOrContribution": {
                     "@type": "MonetaryAmount",
                     "amount": 100000,
@@ -1124,8 +1124,8 @@ class:
                   }
                 },
                 {
-                  "@id": "did:key:$publicKeyOfPartner3$",
                   "@type": "StatutoryPartner",
+                  "legalEntity": "did:key:$publicKeyOfPartner3$",
                   "role": "HeadOfHR",
                   "typeOfRepresentation": "Jointly"
                 }
@@ -1202,7 +1202,7 @@ class:
             ],
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
-              "@id": "did:key:$publicKeyOfHolder$",
+              "@id": "urn:uuid:8369f95f-829f-4d2a-ace3-d90d128dd45c",
               "@type": "PostedWorkerNotification",
               "postedWorker" : {
                 "@type": "NaturalPerson",
@@ -2617,6 +2617,9 @@ property:
     label: legal entity
     domain:
       - LegalRepresentative
+      - GeneralPartner
+      - LimitedPartner
+      - StatutoryPartner
       - Participation
       - Shareholder
       - GeneralPartnerHolding
