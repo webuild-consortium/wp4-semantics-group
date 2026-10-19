@@ -264,7 +264,16 @@
                 }
             }
         },
-        "GeneralPartner": "https://w3id.org/ebwv#GeneralPartner",
+        "GeneralPartner": {
+            "@id": "https://w3id.org/ebwv#GeneralPartner",
+            "@context": {
+                "@protected": true,
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
+                }
+            }
+        },
         "GLN": {
             "@id": "https://w3id.org/ebwv#GLN",
             "@context": {
@@ -370,6 +379,10 @@
             "@id": "https://w3id.org/ebwv#LegalRepresentative",
             "@context": {
                 "@protected": true,
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
+                },
                 "role": {
                     "@id": "https://w3id.org/ebwv#role",
                     "@type": "@vocab",
@@ -440,6 +453,10 @@
             "@id": "https://w3id.org/ebwv#LimitedPartner",
             "@context": {
                 "@protected": true,
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
+                },
                 "liabilityOrContribution": {
                     "@id": "https://w3id.org/ebwv#liabilityOrContribution",
                     "@type": "@id"
@@ -858,6 +875,10 @@
             "@id": "https://w3id.org/ebwv#StatutoryPartner",
             "@context": {
                 "@protected": true,
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
+                },
                 "role": {
                     "@id": "https://w3id.org/ebwv#role",
                     "@type": "@vocab",

@@ -556,14 +556,14 @@ class:
               },
               "legalRepresentative": [
                 {
-                  "@id": "did:key:$publicKeyOfRepresentative1$",
                   "@type": "LegalRepresentative",
+                  "legalEntity": "did:key:$publicKeyOfRepresentative1$",
                   "role": "CEO",
                   "typeOfRepresentation": "Alone"
                 },
                 {
-                  "@id": "did:key:$publicKeyOfRepresentative2$",
                   "@type": "LegalRepresentative",
+                  "legalEntity": "did:key:$publicKeyOfRepresentative2$",
                   "role": "CFO",
                   "typeOfRepresentation": "Alone"
                 }
@@ -748,12 +748,12 @@ class:
               },
               "partner": [
                 {
-                  "@id": "did:key:$publicKeyOfPartner1$",
-                  "@type": "GeneralPartner"
+                  "@type": "GeneralPartner",
+                  "legalEntity": "did:key:$publicKeyOfPartner1$"
                 },
                 {
-                  "@id": "did:key:$publicKeyOfPartner2$",
                   "@type": "LimitedPartner",
+                  "legalEntity": "did:key:$publicKeyOfPartner2$",
                   "liabilityOrContribution": {
                     "@type": "MonetaryAmount",
                     "amount": 100000,
@@ -761,8 +761,8 @@ class:
                   }
                 },
                 {
-                  "@id": "did:key:$publicKeyOfPartner3$",
                   "@type": "StatutoryPartner",
+                  "legalEntity": "did:key:$publicKeyOfPartner3$",
                   "role": "HeadOfHR",
                   "typeOfRepresentation": "Jointly"
                 }
@@ -839,7 +839,7 @@ class:
             ],
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
-              "@id": "did:key:$publicKeyOfHolder$",
+              "@id": "urn:uuid:8369f95f-829f-4d2a-ace3-d90d128dd45c",
               "@type": "PostedWorkerNotification",
               "postedWorker" : {
                 "@type": "NaturalPerson",
@@ -963,8 +963,8 @@ class:
                 "legalForm": "Inc.",
                 "legalRepresentative": [
                   {
-                    "@id": "did:key:$publicKeyOfPrincipal$",
                     "@type": "LegalRepresentative",
+                    "legalEntity": "did:key:$publicKeyOfPrincipal$",
                     "role": "CEO",
                     "typeOfRepresentation": "Alone"
                   }
@@ -1024,8 +1024,8 @@ class:
                 "legalForm": "Inc.",
                 "legalRepresentative": [
                   {
-                    "@id": "did:key:$publicKeyOfPrincipal$",
                     "@type": "LegalRepresentative",
+                    "legalEntity": "did:key:$publicKeyOfPrincipal$",
                     "role": "CEO",
                     "typeOfRepresentation": "Alone"
                   }
@@ -1088,14 +1088,14 @@ class:
                 "legalForm": "Inc.",
                 "legalRepresentative": [
                   {
-                    "@id": "did:key:$publicKeyOfPrincipal1$",
                     "@type": "LegalRepresentative",
+                    "legalEntity": "did:key:$publicKeyOfPrincipal1$",
                     "role": "CEO",
                     "typeOfRepresentation": "Jointly"
                   },
                   {
-                    "@id": "did:key:$publicKeyOfPrincipal2$",
                     "@type": "LegalRepresentative",
+                    "legalEntity": "did:key:$publicKeyOfPrincipal2$",
                     "role": "CFO",
                     "typeOfRepresentation": "Jointly"
                   }
@@ -1810,6 +1810,17 @@ property:
     range: xsd:string
     comment: legal provision or framework under which the attestation is issued
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalbasis
+
+  - id: legalEntity
+    label: legal entity
+    domain:
+      - LegalRepresentative
+      - GeneralPartner
+      - LimitedPartner
+      - StatutoryPartner
+    range: LegalEntity
+    comment: the legal entity — a legal person or a natural person — referenced by its DID, e.g. the acting representative, the participated entity, the shareholder, the general partner, or the beneficial owner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: legalForm
     label: legal form
