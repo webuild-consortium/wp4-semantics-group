@@ -64,7 +64,7 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-        "dc:date": "2026-10-15"
+        "dc:date": "2026-10-19"
     }, {
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -247,6 +247,18 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/applicationnumber", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:arrivalDate",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "ebwv:Residency",
+        "rdfs:range": "xsd:date",
+        "rdfs:label": "arrival date",
+        "rdfs:comment": {
+            "@value": "<div>the date since when the person resides at this address</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaldate", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:assignment",
@@ -1022,7 +1034,10 @@
     }, {
         "@id": "ebwv:hasAddress",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:Site",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:Site", "ebwv:Residency"]
+        },
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "hasAddress",
         "rdfs:comment": {
@@ -1042,6 +1057,21 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/hasdiscrepancynote", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:hasAddress",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:Site", "ebwv:Residency"]
+        },
+        "rdfs:range": "ebwv:Address",
+        "rdfs:label": "hasAddress",
+        "rdfs:comment": {
+            "@value": "<div>the address of an entity, provided the address is not of a specific type like registered address or temporary address</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:hasEmail",
@@ -1176,7 +1206,7 @@
         "rdfs:range": "xsd:boolean",
         "rdfs:label": "is CSRD obligated",
         "rdfs:comment": {
-            "@value": "<div>states whether the company is subject to non-financial / CSRD reporting obligations</div>",
+            "@value": "<div>states whether the company is legally required to comply with the <a href=\"https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en\">European Union's Corporate Sustainability Reporting Directive (CSRD)</a>. It means the company is legally mandated to track and publicly disclose their environmental, social, and governance (ESG) impacts, risks, and opportunities in a standardized digital format.</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/iscsrdobligated", "https://w3id.org/ebwv#"],
@@ -2354,6 +2384,21 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/shareinfocustotal", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:scopeOfPower",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:PowerOfAttorney",
+        "rdfs:range": ["ebwv:ScopeOfPower", {
+            "@type": "owl:class",
+            "owl:oneOf": ["ebwv:FormationOfCompanies", "ebwv:ConstitutionOfCompanies", "ebwv:RegistrationAndClosingOfBranches", "ebwv:CrossBoarderConversions", "ebwv:CrossBoarderMergers", "ebwv:CrossBorderDivisions"]
+        }],
+        "rdfs:label": "scope of power",
+        "rdfs:comment": {
+            "@value": "<div>The scope of the power given to a mandatee.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:socialRepresentative",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:EconomicOperator",
@@ -3149,6 +3194,17 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/regulator", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:Residency",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
+        "rdfs:label": "residency",
+        "rdfs:comment": {
+            "@value": "<div>the residency of a natural person at an address, stating the person, the address and the date since when the person resides there</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/residency", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:ScopeOfPower",
         "@type": "rdfs:Class",
         "rdfs:label": "scope of power",
@@ -3871,7 +3927,7 @@
     }, {
         "@id": "https://w3id.org/ebwv/v0.1",
         "@type": "jsonld:Context",
-        "mentions": ["cred:termsOfUse", "ebwv:A1Certificate", "ebwv:AbortedResearch", "ebwv:AccountType", "ebwv:Address", "ebwv:Agent", "ebwv:Alone", "ebwv:AttestationLegalCategory", "ebwv:BankAccount", "ebwv:BanzNumber", "ebwv:BeneficialOwner", "ebwv:BeneficialOwnership", "ebwv:BeneficialOwnershipVariant", "ebwv:Bic", "ebwv:CEO", "ebwv:CFO", "ebwv:CIP", "ebwv:CPT", "ebwv:ClearingNumber", "ebwv:Company", "ebwv:ConstitutionOfCompanies", "ebwv:ContactPoint", "ebwv:CorporateRole", "ebwv:CountryCode", "ebwv:CrossBoarderConversions", "ebwv:CrossBoarderMergers", "ebwv:CrossBorderDivisions", "ebwv:Currency", "ebwv:DAP", "ebwv:DDP", "ebwv:DPU", "ebwv:DUNS", "ebwv:DataConsumer", "ebwv:DataProvider", "ebwv:DataRightsHolder", "ebwv:DataSpaceRole", "ebwv:DeliveryType", "ebwv:DunsNumber", "ebwv:EAA", "ebwv:EXW", "ebwv:EconomicOperator", "ebwv:ElectronicAttestationOfAttributes", "ebwv:Eori", "ebwv:Euid", "ebwv:EuropeanBusinessWalletOwner", "ebwv:Excise", "ebwv:FAS", "ebwv:FCA", "ebwv:FOB", "ebwv:FinancialYear", "ebwv:FormationOfCompanies", "ebwv:GLN", "ebwv:GS1CompanyPrefix", "ebwv:GeneralPartner", "ebwv:GeneralPartnerHolding", "ebwv:GlobalLocationNumber", "ebwv:GovernanceRulebook", "ebwv:HeadOfHR", "ebwv:Iban", "ebwv:Incoterms", "ebwv:Isin", "ebwv:Jointly", "ebwv:KmgMid", "ebwv:KycCheck", "ebwv:KycEvidence", "ebwv:KycLegalEntity", "ebwv:LegalEntity", "ebwv:LegalEntityIdentifier", "ebwv:LegalPerson", "ebwv:LegalPersonGeneralPartnerHolding", "ebwv:LegalPersonShareholder", "ebwv:LegalRepresentative", "ebwv:Lei", "ebwv:LeiRegistration", "ebwv:LimitedLiabilityCompany", "ebwv:LimitedPartner", "ebwv:Location", "ebwv:Membership", "ebwv:MonetaryAmount", "ebwv:Nace21", "ebwv:Naics", "ebwv:NationalBankCode", "ebwv:NaturalPerson", "ebwv:NaturalPersonGeneralPartnerHolding", "ebwv:NaturalPersonShareholder", "ebwv:OnboardingDetails", "ebwv:OnboardingServiceProvider", "ebwv:Operator", "ebwv:Participation", "ebwv:Partnership", "ebwv:PaymentTerms", "ebwv:PeppolId", "ebwv:PeriodOfTime", "ebwv:Permanent", "ebwv:PostedWorkerNotification", "ebwv:PowerOfAttorney", "ebwv:Pub-EAA", "ebwv:PublicSectorBody", "ebwv:PublicSectorBodyId", "ebwv:QEAA", "ebwv:RegisterIdentification", "ebwv:RegistrationAndClosingOfBranches", "ebwv:Regulator", "ebwv:ResearchedProduct", "ebwv:ScopeOfPower", "ebwv:ShareInFocus", "ebwv:ShareVotingPair", "ebwv:Shareholder", "ebwv:Shareholding", "ebwv:Sic", "ebwv:Site", "ebwv:SocialSecurityContribution", "ebwv:StatutoryPartner", "ebwv:StockExchange", "ebwv:StockExchangeListing", "ebwv:Temporary", "ebwv:Tin", "ebwv:TransparencyRegisterEntry", "ebwv:TransparencyRegisterExtract", "ebwv:TypeOfEmployment", "ebwv:TypeOfRepresentation", "ebwv:UBO", "ebwv:VATRegistrationUnit", "ebwv:VatId", "ebwv:Vessel", "ebwv:WorkAssignment", "ebwv:Wz2003", "ebwv:Wz2008", "ebwv:a1", "ebwv:absoluteShare", "ebwv:academicTitle", "ebwv:accG10", "ebwv:accG25", "ebwv:acceptedAt", "ebwv:accountName", "ebwv:accountType", "ebwv:activity", "ebwv:addressArea", "ebwv:adminUnitL1", "ebwv:adminUnitL2", "ebwv:administrativeRepresentative", "ebwv:alternativeName", "ebwv:amount", "ebwv:applicationNumber", "ebwv:assignment", "ebwv:attestationLegalCategory", "ebwv:averagePeriodWorkforce", "ebwv:balanceSheetDate", "ebwv:balanceSheetTotal", "ebwv:beneficialOwnership", "ebwv:birthName", "ebwv:businessEntity", "ebwv:buyer", "ebwv:capitalBeneficialOwner", "ebwv:cdd", "ebwv:citizenship", "ebwv:companyCategory", "ebwv:companyRegisterId", "ebwv:companyRegisterIdCountry", "ebwv:companySize", "ebwv:complianceStatus", "ebwv:constructionSector", "ebwv:contactPoint", "ebwv:contributor", "ebwv:correspondenceAddress", "ebwv:countryOfBirth", "ebwv:countryOfDeath", "ebwv:coverageStatement", "ebwv:coveredObligationType", "ebwv:currency", "ebwv:dateOfBirth", "ebwv:dateOfDeath", "ebwv:dateOfRegistration", "ebwv:deliveryLocation", "ebwv:deliveryType", "ebwv:directParent", "ebwv:discrepancyReportNumber", "ebwv:dom10", "ebwv:dom25", "ebwv:domicile", "ebwv:duration", "ebwv:employee", "ebwv:employer", "ebwv:endDate", "ebwv:entryDate", "ebwv:evidenceSource", "ebwv:exchange", "ebwv:exchangeCountry", "ebwv:exchangeName", "ebwv:exitDate", "ebwv:familyName", "ebwv:fictitiousBeneficialOwner", "ebwv:fictitiousBoReason", "ebwv:financialYear", "ebwv:flagState", "ebwv:focusEntity", "ebwv:formerName", "ebwv:fullAddress", "ebwv:fullName", "ebwv:fullPeriodCovered", "ebwv:gender", "ebwv:generalPartnerHolding", "ebwv:geographicIdentifier", "ebwv:geographicName", "ebwv:givenName", "ebwv:handover", "ebwv:handoverDescription", "ebwv:handoverFlag", "ebwv:hasAddress", "ebwv:hasDiscrepancyNote", "ebwv:hasEmail", "ebwv:hasFax", "ebwv:hasSite", "ebwv:hasTelephone", "ebwv:hash", "ebwv:hostEntity", "ebwv:iban", "ebwv:identifier", "ebwv:insolvencyStatus", "ebwv:interestScope", "ebwv:interestType", "ebwv:isCsrdObligated", "ebwv:isDirectParticipation", "ebwv:isExemptFromSection181", "ebwv:isFoundation", "ebwv:isHighRisk", "ebwv:isTrust", "ebwv:jobTitle", "ebwv:jurisdiction", "ebwv:legalBasis", "ebwv:legalEntity", "ebwv:legalForm", "ebwv:legalIdentifier", "ebwv:legalName", "ebwv:legalPersonGeneralPartner", "ebwv:legalRepresentative", "ebwv:legalStatus", "ebwv:legalSuccessionReason", "ebwv:lei", "ebwv:leiLastUpdate", "ebwv:leiLegalEntity", "ebwv:leiNextRenewal", "ebwv:leiRegistration", "ebwv:leiRegistrationDate", "ebwv:leiRegistrationStatus", "ebwv:leiStatus", "ebwv:liabilityOrContribution", "ebwv:licenceKey", "ebwv:liquidationStatus", "ebwv:listedOnRegulatedMarket", "ebwv:locatorDesignator", "ebwv:locatorName", "ebwv:managingLeiIssuer", "ebwv:mandatee", "ebwv:marketIdentificationCode", "ebwv:matronymicName", "ebwv:member", "ebwv:memberOf", "ebwv:noFixedPlaceOfWork", "ebwv:numberOfEmployees", "ebwv:onboardedBy", "ebwv:operatingResult", "ebwv:operator", "ebwv:organisation", "ebwv:otherControlBeneficialOwner", "ebwv:otherControlReason", "ebwv:owner", "ebwv:ownershipPercentage", "ebwv:participation", "ebwv:partner", "ebwv:patronymicName", "ebwv:paymentDue", "ebwv:person", "ebwv:person", "ebwv:personalAdministrativeNumber", "ebwv:placeOfBirth", "ebwv:placeOfDeath", "ebwv:placeOfWork", "ebwv:platform", "ebwv:poBox", "ebwv:portrait", "ebwv:postCode", "ebwv:postName", "ebwv:postedWorker", "ebwv:principal", "ebwv:processingNote", "ebwv:provenClaim", "ebwv:provenanceProof", "ebwv:provider", "ebwv:provisionalDetermination", "ebwv:qualificationNote", "ebwv:referenceNumber", "ebwv:register", "ebwv:registerLocation", "ebwv:registerNumber", "ebwv:registerType", "ebwv:registerTypeDescription", "ebwv:registeredAddress", "ebwv:regulatedId", "ebwv:regulator", "ebwv:regulatorClassification", "ebwv:regulatorName", "ebwv:relativeShare", "ebwv:relativeShareDirect", "ebwv:relativeVotingRights", "ebwv:relativeVotingRightsDirect", "ebwv:reportingMonth", "ebwv:reportingPeriod", "ebwv:researchTerminationReason", "ebwv:researchedSuccessorId", "ebwv:residency", "ebwv:revenue", "ebwv:role", "ebwv:salutation", "ebwv:scopeOfPower", "ebwv:shareInFocusAlongBranch", "ebwv:shareInFocusTotal", "ebwv:shareholder", "ebwv:shareholding", "ebwv:socialRepresentative", "ebwv:staffAverage", "ebwv:standard", "ebwv:startDate", "ebwv:stateOfInsurance", "ebwv:statementDate", "ebwv:statusConfirmation", "ebwv:stockExchangeListing", "ebwv:subscribedCapital", "ebwv:supplier", "ebwv:temporaryAddress", "ebwv:temporaryWorkAgency", "ebwv:terms", "ebwv:thoroughfare", "ebwv:tickerSymbol", "ebwv:totalPayroll", "ebwv:transitionalRules", "ebwv:transparencyRegister", "ebwv:transparencyRegisterExtract", "ebwv:type", "ebwv:typeOfEmployment", "ebwv:typeOfRepresentation", "ebwv:ultimateParent", "ebwv:url", "ebwv:validFromDate", "ebwv:verificationDate", "ebwv:version", "ebwv:votingRightsBeneficialOwner", "ebwv:website"]
+        "mentions": ["cred:termsOfUse", "ebwv:A1Certificate", "ebwv:AbortedResearch", "ebwv:AccountType", "ebwv:Address", "ebwv:Agent", "ebwv:Alone", "ebwv:AttestationLegalCategory", "ebwv:BankAccount", "ebwv:BanzNumber", "ebwv:BeneficialOwner", "ebwv:BeneficialOwnership", "ebwv:BeneficialOwnershipVariant", "ebwv:Bic", "ebwv:CEO", "ebwv:CFO", "ebwv:CIP", "ebwv:CPT", "ebwv:ClearingNumber", "ebwv:Company", "ebwv:ConstitutionOfCompanies", "ebwv:ContactPoint", "ebwv:CorporateRole", "ebwv:CountryCode", "ebwv:CrossBoarderConversions", "ebwv:CrossBoarderMergers", "ebwv:CrossBorderDivisions", "ebwv:Currency", "ebwv:DAP", "ebwv:DDP", "ebwv:DPU", "ebwv:DUNS", "ebwv:DataConsumer", "ebwv:DataProvider", "ebwv:DataRightsHolder", "ebwv:DataSpaceRole", "ebwv:DeliveryType", "ebwv:DunsNumber", "ebwv:EAA", "ebwv:EXW", "ebwv:EconomicOperator", "ebwv:ElectronicAttestationOfAttributes", "ebwv:Eori", "ebwv:Euid", "ebwv:EuropeanBusinessWalletOwner", "ebwv:Excise", "ebwv:FAS", "ebwv:FCA", "ebwv:FOB", "ebwv:FinancialYear", "ebwv:FormationOfCompanies", "ebwv:GLN", "ebwv:GS1CompanyPrefix", "ebwv:GeneralPartner", "ebwv:GeneralPartnerHolding", "ebwv:GlobalLocationNumber", "ebwv:GovernanceRulebook", "ebwv:HeadOfHR", "ebwv:Iban", "ebwv:Incoterms", "ebwv:Isin", "ebwv:Jointly", "ebwv:KmgMid", "ebwv:KycCheck", "ebwv:KycEvidence", "ebwv:KycLegalEntity", "ebwv:LegalEntity", "ebwv:LegalEntityIdentifier", "ebwv:LegalPerson", "ebwv:LegalPersonGeneralPartnerHolding", "ebwv:LegalPersonShareholder", "ebwv:LegalRepresentative", "ebwv:Lei", "ebwv:LeiRegistration", "ebwv:LimitedLiabilityCompany", "ebwv:LimitedPartner", "ebwv:Location", "ebwv:Membership", "ebwv:MonetaryAmount", "ebwv:Nace21", "ebwv:Naics", "ebwv:NationalBankCode", "ebwv:NaturalPerson", "ebwv:NaturalPersonGeneralPartnerHolding", "ebwv:NaturalPersonShareholder", "ebwv:OnboardingDetails", "ebwv:OnboardingServiceProvider", "ebwv:Operator", "ebwv:Participation", "ebwv:Partnership", "ebwv:PaymentTerms", "ebwv:PeppolId", "ebwv:PeriodOfTime", "ebwv:Permanent", "ebwv:PostedWorkerNotification", "ebwv:PowerOfAttorney", "ebwv:Pub-EAA", "ebwv:PublicSectorBody", "ebwv:PublicSectorBodyId", "ebwv:QEAA", "ebwv:RegisterIdentification", "ebwv:RegistrationAndClosingOfBranches", "ebwv:Regulator", "ebwv:ResearchedProduct", "ebwv:Residency", "ebwv:ScopeOfPower", "ebwv:ShareInFocus", "ebwv:ShareVotingPair", "ebwv:Shareholder", "ebwv:Shareholding", "ebwv:Sic", "ebwv:Site", "ebwv:SocialSecurityContribution", "ebwv:StatutoryPartner", "ebwv:StockExchange", "ebwv:StockExchangeListing", "ebwv:Temporary", "ebwv:Tin", "ebwv:TransparencyRegisterEntry", "ebwv:TransparencyRegisterExtract", "ebwv:TypeOfEmployment", "ebwv:TypeOfRepresentation", "ebwv:UBO", "ebwv:VATRegistrationUnit", "ebwv:VatId", "ebwv:Vessel", "ebwv:WorkAssignment", "ebwv:Wz2003", "ebwv:Wz2008", "ebwv:a1", "ebwv:absoluteShare", "ebwv:academicTitle", "ebwv:accG10", "ebwv:accG25", "ebwv:acceptedAt", "ebwv:accountName", "ebwv:accountType", "ebwv:activity", "ebwv:addressArea", "ebwv:adminUnitL1", "ebwv:adminUnitL2", "ebwv:administrativeRepresentative", "ebwv:alternativeName", "ebwv:amount", "ebwv:applicationNumber", "ebwv:arrivalDate", "ebwv:assignment", "ebwv:attestationLegalCategory", "ebwv:averagePeriodWorkforce", "ebwv:balanceSheetDate", "ebwv:balanceSheetTotal", "ebwv:beneficialOwnership", "ebwv:birthName", "ebwv:businessEntity", "ebwv:buyer", "ebwv:capitalBeneficialOwner", "ebwv:cdd", "ebwv:citizenship", "ebwv:companyCategory", "ebwv:companyRegisterId", "ebwv:companyRegisterIdCountry", "ebwv:companySize", "ebwv:complianceStatus", "ebwv:constructionSector", "ebwv:contactPoint", "ebwv:contributor", "ebwv:correspondenceAddress", "ebwv:countryOfBirth", "ebwv:countryOfDeath", "ebwv:coverageStatement", "ebwv:coveredObligationType", "ebwv:currency", "ebwv:dateOfBirth", "ebwv:dateOfDeath", "ebwv:dateOfRegistration", "ebwv:deliveryLocation", "ebwv:deliveryType", "ebwv:directParent", "ebwv:discrepancyReportNumber", "ebwv:dom10", "ebwv:dom25", "ebwv:domicile", "ebwv:duration", "ebwv:employee", "ebwv:employer", "ebwv:endDate", "ebwv:entryDate", "ebwv:evidenceSource", "ebwv:exchange", "ebwv:exchangeCountry", "ebwv:exchangeName", "ebwv:exitDate", "ebwv:familyName", "ebwv:fictitiousBeneficialOwner", "ebwv:fictitiousBoReason", "ebwv:financialYear", "ebwv:flagState", "ebwv:focusEntity", "ebwv:formerName", "ebwv:fullAddress", "ebwv:fullName", "ebwv:fullPeriodCovered", "ebwv:gender", "ebwv:generalPartnerHolding", "ebwv:geographicIdentifier", "ebwv:geographicName", "ebwv:givenName", "ebwv:handover", "ebwv:handoverDescription", "ebwv:handoverFlag", "ebwv:hasAddress", "ebwv:hasAddress", "ebwv:hasDiscrepancyNote", "ebwv:hasEmail", "ebwv:hasFax", "ebwv:hasSite", "ebwv:hasTelephone", "ebwv:hash", "ebwv:hostEntity", "ebwv:iban", "ebwv:identifier", "ebwv:insolvencyStatus", "ebwv:interestScope", "ebwv:interestType", "ebwv:isCsrdObligated", "ebwv:isDirectParticipation", "ebwv:isExemptFromSection181", "ebwv:isFoundation", "ebwv:isHighRisk", "ebwv:isTrust", "ebwv:jobTitle", "ebwv:jurisdiction", "ebwv:legalBasis", "ebwv:legalEntity", "ebwv:legalForm", "ebwv:legalIdentifier", "ebwv:legalName", "ebwv:legalPersonGeneralPartner", "ebwv:legalRepresentative", "ebwv:legalStatus", "ebwv:legalSuccessionReason", "ebwv:lei", "ebwv:leiLastUpdate", "ebwv:leiLegalEntity", "ebwv:leiNextRenewal", "ebwv:leiRegistration", "ebwv:leiRegistrationDate", "ebwv:leiRegistrationStatus", "ebwv:leiStatus", "ebwv:liabilityOrContribution", "ebwv:licenceKey", "ebwv:liquidationStatus", "ebwv:listedOnRegulatedMarket", "ebwv:locatorDesignator", "ebwv:locatorName", "ebwv:managingLeiIssuer", "ebwv:mandatee", "ebwv:marketIdentificationCode", "ebwv:matronymicName", "ebwv:member", "ebwv:memberOf", "ebwv:noFixedPlaceOfWork", "ebwv:numberOfEmployees", "ebwv:onboardedBy", "ebwv:operatingResult", "ebwv:operator", "ebwv:organisation", "ebwv:otherControlBeneficialOwner", "ebwv:otherControlReason", "ebwv:owner", "ebwv:ownershipPercentage", "ebwv:participation", "ebwv:partner", "ebwv:patronymicName", "ebwv:paymentDue", "ebwv:person", "ebwv:person", "ebwv:personalAdministrativeNumber", "ebwv:placeOfBirth", "ebwv:placeOfDeath", "ebwv:placeOfWork", "ebwv:platform", "ebwv:poBox", "ebwv:portrait", "ebwv:postCode", "ebwv:postName", "ebwv:postedWorker", "ebwv:principal", "ebwv:processingNote", "ebwv:provenClaim", "ebwv:provenanceProof", "ebwv:provider", "ebwv:provisionalDetermination", "ebwv:qualificationNote", "ebwv:referenceNumber", "ebwv:register", "ebwv:registerLocation", "ebwv:registerNumber", "ebwv:registerType", "ebwv:registerTypeDescription", "ebwv:registeredAddress", "ebwv:regulatedId", "ebwv:regulator", "ebwv:regulatorClassification", "ebwv:regulatorName", "ebwv:relativeShare", "ebwv:relativeShareDirect", "ebwv:relativeVotingRights", "ebwv:relativeVotingRightsDirect", "ebwv:reportingMonth", "ebwv:reportingPeriod", "ebwv:researchTerminationReason", "ebwv:researchedSuccessorId", "ebwv:residency", "ebwv:revenue", "ebwv:role", "ebwv:salutation", "ebwv:scopeOfPower", "ebwv:scopeOfPower", "ebwv:shareInFocusAlongBranch", "ebwv:shareInFocusTotal", "ebwv:shareholder", "ebwv:shareholding", "ebwv:socialRepresentative", "ebwv:staffAverage", "ebwv:standard", "ebwv:startDate", "ebwv:stateOfInsurance", "ebwv:statementDate", "ebwv:statusConfirmation", "ebwv:stockExchangeListing", "ebwv:subscribedCapital", "ebwv:supplier", "ebwv:temporaryAddress", "ebwv:temporaryWorkAgency", "ebwv:terms", "ebwv:thoroughfare", "ebwv:tickerSymbol", "ebwv:totalPayroll", "ebwv:transitionalRules", "ebwv:transparencyRegister", "ebwv:transparencyRegisterExtract", "ebwv:type", "ebwv:typeOfEmployment", "ebwv:typeOfRepresentation", "ebwv:ultimateParent", "ebwv:url", "ebwv:validFromDate", "ebwv:verificationDate", "ebwv:version", "ebwv:votingRightsBeneficialOwner", "ebwv:website"]
     }, {
         "@id": "https://www.w3.org/ns/credentials/v2",
         "@type": "jsonld:Context",

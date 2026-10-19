@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-10-15"^^xsd:date ;
+    dc:date "2026-10-19"^^xsd:date ;
 .
 
 # Property definitions
@@ -155,6 +155,15 @@ ebwv:applicationNumber a rdf:Property, owl:DatatypeProperty ;
     rdfs:label "application number" ;
     rdfs:comment """<div>the transaction number assigned by the transparency register for the extract</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/applicationnumber>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:arrivalDate a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:Residency ;
+    rdfs:range xsd:date ;
+    rdfs:label "arrival date" ;
+    rdfs:comment """<div>the date since when the person resides at this address</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaldate>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -723,7 +732,7 @@ ebwv:handoverFlag a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:hasAddress a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:Site ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Site ebwv:Residency) ] ;
     rdfs:range ebwv:Address ;
     rdfs:label "hasAddress" ;
     rdfs:comment """<div>the address of an entity, provided the address is not of a specific type like registered address or temporary address</div>"""^^rdf:HTML ;
@@ -737,6 +746,15 @@ ebwv:hasDiscrepancyNote a rdf:Property, owl:DatatypeProperty ;
     rdfs:label "has discrepancy note" ;
     rdfs:comment """<div>whether the extract carries a note that a discrepancy report (Unstimmigkeitsmeldung) exists</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/hasdiscrepancynote>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:hasAddress a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Site ebwv:Residency) ] ;
+    rdfs:range ebwv:Address ;
+    rdfs:label "hasAddress" ;
+    rdfs:comment """<div>the address of an entity, provided the address is not of a specific type like registered address or temporary address</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -840,7 +858,7 @@ ebwv:isCsrdObligated a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:KycLegalEntity ;
     rdfs:range xsd:boolean ;
     rdfs:label "is CSRD obligated" ;
-    rdfs:comment """<div>states whether the company is subject to non-financial / CSRD reporting obligations</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>states whether the company is legally required to comply with the <a href="https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en">European Union's Corporate Sustainability Reporting Directive (CSRD)</a>. It means the company is legally mandated to track and publicly disclose their environmental, social, and governance (ESG) impacts, risks, and opportunities in a standardized digital format.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/iscsrdobligated>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -1699,6 +1717,15 @@ ebwv:shareInFocusTotal a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
+ebwv:scopeOfPower a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:PowerOfAttorney ;
+    rdfs:range ebwv:ScopeOfPower, [ a owl:Class; owl:oneOf (ebwv:FormationOfCompanies ebwv:ConstitutionOfCompanies ebwv:RegistrationAndClosingOfBranches ebwv:CrossBoarderConversions ebwv:CrossBoarderMergers ebwv:CrossBorderDivisions) ] ;
+    rdfs:label "scope of power" ;
+    rdfs:comment """<div>The scope of the power given to a mandatee.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:socialRepresentative a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:EconomicOperator ;
     rdfs:range ebwv:NaturalPerson ;
@@ -2309,6 +2336,14 @@ ebwv:Regulator a rdfs:Class ;
     rdfs:label "regulator" ;
     rdfs:comment """<div>a supervisory authority (such as BaFin) at which the legal entity is registered, with the regulator-assigned identifier and the entity's regulatory classification</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/regulator>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:Residency a rdfs:Class ;
+    rdfs:subClassOf cred:CredentialSubject ;
+    rdfs:label "residency" ;
+    rdfs:comment """<div>the residency of a natural person at an address, stating the person, the address and the date since when the person resides there</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/residency>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

@@ -2542,7 +2542,7 @@ property:
     label: is CSRD obligated
     domain: KycLegalEntity
     range: xsd:boolean
-    comment: states whether the company is subject to non-financial / CSRD reporting obligations
+    comment: states whether the company is legally required to comply with the <a href="https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en">European Union's Corporate Sustainability Reporting Directive (CSRD)</a>. It means the company is legally mandated to track and publicly disclose their environmental, social, and governance (ESG) impacts, risks, and opportunities in a standardized digital format.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/iscsrdobligated
 
   - id: isDirectParticipation

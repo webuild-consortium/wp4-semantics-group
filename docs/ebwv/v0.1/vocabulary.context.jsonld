@@ -1214,6 +1214,20 @@
                 }
             }
         },
+        "Residency": {
+            "@id": "https://w3id.org/ebwv#Residency",
+            "@context": {
+                "@protected": true,
+                "arrivalDate": {
+                    "@id": "https://w3id.org/ebwv#arrivalDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "hasAddress": {
+                    "@id": "https://w3id.org/ebwv#hasAddress",
+                    "@type": "@id"
+                }
+            }
+        },
         "ScopeOfPower": "https://w3id.org/ebwv#ScopeOfPower",
         "Shareholder": {
             "@id": "https://w3id.org/ebwv#Shareholder",
