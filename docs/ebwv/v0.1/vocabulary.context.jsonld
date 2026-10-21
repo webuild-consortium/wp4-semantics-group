@@ -126,6 +126,16 @@
                 }
             }
         },
+        "CertifiedSite": {
+            "@id": "https://w3id.org/ebwv#CertifiedSite",
+            "@context": {
+                "@protected": true,
+                "certifiedScope": {
+                    "@id": "https://w3id.org/ebwv#certifiedScope",
+                    "@type": "http://www.w3.org/2001/XMLSchema#String"
+                }
+            }
+        },
         "Company": {
             "@id": "https://w3id.org/ebwv#Company",
             "@context": {
@@ -779,6 +789,29 @@
                 }
             }
         },
+        "QmsCertificate": {
+            "@id": "https://w3id.org/ebwv#QmsCertificate",
+            "@context": {
+                "@protected": true,
+                "certificationStandard": {
+                    "@id": "https://w3id.org/ebwv#certificationStandard",
+                    "@type": "@id"
+                },
+                "certifiedScope": {
+                    "@id": "https://w3id.org/ebwv#certifiedScope",
+                    "@type": "http://www.w3.org/2001/XMLSchema#String"
+                },
+                "hasSite": {
+                    "@id": "https://w3id.org/ebwv#hasSite",
+                    "@type": "@id"
+                },
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
+                }
+            }
+        },
+        "QmsStandard": "https://w3id.org/ebwv#QmsStandard",
         "Residency": {
             "@id": "https://w3id.org/ebwv#Residency",
             "@context": {
@@ -959,6 +992,19 @@
             "@id": "https://w3id.org/ebwv#ownershipPercentage",
             "@type": "http://www.w3.org/2001/XMLSchema#float"
         },
+        "scopeOfCertification": {
+            "@id": "https://w3id.org/ebwv#scopeOfCertification",
+            "@type": "@vocab",
+            "@context": {
+                "FormationOfCompanies": "https://w3id.org/ebwv#FormationOfCompanies",
+                "ConstitutionOfCompanies": "https://w3id.org/ebwv#ConstitutionOfCompanies",
+                "RegistrationAndClosingOfBranches": "https://w3id.org/ebwv#RegistrationAndClosingOfBranches",
+                "CrossBoarderConversions": "https://w3id.org/ebwv#CrossBoarderConversions",
+                "CrossBoarderMergers": "https://w3id.org/ebwv#CrossBoarderMergers",
+                "CrossBorderDivisions": "https://w3id.org/ebwv#CrossBorderDivisions",
+                "@vocab": "ebwv:INVALID_VALUE:"
+            }
+        },
         "termsOfUse": {
             "@id": "https://www.w3.org/2018/credentials#termsOfUse",
             "@type": "@id"
@@ -1004,6 +1050,9 @@
         "Excise": "https://w3id.org/ebwv#Excise",
         "GlobalLocationNumber": "https://w3id.org/ebwv#GlobalLocationNumber",
         "GS1CompanyPrefix": "https://w3id.org/ebwv#GS1CompanyPrefix",
+        "IatfUsi": "https://w3id.org/ebwv#IatfUsi",
+        "IatfNo": "https://w3id.org/ebwv#IatfNo",
+        "Iatf25": "https://w3id.org/ebwv#Iatf25",
         "Iban": "https://w3id.org/ebwv#Iban",
         "KmgMid": "https://w3id.org/ebwv#KmgMid",
         "Lei": "https://w3id.org/ebwv#Lei",

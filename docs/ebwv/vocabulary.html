@@ -167,7 +167,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-10-19</time>
+                <time property="dc:date" id="time">2026-10-21</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -277,6 +277,7 @@
                         <li><a href="#CFO"><code>CFO<code></code></code></a></li>
                         <li><a href="#CIP"><code>CIP<code></code></code></a></li>
                         <li><a href="#CPT"><code>CPT<code></code></code></a></li>
+                        <li><a href="#CertifiedSite"><code>CertifiedSite<code></code></code></a></li>
                         <li><a href="#ClearingNumber"><code>ClearingNumber<code></code></code></a></li>
                         <li><a href="#Company"><code>Company<code></code></code></a></li>
                         <li><a href="#ConstitutionOfCompanies"><code>ConstitutionOfCompanies<code></code></code></a></li>
@@ -314,6 +315,9 @@
                         <li><a href="#GlobalLocationNumber"><code>GlobalLocationNumber<code></code></code></a></li>
                         <li><a href="#GovernanceRulebook"><code>GovernanceRulebook<code></code></code></a></li>
                         <li><a href="#HeadOfHR"><code>HeadOfHR<code></code></code></a></li>
+                        <li><a href="#Iatf25"><code>Iatf25<code></code></code></a></li>
+                        <li><a href="#IatfNo"><code>IatfNo<code></code></code></a></li>
+                        <li><a href="#IatfUsi"><code>IatfUsi<code></code></code></a></li>
                         <li><a href="#Iban"><code>Iban<code></code></code></a></li>
                         <li><a href="#Incoterms"><code>Incoterms<code></code></code></a></li>
                         <li><a href="#Jointly"><code>Jointly<code></code></code></a></li>
@@ -346,6 +350,8 @@
                         <li><a href="#PublicSectorBody"><code>PublicSectorBody<code></code></code></a></li>
                         <li><a href="#PublicSectorBodyId"><code>PublicSectorBodyId<code></code></code></a></li>
                         <li><a href="#QEAA"><code>QEAA<code></code></code></a></li>
+                        <li><a href="#QmsCertificate"><code>QmsCertificate<code></code></code></a></li>
+                        <li><a href="#QmsStandard"><code>QmsStandard<code></code></code></a></li>
                         <li><a href="#RegistrationAndClosingOfBranches"><code>RegistrationAndClosingOfBranches<code></code></code></a></li>
                         <li><a href="#Residency"><code>Residency<code></code></code></a></li>
                         <li><a href="#ScopeOfPower"><code>ScopeOfPower<code></code></code></a></li>
@@ -379,6 +385,8 @@
                         <li><a href="#birthName"><code>birthName<code></code></code></a></li>
                         <li><a href="#businessEntity"><code>businessEntity<code></code></code></a></li>
                         <li><a href="#buyer"><code>buyer<code></code></code></a></li>
+                        <li><a href="#certificationStandard"><code>certificationStandard<code></code></code></a></li>
+                        <li><a href="#certifiedScope"><code>certifiedScope<code></code></code></a></li>
                         <li><a href="#citizenship"><code>citizenship<code></code></code></a></li>
                         <li><a href="#complianceStatus"><code>complianceStatus<code></code></code></a></li>
                         <li><a href="#constructionSector"><code>constructionSector<code></code></code></a></li>
@@ -471,6 +479,7 @@
                         <li><a href="#reportingPeriod"><code>reportingPeriod<code></code></code></a></li>
                         <li><a href="#residency"><code>residency<code></code></code></a></li>
                         <li><a href="#role"><code>role<code></code></code></a></li>
+                        <li><a href="#scopeOfCertification"><code>scopeOfCertification<code></code></code></a></li>
                         <li><a href="#scopeOfPower"><code>scopeOfPower<code></code></code></a></li>
                         <li><a href="#socialRepresentative"><code>socialRepresentative<code></code></code></a></li>
                         <li><a href="#staffAverage"><code>staffAverage<code></code></code></a></li>
@@ -788,6 +797,38 @@
                     <dd><a href="#PaymentTerms"><code>PaymentTerms</code></a></dd>
                     <dt>Range:</dt>
                     <dd><code>xsd:anyURI</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="certificationStandard">
+                <h4><code>certificationStandard</code></h4>
+                <p><em>certification standard</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/certificationstandard">formal definition of the term</a>.</p>
+                <div>the standard the certificate is based on</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#QmsCertificate"><code>QmsCertificate</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#QmsStandard"><code>QmsStandard</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="certifiedScope">
+                <h4><code>certifiedScope</code></h4>
+                <p><em>certified scope</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedscope">formal definition of the term</a>.</p>
+                <div>the scope of certification</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#QmsCertificate"><code>QmsCertificate</code></a> ⊔&nbsp;<a href="#CertifiedSite"><code>CertifiedSite</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:String</code></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -1303,7 +1344,7 @@
                 <div>a place, premises or location at which an organisation is present or located</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#SocialSecurityContribution"><code>SocialSecurityContribution</code></a></dd>
+                    <dd><a href="#SocialSecurityContribution"><code>SocialSecurityContribution</code></a> ⊔&nbsp;<a href="#QmsCertificate"><code>QmsCertificate</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Site"><code>Site</code></a></dd>
                 </dl>
@@ -1439,10 +1480,10 @@
                 <h4><code>legalEntity</code></h4>
                 <p><em>legal entity</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity">formal definition of the term</a>.</p>
-                <div>the legal entity — a legal person or a natural person — referenced by its DID, e.g. the acting representative, the participated entity, the shareholder, the general partner, or the beneficial owner</div>
+                <div>the legal entity — a legal person or a natural person — referenced by its DID and/or claims, e.g. the acting representative, the participated entity, the shareholder, the general partner, the beneficial owner, the certified company or the operator of a certified site</div>
                 <dl class="terms">
                     <dt>Domain:</dt>
-                    <dd><a href="#LegalRepresentative"><code>LegalRepresentative</code></a> ⊔&nbsp;<a href="#GeneralPartner"><code>GeneralPartner</code></a> ⊔&nbsp;<a href="#LimitedPartner"><code>LimitedPartner</code></a> ⊔&nbsp;<a href="#StatutoryPartner"><code>StatutoryPartner</code></a></dd>
+                    <dd><a href="#LegalRepresentative"><code>LegalRepresentative</code></a> ⊔&nbsp;<a href="#GeneralPartner"><code>GeneralPartner</code></a> ⊔&nbsp;<a href="#LimitedPartner"><code>LimitedPartner</code></a> ⊔&nbsp;<a href="#StatutoryPartner"><code>StatutoryPartner</code></a> ⊔&nbsp;<a href="#QmsCertificate"><code>QmsCertificate</code></a> ⊔&nbsp;<a href="#CertificationSite"><code>CertificationSite</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#LegalEntity"><code>LegalEntity</code></a></dd>
                 </dl>
@@ -2252,6 +2293,26 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="scopeOfCertification">
+                <h4><code>scopeOfCertification</code></h4>
+                <p><em>scope of certification</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower">formal definition of the term</a>.</p>
+                <div>The scope of the power given to a mandatee.</div>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Environmental"><code>Environmental</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#ScopeOfPower"><code>ScopeOfPower</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Value may be one of:</dt>
+                    <dd><a href="#FormationOfCompanies"><code>FormationOfCompanies</code></a>, <a href="#ConstitutionOfCompanies"><code>ConstitutionOfCompanies</code></a>, <a href="#RegistrationAndClosingOfBranches"><code>RegistrationAndClosingOfBranches</code></a>, <a href="#CrossBoarderConversions"><code>CrossBoarderConversions</code></a>, <a href="#CrossBoarderMergers"><code>CrossBoarderMergers</code></a>, <a href="#CrossBorderDivisions"><code>CrossBorderDivisions</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="scopeOfPower">
                 <h4><code>scopeOfPower</code></h4>
                 <p><em>scope of power</em></p>
@@ -2693,6 +2754,24 @@
 </pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A%20%20%22%40context%22%3A%20%5B%0A%20%20%20%20%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A%20%20%20%20%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A%20%20%5D%2C%0A%20%20%22%40id%22%3A%20%22urn%3Auuid%3Af0adc5fe-3558-40f8-b1e2-97713ec44dff%22%2C%0A%20%20%22%40type%22%3A%20%5B%0A%20%20%20%20%22VerifiableCredential%22%2C%0A%20%20%20%20%22ElectronicAttestationOfAttributes%22%0A%20%20%5D%2C%0A%20%20%22attestationLegalCategory%22%3A%20%22QEAA%22%2C%0A%20%20%22credentialSubject%22%3A%20%7B%0A%20%20%20%20%22%40id%22%3A%20%22urn%3Auuid%3Aeb887cd3-5080-44e6-8b3d-e008d80e19fc%22%2C%0A%20%20%20%20%22%40type%22%3A%20%22BankAccount%22%2C%0A%20%20%20%20%22accountName%22%3A%20%22ACME%3A%20Business%20expenses%20HR%22%2C%0A%20%20%20%20%22accountType%22%3A%20%22Corporate%20Account%22%2C%0A%20%20%20%20%22iban%22%3A%20%22DE02500105170137075030%22%2C%0A%20%20%20%20%22owner%22%20%3A%20%22did%3Akey%3A%24publicKeyOfOwner%24%22%2C%0A%20%20%20%20%22provider%22%20%3A%20%22did%3Akey%3A%24publicKeyOfProvider%24%22%0A%20%20%7D%2C%0A%20%20%22validUntil%22%3A%20%222029-12-03T12%3A19%3A52Z%22%2C%0A%20%20%22validFrom%22%3A%20%222019-12-03T12%3A19%3A52Z%22%2C%0A%20%20%22issuer%22%3A%20%22did%3Akey%3A%24publicKeyOfProvider%24%22%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
                 </div>
             </section>
+            <section id="CertifiedSite">
+                <h4><code>CertifiedSite</code></h4>
+                <p><em>certified site</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedsite">formal definition of the term</a>.</p>
+                <div>certification target (site) of the corresponding certification</div>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#Site"><code>Site</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#certifiedScope"><code>certifiedScope</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="Company">
                 <h4><code>Company</code></h4>
                 <p><em>Company as defined in directive-EU-2025/25</em></p>
@@ -2844,7 +2923,7 @@
                 </p>
                 <dl class="terms">
                     <dt>Superclass of:</dt>
-                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a>, <a href="#BankAccount"><code>BankAccount</code></a>, <a href="#Company"><code>Company</code></a>, <a href="#DUNS"><code>DUNS</code></a>, <a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a>, <a href="#GLN"><code>GLN</code></a>, <a href="#LegalEntityIdentifier"><code>LegalEntityIdentifier</code></a>, <a href="#LegalPerson"><code>LegalPerson</code></a>, <a href="#Membership"><code>Membership</code></a>, <a href="#NaturalPerson"><code>NaturalPerson</code></a>, <a href="#PaymentTerms"><code>PaymentTerms</code></a>, <a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a>, <a href="#PowerOfAttorney"><code>PowerOfAttorney</code></a>, <a href="#Residency"><code>Residency</code></a>, <a href="#SocialSecurityContribution"><code>SocialSecurityContribution</code></a></dd>
+                    <dd><a href="#A1Certificate"><code>A1Certificate</code></a>, <a href="#BankAccount"><code>BankAccount</code></a>, <a href="#Company"><code>Company</code></a>, <a href="#DUNS"><code>DUNS</code></a>, <a href="#EuropeanBusinessWalletOwner"><code>EuropeanBusinessWalletOwner</code></a>, <a href="#GLN"><code>GLN</code></a>, <a href="#LegalEntityIdentifier"><code>LegalEntityIdentifier</code></a>, <a href="#LegalPerson"><code>LegalPerson</code></a>, <a href="#Membership"><code>Membership</code></a>, <a href="#NaturalPerson"><code>NaturalPerson</code></a>, <a href="#PaymentTerms"><code>PaymentTerms</code></a>, <a href="#PostedWorkerNotification"><code>PostedWorkerNotification</code></a>, <a href="#PowerOfAttorney"><code>PowerOfAttorney</code></a>, <a href="#QmsCertificate"><code>QmsCertificate</code></a>, <a href="#Residency"><code>Residency</code></a>, <a href="#SocialSecurityContribution"><code>SocialSecurityContribution</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -4140,6 +4219,221 @@
                     <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
                 </dl>
             </section>
+            <section id="QmsCertificate">
+                <h4><code>QmsCertificate</code></h4>
+                <p><em>Quality management systems (QMS) certificate</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/qmscertification">formal definition of the term</a>.</p>
+                <div>Quality management systems (QMS) certification used for ESG Reporting and Sustainability</div>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#61feeeb010c846a2fd88f09b64830beedf226f55188b3ccd19c17548d82c87a1"><code>CredentialSubject</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Domain of:</dt>
+                    <dd><a href="#certificationStandard"><code>certificationStandard</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#certifiedScope"><code>certifiedScope</code></a>, <a href="#hasSite"><code>hasSite</code></a>, <a href="#legalEntity"><code>legalEntity</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+                <div class="example-with-playground">
+                    <pre class="example prettyprint language-json" title="QmsCertificate - meta data like credential status, evidence etc. are ommited">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/ebwv/v0.1"
+  ],
+  "@id": "urn:uuid:3f1d2c7a-9b84-4c0e-9d21-6e5b8a0f1c42",
+  "@type": [
+    "VerifiableCredential",
+    "ElectronicAttestationOfAttributes"
+  ],
+  "attestationLegalCategory": "EAA",
+  "issuer": "did:web:dqs.de",
+  "validFrom": "2024-03-25T00:00:00Z",
+  "validUntil": "2027-03-24T00:00:00Z",
+  "credentialSubject": {
+    "@id": "urn:iatf:certificate:060703-IATF25",
+    "@type": "QmsCertificate",
+    "legalEntity": {
+      "@id": "did:key:$publicKeyOfRobertBoschGmbH$",
+      "@type": [
+        "EconomicOperator",
+        "Company"
+      ],
+      "legalName": "Robert Bosch GmbH",
+      "legalForm": "GmbH",
+      "identifier": {
+        "@type": "IatfUsi",
+        "@value": "Y3XA44"
+      },
+      "registeredAddress": {
+        "@type": "Address",
+        "fullAddress": "Robert-Bosch-Straße 1, 91522 Ansbach, Germany",
+        "thoroughfare": "Robert-Bosch-Straße",
+        "locatorDesignator": "1",
+        "postCode": "91522",
+        "postName": "Ansbach",
+        "adminUnitL1": "DE"
+      }
+    },
+    "certificationStandard": {
+      "@id": "https://www.iatfglobaloversight.org/iatf-169492016/",
+      "@type": "QmsStandard"
+    },
+    "certifiedScope": "Design and manufacturing of electronic components (IATF 16949:2016, with product design)",
+    "hasSite": [
+      {
+        "@type": [
+          "Site",
+          "CertifiedSite"
+        ],
+        "identifier": {
+          "@type": "IatfUsi",
+          "@value": "P29R3L"
+        },
+        "certifiedScope": "Policy making, Strategic planning, Finance, Contract Review, Sales, Product design, Internal audit management, Quality system management",
+        "hasAddress": {
+          "@type": "Address",
+          "locatorName": "Headquarter ME",
+          "fullAddress": "Tübinger Straße 123, 72762 Reutlingen, Germany",
+          "thoroughfare": "Tübinger Straße",
+          "locatorDesignator": "123",
+          "postCode": "72762",
+          "postName": "Reutlingen",
+          "adminUnitL1": "DE"
+        }
+      },
+      {
+        "@type": [
+          "Site",
+          "CertifiedSite"
+        ],
+        "identifier": {
+          "@type": "IatfUsi",
+          "@value": "6EZTYS"
+        },
+        "certifiedScope": "Contract Review, Sales, Product design",
+        "hasAddress": {
+          "@type": "Address",
+          "locatorName": "Headquarters VM",
+          "fullAddress": "Robert-Bosch-Allee 1, 74232 Abstatt, Germany",
+          "thoroughfare": "Robert-Bosch-Allee",
+          "locatorDesignator": "1",
+          "postCode": "74232",
+          "postName": "Abstatt",
+          "adminUnitL1": "DE"
+        }
+      },
+      {
+        "@type": [
+          "Site",
+          "CertifiedSite"
+        ],
+        "identifier": {
+          "@type": "IatfUsi",
+          "@value": "Y2NCWM"
+        },
+        "certifiedScope": "Purchasing, Supplier management",
+        "hasAddress": {
+          "@type": "Address",
+          "locatorName": "Mobility Solutions - Purchasing Direct Materials",
+          "fullAddress": "Bregenzerstraße 26, 70469 Stuttgart-Feuerbach, Germany",
+          "thoroughfare": "Bregenzerstraße",
+          "locatorDesignator": "26",
+          "postCode": "70469",
+          "postName": "Stuttgart-Feuerbach",
+          "adminUnitL1": "DE"
+        }
+      },
+      {
+        "@type": [
+          "Site",
+          "CertifiedSite"
+        ],
+        "identifier": {
+          "@type": "IatfUsi",
+          "@value": "CZM42E"
+        },
+        "certifiedScope": "Logistics, Purchasing, Supplier management, Warehousing",
+        "hasAddress": {
+          "@type": "Address",
+          "locatorName": "Global Business Services",
+          "fullAddress": "Bregenzerstraße 26, 70469 Stuttgart-Feuerbach, Germany",
+          "thoroughfare": "Bregenzerstraße",
+          "locatorDesignator": "26",
+          "postCode": "70469",
+          "postName": "Stuttgart-Feuerbach",
+          "adminUnitL1": "DE"
+        }
+      },
+      {
+        "@type": [
+          "Site",
+          "CertifiedSite"
+        ],
+        "identifier": {
+          "@type": "IatfUsi",
+          "@value": "32NEEP"
+        },
+        "certifiedScope": "Contract Review, Product Design, Sales",
+        "hasAddress": {
+          "@type": "Address",
+          "locatorName": "Powertrain Solutions (PS)",
+          "fullAddress": "Wernerstraße 51, 70469 Stuttgart-Feuerbach, Germany",
+          "thoroughfare": "Wernerstraße",
+          "locatorDesignator": "51",
+          "postCode": "70469",
+          "postName": "Stuttgart-Feuerbach",
+          "adminUnitL1": "DE"
+        }
+      },
+      {
+        "@type": [
+          "Site",
+          "CertifiedSite"
+        ],
+        "identifier": {
+          "@type": "IatfUsi",
+          "@value": "LRNKEC"
+        },
+        "certifiedScope": "Contract Review, Product design, Sales",
+        "hasAddress": {
+          "@type": "Address",
+          "locatorName": "Cross-Domain Computing Solutions",
+          "fullAddress": "Poststraße 70, 71229 Leonberg, Germany",
+          "thoroughfare": "Poststraße",
+          "locatorDesignator": "70",
+          "postCode": "71229",
+          "postName": "Leonberg",
+          "adminUnitL1": "DE"
+        }
+      }
+    ]
+  }
+}
+</pre><a href="https://json-ld.org/playground/next#json-ld=%7B%0A%20%20%22%40context%22%3A%20%5B%0A%20%20%20%20%22https%3A%2F%2Fwww.w3.org%2Fns%2Fcredentials%2Fv2%22%2C%0A%20%20%20%20%22https%3A%2F%2Fw3id.org%2Febwv%2Fv0.1%22%0A%20%20%5D%2C%0A%20%20%22%40id%22%3A%20%22urn%3Auuid%3A3f1d2c7a-9b84-4c0e-9d21-6e5b8a0f1c42%22%2C%0A%20%20%22%40type%22%3A%20%5B%0A%20%20%20%20%22VerifiableCredential%22%2C%0A%20%20%20%20%22ElectronicAttestationOfAttributes%22%0A%20%20%5D%2C%0A%20%20%22attestationLegalCategory%22%3A%20%22EAA%22%2C%0A%20%20%22issuer%22%3A%20%22did%3Aweb%3Adqs.de%22%2C%0A%20%20%22validFrom%22%3A%20%222024-03-25T00%3A00%3A00Z%22%2C%0A%20%20%22validUntil%22%3A%20%222027-03-24T00%3A00%3A00Z%22%2C%0A%20%20%22credentialSubject%22%3A%20%7B%0A%20%20%20%20%22%40id%22%3A%20%22urn%3Aiatf%3Acertificate%3A060703-IATF25%22%2C%0A%20%20%20%20%22%40type%22%3A%20%22QmsCertificate%22%2C%0A%20%20%20%20%22legalEntity%22%3A%20%7B%0A%20%20%20%20%20%20%22%40id%22%3A%20%22did%3Akey%3A%24publicKeyOfRobertBoschGmbH%24%22%2C%0A%20%20%20%20%20%20%22%40type%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%22EconomicOperator%22%2C%0A%20%20%20%20%20%20%20%20%22Company%22%0A%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%22legalName%22%3A%20%22Robert%20Bosch%20GmbH%22%2C%0A%20%20%20%20%20%20%22legalForm%22%3A%20%22GmbH%22%2C%0A%20%20%20%20%20%20%22identifier%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22IatfUsi%22%2C%0A%20%20%20%20%20%20%20%20%22%40value%22%3A%20%22Y3XA44%22%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%22registeredAddress%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22Address%22%2C%0A%20%20%20%20%20%20%20%20%22fullAddress%22%3A%20%22Robert-Bosch-Stra%C3%9Fe%201%2C%2091522%20Ansbach%2C%20Germany%22%2C%0A%20%20%20%20%20%20%20%20%22thoroughfare%22%3A%20%22Robert-Bosch-Stra%C3%9Fe%22%2C%0A%20%20%20%20%20%20%20%20%22locatorDesignator%22%3A%20%221%22%2C%0A%20%20%20%20%20%20%20%20%22postCode%22%3A%20%2291522%22%2C%0A%20%20%20%20%20%20%20%20%22postName%22%3A%20%22Ansbach%22%2C%0A%20%20%20%20%20%20%20%20%22adminUnitL1%22%3A%20%22DE%22%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20%22certificationStandard%22%3A%20%7B%0A%20%20%20%20%20%20%22%40id%22%3A%20%22https%3A%2F%2Fwww.iatfglobaloversight.org%2Fiatf-169492016%2F%22%2C%0A%20%20%20%20%20%20%22%40type%22%3A%20%22QmsStandard%22%0A%20%20%20%20%7D%2C%0A%20%20%20%20%22certifiedScope%22%3A%20%22Design%20and%20manufacturing%20of%20electronic%20components%20(IATF%2016949%3A2016%2C%20with%20product%20design)%22%2C%0A%20%20%20%20%22hasSite%22%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22%40type%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%22Site%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22CertifiedSite%22%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20%22identifier%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22IatfUsi%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22%40value%22%3A%20%22P29R3L%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22certifiedScope%22%3A%20%22Policy%20making%2C%20Strategic%20planning%2C%20Finance%2C%20Contract%20Review%2C%20Sales%2C%20Product%20design%2C%20Internal%20audit%20management%2C%20Quality%20system%20management%22%2C%0A%20%20%20%20%20%20%20%20%22hasAddress%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22Address%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorName%22%3A%20%22Headquarter%20ME%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22fullAddress%22%3A%20%22T%C3%BCbinger%20Stra%C3%9Fe%20123%2C%2072762%20Reutlingen%2C%20Germany%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22thoroughfare%22%3A%20%22T%C3%BCbinger%20Stra%C3%9Fe%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorDesignator%22%3A%20%22123%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postCode%22%3A%20%2272762%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postName%22%3A%20%22Reutlingen%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22adminUnitL1%22%3A%20%22DE%22%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22%40type%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%22Site%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22CertifiedSite%22%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20%22identifier%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22IatfUsi%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22%40value%22%3A%20%226EZTYS%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22certifiedScope%22%3A%20%22Contract%20Review%2C%20Sales%2C%20Product%20design%22%2C%0A%20%20%20%20%20%20%20%20%22hasAddress%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22Address%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorName%22%3A%20%22Headquarters%20VM%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22fullAddress%22%3A%20%22Robert-Bosch-Allee%201%2C%2074232%20Abstatt%2C%20Germany%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22thoroughfare%22%3A%20%22Robert-Bosch-Allee%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorDesignator%22%3A%20%221%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postCode%22%3A%20%2274232%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postName%22%3A%20%22Abstatt%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22adminUnitL1%22%3A%20%22DE%22%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22%40type%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%22Site%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22CertifiedSite%22%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20%22identifier%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22IatfUsi%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22%40value%22%3A%20%22Y2NCWM%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22certifiedScope%22%3A%20%22Purchasing%2C%20Supplier%20management%22%2C%0A%20%20%20%20%20%20%20%20%22hasAddress%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22Address%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorName%22%3A%20%22Mobility%20Solutions%20-%20Purchasing%20Direct%20Materials%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22fullAddress%22%3A%20%22Bregenzerstra%C3%9Fe%2026%2C%2070469%20Stuttgart-Feuerbach%2C%20Germany%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22thoroughfare%22%3A%20%22Bregenzerstra%C3%9Fe%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorDesignator%22%3A%20%2226%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postCode%22%3A%20%2270469%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postName%22%3A%20%22Stuttgart-Feuerbach%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22adminUnitL1%22%3A%20%22DE%22%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22%40type%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%22Site%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22CertifiedSite%22%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20%22identifier%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22IatfUsi%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22%40value%22%3A%20%22CZM42E%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22certifiedScope%22%3A%20%22Logistics%2C%20Purchasing%2C%20Supplier%20management%2C%20Warehousing%22%2C%0A%20%20%20%20%20%20%20%20%22hasAddress%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22Address%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorName%22%3A%20%22Global%20Business%20Services%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22fullAddress%22%3A%20%22Bregenzerstra%C3%9Fe%2026%2C%2070469%20Stuttgart-Feuerbach%2C%20Germany%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22thoroughfare%22%3A%20%22Bregenzerstra%C3%9Fe%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorDesignator%22%3A%20%2226%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postCode%22%3A%20%2270469%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postName%22%3A%20%22Stuttgart-Feuerbach%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22adminUnitL1%22%3A%20%22DE%22%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22%40type%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%22Site%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22CertifiedSite%22%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20%22identifier%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22IatfUsi%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22%40value%22%3A%20%2232NEEP%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22certifiedScope%22%3A%20%22Contract%20Review%2C%20Product%20Design%2C%20Sales%22%2C%0A%20%20%20%20%20%20%20%20%22hasAddress%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22Address%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorName%22%3A%20%22Powertrain%20Solutions%20(PS)%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22fullAddress%22%3A%20%22Wernerstra%C3%9Fe%2051%2C%2070469%20Stuttgart-Feuerbach%2C%20Germany%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22thoroughfare%22%3A%20%22Wernerstra%C3%9Fe%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorDesignator%22%3A%20%2251%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postCode%22%3A%20%2270469%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postName%22%3A%20%22Stuttgart-Feuerbach%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22adminUnitL1%22%3A%20%22DE%22%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22%40type%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%22Site%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22CertifiedSite%22%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20%22identifier%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22IatfUsi%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22%40value%22%3A%20%22LRNKEC%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22certifiedScope%22%3A%20%22Contract%20Review%2C%20Product%20design%2C%20Sales%22%2C%0A%20%20%20%20%20%20%20%20%22hasAddress%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22%40type%22%3A%20%22Address%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorName%22%3A%20%22Cross-Domain%20Computing%20Solutions%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22fullAddress%22%3A%20%22Poststra%C3%9Fe%2070%2C%2071229%20Leonberg%2C%20Germany%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22thoroughfare%22%3A%20%22Poststra%C3%9Fe%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22locatorDesignator%22%3A%20%2270%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postCode%22%3A%20%2271229%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22postName%22%3A%20%22Leonberg%22%2C%0A%20%20%20%20%20%20%20%20%20%20%22adminUnitL1%22%3A%20%22DE%22%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%5D%0A%20%20%7D%0A%7D%0A&amp;startTab=tab-expand" target="_blank" rel="noopener noreferrer" class="jsonld-playground-button">Open in JSON-LD Playground</a>
+                </div>
+            </section>
+            <section id="QmsStandard">
+                <h4><code>QmsStandard</code></h4>
+                <p><em>quality management systems standard</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/qmsstandard">formal definition of the term</a>.</p>
+                <div>A Quality Management System (QMS) standard is a formal, structured set of policies, processes, and procedures designed to help organizations consistently meet customer and regulatory requirements. Key QMS Standards are :<li>ISO 9001: The universal baseline standard for quality management systems applicable to any business size or sector.</li>
+                    <li>ISO 13485: Tailored specifically for the medical device and healthcare industry, emphasizing product safety and lifecycle tracking.</li>
+                    <li>IATF 16949: Customized for the automotive manufacturing sector to prevent defects and reduce supply chain waste.</li>
+                    <li> AS9100: Built for aerospace and defense organizations demanding high safety and reliability standards.</li>
+                </div>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#certificationStandard"><code>certificationStandard</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
             <section id="Residency">
                 <h4><code>Residency</code></h4>
                 <p><em>residency</em></p>
@@ -4200,7 +4494,7 @@
                 <div>the scope of power delegated to a mandatee in the context of representing a company</div>
                 <dl class="terms">
                     <dt>Range of:</dt>
-                    <dd><a href="#scopeOfPower"><code>scopeOfPower</code></a></dd>
+                    <dd><a href="#scopeOfCertification"><code>scopeOfCertification</code></a>, <a href="#scopeOfPower"><code>scopeOfPower</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Individuals:</dt>
@@ -4216,6 +4510,10 @@
                 <p><em>Site</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/site">formal definition of the term</a>.</p>
                 <div>a place, premises or location at which an organisation is present or located</div>
+                <dl class="terms">
+                    <dt>Superclass of:</dt>
+                    <dd><a href="#CertifiedSite"><code>CertifiedSite</code></a></dd>
+                </dl>
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#hasSite"><code>hasSite</code></a></dd>
@@ -4238,9 +4536,9 @@
                 </dl>
                 <dl class="terms">
                     <dt>Domain of:</dt>
-                    <dd><a href="#averagePeriodWorkforce"><code>averagePeriodWorkforce</code></a>, <a href="#complianceStatus"><code>complianceStatus</code></a>, <a href="#contributor"><code>contributor</code></a>, <a href="#coverageStatement"><code>coverageStatement</code></a>, <a href="#coveredObligationType"><code>coveredObligationType</code></a>, <a href="#hasSite"><code>hasSite</code></a>, <a href="#legalBasis"><code>legalBasis</code></a>, <a href="#qualificationNote"><code>qualificationNote</code></a>, <a href="#reportingMonth"><code>reportingMonth</code></a>, <a href="#reportingPeriod"><code>reportingPeriod</code></a>, <a href="#staffAverage"><code>staffAverage</code></a>, <a href="#totalPayroll"><code>totalPayroll</code></a></dd>
+                    <dd><a href="#averagePeriodWorkforce"><code>averagePeriodWorkforce</code></a>, <a href="#complianceStatus"><code>complianceStatus</code></a>, <a href="#contributor"><code>contributor</code></a>, <a href="#coverageStatement"><code>coverageStatement</code></a>, <a href="#coveredObligationType"><code>coveredObligationType</code></a>, <a href="#legalBasis"><code>legalBasis</code></a>, <a href="#qualificationNote"><code>qualificationNote</code></a>, <a href="#reportingMonth"><code>reportingMonth</code></a>, <a href="#reportingPeriod"><code>reportingPeriod</code></a>, <a href="#staffAverage"><code>staffAverage</code></a>, <a href="#totalPayroll"><code>totalPayroll</code></a></dd>
                     <dt>In the domain of:</dt>
-                    <dd><a href="#employer"><code>employer</code></a></dd>
+                    <dd><a href="#employer"><code>employer</code></a>, <a href="#hasSite"><code>hasSite</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -4575,6 +4873,60 @@
                 <dl class="terms">
                     <dt>Range of:</dt>
                     <dd><a href="#licenceKey"><code>licenceKey</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="IatfUsi">
+                <h4><code>IatfUsi</code></h4>
+                <p><em>IATF USI</em></p>
+                <p>See the <a href="https://www.iatfglobaloversight.org/wp/wp-content/uploads/2022/09/IATF-Stakeholder-Communique-SC-2022-009-IATF-Unique-Site-Identifier.pdf">formal definition of the term</a>.</p>
+                <div>This IATF Unique Site Identifier (USI) is used within the automotive industry's IATF 16949 Quality Management System. It is a permanent, immutable 6-digit alphanumeric code assigned to a specific physical manufacturing facility or remote support location. It remains tied to that exact address for the lifetime of the certification, regardless of company name changes or certification body transfers.</div>
+                <dl class="terms">
+                    <dt>Derived from:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Restriction pattern: </dt>
+                    <dd>"[0-9A-Z]{6}"</dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="IatfNo">
+                <h4><code>IatfNo</code></h4>
+                <p><em>IATF No</em></p>
+                <p>See the <a href="https://iatf-customerportal.org/">formal definition of the term</a>.</p>
+                <div>IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).</div>
+                <dl class="terms">
+                    <dt>Derived from:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Restriction pattern: </dt>
+                    <dd>"[0-9]{7}"</dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="Iatf25">
+                <h4><code>Iatf25</code></h4>
+                <p><em>IATF25</em></p>
+                <p>See the <a href="https://iatf-customerportal.org/">formal definition of the term</a>.</p>
+                <div>IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).</div>
+                <dl class="terms">
+                    <dt>Derived from:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Restriction pattern: </dt>
+                    <dd>"[0-9]{6}"</dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>

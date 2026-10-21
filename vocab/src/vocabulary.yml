@@ -81,6 +81,12 @@ class:
             "issuer": "did:key:$publicKeyOfProvider$"
           }
 
+  - id: CertifiedSite
+    label: certified site
+    upper_value: Site
+    comment: certification target (site) of the corresponding certification
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedsite
+
   - id: Company
     label: Company as defined in directive-EU-2025/25
     upper_value:
@@ -1118,6 +1124,195 @@ class:
     comment: public sector body’ means a Union entity, a national, state, regional or local authority, a body governed by public law or an association formed by one or several such entities or bodies , or a private entity mandated by at least one such entities, authorities, bodies or associations to provide public services, when acting under such a mandate
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody
 
+  - id: QmsCertificate
+    label: Quality management systems (QMS) certificate
+    comment:  Quality management systems (QMS) certification used for ESG Reporting and Sustainability
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/qmscertification
+    example:
+      - label: QmsCertificate - meta data like credential status, evidence etc. are ommited
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:3f1d2c7a-9b84-4c0e-9d21-6e5b8a0f1c42",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "issuer": "did:web:dqs.de",
+            "validFrom": "2024-03-25T00:00:00Z",
+            "validUntil": "2027-03-24T00:00:00Z",
+            "credentialSubject": {
+              "@id": "urn:iatf:certificate:060703-IATF25",
+              "@type": "QmsCertificate",
+              "legalEntity": {
+                "@id": "did:key:$publicKeyOfRobertBoschGmbH$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company"
+                ],
+                "legalName": "Robert Bosch GmbH",
+                "legalForm": "GmbH",
+                "identifier": {
+                  "@type": "IatfUsi",
+                  "@value": "Y3XA44"
+                },
+                "registeredAddress": {
+                  "@type": "Address",
+                  "fullAddress": "Robert-Bosch-Straße 1, 91522 Ansbach, Germany",
+                  "thoroughfare": "Robert-Bosch-Straße",
+                  "locatorDesignator": "1",
+                  "postCode": "91522",
+                  "postName": "Ansbach",
+                  "adminUnitL1": "DE"
+                }
+              },
+              "certificationStandard": {
+                "@id": "https://www.iatfglobaloversight.org/iatf-169492016/",
+                "@type": "QmsStandard"
+              },
+              "certifiedScope": "Design and manufacturing of electronic components (IATF 16949:2016, with product design)",
+              "hasSite": [
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "P29R3L"
+                  },
+                  "certifiedScope": "Policy making, Strategic planning, Finance, Contract Review, Sales, Product design, Internal audit management, Quality system management",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Headquarter ME",
+                    "fullAddress": "Tübinger Straße 123, 72762 Reutlingen, Germany",
+                    "thoroughfare": "Tübinger Straße",
+                    "locatorDesignator": "123",
+                    "postCode": "72762",
+                    "postName": "Reutlingen",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "6EZTYS"
+                  },
+                  "certifiedScope": "Contract Review, Sales, Product design",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Headquarters VM",
+                    "fullAddress": "Robert-Bosch-Allee 1, 74232 Abstatt, Germany",
+                    "thoroughfare": "Robert-Bosch-Allee",
+                    "locatorDesignator": "1",
+                    "postCode": "74232",
+                    "postName": "Abstatt",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "Y2NCWM"
+                  },
+                  "certifiedScope": "Purchasing, Supplier management",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Mobility Solutions - Purchasing Direct Materials",
+                    "fullAddress": "Bregenzerstraße 26, 70469 Stuttgart-Feuerbach, Germany",
+                    "thoroughfare": "Bregenzerstraße",
+                    "locatorDesignator": "26",
+                    "postCode": "70469",
+                    "postName": "Stuttgart-Feuerbach",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "CZM42E"
+                  },
+                  "certifiedScope": "Logistics, Purchasing, Supplier management, Warehousing",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Global Business Services",
+                    "fullAddress": "Bregenzerstraße 26, 70469 Stuttgart-Feuerbach, Germany",
+                    "thoroughfare": "Bregenzerstraße",
+                    "locatorDesignator": "26",
+                    "postCode": "70469",
+                    "postName": "Stuttgart-Feuerbach",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "32NEEP"
+                  },
+                  "certifiedScope": "Contract Review, Product Design, Sales",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Powertrain Solutions (PS)",
+                    "fullAddress": "Wernerstraße 51, 70469 Stuttgart-Feuerbach, Germany",
+                    "thoroughfare": "Wernerstraße",
+                    "locatorDesignator": "51",
+                    "postCode": "70469",
+                    "postName": "Stuttgart-Feuerbach",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "LRNKEC"
+                  },
+                  "certifiedScope": "Contract Review, Product design, Sales",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Cross-Domain Computing Solutions",
+                    "fullAddress": "Poststraße 70, 71229 Leonberg, Germany",
+                    "thoroughfare": "Poststraße",
+                    "locatorDesignator": "70",
+                    "postCode": "71229",
+                    "postName": "Leonberg",
+                    "adminUnitL1": "DE"
+                  }
+                }
+              ]
+            }
+          }
+
+
+  - id: QmsStandard
+    label: quality management systems standard
+    comment: A Quality Management System (QMS) standard is a formal, structured set of policies, processes, and procedures designed to help organizations consistently meet customer and regulatory requirements. Key QMS Standards are &colon;<li>ISO 9001&colon; The universal baseline standard for quality management systems applicable to any business size or sector.</li><li>ISO 13485&colon; Tailored specifically for the medical device and healthcare industry, emphasizing product safety and lifecycle tracking.</li><li>IATF 16949&colon; Customized for the automotive manufacturing sector to prevent defects and reduce supply chain waste.</li><li> AS9100&colon; Built for aerospace and defense organizations demanding high safety and reliability standards.</li>
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/qmsstandard
+
   - id: Residency
     label: residency
     upper_value: cred:CredentialSubject
@@ -1487,6 +1682,22 @@ property:
     range: xsd:anyURI
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/buyer
 
+  - id: certificationStandard
+    label: certification standard
+    domain: QmsCertificate
+    range: QmsStandard
+    comment: the standard the certificate is based on
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certificationstandard
+
+  - id: certifiedScope
+    label: certified scope
+    domain:
+      - QmsCertificate
+      - CertifiedSite
+    range: xsd:String
+    comment: the scope of certification
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedscope
+
   - id: citizenship
     label: citizenship
     domain: NaturalPerson
@@ -1728,7 +1939,9 @@ property:
 
   - id: hasSite
     label: has site
-    domain: SocialSecurityContribution
+    domain:
+      - SocialSecurityContribution
+      - QmsCertificate
     range: Site
     comment: a place, premises or location at which an organisation is present or located
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/site
@@ -1818,8 +2031,10 @@ property:
       - GeneralPartner
       - LimitedPartner
       - StatutoryPartner
+      - QmsCertificate
+      - CertificationSite
     range: LegalEntity
-    comment: the legal entity — a legal person or a natural person — referenced by its DID, e.g. the acting representative, the participated entity, the shareholder, the general partner, or the beneficial owner
+    comment: the legal entity — a legal person or a natural person — referenced by its DID and/or claims, e.g. the acting representative, the participated entity, the shareholder, the general partner, the beneficial owner, the certified company or the operator of a certified site
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: legalForm
@@ -2231,6 +2446,20 @@ property:
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 
+  - id: scopeOfCertification
+    label: scope of certification
+    domain: Environmental
+    range: ScopeOfPower
+    one_of:
+      - FormationOfCompanies
+      - ConstitutionOfCompanies
+      - RegistrationAndClosingOfBranches
+      - CrossBoarderConversions
+      - CrossBoarderMergers
+      - CrossBorderDivisions
+    comment: The scope of the power given to a mandatee.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
+
   - id: scopeOfPower
     label: scope of power
     domain: PowerOfAttorney
@@ -2367,7 +2596,8 @@ property:
 
   - id: url
     label: url
-    domain: GovernanceRulebook
+    domain:
+    - GovernanceRulebook
     range: xsd:anyURI
     comment: Reference (URL) to the online dataspace governance rulebook for the given DSI or DS.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/url
@@ -2446,6 +2676,27 @@ datatype:
     pattern: '[0-9]{7,9}'
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gs1companyprefix
+
+  - id: IatfUsi
+    label: IATF USI
+    upper_value: xsd:string
+    pattern: '[0-9A-Z]{6}'
+    comment: This IATF Unique Site Identifier (USI) is used within the automotive industry's IATF 16949 Quality Management System. It is a permanent, immutable 6-digit alphanumeric code assigned to a specific physical manufacturing facility or remote support location. It remains tied to that exact address for the lifetime of the certification, regardless of company name changes or certification body transfers.
+    defined_by: https://www.iatfglobaloversight.org/wp/wp-content/uploads/2022/09/IATF-Stakeholder-Communique-SC-2022-009-IATF-Unique-Site-Identifier.pdf
+
+  - id: IatfNo
+    label: IATF No
+    upper_value: xsd:string
+    pattern: '[0-9]{7}'
+    comment: IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).
+    defined_by: https://iatf-customerportal.org/
+
+  - id: Iatf25
+    label: IATF25
+    upper_value: xsd:string
+    pattern: '[0-9]{6}'
+    comment: IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).
+    defined_by: https://iatf-customerportal.org/
 
   - id: Iban
     label: IBAN

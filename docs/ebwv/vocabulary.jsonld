@@ -64,7 +64,7 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-        "dc:date": "2026-10-19"
+        "dc:date": "2026-10-21"
     }, {
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -247,6 +247,33 @@
         "rdfs:range": "xsd:anyURI",
         "rdfs:label": "buyer",
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/buyer", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:certificationStandard",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:QmsCertificate",
+        "rdfs:range": "ebwv:QmsStandard",
+        "rdfs:label": "certification standard",
+        "rdfs:comment": {
+            "@value": "<div>the standard the certificate is based on</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/certificationstandard", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:certifiedScope",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:QmsCertificate", "ebwv:CertifiedSite"]
+        },
+        "rdfs:range": "xsd:String",
+        "rdfs:label": "certified scope",
+        "rdfs:comment": {
+            "@value": "<div>the scope of certification</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedscope", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:citizenship",
@@ -616,7 +643,10 @@
     }, {
         "@id": "ebwv:hasSite",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
-        "rdfs:domain": "ebwv:SocialSecurityContribution",
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["ebwv:SocialSecurityContribution", "ebwv:QmsCertificate"]
+        },
         "rdfs:range": "ebwv:Site",
         "rdfs:label": "has site",
         "rdfs:comment": {
@@ -711,12 +741,12 @@
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:LegalRepresentative", "ebwv:GeneralPartner", "ebwv:LimitedPartner", "ebwv:StatutoryPartner"]
+            "owl:unionOf": ["ebwv:LegalRepresentative", "ebwv:GeneralPartner", "ebwv:LimitedPartner", "ebwv:StatutoryPartner", "ebwv:QmsCertificate", "ebwv:CertificationSite"]
         },
         "rdfs:range": "ebwv:LegalEntity",
         "rdfs:label": "legal entity",
         "rdfs:comment": {
-            "@value": "<div>the legal entity — a legal person or a natural person — referenced by its DID, e.g. the acting representative, the participated entity, the shareholder, the general partner, or the beneficial owner</div>",
+            "@value": "<div>the legal entity — a legal person or a natural person — referenced by its DID and/or claims, e.g. the acting representative, the participated entity, the shareholder, the general partner, the beneficial owner, the certified company or the operator of a certified site</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity", "https://w3id.org/ebwv#"],
@@ -1312,6 +1342,21 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/role", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:scopeOfCertification",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "ebwv:Environmental",
+        "rdfs:range": ["ebwv:ScopeOfPower", {
+            "@type": "owl:class",
+            "owl:oneOf": ["ebwv:FormationOfCompanies", "ebwv:ConstitutionOfCompanies", "ebwv:RegistrationAndClosingOfBranches", "ebwv:CrossBoarderConversions", "ebwv:CrossBoarderMergers", "ebwv:CrossBorderDivisions"]
+        }],
+        "rdfs:label": "scope of certification",
+        "rdfs:comment": {
+            "@value": "<div>The scope of the power given to a mandatee.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:scopeOfPower",
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": "ebwv:PowerOfAttorney",
@@ -1574,6 +1619,17 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:CertifiedSite",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["ebwv:Site"],
+        "rdfs:label": "certified site",
+        "rdfs:comment": {
+            "@value": "<div>certification target (site) of the corresponding certification</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedsite", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:Company",
         "@type": "rdfs:Class",
         "rdfs:subClassOf": ["cred:CredentialSubject", "ebwv:EconomicOperator"],
@@ -1810,6 +1866,27 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:QmsCertificate",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["cred:CredentialSubject"],
+        "rdfs:label": "Quality management systems (QMS) certificate",
+        "rdfs:comment": {
+            "@value": "<div>Quality management systems (QMS) certification used for ESG Reporting and Sustainability</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/qmscertification", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:QmsStandard",
+        "@type": "rdfs:Class",
+        "rdfs:label": "quality management systems standard",
+        "rdfs:comment": {
+            "@value": "<div>A Quality Management System (QMS) standard is a formal, structured set of policies, processes, and procedures designed to help organizations consistently meet customer and regulatory requirements. Key QMS Standards are &colon;<li>ISO 9001&colon; The universal baseline standard for quality management systems applicable to any business size or sector.</li><li>ISO 13485&colon; Tailored specifically for the medical device and healthcare industry, emphasizing product safety and lifecycle tracking.</li><li>IATF 16949&colon; Customized for the automotive manufacturing sector to prevent defects and reduce supply chain waste.</li><li> AS9100&colon; Built for aerospace and defense organizations demanding high safety and reliability standards.</li></div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/qmsstandard", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
         "@id": "ebwv:Residency",
@@ -2266,6 +2343,57 @@
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/gs1companyprefix", "https://w3id.org/ebwv#"],
         "vs:term_status": "stable"
     }, {
+        "@id": "ebwv:IatfUsi",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "owl:onDatatype": "xsd:string",
+        "owl:withRestrictions": {
+            "@list": [{
+                "xsd:pattern": "[0-9A-Z]{6}"
+            }]
+        },
+        "rdfs:label": "IATF USI",
+        "rdfs:comment": {
+            "@value": "<div>This IATF Unique Site Identifier (USI) is used within the automotive industry's IATF 16949 Quality Management System. It is a permanent, immutable 6-digit alphanumeric code assigned to a specific physical manufacturing facility or remote support location. It remains tied to that exact address for the lifetime of the certification, regardless of company name changes or certification body transfers.</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://www.iatfglobaloversight.org/wp/wp-content/uploads/2022/09/IATF-Stakeholder-Communique-SC-2022-009-IATF-Unique-Site-Identifier.pdf", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:IatfNo",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "owl:onDatatype": "xsd:string",
+        "owl:withRestrictions": {
+            "@list": [{
+                "xsd:pattern": "[0-9]{7}"
+            }]
+        },
+        "rdfs:label": "IATF No",
+        "rdfs:comment": {
+            "@value": "<div>IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://iatf-customerportal.org/", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "ebwv:Iatf25",
+        "@type": "rdfs:Datatype",
+        "rdfs:subClassOf": ["xsd:string"],
+        "owl:onDatatype": "xsd:string",
+        "owl:withRestrictions": {
+            "@list": [{
+                "xsd:pattern": "[0-9]{6}"
+            }]
+        },
+        "rdfs:label": "IATF25",
+        "rdfs:comment": {
+            "@value": "<div>IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).</div>",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "rdfs:isDefinedBy": ["https://iatf-customerportal.org/", "https://w3id.org/ebwv#"],
+        "vs:term_status": "stable"
+    }, {
         "@id": "ebwv:Iban",
         "@type": "rdfs:Datatype",
         "rdfs:subClassOf": ["xsd:string"],
@@ -2373,7 +2501,7 @@
     }, {
         "@id": "https://w3id.org/ebwv/v0.1",
         "@type": "jsonld:Context",
-        "mentions": ["cred:termsOfUse", "ebwv:A1Certificate", "ebwv:AccountType", "ebwv:Address", "ebwv:Agent", "ebwv:Alone", "ebwv:AttestationLegalCategory", "ebwv:BankAccount", "ebwv:Bic", "ebwv:CEO", "ebwv:CFO", "ebwv:CIP", "ebwv:CPT", "ebwv:ClearingNumber", "ebwv:Company", "ebwv:ConstitutionOfCompanies", "ebwv:ContactPoint", "ebwv:CorporateRole", "ebwv:CountryCode", "ebwv:CrossBoarderConversions", "ebwv:CrossBoarderMergers", "ebwv:CrossBorderDivisions", "ebwv:Currency", "ebwv:DAP", "ebwv:DDP", "ebwv:DPU", "ebwv:DUNS", "ebwv:DataConsumer", "ebwv:DataProvider", "ebwv:DataRightsHolder", "ebwv:DataSpaceRole", "ebwv:DunsNumber", "ebwv:EAA", "ebwv:EXW", "ebwv:EconomicOperator", "ebwv:ElectronicAttestationOfAttributes", "ebwv:Eori", "ebwv:Euid", "ebwv:EuropeanBusinessWalletOwner", "ebwv:Excise", "ebwv:FAS", "ebwv:FCA", "ebwv:FOB", "ebwv:FormationOfCompanies", "ebwv:GLN", "ebwv:GS1CompanyPrefix", "ebwv:GeneralPartner", "ebwv:GlobalLocationNumber", "ebwv:GovernanceRulebook", "ebwv:HeadOfHR", "ebwv:Iban", "ebwv:Incoterms", "ebwv:Jointly", "ebwv:KmgMid", "ebwv:LegalEntity", "ebwv:LegalEntityIdentifier", "ebwv:LegalPerson", "ebwv:LegalRepresentative", "ebwv:Lei", "ebwv:LeiRegistration", "ebwv:LimitedLiabilityCompany", "ebwv:LimitedPartner", "ebwv:Location", "ebwv:Membership", "ebwv:MonetaryAmount", "ebwv:Nace21", "ebwv:NationalBankCode", "ebwv:NaturalPerson", "ebwv:OnboardingDetails", "ebwv:OnboardingServiceProvider", "ebwv:Operator", "ebwv:Partnership", "ebwv:PaymentTerms", "ebwv:PeppolId", "ebwv:PeriodOfTime", "ebwv:Permanent", "ebwv:PostedWorkerNotification", "ebwv:PowerOfAttorney", "ebwv:Pub-EAA", "ebwv:PublicSectorBody", "ebwv:PublicSectorBodyId", "ebwv:QEAA", "ebwv:RegistrationAndClosingOfBranches", "ebwv:Residency", "ebwv:ScopeOfPower", "ebwv:Site", "ebwv:SocialSecurityContribution", "ebwv:StatutoryPartner", "ebwv:Temporary", "ebwv:Tin", "ebwv:TypeOfEmployment", "ebwv:TypeOfRepresentation", "ebwv:UBO", "ebwv:VATRegistrationUnit", "ebwv:VatId", "ebwv:Vessel", "ebwv:WorkAssignment", "ebwv:a1", "ebwv:acceptedAt", "ebwv:accountName", "ebwv:accountType", "ebwv:activity", "ebwv:addressArea", "ebwv:adminUnitL1", "ebwv:adminUnitL2", "ebwv:administrativeRepresentative", "ebwv:alternativeName", "ebwv:amount", "ebwv:arrivalDate", "ebwv:assignment", "ebwv:attestationLegalCategory", "ebwv:averagePeriodWorkforce", "ebwv:birthName", "ebwv:businessEntity", "ebwv:buyer", "ebwv:citizenship", "ebwv:complianceStatus", "ebwv:constructionSector", "ebwv:contactPoint", "ebwv:contributor", "ebwv:correspondenceAddress", "ebwv:countryOfBirth", "ebwv:countryOfDeath", "ebwv:coverageStatement", "ebwv:coveredObligationType", "ebwv:currency", "ebwv:dateOfBirth", "ebwv:dateOfDeath", "ebwv:dateOfRegistration", "ebwv:deliveryLocation", "ebwv:domicile", "ebwv:duration", "ebwv:employee", "ebwv:employer", "ebwv:endDate", "ebwv:familyName", "ebwv:flagState", "ebwv:fullAddress", "ebwv:fullName", "ebwv:fullPeriodCovered", "ebwv:gender", "ebwv:geographicIdentifier", "ebwv:geographicName", "ebwv:givenName", "ebwv:hasAddress", "ebwv:hasEmail", "ebwv:hasSite", "ebwv:hasTelephone", "ebwv:hash", "ebwv:hostEntity", "ebwv:iban", "ebwv:identifier", "ebwv:jobTitle", "ebwv:jurisdiction", "ebwv:legalBasis", "ebwv:legalEntity", "ebwv:legalForm", "ebwv:legalIdentifier", "ebwv:legalName", "ebwv:legalRepresentative", "ebwv:legalStatus", "ebwv:lei", "ebwv:leiLastUpdate", "ebwv:leiLegalEntity", "ebwv:leiNextRenewal", "ebwv:leiRegistration", "ebwv:leiRegistrationDate", "ebwv:leiRegistrationStatus", "ebwv:liabilityOrContribution", "ebwv:licenceKey", "ebwv:locatorDesignator", "ebwv:locatorName", "ebwv:managingLeiIssuer", "ebwv:mandatee", "ebwv:matronymicName", "ebwv:member", "ebwv:memberOf", "ebwv:noFixedPlaceOfWork", "ebwv:onboardedBy", "ebwv:operator", "ebwv:organisation", "ebwv:owner", "ebwv:ownershipPercentage", "ebwv:partner", "ebwv:patronymicName", "ebwv:paymentDue", "ebwv:person", "ebwv:personalAdministrativeNumber", "ebwv:placeOfBirth", "ebwv:placeOfDeath", "ebwv:placeOfWork", "ebwv:platform", "ebwv:poBox", "ebwv:portrait", "ebwv:postCode", "ebwv:postName", "ebwv:postedWorker", "ebwv:principal", "ebwv:provenanceProof", "ebwv:provider", "ebwv:provisionalDetermination", "ebwv:qualificationNote", "ebwv:registeredAddress", "ebwv:reportingMonth", "ebwv:reportingPeriod", "ebwv:residency", "ebwv:role", "ebwv:scopeOfPower", "ebwv:socialRepresentative", "ebwv:staffAverage", "ebwv:startDate", "ebwv:stateOfInsurance", "ebwv:statusConfirmation", "ebwv:subscribedCapital", "ebwv:supplier", "ebwv:temporaryAddress", "ebwv:temporaryWorkAgency", "ebwv:terms", "ebwv:thoroughfare", "ebwv:totalPayroll", "ebwv:transitionalRules", "ebwv:type", "ebwv:typeOfEmployment", "ebwv:typeOfRepresentation", "ebwv:url", "ebwv:version"]
+        "mentions": ["cred:termsOfUse", "ebwv:A1Certificate", "ebwv:AccountType", "ebwv:Address", "ebwv:Agent", "ebwv:Alone", "ebwv:AttestationLegalCategory", "ebwv:BankAccount", "ebwv:Bic", "ebwv:CEO", "ebwv:CFO", "ebwv:CIP", "ebwv:CPT", "ebwv:CertifiedSite", "ebwv:ClearingNumber", "ebwv:Company", "ebwv:ConstitutionOfCompanies", "ebwv:ContactPoint", "ebwv:CorporateRole", "ebwv:CountryCode", "ebwv:CrossBoarderConversions", "ebwv:CrossBoarderMergers", "ebwv:CrossBorderDivisions", "ebwv:Currency", "ebwv:DAP", "ebwv:DDP", "ebwv:DPU", "ebwv:DUNS", "ebwv:DataConsumer", "ebwv:DataProvider", "ebwv:DataRightsHolder", "ebwv:DataSpaceRole", "ebwv:DunsNumber", "ebwv:EAA", "ebwv:EXW", "ebwv:EconomicOperator", "ebwv:ElectronicAttestationOfAttributes", "ebwv:Eori", "ebwv:Euid", "ebwv:EuropeanBusinessWalletOwner", "ebwv:Excise", "ebwv:FAS", "ebwv:FCA", "ebwv:FOB", "ebwv:FormationOfCompanies", "ebwv:GLN", "ebwv:GS1CompanyPrefix", "ebwv:GeneralPartner", "ebwv:GlobalLocationNumber", "ebwv:GovernanceRulebook", "ebwv:HeadOfHR", "ebwv:Iatf25", "ebwv:IatfNo", "ebwv:IatfUsi", "ebwv:Iban", "ebwv:Incoterms", "ebwv:Jointly", "ebwv:KmgMid", "ebwv:LegalEntity", "ebwv:LegalEntityIdentifier", "ebwv:LegalPerson", "ebwv:LegalRepresentative", "ebwv:Lei", "ebwv:LeiRegistration", "ebwv:LimitedLiabilityCompany", "ebwv:LimitedPartner", "ebwv:Location", "ebwv:Membership", "ebwv:MonetaryAmount", "ebwv:Nace21", "ebwv:NationalBankCode", "ebwv:NaturalPerson", "ebwv:OnboardingDetails", "ebwv:OnboardingServiceProvider", "ebwv:Operator", "ebwv:Partnership", "ebwv:PaymentTerms", "ebwv:PeppolId", "ebwv:PeriodOfTime", "ebwv:Permanent", "ebwv:PostedWorkerNotification", "ebwv:PowerOfAttorney", "ebwv:Pub-EAA", "ebwv:PublicSectorBody", "ebwv:PublicSectorBodyId", "ebwv:QEAA", "ebwv:QmsCertificate", "ebwv:QmsStandard", "ebwv:RegistrationAndClosingOfBranches", "ebwv:Residency", "ebwv:ScopeOfPower", "ebwv:Site", "ebwv:SocialSecurityContribution", "ebwv:StatutoryPartner", "ebwv:Temporary", "ebwv:Tin", "ebwv:TypeOfEmployment", "ebwv:TypeOfRepresentation", "ebwv:UBO", "ebwv:VATRegistrationUnit", "ebwv:VatId", "ebwv:Vessel", "ebwv:WorkAssignment", "ebwv:a1", "ebwv:acceptedAt", "ebwv:accountName", "ebwv:accountType", "ebwv:activity", "ebwv:addressArea", "ebwv:adminUnitL1", "ebwv:adminUnitL2", "ebwv:administrativeRepresentative", "ebwv:alternativeName", "ebwv:amount", "ebwv:arrivalDate", "ebwv:assignment", "ebwv:attestationLegalCategory", "ebwv:averagePeriodWorkforce", "ebwv:birthName", "ebwv:businessEntity", "ebwv:buyer", "ebwv:certificationStandard", "ebwv:certifiedScope", "ebwv:citizenship", "ebwv:complianceStatus", "ebwv:constructionSector", "ebwv:contactPoint", "ebwv:contributor", "ebwv:correspondenceAddress", "ebwv:countryOfBirth", "ebwv:countryOfDeath", "ebwv:coverageStatement", "ebwv:coveredObligationType", "ebwv:currency", "ebwv:dateOfBirth", "ebwv:dateOfDeath", "ebwv:dateOfRegistration", "ebwv:deliveryLocation", "ebwv:domicile", "ebwv:duration", "ebwv:employee", "ebwv:employer", "ebwv:endDate", "ebwv:familyName", "ebwv:flagState", "ebwv:fullAddress", "ebwv:fullName", "ebwv:fullPeriodCovered", "ebwv:gender", "ebwv:geographicIdentifier", "ebwv:geographicName", "ebwv:givenName", "ebwv:hasAddress", "ebwv:hasEmail", "ebwv:hasSite", "ebwv:hasTelephone", "ebwv:hash", "ebwv:hostEntity", "ebwv:iban", "ebwv:identifier", "ebwv:jobTitle", "ebwv:jurisdiction", "ebwv:legalBasis", "ebwv:legalEntity", "ebwv:legalForm", "ebwv:legalIdentifier", "ebwv:legalName", "ebwv:legalRepresentative", "ebwv:legalStatus", "ebwv:lei", "ebwv:leiLastUpdate", "ebwv:leiLegalEntity", "ebwv:leiNextRenewal", "ebwv:leiRegistration", "ebwv:leiRegistrationDate", "ebwv:leiRegistrationStatus", "ebwv:liabilityOrContribution", "ebwv:licenceKey", "ebwv:locatorDesignator", "ebwv:locatorName", "ebwv:managingLeiIssuer", "ebwv:mandatee", "ebwv:matronymicName", "ebwv:member", "ebwv:memberOf", "ebwv:noFixedPlaceOfWork", "ebwv:onboardedBy", "ebwv:operator", "ebwv:organisation", "ebwv:owner", "ebwv:ownershipPercentage", "ebwv:partner", "ebwv:patronymicName", "ebwv:paymentDue", "ebwv:person", "ebwv:personalAdministrativeNumber", "ebwv:placeOfBirth", "ebwv:placeOfDeath", "ebwv:placeOfWork", "ebwv:platform", "ebwv:poBox", "ebwv:portrait", "ebwv:postCode", "ebwv:postName", "ebwv:postedWorker", "ebwv:principal", "ebwv:provenanceProof", "ebwv:provider", "ebwv:provisionalDetermination", "ebwv:qualificationNote", "ebwv:registeredAddress", "ebwv:reportingMonth", "ebwv:reportingPeriod", "ebwv:residency", "ebwv:role", "ebwv:scopeOfCertification", "ebwv:scopeOfPower", "ebwv:socialRepresentative", "ebwv:staffAverage", "ebwv:startDate", "ebwv:stateOfInsurance", "ebwv:statusConfirmation", "ebwv:subscribedCapital", "ebwv:supplier", "ebwv:temporaryAddress", "ebwv:temporaryWorkAgency", "ebwv:terms", "ebwv:thoroughfare", "ebwv:totalPayroll", "ebwv:transitionalRules", "ebwv:type", "ebwv:typeOfEmployment", "ebwv:typeOfRepresentation", "ebwv:url", "ebwv:version"]
     }, {
         "@id": "https://www.w3.org/ns/credentials/v2",
         "@type": "jsonld:Context",

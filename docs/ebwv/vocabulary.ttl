@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-10-19"^^xsd:date ;
+    dc:date "2026-10-21"^^xsd:date ;
 .
 
 # Property definitions
@@ -170,6 +170,24 @@ ebwv:buyer a rdf:Property, owl:DatatypeProperty ;
     rdfs:range xsd:anyURI ;
     rdfs:label "buyer" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/buyer>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:certificationStandard a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:QmsCertificate ;
+    rdfs:range ebwv:QmsStandard ;
+    rdfs:label "certification standard" ;
+    rdfs:comment """<div>the standard the certificate is based on</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/certificationstandard>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:certifiedScope a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:QmsCertificate ebwv:CertifiedSite) ] ;
+    rdfs:range xsd:String ;
+    rdfs:label "certified scope" ;
+    rdfs:comment """<div>the scope of certification</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedscope>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -452,7 +470,7 @@ ebwv:hash a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:hasSite a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:SocialSecurityContribution ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:SocialSecurityContribution ebwv:QmsCertificate) ] ;
     rdfs:range ebwv:Site ;
     rdfs:label "has site" ;
     rdfs:comment """<div>a place, premises or location at which an organisation is present or located</div>"""^^rdf:HTML ;
@@ -521,10 +539,10 @@ ebwv:legalBasis a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:legalEntity a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:GeneralPartner ebwv:LimitedPartner ebwv:StatutoryPartner) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:GeneralPartner ebwv:LimitedPartner ebwv:StatutoryPartner ebwv:QmsCertificate ebwv:CertificationSite) ] ;
     rdfs:range ebwv:LegalEntity ;
     rdfs:label "legal entity" ;
-    rdfs:comment """<div>the legal entity — a legal person or a natural person — referenced by its DID, e.g. the acting representative, the participated entity, the shareholder, the general partner, or the beneficial owner</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>the legal entity — a legal person or a natural person — referenced by its DID and/or claims, e.g. the acting representative, the participated entity, the shareholder, the general partner, the beneficial owner, the certified company or the operator of a certified site</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -969,6 +987,15 @@ ebwv:role a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
+ebwv:scopeOfCertification a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:Environmental ;
+    rdfs:range ebwv:ScopeOfPower, [ a owl:Class; owl:oneOf (ebwv:FormationOfCompanies ebwv:ConstitutionOfCompanies ebwv:RegistrationAndClosingOfBranches ebwv:CrossBoarderConversions ebwv:CrossBoarderMergers ebwv:CrossBorderDivisions) ] ;
+    rdfs:label "scope of certification" ;
+    rdfs:comment """<div>The scope of the power given to a mandatee.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:scopeOfPower a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:PowerOfAttorney ;
     rdfs:range ebwv:ScopeOfPower, [ a owl:Class; owl:oneOf (ebwv:FormationOfCompanies ebwv:ConstitutionOfCompanies ebwv:RegistrationAndClosingOfBranches ebwv:CrossBoarderConversions ebwv:CrossBoarderMergers ebwv:CrossBorderDivisions) ] ;
@@ -1166,6 +1193,14 @@ ebwv:BankAccount a rdfs:Class ;
     rdfs:label "Bank Account" ;
     rdfs:comment """<div>an account held with a credit institution or payment service provider that enables a legal or natural person to receive, hold, and transfer funds</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:CertifiedSite a rdfs:Class ;
+    rdfs:subClassOf ebwv:Site ;
+    rdfs:label "certified site" ;
+    rdfs:comment """<div>certification target (site) of the corresponding certification</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedsite>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1371,6 +1406,21 @@ ebwv:PublicSectorBody a rdfs:Class ;
     rdfs:label "public sector body" ;
     rdfs:comment """<div>public sector body’ means a Union entity, a national, state, regional or local authority, a body governed by public law or an association formed by one or several such entities or bodies , or a private entity mandated by at least one such entities, authorities, bodies or associations to provide public services, when acting under such a mandate</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:QmsCertificate a rdfs:Class ;
+    rdfs:subClassOf cred:CredentialSubject ;
+    rdfs:label "Quality management systems (QMS) certificate" ;
+    rdfs:comment """<div>Quality management systems (QMS) certification used for ESG Reporting and Sustainability</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/qmscertification>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:QmsStandard a rdfs:Class ;
+    rdfs:label "quality management systems standard" ;
+    rdfs:comment """<div>A Quality Management System (QMS) standard is a formal, structured set of policies, processes, and procedures designed to help organizations consistently meet customer and regulatory requirements. Key QMS Standards are &colon;<li>ISO 9001&colon; The universal baseline standard for quality management systems applicable to any business size or sector.</li><li>ISO 13485&colon; Tailored specifically for the medical device and healthcare industry, emphasizing product safety and lifecycle tracking.</li><li>IATF 16949&colon; Customized for the automotive manufacturing sector to prevent defects and reduce supply chain waste.</li><li> AS9100&colon; Built for aerospace and defense organizations demanding high safety and reliability standards.</li></div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/qmsstandard>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1736,6 +1786,36 @@ ebwv:GS1CompanyPrefix a rdfs:Datatype ;
     owl:withRestrictions ([xsd:pattern "[0-9]{7,9}"]) ;
     rdfs:label "GS1 company prefix" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/gs1companyprefix>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:IatfUsi a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([xsd:pattern "[0-9A-Z]{6}"]) ;
+    rdfs:label "IATF USI" ;
+    rdfs:comment """<div>This IATF Unique Site Identifier (USI) is used within the automotive industry's IATF 16949 Quality Management System. It is a permanent, immutable 6-digit alphanumeric code assigned to a specific physical manufacturing facility or remote support location. It remains tied to that exact address for the lifetime of the certification, regardless of company name changes or certification body transfers.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://www.iatfglobaloversight.org/wp/wp-content/uploads/2022/09/IATF-Stakeholder-Communique-SC-2022-009-IATF-Unique-Site-Identifier.pdf>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:IatfNo a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([xsd:pattern "[0-9]{7}"]) ;
+    rdfs:label "IATF No" ;
+    rdfs:comment """<div>IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://iatf-customerportal.org/>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:Iatf25 a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([xsd:pattern "[0-9]{6}"]) ;
+    rdfs:label "IATF25" ;
+    rdfs:comment """<div>IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://iatf-customerportal.org/>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
