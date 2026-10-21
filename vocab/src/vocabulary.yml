@@ -2201,7 +2201,7 @@ property:
       - NaturalPerson
       - KycLegalEntity
     range: Address
-    comment: the address representing the place that a person treats as their permanent home, as recorded, declared, or attested in a given context
+    comment: At its core, a domicile address refers to the place where an individual has their fixed, permanent home and principal establishment, and to which they intend to return whenever they are absent. This is not merely a physical location but a legal concept that carries substantial weight in various legal and administrative contexts. For businesses, a domicile address is a registered address where the company is officially established and recognized by the authorities.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile
 
   - id: duration

@@ -64,7 +64,7 @@
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:seeAlso": "https://webuild-consortium.github.io/wp4-semantics-group/ebwv",
-        "dc:date": "2026-10-19"
+        "dc:date": "2026-10-21"
     }, {
         "@id": "ebwv:a1",
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
@@ -699,7 +699,7 @@
         "rdfs:range": "ebwv:Address",
         "rdfs:label": "domicile",
         "rdfs:comment": {
-            "@value": "<div>the address representing the place that a person treats as their permanent home, as recorded, declared, or attested in a given context</div>",
+            "@value": "<div>At its core, a domicile address refers to the place where an individual has their fixed, permanent home and principal establishment, and to which they intend to return whenever they are absent. This is not merely a physical location but a legal concept that carries substantial weight in various legal and administrative contexts. For businesses, a domicile address is a registered address where the company is officially established and recognized by the authorities.</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
         },
         "rdfs:isDefinedBy": ["https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile", "https://w3id.org/ebwv#"],
@@ -1311,7 +1311,7 @@
         "@type": ["rdf:Property", "owl:ObjectProperty"],
         "rdfs:domain": {
             "@type": "owl:Class",
-            "owl:unionOf": ["ebwv:LegalRepresentative", "ebwv:Participation", "ebwv:Shareholder", "ebwv:GeneralPartnerHolding", "ebwv:BeneficialOwner"]
+            "owl:unionOf": ["ebwv:LegalRepresentative", "ebwv:GeneralPartner", "ebwv:LimitedPartner", "ebwv:StatutoryPartner", "ebwv:Participation", "ebwv:Shareholder", "ebwv:GeneralPartnerHolding", "ebwv:BeneficialOwner"]
         },
         "rdfs:range": "ebwv:LegalEntity",
         "rdfs:label": "legal entity",

@@ -1,0 +1,182 @@
+classDiagram
+    class Address {
+        +String thoroughfare
+        +string locatorDesignator
+        +String postCode
+        +String postName
+        +String adminUnitL2
+        +String adminUnitL1
+    }
+    class BeneficialOwner {
+        +BanzId identifier
+        +Decimal relativeVotingRights
+        +Decimal relativeVotingRightsDirect
+        +Decimal relativeShareDirect
+        +String otherControlReason
+        +Boolean isHighRisk
+    }
+    class BeneficialOwnership {
+    }
+    class BeneficialOwnershipVariant {
+    }
+    class Company {
+        +Lei identifier
+        +String legalName
+        +String formerName
+        +String legalStatus
+        +String liquidationStatus
+        +String insolvencyStatus
+        +String legalForm
+        +Boolean isFoundation
+        +Boolean isCsrdObligated
+        +Boolean isTrust
+        +Date dateOfRegistration
+        +String companyCategory
+        +Date balanceSheetDate
+        +Naics activity
+        +Boolean listedOnRegulatedMarket
+        +String leiStatus
+        +Euid legalIdentifier
+        +Boolean handoverFlag
+        +Boolean handover
+        +String handoverDescription
+        +String researchTerminationReason
+        +String researchedSuccessorId
+        +String legalSuccessionReason
+    }
+    class FinancialYear {
+        +String companySize
+        +Integer numberOfEmployees
+        +Date statementDate
+    }
+    class GeneralPartnerHolding {
+        +Decimal relativeVotingRights
+        +Boolean handover
+        +String handoverDescription
+    }
+    class KycEvidence {
+        +String evidenceSource
+        +String provenClaim
+        +Date verificationDate
+    }
+    class LegalRepresentative {
+        +Boolean isExemptFromSection181
+        +Date entryDate
+        +Date exitDate
+    }
+    class MonetaryAmount {
+        +Float amount
+        +Currency currency
+    }
+    class NaturalPerson {
+        +String givenName
+        +String familyName
+        +String academicTitle
+        +Date dateOfBirth
+        +CountryCode citizenship
+        +BanzId identifier
+        +String salutation
+    }
+    class Participation {
+    }
+    class RegisterIdentification {
+        +String registerType
+        +String registerTypeDescription
+        +String registerLocation
+        +String registerNumber
+        +String companyRegisterId
+        +String companyRegisterIdCountry
+    }
+    class Regulator {
+        +String regulatorName
+        +String regulatedId
+        +String regulatorClassification
+    }
+    class ShareInFocus {
+    }
+    class ShareVotingPair {
+        +Decimal relativeShare
+        +Decimal relativeVotingRights
+    }
+    class Shareholder {
+        +Decimal relativeVotingRights
+        +Boolean handover
+        +String handoverDescription
+    }
+    class Shareholding {
+        +Decimal relativeShare
+        +Boolean isDirectParticipation
+        +Decimal relativeVotingRights
+    }
+    class StockExchange {
+        +String exchangeName
+        +CountryCode exchangeCountry
+        +String marketIdentificationCode
+    }
+    class StockExchangeListing {
+        +String marketIdentificationCode
+        +String tickerSymbol
+    }
+    class TransparencyRegisterEntry {
+        +String interestType
+        +String interestScope
+    }
+    class TransparencyRegisterExtract {
+        +String applicationNumber
+        +String referenceNumber
+        +Boolean hasDiscrepancyNote
+        +Date validFromDate
+        +String fictitiousBoReason
+        +String processingNote
+        +String discrepancyReportNumber
+    }
+
+    Company --> "0..1" Address : registeredAddress
+    Company --> "0..1" Address : domicile
+    Company --> "0..1" RegisterIdentification : register
+    Company --> "0..*" StockExchangeListing : stockExchangeListing
+    StockExchangeListing --> "0..1" StockExchange : exchange
+    Company --> "0..*" Regulator : regulator
+    Company --> "0..1" MonetaryAmount : subscribedCapital
+    Company --> "0..*" FinancialYear : financialYear
+    FinancialYear --> "0..1" MonetaryAmount : revenue
+    FinancialYear --> "0..1" MonetaryAmount : operatingResult
+    FinancialYear --> "0..1" MonetaryAmount : balanceSheetTotal
+    Company --> "0..1" BeneficialOwnership : beneficialOwnership
+    BeneficialOwnership --> "0..1" BeneficialOwnershipVariant : standard
+    BeneficialOwnershipVariant --> "0..*" BeneficialOwner : capitalBeneficialOwner
+    BeneficialOwner --> "0..1" Shareholding : shareholding
+    Shareholding --> "0..1" MonetaryAmount : absoluteShare
+    BeneficialOwnershipVariant --> "0..*" BeneficialOwner : votingRightsBeneficialOwner
+    BeneficialOwnershipVariant --> "0..*" BeneficialOwner : otherControlBeneficialOwner
+    BeneficialOwnershipVariant --> "0..*" BeneficialOwner : fictitiousBeneficialOwner
+    BeneficialOwnership --> "0..1" BeneficialOwnershipVariant : cdd
+    BeneficialOwnership --> "0..1" BeneficialOwnershipVariant : accG10
+    BeneficialOwnership --> "0..1" BeneficialOwnershipVariant : accG25
+    BeneficialOwnership --> "0..1" BeneficialOwnershipVariant : dom10
+    BeneficialOwnership --> "0..1" BeneficialOwnershipVariant : dom25
+    BeneficialOwnership --> "0..*" TransparencyRegisterEntry : transparencyRegister
+    TransparencyRegisterEntry --> "0..1" NaturalPerson : person
+    NaturalPerson --> "0..1" Address : domicile
+    Company --> "0..*" LegalRepresentative : legalRepresentative
+    Company --> "0..*" Shareholder : shareholder
+    Shareholder --> "0..1" Shareholding : shareholding
+    Shareholder --> "0..1" ShareInFocus : shareInFocusAlongBranch
+    ShareInFocus --> "0..1" ShareVotingPair : standard
+    ShareInFocus --> "0..1" ShareVotingPair : accG10
+    ShareInFocus --> "0..1" ShareVotingPair : accG25
+    ShareInFocus --> "0..1" ShareVotingPair : dom10
+    ShareInFocus --> "0..1" ShareVotingPair : dom25
+    Shareholder --> "0..1" ShareInFocus : shareInFocusTotal
+    Shareholder --> "0..*" Shareholder : shareholder
+    Shareholder --> "0..*" GeneralPartnerHolding : generalPartnerHolding
+    Company --> "0..*" GeneralPartnerHolding : generalPartnerHolding
+    GeneralPartnerHolding --> "0..1" Shareholding : shareholding
+    GeneralPartnerHolding --> "0..*" Shareholder : shareholder
+    GeneralPartnerHolding --> "0..*" GeneralPartnerHolding : generalPartnerHolding
+    Company --> "0..*" Participation : participation
+    Participation --> "0..1" Shareholding : shareholding
+    Company --> "0..1" Company : directParent
+    Company --> "0..1" Company : ultimateParent
+    Company --> "0..1" TransparencyRegisterExtract : transparencyRegisterExtract
+    Company --> "0..*" KycEvidence : evidence
