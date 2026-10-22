@@ -749,7 +749,7 @@ class:
               }
             },
             "evidence": {
-              "@type": "KycEvidence",
+              "@type": "EvidenceData",
               "evidenceSource": "Handelsregister",
               "provenClaim": "$.credentialSubject.focusEntity.legalPerson.legalName",
               "verificationDate": "2024-11-30"
@@ -759,11 +759,11 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
-  - id: KycEvidence
-    label: KYC Evidence
+  - id: EvidenceData
+    label: evidence data
     upper_value: cred:CredentialEvidence
-    comment: Additional supporting information about KYC claims allowing the verifier to establish the confidence with which it relies on the claims. The KycEvidence records how information was verified during the KYC investigation, naming the source, the verified claims and the verification date.
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/kycevidence
+    comment: Additional supporting information about claims allowing the verifier to establish the confidence with which it relies on the claims. The EvidenceData records how information was verified, naming the source, the verified claims and the verification date.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencedata
 
   - id: KycLegalEntity
     label: KYC legal entity
@@ -2245,7 +2245,7 @@ property:
 
   - id: evidenceSource
     label: evidence source
-    domain: KycEvidence
+    domain: EvidenceData
     range: xsd:string
     comment: the source used to verify the information
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencesource
@@ -3060,7 +3060,7 @@ property:
 
   - id: provenClaim
     label: proven claim
-    domain: KycEvidence
+    domain: EvidenceData
     range: xsd:string
     comment: JsonPath to the claim in the credential (root) that is covered by this evidence
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provenclaim
@@ -3533,7 +3533,7 @@ property:
 
   - id: verificationDate
     label: verification date
-    domain: KycEvidence
+    domain: EvidenceData
     range: xsd:date
     comment: the date on which the verification was performed
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/verificationdate

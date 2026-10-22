@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-10-21"^^xsd:date ;
+    dc:date "2026-10-22"^^xsd:date ;
 .
 
 # Property definitions
@@ -529,7 +529,7 @@ ebwv:entryDate a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:evidenceSource a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:KycEvidence ;
+    rdfs:domain ebwv:EvidenceData ;
     rdfs:range xsd:string ;
     rdfs:label "evidence source" ;
     rdfs:comment """<div>the source used to verify the information</div>"""^^rdf:HTML ;
@@ -1433,7 +1433,7 @@ ebwv:provenanceProof a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:provenClaim a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:KycEvidence ;
+    rdfs:domain ebwv:EvidenceData ;
     rdfs:range xsd:string ;
     rdfs:label "proven claim" ;
     rdfs:comment """<div>JsonPath to the claim in the credential (root) that is covered by this evidence</div>"""^^rdf:HTML ;
@@ -1946,7 +1946,7 @@ ebwv:validFromDate a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:verificationDate a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:KycEvidence ;
+    rdfs:domain ebwv:EvidenceData ;
     rdfs:range xsd:date ;
     rdfs:label "verification date" ;
     rdfs:comment """<div>the date on which the verification was performed</div>"""^^rdf:HTML ;
@@ -2146,11 +2146,11 @@ ebwv:KycCheck a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebwv:KycEvidence a rdfs:Class ;
+ebwv:EvidenceData a rdfs:Class ;
     rdfs:subClassOf cred:CredentialEvidence ;
-    rdfs:label "KYC Evidence" ;
-    rdfs:comment """<div>Additional supporting information about KYC claims allowing the verifier to establish the confidence with which it relies on the claims. The KycEvidence records how information was verified during the KYC investigation, naming the source, the verified claims and the verification date.</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/kycevidence>, <https://w3id.org/ebwv#> ;
+    rdfs:label "evidence data" ;
+    rdfs:comment """<div>Additional supporting information about claims allowing the verifier to establish the confidence with which it relies on the claims. The EvidenceData records how information was verified, naming the source, the verified claims and the verification date.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencedata>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
