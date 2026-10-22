@@ -185,6 +185,7 @@
             }
         },
         "CorporateRole": "https://w3id.org/ebwv#CorporateRole",
+        "CredentialEvidence": "https://www.w3.org/2018/credentials#CredentialEvidence",
         "CredentialSubject": "https://www.w3.org/2018/credentials#CredentialSubject",
         "DataSpaceRole": "https://w3id.org/ebwv#DataSpaceRole",
         "DUNS": {
@@ -326,6 +327,28 @@
             }
         },
         "Incoterms": "https://w3id.org/ebwv#Incoterms",
+        "EvidenceData": {
+            "@id": "https://w3id.org/ebwv#EvidenceData",
+            "@context": {
+                "@protected": true,
+                "evidenceSource": {
+                    "@id": "https://w3id.org/ebwv#evidenceSource",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "provenClaim": {
+                    "@id": "https://w3id.org/ebwv#provenClaim",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "url": {
+                    "@id": "https://w3id.org/ebwv#url",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "verificationDate": {
+                    "@id": "https://w3id.org/ebwv#verificationDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                }
+            }
+        },
         "LegalEntity": {
             "@id": "https://w3id.org/ebwv#LegalEntity",
             "@context": {

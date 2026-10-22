@@ -185,6 +185,11 @@ class:
     comment: a function held by a legal representative or statutory partner within a company, e.g. CEO or CFO
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/corporaterole
 
+  - id: cred:CredentialEvidence
+    label: Credential Evidence
+    defined_by: https://www.w3.org/TR/vc-data-model-2.0/#evidence
+    context: https://www.w3.org/ns/credentials/v2
+
   - id: cred:CredentialSubject
     label: Credential Subject
     defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
@@ -444,6 +449,12 @@ class:
   - id: Incoterms
     label: Incoterms
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms
+
+  - id: EvidenceData
+    label: evidence data
+    upper_value: cred:CredentialEvidence
+    comment: Additional supporting information about claims allowing the verifier to establish the confidence with which it relies on the claims. The EvidenceData records how information was verified, naming the source, the verified claims and the verification date.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencedata
 
   - id: LegalEntity
     label: legal entity recognized by law
@@ -1130,7 +1141,7 @@ class:
     upper_value: cred:CredentialSubject
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/qmscertification
     example:
-      - label: QmsCertificate - meta data like credential status, evidence etc. are ommited
+      - label: QmsCertificate - IATF 16949:2016 multi-site certificate (a selection of the additional sites is shown)
         json: |
           {
             "@context": [
@@ -1304,6 +1315,222 @@ class:
                   }
                 }
               ]
+            },
+            "evidence": {
+              "@type": "EvidenceData",
+              "evidenceSource": "QMS Certificate IATF 16949:2016",
+              "url": "https://www.dqsglobal.com/en/customer-database/robert-bosch-gmbh10#",
+              "provenClaim": "$.credentialSubject",
+              "verificationDate": "2024-11-30"
+            }
+          }
+
+      - label: QmsCertificate - ISO 9001:2015 multi-site certificate (a selection of the additional sites is shown)
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:9a2b7c41-5d38-4e6f-b0c1-2f3a4b5c6d7e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "issuer": "did:web:bureauveritas.com",
+            "validFrom": "2024-08-06T00:00:00Z",
+            "validUntil": "2027-08-05T00:00:00Z",
+            "credentialSubject": {
+              "@id": "urn:bureauveritas:certificate:DE014976",
+              "@type": "QmsCertificate",
+              "identifier": {
+                "@type": "CertificateRegistrationNumber",
+                "@value": "DE014976"
+              },
+              "legalEntity": {
+                "@id": "did:key:$publicKeyOfRobertBoschPowerToolsGmbH$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company"
+                ],
+                "legalName": "Robert Bosch Power Tools GmbH",
+                "legalForm": "GmbH",
+                "registeredAddress": {
+                  "@type": "Address",
+                  "fullAddress": "Max-Lang-Straße 40-46, 70771 Leinfelden-Echterdingen, Germany",
+                  "thoroughfare": "Max-Lang-Straße",
+                  "locatorDesignator": "40-46",
+                  "postCode": "70771",
+                  "postName": "Leinfelden-Echterdingen",
+                  "adminUnitL1": "DE"
+                }
+              },
+              "certificationStandard": {
+                "@id": "https://www.iso.org/standard/62085.html",
+                "@type": "QmsStandard"
+              },
+              "certifiedScope": "Development, Production, Packaging, Distribution, Sales, Service, and Recycling of Tools, Batteries and Accessories",
+              "hasSite": [
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-001"
+                  },
+                  "certifiedScope": "Head Office Development, Distribution and Sales of Tools, Batteries and of Accessories",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Robert Bosch Power Tools GmbH (Head Office)",
+                    "fullAddress": "Max-Lang-Straße 40-46, 70771 Leinfelden-Echterdingen, Germany",
+                    "thoroughfare": "Max-Lang-Straße",
+                    "locatorDesignator": "40-46",
+                    "postCode": "70771",
+                    "postName": "Leinfelden-Echterdingen",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-002"
+                  },
+                  "certifiedScope": "Production and Development of Accessories",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "ARESI SPA",
+                    "fullAddress": "Via Dei Murari 12, I-24041 Brembate, Italy",
+                    "thoroughfare": "Via Dei Murari",
+                    "locatorDesignator": "12",
+                    "postCode": "24041",
+                    "postName": "Brembate",
+                    "adminUnitL1": "IT"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-004"
+                  },
+                  "certifiedScope": "Design, Production and Distribution of Power Tools",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Bosch Limited Power Tools Division",
+                    "fullAddress": "Plot No A-20/2 SIPCOT Industrial Growth Centre, 602 105 Oragadam, Kanchipuram District, Tamil Nadu State, India",
+                    "thoroughfare": "SIPCOT Industrial Growth Centre",
+                    "locatorDesignator": "Plot No A-20/2",
+                    "postCode": "602 105",
+                    "postName": "Oragadam",
+                    "adminUnitL2": "Tamil Nadu",
+                    "adminUnitL1": "IN"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-005"
+                  },
+                  "certifiedScope": "Packaging and Distribution of Tools and of Accessories",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Bosch Power Tools B.V.",
+                    "fullAddress": "Konijnenberg 60, 4825 Breda, The Netherlands",
+                    "thoroughfare": "Konijnenberg",
+                    "locatorDesignator": "60",
+                    "postCode": "4825",
+                    "postName": "Breda",
+                    "adminUnitL1": "NL"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-012"
+                  },
+                  "certifiedScope": "Development, Production and Distribution of Tools and of Batteries",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Robert Bosch Power Tools Sdn Bhd",
+                    "fullAddress": "45, Hilir Sungai Keluang 1, Phase 4, Bayan Lepas Industrial Park, 11900 Bayan Lepas, Penang, Malaysia",
+                    "thoroughfare": "Hilir Sungai Keluang 1",
+                    "locatorDesignator": "45",
+                    "postCode": "11900",
+                    "postName": "Bayan Lepas",
+                    "adminUnitL2": "Penang",
+                    "adminUnitL1": "MY"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-016"
+                  },
+                  "certifiedScope": "Production and Distribution of Tools",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Robert Bosch Tool de Mexico S.A de C.V",
+                    "fullAddress": "Blvd Abelardo L. Rodriguez #148 Col. Alamitos, 21210 Mexicali - Baja California, Mexico",
+                    "thoroughfare": "Blvd Abelardo L. Rodriguez",
+                    "locatorDesignator": "148",
+                    "postCode": "21210",
+                    "postName": "Mexicali",
+                    "adminUnitL2": "Baja California",
+                    "adminUnitL1": "MX"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-021"
+                  },
+                  "certifiedScope": "Worldwide Distribution and Postponement of Power Tools and Accessories",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Robert Bosch Tool Corporation",
+                    "fullAddress": "2700 College Blvd, 72301 West Memphis, AR, United States",
+                    "thoroughfare": "College Blvd",
+                    "locatorDesignator": "2700",
+                    "postCode": "72301",
+                    "postName": "West Memphis",
+                    "adminUnitL2": "AR",
+                    "adminUnitL1": "US"
+                  }
+                }
+              ]
+            },
+            "evidence": {
+              "@type": "EvidenceData",
+              "evidenceSource": "QMS Certificate ISO 9001:2015, Certificate No. DE014976 (Bureau Veritas)",
+              "url": "https://www.bosch-pt.com/ww/media/documents/iso_9001/certificate_iso9001_bosch_pt_matrix_single_2024-2027.pdf",
+              "provenClaim": "$.credentialSubject",
+              "verificationDate": "2025-12-12"
             }
           }
 
@@ -1854,6 +2081,13 @@ property:
     range: xsd:date
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/endDate
 
+  - id: evidenceSource
+    label: evidence source
+    domain: EvidenceData
+    range: xsd:string
+    comment: the source used to verify the information
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/evidence
+
   - id: familyName
     label: family name
     domain:
@@ -2369,6 +2603,13 @@ property:
     comment: Proof required to establish trust in the issuer of the credential. The proof allows the relying party to verify if the issuer is authorized to issue the credential and to make the claims about the credential subject. E.g. in the case of an power of attorney the provenanceProof provides the proof that the principal is authorized to give power to the mandatee.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provenanceproof
 
+  - id: provenClaim
+    label: proven claim
+    domain: EvidenceData
+    range: xsd:string
+    comment: JsonPath to the claim in the credential (root) that is covered by this evidence
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provenclaim
+
   - id: provider
     label: provider
     domain: BankAccount
@@ -2598,9 +2839,17 @@ property:
     label: url
     domain:
     - GovernanceRulebook
+    - EvidenceData
     range: xsd:anyURI
-    comment: Reference (URL) to the online dataspace governance rulebook for the given DSI or DS.
+    comment: Reference (URL) to the online source of the specified document (e.g. governance rulebook, iso certificate, etc.)
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/url
+
+  - id: verificationDate
+    label: verification date
+    domain: EvidenceData
+    range: xsd:date
+    comment: the date on which the verification was performed
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/verificationdate
 
   - id: version
     label: verson

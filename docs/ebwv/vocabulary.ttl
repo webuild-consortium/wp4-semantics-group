@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-10-21"^^xsd:date ;
+    dc:date "2026-10-22"^^xsd:date ;
 .
 
 # Property definitions
@@ -363,6 +363,15 @@ ebwv:endDate a rdf:Property, owl:DatatypeProperty ;
     rdfs:range xsd:date ;
     rdfs:label "end date of period of time" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/endDate>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:evidenceSource a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:EvidenceData ;
+    rdfs:range xsd:string ;
+    rdfs:label "evidence source" ;
+    rdfs:comment """<div>the source used to verify the information</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/evidence>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -918,6 +927,15 @@ ebwv:provenanceProof a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
+ebwv:provenClaim a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:EvidenceData ;
+    rdfs:range xsd:string ;
+    rdfs:label "proven claim" ;
+    rdfs:comment """<div>JsonPath to the claim in the credential (root) that is covered by this evidence</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/provenclaim>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:provider a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:BankAccount ;
     rdfs:range [ a owl:Class; owl:unionOf (ebwv:LegalPerson ebwv:EconomicOperator) ] ;
@@ -1144,11 +1162,20 @@ ebwv:typeOfRepresentation a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:url a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:GovernanceRulebook ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:GovernanceRulebook ebwv:EvidenceData) ] ;
     rdfs:range xsd:anyURI ;
     rdfs:label "url" ;
-    rdfs:comment """<div>Reference (URL) to the online dataspace governance rulebook for the given DSI or DS.</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>Reference (URL) to the online source of the specified document (e.g. governance rulebook, iso certificate, etc.)</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/url>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:verificationDate a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:EvidenceData ;
+    rdfs:range xsd:date ;
+    rdfs:label "verification date" ;
+    rdfs:comment """<div>the date on which the verification was performed</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/verificationdate>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1281,6 +1308,14 @@ ebwv:GovernanceRulebook a rdfs:Class ;
 ebwv:Incoterms a rdfs:Class ;
     rdfs:label "Incoterms" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:EvidenceData a rdfs:Class ;
+    rdfs:subClassOf cred:CredentialEvidence ;
+    rdfs:label "evidence data" ;
+    rdfs:comment """<div>Additional supporting information about claims allowing the verifier to establish the confidence with which it relies on the claims. The EvidenceData records how information was verified, naming the source, the verified claims and the verification date.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencedata>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
