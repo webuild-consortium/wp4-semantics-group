@@ -514,8 +514,8 @@ ebwv:iban a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:identifier a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EconomicOperator ebwv:Site ebwv:VATRegistrationUnit ebwv:GLN ebwv:DUNS) ] ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:Bic ebwv:ClearingNumber ebwv:DunsNumber ebwv:Eori ebwv:Excise ebwv:GlobalLocationNumber ebwv:Iban ebwv:Lei ebwv:PeppolId ebwv:Tin ebwv:VatId xsd:anyURI xsd:string) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EconomicOperator ebwv:Site ebwv:VATRegistrationUnit ebwv:GLN ebwv:DUNS ebwv:QmsCertificate) ] ;
+    rdfs:range [ a owl:Class; owl:unionOf (ebwv:Bic ebwv:CertificateRegistrationNumber ebwv:ClearingNumber ebwv:DunsNumber ebwv:Eori ebwv:Excise ebwv:GlobalLocationNumber ebwv:IatfCertificateNumber ebwv:IatfUsi ebwv:Iban ebwv:Lei ebwv:MainCertificateRegistrationNumber ebwv:PeppolId ebwv:Tin ebwv:VatId xsd:anyURI xsd:string) ] ;
     rdfs:label "identifier" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -548,7 +548,7 @@ ebwv:legalBasis a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:legalEntity a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:GeneralPartner ebwv:LimitedPartner ebwv:StatutoryPartner ebwv:QmsCertificate ebwv:CertificationSite) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:GeneralPartner ebwv:LimitedPartner ebwv:StatutoryPartner ebwv:QmsCertificate ebwv:CertifiedSite) ] ;
     rdfs:range ebwv:LegalEntity ;
     rdfs:label "legal entity" ;
     rdfs:comment """<div>the legal entity — a legal person or a natural person — referenced by its DID and/or claims, e.g. the acting representative, the participated entity, the shareholder, the general partner, the beneficial owner, the certified company or the operator of a certified site</div>"""^^rdf:HTML ;
@@ -1005,15 +1005,6 @@ ebwv:role a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:scopeOfCertification a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:Environmental ;
-    rdfs:range ebwv:ScopeOfPower, [ a owl:Class; owl:oneOf (ebwv:FormationOfCompanies ebwv:ConstitutionOfCompanies ebwv:RegistrationAndClosingOfBranches ebwv:CrossBoarderConversions ebwv:CrossBoarderMergers ebwv:CrossBorderDivisions) ] ;
-    rdfs:label "scope of certification" ;
-    rdfs:comment """<div>The scope of the power given to a mandatee.</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:scopeOfPower a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:PowerOfAttorney ;
     rdfs:range ebwv:ScopeOfPower, [ a owl:Class; owl:oneOf (ebwv:FormationOfCompanies ebwv:ConstitutionOfCompanies ebwv:RegistrationAndClosingOfBranches ebwv:CrossBoarderConversions ebwv:CrossBoarderMergers ebwv:CrossBorderDivisions) ] ;
@@ -1447,8 +1438,8 @@ ebwv:PublicSectorBody a rdfs:Class ;
 ebwv:QmsCertificate a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "Quality management systems (QMS) certificate" ;
-    rdfs:comment """<div>Quality management systems (QMS) certification used for ESG Reporting and Sustainability</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/qmscertification>, <https://w3id.org/ebwv#> ;
+    rdfs:comment """<div>Quality management systems (QMS) certificate used for ESG Reporting and Sustainability</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/qmscertificate>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1830,26 +1821,24 @@ ebwv:IatfUsi a rdfs:Datatype ;
     owl:withRestrictions ([xsd:pattern "[0-9A-Z]{6}"]) ;
     rdfs:label "IATF USI" ;
     rdfs:comment """<div>This IATF Unique Site Identifier (USI) is used within the automotive industry's IATF 16949 Quality Management System. It is a permanent, immutable 6-digit alphanumeric code assigned to a specific physical manufacturing facility or remote support location. It remains tied to that exact address for the lifetime of the certification, regardless of company name changes or certification body transfers.</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://www.iatfglobaloversight.org/wp/wp-content/uploads/2022/09/IATF-Stakeholder-Communique-SC-2022-009-IATF-Unique-Site-Identifier.pdf>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:IatfNo a rdfs:Datatype ;
-    rdfs:subClassOf xsd:string ;
-    owl:onDatatype xsd:string ;
-    owl:withRestrictions ([xsd:pattern "[0-9]{7}"]) ;
-    rdfs:label "IATF No" ;
-    rdfs:comment """<div>IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://iatf-customerportal.org/>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
-ebwv:Iatf25 a rdfs:Datatype ;
+ebwv:IatfCertificateNumber a rdfs:Datatype ;
     rdfs:subClassOf xsd:string ;
     owl:onDatatype xsd:string ;
-    owl:withRestrictions ([xsd:pattern "[0-9]{6}"]) ;
-    rdfs:label "IATF25" ;
-    rdfs:comment """<div>IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).</div>"""^^rdf:HTML ;
+    owl:withRestrictions ([xsd:pattern "[0-9]{7}"]) ;
+    rdfs:label "IATF Certificate Number" ;
+    rdfs:comment """<div>The IATF Certification Number (IATF Registration No.) is a unique, central identification number issued directly by the International Automotive Task Force (IATF) database/oversight system for the certified organization or manufacturing site.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://iatf-customerportal.org/>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:CertificateRegistrationNumber a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    rdfs:label "certificate registration number" ;
+    rdfs:comment """<div>An internal tracking or reference number assigned specifically by the third-party Certification Body (CB) (such as TÜV NORD, DQS, or TÜV SÜD) that performed the audit and printed the paper certificate.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://iatf-customerportal.org/>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -1879,6 +1868,14 @@ ebwv:Lei a rdfs:Datatype ;
     rdfs:label "legal entity identifier" ;
     rdfs:comment """<div>a globally unique reference code assigned under the Global LEI System to identify a legal entity participating in financial, business or regulatory transactions</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/lei>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:MainCertificateRegistrationNumber a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    rdfs:label "main certificate registration number" ;
+    rdfs:comment """<div>An internal tracking or reference number assigned specifically by the third-party Certification Body (CB) (such as TÜV NORD, DQS, or TÜV SÜD) that performed the audit and printed the paper certificate.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://iatf-customerportal.org/>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

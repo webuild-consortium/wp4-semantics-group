@@ -1137,9 +1137,9 @@ class:
 
   - id: QmsCertificate
     label: Quality management systems (QMS) certificate
-    comment:  Quality management systems (QMS) certification used for ESG Reporting and Sustainability
+    comment:  Quality management systems (QMS) certificate used for ESG Reporting and Sustainability
     upper_value: cred:CredentialSubject
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/qmscertification
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/qmscertificate
     example:
       - label: QmsCertificate - IATF 16949:2016 multi-site certificate (a selection of the additional sites is shown)
         json: |
@@ -1160,6 +1160,20 @@ class:
             "credentialSubject": {
               "@id": "urn:iatf:certificate:060703-IATF25",
               "@type": "QmsCertificate",
+              "identifier": [
+                {
+                  "@type": "CertificateRegistrationNumber",
+                  "@value": "060703 IATF25"
+                },
+                {
+                  "@type": "MainCertificateRegistrationNumber",
+                  "@value": "494712 IATF25"
+                },
+                {
+                  "@type": "IatfCertificateNumber",
+                  "@value": "0507678"
+                }
+              ],
               "legalEntity": {
                 "@id": "did:key:$publicKeyOfRobertBoschGmbH$",
                 "@type": [
@@ -2208,15 +2222,20 @@ property:
       - VATRegistrationUnit
       - GLN
       - DUNS
+      - QmsCertificate
     range:
       - Bic
+      - CertificateRegistrationNumber
       - ClearingNumber
       - DunsNumber
       - Eori
       - Excise
       - GlobalLocationNumber
+      - IatfCertificateNumber
+      - IatfUsi
       - Iban
       - Lei
+      - MainCertificateRegistrationNumber
       - PeppolId
       - Tin
       - VatId
@@ -2266,7 +2285,7 @@ property:
       - LimitedPartner
       - StatutoryPartner
       - QmsCertificate
-      - CertificationSite
+      - CertifiedSite
     range: LegalEntity
     comment: the legal entity — a legal person or a natural person — referenced by its DID and/or claims, e.g. the acting representative, the participated entity, the shareholder, the general partner, the beneficial owner, the certified company or the operator of a certified site
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
@@ -2687,20 +2706,6 @@ property:
     range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
 
-  - id: scopeOfCertification
-    label: scope of certification
-    domain: Environmental
-    range: ScopeOfPower
-    one_of:
-      - FormationOfCompanies
-      - ConstitutionOfCompanies
-      - RegistrationAndClosingOfBranches
-      - CrossBoarderConversions
-      - CrossBoarderMergers
-      - CrossBorderDivisions
-    comment: The scope of the power given to a mandatee.
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
-
   - id: scopeOfPower
     label: scope of power
     domain: PowerOfAttorney
@@ -2931,20 +2936,19 @@ datatype:
     upper_value: xsd:string
     pattern: '[0-9A-Z]{6}'
     comment: This IATF Unique Site Identifier (USI) is used within the automotive industry's IATF 16949 Quality Management System. It is a permanent, immutable 6-digit alphanumeric code assigned to a specific physical manufacturing facility or remote support location. It remains tied to that exact address for the lifetime of the certification, regardless of company name changes or certification body transfers.
-    defined_by: https://www.iatfglobaloversight.org/wp/wp-content/uploads/2022/09/IATF-Stakeholder-Communique-SC-2022-009-IATF-Unique-Site-Identifier.pdf
-
-  - id: IatfNo
-    label: IATF No
-    upper_value: xsd:string
-    pattern: '[0-9]{7}'
-    comment: IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).
     defined_by: https://iatf-customerportal.org/
 
-  - id: Iatf25
-    label: IATF25
+  - id: IatfCertificateNumber
+    label: IATF Certificate Number
     upper_value: xsd:string
-    pattern: '[0-9]{6}'
-    comment: IATF No the unique identification or certificate number issued to a professional who holds a certification or certificate governed by ISACA's IT Audit Framework (ITAF).
+    pattern: '[0-9]{7}'
+    comment: The IATF Certification Number (IATF Registration No.) is a unique, central identification number issued directly by the International Automotive Task Force (IATF) database/oversight system for the certified organization or manufacturing site.
+    defined_by: https://iatf-customerportal.org/
+
+  - id: CertificateRegistrationNumber
+    label: certificate registration number
+    upper_value: xsd:string
+    comment:  An internal tracking or reference number assigned specifically by the third-party Certification Body (CB) (such as TÜV NORD, DQS, or TÜV SÜD) that performed the audit and printed the paper certificate.
     defined_by: https://iatf-customerportal.org/
 
   - id: Iban
@@ -2967,6 +2971,12 @@ datatype:
     upper_value: xsd:string
     comment: a globally unique reference code assigned under the Global LEI System to identify a legal entity participating in financial, business or regulatory transactions
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
+
+  - id: MainCertificateRegistrationNumber
+    label: main certificate registration number
+    upper_value: xsd:string
+    comment:  An internal tracking or reference number assigned specifically by the third-party Certification Body (CB) (such as TÜV NORD, DQS, or TÜV SÜD) that performed the audit and printed the paper certificate.
+    defined_by: https://iatf-customerportal.org/
 
   - id: Nace21
     label: Nace Rev. 2.1

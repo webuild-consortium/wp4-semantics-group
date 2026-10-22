@@ -133,6 +133,10 @@
                 "certifiedScope": {
                     "@id": "https://w3id.org/ebwv#certifiedScope",
                     "@type": "http://www.w3.org/2001/XMLSchema#String"
+                },
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
                 }
             }
         },
@@ -828,6 +832,7 @@
                     "@id": "https://w3id.org/ebwv#hasSite",
                     "@type": "@id"
                 },
+                "identifier": "https://w3id.org/ebwv#identifier",
                 "legalEntity": {
                     "@id": "https://w3id.org/ebwv#legalEntity",
                     "@type": "@id"
@@ -1015,19 +1020,6 @@
             "@id": "https://w3id.org/ebwv#ownershipPercentage",
             "@type": "http://www.w3.org/2001/XMLSchema#float"
         },
-        "scopeOfCertification": {
-            "@id": "https://w3id.org/ebwv#scopeOfCertification",
-            "@type": "@vocab",
-            "@context": {
-                "FormationOfCompanies": "https://w3id.org/ebwv#FormationOfCompanies",
-                "ConstitutionOfCompanies": "https://w3id.org/ebwv#ConstitutionOfCompanies",
-                "RegistrationAndClosingOfBranches": "https://w3id.org/ebwv#RegistrationAndClosingOfBranches",
-                "CrossBoarderConversions": "https://w3id.org/ebwv#CrossBoarderConversions",
-                "CrossBoarderMergers": "https://w3id.org/ebwv#CrossBoarderMergers",
-                "CrossBorderDivisions": "https://w3id.org/ebwv#CrossBorderDivisions",
-                "@vocab": "ebwv:INVALID_VALUE:"
-            }
-        },
         "termsOfUse": {
             "@id": "https://www.w3.org/2018/credentials#termsOfUse",
             "@type": "@id"
@@ -1074,11 +1066,12 @@
         "GlobalLocationNumber": "https://w3id.org/ebwv#GlobalLocationNumber",
         "GS1CompanyPrefix": "https://w3id.org/ebwv#GS1CompanyPrefix",
         "IatfUsi": "https://w3id.org/ebwv#IatfUsi",
-        "IatfNo": "https://w3id.org/ebwv#IatfNo",
-        "Iatf25": "https://w3id.org/ebwv#Iatf25",
+        "IatfCertificateNumber": "https://w3id.org/ebwv#IatfCertificateNumber",
+        "CertificateRegistrationNumber": "https://w3id.org/ebwv#CertificateRegistrationNumber",
         "Iban": "https://w3id.org/ebwv#Iban",
         "KmgMid": "https://w3id.org/ebwv#KmgMid",
         "Lei": "https://w3id.org/ebwv#Lei",
+        "MainCertificateRegistrationNumber": "https://w3id.org/ebwv#MainCertificateRegistrationNumber",
         "Nace21": "https://w3id.org/ebwv#Nace21",
         "NationalBankCode": "https://w3id.org/ebwv#NationalBankCode",
         "PeppolId": "https://w3id.org/ebwv#PeppolId",
