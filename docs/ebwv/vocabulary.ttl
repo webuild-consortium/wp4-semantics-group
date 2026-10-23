@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-10-22"^^xsd:date ;
+    dc:date "2026-10-23"^^xsd:date ;
 .
 
 # Property definitions
@@ -29,7 +29,7 @@ ebwv:a1 a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:absoluteShare a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:Shareholding ;
+    rdfs:domain ebwv:Share ;
     rdfs:range ebwv:MonetaryAmount ;
     rdfs:label "absolute share" ;
     rdfs:comment """<div>total value of the shares held directly and indirectly; may be repeated to express the same value in several currencies</div>"""^^rdf:HTML ;
@@ -260,6 +260,24 @@ ebwv:cdd a rdf:Property, owl:ObjectProperty ;
     rdfs:label "customer due diligence method" ;
     rdfs:comment """<div>beneficial owners determined under the customer-due-diligence (CDD) method</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/cdd>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:certificationStandard a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:QmsCertificate ;
+    rdfs:range ebwv:QmsStandard ;
+    rdfs:label "certification standard" ;
+    rdfs:comment """<div>the standard the certificate is based on</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/certificationstandard>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:certifiedScope a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:QmsCertificate ebwv:CertifiedSite) ] ;
+    rdfs:range xsd:String ;
+    rdfs:label "certified scope" ;
+    rdfs:comment """<div>the scope of certification</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedscope>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -528,6 +546,15 @@ ebwv:entryDate a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
+ebwv:equityHolder a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:EquityHolder) ] ;
+    rdfs:range ebwv:EquityHolder ;
+    rdfs:label "equity holder" ;
+    rdfs:comment """<div>Any individual or entity that holds an ownership stake in a business. This includes public or private stockholders, sole proprietors, LLC members, and partnership owners. Not all equity holders own formal stock shares (for example, owners of a sole proprietorship or a general partnership).</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/equityholder>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:evidenceSource a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:EvidenceData ;
     rdfs:range xsd:string ;
@@ -670,15 +697,6 @@ ebwv:gender a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:generalPartnerHolding a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
-    rdfs:range ebwv:NaturalPersonGeneralPartnerHolding, ebwv:LegalPersonGeneralPartnerHolding ;
-    rdfs:label "general partner holding" ;
-    rdfs:comment """<div>a natural or legal person holding as general partner (Komplementär) of the entity</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartnerholding>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:geographicIdentifier a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:Location ;
     rdfs:range xsd:anyURI ;
@@ -705,7 +723,7 @@ ebwv:givenName a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:handover a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:EquityHolder) ] ;
     rdfs:range xsd:boolean ;
     rdfs:label "handover" ;
     rdfs:comment """<div>indicator of whether the KYC research on the focus legal entity must be continued manually</div>"""^^rdf:HTML ;
@@ -714,7 +732,7 @@ ebwv:handover a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:handoverDescription a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:EquityHolder) ] ;
     rdfs:range xsd:string ;
     rdfs:label "handover description" ;
     rdfs:comment """<div>reason why a KYC analysis cannot be continued</div>"""^^rdf:HTML ;
@@ -740,21 +758,21 @@ ebwv:hasAddress a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:hasDiscrepancyNote a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:TransparencyRegisterExtract ;
-    rdfs:range xsd:boolean ;
-    rdfs:label "has discrepancy note" ;
-    rdfs:comment """<div>whether the extract carries a note that a discrepancy report (Unstimmigkeitsmeldung) exists</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/hasdiscrepancynote>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:hasAddress a rdf:Property, owl:ObjectProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Site ebwv:Residency) ] ;
     rdfs:range ebwv:Address ;
     rdfs:label "hasAddress" ;
     rdfs:comment """<div>the address of an entity, provided the address is not of a specific type like registered address or temporary address</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:hasDiscrepancyNote a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain ebwv:TransparencyRegisterExtract ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "has discrepancy note" ;
+    rdfs:comment """<div>whether the extract carries a note that a discrepancy report (Unstimmigkeitsmeldung) exists</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/hasdiscrepancynote>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -785,7 +803,7 @@ ebwv:hash a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:hasSite a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:SocialSecurityContribution ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:SocialSecurityContribution ebwv:QmsCertificate) ] ;
     rdfs:range ebwv:Site ;
     rdfs:label "has site" ;
     rdfs:comment """<div>a place, premises or location at which an organisation is present or located</div>"""^^rdf:HTML ;
@@ -820,8 +838,8 @@ ebwv:iban a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:identifier a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EconomicOperator ebwv:Site ebwv:VATRegistrationUnit ebwv:GLN ebwv:DUNS ebwv:NaturalPerson ebwv:Shareholder ebwv:GeneralPartnerHolding ebwv:Participation ebwv:BeneficialOwner) ] ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:BanzNumber ebwv:Bic ebwv:ClearingNumber ebwv:DunsNumber ebwv:Eori ebwv:Excise ebwv:GlobalLocationNumber ebwv:Iban ebwv:Isin ebwv:Lei ebwv:PeppolId ebwv:Tin ebwv:VatId xsd:anyURI xsd:string) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EconomicOperator ebwv:Site ebwv:VATRegistrationUnit ebwv:GLN ebwv:DUNS ebwv:QmsCertificate ebwv:NaturalPerson ebwv:EquityHolder ebwv:Participation ebwv:BeneficialOwner) ] ;
+    rdfs:range [ a owl:Class; owl:unionOf (ebwv:BanzNumber ebwv:Bic ebwv:CertificateRegistrationNumber ebwv:ClearingNumber ebwv:DunsNumber ebwv:Eori ebwv:Excise ebwv:GlobalLocationNumber ebwv:IatfCertificateNumber ebwv:IatfUsi ebwv:Iban ebwv:Isin ebwv:Lei ebwv:MainCertificateRegistrationNumber ebwv:PeppolId ebwv:Tin ebwv:VatId xsd:anyURI xsd:string) ] ;
     rdfs:label "identifier" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -864,7 +882,7 @@ ebwv:isCsrdObligated a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:isDirectParticipation a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:Shareholding ;
+    rdfs:domain ebwv:Share ;
     rdfs:range xsd:boolean ;
     rdfs:label "is direct participation" ;
     rdfs:comment """<div>whether the participation in the company is direct</div>"""^^rdf:HTML ;
@@ -935,10 +953,10 @@ ebwv:legalBasis a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:legalEntity a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:GeneralPartner ebwv:LimitedPartner ebwv:StatutoryPartner ebwv:Participation ebwv:Shareholder ebwv:GeneralPartnerHolding ebwv:BeneficialOwner) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:LegalRepresentative ebwv:GeneralPartner ebwv:LimitedPartner ebwv:StatutoryPartner ebwv:QmsCertificate ebwv:CertifiedSite ebwv:Participation ebwv:EquityHolder ebwv:BeneficialOwner) ] ;
     rdfs:range ebwv:LegalEntity ;
     rdfs:label "legal entity" ;
-    rdfs:comment """<div>the legal entity — a legal person or a natural person — referenced by its DID, e.g. the acting representative, the participated entity, the shareholder, the general partner, or the beneficial owner</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>the legal entity — a legal person or a natural person — referenced by its DID and/or claims, e.g. the acting representative, the participated entity, the shareholder, the general partner, the beneficial owner, the certified company or the operator of a certified site</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -966,15 +984,6 @@ ebwv:legalName a rdf:Property, owl:DatatypeProperty ;
     rdfs:label "legal name" ;
     rdfs:comment """<div>the name under which the legal entity is legally registered</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:legalPersonGeneralPartner a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
-    rdfs:range ebwv:LegalPersonGeneralPartnerHolding ;
-    rdfs:label "legal person general partner" ;
-    rdfs:comment """<div>a legal person acting as general partner (Komplementär) of the entity</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersongeneralpartner>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1301,19 +1310,9 @@ ebwv:paymentDue a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:person a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:TransparencyRegisterEntry ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:A1Certificate ebwv:Residency ebwv:TransparencyRegisterEntry) ] ;
     rdfs:range ebwv:NaturalPerson ;
     rdfs:label "person" ;
-    rdfs:comment """<div>the natural person recorded in the transparency register</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/person>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:person a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:TransparencyRegisterEntry ;
-    rdfs:range ebwv:NaturalPerson ;
-    rdfs:label "person" ;
-    rdfs:comment """<div>the natural person recorded in the transparency register</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/person>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -1568,7 +1567,7 @@ ebwv:regulatorName a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:relativeShare a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Shareholding ebwv:ShareVotingPair) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Share ebwv:ShareVotingPair) ] ;
     rdfs:range xsd:decimal ;
     rdfs:label "relative share" ;
     rdfs:comment """<div>total percentage of shares held directly and indirectly</div>"""^^rdf:HTML ;
@@ -1586,7 +1585,7 @@ ebwv:relativeShareDirect a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:relativeVotingRights a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Shareholding ebwv:ShareVotingPair ebwv:GeneralPartnerHolding ebwv:BeneficialOwner) ] ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Share ebwv:ShareVotingPair ebwv:BeneficialOwner) ] ;
     rdfs:range xsd:decimal ;
     rdfs:label "relative voting rights" ;
     rdfs:comment """<div>total percentage of voting rights held in the company, directly and indirectly</div>"""^^rdf:HTML ;
@@ -1681,21 +1680,21 @@ ebwv:scopeOfPower a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:shareholder a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:KycLegalEntity ebwv:LegalPersonGeneralPartnerHolding ebwv:LegalPersonShareholder) ] ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:NaturalPersonShareholder ebwv:LegalPersonShareholder) ] ;
-    rdfs:label "shareholder" ;
-    rdfs:comment """<div>a natural or legal person holding shares in the entity</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholder>, <https://w3id.org/ebwv#> ;
+ebwv:scopeOfPower a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain ebwv:PowerOfAttorney ;
+    rdfs:range ebwv:ScopeOfPower, [ a owl:Class; owl:oneOf (ebwv:FormationOfCompanies ebwv:ConstitutionOfCompanies ebwv:RegistrationAndClosingOfBranches ebwv:CrossBoarderConversions ebwv:CrossBoarderMergers ebwv:CrossBorderDivisions) ] ;
+    rdfs:label "scope of power" ;
+    rdfs:comment """<div>The scope of the power given to a mandatee.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
-ebwv:shareholding a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Shareholder ebwv:GeneralPartnerHolding ebwv:Participation ebwv:BeneficialOwner) ] ;
-    rdfs:range ebwv:Shareholding ;
-    rdfs:label "shareholding" ;
+ebwv:share a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:Shareholder ebwv:EquityPartner ebwv:Participation ebwv:BeneficialOwner) ] ;
+    rdfs:range ebwv:Share ;
+    rdfs:label "share" ;
     rdfs:comment """<div>the capital and voting stake held</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholding>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/share>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1714,15 +1713,6 @@ ebwv:shareInFocusTotal a rdf:Property, owl:ObjectProperty ;
     rdfs:label "share in focus total" ;
     rdfs:comment """<div>the holder's total capital and voting share in the focus legal entity</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/shareinfocustotal>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:scopeOfPower a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:PowerOfAttorney ;
-    rdfs:range ebwv:ScopeOfPower, [ a owl:Class; owl:oneOf (ebwv:FormationOfCompanies ebwv:ConstitutionOfCompanies ebwv:RegistrationAndClosingOfBranches ebwv:CrossBoarderConversions ebwv:CrossBoarderMergers ebwv:CrossBorderDivisions) ] ;
-    rdfs:label "scope of power" ;
-    rdfs:comment """<div>The scope of the power given to a mandatee.</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1928,10 +1918,10 @@ ebwv:ultimateParent a rdf:Property, owl:ObjectProperty ;
 .
 
 ebwv:url a rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain ebwv:GovernanceRulebook ;
+    rdfs:domain [ a owl:Class; owl:unionOf (ebwv:GovernanceRulebook ebwv:EvidenceData) ] ;
     rdfs:range xsd:anyURI ;
     rdfs:label "url" ;
-    rdfs:comment """<div>Reference (URL) to the online dataspace governance rulebook for the given DSI or DS.</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>Reference (URL) to the online source of the specified document (e.g. governance rulebook, iso certificate, etc.)</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/url>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -2037,6 +2027,14 @@ ebwv:BeneficialOwnershipVariant a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
+ebwv:CertifiedSite a rdfs:Class ;
+    rdfs:subClassOf ebwv:Site ;
+    rdfs:label "certified site" ;
+    rdfs:comment """<div>certification target (site) of the corresponding certification</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedsite>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:Company a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject, ebwv:EconomicOperator, ebwv:KycLegalEntity, ebwv:LegalPerson ;
     rdfs:label "Company as defined in directive-EU-2025/25" ;
@@ -2092,10 +2090,33 @@ ebwv:ElectronicAttestationOfAttributes a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
+ebwv:EquityHolder a rdfs:Class ;
+    rdfs:label "equity holder" ;
+    rdfs:comment """<div>Any individual or entity that holds an ownership stake in a business. This includes public or private stockholders, sole proprietors, LLC members, and partnership owners. Not all equity holders own formal stock shares (for example, owners of a sole proprietorship or a general partnership). If the equity holder is a legal person it can have a list of equity holders which ultimately forms a ownership tree.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/equityholder>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:EquityPartner a rdfs:Class ;
+    rdfs:subClassOf ebwv:EquityHolder ;
+    rdfs:label "equity partner" ;
+    rdfs:comment """<div>An owner in a professional services firm (such as a law, accounting, or consulting firm) structured as a partnership or LLP. Rather than earning a fixed salary, equity partners contribute firm capital, share directly in the company's annual profits and losses, and hold voting and management rights.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/equitypartner>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:EuropeanBusinessWalletOwner a rdfs:Class ;
     rdfs:subClassOf cred:CredentialSubject ;
     rdfs:label "European Business Wallet Owner" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/europeanbusinesswalletowner>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:EvidenceData a rdfs:Class ;
+    rdfs:subClassOf cred:CredentialEvidence ;
+    rdfs:label "evidence data" ;
+    rdfs:comment """<div>Additional supporting information about claims allowing the verifier to establish the confidence with which it relies on the claims. The EvidenceData records how information was verified, naming the source, the verified claims and the verification date.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencedata>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -2109,13 +2130,6 @@ ebwv:FinancialYear a rdfs:Class ;
 ebwv:GeneralPartner a rdfs:Class ;
     rdfs:label "General Partner" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:GeneralPartnerHolding a rdfs:Class ;
-    rdfs:label "general partner holding" ;
-    rdfs:comment """<div>the common attributes of a general partner (Komplementär) of the focus legal entity — the referenced entity, the stake and the voting rights; see its natural-person and legal-person subclasses for the specific attributes</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartnerholding>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -2146,14 +2160,6 @@ ebwv:KycCheck a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebwv:EvidenceData a rdfs:Class ;
-    rdfs:subClassOf cred:CredentialEvidence ;
-    rdfs:label "evidence data" ;
-    rdfs:comment """<div>Additional supporting information about claims allowing the verifier to establish the confidence with which it relies on the claims. The EvidenceData records how information was verified, naming the source, the verified claims and the verification date.</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencedata>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:KycLegalEntity a rdfs:Class ;
     rdfs:label "KYC legal entity" ;
     rdfs:comment """<div>the collection of KYC-specific attributes of a legal entity, such as liquidation and insolvency status, foundation or trust indicators, register identification and capital-market orientation. Company is a subclass of KycLegalEntity and therefore inherits these attributes alongside the core attributes it inherits from EconomicOperator.</div>"""^^rdf:HTML ;
@@ -2180,22 +2186,6 @@ ebwv:LegalPerson a rdfs:Class ;
     rdfs:label "Legal Person" ;
     rdfs:comment """<div>A legal person is an entity the law recognises as having its own rights and obligations, separate from its members. It can own property, enter contracts, sue and be sued, and be held liable.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:LegalPersonGeneralPartnerHolding a rdfs:Class ;
-    rdfs:subClassOf ebwv:GeneralPartnerHolding ;
-    rdfs:label "legal person general partner holding" ;
-    rdfs:comment """<div>a general partner (Komplementär) of the focus legal entity that is a legal person; it may carry handover information and its own recursive capital and control structure (shareholders and general partners)</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersongeneralpartnerholding>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:LegalPersonShareholder a rdfs:Class ;
-    rdfs:subClassOf ebwv:Shareholder ;
-    rdfs:label "legal person shareholder" ;
-    rdfs:comment """<div>a shareholder of the focus legal entity that is a legal person; it may carry handover information and its own recursive capital and control structure (shareholders and general partners)</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonshareholder>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -2254,22 +2244,6 @@ ebwv:NaturalPerson a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebwv:NaturalPersonGeneralPartnerHolding a rdfs:Class ;
-    rdfs:subClassOf ebwv:GeneralPartnerHolding ;
-    rdfs:label "natural person general partner holding" ;
-    rdfs:comment """<div>a general partner (Komplementär) of the focus legal entity that is a natural person; being a natural person it is a terminal node with no further capital and control structure</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersongeneralpartnerholding>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
-ebwv:NaturalPersonShareholder a rdfs:Class ;
-    rdfs:subClassOf ebwv:Shareholder ;
-    rdfs:label "natural person shareholder" ;
-    rdfs:comment """<div>a shareholder of the focus legal entity that is a natural person; being a natural person it is a terminal node with no further capital and control structure</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonshareholder>, <https://w3id.org/ebwv#> ;
-    vs:term_status "stable" ;
-.
-
 ebwv:OnboardingDetails a rdfs:Class ;
     rdfs:label "onboarding details" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingdetails>, <https://w3id.org/ebwv#> ;
@@ -2325,6 +2299,21 @@ ebwv:PublicSectorBody a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
+ebwv:QmsCertificate a rdfs:Class ;
+    rdfs:subClassOf cred:CredentialSubject ;
+    rdfs:label "Quality management systems (QMS) certificate" ;
+    rdfs:comment """<div>Quality management systems (QMS) certificate used for ESG Reporting and Sustainability</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/qmscertificate>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:QmsStandard a rdfs:Class ;
+    rdfs:label "quality management systems standard" ;
+    rdfs:comment """<div>A Quality Management System (QMS) standard is a formal, structured set of policies, processes, and procedures designed to help organizations consistently meet customer and regulatory requirements. Key QMS Standards are &colon;<li>ISO 9001&colon; The universal baseline standard for quality management systems applicable to any business size or sector.</li><li>ISO 13485&colon; Tailored specifically for the medical device and healthcare industry, emphasizing product safety and lifecycle tracking.</li><li>IATF 16949&colon; Customized for the automotive manufacturing sector to prevent defects and reduce supply chain waste.</li><li> AS9100&colon; Built for aerospace and defense organizations demanding high safety and reliability standards.</li></div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/qmsstandard>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:RegisterIdentification a rdfs:Class ;
     rdfs:label "register identification" ;
     rdfs:comment """<div>the identification of a legal entity in an official company register, including the register type, the registering court or authority, and the register number</div>"""^^rdf:HTML ;
@@ -2354,17 +2343,18 @@ ebwv:ScopeOfPower a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ebwv:Shareholder a rdfs:Class ;
-    rdfs:label "shareholder" ;
-    rdfs:comment """<div>the common attributes of a shareholder of the focus legal entity — the referenced entity, the stake and the aggregated share in the focus entity; see its natural-person and legal-person subclasses for the specific attributes</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholder>, <https://w3id.org/ebwv#> ;
+ebwv:Share a rdfs:Class ;
+    rdfs:label "share" ;
+    rdfs:comment """<div>a capital and voting stake (Anteil) held in a company, expressed as relative share, absolute amounts and relative voting rights, and whether the participation is direct</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/share>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
-ebwv:Shareholding a rdfs:Class ;
-    rdfs:label "shareholding" ;
-    rdfs:comment """<div>a capital and voting stake (Anteil) held in a company, expressed as relative share, absolute amounts and relative voting rights, and whether the participation is direct</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholding>, <https://w3id.org/ebwv#> ;
+ebwv:Shareholder a rdfs:Class ;
+    rdfs:subClassOf ebwv:EquityHolder ;
+    rdfs:label "shareholder" ;
+    rdfs:comment """<div>The common attributes of a shareholder of a legal entity — the legal entity that's hold the share, the stake and the aggregated share in the focus entity. An equity holder who owns fractional shares of stock in a corporation (such as common or preferred stock). Shareholders have a claim on company value, and their financial liability is typically limited to the amount they invested in the stock.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -2705,6 +2695,14 @@ ebwv:Bic a rdfs:Datatype ;
     vs:term_status "stable" ;
 .
 
+ebwv:CertificateRegistrationNumber a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    rdfs:label "certificate registration number" ;
+    rdfs:comment """<div>An internal tracking or reference number assigned specifically by the third-party Certification Body (CB) (such as TÜV NORD, DQS, or TÜV SÜD) that performed the audit and printed the paper certificate.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://iatf-customerportal.org/>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:ClearingNumber a rdfs:Datatype ;
     rdfs:subClassOf xsd:string ;
     rdfs:label "ClearingNumber" ;
@@ -2782,6 +2780,26 @@ ebwv:GS1CompanyPrefix a rdfs:Datatype ;
     vs:term_status "stable" ;
 .
 
+ebwv:IatfCertificateNumber a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([xsd:pattern "[0-9]{7}"]) ;
+    rdfs:label "IATF Certificate Number" ;
+    rdfs:comment """<div>The IATF Certification Number (IATF Registration No.) is a unique, central identification number issued directly by the International Automotive Task Force (IATF) database/oversight system for the certified organization or manufacturing site.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://iatf-customerportal.org/>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:IatfUsi a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([xsd:pattern "[0-9A-Z]{6}"]) ;
+    rdfs:label "IATF USI" ;
+    rdfs:comment """<div>This IATF Unique Site Identifier (USI) is used within the automotive industry's IATF 16949 Quality Management System. It is a permanent, immutable 6-digit alphanumeric code assigned to a specific physical manufacturing facility or remote support location. It remains tied to that exact address for the lifetime of the certification, regardless of company name changes or certification body transfers.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://iatf-customerportal.org/>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
 ebwv:Iban a rdfs:Datatype ;
     rdfs:subClassOf xsd:string ;
     owl:onDatatype xsd:string ;
@@ -2817,6 +2835,14 @@ ebwv:Lei a rdfs:Datatype ;
     rdfs:label "legal entity identifier" ;
     rdfs:comment """<div>a globally unique reference code assigned under the Global LEI System to identify a legal entity participating in financial, business or regulatory transactions</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/lei>, <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:MainCertificateRegistrationNumber a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    rdfs:label "main certificate registration number" ;
+    rdfs:comment """<div>An internal tracking or reference number assigned specifically by the third-party Certification Body (CB) (such as TÜV NORD, DQS, or TÜV SÜD) that performed the audit and printed the paper certificate.</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://iatf-customerportal.org/>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

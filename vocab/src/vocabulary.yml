@@ -311,6 +311,17 @@ class:
     upper_value: cred:VerifiableCredential
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes
 
+  - id: EquityHolder
+    label: equity holder
+    comment: Any individual or entity that holds an ownership stake in a business. This includes public or private stockholders, sole proprietors, LLC members, and partnership owners. Not all equity holders own formal stock shares (for example, owners of a sole proprietorship or a general partnership). If the equity holder is a legal person it can have a list of equity holders which ultimately forms a ownership tree.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/equityholder
+
+  - id: EquityPartner
+    label: equity partner
+    upper_value: EquityHolder
+    comment: An owner in a professional services firm (such as a law, accounting, or consulting firm) structured as a partnership or LLP. Rather than earning a fixed salary, equity partners contribute firm capital, share directly in the company's annual profits and losses, and hold voting and management rights.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/equitypartner
+
   - id: EuropeanBusinessWalletOwner
     label: European Business Wallet Owner
     upper_value: cred:CredentialSubject
@@ -343,6 +354,12 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
+  - id: EvidenceData
+    label: evidence data
+    upper_value: cred:CredentialEvidence
+    comment: Additional supporting information about claims allowing the verifier to establish the confidence with which it relies on the claims. The EvidenceData records how information was verified, naming the source, the verified claims and the verification date.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencedata
+
   - id: FinancialYear
     label: financial year
     comment: an annual financial statement (Geschäftsjahr) of the focus legal entity, reporting size class, revenue, operating result, balance sheet total, headcount and the statement date
@@ -351,11 +368,6 @@ class:
   - id: GeneralPartner
     label: General Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner
-
-  - id: GeneralPartnerHolding
-    label: general partner holding
-    comment: the common attributes of a general partner (Komplementär) of the focus legal entity — the referenced entity, the stake and the voting rights; see its natural-person and legal-person subclasses for the specific attributes
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartnerholding
 
   - id: GLN
     label: Global Location Number
@@ -631,67 +643,68 @@ class:
                     "currency": "EUR"
                   }
                 },
-                "shareholder": {
-                  "@type": [
-                    "Shareholder",
-                    "LegalPersonShareholder"
-                  ],
-                  "legalEntity": "did:key:$publicKeyOfLegalShareholder$",
-                  "shareholding": {
-                    "@type": "Shareholding",
-                    "relativeShare": 49.0,
-                    "relativeVotingRights": 49.0,
-                    "isDirectParticipation": true
-                  },
-                  "handover": true,
-                  "handoverDescription": "beneficial ownership structure to be continued manually",
-                  "shareholder": {
+                "equityHolder": [
+                  {
                     "@type": [
-                      "Shareholder",
-                      "NaturalPersonShareholder"
+                      "EquityHolder",
+                      "Shareholder"
                     ],
-                    "legalEntity": "did:key:$publicKeyOfUltimateShareholder$",
-                    "shareholding": {
-                      "@type": "Shareholding",
-                      "relativeShare": 100.0,
-                      "relativeVotingRights": 100.0,
+                    "legalEntity": "did:key:$publicKeyOfLegalPerson$",
+                    "share": {
+                      "@type": "Share",
+                      "relativeShare": 49.0,
+                      "relativeVotingRights": 49.0,
                       "isDirectParticipation": true
-                    }
-                  }
-                },
-                "generalPartnerHolding": {
-                  "@type": [
-                    "GeneralPartnerHolding",
-                    "LegalPersonGeneralPartnerHolding"
-                  ],
-                  "legalEntity": "did:key:$publicKeyOfLegalGeneralPartner$",
-                  "relativeVotingRights": 60.0,
-                  "shareholding": {
-                    "@type": "Shareholding",
-                    "relativeShare": 60.0,
-                    "absoluteShare": {
-                      "@type": "MonetaryAmount",
-                      "amount": 15000,
-                      "currency": "EUR"
                     },
-                    "relativeVotingRights": 60.0,
-                    "isDirectParticipation": true
+                    "handover": true,
+                    "handoverDescription": "beneficial ownership structure to be continued manually",
+                    "equityHolder": {
+                      "@type": [
+                        "EquityHolder",
+                        "Shareholder"
+                      ],
+                      "legalEntity": "did:key:$publicKeyOfNaturalPerson$",
+                      "share": {
+                        "@type": "Share",
+                        "relativeShare": 100.0,
+                        "relativeVotingRights": 100.0,
+                        "isDirectParticipation": true
+                      }
+                    }
                   },
-                  "handover": false,
-                  "shareholder": {
+                  {
                     "@type": [
-                      "Shareholder",
-                      "NaturalPersonShareholder"
+                      "EquityHolder",
+                      "EquityPartner"
                     ],
-                    "legalEntity": "did:key:$publicKeyOfSubShareholder$",
-                    "shareholding": {
-                      "@type": "Shareholding",
-                      "relativeShare": 100.0,
-                      "relativeVotingRights": 100.0,
+                    "legalEntity": "did:key:$publicKeyOfLegalPerson2$",
+                    "share": {
+                      "@type": "Share",
+                      "relativeShare": 60.0,
+                      "absoluteShare": {
+                        "@type": "MonetaryAmount",
+                        "amount": 15000,
+                        "currency": "EUR"
+                      },
+                      "relativeVotingRights": 60.0,
                       "isDirectParticipation": true
+                    },
+                    "handover": false,
+                    "equityHolder": {
+                      "@type": [
+                        "EquityHolder",
+                        "Shareholder"
+                      ],
+                      "legalEntity": "did:key:$publicKeyOfNaturalPerson2$",
+                      "share": {
+                        "@type": "Share",
+                        "relativeShare": 100.0,
+                        "relativeVotingRights": 100.0,
+                        "isDirectParticipation": true
+                      }
                     }
                   }
-                },
+                ],
                 "beneficialOwnership": {
                   "@type": "BeneficialOwnership",
                   "standard": {
@@ -699,8 +712,8 @@ class:
                     "capitalBeneficialOwner": {
                       "@type": "BeneficialOwner",
                       "legalEntity": "did:key:$publicKeyOfBeneficialOwner$",
-                      "shareholding": {
-                        "@type": "Shareholding",
+                      "share": {
+                        "@type": "Share",
                         "relativeShare": 51.0,
                         "relativeVotingRights": 51.0,
                         "isDirectParticipation": true
@@ -740,8 +753,8 @@ class:
                 "participation": {
                   "@type": "Participation",
                   "legalEntity": "did:key:$publicKeyOfParticipation$",
-                  "shareholding": {
-                    "@type": "Shareholding",
+                  "share": {
+                    "@type": "Share",
                     "relativeShare": 25.0,
                     "absoluteShare": {
                       "@type": "MonetaryAmount",
@@ -765,22 +778,10 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
-  - id: EvidenceData
-    label: evidence data
-    upper_value: cred:CredentialEvidence
-    comment: Additional supporting information about claims allowing the verifier to establish the confidence with which it relies on the claims. The EvidenceData records how information was verified, naming the source, the verified claims and the verification date.
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencedata
-
   - id: KycLegalEntity
     label: KYC legal entity
     comment: the collection of KYC-specific attributes of a legal entity, such as liquidation and insolvency status, foundation or trust indicators, register identification and capital-market orientation. Company is a subclass of KycLegalEntity and therefore inherits these attributes alongside the core attributes it inherits from EconomicOperator.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/kyclegalentity
-
-  - id: EvidenceData
-    label: evidence data
-    upper_value: cred:CredentialEvidence
-    comment: Additional supporting information about claims allowing the verifier to establish the confidence with which it relies on the claims. The EvidenceData records how information was verified, naming the source, the verified claims and the verification date.
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencedata
 
   - id: LegalEntity
     label: legal entity recognized by law
@@ -827,18 +828,6 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
-
-  - id: LegalPersonGeneralPartnerHolding
-    label: legal person general partner holding
-    upper_value: GeneralPartnerHolding
-    comment: a general partner (Komplementär) of the focus legal entity that is a legal person; it may carry handover information and its own recursive capital and control structure (shareholders and general partners)
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersongeneralpartnerholding
-
-  - id: LegalPersonShareholder
-    label: legal person shareholder
-    upper_value: Shareholder
-    comment: a shareholder of the focus legal entity that is a legal person; it may carry handover information and its own recursive capital and control structure (shareholders and general partners)
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersonshareholder
 
   - id: LegalRepresentative
     label: Legal representative
@@ -1058,18 +1047,6 @@ class:
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
-
-  - id: NaturalPersonGeneralPartnerHolding
-    label: natural person general partner holding
-    upper_value: GeneralPartnerHolding
-    comment: a general partner (Komplementär) of the focus legal entity that is a natural person; being a natural person it is a terminal node with no further capital and control structure
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersongeneralpartnerholding
-
-  - id: NaturalPersonShareholder
-    label: natural person shareholder
-    upper_value: Shareholder
-    comment: a shareholder of the focus legal entity that is a natural person; being a natural person it is a terminal node with no further capital and control structure
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalpersonshareholder
 
   - id: OnboardingDetails
     label: onboarding details
@@ -1906,7 +1883,6 @@ class:
             }
           }
 
-
   - id: QmsStandard
     label: quality management systems standard
     comment: A Quality Management System (QMS) standard is a formal, structured set of policies, processes, and procedures designed to help organizations consistently meet customer and regulatory requirements. Key QMS Standards are &colon;<li>ISO 9001&colon; The universal baseline standard for quality management systems applicable to any business size or sector.</li><li>ISO 13485&colon; Tailored specifically for the medical device and healthcare industry, emphasizing product safety and lifecycle tracking.</li><li>IATF 16949&colon; Customized for the automotive manufacturing sector to prevent defects and reduce supply chain waste.</li><li> AS9100&colon; Built for aerospace and defense organizations demanding high safety and reliability standards.</li>
@@ -1966,15 +1942,15 @@ class:
     comment: the scope of power delegated to a mandatee in the context of representing a company
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofpower
 
+  - id: Share
+    label: share
+    comment: a capital and voting stake (Anteil) held in a company, expressed as relative share, absolute amounts and relative voting rights, and whether the participation is direct
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/share
+
   - id: Shareholder
     label: shareholder
-    comment: the common attributes of a shareholder of the focus legal entity — the referenced entity, the stake and the aggregated share in the focus entity; see its natural-person and legal-person subclasses for the specific attributes
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholder
-
-  - id: Shareholding
-    label: shareholding
-    comment: a capital and voting stake (Anteil) held in a company, expressed as relative share, absolute amounts and relative voting rights, and whether the participation is direct
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholding
+    upper_value: EquityHolder
+    comment: The common attributes of a shareholder of a legal entity — the legal entity that's hold the share, the stake and the aggregated share in the focus entity. An equity holder who owns fractional shares of stock in a corporation (such as common or preferred stock). Shareholders have a claim on company value, and their financial liability is typically limited to the amount they invested in the stock.
 
   - id: ShareInFocus
     label: share in focus entity
@@ -2233,7 +2209,7 @@ property:
 
   - id: absoluteShare
     label: absolute share
-    domain: Shareholding
+    domain: Share
     range: MonetaryAmount
     comment: total value of the shares held directly and indirectly; may be repeated to express the same value in several currencies
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/absoluteshare
@@ -2690,6 +2666,17 @@ property:
     comment: the date on which the representative took up the function
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/entrydate
 
+  - id: equityHolder
+    label: equity holder
+    domain:
+      - KycLegalEntity
+      - EquityHolder
+    range:
+      - EquityHolder
+    range_union: true
+    comment: Any individual or entity that holds an ownership stake in a business. This includes public or private stockholders, sole proprietors, LLC members, and partnership owners. Not all equity holders own formal stock shares (for example, owners of a sole proprietorship or a general partnership).
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/equityholder
+
   - id: evidenceSource
     label: evidence source
     domain: EvidenceData
@@ -2801,18 +2788,6 @@ property:
     comment: a recorded, declared, or attested classification of a person according to gender in a given administrative, legal, or business context
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gender
 
-  - id: generalPartnerHolding
-    label: general partner holding
-    domain:
-      - KycLegalEntity
-      - LegalPersonGeneralPartnerHolding
-      - LegalPersonShareholder
-    range:
-      - NaturalPersonGeneralPartnerHolding
-      - LegalPersonGeneralPartnerHolding
-    comment: a natural or legal person holding as general partner (Komplementär) of the entity
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartnerholding
-
   - id: geographicIdentifier
     label: geographic identifier
     domain: Location
@@ -2837,8 +2812,7 @@ property:
     label: handover
     domain:
       - KycLegalEntity
-      - LegalPersonGeneralPartnerHolding
-      - LegalPersonShareholder
+      - EquityHolder
     range: xsd:boolean
     comment: indicator of whether the KYC research on the focus legal entity must be continued manually
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/handover
@@ -2847,8 +2821,7 @@ property:
     label: handover description
     domain:
       - KycLegalEntity
-      - LegalPersonGeneralPartnerHolding
-      - LegalPersonShareholder
+      - EquityHolder
     range: xsd:string
     comment: reason why a KYC analysis cannot be continued
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/handoverdescription
@@ -2867,13 +2840,6 @@ property:
     comment: the address of an entity, provided the address is not of a specific type like registered address or temporary address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress
 
-  - id: hasDiscrepancyNote
-    label: has discrepancy note
-    domain: TransparencyRegisterExtract
-    range: xsd:boolean
-    comment: whether the extract carries a note that a discrepancy report (Unstimmigkeitsmeldung) exists
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasdiscrepancynote
-
   - id: hasAddress
     label: hasAddress
     domain:
@@ -2882,6 +2848,13 @@ property:
     range: Address
     comment: the address of an entity, provided the address is not of a specific type like registered address or temporary address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress
+
+  - id: hasDiscrepancyNote
+    label: has discrepancy note
+    domain: TransparencyRegisterExtract
+    range: xsd:boolean
+    comment: whether the extract carries a note that a discrepancy report (Unstimmigkeitsmeldung) exists
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasdiscrepancynote
 
   - id: hasEmail
     label: email
@@ -2942,8 +2915,7 @@ property:
       - DUNS
       - QmsCertificate
       - NaturalPerson
-      - Shareholder
-      - GeneralPartnerHolding
+      - EquityHolder
       - Participation
       - BeneficialOwner
     range:
@@ -3001,7 +2973,7 @@ property:
 
   - id: isDirectParticipation
     label: is direct participation
-    domain: Shareholding
+    domain: Share
     range: xsd:boolean
     comment: whether the participation in the company is direct
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/isdirectparticipation
@@ -3077,8 +3049,7 @@ property:
       - QmsCertificate
       - CertifiedSite
       - Participation
-      - Shareholder
-      - GeneralPartnerHolding
+      - EquityHolder
       - BeneficialOwner
     range: LegalEntity
     comment: the legal entity — a legal person or a natural person — referenced by its DID and/or claims, e.g. the acting representative, the participated entity, the shareholder, the general partner, the beneficial owner, the certified company or the operator of a certified site
@@ -3116,16 +3087,6 @@ property:
     range: xsd:string
     comment: the name under which the legal entity is legally registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
-
-  - id: legalPersonGeneralPartner
-    label: legal person general partner
-    domain:
-      - KycLegalEntity
-      - LegalPersonGeneralPartnerHolding
-      - LegalPersonShareholder
-    range: LegalPersonGeneralPartnerHolding
-    comment: a legal person acting as general partner (Komplementär) of the entity
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalpersongeneralpartner
 
   - id: legalRepresentative
     label: legal representative
@@ -3406,14 +3367,8 @@ property:
     domain:
       - A1Certificate
       - Residency
+      - TransparencyRegisterEntry
     range: NaturalPerson
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certificatesubject
-
-  - id: person
-    label: person
-    domain: TransparencyRegisterEntry
-    range: NaturalPerson
-    comment: the natural person recorded in the transparency register
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
 
   - id: personalAdministrativeNumber
@@ -3631,7 +3586,7 @@ property:
   - id: relativeShare
     label: relative share
     domain:
-      - Shareholding
+      - Share
       - ShareVotingPair
     range: xsd:decimal
     comment: total percentage of shares held directly and indirectly
@@ -3647,9 +3602,8 @@ property:
   - id: relativeVotingRights
     label: relative voting rights
     domain:
-      - Shareholding
+      - Share
       - ShareVotingPair
-      - GeneralPartnerHolding
       - BeneficialOwner
     range: xsd:decimal
     comment: total percentage of voting rights held in the company, directly and indirectly
@@ -3744,29 +3698,30 @@ property:
     comment: The scope of the power given to a mandatee.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
 
-  - id: shareholder
-    label: shareholder
-    domain:
-      - KycLegalEntity
-      - LegalPersonGeneralPartnerHolding
-      - LegalPersonShareholder
-    range:
-      - NaturalPersonShareholder
-      - LegalPersonShareholder
-    range_union: true
-    comment: a natural or legal person holding shares in the entity
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholder
+  - id: scopeOfPower
+    label: scope of power
+    domain: PowerOfAttorney
+    range: ScopeOfPower
+    one_of:
+      - FormationOfCompanies
+      - ConstitutionOfCompanies
+      - RegistrationAndClosingOfBranches
+      - CrossBoarderConversions
+      - CrossBoarderMergers
+      - CrossBorderDivisions
+    comment: The scope of the power given to a mandatee.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
 
-  - id: shareholding
-    label: shareholding
+  - id: share
+    label: share
     domain:
       - Shareholder
-      - GeneralPartnerHolding
+      - EquityPartner
       - Participation
       - BeneficialOwner
-    range: Shareholding
+    range: Share
     comment: the capital and voting stake held
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareholding
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/share
 
   - id: shareInFocusAlongBranch
     label: share in focus along branch
@@ -3781,19 +3736,6 @@ property:
     range: ShareInFocus
     comment: the holder's total capital and voting share in the focus legal entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareinfocustotal
-  - id: scopeOfPower
-    label: scope of power
-    domain: PowerOfAttorney
-    range: ScopeOfPower
-    one_of:
-      - FormationOfCompanies
-      - ConstitutionOfCompanies
-      - RegistrationAndClosingOfBranches
-      - CrossBoarderConversions
-      - CrossBoarderMergers
-      - CrossBorderDivisions
-    comment: The scope of the power given to a mandatee.
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
 
   - id: socialRepresentative
     label: social representative
@@ -4038,6 +3980,12 @@ datatype:
     comment: International code (i.e. BIC or SWIFT code), as defined in ISO 9362, of the financial institution
     defined_by: https://www.iso.org/standard/84108.html
 
+  - id: CertificateRegistrationNumber
+    label: certificate registration number
+    upper_value: xsd:string
+    comment:  An internal tracking or reference number assigned specifically by the third-party Certification Body (CB) (such as TÜV NORD, DQS, or TÜV SÜD) that performed the audit and printed the paper certificate.
+    defined_by: https://iatf-customerportal.org/
+
   - id: ClearingNumber
     label: ClearingNumber
     upper_value: xsd:string
@@ -4093,13 +4041,6 @@ datatype:
     upper_value: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gs1companyprefix
 
-  - id: IatfUsi
-    label: IATF USI
-    upper_value: xsd:string
-    pattern: '[0-9A-Z]{6}'
-    comment: This IATF Unique Site Identifier (USI) is used within the automotive industry's IATF 16949 Quality Management System. It is a permanent, immutable 6-digit alphanumeric code assigned to a specific physical manufacturing facility or remote support location. It remains tied to that exact address for the lifetime of the certification, regardless of company name changes or certification body transfers.
-    defined_by: https://iatf-customerportal.org/
-
   - id: IatfCertificateNumber
     label: IATF Certificate Number
     upper_value: xsd:string
@@ -4107,10 +4048,11 @@ datatype:
     comment: The IATF Certification Number (IATF Registration No.) is a unique, central identification number issued directly by the International Automotive Task Force (IATF) database/oversight system for the certified organization or manufacturing site.
     defined_by: https://iatf-customerportal.org/
 
-  - id: CertificateRegistrationNumber
-    label: certificate registration number
+  - id: IatfUsi
+    label: IATF USI
     upper_value: xsd:string
-    comment:  An internal tracking or reference number assigned specifically by the third-party Certification Body (CB) (such as TÜV NORD, DQS, or TÜV SÜD) that performed the audit and printed the paper certificate.
+    pattern: '[0-9A-Z]{6}'
+    comment: This IATF Unique Site Identifier (USI) is used within the automotive industry's IATF 16949 Quality Management System. It is a permanent, immutable 6-digit alphanumeric code assigned to a specific physical manufacturing facility or remote support location. It remains tied to that exact address for the lifetime of the certification, regardless of company name changes or certification body transfers.
     defined_by: https://iatf-customerportal.org/
 
   - id: Iban

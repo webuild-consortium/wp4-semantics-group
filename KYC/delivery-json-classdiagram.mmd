@@ -49,17 +49,20 @@ classDiagram
         +Integer numberOfEmployees
         +Date statementDate
     }
-    class GeneralPartnerHolding {
+    class EquityPartner {
         +Decimal relativeVotingRights
         +Boolean handover
         +String handoverDescription
     }
-    class KycEvidence {
+    class EvidenceData {
         +String evidenceSource
         +String provenClaim
         +Date verificationDate
     }
     class LegalRepresentative {
+        +LegalEntity legalEntity
+        +CorporateRole role
+        +TypeOfPresenation typeOfPresenation
         +Boolean isExemptFromSection181
         +Date entryDate
         +Date exitDate
@@ -103,7 +106,7 @@ classDiagram
         +Boolean handover
         +String handoverDescription
     }
-    class Shareholding {
+    class Share {
         +Decimal relativeShare
         +Boolean isDirectParticipation
         +Decimal relativeVotingRights
@@ -145,8 +148,8 @@ classDiagram
     Company --> "0..1" BeneficialOwnership : beneficialOwnership
     BeneficialOwnership --> "0..1" BeneficialOwnershipVariant : standard
     BeneficialOwnershipVariant --> "0..*" BeneficialOwner : capitalBeneficialOwner
-    BeneficialOwner --> "0..1" Shareholding : shareholding
-    Shareholding --> "0..1" MonetaryAmount : absoluteShare
+    BeneficialOwner --> "0..1" Share : share
+    Share --> "0..1" MonetaryAmount : absoluteShare
     BeneficialOwnershipVariant --> "0..*" BeneficialOwner : votingRightsBeneficialOwner
     BeneficialOwnershipVariant --> "0..*" BeneficialOwner : otherControlBeneficialOwner
     BeneficialOwnershipVariant --> "0..*" BeneficialOwner : fictitiousBeneficialOwner
@@ -159,8 +162,10 @@ classDiagram
     TransparencyRegisterEntry --> "0..1" NaturalPerson : person
     NaturalPerson --> "0..1" Address : domicile
     Company --> "0..*" LegalRepresentative : legalRepresentative
-    Company --> "0..*" Shareholder : shareholder
-    Shareholder --> "0..1" Shareholding : shareholding
+    Company --> "0..*" EquityHolder : equityHolder
+    EquityHolder <|-- Shareholder
+    EquityHolder <|-- EquityPartner
+    Shareholder --> "0..1" Share : share
     Shareholder --> "0..1" ShareInFocus : shareInFocusAlongBranch
     ShareInFocus --> "0..1" ShareVotingPair : standard
     ShareInFocus --> "0..1" ShareVotingPair : accG10
@@ -168,15 +173,11 @@ classDiagram
     ShareInFocus --> "0..1" ShareVotingPair : dom10
     ShareInFocus --> "0..1" ShareVotingPair : dom25
     Shareholder --> "0..1" ShareInFocus : shareInFocusTotal
-    Shareholder --> "0..*" Shareholder : shareholder
-    Shareholder --> "0..*" GeneralPartnerHolding : generalPartnerHolding
-    Company --> "0..*" GeneralPartnerHolding : generalPartnerHolding
-    GeneralPartnerHolding --> "0..1" Shareholding : shareholding
-    GeneralPartnerHolding --> "0..*" Shareholder : shareholder
-    GeneralPartnerHolding --> "0..*" GeneralPartnerHolding : generalPartnerHolding
+    EquityHolder --> "0..*" EquityHolder : equityHolder
+    EquityPartner --> "0..1" Share : share
     Company --> "0..*" Participation : participation
-    Participation --> "0..1" Shareholding : shareholding
+    Participation --> "0..1" Share : share
     Company --> "0..1" Company : directParent
     Company --> "0..1" Company : ultimateParent
     Company --> "0..1" TransparencyRegisterExtract : transparencyRegisterExtract
-    Company --> "0..*" KycEvidence : evidence
+    Company --> "0..*" EvidenceData : evidence
