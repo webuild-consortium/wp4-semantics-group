@@ -2923,6 +2923,7 @@ property:
       - Bic
       - CertificateRegistrationNumber
       - ClearingNumber
+      - CompanyId
       - DunsNumber
       - Eori
       - Excise
@@ -3970,7 +3971,7 @@ datatype:
   - id: BanzNumber
     label: Bundesanzeiger number
     upper_value: xsd:string
-    comment: internal check number (BANZ-ID) assigned by Bundesanzeiger Verlag that identifies a company as part of the KYC service
+    comment: internal unique identification (BANZ-Number) assigned by Bundesanzeiger Verlag that identifies a company as part of the KYC service
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/banznumber
 
   - id: Bic
@@ -3990,6 +3991,12 @@ datatype:
     label: ClearingNumber
     upper_value: xsd:string
     comment: Clearing number, only used in some countries, of the identification of the financial institution.
+
+  - id: CompanyId
+    label: Company identifier
+    upper_value: xsd:string
+    comment: internal check number (CompanyID) assigned by Bundesanzeiger Verlag that identifies a company in the UFDB
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/banznumber
 
   - id: CountryCode
     label: Country Code

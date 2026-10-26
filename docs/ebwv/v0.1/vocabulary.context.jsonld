@@ -1614,6 +1614,7 @@
         "Bic": "https://w3id.org/ebwv#Bic",
         "CertificateRegistrationNumber": "https://w3id.org/ebwv#CertificateRegistrationNumber",
         "ClearingNumber": "https://w3id.org/ebwv#ClearingNumber",
+        "CompanyId": "https://w3id.org/ebwv#CompanyId",
         "CountryCode": "https://w3id.org/ebwv#CountryCode",
         "Currency": "https://w3id.org/ebwv#Currency",
         "DunsNumber": "https://w3id.org/ebwv#DunsNumber",

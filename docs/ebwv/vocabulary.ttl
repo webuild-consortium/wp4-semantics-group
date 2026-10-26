@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-10-23"^^xsd:date ;
+    dc:date "2026-10-26"^^xsd:date ;
 .
 
 # Property definitions
@@ -839,7 +839,7 @@ ebwv:iban a rdf:Property, owl:DatatypeProperty ;
 
 ebwv:identifier a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class; owl:unionOf (ebwv:EconomicOperator ebwv:Site ebwv:VATRegistrationUnit ebwv:GLN ebwv:DUNS ebwv:QmsCertificate ebwv:NaturalPerson ebwv:EquityHolder ebwv:Participation ebwv:BeneficialOwner) ] ;
-    rdfs:range [ a owl:Class; owl:unionOf (ebwv:BanzNumber ebwv:Bic ebwv:CertificateRegistrationNumber ebwv:ClearingNumber ebwv:DunsNumber ebwv:Eori ebwv:Excise ebwv:GlobalLocationNumber ebwv:IatfCertificateNumber ebwv:IatfUsi ebwv:Iban ebwv:Isin ebwv:Lei ebwv:MainCertificateRegistrationNumber ebwv:PeppolId ebwv:Tin ebwv:VatId xsd:anyURI xsd:string) ] ;
+    rdfs:range [ a owl:Class; owl:unionOf (ebwv:BanzNumber ebwv:Bic ebwv:CertificateRegistrationNumber ebwv:ClearingNumber ebwv:CompanyId ebwv:DunsNumber ebwv:Eori ebwv:Excise ebwv:GlobalLocationNumber ebwv:IatfCertificateNumber ebwv:IatfUsi ebwv:Iban ebwv:Isin ebwv:Lei ebwv:MainCertificateRegistrationNumber ebwv:PeppolId ebwv:Tin ebwv:VatId xsd:anyURI xsd:string) ] ;
     rdfs:label "identifier" ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
@@ -2680,7 +2680,7 @@ ebwv:AccountType a rdfs:Datatype ;
 ebwv:BanzNumber a rdfs:Datatype ;
     rdfs:subClassOf xsd:string ;
     rdfs:label "Bundesanzeiger number" ;
-    rdfs:comment """<div>internal check number (BANZ-ID) assigned by Bundesanzeiger Verlag that identifies a company as part of the KYC service</div>"""^^rdf:HTML ;
+    rdfs:comment """<div>internal unique identification (BANZ-Number) assigned by Bundesanzeiger Verlag that identifies a company as part of the KYC service</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/banznumber>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
@@ -2708,6 +2708,14 @@ ebwv:ClearingNumber a rdfs:Datatype ;
     rdfs:label "ClearingNumber" ;
     rdfs:comment """<div>Clearing number, only used in some countries, of the identification of the financial institution.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://w3id.org/ebwv#> ;
+    vs:term_status "stable" ;
+.
+
+ebwv:CompanyId a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string ;
+    rdfs:label "Company identifier" ;
+    rdfs:comment """<div>internal check number (CompanyID) assigned by Bundesanzeiger Verlag that identifies a company in the UFDB</div>"""^^rdf:HTML ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/banznumber>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 

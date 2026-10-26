@@ -167,7 +167,7 @@
         <dl>
             <dt>Published:</dt>
             <dd>
-                <time property="dc:date" id="time">2026-10-23</time>
+                <time property="dc:date" id="time">2026-10-26</time>
             </dd>
             <dt>Version Info:</dt>
             <dd>0.1</dd>
@@ -286,6 +286,7 @@
                         <li><a href="#CertifiedSite"><code>CertifiedSite<code></code></code></a></li>
                         <li><a href="#ClearingNumber"><code>ClearingNumber<code></code></code></a></li>
                         <li><a href="#Company"><code>Company<code></code></code></a></li>
+                        <li><a href="#CompanyId"><code>CompanyId<code></code></code></a></li>
                         <li><a href="#ConstitutionOfCompanies"><code>ConstitutionOfCompanies<code></code></code></a></li>
                         <li><a href="#ContactPoint"><code>ContactPoint<code></code></code></a></li>
                         <li><a href="#CorporateRole"><code>CorporateRole<code></code></code></a></li>
@@ -5053,7 +5054,7 @@
                     <dt>Domain:</dt>
                     <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔&nbsp;<a href="#Site"><code>Site</code></a> ⊔&nbsp;<a href="#VATRegistrationUnit"><code>VATRegistrationUnit</code></a> ⊔&nbsp;<a href="#GLN"><code>GLN</code></a> ⊔&nbsp;<a href="#DUNS"><code>DUNS</code></a> ⊔&nbsp;<a href="#QmsCertificate"><code>QmsCertificate</code></a> ⊔&nbsp;<a href="#NaturalPerson"><code>NaturalPerson</code></a> ⊔&nbsp;<a href="#EquityHolder"><code>EquityHolder</code></a> ⊔&nbsp;<a href="#Participation"><code>Participation</code></a> ⊔&nbsp;<a href="#BeneficialOwner"><code>BeneficialOwner</code></a></dd>
                     <dt>Range:</dt>
-                    <dd><a href="#BanzNumber"><code>BanzNumber</code></a> ⊔&nbsp;<a href="#Bic"><code>Bic</code></a> ⊔&nbsp;<a href="#CertificateRegistrationNumber"><code>CertificateRegistrationNumber</code></a> ⊔&nbsp;<a href="#ClearingNumber"><code>ClearingNumber</code></a> ⊔&nbsp;<a href="#DunsNumber"><code>DunsNumber</code></a> ⊔&nbsp;<a href="#Eori"><code>Eori</code></a> ⊔&nbsp;<a href="#Excise"><code>Excise</code></a> ⊔&nbsp;<a href="#GlobalLocationNumber"><code>GlobalLocationNumber</code></a> ⊔&nbsp;<a href="#IatfCertificateNumber"><code>IatfCertificateNumber</code></a> ⊔&nbsp;<a href="#IatfUsi"><code>IatfUsi</code></a> ⊔&nbsp;<a href="#Iban"><code>Iban</code></a> ⊔&nbsp;<a href="#Isin"><code>Isin</code></a> ⊔&nbsp;<a href="#Lei"><code>Lei</code></a> ⊔&nbsp;<a href="#MainCertificateRegistrationNumber"><code>MainCertificateRegistrationNumber</code></a> ⊔&nbsp;<a href="#PeppolId"><code>PeppolId</code></a> ⊔&nbsp;<a href="#Tin"><code>Tin</code></a> ⊔&nbsp;<a href="#VatId"><code>VatId</code></a> ⊔&nbsp;<code>xsd:anyURI</code> ⊔&nbsp;<a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                    <dd><a href="#BanzNumber"><code>BanzNumber</code></a> ⊔&nbsp;<a href="#Bic"><code>Bic</code></a> ⊔&nbsp;<a href="#CertificateRegistrationNumber"><code>CertificateRegistrationNumber</code></a> ⊔&nbsp;<a href="#ClearingNumber"><code>ClearingNumber</code></a> ⊔&nbsp;<a href="#CompanyId"><code>CompanyId</code></a> ⊔&nbsp;<a href="#DunsNumber"><code>DunsNumber</code></a> ⊔&nbsp;<a href="#Eori"><code>Eori</code></a> ⊔&nbsp;<a href="#Excise"><code>Excise</code></a> ⊔&nbsp;<a href="#GlobalLocationNumber"><code>GlobalLocationNumber</code></a> ⊔&nbsp;<a href="#IatfCertificateNumber"><code>IatfCertificateNumber</code></a> ⊔&nbsp;<a href="#IatfUsi"><code>IatfUsi</code></a> ⊔&nbsp;<a href="#Iban"><code>Iban</code></a> ⊔&nbsp;<a href="#Isin"><code>Isin</code></a> ⊔&nbsp;<a href="#Lei"><code>Lei</code></a> ⊔&nbsp;<a href="#MainCertificateRegistrationNumber"><code>MainCertificateRegistrationNumber</code></a> ⊔&nbsp;<a href="#PeppolId"><code>PeppolId</code></a> ⊔&nbsp;<a href="#Tin"><code>Tin</code></a> ⊔&nbsp;<a href="#VatId"><code>VatId</code></a> ⊔&nbsp;<code>xsd:anyURI</code> ⊔&nbsp;<a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -7160,7 +7161,7 @@
                 <h4><code>BanzNumber</code></h4>
                 <p><em>Bundesanzeiger number</em></p>
                 <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/banznumber">formal definition of the term</a>.</p>
-                <div>internal check number (BANZ-ID) assigned by Bundesanzeiger Verlag that identifies a company as part of the KYC service</div>
+                <div>internal unique identification (BANZ-Number) assigned by Bundesanzeiger Verlag that identifies a company as part of the KYC service</div>
                 <dl class="terms">
                     <dt>Derived from:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
@@ -7218,6 +7219,24 @@
                 <h4><code>ClearingNumber</code></h4>
                 <p><em>ClearingNumber</em></p>
                 <div>Clearing number, only used in some countries, of the identification of the financial institution.</div>
+                <dl class="terms">
+                    <dt>Derived from:</dt>
+                    <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Includes the range of:</dt>
+                    <dd><a href="#identifier"><code>identifier</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://w3id.org/ebwv/v0.1"><code>https://w3id.org/ebwv/v0.1</code></a></dd>
+                </dl>
+            </section>
+            <section id="CompanyId">
+                <h4><code>CompanyId</code></h4>
+                <p><em>Company identifier</em></p>
+                <p>See the <a href="https://sanastot.suomi.fi/en/terminology/webuild/concept/banznumber">formal definition of the term</a>.</p>
+                <div>internal check number (CompanyID) assigned by Bundesanzeiger Verlag that identifies a company in the UFDB</div>
                 <dl class="terms">
                     <dt>Derived from:</dt>
                     <dd><a href="http://www.w3.org/2001/XMLSchema#string"><code>xsd:string</code></a></dd>
