@@ -1,0 +1,264 @@
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix ebwv:   <https://w3id.org/ebwv#> .
+@prefix ebwvsh: <https://w3id.org/ebwv/shapes#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+#
+# SHACL shapes for the Company credential (credentialSubject @type Company).
+#
+# Mandatory attributes are derived from the "EU Company Certificate" as defined in
+# Article 16b of Directive (EU) 2025/25 (OJ L, 10.1.2025) amending Directive (EU) 2017/1132:
+#   * Article 16b(2) — certificate for limited liability companies (Annex II)
+#   * Article 16b(3) — certificate for partnerships (Annex IIB): the Art. 16b(2) content
+#                       EXCEPT points (e), (h), (j) and (k), plus partnership-specific items.
+#
+# The constraints that are common to both company types live on ebwvsh:CompanyShape
+# (sh:targetClass ebwv:Company). The constraints that depend on the company type live on
+# ebwvsh:LimitedLiabilityCompanyShape and ebwvsh:PartnershipShape, which (because
+# LimitedLiabilityCompany and Partnership are subclasses of Company) apply in addition to
+# the common shape.
+#
+#   Common (Art. 16b(2)(a)(b)(c)(d)(f)(g)(i) + registered office):
+#     (a) name ...................... ebwv:legalName            [mandatory]
+#     (b) legal form ................ ebwv:legalForm            [mandatory]
+#     (c) registration number + MS .. ebwv:register             [mandatory]
+#     (d) EUID ...................... ebwv:legalIdentifier      [mandatory]
+#     (e)/(3)(a) registered office .. ebwv:registeredAddress    [mandatory]
+#     (f) correspondence address .... ebwv:correspondenceAddress[mandatory]
+#     (g) date of registration ...... ebwv:dateOfRegistration   [mandatory]
+#     (i) status .................... ebwv:legalStatus          [mandatory]
+#
+#   Limited liability company (Annex II):
+#     (j) authorised representatives (alone/jointly) ebwv:legalRepresentative [mandatory, >=1]
+#     (h) subscribed capital (if applicable) ....... ebwv:subscribedCapital   [optional, 0..1]
+#
+#   Partnership (Annex IIB):
+#     (3)(c)/(e) partners authorised to represent .. ebwv:partner             [mandatory, >=1]
+#                subscribed capital ................ ebwv:subscribedCapital   [forbidden]
+#
+#   date of issue (Art. 16b(2)(o)) maps to the VC validFrom (credential envelope, not the subject).
+#   object/activity (l), website (n), duration (m) are conditional in the directive -> optional.
+#
+# All shapes are open (sh:closed false): additional properties are allowed.
+#
+
+# class hierarchy (so the common CompanyShape also targets LLC/partnership nodes)
+ebwv:LimitedLiabilityCompany rdfs:subClassOf ebwv:Company .
+ebwv:Partnership             rdfs:subClassOf ebwv:Company .
+
+####################################################################################
+# Common constraints — apply to every Company (LLC and partnership alike)
+####################################################################################
+
+ebwvsh:CompanyShape
+    a sh:NodeShape ;
+    rdfs:label "Company shape" ;
+    rdfs:comment "Common mandatory content of the EU Company Certificate (Directive (EU) 2025/25, Art. 16b), applicable to every company type. Additional properties are permitted." ;
+    sh:targetClass ebwv:Company ;
+    sh:closed false ;
+
+    # (a) name of the company
+    sh:property [
+        sh:path ebwv:legalName ;
+        sh:name "legal name" ;
+        sh:description "Art. 16b(2)(a): the name of the company" ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    # (b) legal form
+    sh:property [
+        sh:path ebwv:legalForm ;
+        sh:name "legal form" ;
+        sh:description "Art. 16b(2)(b): the legal form of the company" ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    # (d) EUID
+    sh:property [
+        sh:path ebwv:legalIdentifier ;
+        sh:name "legal identifier (EUID)" ;
+        sh:description "Art. 16b(2)(d): the EUID of the company" ;
+        sh:datatype ebwv:Euid ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    # (g) date of registration
+    sh:property [
+        sh:path ebwv:dateOfRegistration ;
+        sh:name "date of registration" ;
+        sh:description "Art. 16b(2)(g): the date of registration of the company" ;
+        sh:datatype xsd:date ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    # (i) status
+    sh:property [
+        sh:path ebwv:legalStatus ;
+        sh:name "legal status" ;
+        sh:description "Art. 16b(2)(i): the status of the company (e.g. active, inactive, wound up, dissolved, insolvent)" ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    # (e) / (3)(a) registered office
+    sh:property [
+        sh:path ebwv:registeredAddress ;
+        sh:name "registered office" ;
+        sh:description "Art. 16b(2)(e) / 16b(3)(a): the registered office of the company or partnership" ;
+        sh:class ebwv:Address ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    # (f) correspondence address (postal correspondence address)
+    sh:property [
+        sh:path ebwv:correspondenceAddress ;
+        sh:name "correspondence address" ;
+        sh:description "Art. 16b(2)(f): the correspondence address of the company, such as its electronic mail or postal address" ;
+        sh:class ebwv:Address ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    # (c) registration number and Member State of registration
+    sh:property [
+        sh:path ebwv:register ;
+        sh:name "register identification" ;
+        sh:description "Art. 16b(2)(c): the registration number of the company and the Member State where the company is registered" ;
+        sh:node ebwvsh:RegisterIdentificationShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+.
+
+####################################################################################
+# Limited liability company (Annex II) — representatives + subscribed capital
+####################################################################################
+
+ebwvsh:LimitedLiabilityCompanyShape
+    a sh:NodeShape ;
+    rdfs:label "Limited liability company shape" ;
+    rdfs:comment "Type-specific content of the EU Company Certificate for limited liability companies (Directive (EU) 2025/25, Art. 16b(2))." ;
+    sh:targetClass ebwv:LimitedLiabilityCompany ;
+    sh:closed false ;
+
+    # (j) persons authorised to represent the company and whether alone or jointly
+    sh:property [
+        sh:path ebwv:legalRepresentative ;
+        sh:name "legal representative" ;
+        sh:description "Art. 16b(2)(j): persons authorised to represent the company and whether they may act alone or jointly" ;
+        sh:node ebwvsh:LegalRepresentativeShape ;
+        sh:minCount 1 ;
+    ] ;
+
+    # (h) subscribed capital — only limited liability companies have it; mandatory only "if applicable"
+    sh:property [
+        sh:path ebwv:subscribedCapital ;
+        sh:name "subscribed capital" ;
+        sh:description "Art. 16b(2)(h): the amount of the subscribed capital of the company, if applicable" ;
+        sh:class ebwv:MonetaryAmount ;
+        sh:maxCount 1 ;
+    ] ;
+.
+
+####################################################################################
+# Partnership (Annex IIB) — partners instead of representatives; no subscribed capital
+####################################################################################
+
+ebwvsh:PartnershipShape
+    a sh:NodeShape ;
+    rdfs:label "Partnership shape" ;
+    rdfs:comment "Type-specific content of the EU Company Certificate for partnerships (Directive (EU) 2025/25, Art. 16b(3)): partners instead of legal representatives, and no subscribed capital." ;
+    sh:targetClass ebwv:Partnership ;
+    sh:closed false ;
+
+    # (3)(c)/(e) partners (general/limited/statutory) authorised to represent the partnership
+    sh:property [
+        sh:path ebwv:partner ;
+        sh:name "partner" ;
+        sh:description "Art. 16b(3)(c)/(e): the partners, directors or statutory representatives of the partnership" ;
+        sh:node ebwvsh:PartnerShape ;
+        sh:minCount 1 ;
+    ] ;
+
+    # subscribed capital is excluded for partnerships (Art. 16b(3) omits point (h)); only LLCs have it
+    sh:property [
+        sh:path ebwv:subscribedCapital ;
+        sh:name "subscribed capital (not applicable)" ;
+        sh:description "Art. 16b(3): subscribed capital is not part of the partnership certificate; only limited liability companies have subscribed capital" ;
+        sh:maxCount 0 ;
+    ] ;
+.
+
+####################################################################################
+# Nested shapes
+####################################################################################
+
+# (c) the register entry must carry the registration number and the Member State of registration.
+ebwvsh:RegisterIdentificationShape
+    a sh:NodeShape ;
+    rdfs:label "Register identification shape" ;
+    sh:closed false ;
+    sh:property [
+        sh:path ebwv:registerNumber ;
+        sh:name "registration number" ;
+        sh:description "Art. 16b(2)(c): the registration number of the company" ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ebwv:companyRegisterIdCountry ;
+        sh:name "Member State of registration" ;
+        sh:description "Art. 16b(2)(c): the Member State where the company is registered" ;
+        # the ebwv JSON-LD context does not coerce this term to ebwv:CountryCode,
+        # so a plain string value is accepted; only presence is required.
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+.
+
+# (2)(j)/(k) each representative references the represented legal entity and states the type of representation (alone/jointly).
+ebwvsh:LegalRepresentativeShape
+    a sh:NodeShape ;
+    rdfs:label "Legal representative shape" ;
+    sh:closed false ;
+    sh:property [
+        sh:path ebwv:legalEntity ;
+        sh:name "represented legal entity" ;
+        sh:description "Art. 16b(2)(j)/(k): the natural or legal person authorised to represent the company" ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ebwv:typeOfRepresentation ;
+        sh:name "type of representation" ;
+        sh:description "Art. 16b(2)(j): whether the person may represent the company alone or is required to act jointly" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+.
+
+# (3)(c)/(d)/(e)/(f) each partner references the represented legal entity.
+ebwvsh:PartnerShape
+    a sh:NodeShape ;
+    rdfs:label "Partner shape" ;
+    sh:closed false ;
+    sh:property [
+        sh:path ebwv:legalEntity ;
+        sh:name "partner legal entity" ;
+        sh:description "Art. 16b(3)(c)/(d)/(e)/(f): the natural or legal person that is a partner of the partnership" ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+.
