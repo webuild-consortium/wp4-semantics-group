@@ -202,14 +202,14 @@ ebwvsh:PartnershipShape
 # Nested shapes
 ####################################################################################
 
-# (c) the register entry must carry the registration number and the Member State of registration.
+# (c) the register entry must carry the company registration number and the Member State of registration.
 ebwvsh:RegisterIdentificationShape
     a sh:NodeShape ;
     rdfs:label "Register identification shape" ;
     sh:closed false ;
     sh:property [
-        sh:path ebwv:registerNumber ;
-        sh:name "registration number" ;
+        sh:path ebwv:companyRegisterId ;
+        sh:name "registration number of company" ;
         sh:description "Art. 16b(2)(c): the registration number of the company" ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
