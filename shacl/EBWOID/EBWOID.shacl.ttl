@@ -1,0 +1,45 @@
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix ebwv:   <https://w3id.org/ebwv#> .
+@prefix ebwvsh: <https://w3id.org/ebwv/shapes#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+#
+# SHACL shape for the EuropeanBusinessWalletOwner credential subject.
+#
+# Mandatory attributes:  legalName, legalIdentifier.
+# Additional properties are allowed (the shape is open: sh:closed false).
+#
+
+ebwvsh:EuropeanBusinessWalletOwnerShape
+    a sh:NodeShape ;
+    rdfs:label "European Business Wallet Owner shape" ;
+    rdfs:comment "Validates the credentialSubject of an EuropeanBusinessWalletOwner credential: legalName and legalIdentifier are mandatory; any further properties are permitted." ;
+    sh:targetClass ebwv:EuropeanBusinessWalletOwner ;
+
+    # additional properties beyond those listed below are allowed
+    sh:closed false ;
+
+    # legalName — mandatory string
+    sh:property [
+        sh:path ebwv:legalName ;
+        sh:name "legal name" ;
+        sh:description "the name under which the legal entity is legally registered" ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    # legalIdentifier — mandatory; value is an Euid or a PublicSectorBodyId typed literal
+    sh:property [
+        sh:path ebwv:legalIdentifier ;
+        sh:name "legal identifier" ;
+        sh:description "the legal identifier of the entity (EUID or public sector body identifier)" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype ebwv:Euid ]
+            [ sh:datatype ebwv:PublicSectorBodyId ]
+        ) ;
+    ] ;
+.
