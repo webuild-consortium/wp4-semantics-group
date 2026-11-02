@@ -256,6 +256,10 @@
                     "@id": "https://w3id.org/ebwv#legalStatus",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
+                "register": {
+                    "@id": "https://w3id.org/ebwv#register",
+                    "@type": "@id"
+                },
                 "registeredAddress": {
                     "@id": "https://w3id.org/ebwv#registeredAddress",
                     "@type": "@id"
@@ -618,10 +622,6 @@
                 },
                 "participation": {
                     "@id": "https://w3id.org/ebwv#participation",
-                    "@type": "@id"
-                },
-                "register": {
-                    "@id": "https://w3id.org/ebwv#register",
                     "@type": "@id"
                 },
                 "regulator": {
@@ -1181,12 +1181,12 @@
             "@id": "https://w3id.org/ebwv#RegisterIdentification",
             "@context": {
                 "@protected": true,
-                "companyRegisterId": {
-                    "@id": "https://w3id.org/ebwv#companyRegisterId",
+                "registeredCompanyId": {
+                    "@id": "https://w3id.org/ebwv#registeredCompanyId",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
-                "companyRegisterIdCountry": {
-                    "@id": "https://w3id.org/ebwv#companyRegisterIdCountry",
+                "registeredCompanyIdCountry": {
+                    "@id": "https://w3id.org/ebwv#registeredCompanyIdCountry",
                     "@type": "https://w3id.org/ebwv#CountryCode"
                 },
                 "registerLocation": {

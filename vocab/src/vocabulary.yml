@@ -530,7 +530,7 @@ class:
                 "dateOfRegistration": "2001-05-14",
                 "legalIdentifier": {
                   "@type": "Euid",
-                  "@value": "DEHRB12345"
+                  "@value": "DE1234.HRB12345"
                 },
                 "identifier": [
                   {
@@ -616,9 +616,9 @@ class:
                   "registerType": "HRB",
                   "registerTypeDescription": "Handelsregister Abteilung B",
                   "registerLocation": "Amtsgericht Muenchen",
-                  "registerNumber": "12345",
-                  "companyRegisterId": "DE-123",
-                  "companyRegisterIdCountry": "DE"
+                  "registerNumber": "DE1234",
+                  "registeredCompanyId": "HRB12345",
+                  "registeredCompanyIdCountry": "DE"
                 },
                 "handoverFlag": true,
                 "handover": false,
@@ -844,7 +844,7 @@ class:
     upper_value: Company
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedliabilitycompany
     example:
-      - label: Credential with credential subject of type LimitedLiabilityCompany
+      - label: EUCC (EU directive 2025/25) with credential subject of type LimitedLiabilityCompany
         json: |
           {
             "@context": [
@@ -867,6 +867,11 @@ class:
               "legalIdentifier": {
                 "@type" : "Euid",
                 "@value" : "NOFOR.987654321"
+              },
+              "register": {
+                "@type" : "RegisterIdentification",
+                "registeredCompanyId" : "987654321",
+                "registeredCompanyIdCountry" : "NO"
               },
               "legalName": "acme Corporation",
               "legalForm": "Inc.",
@@ -1062,7 +1067,7 @@ class:
     upper_value: Company
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnership
     example:
-      - label: Credential with credential subject of type Partnership
+      - label: EUCC (EU directive 2025/25) with credential subject of type Partnership
         json: |
           {
             "@context": [
@@ -1085,6 +1090,11 @@ class:
               "legalIdentifier": {
                 "@type" : "Euid",
                 "@value" : "NOFOR.987654321"
+              },
+              "register": {
+                "@type" : "RegisterIdentification",
+                "registeredCompanyId" : "987654321",
+                "registeredCompanyIdCountry" : "NO"
               },
               "legalName": "acme",
               "legalForm": "Partnership",
@@ -2438,19 +2448,19 @@ property:
     comment: company category (Gesellschaftsart) of the legal entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/companycategory
 
-  - id: companyRegisterId
-    label: company register id
+  - id: registeredCompanyId
+    label: registered company id
     domain: RegisterIdentification
     range: xsd:string
     comment: identification number of the company in a (foreign) register
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/companyregisterid
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredcompanyid
 
-  - id: companyRegisterIdCountry
-    label: company register id country
+  - id: registeredCompanyIdCountry
+    label: registered company id country
     domain: RegisterIdentification
     range: CountryCode
     comment: country code of the country for the company's register identification number
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/companyregisteridcountry
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredcompanyidcountry
 
   - id: companySize
     label: company size
@@ -3510,7 +3520,7 @@ property:
 
   - id: register
     label: register
-    domain: KycLegalEntity
+    domain: Company
     range: RegisterIdentification
     comment: identification of the legal entity in an official company register
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/register
@@ -4029,6 +4039,8 @@ datatype:
   - id: Euid
     label: EUID
     upper_value: xsd:string
+    pattern: '[A-Z]{2}[A-Z0-9]+\.[A-Z0-9]+'
+    comment: The European Unique Identifier (EUID) for companies based on a standardized format defined by the Business Registers Interconnection System (BRIS) and ISO 6523. It consists of three parts&colon;<li>Country Code&colon; An ISO 3166-1 alpha-2 code indicating the member state (e.g., DE for Germany, or EL for Greece).</li><li>Register Code / Court Identifier&colon; A code identifying the specific national or regional trade/commercial register or court (e.g., R3306 or K1101 in Germany).</li><li>Company Register Identifier&colon; The unique national registration number assigned to the company by that register (e.g., HRB12345 or HRB123456).</li> Part 2 and 3 are separated by a dot&colon; DEK1101.HRB12345 - Germany | local court cologne | HRB12345
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/euid
 
   - id: Excise

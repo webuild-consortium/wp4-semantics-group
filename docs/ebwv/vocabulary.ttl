@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-10-26"^^xsd:date ;
+    dc:date "2026-11-02"^^xsd:date ;
 .
 
 # Property definitions
@@ -299,21 +299,21 @@ ebwv:companyCategory a rdf:Property, owl:DatatypeProperty ;
     vs:term_status "stable" ;
 .
 
-ebwv:companyRegisterId a rdf:Property, owl:DatatypeProperty ;
+ebwv:registeredCompanyId a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:RegisterIdentification ;
     rdfs:range xsd:string ;
     rdfs:label "company register id" ;
     rdfs:comment """<div>identification number of the company in a (foreign) register</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/companyregisterid>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredcompanyid>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
-ebwv:companyRegisterIdCountry a rdf:Property, owl:DatatypeProperty ;
+ebwv:registeredCompanyIdCountry a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ebwv:RegisterIdentification ;
     rdfs:range ebwv:CountryCode ;
     rdfs:label "company register id country" ;
     rdfs:comment """<div>country code of the country for the company's register identification number</div>"""^^rdf:HTML ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/companyregisteridcountry>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredcompanyidcountry>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
@@ -1477,7 +1477,7 @@ ebwv:referenceNumber a rdf:Property, owl:DatatypeProperty ;
 .
 
 ebwv:register a rdf:Property, owl:ObjectProperty ;
-    rdfs:domain ebwv:KycLegalEntity ;
+    rdfs:domain ebwv:Company ;
     rdfs:range ebwv:RegisterIdentification ;
     rdfs:label "register" ;
     rdfs:comment """<div>identification of the legal entity in an official company register</div>"""^^rdf:HTML ;
@@ -2758,7 +2758,10 @@ ebwv:Eori a rdfs:Datatype ;
 
 ebwv:Euid a rdfs:Datatype ;
     rdfs:subClassOf xsd:string ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([xsd:pattern "[A-Z]{2}[A-Z0-9]+\.[A-Z0-9]+"]) ;
     rdfs:label "EUID" ;
+    rdfs:comment """<div>The European Unique Identifier (EUID) for companies based on a standardized format defined by the Business Registers Interconnection System (BRIS) and ISO 6523. It consists of three parts&colon;<li>Country Code&colon; An ISO 3166-1 alpha-2 code indicating the member state (e.g., DE for Germany, or EL for Greece).</li><li>Register Code / Court Identifier&colon; A code identifying the specific national or regional trade/commercial register or court (e.g., R3306 or K1101 in Germany).</li><li>Company Register Identifier&colon; The unique national registration number assigned to the company by that register (e.g., HRB12345 or HRB123456).</li> Part 2 and 3 are separated by a dot&colon; DEK1101.HRB12345 - Germany | local court cologne | HRB12345</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/euid>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
