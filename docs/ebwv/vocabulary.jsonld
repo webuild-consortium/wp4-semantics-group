@@ -439,7 +439,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:RegisterIdentification",
         "rdfs:range": "xsd:string",
-        "rdfs:label": "company register id",
+        "rdfs:label": "registered company id",
         "rdfs:comment": {
             "@value": "<div>identification number of the company in a (foreign) register</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
@@ -451,7 +451,7 @@
         "@type": ["rdf:Property", "owl:DatatypeProperty"],
         "rdfs:domain": "ebwv:RegisterIdentification",
         "rdfs:range": "ebwv:CountryCode",
-        "rdfs:label": "company register id country",
+        "rdfs:label": "registered company id country",
         "rdfs:comment": {
             "@value": "<div>country code of the country for the company's register identification number</div>",
             "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
