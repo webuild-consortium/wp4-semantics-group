@@ -208,7 +208,7 @@ ebwvsh:RegisterIdentificationShape
     rdfs:label "Register identification shape" ;
     sh:closed false ;
     sh:property [
-        sh:path ebwv:companyRegisterId ;
+        sh:path ebwv:registeredCompanyId ;
         sh:name "registration number of company" ;
         sh:description "Art. 16b(2)(c): the registration number of the company" ;
         sh:datatype xsd:string ;
@@ -216,7 +216,7 @@ ebwvsh:RegisterIdentificationShape
         sh:maxCount 1 ;
     ] ;
     sh:property [
-        sh:path ebwv:companyRegisterIdCountry ;
+        sh:path ebwv:registeredCompanyIdCountry ;
         sh:name "Member State of registration" ;
         sh:description "Art. 16b(2)(c): the Member State where the company is registered" ;
         # the ebwv JSON-LD context does not coerce this term to ebwv:CountryCode,
