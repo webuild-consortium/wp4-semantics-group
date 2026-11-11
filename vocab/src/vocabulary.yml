@@ -2183,10 +2183,10 @@ individual:   # code lists
     type: TypeOfEmployment
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/permanent
 
-  - id: Pub-EAA
+  - id: PuB-EAA
     label: Public Electronic Attestation of Attributes
     type: AttestationLegalCategory
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/PuB-EAA
 
   - id: QEAA
     label: Qualified Electronic Attestation of Attributes
@@ -2354,7 +2354,7 @@ property:
     label: attestation legal category
     domain: ElectronicAttestationOfAttributes
     range: AttestationLegalCategory
-    one_of: [ QEAA, Pub-EAA, EAA ]
+    one_of: [ QEAA, PuB-EAA, EAA ]
     comment: a categorization of electronic attestations of attributes into three primary types, each associated with a distinct level of assurance and legal effect
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
