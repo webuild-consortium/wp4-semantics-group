@@ -357,7 +357,7 @@
                     "@type": "@vocab",
                     "@context": {
                         "QEAA": "https://w3id.org/ebwv#QEAA",
-                        "Pub-EAA": "https://w3id.org/ebwv#Pub-EAA",
+                        "PuB-EAA": "https://w3id.org/ebwv#PuB-EAA",
                         "EAA": "https://w3id.org/ebwv#EAA",
                         "@vocab": "ebwv:INVALID_VALUE:"
                     }
@@ -1604,7 +1604,7 @@
         "OnboardingServiceProvider": "https://w3id.org/ebwv#OnboardingServiceProvider",
         "Operator": "https://w3id.org/ebwv#Operator",
         "Permanent": "https://w3id.org/ebwv#Permanent",
-        "Pub-EAA": "https://w3id.org/ebwv#Pub-EAA",
+        "PuB-EAA": "https://w3id.org/ebwv#PuB-EAA",
         "QEAA": "https://w3id.org/ebwv#QEAA",
         "RegistrationAndClosingOfBranches": "https://w3id.org/ebwv#RegistrationAndClosingOfBranches",
         "ResearchedProduct": "https://w3id.org/ebwv#ResearchedProduct",
