@@ -4,7 +4,9 @@ The agreed format for new application profiles is SHACL in separate Turtle (`.tt
 
 ## Files and term references
 
-Create a directory for each profile under `semantics/application_profile`, with a `shapes.ttl` file and an English README explaining its use case, scope, and source requirements. Use `https://w3id.org/ebwv/profile/<profile-id>#` as the namespace for named SHACL shapes. Replace `<profile-id>` with the identifier of that profile and record the resulting namespace in the profile README.
+Create a directory for each profile under `semantics/application_profile`, with a `shapes.ttl` file and an English README explaining its use case, scope, and source requirements.
+
+Use `https://w3id.org/ebwv/profile/<profile-id>#` as the namespace for named SHACL shapes. Form `<profile-id>` from a readable English profile name in lowercase, with hyphens between words. For example, use `authorised-signatories` for Authorised Signatories. Record the resulting namespace in the profile README.
 
 For example, the Authorised Signatories profile would use these Turtle prefixes.
 
