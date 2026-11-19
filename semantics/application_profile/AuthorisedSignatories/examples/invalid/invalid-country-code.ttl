@@ -1,0 +1,41 @@
+# Synthetic data for testing the Authorised Signatories draft.
+@prefix ex: <https://example.org/fixtures/authorised-signatories/> .
+@prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:attestation a ebwv:AuthorizedSignatories ;
+    ebwv:hasLegalEntity ex:representedEntity ;
+    ebwv:hasAuthorizedPerson ex:signatory .
+
+ex:representedEntity a ebwv:LegalEntity ;
+    ebwv:hasLegalPerson [
+        a ebwv:LegalPerson ;
+        ebwv:legalName "Example Registers Ltd" ;
+        ebwv:legalForm "Limited company"
+    ] ;
+    ebwv:hasLegalEntityIdentifier [
+        a ebwv:LegalEntityIdentifier ;
+        ebwv:euid "EXAMPLE.000001"
+    ] .
+
+ex:signatory a ebwv:AuthorizedPerson ;
+    ebwv:hasNaturalPerson [
+        a ebwv:NaturalPerson ;
+        ebwv:givenName "Alex" ;
+        ebwv:familyName "Example" ;
+        ebwv:dateOfBirth "1985-04-12"^^xsd:date
+    ] ;
+    ebwv:hasSignatoryRole [
+        a ebwv:SignatoryRole ;
+        ebwv:representationType [ skos:notation "SOLE" ; skos:prefLabel "Sole"@en-GB ]
+    ] ;
+    ebwv:hasBirthPlace [
+        a ebwv:Place ;
+        ebwv:locality "Example Borough" ;
+        ebwv:hasCountry ex:exampleCountry
+    ] ;
+    ebwv:hasCitizenshipCountry [ skos:notation "NL" ; skos:prefLabel "Netherlands"@en-GB ] .
+
+ex:exampleCountry skos:notation "NLD" ;
+    skos:prefLabel "Netherlands"@en-GB .

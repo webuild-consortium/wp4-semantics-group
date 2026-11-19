@@ -1,0 +1,19 @@
+# Synthetic data for testing the Authorised Signatories draft.
+@prefix ex: <https://example.org/fixtures/authorised-signatories/> .
+@prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:attestation a ebwv:AuthorizedSignatories ;
+    ebwv:hasLegalEntity ex:representedEntity .
+
+ex:representedEntity a ebwv:LegalEntity ;
+    ebwv:hasLegalPerson [
+        a ebwv:LegalPerson ;
+        ebwv:legalName "Example Registers Ltd" ;
+        ebwv:legalForm "Limited company"
+    ] ;
+    ebwv:hasLegalEntityIdentifier [
+        a ebwv:LegalEntityIdentifier ;
+        ebwv:euid "EXAMPLE.000001"
+    ] .

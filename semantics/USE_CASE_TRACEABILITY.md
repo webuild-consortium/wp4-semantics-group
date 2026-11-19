@@ -8,8 +8,7 @@ Use the project's existing use-case identifiers and names. Link to the authorita
 
 | Use-case ID | Use-case name | Requirement ID or source passage | Source link |
 | --- | --- | --- | --- |
-
-No use cases have been entered yet.
+| Pending confirmation | Authorised Signatories | Attestation links and signatory details in the project diagram. Rulebook version and clauses remain open. | [Source and draft profile mappings](application_profile/AuthorisedSignatories/readme.md#source-and-model-alignment) |
 
 ## Class and property mappings
 
@@ -18,7 +17,7 @@ Record one row per term and use-case requirement. Use the full term IRI so that 
 | Term IRI | Kind (class or property) | Use-case ID | Requirement ID or source passage | Reason the term is needed | Review status |
 | --- | --- | --- | --- | --- | --- |
 
-No domain-term mappings have been entered yet. The draft ontology currently contains only its ontology declaration and supporting annotation properties.
+The draft ontology currently contains its ontology declaration and supporting annotation properties. The [Authorised Signatories profile mappings](application_profile/AuthorisedSignatories/readme.md#source-and-model-alignment) trace the draft constraints and distinguish existing EBWV terms from candidate central terms. Record the final domain-term mappings here when the modellers adopt them.
 
 For supporting annotation properties, record their documentation role when relevant; do not invent a domain use-case requirement for them. A term with an unresolved source or use-case link remains an explicit gap until the modellers resolve it.
 
