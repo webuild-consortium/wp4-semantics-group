@@ -10,8 +10,8 @@ from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS
 
 ROOT = Path(__file__).resolve().parents[2]
 MODEL = ROOT / "semantics/model"
-W = Namespace("https://example.org/webuild/ontology#")
-ONTOLOGY = URIRef("https://example.org/webuild/ontology")
+ONTOLOGY = URIRef("https://w3id.org/ebwv")
+W = Namespace(f"{ONTOLOGY}#")
 KINDS = (OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty)
 
 

@@ -4,7 +4,7 @@ This guide describes the technical setup for collaborative ontology development 
 
 ## Starting file
 
-Open `semantics/model/webuild.ttl`. The ontology contains its ontology declaration and the two reused label annotation properties, `skos:prefLabel` and `skos:altLabel`, and the three local definition annotation properties, `taxonomicDefinition`, `legalDefinition`, and `businessDefinition`. The local definition properties have British English preferred labels and definitions. The reused annotation property `dcterms:source` records the source of a specific legal definition. No domain classes, object properties, datatype properties, or imports have been added. This is a draft model intended for joint development. Its temporary ontology IRI is `https://example.org/webuild/ontology`, and its temporary term namespace is `https://example.org/webuild/ontology#`. These development placeholders are applied in the file; they are not published project identifiers. The definitive namespace and its governance remain to be agreed before external use.
+Open `semantics/model/webuild.ttl` in Protégé. The joint draft declares `https://w3id.org/ebwv` as its ontology IRI and uses `https://w3id.org/ebwv#` for its own terms. The draft contains three local definition annotation properties with British English labels and definitions. It uses the standard annotation properties `skos:prefLabel`, `skos:altLabel`, and `dcterms:source` under their original IRIs.
 
 The three earlier Turtle models have been preserved unchanged in `semantics/model/Archive`, as requested. The new ontology does not import them. `authorisation_part.PlantUML` is also in `Archive`. The `modelling_considerations` directory has been retained and relates to earlier modelling work.
 
@@ -27,15 +27,13 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - Model files: keep the central model in the single file `semantics/model/webuild.ttl` for now. Split it only when clear, meaningful module boundaries have been jointly established.
 - Application profile format: use SHACL in separate Turtle files under `semantics/application_profile`, referencing central model term IRIs. Keep profile shapes outside the central ontology.
 - Central model and application profiles: put only generally applicable restrictions in the central model. Use-case-specific requirements for the presence of relations or values and their cardinalities belong in the relevant application profile.
-- Temporary term namespace: `https://example.org/webuild/ontology#`. For example, a term named `Organization` would have the IRI `https://example.org/webuild/ontology#Organization`; this example does not introduce a class.
-- Temporary ontology IRI: `https://example.org/webuild/ontology`. This identifies the draft ontology as a whole.
+- The term namespace is `https://w3id.org/ebwv#`. An illustrative term IRI is `https://w3id.org/ebwv#Organization`.
+- The ontology IRI is `https://w3id.org/ebwv`. It identifies the ontology as a whole.
 - Conflicts in `main`: only approved, non-conflicting changes are accepted by default. A justified exception must be specifically approved by both modellers, registered, and prominently disclosed with the affected publication; see [QUALITY_EXCEPTIONS.md](QUALITY_EXCEPTIONS.md).
 - Substantive change approval: Bart and his modelling colleague must both approve a change before it is considered agreed. Until both have approved it, the change remains a proposal.
-- Definitive ontology IRI, term namespace, namespace stewardship, and release publication process: pending joint agreement before external use.
+- Namespace stewardship and the release publication process require joint agreement before external use of the draft.
 
-This decision supersedes the earlier choice of `https://w3id.org/ebwv` and `https://w3id.org/ebwv#` for this draft. The existing implementation vocabulary uses the EBWV term namespace; keeping a separate development namespace avoids assigning competing definitions to the same term IRIs while the relationship between the models and their governance is unresolved.
-
-The existing implementation vocabulary and publication files remain unchanged. They can inform the joint modelling work, but reuse and any mappings require review of each term's meaning. This draft does not assert replacement of, or equivalence with, that vocabulary. Substantive model changes require joint approval by Bart and his modelling colleague. Their joint approval establishes acceptance of the change; the process for publishing releases remains to be agreed. This documentation does not configure or enforce GitHub branch protection.
+The joint draft and the existing generated implementation vocabulary use the same EBWV term namespace. Before reusing an existing IRI or assigning a new one, check its meaning in the implementation vocabulary to avoid conflicting definitions. Substantive model changes require joint approval by Bart and his modelling colleague.
 
 Confirm further starting decisions one at a time before implementing them.
 
@@ -69,7 +67,7 @@ A datatype property may have a global `rdfs:range`, such as `xsd:date`. Declarin
 
 ## Term names and label language
 
-Use readable American English terms for the local names in term IRIs. Use British English for English labels, with the RDF language tag `en-GB`. For example, the IRI `https://example.org/webuild/ontology#Organization` would have the English label `"Organisation"@en-GB`. The IRI spelling and the label spelling deliberately differ.
+Use readable American English terms for the local names in term IRIs. Use British English for English labels, with the RDF language tag `en-GB`. For example, the IRI `https://w3id.org/ebwv#Organization` would have the English label `"Organisation"@en-GB`. The IRI spelling and the label spelling deliberately differ.
 
 These conventions apply to newly authored WEBUILD terms and labels. Preserve identifiers and original annotations in imported sources and archived material. Use `UpperCamelCase` for class local names and `lowerCamelCase` for property local names. For example, use `RegisteredOrganization` and `hasRegisteredAddress`. These are IRI naming conventions; they do not require CamelCase in human-readable labels. Use `skos:prefLabel` and `skos:altLabel` as specified below. The example illustrates naming only; it does not add an Organization class to the ontology or determine the spelling convention for all prose documentation.
 
@@ -101,7 +99,7 @@ Keep three distinct types of definition rather than one undifferentiated definit
 
 For example, if `CentrifugalPump` is a subclass of `Pump`, the taxonomic definition is: “A centrifugal pump is a pump with a rotating impeller.” This illustrates the definition pattern only; neither class has been added to the WEBUILD ontology.
 
-The optional legal and business definitions do not replace the mandatory taxonomic definition or, for a class or property without a meaningful superclass or superproperty respectively, its mandatory base definition. Use the three local OWL annotation properties listed below. They have been added to the ontology under the temporary term namespace `https://example.org/webuild/ontology#`. The proposal to use a single `skos:definition` field has not been adopted.
+The optional legal and business definitions do not replace the mandatory taxonomic definition or, for a class or property without a meaningful superclass or superproperty respectively, its mandatory base definition. Use the three local OWL annotation properties listed below. Their IRIs use the EBWV term namespace `https://w3id.org/ebwv#`. The proposal to use a single `skos:definition` field has not been adopted.
 
 | Annotation property | Use |
 | --- | --- |
@@ -126,10 +124,10 @@ Use `dcterms:source` (`http://purl.org/dc/terms/source`) as an OWL annotation pr
 
 In Protégé, add the legal definition to the entity, then annotate that definition assertion with `dcterms:source`. Enter the source as an IRI value when a suitable URI is available, rather than a text literal containing a URL. If several legal definitions exist for one term, attach the appropriate source to each definition separately. The automated quality checker verifies that every legal definition has a source on its exact annotation assertion. Reviewers verify the source and quotation.
 
-The following Turtle illustrates the agreed pattern using placeholders only. It is documentation, not a legal assertion or an addition of domain terms to `webuild.ttl`:
+The following Turtle illustrates the agreed pattern with the EBWV term namespace, a fictional term, and a placeholder source URI.
 
 ```turtle
-@prefix : <https://example.org/webuild/ontology#> .
+@prefix : <https://w3id.org/ebwv#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
@@ -217,7 +215,7 @@ Run the full automated suite:
 
 A non-zero exit status means the checks failed. Fix the reported errors before synchronising. The suite runs the checker regression tests and validates the active model. The same suite is configured in `.github/workflows/ontology-quality.yml` for every push, pull request, and manual workflow run. It runs on GitHub once the workflow is pushed. Local execution is a working agreement, not an installed Git hook. This workflow does not configure branch protection or enforce the human approval process.
 
-The checks parse all `.ttl` files under `semantics/model` except `Archive` and `modelling_considerations`, and validate their combined graph. `webuild.ttl` must exist. Archived originals, `vocab`, and generated `docs/ebwv` are outside this draft model's validation scope. Imports and source URIs are not fetched. Namespace-specific checks currently target `https://example.org/webuild/ontology#`; update the checker together with the ontology when the definitive namespace is agreed.
+The checks parse all `.ttl` files under `semantics/model` except `Archive` and `modelling_considerations`, and validate their combined graph. `webuild.ttl` must exist. Archived originals, `vocab`, and generated `docs/ebwv` are outside this draft model's validation scope. Imports and source URIs are not fetched. The checker expects the ontology declaration for `https://w3id.org/ebwv` and applies namespace-specific checks to terms under `https://w3id.org/ebwv#`.
 
 Automated checks cover:
 
@@ -246,7 +244,7 @@ The different PRIMER IRIs do not automatically identify the same ontology. The t
 
 ## Agreements before modelling
 
-The temporary identifiers, draft status, and joint approval of substantive changes are confirmed above. The definitive identifiers, namespace stewardship, and release publication process remain pending. Readable American English term IRIs and British English labels are agreed above. IRI capitalisation is also agreed above. Preferred and alternative label properties are also agreed above. Use-case traceability is recorded outside the ontology as agreed above. The central model initially stays in one `webuild.ttl` file; a future split requires jointly agreed, meaningful module boundaries. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Within the agreed OWL approach, agree on the constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
+The ontology IRI, term namespace, draft status, and joint approval process are recorded above. Namespace stewardship and the release publication process remain open. Readable American English term IRIs and British English labels are agreed above. IRI capitalisation is also agreed above. Preferred and alternative label properties are also agreed above. Use-case traceability is recorded outside the ontology as agreed above. The central model initially stays in one `webuild.ttl` file; a future split requires jointly agreed, meaningful module boundaries. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Within the agreed OWL approach, agree on the constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
 
 A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. Protection of `main` with required checks and reviews is needed to enforce the agreed merge and exception policy on GitHub; it has not yet been configured.
 
