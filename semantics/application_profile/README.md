@@ -4,9 +4,9 @@ The agreed format for new application profiles is SHACL in separate Turtle (`.tt
 
 ## Files and term references
 
-Create a directory for each profile under `semantics/application_profile`, with a `shapes.ttl` file and an English README explaining its use case, scope, and source requirements. These are file naming conventions; shape identifiers and their namespace still need to be agreed before creating the first profile.
+Create a directory for each profile under `semantics/application_profile`, with a `shapes.ttl` file and an English README explaining its use case, scope, and source requirements. Give each profile its own namespace for named SHACL shapes and record the namespace in the profile README. The shared pattern for constructing profile namespaces remains to be agreed.
 
-Reference central classes and properties by their existing IRIs. A profile's requirements must reflect its use case. Requirements valid generally for the meaning of a central concept belong in the central model. Maintain term-to-use-case links in the separate [traceability register](../USE_CASE_TRACEABILITY.md).
+Reference central classes and properties by their existing IRIs under `https://w3id.org/ebwv#`. Use this namespace whenever a shape targets a central class or refers to a central property in a path. A profile's requirements must reflect its use case. Requirements valid generally for the meaning of a central concept belong in the central model. Maintain term-to-use-case links in the separate [traceability register](../USE_CASE_TRACEABILITY.md).
 
 Keep the SHACL shapes outside the central ontology and apply the relevant profile separately during data validation. The central OWL model is edited in Protégé; edit SHACL source files as Turtle, preserving their SHACL content. Do not save shapes through the central ontology's Protégé workflow without first verifying that the editor preserves them.
 
