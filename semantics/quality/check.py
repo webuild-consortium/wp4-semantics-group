@@ -148,7 +148,7 @@ def main():
           f"{len(graph)} triples, {len(set(errors))} error(s)")
     print("Human review required: meaning and hierarchy, US/UK spelling, exact legal "
           "quotations and article/version relevance, use cases and joint approval.")
-    print("No OWL reasoner, import closure, source availability or legal-text comparison was run.")
+    print("Structural checks only. The full suite runs HermiT separately.")
     return 1 if errors else 0
 
 

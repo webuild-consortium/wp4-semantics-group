@@ -16,7 +16,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - English labels: use British English spelling and the language tag `en-GB`, for example `"Organisation"@en-GB`.
 - Label annotations: use `skos:prefLabel` for the preferred display label and `skos:altLabel` for synonyms or alternative names. These annotations apply directly to OWL entities without typing them as `skos:Concept`.
 - Definition types: a mandatory taxonomic definition, an optional legal definition quoted verbatim from legislation or regulations, and an optional business definition in everyday language. For a class without a meaningful superclass or a property without a meaningful superproperty, a mandatory base definition fulfils the first requirement. Keep the three definition types distinct.
-- OWL reasoning: include logical checks of the central model with restraint. Use OWL axioms only when their open-world meaning expresses the intended semantics; use SHACL for requirements on the data actually supplied. Logical inconsistency and unintentionally unsatisfiable classes block merging by default; exceptions require explicit joint approval and publication disclosure. The reasoner remains to be selected.
+- OWL reasoning uses HermiT 1.4.3.456 to check consistency and find named classes that cannot have instances. Use OWL axioms only when their open-world meaning expresses the intended semantics; use SHACL for requirements on the data actually supplied. Logical inconsistency and unintentionally unsatisfiable classes block merging by default; exceptions require explicit joint approval and publication disclosure.
 - Quality checks: run the complete automated suite and the applicable human review before every GitHub synchronisation. GitHub repeats the automated suite on pushes and pull requests.
 - Status: draft model intended for joint development, not an approved project release.
 - Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
@@ -43,7 +43,7 @@ The agreed reference is [EBUCorePlus](http://www.ebu.ch/metadata/ontologies/ebuc
 
 Verified features of that source include `owl:Class`, `owl:ObjectProperty`, `owl:DatatypeProperty`, and class-level `owl:Restriction` expressions, including value restrictions and qualified cardinalities. No `rdfs:domain` statements occur in the inspected graph. Global `rdfs:range` statements do occur: for 222 datatype properties, one annotation property, and the object property `ec:isAbout`, whose range is `ec:Asset`. Therefore, the reference must not be described as universally avoiding global ranges. These observations concern the inspected source graph, not its imported ontologies.
 
-The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. The annotation properties for the three definition types are agreed below. Permitted restriction patterns and other annotations remain to be agreed one decision at a time. Automated editorial validation is configured as described below; logical consistency checks await the choice of reasoner. No OWL profile or reasoner has yet been selected. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
+The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. The annotation properties for the three definition types are agreed below. Permitted restriction patterns and other annotations remain to be agreed one decision at a time. The automated suite runs the editorial checks and the HermiT logical checks described below. HermiT checks models within OWL 2 DL. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
 
 ## Object property modelling rule
 
@@ -176,7 +176,7 @@ Branches isolate changes, but do not prevent merge conflicts when both contribut
 
 ## Conservative use of OWL reasoning
 
-Logical checks with an OWL reasoner are agreed as an additional quality measure for the central model. Use them to examine consistency, unsatisfiable classes, and inferred relationships. Review the relevant axioms and explanations before changing the model in response to a result.
+HermiT 1.4.3.456 checks whether the central ontology is logically consistent and whether each named class other than `owl:Nothing` can have instances. A failing check reports the inconsistency or lists the affected class IRIs. To inspect a finding in Protégé, select HermiT in the **Reasoner** menu and start the reasoner. Review the relevant axioms before changing the model. [HermiT documentation](https://github.com/owlcs/hermit-reasoner)
 
 OWL reasoning uses open-world semantics. Missing assertions may represent unknown information, and a consistent ontology does not establish that supplied data are complete or conform to a use-case profile. The open-world assumption cannot be switched off for selected OWL restrictions. Adopt an OWL axiom only when its formal meaning matches the intended general semantics of the concept.
 
@@ -186,7 +186,7 @@ The earlier separation remains in force: generally applicable conceptual restric
 
 Logical inconsistency and unintentionally unsatisfiable classes block merging into `main` by default. A justified publication with a known conflict requires a specific exception approved by both modellers and disclosed with the publication. The [quality exception register](QUALITY_EXCEPTIONS.md) records the finding, rationale, consequences, scope, approvals, and resolution plan. Approval does not turn a conflicting result into a clean result.
 
-Use the [ontology pull request template](../.github/PULL_REQUEST_TEMPLATE/ontology.md) to record the quality evidence and both approvals. The reasoner implementation, supported OWL profile, automated exception handling, required GitHub checks and reviews, and integration into the automated suite remain to be configured. The current automated suite still runs the agreed structural/editorial checks only. SHACL inference settings also remain pending.
+Use the [ontology pull request template](../.github/PULL_REQUEST_TEMPLATE/ontology.md) to record the quality evidence and both approvals. The local suite and GitHub workflow run HermiT after the structural and editorial checks. The automated check currently requires a model without imports because the project has yet to configure how to load a complete import closure. Its status fails on logical findings and on incomplete checks, including models outside OWL 2 DL. GitHub branch protection, automated exception handling, and SHACL inference settings are still to be configured.
 
 References: [W3C OWL 2 Primer on open-world semantics](https://www.w3.org/TR/owl2-primer/) and [W3C SHACL minimum-count constraints](https://www.w3.org/TR/shacl/#MinCountConstraintComponent).
 
@@ -200,7 +200,7 @@ These links belong in repository documentation, not in ontology annotations or d
 
 Run all automated checks on the saved files before every push, including a push to a working branch. Complete the applicable human review below and review the Git diff. If a pull or merge changes the model, run the checks again on the resulting files before continuing or pushing. Protégé changes must be saved first; these checks read the files on disk.
 
-From the repository root, install the pinned dependency once in a local virtual environment:
+Install a JDK (version 17 or later) and ensure Maven is available on your path. Maven downloads the pinned HermiT dependency on the first run. From the repository root, install the pinned Python dependency once in a local virtual environment.
 
 ```sh
 python3 -m venv .local/quality-venv
@@ -213,20 +213,21 @@ Run the full automated suite:
 .local/quality-venv/bin/python -B semantics/quality/run.py
 ```
 
-A non-zero exit status means the checks failed. Fix the reported errors before synchronising. The suite runs the checker regression tests and validates the active model. The same suite is configured in `.github/workflows/ontology-quality.yml` for every push, pull request, and manual workflow run. It runs on GitHub once the workflow is pushed. Local execution is a working agreement, not an installed Git hook. This workflow does not configure branch protection or enforce the human approval process.
+A non-zero exit status means the checks failed. Fix the reported errors before synchronising. The suite runs the checker regression tests, validates the active model, and runs HermiT on the same model files. The same suite is configured in `.github/workflows/ontology-quality.yml` for every push, pull request, and manual workflow run. It runs on GitHub once the workflow is pushed. Local execution is a working agreement, not an installed Git hook. This workflow does not configure branch protection or enforce the human approval process.
 
 The checks parse all `.ttl` files under `semantics/model` except `Archive` and `modelling_considerations`, and validate their combined graph. `webuild.ttl` must exist. Archived originals, `vocab`, and generated `docs/ebwv` are outside this draft model's validation scope. Imports and source URIs are not fetched. The checker expects the ontology declaration for `https://w3id.org/ebwv` and applies namespace-specific checks to terms under `https://w3id.org/ebwv#`.
 
 Automated checks cover:
 
 - Valid Turtle, the agreed ontology declaration, and the required annotation property declarations.
+- Logical consistency and named classes that cannot have instances, checked by HermiT within OWL 2 DL.
 - UpperCamelCase class names and lowerCamelCase property names for authored terms; this checks the lexical pattern, not English spelling.
 - Exactly one non-empty `en-GB` preferred label, at most one preferred label per language, language-tagged synonyms, and no identical preferred and alternative label on one term.
 - A non-empty taxonomic or base definition for authored classes and properties, including local annotation properties. Optional legal and business definitions must contain text when present.
 - No global domain for declared object or datatype properties in the authored graph, and no global range for object properties. Datatype ranges remain optional and permitted.
 - A source attached to each exact legal-definition assertion, including its language tag or datatype. Stale or mismatched source annotations fail. A non-empty textual citation is accepted with a review warning because a URI is preferred rather than mandatory.
 
-Human review covers what these checks cannot establish: meaningful superclass/superproperty choices and differentiae, correct use of class restrictions and separation of general conditions from use-case-specific requirements, American English term names and British English labels, genuine synonymy, exact legal quotations and the relevance of the cited article and version, business-language clarity, use-case coverage through the separate traceability register, and approval by both modellers before merging substantive changes. Source availability is not automatically tested. The separate SHACL format for application profiles is agreed. Conservative OWL logical checks are agreed above, but no reasoner, automated consistency check, or SHACL application-profile validation engine is configured yet. Their implementations and settings remain to be selected. A green automated result does not certify these human checks.
+Human review covers what these checks cannot establish: meaningful superclass/superproperty choices and differentiae, correct use of class restrictions and separation of general conditions from use-case-specific requirements, American English term names and British English labels, genuine synonymy, exact legal quotations and the relevance of the cited article and version, business-language clarity, use-case coverage through the separate traceability register, and approval by both modellers before merging substantive changes. Source availability is not automatically tested. The separate SHACL format for application profiles is agreed. The SHACL validation engine and inference settings remain to be selected. A green automated result does not certify these human checks.
 
 ## Local imports
 
