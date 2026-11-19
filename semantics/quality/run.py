@@ -51,6 +51,10 @@ def main():
         failed = failed or result.returncode != 0
     if not failed:
         failed = not run_hermit()
+    profile_result = subprocess.run(
+        [sys.executable, '-B', 'semantics/quality/check_profiles.py'], cwd=ROOT, check=False
+    )
+    failed = failed or profile_result.returncode != 0
     print('FAIL: resolve errors before synchronising.' if failed else
           'PASS: automated suite complete; complete the documented human review before synchronising.',
           flush=True)

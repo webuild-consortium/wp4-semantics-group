@@ -14,11 +14,10 @@ Existing profile diagrams and documentation are source material for review. This
 
 ## Validation and review
 
-Use SHACL to check requirements against the data actually supplied. An OWL reasoner's consistency result does not establish that those data contain all required values. Any inference applied before SHACL validation must be explicitly agreed and documented; the settings remain pending. See the [conservative OWL reasoning policy](../PROTEGE_GITHUB.md#conservative-use-of-owl-reasoning).
+The local quality suite and GitHub workflow use pySHACL to check each example against its own profile's `shapes.ttl`. The current suite validates the supplied example graph without additional inference or an extra ontology graph. If a profile needs additional inference, agree and document the intended settings before changing the check. See the [conservative OWL reasoning policy](../PROTEGE_GITHUB.md#conservative-use-of-owl-reasoning).
 
+For each new profile, put at least one conforming Turtle example in `examples/valid/` and at least one non-conforming Turtle example in `examples/invalid/`. Document what each example demonstrates in the profile README. Each example is evaluated independently. A non-conforming example counts as expected only when SHACL returns a validation report. A syntax error, invalid shapes graph, or validator error fails the suite.
 
-For each profile, prepare example data that should pass and example data that should fail its requirements. Record the expected result and use these examples to check the profile when its requirements change. Review the targets, property paths, datatypes, cardinalities, and use-case justification together.
+Review the profile targets, property paths, datatypes, cardinalities, and use-case justification together. For invalid examples, check that the reported violations match the requirements the examples are intended to test. Folders containing only earlier diagrams or documentation are outside the automated validation scope.
 
-The SHACL validation engine, inference settings, and integration into the automated quality suite remain to be agreed and configured. The current ontology checker does not validate application-profile data. No new SHACL profile or example dataset has been authored yet because the draft model has no domain classes or properties.
-
-Reference: [W3C Shapes Constraint Language (SHACL)](https://www.w3.org/TR/shacl/).
+[W3C Shapes Constraint Language (SHACL)](https://www.w3.org/TR/shacl/) · [pySHACL documentation](https://github.com/RDFLib/pySHACL)

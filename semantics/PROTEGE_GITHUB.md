@@ -25,7 +25,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - Datatype properties: a global `rdfs:range` is permitted, for example `xsd:date`. This is permission, not a requirement to declare a global range on every datatype property. Do not assert global `rdfs:domain`; describe class-specific use through restrictions on the relevant classes.
 - Use-case traceability: record which use cases require each class or property in the separate [use-case traceability register](USE_CASE_TRACEABILITY.md), outside the ontology.
 - Model files: keep the central model in the single file `semantics/model/webuild.ttl` for now. Split it only when clear, meaningful module boundaries have been jointly established.
-- Application profile format: use SHACL in separate Turtle files under `semantics/application_profile`, referencing central model term IRIs. Keep profile shapes outside the central ontology.
+- Application profile format: use SHACL in separate Turtle files under `semantics/application_profile`, referencing central model term IRIs. Keep profile shapes outside the central ontology and check profile examples with pySHACL.
 - Central model and application profiles: put only generally applicable restrictions in the central model. Use-case-specific requirements for the presence of relations or values and their cardinalities belong in the relevant application profile.
 - The term namespace is `https://w3id.org/ebwv#`. An illustrative term IRI is `https://w3id.org/ebwv#Organization`.
 - The ontology IRI is `https://w3id.org/ebwv`. It identifies the ontology as a whole.
@@ -59,7 +59,7 @@ The central model contains only restrictions that hold generally for the meaning
 
 For example, an address may be mandatory for a particular application without requiring every organisation in the central model to have an address. This is an illustration of the separation, not a new class, property, or cardinality axiom.
 
-This agreement does not prohibit cardinalities in the central model: include them there when they express a generally valid condition for the modelled concept. Do not promote a use-case-specific requirement into the central model merely because one implementation needs it. Reviewers must check the scope and justification of each restriction. Application profiles use SHACL in separate Turtle files under `semantics/application_profile`. Reference central model term IRIs and keep the profile shapes outside `webuild.ttl`. See the [application profile guide](application_profile/README.md). Shape identifiers, the validation engine, and inference settings remain to be agreed. No new domain profile or ontology axioms have been introduced by this decision.
+This agreement does not prohibit cardinalities in the central model: include them there when they express a generally valid condition for the modelled concept. Do not promote a use-case-specific requirement into the central model merely because one implementation needs it. Reviewers must check the scope and justification of each restriction. Application profiles use SHACL in separate Turtle files under `semantics/application_profile`. Reference central model term IRIs and keep the profile shapes outside `webuild.ttl`. See the [application profile guide](application_profile/README.md). pySHACL checks the example graphs without additional inference. Shape identifiers and any profile-specific inference remain to be agreed. No new domain profile or ontology axioms have been introduced by this decision.
 
 ## Datatype property modelling rule
 
@@ -186,7 +186,7 @@ The earlier separation remains in force: generally applicable conceptual restric
 
 Logical inconsistency and unintentionally unsatisfiable classes block merging into `main` by default. A justified publication with a known conflict requires a specific exception approved by both modellers and disclosed with the publication. The [quality exception register](QUALITY_EXCEPTIONS.md) records the finding, rationale, consequences, scope, approvals, and resolution plan. Approval does not turn a conflicting result into a clean result.
 
-Use the [ontology pull request template](../.github/PULL_REQUEST_TEMPLATE/ontology.md) to record the quality evidence and both approvals. The local suite and GitHub workflow run HermiT after the structural and editorial checks. The automated check currently requires a model without imports because the project has yet to configure how to load a complete import closure. Its status fails on logical findings and on incomplete checks, including models outside OWL 2 DL. GitHub branch protection, automated exception handling, and SHACL inference settings are still to be configured.
+Use the [ontology pull request template](../.github/PULL_REQUEST_TEMPLATE/ontology.md) to record the quality evidence and both approvals. The local suite and GitHub workflow run HermiT after the structural and editorial checks. The automated check currently requires a model without imports because the project has yet to configure how to load a complete import closure. Its status fails on logical findings and on incomplete checks, including models outside OWL 2 DL. GitHub branch protection, automated exception handling, and any profile-specific SHACL inference settings are still to be configured.
 
 References: [W3C OWL 2 Primer on open-world semantics](https://www.w3.org/TR/owl2-primer/) and [W3C SHACL minimum-count constraints](https://www.w3.org/TR/shacl/#MinCountConstraintComponent).
 
@@ -200,7 +200,7 @@ These links belong in repository documentation, not in ontology annotations or d
 
 Run all automated checks on the saved files before every push, including a push to a working branch. Complete the applicable human review below and review the Git diff. If a pull or merge changes the model, run the checks again on the resulting files before continuing or pushing. Protégé changes must be saved first; these checks read the files on disk.
 
-Install a JDK (version 17 or later) and ensure Maven is available on your path. Maven downloads the pinned HermiT dependency on the first run. From the repository root, install the pinned Python dependency once in a local virtual environment.
+Install a JDK (version 17 or later) and ensure Maven is available on your path. Maven downloads the pinned HermiT dependency on the first run. From the repository root, install the pinned Python dependencies once in a local virtual environment.
 
 ```sh
 python3 -m venv .local/quality-venv
@@ -213,7 +213,7 @@ Run the full automated suite:
 .local/quality-venv/bin/python -B semantics/quality/run.py
 ```
 
-A non-zero exit status means the checks failed. Fix the reported errors before synchronising. The suite runs the checker regression tests, validates the active model, and runs HermiT on the same model files. The same suite is configured in `.github/workflows/ontology-quality.yml` for every push, pull request, and manual workflow run. It runs on GitHub once the workflow is pushed. Local execution is a working agreement, not an installed Git hook. This workflow does not configure branch protection or enforce the human approval process.
+A non-zero exit status means the checks failed. Fix the reported errors before synchronising. The suite runs the checker regression tests, validates the active model, runs HermiT on the same model files, and checks application-profile examples with pySHACL. The same suite is configured in `.github/workflows/ontology-quality.yml` for every push, pull request, and manual workflow run. It runs on GitHub once the workflow is pushed. Local execution is a working agreement, not an installed Git hook. This workflow does not configure branch protection or enforce the human approval process.
 
 The checks parse all `.ttl` files under `semantics/model` except `Archive` and `modelling_considerations`, and validate their combined graph. `webuild.ttl` must exist. Archived originals, `vocab`, and generated `docs/ebwv` are outside this draft model's validation scope. Imports and source URIs are not fetched. The checker expects the ontology declaration for `https://w3id.org/ebwv` and applies namespace-specific checks to terms under `https://w3id.org/ebwv#`.
 
@@ -221,13 +221,14 @@ Automated checks cover:
 
 - Valid Turtle, the agreed ontology declaration, and the required annotation property declarations.
 - Logical consistency and named classes that cannot have instances, checked by HermiT within OWL 2 DL.
+- SHACL shape validity and expected conformance of each profile example, checked by pySHACL. See the [application profile guide](application_profile/README.md).
 - UpperCamelCase class names and lowerCamelCase property names for authored terms; this checks the lexical pattern, not English spelling.
 - Exactly one non-empty `en-GB` preferred label, at most one preferred label per language, language-tagged synonyms, and no identical preferred and alternative label on one term.
 - A non-empty taxonomic or base definition for authored classes and properties, including local annotation properties. Optional legal and business definitions must contain text when present.
 - No global domain for declared object or datatype properties in the authored graph, and no global range for object properties. Datatype ranges remain optional and permitted.
 - A source attached to each exact legal-definition assertion, including its language tag or datatype. Stale or mismatched source annotations fail. A non-empty textual citation is accepted with a review warning because a URI is preferred rather than mandatory.
 
-Human review covers what these checks cannot establish: meaningful superclass/superproperty choices and differentiae, correct use of class restrictions and separation of general conditions from use-case-specific requirements, American English term names and British English labels, genuine synonymy, exact legal quotations and the relevance of the cited article and version, business-language clarity, use-case coverage through the separate traceability register, and approval by both modellers before merging substantive changes. Source availability is not automatically tested. The separate SHACL format for application profiles is agreed. The SHACL validation engine and inference settings remain to be selected. A green automated result does not certify these human checks.
+Human review covers what these checks cannot establish: meaningful superclass/superproperty choices and differentiae, correct use of class restrictions and separation of general conditions from use-case-specific requirements, American English term names and British English labels, genuine synonymy, exact legal quotations and the relevance of the cited article and version, business-language clarity, use-case coverage through the separate traceability register, and approval by both modellers before merging substantive changes. Source availability is not automatically tested. Reviewers confirm that application-profile examples exercise the intended requirements and that failures occur for the expected reasons. A green automated result does not certify these human checks.
 
 ## Local imports
 
