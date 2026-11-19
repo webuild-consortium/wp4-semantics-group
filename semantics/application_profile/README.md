@@ -4,7 +4,14 @@ The agreed format for new application profiles is SHACL in separate Turtle (`.tt
 
 ## Files and term references
 
-Create a directory for each profile under `semantics/application_profile`, with a `shapes.ttl` file and an English README explaining its use case, scope, and source requirements. Give each profile its own namespace for named SHACL shapes and record the namespace in the profile README. The shared pattern for constructing profile namespaces remains to be agreed.
+Create a directory for each profile under `semantics/application_profile`, with a `shapes.ttl` file and an English README explaining its use case, scope, and source requirements. Use `https://w3id.org/ebwv/profile/<profile-id>#` as the namespace for named SHACL shapes. Replace `<profile-id>` with the identifier of that profile and record the resulting namespace in the profile README.
+
+For example, the Authorised Signatories profile would use these Turtle prefixes.
+
+```turtle
+@prefix ap: <https://w3id.org/ebwv/profile/authorised-signatories#> .
+@prefix ebwv: <https://w3id.org/ebwv#> .
+```
 
 Reference central classes and properties by their existing IRIs under `https://w3id.org/ebwv#`. Use this namespace whenever a shape targets a central class or refers to a central property in a path. A profile's requirements must reflect its use case. Requirements valid generally for the meaning of a central concept belong in the central model. Maintain term-to-use-case links in the separate [traceability register](../USE_CASE_TRACEABILITY.md).
 
