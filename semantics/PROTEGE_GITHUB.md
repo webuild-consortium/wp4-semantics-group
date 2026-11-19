@@ -30,7 +30,7 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - The term namespace is `https://w3id.org/ebwv#`. An illustrative term IRI is `https://w3id.org/ebwv#Organization`.
 - The ontology IRI is `https://w3id.org/ebwv`. It identifies the ontology as a whole.
 - Keep `main` free of logical conflicts. Publish a version containing a known conflict only as a separate publication, with explicit approval from both modellers and a prominent warning. Record the exception in [QUALITY_EXCEPTIONS.md](QUALITY_EXCEPTIONS.md).
-- Merging into `main` requires applicable quality checks and approval by both modellers only for changes to the central ontology or its application profiles.
+- Merging into `main` requires applicable quality checks and approval by both modellers only for changes to the central ontology or its application profiles. A later change to the ontology or any profile invalidates both approvals.
 - Namespace stewardship and the release publication process require joint agreement before external use of the draft.
 
 The joint draft and the existing generated implementation vocabulary use the same EBWV term namespace. Before reusing an existing IRI or assigning a new one, check its meaning in the implementation vocabulary to avoid conflicting definitions. Substantive model changes require joint approval by Bart and his modelling colleague.
@@ -169,7 +169,7 @@ According to `vocab/README.md`, `docs/ebwv` contains generated publication files
 4. Open the local `.ttl` file from that working directory in Protégé. Work on one clearly scoped change.
 5. Save, review the diff, and check for unexpected deletions, IRI changes, or import changes.
 6. Run the complete quality suite described below and review the applicable human checks before every synchronisation. Resolve errors before pushing; repeat the suite after any changes or incoming merge. Passing the automated suite does not establish semantic correctness.
-7. Commit the intended files, push the working branch, and create a pull request. For a change to the central ontology or an application profile, record the quality results and approval by both Bart and his modelling colleague before merging it into `main`. The author's explicit agreement and the other modeller's review can record their respective approvals.
+7. Commit the intended files, push the working branch, and create a pull request. For a change to the central ontology or an application profile, record the quality results and both modellers' approvals of the reviewed version before merging it into `main`. The author's explicit agreement and the other modeller's review can record their respective approvals.
 8. Reopen the file after a pull, merge, or branch switch. Otherwise, an open Protégé window may write an outdated in-memory copy back to disk.
 
 Branches isolate changes, but do not prevent merge conflicts when both contributors change the same lines. When sharing one file, agree on who edits which part, keep branches short-lived, and coordinate overlapping work. The agreed initial arrangement is one central model file, `semantics/model/webuild.ttl`, with each modeller working on a separate branch. Keep this arrangement until clear, meaningful module boundaries have been jointly established. At that point, agree on the split and record each module's ontology IRI, filename, responsibility for changes, and imports; avoid duplicate definitions across files. Do not split the model solely by use case or modeller without an agreed conceptual boundary. This decision concerns the central model; application profiles and the external traceability register keep their separate roles.
@@ -199,6 +199,8 @@ These links belong in repository documentation, not in ontology annotations or d
 ## Quality checks before every GitHub synchronisation
 
 The merge requirements apply when a pull request changes the active central ontology (currently `semantics/model/webuild.ttl`) or files belonging to an application profile under `semantics/application_profile`, including its SHACL shapes and examples. A pull request with other changes as well is in scope as soon as it touches either area. GitHub may still run the quality suite for unrelated changes, whose merges are outside this policy.
+
+Record the reviewed revision with each approval. If the central ontology or an application profile changes after approval, treat both approvals as expired. Run the applicable quality checks again and obtain fresh approval from both modellers for the revised content before merging into `main`. Changes confined to files outside the scope above do not trigger a new review under this rule.
 
 Run all automated checks on the saved files before every push, including a push to a working branch. Complete the applicable human review below and review the Git diff. If a pull or merge changes the model, run the checks again on the resulting files before continuing or pushing. Protégé changes must be saved first; these checks read the files on disk.
 

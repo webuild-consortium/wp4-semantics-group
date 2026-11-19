@@ -19,6 +19,8 @@ State whether any logical conflicts remain. Resolve them before merging into `ma
 
 ## Joint approval
 
-- Bart's approval evidence:
-- Modelling colleague's approval evidence:
+Record the revision each modeller approved. If the ontology or an application profile changes after approval, obtain fresh approval from both modellers for the revised content before merging.
+
+- Bart's approval evidence and reviewed revision:
+- Modelling colleague's approval evidence and reviewed revision:
 - Explicit approval evidence for each exception, if any:
