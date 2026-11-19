@@ -12,7 +12,7 @@ Describe the problem, the resulting meaning or behaviour, and the affected use c
 
 ## Conflicts and exceptions
 
-State whether any known conflicts remain. If so, link to the specific record in `semantics/QUALITY_EXCEPTIONS.md`, explain the affected terms and consequences, and include the publication warning. Both modellers must explicitly approve the exception before merging or publishing; an empty field is not approval.
+State whether any logical conflicts remain. Resolve them before merging into `main`. For a proposed separate publication with a known conflict, link to its record in `semantics/QUALITY_EXCEPTIONS.md`, explain the affected terms and consequences, and include the publication warning. Record both modellers' explicit exception approval before publishing the affected version.
 
 - Exception record, or no known conflicts:
 - Publication disclosure and resolution plan (if applicable):

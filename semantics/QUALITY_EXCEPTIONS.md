@@ -1,16 +1,16 @@
 # Quality exceptions for the jointly developed model
 
-## Default rule
+## Merge and publication rules
 
-Changes to the central ontology or its application profiles must be approved by both modellers and free of unresolved logical conflicts before merging into `main`. An inconsistent ontology or an unintentionally unsatisfiable class blocks merging those changes by default. See the [scope of the merge requirements](PROTEGE_GITHUB.md#quality-checks-before-every-github-synchronisation).
+Changes to the central ontology or its application profiles must be approved by both modellers and free of logical conflicts before merging into `main`. Resolve inconsistencies and unsatisfiable named classes reported by HermiT before merging. See the [scope of the merge requirements](PROTEGE_GITHUB.md#quality-checks-before-every-github-synchronisation).
 
-A justified exception is possible only when both modellers explicitly approve its scope and disclosure. Approval of the modelling change alone does not imply approval of a conflict. Do not conceal a diagnostic, disable a check for the entire model, or report a waived finding as an unqualified pass.
+A version with a known conflict may be published only as a separate publication from outside `main`. Both modellers must explicitly approve the exception for the documented revision and the proposed warning before publication. Keep the original diagnostics and show the warning prominently with the affected version.
 
 ## Exception records
 
 No quality exceptions are currently registered or approved.
 
-Before merging or publishing a change with a known conflict, add a record below using this template. Fill every field; link to the actual approvals rather than pre-filling them. Distinguish a proposal from an approved exception.
+Before separately publishing a version with a known conflict, add a record below using this template. Fill the applicable fields and link to the actual approvals. Distinguish a proposal from an approved exception.
 
 ```text
 Exception ID:
@@ -38,6 +38,6 @@ The pull request, release notes, and documentation accompanying the affected pub
 
 ## Enforcement status
 
-The [ontology pull request template](../.github/PULL_REQUEST_TEMPLATE/ontology.md) prompts authors and reviewers to record the normal checks or an explicit exception. This is a procedural safeguard.
+The [ontology pull request template](../.github/PULL_REQUEST_TEMPLATE/ontology.md) prompts authors and reviewers to record the quality checks, any unresolved findings, and the approval evidence for a proposed separate publication.
 
-The quality suite runs HermiT and reports inconsistencies and unsatisfiable named classes as failures. An entry in this register records the scope and authorisation of an exception. The check continues to report the original finding. Automated exception handling and GitHub protection of `main` still need to be configured. Any future implementation must preserve the findings, reject unapproved or out-of-scope exceptions, and distinguish an approved exception from a clean result.
+The quality suite runs HermiT and reports inconsistencies and unsatisfiable named classes as failures. An approved record leaves that result in place and authorises the separate publication within the recorded scope. Automated enforcement of the merge requirements on GitHub remains to be configured.
