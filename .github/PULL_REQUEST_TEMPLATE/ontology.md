@@ -1,6 +1,6 @@
 ## Joint model change
 
-Describe the problem, the resulting meaning or behaviour, and the affected use cases. This template applies to the jointly developed central model and its profiles, not unrelated repository work.
+Describe the problem, the resulting meaning or behaviour, and the affected use cases. Use this template for every pull request that changes the central ontology or an application profile, including pull requests that also change other parts of the repository. The scope of the merge requirements is documented in `semantics/PROTEGE_GITHUB.md`.
 
 ## Quality evidence
 

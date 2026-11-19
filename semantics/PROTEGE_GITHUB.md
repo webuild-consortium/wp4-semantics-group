@@ -29,8 +29,8 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - Central model and application profiles: put only generally applicable restrictions in the central model. Use-case-specific requirements for the presence of relations or values and their cardinalities belong in the relevant application profile.
 - The term namespace is `https://w3id.org/ebwv#`. An illustrative term IRI is `https://w3id.org/ebwv#Organization`.
 - The ontology IRI is `https://w3id.org/ebwv`. It identifies the ontology as a whole.
-- Conflicts in `main`: only approved, non-conflicting changes are accepted by default. A justified exception must be specifically approved by both modellers, registered, and prominently disclosed with the affected publication; see [QUALITY_EXCEPTIONS.md](QUALITY_EXCEPTIONS.md).
-- Substantive change approval: Bart and his modelling colleague must both approve a change before it is considered agreed. Until both have approved it, the change remains a proposal.
+- Logical conflicts in the central ontology or application profiles block merging into `main` by default. Both modellers must explicitly approve a justified exception. Record it in [QUALITY_EXCEPTIONS.md](QUALITY_EXCEPTIONS.md) and disclose it prominently with the affected publication.
+- Merging into `main` requires applicable quality checks and approval by both modellers only for changes to the central ontology or its application profiles.
 - Namespace stewardship and the release publication process require joint agreement before external use of the draft.
 
 The joint draft and the existing generated implementation vocabulary use the same EBWV term namespace. Before reusing an existing IRI or assigning a new one, check its meaning in the implementation vocabulary to avoid conflicting definitions. Substantive model changes require joint approval by Bart and his modelling colleague.
@@ -169,7 +169,7 @@ According to `vocab/README.md`, `docs/ebwv` contains generated publication files
 4. Open the local `.ttl` file from that working directory in Protégé. Work on one clearly scoped change.
 5. Save, review the diff, and check for unexpected deletions, IRI changes, or import changes.
 6. Run the complete quality suite described below and review the applicable human checks before every synchronisation. Resolve errors before pushing; repeat the suite after any changes or incoming merge. Passing the automated suite does not establish semantic correctness.
-7. Commit the intended files, push the working branch, and create a pull request. Record approval by both Bart and his modelling colleague before treating a substantive change as agreed and merging it into `main`. The author's explicit agreement and the other modeller's review can record their respective approvals.
+7. Commit the intended files, push the working branch, and create a pull request. For a change to the central ontology or an application profile, record the quality results and approval by both Bart and his modelling colleague before merging it into `main`. The author's explicit agreement and the other modeller's review can record their respective approvals.
 8. Reopen the file after a pull, merge, or branch switch. Otherwise, an open Protégé window may write an outdated in-memory copy back to disk.
 
 Branches isolate changes, but do not prevent merge conflicts when both contributors change the same lines. When sharing one file, agree on who edits which part, keep branches short-lived, and coordinate overlapping work. The agreed initial arrangement is one central model file, `semantics/model/webuild.ttl`, with each modeller working on a separate branch. Keep this arrangement until clear, meaningful module boundaries have been jointly established. At that point, agree on the split and record each module's ontology IRI, filename, responsibility for changes, and imports; avoid duplicate definitions across files. Do not split the model solely by use case or modeller without an agreed conceptual boundary. This decision concerns the central model; application profiles and the external traceability register keep their separate roles.
@@ -197,6 +197,8 @@ Maintain the links between classes or properties and their supporting use-case r
 These links belong in repository documentation, not in ontology annotations or domain relations. Review use-case coverage and unresolved mappings through the register. No use-case links have been added to `model/webuild.ttl` by this decision.
 
 ## Quality checks before every GitHub synchronisation
+
+The merge requirements apply when a pull request changes the active central ontology (currently `semantics/model/webuild.ttl`) or files belonging to an application profile under `semantics/application_profile`, including its SHACL shapes and examples. A pull request with other changes as well is in scope as soon as it touches either area. GitHub may still run the quality suite for unrelated changes, whose merges are outside this policy.
 
 Run all automated checks on the saved files before every push, including a push to a working branch. Complete the applicable human review below and review the Git diff. If a pull or merge changes the model, run the checks again on the resulting files before continuing or pushing. Protégé changes must be saved first; these checks read the files on disk.
 
@@ -248,7 +250,7 @@ The different PRIMER IRIs do not automatically identify the same ontology. The t
 
 The ontology IRI, term namespace, draft status, and joint approval process are recorded above. Namespace stewardship and the release publication process remain open. Readable American English term IRIs and British English labels are agreed above. IRI capitalisation is also agreed above. Preferred and alternative label properties are also agreed above. Use-case traceability is recorded outside the ontology as agreed above. The central model initially stays in one `webuild.ttl` file; a future split requires jointly agreed, meaningful module boundaries. Use English for new GitHub documentation and other newly authored content; preserve existing source material and archived originals. Within the agreed OWL approach, agree on the constructs that Protégé must preserve: a syntactically valid Turtle file cannot necessarily be saved through an OWL editor without changes. Check existing sources using a copy and a comparison of the RDF triples.
 
-A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. Protection of `main` with required checks and reviews is needed to enforce the agreed merge and exception policy on GitHub; it has not yet been configured.
+A Git merge without textual conflicts can still combine contradictory modelling choices. Always review meaning and relevant use case examples. GitHub enforcement of the required checks and reviews for ontology and application-profile changes remains to be configured.
 
 The selected working directory is under OneDrive. The recommendation is to eventually place the active Git working directory outside a synchronised folder and collaborate through GitHub; two independent synchronisation mechanisms make the working directory harder to manage. Until then, keep the files fully available locally and use this checkout on one computer at a time. The directory was not relocated during setup.
 

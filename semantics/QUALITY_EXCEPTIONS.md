@@ -2,7 +2,7 @@
 
 ## Default rule
 
-Changes merged into `main` must be approved by both modellers and free of unresolved logical conflicts. An inconsistent ontology or an unintentionally unsatisfiable class blocks merging by default.
+Changes to the central ontology or its application profiles must be approved by both modellers and free of unresolved logical conflicts before merging into `main`. An inconsistent ontology or an unintentionally unsatisfiable class blocks merging those changes by default. See the [scope of the merge requirements](PROTEGE_GITHUB.md#quality-checks-before-every-github-synchronisation).
 
 A justified exception is possible only when both modellers explicitly approve its scope and disclosure. Approval of the modelling change alone does not imply approval of a conflict. Do not conceal a diagnostic, disable a check for the entire model, or report a waived finding as an unqualified pass.
 
