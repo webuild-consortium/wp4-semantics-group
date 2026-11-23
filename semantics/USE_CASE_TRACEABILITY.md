@@ -1,0 +1,44 @@
+# Use-case traceability register
+
+This register records why classes and properties in the jointly developed model are needed and which WEBUILD use cases they support. Maintain these links in repository documentation, outside the ontology. The register follows the [Protégé and GitHub working guide](PROTEGE_GITHUB.md).
+
+## Use cases and source requirements
+
+Use the project's existing use-case identifiers and names. Link to the authoritative requirement or source passage where available. Do not invent project identifiers or treat an implementation choice as an agreed requirement.
+
+| Use-case ID | Use-case name | Requirement ID or source passage | Source link |
+| --- | --- | --- | --- |
+| Pending confirmation | General Authorisation Model | Classes, object-property relations and datatype properties in the selected local reference; individual mappings and authoritative requirement clauses remain to be reviewed. | Local `Reference_Documents/Authorisation.PlantUML` (Git-ignored); [source selection and review sequence](PROTEGE_GITHUB.md#next-modelling-source-general-authorisation-model). |
+| Pending confirmation | Authorised Signatories | Attestation links and signatory details in the project diagram. Rulebook version and clauses remain open. | [Source and draft profile mappings](application_profile/AuthorisedSignatories/readme.md#source-and-model-alignment) |
+
+## Class and property mappings
+
+The next review priority is the General Authorisation Model, class by class. The existing Authorised Signatories mappings below remain draft evidence for that profile; they do not pre-empt the selected general-model review or establish mappings from its local reference source.
+
+Record one row per term and use-case requirement. Use the full term IRI so that labels and local names do not cause ambiguity. If a term supports several use cases, record each relevant link. Explain the modelling need and distinguish proposed mappings from mappings agreed by both modellers.
+
+| Term IRI | Kind (class or property) | Use-case ID | Requirement ID or source passage | Reason the term is needed | Review status |
+| --- | --- | --- | --- | --- | --- |
+| `https://w3id.org/ebwv#Agent` | Class | Pending confirmation (Authorised Signatories) | Natural-person and represented-party concepts in the [source diagram](application_profile/AuthorisedSignatories/AuthorisedSignatories.PlantUML), lines 7–25 and 39–43; [profile mapping and open decisions](application_profile/AuthorisedSignatories/readme.md#source-and-model-alignment). | Provides a reusable social or legal actor category for discussing the natural person who may sign and the party represented. The source diagram does not itself require an Agent class. More specific class meanings, their placement under Agent and the distinction between an actor and its contextual role remain to be agreed. | Meaning, definition and `dcterms:Agent` superclass approved by Bart for the joint draft on 19 November 2026; other modeller's approval pending. No profile constraint or candidate subclass adopted by this row. |
+| `https://w3id.org/ebwv/semantic-model#Role` | Class | Pending confirmation (Authorised Signatories) | Role within the company in the [source diagram](application_profile/AuthorisedSignatories/AuthorisedSignatories.PlantUML), lines 45–48; [central-model decision](PROTEGE_GITHUB.md#role-fulfilment-and-time-decisions). | Provides a general context-dependent capacity, distinct from the player and particular fulfilment. The diagram does not itself establish a subclass axiom for the candidate SignatoryRole. | Meaning and base definition approved by Bart on 20 November 2026; other modeller's approval pending. |
+| `https://w3id.org/ebwv/semantic-model#RoleFulfillment` | Class | Pending confirmation; general temporal modelling rationale | [Central-model review decision](PROTEGE_GITHUB.md#role-fulfilment-and-time-decisions), 20 November 2026. No explicit fulfilment-period requirement has been identified in the current Authorised Signatories diagram. | Distinguishes one continuous period of a particular entity fulfilling a particular role; repeated separate periods have separate fulfilments. | Class meaning and base definition approved by Bart; other modeller's approval pending. Link properties, restrictions and authoritative use-case requirement remain open. |
+| `http://purl.org/dc/terms/PeriodOfTime` | Reused class | Pending confirmation; supports general role-fulfilment pattern | [Official DCMI definition](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/PeriodOfTime) and [central-model review decision](PROTEGE_GITHUB.md#role-fulfilment-and-time-decisions), 20 November 2026. | Supplies the existing interval concept. This modelling choice does not require an application to supply both boundary dates. | Direct reuse approved by Bart; other modeller's approval pending. Boundary properties and formal fulfilment-to-period relation remain open. |
+
+
+The extension ontology (`https://w3id.org/ebwv/semantic-model`) currently contains its ontology declaration, three `ebwsm:` definition annotation properties, an augmentation of the existing `ebwv:Agent` as a subclass of `dcterms:Agent`, the new Role and RoleFulfillment classes, and local annotations for the imported `dcterms:PeriodOfTime` class. Since 23 November 2026 it also imports the controlled PROV-O core, which declares prov:wasRevisionOf and prov:specializationOf as object properties. Redundant local declarations have been removed; the imported semantics remain effective. The Agent IRI and approved definition are preserved. The Agent row records a general modelling rationale rather than a new profile requirement. The [Authorised Signatories profile mappings](application_profile/AuthorisedSignatories/readme.md#source-and-model-alignment) distinguish ten existing `ebwv:` terms from 25 proposed `ebwsm:` extension terms. The candidate IRIs were migrated in the shapes and examples on 20 November 2026 without adopting their meaning or hierarchy in the central model. The general Role and RoleFulfillment meanings are adopted; their relationships and the placement of the 25 profile candidates remain open. `InformationObject` remains a proposal.
+
+Use the [pinned EBWV reuse baseline](PROTEGE_GITHUB.md#source-ownership-and-ebwv-reuse) when checking existing term meanings. The local generated vocabulary is older than that baseline. The passing suite checks the extension together with its approved PROV-O import and Dublin Core class module. It does not validate or import the full upstream EBWV vocabulary, whose serialization defect still needs resolution.
+
+The [controlled PROV-O import](PROTEGE_GITHUB.md#controlled-prov-o-import) is an approved modelling dependency, not an assertion of a new use-case requirement. No use of prov:wasRevisionOf or prov:specializationOf in instance data, or alignment to the existing role classes, is established by their declarations. Record specific use-case mappings when those applications are agreed.
+
+The [controlled Dublin Core class module](PROTEGE_GITHUB.md#controlled-dublin-core-class-import) was approved by Bart on 23 November 2026 to compare the existing hierarchy from the single working ontology. It exposes 22 source classes and their eight mutual subclass relations, including PeriodOfTime under LocationPeriodOrJurisdiction. It is a partial, documented OWL projection, not an import of the full RDF schema. Importing the class set is not evidence that all those concepts are required by a WEBUILD use case. Specific reuse and any mapping to PROV-O still need individual review and traceability; no such new mappings are adopted by this dependency change.
+
+For supporting annotation properties, record their documentation role when relevant; do not invent a domain use-case requirement for them. A term with an unresolved source or use-case link remains an explicit gap until the modellers resolve it.
+
+## Maintenance and review
+
+Update this register in the same branch and pull request as the relevant model change. When a term IRI changes, update its register entries. Removing or replacing a term requires review of the use-case requirements linked to it.
+
+Review coverage in both directions: every modelled domain class or property needs a documented rationale, and every registered requirement needs an agreed mapping or an explicit modelling gap. A mapping records intended support; it does not by itself prove that an application profile or implementation meets the requirement.
+
+The existing automated ontology checks do not validate this register. Include its links, mapping accuracy, outstanding gaps, and coverage in the human review before synchronising with GitHub. The separate register introduces no use-case annotations or relations into `model/webuild.ttl`.

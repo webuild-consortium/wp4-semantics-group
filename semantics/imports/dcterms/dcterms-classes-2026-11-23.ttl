@@ -1,0 +1,135 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dcterms:Agent a owl:Class ;
+    rdfs:label "Agent"@en ;
+    rdfs:comment "A resource that acts or has the power to act."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:AgentClass a owl:Class ;
+    rdfs:label "Agent Class"@en ;
+    rdfs:comment "A group of agents."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:BibliographicResource a owl:Class ;
+    rdfs:label "Bibliographic Resource"@en ;
+    rdfs:comment "A book, article, or other documentary resource."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:FileFormat a owl:Class ;
+    rdfs:label "File Format"@en ;
+    rdfs:comment "A digital resource format."@en ;
+    rdfs:isDefinedBy dcterms: ;
+    rdfs:subClassOf dcterms:MediaType .
+
+dcterms:Frequency a owl:Class ;
+    rdfs:label "Frequency"@en ;
+    rdfs:comment "A rate at which something recurs."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:Jurisdiction a owl:Class ;
+    rdfs:label "Jurisdiction"@en ;
+    rdfs:comment "The extent or range of judicial, law enforcement, or other authority."@en ;
+    rdfs:isDefinedBy dcterms: ;
+    rdfs:subClassOf dcterms:LocationPeriodOrJurisdiction .
+
+dcterms:LicenseDocument a owl:Class ;
+    rdfs:label "License Document"@en ;
+    rdfs:comment "A legal document giving official permission to do something with a resource."@en ;
+    rdfs:isDefinedBy dcterms: ;
+    rdfs:subClassOf dcterms:RightsStatement .
+
+dcterms:LinguisticSystem a owl:Class ;
+    rdfs:label "Linguistic System"@en ;
+    dcterms:description "Written, spoken, sign, and computer languages are linguistic systems."@en ;
+    rdfs:comment "A system of signs, symbols, sounds, gestures, or rules used in communication."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:Location a owl:Class ;
+    rdfs:label "Location"@en ;
+    rdfs:comment "A spatial region or named place."@en ;
+    rdfs:isDefinedBy dcterms: ;
+    rdfs:subClassOf dcterms:LocationPeriodOrJurisdiction .
+
+dcterms:MethodOfAccrual a owl:Class ;
+    rdfs:label "Method of Accrual"@en ;
+    rdfs:comment "A method by which resources are added to a collection."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:MethodOfInstruction a owl:Class ;
+    rdfs:label "Method of Instruction"@en ;
+    rdfs:comment "A process that is used to engender knowledge, attitudes, and skills."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:PeriodOfTime a owl:Class ;
+    rdfs:label "Period of Time"@en ;
+    rdfs:comment "An interval of time that is named or defined by its start and end dates."@en ;
+    rdfs:isDefinedBy dcterms: ;
+    rdfs:subClassOf dcterms:LocationPeriodOrJurisdiction .
+
+dcterms:PhysicalMedium a owl:Class ;
+    rdfs:label "Physical Medium"@en ;
+    dcterms:description "Examples include paper, canvas, or DVD."@en ;
+    rdfs:comment "A physical material or carrier."@en ;
+    rdfs:isDefinedBy dcterms: ;
+    rdfs:subClassOf dcterms:MediaType .
+
+dcterms:PhysicalResource a owl:Class ;
+    rdfs:label "Physical Resource"@en ;
+    rdfs:comment "A material thing."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:Policy a owl:Class ;
+    rdfs:label "Policy"@en ;
+    rdfs:comment "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:ProvenanceStatement a owl:Class ;
+    rdfs:label "Provenance Statement"@en ;
+    rdfs:comment "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:SizeOrDuration a owl:Class ;
+    rdfs:label "Size or Duration"@en ;
+    dcterms:description "Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds."@en ;
+    rdfs:comment "A dimension or extent, or a time taken to play or execute."@en ;
+    rdfs:isDefinedBy dcterms: ;
+    rdfs:subClassOf dcterms:MediaTypeOrExtent .
+
+dcterms:Standard a owl:Class ;
+    rdfs:label "Standard"@en ;
+    rdfs:comment "A reference point against which other things can be evaluated or compared."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:description a owl:AnnotationProperty .
+
+dcterms:source a owl:AnnotationProperty .
+
+<https://w3id.org/ebwv/semantic-model/imports/dcterms-classes> a owl:Ontology ;
+    rdfs:label "Dublin Core Terms class hierarchy — WEBUILD projection"@en-GB ;
+    dcterms:source <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl> ;
+    rdfs:comment "WEBUILD class-only OWL projection of the pinned DCMI Terms RDF schema. This is a locally derived module, not an official DCMI OWL distribution or a complete vocabulary import. It preserves the 22 class IRIs, their source labels, definition comments, descriptive notes and isDefinedBy links, and all eight subclass edges between those classes. RDFS class declarations are represented as OWL class declarations. RDF metamodel statements dcterms:Agent rdf:type dcterms:AgentClass and dcterms:AgentClass rdfs:subClassOf rdfs:Class are deliberately excluded; they are not domain-class hierarchy edges. Property definitions, datatypes, encoding schemes and issuance metadata are outside this module. No additional class mappings, disjointness or restrictions are introduced."@en-GB ;
+    owl:versionIRI <https://w3id.org/ebwv/semantic-model/imports/dcterms-classes/2026-11-23> .
+
+dcterms:RightsStatement a owl:Class ;
+    rdfs:label "Rights Statement"@en ;
+    rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:MediaType a owl:Class ;
+    rdfs:label "Media Type"@en ;
+    rdfs:comment "A file format or physical medium."@en ;
+    rdfs:isDefinedBy dcterms: ;
+    rdfs:subClassOf dcterms:MediaTypeOrExtent .
+
+dcterms:MediaTypeOrExtent a owl:Class ;
+    rdfs:label "Media Type or Extent"@en ;
+    rdfs:comment "A media type or extent."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+dcterms:LocationPeriodOrJurisdiction a owl:Class ;
+    rdfs:label "Location, Period, or Jurisdiction"@en ;
+    rdfs:comment "A location, period of time, or jurisdiction."@en ;
+    rdfs:isDefinedBy dcterms: .
+

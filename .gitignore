@@ -7,3 +7,8 @@
 *.ttl~
 *.owl.bak
 *.owl~
+
+# Local reference documents for project learning
+/Reference_Documents/
+
+/semantics/quality/hermit/target/
