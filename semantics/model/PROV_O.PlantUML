@@ -1,0 +1,289 @@
+@startuml PROV_O
+' Class/property view of the exact local PROV-O core imported by webuild.ttl.
+' Source: ../imports/prov-o/prov-o-20130430.ttl (2013-04-30; approved local correction).
+' Import resolution: catalog-v001.xml; pin/correction: ../imports/manifest.json.
+' Style reference: Archive/authorisation_part.PlantUML.
+' This is a class/property view, not a complete rendering of every OWL axiom.
+' All 30 PROV classes, 44 object properties, 6 datatype properties and 28 named subclass axioms are shown.
+' Annotation properties, property chains and the subproperty hierarchy are omitted.
+' No WEBUILD alignment or application-profile requirement is asserted.
+
+title PROV-O Class Model — WEBUILD Imported Core
+caption Pinned 2013-04-30 core · local copy approved 23 November 2026 · prov: = http://www.w3.org/ns/prov#
+
+skinparam groupInheritance 2
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam ArrowColor DarkRed
+skinparam nodesep 45
+skinparam ranksep 70
+hide circle
+
+legend top left
+  <back:LightYellow><color:DarkRed> PROV-O class </color></back>    <back:#CEEED0><color:#285F17> Display expression / external OWL class </color></back>
+  All member names use the prov: namespace. + property: available; no minimum cardinality is asserted by this notation.
+  Solid arrow: object property (source member to range). Hollow triangle: rdfs:subClassOf.
+  Green union boxes abbreviate OWL expressions; they are not additional named classes.
+  Repeated boxes with the same class name are references to that same class.
+  Inherited members apply to subclasses. No UML multiplicities are invented.
+  WEBUILD reuses prov:Agent directly. Extension Role and RoleFulfillment are not mapped to PROV classes.
+endlegend
+
+class "prov:Activity" as Activity #LightYellow;line:DarkRed;text:DarkRed {
+ +endedAtTime : xsd:dateTime
+ +generated :
+ +invalidated :
+ +qualifiedAssociation :
+ +qualifiedCommunication :
+ +qualifiedEnd :
+ +qualifiedStart :
+ +qualifiedUsage :
+ +startedAtTime : xsd:dateTime
+ +used :
+ +wasAssociatedWith :
+ +wasEndedBy :
+ +wasInformedBy :
+ +wasStartedBy :
+}
+
+class "prov:ActivityInfluence" as ActivityInfluence #LightYellow;line:DarkRed;text:DarkRed {
+ +activity :
+}
+
+class "prov:Agent" as Agent #LightYellow;line:DarkRed;text:DarkRed {
+ +actedOnBehalfOf :
+ +qualifiedDelegation :
+}
+
+class "prov:AgentInfluence" as AgentInfluence #LightYellow;line:DarkRed;text:DarkRed {
+ +agent :
+}
+
+class "prov:Association" as Association #LightYellow;line:DarkRed;text:DarkRed {
+ +hadPlan :
+}
+
+class "prov:Attribution" as Attribution #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Bundle" as Bundle #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Collection" as Collection #LightYellow;line:DarkRed;text:DarkRed {
+ +hadMember :
+}
+
+class "prov:Communication" as Communication #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Delegation" as Delegation #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Derivation" as Derivation #LightYellow;line:DarkRed;text:DarkRed {
+ +hadGeneration :
+ +hadUsage :
+}
+
+class "prov:EmptyCollection" as EmptyCollection #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:End" as End #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Entity" as Entity #LightYellow;line:DarkRed;text:DarkRed {
+ +alternateOf :
+ +generatedAtTime : xsd:dateTime
+ +hadPrimarySource :
+ +invalidatedAtTime : xsd:dateTime
+ +qualifiedAttribution :
+ +qualifiedDerivation :
+ +qualifiedGeneration :
+ +qualifiedInvalidation :
+ +qualifiedPrimarySource :
+ +qualifiedQuotation :
+ +qualifiedRevision :
+ +specializationOf :
+ +value : Literal
+ +wasAttributedTo :
+ +wasDerivedFrom :
+ +wasGeneratedBy :
+ +wasInvalidatedBy :
+ +wasQuotedFrom :
+ +wasRevisionOf :
+}
+
+class "prov:EntityInfluence" as EntityInfluence #LightYellow;line:DarkRed;text:DarkRed {
+ +entity :
+}
+
+class "prov:Generation" as Generation #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Influence" as Influence #LightYellow;line:DarkRed;text:DarkRed {
+ +hadActivity :
+ +hadRole :
+ +influencer :
+}
+
+class "prov:InstantaneousEvent" as InstantaneousEvent #LightYellow;line:DarkRed;text:DarkRed {
+ +atTime : xsd:dateTime
+}
+
+class "prov:Invalidation" as Invalidation #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Location" as Location #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Organization" as Organization #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Person" as Person #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Plan" as Plan #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:PrimarySource" as PrimarySource #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Quotation" as Quotation #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Revision" as Revision #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Role" as Role #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:SoftwareAgent" as SoftwareAgent #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Start" as Start #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "prov:Usage" as Usage #LightYellow;line:DarkRed;text:DarkRed {
+}
+
+class "OWL union:\nprov:Activity OR prov:Agent OR prov:Entity" as CoreUnion #CEEED0;line:285F17;text:285F17 {
+ +influenced :
+ +qualifiedInfluence :
+ +wasInfluencedBy :
+}
+
+class "OWL union:\nprov:Activity OR prov:Agent OR\nprov:Entity OR prov:InstantaneousEvent" as LocatedUnion #CEEED0;line:285F17;text:285F17 {
+ +atLocation :
+}
+
+class "owl:Thing" as OwlThing #CEEED0;line:285F17;text:285F17
+
+' Named subclass axioms, including multiple inheritance.
+Influence <|-- ActivityInfluence #line:DarkRed;text:DarkRed
+Influence <|-- AgentInfluence #line:DarkRed;text:DarkRed
+AgentInfluence <|-- Association #line:DarkRed;text:DarkRed
+AgentInfluence <|-- Attribution #line:DarkRed;text:DarkRed
+Entity <|-- Bundle #line:DarkRed;text:DarkRed
+Entity <|-- Collection #line:DarkRed;text:DarkRed
+ActivityInfluence <|-- Communication #line:DarkRed;text:DarkRed
+AgentInfluence <|-- Delegation #line:DarkRed;text:DarkRed
+EntityInfluence <|-- Derivation #line:DarkRed;text:DarkRed
+Collection <|-- EmptyCollection #line:DarkRed;text:DarkRed
+EntityInfluence <|-- End #line:DarkRed;text:DarkRed
+InstantaneousEvent <|-- End #line:DarkRed;text:DarkRed
+Influence <|-- EntityInfluence #line:DarkRed;text:DarkRed
+ActivityInfluence <|-- Generation #line:DarkRed;text:DarkRed
+InstantaneousEvent <|-- Generation #line:DarkRed;text:DarkRed
+ActivityInfluence <|-- Invalidation #line:DarkRed;text:DarkRed
+InstantaneousEvent <|-- Invalidation #line:DarkRed;text:DarkRed
+Agent <|-- Organization #line:DarkRed;text:DarkRed
+Agent <|-- Person #line:DarkRed;text:DarkRed
+Entity <|-- Plan #line:DarkRed;text:DarkRed
+Derivation <|-- PrimarySource #line:DarkRed;text:DarkRed
+Derivation <|-- Quotation #line:DarkRed;text:DarkRed
+Derivation <|-- Revision #line:DarkRed;text:DarkRed
+Agent <|-- SoftwareAgent #line:DarkRed;text:DarkRed
+EntityInfluence <|-- Start #line:DarkRed;text:DarkRed
+InstantaneousEvent <|-- Start #line:DarkRed;text:DarkRed
+EntityInfluence <|-- Usage #line:DarkRed;text:DarkRed
+InstantaneousEvent <|-- Usage #line:DarkRed;text:DarkRed
+
+' Object properties: connectors start at the corresponding class member.
+class "prov:Entity\n<size:11><color:gray><i>Same class / expression; repeated for readability.</i></color></size>" as EntityRef #LightYellow;line:DarkRed;text:DarkRed
+class "prov:Activity\n<size:11><color:gray><i>Same class / expression; repeated for readability.</i></color></size>" as ActivityRef #LightYellow;line:DarkRed;text:DarkRed
+class "prov:Agent\n<size:11><color:gray><i>Same class / expression; repeated for readability.</i></color></size>" as AgentRef #LightYellow;line:DarkRed;text:DarkRed
+class "OWL union:\nprov:Activity OR prov:Agent OR prov:Entity\n<size:11><color:gray><i>Same expression; repeated for readability.</i></color></size>" as CoreUnionRef #CEEED0;line:285F17;text:285F17
+Agent::actedOnBehalfOf -right-> AgentRef #line:DarkRed;text:DarkRed
+ActivityInfluence::activity --> Activity #line:DarkRed;text:DarkRed
+AgentInfluence::agent --> Agent #line:DarkRed;text:DarkRed
+Entity::alternateOf -right-> EntityRef #line:DarkRed;text:DarkRed
+LocatedUnion::atLocation --> Location #line:DarkRed;text:DarkRed
+EntityInfluence::entity --> Entity #line:DarkRed;text:DarkRed
+Activity::generated --> Entity #line:DarkRed;text:DarkRed
+Influence::hadActivity --> Activity #line:DarkRed;text:DarkRed
+Derivation::hadGeneration --> Generation #line:DarkRed;text:DarkRed
+Collection::hadMember --> Entity #line:DarkRed;text:DarkRed
+Association::hadPlan --> Plan #line:DarkRed;text:DarkRed
+Entity::hadPrimarySource -right-> EntityRef #line:DarkRed;text:DarkRed
+Influence::hadRole --> Role #line:DarkRed;text:DarkRed
+Derivation::hadUsage --> Usage #line:DarkRed;text:DarkRed
+CoreUnion::influenced -right-> CoreUnionRef #line:DarkRed;text:DarkRed
+Influence::influencer --> OwlThing #line:DarkRed;text:DarkRed
+Activity::invalidated --> Entity #line:DarkRed;text:DarkRed
+Activity::qualifiedAssociation --> Association #line:DarkRed;text:DarkRed
+Entity::qualifiedAttribution --> Attribution #line:DarkRed;text:DarkRed
+Activity::qualifiedCommunication --> Communication #line:DarkRed;text:DarkRed
+Agent::qualifiedDelegation --> Delegation #line:DarkRed;text:DarkRed
+Entity::qualifiedDerivation --> Derivation #line:DarkRed;text:DarkRed
+Activity::qualifiedEnd --> End #line:DarkRed;text:DarkRed
+Entity::qualifiedGeneration --> Generation #line:DarkRed;text:DarkRed
+CoreUnion::qualifiedInfluence --> Influence #line:DarkRed;text:DarkRed
+Entity::qualifiedInvalidation --> Invalidation #line:DarkRed;text:DarkRed
+Entity::qualifiedPrimarySource --> PrimarySource #line:DarkRed;text:DarkRed
+Entity::qualifiedQuotation --> Quotation #line:DarkRed;text:DarkRed
+Entity::qualifiedRevision --> Revision #line:DarkRed;text:DarkRed
+Activity::qualifiedStart --> Start #line:DarkRed;text:DarkRed
+Activity::qualifiedUsage --> Usage #line:DarkRed;text:DarkRed
+Entity::specializationOf -right-> EntityRef #line:DarkRed;text:DarkRed
+Activity::used --> Entity #line:DarkRed;text:DarkRed
+Activity::wasAssociatedWith --> Agent #line:DarkRed;text:DarkRed
+Entity::wasAttributedTo --> Agent #line:DarkRed;text:DarkRed
+Entity::wasDerivedFrom -right-> EntityRef #line:DarkRed;text:DarkRed
+Activity::wasEndedBy --> Entity #line:DarkRed;text:DarkRed
+Entity::wasGeneratedBy --> Activity #line:DarkRed;text:DarkRed
+CoreUnion::wasInfluencedBy -right-> CoreUnionRef #line:DarkRed;text:DarkRed
+Activity::wasInformedBy -right-> ActivityRef #line:DarkRed;text:DarkRed
+Entity::wasInvalidatedBy --> Activity #line:DarkRed;text:DarkRed
+Entity::wasQuotedFrom -right-> EntityRef #line:DarkRed;text:DarkRed
+Entity::wasRevisionOf -right-> EntityRef #line:DarkRed;text:DarkRed
+Activity::wasStartedBy --> Entity #line:DarkRed;text:DarkRed
+
+note bottom of ActivityInfluence
+  OWL restriction: prov:hadActivity max 0.
+  Use prov:activity to identify the influencing Activity.
+end note
+
+note bottom of Influence
+  Additional domain axioms (intersection with Influence):
+  prov:hadActivity: Delegation OR Derivation OR End OR Start.
+  prov:hadRole: Association OR InstantaneousEvent.
+  These are domain inferences, not mandatory properties.
+end note
+
+note bottom of EmptyCollection
+  Also declared owl:NamedIndividual in the imported source (punning).
+  No hadMember max 0 restriction is asserted in this OWL file.
+end note
+
+note as Axioms
+  <b>Other class / inverse axioms</b>
+  Disjoint: Activity / Entity; Agent / InstantaneousEvent;
+  Entity / InstantaneousEvent; ActivityInfluence / EntityInfluence.
+  Inverse pairs: generated / wasGeneratedBy;
+  invalidated / wasInvalidatedBy; influenced / wasInfluencedBy.
+  The domain/range of influenced follow from its inverse.
+  prov:value has no explicit range in the source (Literal shown).
+  wasRevisionOf and specializationOf are object properties;
+  only their duplicate annotation declarations were removed.
+end note
+
+@enduml

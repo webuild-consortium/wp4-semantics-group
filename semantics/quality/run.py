@@ -39,7 +39,20 @@ def run_hermit():
             f"-Dmaven.repo.local={ROOT / '.local/maven-repository'}",
             f"-Dwebuild.model={model}", f"-Dwebuild.imports={mapping}", "compile", "exec:java",
         ]
-        return subprocess.run(command, cwd=ROOT, check=False).returncode == 0
+        if subprocess.run(command, cwd=ROOT, check=False).returncode != 0:
+            return False
+        # Synthetic examples use the same class/property declarations as the
+        # root. Parse them into that RDF graph before OWLAPI reads the document,
+        # so undeclared example predicates cannot be mistaken for annotations.
+        examples = sorted((ROOT / "semantics/examples").rglob("*.ttl"))
+        if examples:
+            for example in examples:
+                graph.parse(example, format="turtle")
+            graph.serialize(destination=model, format="turtle")
+            print(f"Checking {len(examples)} synthetic example graph(s) with the complete model.", flush=True)
+            if subprocess.run(command, cwd=ROOT, check=False).returncode != 0:
+                return False
+        return True
 
 
 def main():

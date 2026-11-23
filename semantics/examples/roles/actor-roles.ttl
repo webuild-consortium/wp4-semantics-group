@@ -1,0 +1,41 @@
+@prefix ex: <https://example.org/role-pattern/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix ebwsm: <https://w3id.org/ebwv/semantic-model#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Synthetic illustration; load alongside webuild.ttl. No real organisation,
+# person, qualification, authority or mandate is asserted. No boundary-date
+# properties have been adopted. These example periods may have unknown bounds.
+ex:business a prov:Organization ; rdfs:label "Example business actor"@en-GB .
+ex:person a prov:Person ; rdfs:label "Example internal role holder"@en-GB .
+
+ex:operatorRole a ebwsm:EconomicOperator ;
+    ebwsm:hasContext <https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:52025PC0838> .
+ex:operatorFulfillment a ebwsm:RoleFulfillment ;
+    ebwsm:hasPlayer ex:business ;
+    ebwsm:fulfillsRole ex:operatorRole ;
+    ebwsm:hasPeriod ex:operatorPeriod .
+ex:operatorPeriod a dcterms:PeriodOfTime .
+
+# The business is the player above and the context below. Its EconomicOperator
+# role is neither the employer/organisation nor the person's internal role.
+ex:internalRole a ebwsm:Role ;
+    rdfs:label "Example purchasing role"@en-GB ;
+    ebwsm:hasContext ex:business .
+ex:internalFulfillment a ebwsm:RoleFulfillment ;
+    ebwsm:hasPlayer ex:person ;
+    ebwsm:fulfillsRole ex:internalRole ;
+    ebwsm:hasPeriod ex:internalPeriod .
+ex:internalPeriod a dcterms:PeriodOfTime .
+
+# A second illustrative actor and capacity. The legal context is the selected
+# proposal; this data does not establish eligibility or a legally valid mandate.
+ex:publicActor a prov:Organization .
+ex:publicRole a ebwsm:PublicSectorBody ;
+    ebwsm:hasContext <https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:52025PC0838> .
+ex:publicFulfillment a ebwsm:RoleFulfillment ;
+    ebwsm:hasPlayer ex:publicActor ;
+    ebwsm:fulfillsRole ex:publicRole ;
+    ebwsm:hasPeriod ex:publicPeriod .
+ex:publicPeriod a dcterms:PeriodOfTime .

@@ -73,5 +73,6 @@ public class CheckOntology {
         } finally {
             reasoner.dispose();
         }
+        RolePatternChecks.check(ontology);
     }
 }

@@ -1,0 +1,26 @@
+@prefix ex: <https://example.org/agent-pattern/> .
+@prefix ebwsm: <https://w3id.org/ebwv/semantic-model#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Synthetic illustration; load alongside webuild.ttl. These examples do not
+# establish permission, a real transaction, legal personhood or a mandate.
+ex:paymentTerminal a ebwsm:Machine ;
+    rdfs:label "Example automated payment terminal (physical hardware)"@en-GB ;
+    ebwsm:runsSoftwareAgent ex:paymentController ;
+    owl:differentFrom ex:paymentController .
+ex:paymentController a prov:SoftwareAgent ;
+    rdfs:label "Example running payment controller"@en-GB .
+
+# Both actors are explicitly associated here; hosting software alone does not
+# infer these associations or identify which actor performed an activity.
+ex:paymentProcess a prov:Activity ;
+    prov:wasAssociatedWith ex:paymentTerminal, ex:paymentController .
+
+ex:robot a ebwsm:Machine ;
+    rdfs:label "Example autonomous physical robot"@en-GB ;
+    ebwsm:runsSoftwareAgent ex:robotController ;
+    owl:differentFrom ex:robotController .
+ex:robotController a prov:SoftwareAgent ;
+    rdfs:label "Example running robot controller"@en-GB .

@@ -3,6 +3,7 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import patch
 
 from rdflib import BNode, Graph, Literal, URIRef
 from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS, XSD
@@ -131,20 +132,30 @@ class QualityChecks(unittest.TestCase):
         self.g.add((URIRef('https://example.net/ExternalClass'), RDF.type, OWL.Class))
         self.assertEqual('', self.errors())
 
-    def test_reused_ebwv_class_keeps_its_original_iri(self):
-        self.g.add((EBWV.Agent, RDF.type, OWL.Class))
-        self.assertEqual('', self.errors())
+    def test_reviewed_ebwv_class_keeps_its_original_iri(self):
+        self.g.add((EBWV.ReviewedActor, RDF.type, OWL.Class))
+        with patch('check.REVIEWED_EBWV_DECLARATIONS', frozenset({EBWV.ReviewedActor})):
+            self.assertEqual('', self.errors())
+
+    def test_old_agent_cannot_return_as_a_declaration_or_restriction_target(self):
+        for triple in ((EBWV.Agent, RDF.type, OWL.Class),
+                       (BNode(), OWL.allValuesFrom, EBWV.Agent)):
+            with self.subTest(triple=triple):
+                self.g.add(triple)
+                self.assertIn('uses prov:Agent directly', self.errors())
+                self.g.remove(triple)
 
     def test_unreviewed_ebwv_declaration_cannot_bypass_extension_rules(self):
         self.g.add((EBWV.NewRole, RDF.type, OWL.Class))
         self.assertIn('new terms belong in ebwsm', self.errors())
 
     def test_authored_annotations_on_reused_ebwv_class_are_checked(self):
-        self.g.add((EBWV.Agent, RDF.type, OWL.Class))
-        self.g.add((EBWV.Agent, W.taxonomicDefinition, Literal('An agent definition.', lang='en-GB')))
-        self.assertIn('exactly one en-GB', self.errors())
-        self.g.add((EBWV.Agent, SKOS.prefLabel, Literal('Agent', lang='en-GB')))
-        self.assertEqual('', self.errors())
+        self.g.add((EBWV.ReviewedActor, RDF.type, OWL.Class))
+        self.g.add((EBWV.ReviewedActor, W.taxonomicDefinition, Literal('An actor definition.', lang='en-GB')))
+        with patch('check.REVIEWED_EBWV_DECLARATIONS', frozenset({EBWV.ReviewedActor})):
+            self.assertIn('exactly one en-GB', self.errors())
+            self.g.add((EBWV.ReviewedActor, SKOS.prefLabel, Literal('Actor', lang='en-GB')))
+            self.assertEqual('', self.errors())
 
     def test_old_definition_property_namespace_is_rejected(self):
         self.g.add((EBWV.taxonomicDefinition, RDF.type, OWL.AnnotationProperty))
