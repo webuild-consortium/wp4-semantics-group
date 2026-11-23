@@ -1,0 +1,35 @@
+@prefix ex: <https://example.org/ownership-pattern/> .
+@prefix ebwsm: <https://w3id.org/ebwv/semantic-model#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Bart's conceptual examples, not verified real-world register assertions.
+# Unknown interval bounds and ownership percentages are deliberately omitted.
+ex:soleProprietorshipUndividedEstate a ebwsm:LegalForm ;
+    rdfs:label "Eenmanszaak met meerdere eigenaren (onverdeelde boedel)"@nl .
+ex:bv a ebwsm:LegalForm ; rdfs:label "BV"@nl .
+
+ex:bicycleService a prov:Organization ;
+    rdfs:label "Fietsenservice Jansen"@nl ;
+    ebwsm:hasLegalForm ex:soleProprietorshipUndividedEstate .
+ex:son1 a prov:Person ; rdfs:label "Zoon 1 van Jansen"@nl ; owl:differentFrom ex:son2 .
+ex:son2 a prov:Person ; rdfs:label "Zoon 2 van Jansen"@nl .
+ex:ownerRole1 a ebwsm:EnterpriseOwner ; ebwsm:hasContext ex:bicycleService .
+ex:ownerRole2 a ebwsm:EnterpriseOwner ; ebwsm:hasContext ex:bicycleService .
+ex:ownership1 a ebwsm:RoleFulfillment ;
+    ebwsm:hasPlayer ex:son1 ; ebwsm:fulfillsRole ex:ownerRole1 ; ebwsm:hasPeriod ex:period1 .
+ex:ownership2 a ebwsm:RoleFulfillment ;
+    ebwsm:hasPlayer ex:son2 ; ebwsm:fulfillsRole ex:ownerRole2 ; ebwsm:hasPeriod ex:period2 .
+ex:period1 a dcterms:PeriodOfTime .
+ex:period2 a dcterms:PeriodOfTime .
+
+ex:braindex a prov:Organization ; rdfs:label "Braindex"@nl ; ebwsm:hasLegalForm ex:bv .
+ex:binkHolding a prov:Organization ; rdfs:label "Bink beheer BV"@nl ;
+    ebwsm:hasLegalForm ex:bv ; owl:differentFrom ex:braindex .
+ex:shareholderRole a ebwsm:Shareholder ; ebwsm:hasContext ex:braindex .
+ex:shareholding a ebwsm:RoleFulfillment ;
+    ebwsm:hasPlayer ex:binkHolding ; ebwsm:fulfillsRole ex:shareholderRole ;
+    ebwsm:hasPeriod ex:shareholdingPeriod .
+ex:shareholdingPeriod a dcterms:PeriodOfTime .

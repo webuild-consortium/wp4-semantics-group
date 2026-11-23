@@ -17,7 +17,7 @@ W = Namespace(f"{ONTOLOGY}#")
 EBWV = Namespace("https://w3id.org/ebwv#")
 # Extend only after reviewing reuse against the pinned vocabulary and recording
 # that decision. This is a reuse boundary, not a copy of the upstream ontology.
-REVIEWED_EBWV_DECLARATIONS = frozenset({EBWV.Agent})
+REVIEWED_EBWV_DECLARATIONS = frozenset()
 KINDS = (OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty)
 
 
@@ -34,6 +34,9 @@ def check_graph(graph):
 
     if (ONTOLOGY, RDF.type, OWL.Ontology) not in graph:
         error(ONTOLOGY, "missing agreed ontology declaration")
+    if (any(graph.triples((EBWV.Agent, None, None)))
+            or any(graph.triples((None, None, EBWV.Agent)))):
+        error(EBWV.Agent, "the active extension uses prov:Agent directly; do not reintroduce ebwv:Agent")
     for prop in (SKOS.prefLabel, SKOS.altLabel, DCTERMS.source,
                  W.taxonomicDefinition, W.legalDefinition, W.businessDefinition):
         if (prop, RDF.type, OWL.AnnotationProperty) not in graph:

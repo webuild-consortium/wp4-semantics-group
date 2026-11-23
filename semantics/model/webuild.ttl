@@ -1,4 +1,3 @@
-@prefix ebwv: <https://w3id.org/ebwv#> .
 @prefix ebwsm: <https://w3id.org/ebwv/semantic-model#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -40,26 +39,145 @@ ebwsm:businessDefinition rdf:type owl:AnnotationProperty ;
 dcterms:PeriodOfTime skos:prefLabel "Period of time"@en-GB ;
     dcterms:source <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/PeriodOfTime> .
 
-# Reviewed augmentation of the existing EBWV Agent term. Its IRI is preserved;
-# the declaration is for OWL tooling and does not load the upstream vocabulary.
-ebwv:Agent rdf:type owl:Class ;
-    rdfs:subClassOf dcterms:Agent ;
-    skos:prefLabel "Agent"@en-GB ;
-    ebwsm:taxonomicDefinition "An agent is a Dublin Core agent that can act, or be recognised as acting, as a social or legal actor within a business or legal process."@en-GB ;
-    rdfs:comment "The adopted scope covers natural persons, organisations and other social or legal actors in business or legal processes. Inclusion of software agents requires a separate modelling decision. Classification as an Agent does not by itself assert a mandate or a representation right. The subclass axiom expresses the connection to the broader Dublin Core class; it does not assert class equivalence. The scope in this comment is explanatory and is not encoded as an additional OWL restriction."@en-GB ;
-    dcterms:source <https://sanastot.suomi.fi/en/terminology/webuild/concept/concept-41>,
-        <http://purl.org/dc/terms/Agent> .
+# Direct reuse: declarations, definitions and existing hierarchy come from the
+# pinned PROV-O import. These are display annotations, not replacement classes.
+# No ebwv:Agent definition or PROV-to-Dublin-Core Agent alignment is asserted.
+prov:Agent skos:prefLabel "Agent"@en-GB .
+prov:Person skos:prefLabel "Person"@en-GB ;
+    rdfs:comment "PROV Person describes the human actor. The legal classification NaturalPerson and its relation to this imported class require separate review. The earlier local alternative label Natural Person was withdrawn after that distinction was discussed. A human actor can be the same individual considered in a legal capacity; no separate identity, class equivalence, disjointness or mapping to ebwv:NaturalPerson is inferred from this distinction."@en-GB .
+prov:Organization skos:prefLabel "Organisation"@en-GB .
+prov:SoftwareAgent skos:prefLabel "Software agent"@en-GB .
+
+ebwsm:Machine a owl:Class ;
+    rdfs:subClassOf prov:Agent,
+        [ a owl:Restriction ; owl:onProperty ebwsm:runsSoftwareAgent ; owl:allValuesFrom prov:SoftwareAgent ] ;
+    skos:prefLabel "Machine"@en-GB ;
+    ebwsm:taxonomicDefinition "A machine is a PROV agent embodied in physical hardware that can execute predetermined processes autonomously under software control."@en-GB ;
+    rdfs:comment "The machine is the physical actor; a SoftwareAgent is running software. Illustrative machines include an automated payment terminal and an autonomous robot. Hardware qualifies here when it bears responsibility in the PROV sense, rather than merely being a passive device. Autonomy means that predefined processes can be executed without step-by-step human intervention; it does not require independently chosen goals. Classification does not confer permission, a mandate, legal personhood or representation authority. Permitted operations must be determined from applicable authorisations and scope. A software-agent link can describe a separately represented executing software actor; no software-agent filler is required because not all control software is itself modelled as a responsible agent. The physical character and behavioural capability are defined in prose; the subclass axiom alone does not mechanically verify them."@en-GB ;
+    dcterms:source <https://www.w3.org/TR/prov-o/#Agent> .
+
+ebwsm:runsSoftwareAgent a owl:ObjectProperty ;
+    skos:prefLabel "Runs software agent"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates a machine to a separately represented running software agent that it executes."@en-GB ;
+    rdfs:comment "This distinguishes the physical actor from the executing software actor. It does not describe an installed software asset, identify the two actors, imply delegation or determine which actor performed a particular activity. No minimum or maximum count, global domain or global range is asserted. Execution time and deployment history require separate modelling if needed."@en-GB .
 
 # New extension classes with approved base definitions. No artificial named
 # superclass is introduced solely to provide a taxonomic definition.
 ebwsm:Role rdf:type owl:Class ;
     skos:prefLabel "Role"@en-GB ;
     ebwsm:taxonomicDefinition "A role is a context-dependent capacity that an entity can fulfil when participating in an activity, event, relationship, or situation."@en-GB ;
-    rdfs:comment "A role is distinct from its player and from the time-bound fulfilment of that role. The player need not be an Agent; other entities may also fulfil roles. A role may exist without currently being fulfilled. In the adopted pattern the context belongs to the role, while the time interval qualifies the particular fulfilment. Having a role does not by itself establish authority to represent another party. The OJA reference informs this meaning without importing its FunctionalEntity hierarchy or SHACL requirements."@en-GB ;
+    rdfs:comment "A role is distinct from its player and from the time-bound fulfilment of that role. The player need not be an Agent; other entities may also fulfil roles. A role may exist without currently being fulfilled. In the adopted pattern the context belongs to the role, while the time interval qualifies the particular fulfilment. Having a role does not by itself establish authority to represent another party. Unlike PROV Role's activity-related qualification scope, this class also covers relationships and situations. No subclass, equivalence or disjointness mapping to prov:Role is asserted. The OJA reference informs this meaning without importing its FunctionalEntity hierarchy or SHACL requirements."@en-GB ;
     dcterms:source <https://w3id.org/ebwv/ebio#Role> .
 
 ebwsm:RoleFulfillment rdf:type owl:Class ;
     skos:prefLabel "Role fulfilment"@en-GB ;
     ebwsm:taxonomicDefinition "A role fulfilment is the participation of a particular entity in a particular role during one continuous time interval."@en-GB ;
-    rdfs:comment "The agreed conceptual pattern associates a fulfilment with one player, one role and one continuous interval represented by dcterms:PeriodOfTime. The context is obtained through the role rather than recorded a second time on the fulfilment. A later separate period of fulfilment is represented by a distinct fulfilment; an ended fulfilment remains a historical fact. The interval may have boundaries that are not yet known or explicitly recorded. Link properties, class-level OWL restrictions and the representation of interval boundaries remain to be agreed individually; the prose description alone does not enforce those relations or counts."@en-GB ;
+    rdfs:comment "A fulfilment has exactly one player, one role and one continuous interval represented by dcterms:PeriodOfTime, expressed by the class-level restrictions below. The context is obtained through the role rather than recorded a second time on the fulfilment. A later separate period of fulfilment is represented by a distinct fulfilment; an ended fulfilment remains a historical fact. Interval boundaries may be unknown or unrecorded. OWL existence and uniqueness do not require explicitly supplied triples and do not enforce the continuity or non-overlap of dated intervals. Boundary properties, SHACL completeness checks and identity or deduplication rules remain separate decisions. No subclass, equivalence or disjointness mapping to prov:Association is asserted."@en-GB ;
     dcterms:source <https://www.w3.org/TR/swbp-n-aryRelations/> .
+
+# Implement the approved player / role / continuous-period pattern. Generic
+# role players remain unrestricted; the specialised actor roles below require
+# their players to be Agents. No global property domains or ranges are used.
+ebwsm:RoleFulfillment rdfs:subClassOf
+    [ a owl:Restriction ; owl:onProperty ebwsm:hasPlayer ; owl:cardinality "1"^^xsd:nonNegativeInteger ],
+    [ a owl:Restriction ; owl:onProperty ebwsm:fulfillsRole ; owl:cardinality "1"^^xsd:nonNegativeInteger ],
+    [ a owl:Restriction ; owl:onProperty ebwsm:fulfillsRole ; owl:allValuesFrom ebwsm:Role ],
+    [ a owl:Restriction ; owl:onProperty ebwsm:hasPeriod ; owl:cardinality "1"^^xsd:nonNegativeInteger ],
+    [ a owl:Restriction ; owl:onProperty ebwsm:hasPeriod ; owl:allValuesFrom dcterms:PeriodOfTime ] .
+
+ebwsm:hasPlayer a owl:ObjectProperty ;
+    skos:prefLabel "Has player"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates a role fulfilment to the entity fulfilling its role during its continuous time interval."@en-GB ;
+    rdfs:comment "The player is distinct from the role and the fulfilment. Generic role players need not be Agents. Using this property alone does not infer a subject type through a global domain."@en-GB .
+
+ebwsm:fulfillsRole a owl:ObjectProperty ;
+    skos:prefLabel "Fulfils role"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates a role fulfilment to the particular contextual role fulfilled by its player."@en-GB ;
+    rdfs:comment "The object is a role individual, not the class of its players or the role class itself. RoleFulfillment supplies its class-specific type and cardinality restrictions."@en-GB .
+
+ebwsm:hasPeriod a owl:ObjectProperty ;
+    skos:prefLabel "Has period"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates a role fulfilment to the continuous interval during which its player fulfils its role."@en-GB ;
+    rdfs:comment "The interval is represented by dcterms:PeriodOfTime. No boundary properties or obligation to supply start and end dates are introduced."@en-GB .
+
+ebwsm:hasContext a owl:ObjectProperty ;
+    skos:prefLabel "Has context"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates a role to an entity that provides the setting in which that role has its meaning."@en-GB ;
+    rdfs:comment "Contexts can include an organisation, a legal framework or a qualifying mandate. Several context resources may jointly describe a setting; no cardinality or new context class is imposed. A fulfilment obtains context through its role. A context link alone does not establish legal qualification, representation authority or the temporal validity of a mandate."@en-GB .
+
+# New role meanings use extension IRIs. Existing ebwv:EconomicOperator and
+# ebwv:PublicSectorBody describe actors, not these contextual role individuals.
+# Source definitions are paraphrased in our taxonomic definitions, not quoted
+# as legal definitions of roles. See modelling_considerations/Actor_Roles_and_Involvement.md.
+ebwsm:EconomicOperator a owl:Class ;
+    rdfs:subClassOf ebwsm:Role,
+        [ a owl:Restriction ;
+          owl:onProperty [ owl:inverseOf ebwsm:fulfillsRole ] ;
+          owl:allValuesFrom [ a owl:Class ; owl:intersectionOf (
+              ebwsm:RoleFulfillment
+              [ a owl:Restriction ; owl:onProperty ebwsm:hasPlayer ; owl:allValuesFrom prov:Agent ]
+          ) ]
+        ] ;
+    skos:prefLabel "Economic operator"@en-GB ;
+    ebwsm:taxonomicDefinition "An economic operator is a role in which an Agent acts in a commercial or professional capacity for purposes related to its trade, business, craft or profession within an applicable legal framework."@en-GB ;
+    rdfs:comment "This class describes contextual roles, not the persons, organisations or groups fulfilling them. Its interpretation is informed by Article 3(4) of the Commission proposal COM(2025) 838 final of 19 November 2025. The role pattern is a WEBUILD modelling decision, not a pattern prescribed by that proposal. It is not a subclass of Agent and is not declared equivalent to ebwv:EconomicOperator. Having this role does not itself grant authority to represent another party."@en-GB ;
+    dcterms:source <https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:52025PC0838> .
+
+ebwsm:PublicSectorBody a owl:Class ;
+    rdfs:subClassOf ebwsm:Role,
+        [ a owl:Restriction ;
+          owl:onProperty [ owl:inverseOf ebwsm:fulfillsRole ] ;
+          owl:allValuesFrom [ a owl:Class ; owl:intersectionOf (
+              ebwsm:RoleFulfillment
+              [ a owl:Restriction ; owl:onProperty ebwsm:hasPlayer ; owl:allValuesFrom prov:Agent ]
+          ) ]
+        ] ;
+    skos:prefLabel "Public sector body"@en-GB ;
+    ebwsm:taxonomicDefinition "A public sector body is a role in which an Agent qualifies under an applicable legal framework as a Union entity, a public authority, a body governed by public law, an association of such bodies, or a private entity providing public services within a qualifying public mandate."@en-GB ;
+    rdfs:comment "This class describes the contextual legal capacity, separately from the player's institutional status. It is informed by Article 3(5) of the Commission proposal COM(2025) 838 final of 19 November 2025; the source includes institutional categories as well as mandated private entities. Role modelling is the adopted WEBUILD interpretation, not a claim that every public institution's status depends on a temporary mandate. This class is not a subclass of Agent, is not equivalent to ebwv:PublicSectorBody and is not declared disjoint with EconomicOperator. Mandate qualification and its validity are not automatically checked by these axioms."@en-GB ;
+    dcterms:source <https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:52025PC0838> .
+
+# Organisation / legal-form / ownership distinction consolidated on 23 November
+# 2026. Legal forms classify concrete actors; they do not play ownership roles.
+ebwsm:LegalForm a owl:Class ;
+    owl:disjointWith prov:Agent ;
+    skos:prefLabel "Legal form"@en-GB ;
+    ebwsm:taxonomicDefinition "A legal form is a classification of the legal structure under which an organisation or enterprise is constituted or operated within an applicable jurisdiction."@en-GB ;
+    rdfs:comment "Instances are classification values such as BV and sole proprietorship, not the concrete organisations or their owners. LegalForm is disjoint with prov:Agent to preserve that distinction. NaturalPerson and LegalPerson are legal actor categories, not interchangeable legal-form values. No exhaustive list, jurisdiction property, version scheme or temporal classification rule is prescribed by this declaration."@en-GB ;
+    dcterms:source <https://www.kvk.nl/starten/wat-is-een-rechtsvorm/> .
+
+ebwsm:hasLegalForm a owl:ObjectProperty ;
+    skos:prefLabel "Has legal form"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates an organisation to a classification of its applicable legal structure."@en-GB ;
+    rdfs:comment "The value is a LegalForm, not an owner, owned organisation or role player. A class-level restriction on prov:Organization supplies this target type. No global domain/range, existence requirement or maximum count is asserted; current-form selection, jurisdiction, history and data completeness need separate rules."@en-GB .
+
+prov:Organization rdfs:subClassOf
+    [ a owl:Restriction ; owl:onProperty ebwsm:hasLegalForm ; owl:allValuesFrom ebwsm:LegalForm ] .
+
+ebwsm:EnterpriseOwner a owl:Class ;
+    rdfs:subClassOf ebwsm:Role,
+        [ a owl:Restriction ;
+          owl:onProperty [ owl:inverseOf ebwsm:fulfillsRole ] ;
+          owl:allValuesFrom [ a owl:Class ; owl:intersectionOf (
+              ebwsm:RoleFulfillment
+              [ a owl:Restriction ; owl:onProperty ebwsm:hasPlayer ; owl:allValuesFrom prov:Agent ]
+          ) ]
+        ] ;
+    skos:prefLabel "Enterprise owner"@en-GB ;
+    ebwsm:taxonomicDefinition "An enterprise owner is a role in which an Agent is the party to whom a particular enterprise belongs in an applicable legal or registration context."@en-GB ;
+    rdfs:comment "The enterprise is the context of the role, not its legal-form value. This scope follows the enterprise/party distinction discussed in Article 10 of the Dutch Handelsregisterwet 2007; it is not a universal ownership rule for organisations, shares or goods. Separate Agents can fulfil co-owner roles towards the same enterprise. No enterprise-level maximum of one owner, ownership share, eligibility union of only NaturalPerson and LegalPerson, or requirement that every organisation has an owner is asserted. The Agent restriction is necessary typing, not a sufficient legal eligibility check. A public organisation's status or institutional membership does not itself establish an owner."@en-GB ;
+    dcterms:source <https://eur-lex.europa.eu/legal-content/NL/TXT/PDF/?uri=NIM:202604833> .
+
+ebwsm:Shareholder a owl:Class ;
+    rdfs:subClassOf ebwsm:Role,
+        [ a owl:Restriction ;
+          owl:onProperty [ owl:inverseOf ebwsm:fulfillsRole ] ;
+          owl:allValuesFrom [ a owl:Class ; owl:intersectionOf (
+              ebwsm:RoleFulfillment
+              [ a owl:Restriction ; owl:onProperty ebwsm:hasPlayer ; owl:allValuesFrom prov:Agent ]
+          ) ]
+        ] ;
+    skos:prefLabel "Shareholder"@en-GB ;
+    ebwsm:taxonomicDefinition "A shareholder is a role in which an Agent holds one or more shares in a particular company."@en-GB ;
+    rdfs:comment "The company is the context of the role. This is distinct from the party to whom an enterprise belongs and from ownership of company assets. No equivalence, subclass or disjointness relation to EnterpriseOwner is asserted. No percentage, voting right, mandate, automatic ownership of assets or legal eligibility rule is inferred. The Agent restriction is necessary typing, not sufficient proof that an actor can legally hold the shares."@en-GB ;
+    dcterms:source <https://www.kvk.nl/producten-bestellen/wat-staat-er-op-een-uittreksel/> .
