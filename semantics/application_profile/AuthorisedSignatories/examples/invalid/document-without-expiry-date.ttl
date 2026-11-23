@@ -1,72 +1,73 @@
 # Synthetic data for testing the Authorised Signatories draft.
 @prefix ex: <https://example.org/fixtures/authorised-signatories/> .
 @prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix ebwsm: <https://w3id.org/ebwv/semantic-model#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:attestation a ebwv:AuthorizedSignatories ;
-    ebwv:hasLegalEntity ex:representedEntity ;
-    ebwv:hasAuthorizedPerson ex:signatory, ex:secondSignatory .
+ex:attestation a ebwsm:AuthorizedSignatories ;
+    ebwsm:hasLegalEntity ex:representedEntity ;
+    ebwsm:hasAuthorizedPerson ex:signatory, ex:secondSignatory .
 
 ex:representedEntity a ebwv:LegalEntity ;
-    ebwv:hasLegalPerson [
+    ebwsm:hasLegalPerson [
         a ebwv:LegalPerson ;
         ebwv:legalName "Example Registers Ltd" ;
         ebwv:legalForm "Limited company"
     ] ;
-    ebwv:hasLegalEntityIdentifier [
+    ebwsm:hasLegalEntityIdentifier [
         a ebwv:LegalEntityIdentifier ;
-        ebwv:euid "EXAMPLE.000001" ;
+        ebwsm:euid "EXAMPLE.000001" ;
         ebwv:lei "00000000000000000000" ;
-        ebwv:taxIdentifier "EXAMPLE-TAX-01"
+        ebwsm:taxIdentifier "EXAMPLE-TAX-01"
     ] .
 
-ex:signatory a ebwv:AuthorizedPerson ;
-    ebwv:hasNaturalPerson [
+ex:signatory a ebwsm:AuthorizedPerson ;
+    ebwsm:hasNaturalPerson [
         a ebwv:NaturalPerson ;
         ebwv:givenName "Alex" ;
         ebwv:familyName "Example" ;
         ebwv:dateOfBirth "1985-04-12"^^xsd:date
     ] ;
-    ebwv:hasSignatoryRole [
-        a ebwv:SignatoryRole ;
-        ebwv:roleName "Director" ;
-        ebwv:representationType ex:jointRepresentation
+    ebwsm:hasSignatoryRole [
+        a ebwsm:SignatoryRole ;
+        ebwsm:roleName "Director" ;
+        ebwsm:representationType ex:jointRepresentation
     ] ;
-    ebwv:hasBirthPlace [
-        a ebwv:Place ;
-        ebwv:locality "Example Borough" ;
-        ebwv:hasCountry ex:exampleCountry ;
-        ebwv:hasRegion [ skos:notation "SYNTHETIC_REGION" ; skos:prefLabel "Example region"@en-GB ]
+    ebwsm:hasBirthPlace [
+        a ebwsm:Place ;
+        ebwsm:locality "Example Borough" ;
+        ebwsm:hasCountry ex:exampleCountry ;
+        ebwsm:hasRegion [ skos:notation "SYNTHETIC_REGION" ; skos:prefLabel "Example region"@en-GB ]
     ] ;
-    ebwv:hasCitizenshipCountry ex:exampleCountry ;
-    ebwv:hasIdentifyingDocument ex:identityDocument .
+    ebwsm:hasCitizenshipCountry ex:exampleCountry ;
+    ebwsm:hasIdentifyingDocument ex:identityDocument .
 
-ex:secondSignatory a ebwv:AuthorizedPerson ;
-    ebwv:hasNaturalPerson [
+ex:secondSignatory a ebwsm:AuthorizedPerson ;
+    ebwsm:hasNaturalPerson [
         a ebwv:NaturalPerson ;
         ebwv:givenName "Sam" ;
         ebwv:familyName "Sample" ;
         ebwv:dateOfBirth "1981-06-17"^^xsd:date
     ] ;
-    ebwv:hasSignatoryRole [
-        a ebwv:SignatoryRole ;
-        ebwv:representationType ex:jointRepresentation
+    ebwsm:hasSignatoryRole [
+        a ebwsm:SignatoryRole ;
+        ebwsm:representationType ex:jointRepresentation
     ] ;
-    ebwv:hasBirthPlace [
-        a ebwv:Place ;
-        ebwv:locality "Sample Town" ;
-        ebwv:hasCountry ex:exampleCountry
+    ebwsm:hasBirthPlace [
+        a ebwsm:Place ;
+        ebwsm:locality "Sample Town" ;
+        ebwsm:hasCountry ex:exampleCountry
     ] ;
-    ebwv:hasCitizenshipCountry ex:exampleCountry .
+    ebwsm:hasCitizenshipCountry ex:exampleCountry .
 
 ex:jointRepresentation skos:notation "JOINT" ;
     skos:prefLabel "Joint"@en-GB .
 
-ex:identityDocument a ebwv:IdentifyingDocument ;
-    ebwv:documentNumber "EXAMPLE-DOC-01" ;
-    ebwv:documentType [ skos:notation "SYNTHETIC_ID" ; skos:prefLabel "Sample identity document"@en-GB ] ;
-    ebwv:issuingCountry ex:exampleCountry .
+ex:identityDocument a ebwsm:IdentifyingDocument ;
+    ebwsm:documentNumber "EXAMPLE-DOC-01" ;
+    ebwsm:documentType [ skos:notation "SYNTHETIC_ID" ; skos:prefLabel "Sample identity document"@en-GB ] ;
+    ebwsm:issuingCountry ex:exampleCountry .
 
 ex:exampleCountry skos:notation "NLD" ;
     skos:prefLabel "Netherlands"@en-GB .

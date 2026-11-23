@@ -6,9 +6,8 @@ import subprocess
 import sys
 from tempfile import TemporaryDirectory
 
-from rdflib.namespace import OWL
-
 from check import MODEL, load_model
+from dependencies import load_dependencies
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -24,17 +23,21 @@ def run_hermit():
             return False
 
     graph, _ = load_model(MODEL)
-    if any(graph.triples((None, OWL.imports, None))):
-        print("FAIL: HermiT needs a complete import closure. The automated suite currently checks models without imports.")
+    try:
+        dependencies = load_dependencies(graph, MODEL)
+    except Exception as exc:
+        print(f"FAIL: could not resolve the complete pinned import closure: {exc}")
         return False
 
     with TemporaryDirectory(prefix="webuild-hermit-") as directory:
         model = Path(directory) / "model.ttl"
         graph.serialize(destination=model, format="turtle")
+        mapping = Path(directory) / "imports.tsv"
+        mapping.write_text("".join(f"{item.iri}\t{item.path.as_uri()}\n" for item in dependencies))
         command = [
             maven, "-B", "-ntp", "-q", "-f", "semantics/quality/hermit/pom.xml",
             f"-Dmaven.repo.local={ROOT / '.local/maven-repository'}",
-            f"-Dwebuild.model={model}", "compile", "exec:java",
+            f"-Dwebuild.model={model}", f"-Dwebuild.imports={mapping}", "compile", "exec:java",
         ]
         return subprocess.run(command, cwd=ROOT, check=False).returncode == 0
 

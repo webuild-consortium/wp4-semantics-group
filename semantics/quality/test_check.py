@@ -7,7 +7,7 @@ import unittest
 from rdflib import BNode, Graph, Literal, URIRef
 from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS, XSD
 
-from check import ONTOLOGY, W, check_graph, load_model
+from check import EBWV, ONTOLOGY, W, check_graph, load_model
 
 
 class QualityChecks(unittest.TestCase):
@@ -130,6 +130,36 @@ class QualityChecks(unittest.TestCase):
     def test_reused_terms_do_not_require_our_editorial_annotations(self):
         self.g.add((URIRef('https://example.net/ExternalClass'), RDF.type, OWL.Class))
         self.assertEqual('', self.errors())
+
+    def test_reused_ebwv_class_keeps_its_original_iri(self):
+        self.g.add((EBWV.Agent, RDF.type, OWL.Class))
+        self.assertEqual('', self.errors())
+
+    def test_unreviewed_ebwv_declaration_cannot_bypass_extension_rules(self):
+        self.g.add((EBWV.NewRole, RDF.type, OWL.Class))
+        self.assertIn('new terms belong in ebwsm', self.errors())
+
+    def test_authored_annotations_on_reused_ebwv_class_are_checked(self):
+        self.g.add((EBWV.Agent, RDF.type, OWL.Class))
+        self.g.add((EBWV.Agent, W.taxonomicDefinition, Literal('An agent definition.', lang='en-GB')))
+        self.assertIn('exactly one en-GB', self.errors())
+        self.g.add((EBWV.Agent, SKOS.prefLabel, Literal('Agent', lang='en-GB')))
+        self.assertEqual('', self.errors())
+
+    def test_old_definition_property_namespace_is_rejected(self):
+        self.g.add((EBWV.taxonomicDefinition, RDF.type, OWL.AnnotationProperty))
+        self.g.add((EBWV.Agent, EBWV.taxonomicDefinition, Literal('Old annotation.')))
+        self.assertIn('must use the ebwsm namespace', self.errors())
+
+    def test_old_ontology_identity_is_not_the_extension_identity(self):
+        self.g.remove((ONTOLOGY, RDF.type, OWL.Ontology))
+        self.g.add((URIRef('https://w3id.org/ebwv'), RDF.type, OWL.Ontology))
+        self.assertIn('ontology declaration', self.errors())
+
+    def test_authored_property_axioms_on_ebwv_terms_are_not_exempt(self):
+        self.g.add((EBWV.role, RDF.type, OWL.ObjectProperty))
+        self.g.add((EBWV.role, RDFS.range, W.Role))
+        self.assertIn('global rdfs:range', self.errors())
 
     def test_missing_ontology_or_annotation_declaration_fails(self):
         self.g.remove((ONTOLOGY, RDF.type, OWL.Ontology))

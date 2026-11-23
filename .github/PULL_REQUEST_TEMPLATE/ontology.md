@@ -1,11 +1,12 @@
 ## Joint model change
 
-Describe the problem, the resulting meaning or behaviour, and the affected use cases. Use this template for every pull request that changes the central ontology or an application profile, including pull requests that also change other parts of the repository. The scope of the merge requirements is documented in `semantics/PROTEGE_GITHUB.md`.
+Describe the problem, the resulting meaning or behaviour, and the affected use cases. Use this template for every pull request that changes the central ontology, its imported dependencies/resolution metadata, or an application profile, including pull requests that also change other parts of the repository. The scope of the merge requirements is documented in `semantics/PROTEGE_GITHUB.md`.
 
 ## Quality evidence
 
 - Revision checked:
 - Automated quality suite result:
+- Imported versions, local catalogue, checksum/correction/projection verification and complete import-closure check:
 - Logical consistency and unsatisfiable-class report (or explicitly state that it has not been run):
 - Relevant profile/example validation (if applicable):
 - Definition, source, and use-case traceability review:
@@ -19,7 +20,7 @@ State whether any logical conflicts remain. Resolve them before merging into `ma
 
 ## Joint approval
 
-Record the revision each modeller approved. If the ontology or an application profile changes after approval, obtain fresh approval from both modellers for the revised content before merging.
+Record the revision each modeller approved. If the ontology, an imported dependency/resolution metadata, or an application profile changes after approval, obtain fresh approval from both modellers for the revised content before merging.
 
 - Bart's approval evidence and reviewed revision:
 - Modelling colleague's approval evidence and reviewed revision:

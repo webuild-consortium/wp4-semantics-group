@@ -4,14 +4,35 @@ This guide describes the technical setup for collaborative ontology development 
 
 ## Starting file
 
-Open `semantics/model/webuild.ttl` in Protégé. The joint draft declares `https://w3id.org/ebwv` as its ontology IRI and uses `https://w3id.org/ebwv#` for its own terms. The draft contains three local definition annotation properties with British English labels and definitions. It uses the standard annotation properties `skos:prefLabel`, `skos:altLabel`, and `dcterms:source` under their original IRIs.
+Open `semantics/model/webuild.ttl` in Protégé. The extension ontology IRI is `https://w3id.org/ebwv/semantic-model`; new terms use `https://w3id.org/ebwv/semantic-model#` (`ebwsm:`). Existing EBWV terms retain `https://w3id.org/ebwv#` (`ebwv:`). The draft contains three extension definition annotation properties with British English labels and definitions, and an augmentation of the existing `ebwv:Agent` class under `dcterms:Agent`. It also contains the new Role and RoleFulfillment classes and reuses dcterms:PeriodOfTime. It imports the approved local PROV-O core through the ontology identity `http://www.w3.org/ns/prov#`, resolved through the adjacent catalog-v001.xml to the checksum-pinned 2013-04-30 copy, and obtains prov:wasRevisionOf and prov:specializationOf as object properties from that import. It uses the standard annotation properties `skos:prefLabel`, `skos:altLabel`, and `dcterms:source` under their original IRIs.
+
+The model also imports the approved [Dublin Core class module](imports/dcterms/README.md), containing all 22 DCMI Terms classes and their eight mutual subclass relations under their original IRIs. This is a class-only OWL projection, not the full DCMI RDF schema. Both dependencies load from `webuild.ttl`; keep that as the single working file. In Protégé select **View → Show the imports closure of the active ontology** and **Render by prefixed name** to see the combined hierarchy. After external file changes, reopen the current saved model so the session loads the updated imports; do not overwrite it from an older in-memory session. Prefixes should map `ebwv:` to `https://w3id.org/ebwv#`, `ebwsm:` to `https://w3id.org/ebwv/semantic-model#`, `prov:` to `http://www.w3.org/ns/prov#` and `dcterms:` to `http://purl.org/dc/terms/`.
 
 The three earlier Turtle models have been preserved unchanged in `semantics/model/Archive`, as requested. The new ontology does not import them. `authorisation_part.PlantUML` is also in `Archive`. The `modelling_considerations` directory has been retained and relates to earlier modelling work.
+
+## Protégé display and prefix settings
+
+Keep `webuild.ttl` as the single working file. Dependency documents are loaded through its imports and the adjacent catalogue; a separate inspection ontology or additional modelling window is not needed. The [dependency overview](imports/README.md) distinguishes the complete PROV-O core from the class-only Dublin Core projection.
+
+Select **View → Render by prefixed name**. Prefix declarations in Turtle are normally read on loading, but a session can retain older mappings after external edits. If an entity is shown as a full IRI, check **Active ontology → Ontology prefixes**. The view can also be added through **Window → Views → Ontology views → Ontology prefixes**.
+
+| Prefix | Exact namespace |
+| --- | --- |
+| `ebwv:` | `https://w3id.org/ebwv#` |
+| `ebwsm:` | `https://w3id.org/ebwv/semantic-model#` |
+| `prov:` | `http://www.w3.org/ns/prov#` |
+| `dcterms:` | `http://purl.org/dc/terms/` |
+
+The requested display includes `ebwsm:Role`, `ebwsm:RoleFulfillment`, `ebwv:Agent` and the separate `dcterms:Agent` and `prov:Agent` terms. Prefix spelling is a presentation/serialization choice; replacing `#` with `/` in a namespace changes term IRIs and must not be used as a display fix.
+
+Select **View → Show the imports closure of the active ontology** to see the dependencies together with WEBUILD. **File → Loaded ontology sources…** shows which files have loaded. If classes appear only under **Show all loaded ontologies**, verify the import identity and its membership in the active import closure; the PROV-O correction below records the observed instance of that problem. After external changes, reopen or reload the saved working model while preserving any unsaved work; changes on disk do not automatically update the ontology already held in memory.
+
+On 23 November 2026 Bart decided to retain the standard Protégé class hierarchy. The proposed custom display grouping under a visual `rdfs:Class` root was discussed and declined; no custom view/plugin will be introduced for that purpose. No class axioms are added to obtain a particular display grouping. The [standard Class Hierarchy view](https://protegeproject.github.io/protege/views/class-hierarchy/) places classes without another asserted named parent under `owl:Thing`. The Dublin Core dependency explicitly projects its source `rdfs:Class` declarations into `owl:Class`; this is documented source selection, not an assertion that the official schema already contained those OWL declarations.
 
 ## Confirmed starting decisions
 
 - Working language: English for new documentation and other files prepared for GitHub.
-- Term IRIs: use readable American English terms, for example `Organization`.
+- Term IRIs: use readable American English terms for new extension terms, for example `ebwsm:Organization`; preserve existing reused EBWV IRIs.
 - IRI capitalisation: use `UpperCamelCase` for class names, such as `RegisteredOrganization`, and `lowerCamelCase` for property names, such as `hasRegisteredAddress`.
 - English labels: use British English spelling and the language tag `en-GB`, for example `"Organisation"@en-GB`.
 - Label annotations: use `skos:prefLabel` for the preferred display label and `skos:altLabel` for synonyms or alternative names. These annotations apply directly to OWL entities without typing them as `skos:Concept`.
@@ -20,22 +41,53 @@ The three earlier Turtle models have been preserved unchanged in `semantics/mode
 - Quality checks: run the complete automated suite and the applicable human review before every GitHub synchronisation. GitHub repeats the automated suite on pushes and pull requests.
 - Status: draft model intended for joint development, not an approved project release.
 - Modelling approach: OWL, using EBUCorePlus as the reference approach. Specific modelling conventions will be agreed individually; this does not imply importing EBUCorePlus domain concepts.
+- Top-level class structure: use multiple meaningful top-level domain classes without introducing a custom common root class. These classes remain under `owl:Thing` through OWL semantics; explicit `rdfs:subClassOf owl:Thing` statements are not required. Agree the meaning and placement of each top-level domain class individually before adding it. This decision does not establish disjointness or an exhaustive partition. The local OJA reference models may inform discussion without adopting their common root, hierarchy, or axioms.
 - Property applicability: describe the use of both object and datatype properties in the relevant classes through OWL restrictions, without global `rdfs:domain` statements on those properties.
 - Object properties: use class-level OWL restrictions consistently. Do not assert global `rdfs:domain` or `rdfs:range` for object properties in the jointly developed ontology.
 - Datatype properties: a global `rdfs:range` is permitted, for example `xsd:date`. This is permission, not a requirement to declare a global range on every datatype property. Do not assert global `rdfs:domain`; describe class-specific use through restrictions on the relevant classes.
 - Use-case traceability: record which use cases require each class or property in the separate [use-case traceability register](USE_CASE_TRACEABILITY.md), outside the ontology.
 - Model files: keep the central model in the single file `semantics/model/webuild.ttl` for now. Split it only when clear, meaningful module boundaries have been jointly established.
-- Store application profiles as separate SHACL Turtle files under `semantics/application_profile` and check their examples with pySHACL. Use `https://w3id.org/ebwv/profile/<profile-id>#` for a profile's named shapes and `https://w3id.org/ebwv#` for references to central classes and properties. Use a readable English profile name in lowercase with hyphens between words as the profile ID, for example `authorised-signatories`.
+- Store application profiles as separate SHACL Turtle files under `semantics/application_profile` and check their examples with pySHACL. Keep `https://w3id.org/ebwv/profile/<profile-id>#` for named shapes. Reference existing vocabulary terms with `ebwv:` and new extension terms or candidates with `ebwsm:`. Use a readable English profile name in lowercase with hyphens between words as the profile ID, for example `authorised-signatories`.
 - Central model and application profiles: put only generally applicable restrictions in the central model. Use-case-specific requirements for the presence of relations or values and their cardinalities belong in the relevant application profile.
-- The term namespace is `https://w3id.org/ebwv#`. An illustrative term IRI is `https://w3id.org/ebwv#Organization`.
-- The ontology IRI is `https://w3id.org/ebwv`. It identifies the ontology as a whole.
+- The extension term namespace is `https://w3id.org/ebwv/semantic-model#` (`ebwsm:`). Existing terms from the published vocabulary keep `https://w3id.org/ebwv#` (`ebwv:`).
+- The extension ontology IRI is `https://w3id.org/ebwv/semantic-model`. It identifies the extension, separately from the published EBWV vocabulary.
+- The extension Turtle model and separate SHACL Turtle profiles are its authoritative sources. The existing EBWV publication remains generated from YAML until its maintainers agree and implement a separate migration.
 - Keep `main` free of logical conflicts. Publish a version containing a known conflict only as a separate publication, with explicit approval from both modellers and a prominent warning. Record the exception in [QUALITY_EXCEPTIONS.md](QUALITY_EXCEPTIONS.md).
-- Merging into `main` requires applicable quality checks and approval by both modellers only for changes to the central ontology or its application profiles. A later change to the ontology or any profile invalidates both approvals.
+- Merging into `main` requires applicable quality checks and approval by both modellers only for changes to the central ontology, its imported dependency files or resolution metadata, or its application profiles. A later change to the ontology, an imported dependency or its resolution metadata, or any profile invalidates both approvals.
 - Namespace stewardship and the release publication process require joint agreement before external use of the draft.
 
-The joint draft and the existing generated implementation vocabulary use the same EBWV term namespace. Before reusing an existing IRI or assigning a new one, check its meaning in the implementation vocabulary to avoid conflicting definitions. Substantive model changes require joint approval by Bart and his modelling colleague.
+Before reusing an existing EBWV IRI, check its meaning and axioms in the pinned upstream version. Additional statements about that IRI must preserve its meaning; a distinct or incompatible meaning requires a new extension IRI and a justified mapping. New extension terms must not be minted in the EBWV namespace. Substantive model changes require joint approval by Bart and his modelling colleague.
 
 Confirm further starting decisions one at a time before implementing them.
+
+## Next modelling source: General Authorisation Model
+
+Bart selected the local `Reference_Documents/Authorisation.PlantUML` as the next integration source, ahead of further Authorised Signatories candidate-class adoption. The selected file contains 613 lines; its SHA-256 at selection/review is `9c5066cf4c8e6af64cf2648cb7e6180b38134a4f6530e83a9f70679d43464931`. It describes proposed RDF classes, object-property relations and datatype properties. It is local reference material in a Git-ignored directory, not an additional imported ontology or a published normative requirement. It is distinct from `semantics/model/Archive/authorisation_part.PlantUML`.
+
+Review the classes one at a time: source meaning and use-case need, compatibility with reviewed EBWV/Dublin Core/PROV concepts, an appropriate existing superclass if justified, the taxonomic or base definition, and only then the relevant property and OWL/SHACL decisions. Implement substantive mappings after agreement. The approved Agent, Role and RoleFulfillment meanings provide discussion context; the source selection does not itself map them to PROV-O or adopt further classes, properties or cardinalities. A shared local name alone does not establish equivalence.
+
+## Source ownership and EBWV reuse
+
+On 20 November 2026 Bart approved reusing existing EBWV terms, placing new terms in `ebwsm:`, and treating the extension's RDF sources as authoritative. The namespace is adopted for the local joint draft; external publication and namespace stewardship remain subject to team agreement. The namespace change preserves the approved Agent meaning and superclass relation.
+
+| Source | Responsibility |
+| --- | --- |
+| `semantics/model/webuild.ttl` | Authoritative OWL model for extension terms and reviewed, compatible augmentations of existing terms. |
+| `semantics/application_profile/*/shapes.ttl` | Authoritative SHACL constraints for each application profile. Keep these separate from the Protégé OWL editing workflow. |
+| `vocab/src/vocabulary.yml` | Current source of the existing published EBWV vocabulary and its generated outputs. |
+| `docs/ebwv/vocabulary.ttl` | Generated EBWV output; not an editable source for the extension. The current local copy predates the pinned upstream revision. |
+
+The EBWV reuse baseline is repository revision [`c34c0f810c1ba4155360a36c590c81f0ccd41c43`](https://github.com/webuild-consortium/wp4-semantics-group/commit/c34c0f810c1ba4155360a36c590c81f0ccd41c43), dated 2 November 2026 and inspected on 20 November 2026. Consult the [vocabulary at that revision](https://github.com/webuild-consortium/wp4-semantics-group/blob/c34c0f810c1ba4155360a36c590c81f0ccd41c43/docs/ebwv/vocabulary.ttl) and its [YAML source](https://github.com/webuild-consortium/wp4-semantics-group/blob/c34c0f810c1ba4155360a36c590c81f0ccd41c43/vocab/src/vocabulary.yml), rather than assuming that local generated files equal current upstream files. The retrieved Turtle file's SHA-256 is `022b65e1c5753353eeba8d4911bbdc710b64f6e5760c2a09b4b0cf48e8c8e7c4`.
+
+**Full vocabulary import is pending.** The pinned Turtle fails parsing at line 2762: the regular-expression backslash in the EUID pattern is not escaped for a Turtle string. The upstream original has not been patched, imported or replaced by a modified copy in the active model. The extension currently reuses reviewed IRIs, with local OWL declarations where needed, and records the baseline as `dcterms:source`. A source link is not `owl:imports` and does not load the vocabulary's axioms. A passing extension suite does not certify the full EBWV graph. Resolve the upstream serialization defect, establish reproducible local dependency resolution and check the complete imported graph before enabling a full import; syntax repair alone is not proof of OWL 2 DL compatibility.
+
+Existing EBWV properties have global domain and range axioms. These remain effective if the vocabulary is imported; a new namespace does not override or remove them. The authored extension follows the class-level modelling rules below. Review the consequences of every reused property and propose an upstream correction or a distinct extension property when meanings differ. For example, the current `ebwv:role` is an object property whose range includes an enumeration of existing roles; it is not automatically suitable for arbitrary context-specific role objects.
+
+The extension is not generated from YAML. Future HTML or RDF serializations of it must be derived from the authoritative RDF sources. A JSON-LD context additionally needs explicit mapping and coercion decisions where relevant; a lossless context must not be assumed from the ontology alone. Replacing YAML as the source of the published EBWV vocabulary requires a separate team decision, generator migration and validation of existing outputs. No such upstream migration is implemented by this extension change.
+
+The three new definition annotation properties moved from `ebwv:` to `ebwsm:`. The Authorised Signatories profile's 25 candidate IRIs also moved to `ebwsm:` in its shapes and six examples; the ten selected existing EBWV term IRIs remain unchanged. None of the 25 candidates is declared in the pinned vocabulary. This is a namespace migration, not adoption of those candidates into the central ontology. The later Role, RoleFulfillment and Dublin Core period decisions are recorded below; `InformationObject` remains a proposal.
+
+Validation after the namespace migration on 20 November 2026: the full suite passed all 27 checker regression tests, structural and editorial checks on the 23-triple extension graph, HermiT consistency and named-class satisfiability checks, and all six SHACL examples with their expected results. A separate RDF graph comparison confirmed that the shapes and examples differ from their previous graphs only by migration of the 25 candidate IRIs. The approved Agent superclass relation is preserved. This evidence covers the authored extension, not a full EBWV import.
 
 ## Modelling reference
 
@@ -43,7 +95,108 @@ The agreed reference is [EBUCorePlus](http://www.ebu.ch/metadata/ontologies/ebuc
 
 Verified features of that source include `owl:Class`, `owl:ObjectProperty`, `owl:DatatypeProperty`, and class-level `owl:Restriction` expressions, including value restrictions and qualified cardinalities. No `rdfs:domain` statements occur in the inspected graph. Global `rdfs:range` statements do occur: for 222 datatype properties, one annotation property, and the object property `ec:isAbout`, whose range is `ec:Asset`. Therefore, the reference must not be described as universally avoiding global ranges. These observations concern the inspected source graph, not its imported ontologies.
 
-The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. The annotation properties for the three definition types are agreed below. Permitted restriction patterns and other annotations remain to be agreed one decision at a time. The automated suite runs the editorial checks and the HermiT logical checks described below. HermiT checks models within OWL 2 DL. The reference ontology has not been imported into the WEBUILD ontology, and no domain terms have been added.
+The confirmed direction is OWL modelling following this reference approach. WEBUILD applies the object property rule below consistently, including where the EBUCorePlus reference has an exception. The annotation properties for the three definition types are agreed below. Permitted restriction patterns and other annotations remain to be agreed one decision at a time. The automated suite runs the editorial checks and the HermiT logical checks described below. HermiT checks models within OWL 2 DL. The reference ontology has not been imported into the WEBUILD ontology. The adopted Agent, Role, RoleFulfillment and time-interval decisions are described below.
+
+## Agent modelling decision
+
+Bart approved the following class meaning, definition and superclass relation on 19 November 2026 for inclusion in the joint draft. Approval by the other modeller is still required before merging this model revision into `main`.
+
+| Item | Adopted content |
+| --- | --- |
+| Class IRI | `https://w3id.org/ebwv#Agent` |
+| Preferred label | `"Agent"@en-GB` |
+| Named superclass | `http://purl.org/dc/terms/Agent` (`dcterms:Agent`) |
+| Taxonomic definition | An agent is a Dublin Core agent that can act, or be recognised as acting, as a social or legal actor within a business or legal process. |
+
+The intended scope covers natural persons, organisations and other social or legal actors in business or legal processes. Inclusion of software agents remains a separate modelling decision. Being an Agent does not by itself establish a mandate, authority to represent another party, or a specific role. These scope explanations are recorded as `rdfs:comment` in the model, and the definition is recorded with `ebwsm:taxonomicDefinition` on the unchanged `ebwv:Agent` IRI. The current logical content is the class declaration and the subclass axiom; no additional restrictions, class equivalence, disjointness or subclasses have been adopted for Agent. The subclass axiom supports inference of `dcterms:Agent` membership from `ebwv:Agent` membership, not the reverse.
+
+The [official Dublin Core Agent](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/Agent) is the broader class. The adopted WEBUILD scope is informed by the definition and notes of the [current WEBUILD Agent concept](https://sanastot.suomi.fi/en/terminology/webuild/concept/concept-41), inspected on 19 November 2026. That terminology concept is marked Draft and calls for an explicit decision before including software agents. Its textual broader-concept link to entity is not adopted as a common root for this ontology.
+
+The [existing implementation vocabulary](../docs/ebwv/vocabulary.ttl) already declares the same `ebwv:Agent` IRI as an RDFS class with a label, source references and status `stable`, but without a definition or superclass. Its source link ending in `/concept/agent` currently reports that the concept was not found. The current same-name terminology entry was found through the terminology search; historical identity with the old link has not been established. The status difference and source-link gap remain open for joint review. The implementation vocabulary is preserved unchanged.
+
+The local EBUCorePlus reference declares its Agent superclass under `http://purl.org/dc/elements/1.1/Agent`. WEBUILD deliberately uses the official `http://purl.org/dc/terms/Agent` IRI instead. The approved Dublin Core import supplies the OWL class declaration of that IRI; no duplicate declaration is needed in the working file. Since 23 November 2026, the approved class-only Dublin Core module supplies its original source definition and the other DCMI class declarations and mutual hierarchy. The automated reasoner checks the authored graph, the approved PROV-O import and that class module, not the complete Dublin Core RDF schema or the meaning of the prose definition.
+
+The use-case rationale and outstanding placements of more specific classes are recorded in [USE_CASE_TRACEABILITY.md](USE_CASE_TRACEABILITY.md). The Authorised Signatories profile and its candidate terms are unchanged by adding Agent. Other top-level domain classes remain subject to individual discussion before implementation.
+
+Validation on 19 November 2026: the full suite (`.local/quality-venv/bin/python -B semantics/quality/run.py`) passed all 21 checker regression tests, the structural and editorial checks on the 22-triple active model, HermiT consistency and named-class satisfiability checks, and all six Authorised Signatories pySHACL examples with their expected results. This automated result does not replace the remaining human review.
+
+## Role, fulfilment and time decisions
+
+On 20 November 2026 Bart approved the following meanings for the joint draft. Role and RoleFulfillment are new top-level extension classes with base definitions and no artificial named superclass. Dublin Core PeriodOfTime is reused directly as the interval class. Approval by the other modeller is still required before merging the resulting revision into main.
+
+| IRI | Preferred label | Definition |
+| --- | --- | --- |
+| `https://w3id.org/ebwv/semantic-model#Role` | `"Role"@en-GB` | A role is a context-dependent capacity that an entity can fulfil when participating in an activity, event, relationship, or situation. |
+| `https://w3id.org/ebwv/semantic-model#RoleFulfillment` | `"Role fulfilment"@en-GB` | A role fulfilment is the participation of a particular entity in a particular role during one continuous time interval. |
+| `http://purl.org/dc/terms/PeriodOfTime` | `"Period of time"@en-GB` | The existing DCMI class describes an interval named or defined by its start and end dates. Its original definition is supplied by the imported class module; the local display label and source link remain in the working file. No new definition is assigned to the external class. |
+
+The player, role and role fulfilment retain distinct identities. A role can exist without a current player, and its player is not restricted to Agent. A particular role fulfilment associates one player with one role during one continuous interval; a later separate period is represented by a different fulfilment. The context belongs to the role and is reached through it, avoiding a second context assertion on the fulfilment. An ended fulfilment remains a historical fact. The general class definition does not assert that every classification of a thing is immutable throughout its existence.
+
+The local OJA Role reference in Reference_Documents/OJA/ebio.ttl supplies the distinction between a player, its role and the time qualification of playing the role. Its IRI is recorded as a source, not as a superclass or equivalence mapping. The OJA FunctionalEntity hierarchy and organisation/name SHACL obligations are not adopted. The [W3C n-ary relation pattern](https://www.w3.org/TR/swbp-n-aryRelations/) informs modelling a fulfilment as a separate object when the relation has its own time qualification.
+
+The selected external class is the official [dcterms:PeriodOfTime](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/PeriodOfTime), with the exact IRI http://purl.org/dc/terms/PeriodOfTime. It represents an interval rather than merely a duration. It is distinct from dcterms:Period, which is an encoding datatype. Reusing the interval class does not itself specify properties for its boundaries or require both dates to be supplied. Missing or not-yet-known boundaries must not be interpreted as an assertion of endless fulfilment.
+
+The model contains the approved class declarations, labels, definitions and explanatory annotations. Link-property names, class-level OWL restrictions for the player/role/interval relations, the representation of time boundaries and applicable SHACL requirements remain to be reviewed individually. The explanatory comments do not enforce the conceptual relations or cardinalities. No Role subclass, no mapping from the candidate SignatoryRole, and no change to the existing profile constraints is implied by these class declarations.
+
+The existing ebwv:PeriodOfTime is not imported, modified, deprecated or declared equivalent to the Dublin Core class by this change. Bart approved the shortened issue text, and [GitHub issue #67](https://github.com/webuild-consortium/wp4-semantics-group/issues/67) was published from his account on 20 November 2026 to review direct Dublin Core reuse and the continued meaning and use of the EBWV IRI. The issue does not itself adopt a mapping or change the vocabulary. Source changes to that vocabulary still follow its current YAML build process.
+
+Validation after adding the role and interval classes on 20 November 2026: the full suite passed all 27 checker regression tests, structural/editorial checks on the 37-triple active extension graph, HermiT consistency and named-class satisfiability checks, and all six existing SHACL examples with their expected results. This verifies the declarations and authored graph; it does not validate fulfilment relations that have not yet been formalised.
+
+## Controlled PROV-O import
+
+On 23 November 2026 Bart approved the previously tested local PROV-O copy and requested that prov:wasRevisionOf and prov:specializationOf be retained as object properties. The central model imports the pinned core version, which supplies both object-property declarations; redundant local declarations were subsequently removed. Their original property axioms are supplied by the import, without copying global domain/range statements into the authored extension.
+
+| Item | Value |
+| --- | --- |
+| Term namespace | `http://www.w3.org/ns/prov#` (`prov:`) |
+| Imported ontology IRI recognised by Protégé | `http://www.w3.org/ns/prov#` |
+| Published version recorded in the pinned source | `http://www.w3.org/ns/prov-o-20130430` |
+| Catalogue | `model/catalog-v001.xml`, with a relative path to the corrected local file |
+| Imported file | `imports/prov-o/prov-o-20130430.ttl` |
+| Unchanged upstream snapshot | `imports/prov-o/prov-o-20130430.original.ttl` |
+| Source | https://www.w3.org/ns/prov-o, retrieved on 20 November 2026 |
+| Dependency metadata and checksums | `imports/manifest.json` |
+
+The original file declares each of the two properties as both an annotation property and an object property. The original therefore fails the OWL 2 DL profile check. This [known source defect](https://lists.w3.org/Archives/Public/public-prov-comments/2017May/0000.html) is corrected locally by removing exactly these two triples:
+
+```turtle
+prov:wasRevisionOf rdf:type owl:AnnotationProperty .
+prov:specializationOf rdf:type owl:AnnotationProperty .
+```
+
+Their object-property declarations, domain/range axioms, property hierarchies, chains and all other source triples remain unchanged. The original has 1,146 triples; the corrected copy has 1,144. The dependency checker verifies both file checksums and RDF graph equality after the two authorised removals. This is a documented local correction, not a claim that the W3C publication has changed. The original remains available as evidence and is not loaded for reasoning.
+
+The source includes historical ontology-header declarations under both the PROV namespace and the PROV-O ontology IRI. In the observed Protégé session the earlier version-IRI import loaded the document under `http://www.w3.org/ns/prov#`, but its classes appeared only under **Show all loaded ontologies**, not under **Show the imports closure of the active ontology**. The active import now uses the loaded ontology identity `http://www.w3.org/ns/prov#`. Its catalogue target, file hash, source hash and exact two-triple correction remain unchanged; the manifest additionally verifies that the published version IRI is present in the source metadata. No further source-header correction is made. The OJA reference file prov.ttl bundles additional PROV modules and is not used as this dependency; the selected PROV-O core has no further imports.
+
+The central model remains a single authored file. External snapshots under semantics/imports are separate dependencies. Protégé uses the catalogue when opening the model. The automated checks resolve the same mapping, verify the full direct/transitive dependency closure and pass explicit local mappings to OWLAPI. Missing mappings, unexpected ontology/version identities, checksum changes or broader edits to the corrected source fail the suite. The automated import loader does not fall back to network retrieval.
+
+Authoring conventions apply to axioms written in the extension. Imported PROV-O axioms retain their original conventions, including global domains/ranges; these participate in reasoning. HermiT checks the complete imported combination for OWL 2 DL conformance, logical consistency and unsatisfiable named classes. The SHACL examples continue to be checked without additional inference or an ontology graph; importing PROV-O into the OWL model does not silently change that profile-validation setting. General PROV temporal/data constraints are not all enforced merely by loading PROV-O.
+
+Importing PROV-O introduces no superclass, equivalence or property mapping between existing WEBUILD concepts and PROV concepts. In particular, the imported prov:Role and prov:Association remain distinct from ebwsm:Role and ebwsm:RoleFulfillment until mappings are individually agreed. The same applies to prov:Agent and the existing Agent classes. Use PROV properties only after reviewing their meanings and inferred domain/range effects. No new use-case obligation is introduced by this import.
+
+Validation on 23 November 2026: all 39 checker/dependency regression tests, the 41-triple authored graph and complete pinned dependency resolution passed. HermiT checked the root and imported ontology together: OWL 2 DL conformance, consistency and no unsatisfiable named classes. All six SHACL examples returned their expected results. A temporary negative control made prov:Activity a subclass of prov:Entity and was correctly rejected because of the imported disjointness axiom; the active model was unchanged by that control.
+
+After this import-identity correction on 23 November 2026, PROV classes including Agent, Activity, Entity and Role were visually confirmed in the same WEBUILD class tree with **Show the imports closure of the active ontology** selected. The suite passed all 44 regression tests, the 43-triple authored graph, both pinned imports, explicit direct-import resolution checks, OWL 2 DL/HermiT checks and all six expected SHACL results. No class hierarchy or definition was changed by this correction.
+
+## Controlled Dublin Core class import
+
+On 23 November 2026 Bart approved a controlled class-only Dublin Core module and reaffirmed the PROV-O correction for `prov:wasRevisionOf` and `prov:specializationOf` as object properties. The central model resolves both checksum-pinned dependencies through the same local catalogue. Dublin Core uses the derived module's version IRI; PROV-O uses its ontology identity recognised by Protégé as documented above. There is one working ontology, `model/webuild.ttl`; the dependency files are background sources, not extra modelling windows.
+
+The module imports all 22 classes explicitly declared in the downloaded DCMI Terms schema, preserves their IRIs, labels, definition comments, descriptive notes and all eight class-to-class subclass relations. It includes `dcterms:PeriodOfTime rdfs:subClassOf dcterms:LocationPeriodOrJurisdiction`. It adds no alignment to PROV-O and does not change the adopted WEBUILD Agent, Role or RoleFulfillment definitions or their own superclass decisions.
+
+This is explicitly a local OWL projection, with its own ontology/version IRI, not an official DCMI OWL distribution or a complete schema import. The original RDF metamodel statements `dcterms:Agent rdf:type dcterms:AgentClass` and `dcterms:AgentClass rdfs:subClassOf rdfs:Class` are excluded. The classes themselves remain available. Source property definitions, datatypes, encoding schemes and issuance metadata are also excluded. The full unmodified schema had failed the OWL 2 DL profile check in a separate trial; that finding was not a logical inconsistency result. See the [dependency record](imports/dcterms/README.md) for the preserved upstream snapshot, exact selection recipe, source limitations and reproduction command.
+
+The catalogue resolves `https://w3id.org/ebwv/semantic-model/imports/dcterms-classes/2026-11-23` to `imports/dcterms/dcterms-classes-2026-11-23.ttl`. The dependency manifest pins both the source and derived file hashes. Validation reconstructs the approved projection and requires exact RDF graph equality, so updating a checksum alone cannot authorise a new hierarchy edge or other content. The full suite includes all three ontology documents in OWL 2 DL and HermiT checks.
+
+Validation on 23 November 2026 after adding the class module: all 42 regression tests passed; the authored graph has 43 triples and both dependency documents resolve and verify locally. HermiT found the complete combination OWL 2 DL conformant and consistent, with no unsatisfiable named classes. All six SHACL examples returned their expected results. The PROV-O files and their exact approved two-triple correction were preserved. The earlier local `Reference_Documents/Import_Review` workspace is superseded for everyday modelling; no switching to it is needed.
+
+## Removal of redundant imported declarations
+
+On 23 November 2026 Bart requested review of the local declarations now that both imports display correctly. The working file no longer repeats the imported OWL class declarations of `dcterms:Agent` and `dcterms:PeriodOfTime`, the object-property declarations of `prov:wasRevisionOf` and `prov:specializationOf`, or the imported `rdfs:comment` definition of PeriodOfTime. The approved PROV-O correction remains in the imported dependency; removing the duplicate declarations does not undo it.
+
+The local `skos:prefLabel "Period of time"@en-GB` and the term-specific `dcterms:source` link are retained on PeriodOfTime. These are WEBUILD annotations absent from the imports, rather than duplicate source declarations. The Dublin Core import supplies the original definition, class declaration and superclass relation.
+
+Validation after cleanup: all 44 regression tests, OWL 2 DL/HermiT checks across all three ontology documents and all six expected SHACL results passed. The authored graph has 38 triples. An RDF graph-isomorphism comparison of the complete graph including imports before and after the removal confirmed that the effective 1,287-triple graph is unchanged.
 
 ## Object property modelling rule
 
@@ -51,7 +204,7 @@ For object properties, express class-specific conditions through OWL restriction
 
 This decision establishes where conditions are expressed. It does not prescribe a universal restriction or cardinality for every relation. Decide the appropriate restriction for each intended meaning; do not add existence or cardinality requirements merely because an object property is used by a class. Datatype properties follow the same class-level approach to applicability, while their ranges follow the separate rule below.
 
-This rule governs the new jointly developed model. Archived originals and the existing implementation vocabulary remain unchanged.
+This rule governs axioms authored in the extension, including any authored statements about reused properties. Existing axioms from the upstream vocabulary are not rewritten by this rule. Archived originals and the existing implementation vocabulary remain unchanged.
 
 ## Central model and application profiles
 
@@ -59,7 +212,7 @@ The central model contains only restrictions that hold generally for the meaning
 
 For example, an address may be mandatory for a particular application without requiring every organisation in the central model to have an address. This is an illustration of the separation, not a new class, property, or cardinality axiom.
 
-This agreement does not prohibit cardinalities in the central model: include them there when they express a generally valid condition for the modelled concept. Do not promote a use-case-specific requirement into the central model merely because one implementation needs it. Reviewers must check the scope and justification of each restriction. Application profiles use SHACL in separate Turtle files under `semantics/application_profile`. Use `https://w3id.org/ebwv/profile/<profile-id>#` for the profile's named shapes and `https://w3id.org/ebwv#` for references to central model terms. pySHACL checks the example graphs without additional inference. Any profile-specific inference remains to be agreed. See the [application profile guide](application_profile/README.md).
+This agreement does not prohibit cardinalities in the central model: include them there when they express a generally valid condition for the modelled concept. Do not promote a use-case-specific requirement into the central model merely because one implementation needs it. Reviewers must check the scope and justification of each restriction. Application profiles use SHACL in separate Turtle files under `semantics/application_profile`. Use `https://w3id.org/ebwv/profile/<profile-id>#` for named shapes, `ebwv:` for reused vocabulary terms and `ebwsm:` for new extension terms or candidates. pySHACL checks the example graphs without additional inference. Any profile-specific inference remains to be agreed. See the [application profile guide](application_profile/README.md).
 
 ## Datatype property modelling rule
 
@@ -67,7 +220,9 @@ A datatype property may have a global `rdfs:range`, such as `xsd:date`. Declarin
 
 ## Term names and label language
 
-Use readable American English terms for the local names in term IRIs. Use British English for English labels, with the RDF language tag `en-GB`. For example, the IRI `https://w3id.org/ebwv#Organization` would have the English label `"Organisation"@en-GB`. The IRI spelling and the label spelling deliberately differ.
+Use readable American English terms for the local names of new extension term IRIs. Use British English for English labels, with the RDF language tag `en-GB`. For example, an illustrative new IRI `https://w3id.org/ebwv/semantic-model#Organization` would have the English label `"Organisation"@en-GB`. The IRI spelling and the label spelling deliberately differ. Preserve existing EBWV IRIs when reusing their meanings.
+
+In `semantics/model/webuild.ttl`, use explicit prefixes: `ebwv:` for reused terms under `https://w3id.org/ebwv#`, and `ebwsm:` for new terms under `https://w3id.org/ebwv/semantic-model#`. Avoid the empty prefix.
 
 These conventions apply to newly authored WEBUILD terms and labels. Preserve identifiers and original annotations in imported sources and archived material. Use `UpperCamelCase` for class local names and `lowerCamelCase` for property local names. For example, use `RegisteredOrganization` and `hasRegisteredAddress`. These are IRI naming conventions; they do not require CamelCase in human-readable labels. Use `skos:prefLabel` and `skos:altLabel` as specified below. The example illustrates naming only; it does not add an Organization class to the ontology or determine the spelling convention for all prose documentation.
 
@@ -79,7 +234,7 @@ For each term, allow at most one preferred label per language tag. Do not use th
 
 Both properties are OWL annotation properties and can annotate OWL classes and properties directly. Their use does not require or imply `rdf:type skos:Concept`. The ontology declares these two reused annotation properties under their original SKOS IRIs; it does not import the complete SKOS ontology or add SKOS concept classifications. Separate duplicate `rdfs:label` annotations are not required by this convention.
 
-Protégé is configured on this workstation to display `skos:prefLabel`, with the language preference field set to `en-GB, en, !` so British English has first priority. Both the Annotation Renderer and Preferences dialogs were confirmed. The ontology has no domain entities with labels yet, so display of actual domain labels has not been exercised.
+Protégé is configured on this workstation to display `skos:prefLabel`, with the language preference field set to `en-GB, en, !` so British English has first priority. Both the Annotation Renderer and Preferences dialogs were confirmed during setup. The model now contains the preferred label for Agent; its display in Protégé has not yet been checked.
 
 To reproduce the setting, open **View → Custom rendering…**, select **Render by annotation property**, and click **Configure…**. Use `http://www.w3.org/2004/02/skos/core#prefLabel` as the annotation IRI, enter `en-GB, en, !` in **Set Language**, and confirm both dialogs with **OK**. Do not select `skos:altLabel` as the display property.
 
@@ -99,13 +254,13 @@ Keep three distinct types of definition rather than one undifferentiated definit
 
 For example, if `CentrifugalPump` is a subclass of `Pump`, the taxonomic definition is: “A centrifugal pump is a pump with a rotating impeller.” This illustrates the definition pattern only; neither class has been added to the WEBUILD ontology.
 
-The optional legal and business definitions do not replace the mandatory taxonomic definition or, for a class or property without a meaningful superclass or superproperty respectively, its mandatory base definition. Use the three local OWL annotation properties listed below. Their IRIs use the EBWV term namespace `https://w3id.org/ebwv#`. The proposal to use a single `skos:definition` field has not been adopted.
+The optional legal and business definitions do not replace the mandatory taxonomic definition or, for a class or property without a meaningful superclass or superproperty respectively, its mandatory base definition. Use the three local OWL annotation properties listed below. Their IRIs use the extension namespace `https://w3id.org/ebwv/semantic-model#` (`ebwsm:`). The proposal to use a single `skos:definition` field has not been adopted.
 
 | Annotation property | Use |
 | --- | --- |
-| `:taxonomicDefinition` | Mandatory taxonomic definition; also holds the mandatory base definition for a class without a meaningful superclass or a property without a meaningful superproperty. |
-| `:legalDefinition` | Optional verbatim legal definition; a source reference is mandatory whenever a legal definition is provided, preferably as a URI. |
-| `:businessDefinition` | Optional definition in everyday language. |
+| `ebwsm:taxonomicDefinition` | Mandatory taxonomic definition; also holds the mandatory base definition for a class without a meaningful superclass or a property without a meaningful superproperty. |
+| `ebwsm:legalDefinition` | Optional verbatim legal definition; a source reference is mandatory whenever a legal definition is provided, preferably as a URI. |
+| `ebwsm:businessDefinition` | Optional definition in everyday language. |
 
 In Protégé, add these annotations to the class or property being defined. The mandatory definition is an editorial requirement; declaring an annotation property does not enforce its presence. The automated quality checker verifies the presence of non-empty definition text; reviewers assess its meaning and taxonomic structure. No extra definition type or formal hierarchy is introduced by these declarations.
 
@@ -120,25 +275,25 @@ Record the definition as an annotation and the formal property hierarchy separat
 
 Every legal definition must have a source reference identifying the relevant legislation or regulation and the specific article. Prefer a URI pointing to the official source and, where available, the specific article. The source reference is mandatory; use of a URI is a preference, not an absolute requirement when no suitable URI is available.
 
-Use `dcterms:source` (`http://purl.org/dc/terms/source`) as an OWL annotation property on the specific `:legalDefinition` annotation assertion. This associates the source with that definition text. A source annotation on the class or property alone does not establish which definition it supports. The ontology declares `dcterms:source` without importing the Dublin Core vocabulary.
+Use `dcterms:source` (`http://purl.org/dc/terms/source`) as an OWL annotation property on the specific `ebwsm:legalDefinition` annotation assertion. This associates the source with that definition text. A source annotation on the class or property alone does not establish which definition it supports. The ontology declares `dcterms:source` without importing the Dublin Core vocabulary.
 
 In Protégé, add the legal definition to the entity, then annotate that definition assertion with `dcterms:source`. Enter the source as an IRI value when a suitable URI is available, rather than a text literal containing a URL. If several legal definitions exist for one term, attach the appropriate source to each definition separately. The automated quality checker verifies that every legal definition has a source on its exact annotation assertion. Reviewers verify the source and quotation.
 
-The following Turtle illustrates the agreed pattern with the EBWV term namespace, a fictional term, and a placeholder source URI.
+The following Turtle illustrates the agreed pattern with the extension namespace, a fictional term, and a placeholder source URI.
 
 ```turtle
-@prefix : <https://w3id.org/ebwv#> .
+@prefix ebwsm: <https://w3id.org/ebwv/semantic-model#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-:legalDefinition a owl:AnnotationProperty .
+ebwsm:legalDefinition a owl:AnnotationProperty .
 dcterms:source a owl:AnnotationProperty .
-:ExampleTerm a owl:Class ;
-    :legalDefinition "Placeholder legal definition."@en-GB .
+ebwsm:ExampleTerm a owl:Class ;
+    ebwsm:legalDefinition "Placeholder legal definition."@en-GB .
 
 [] a owl:Axiom ;
-    owl:annotatedSource :ExampleTerm ;
-    owl:annotatedProperty :legalDefinition ;
+    owl:annotatedSource ebwsm:ExampleTerm ;
+    owl:annotatedProperty ebwsm:legalDefinition ;
     owl:annotatedTarget "Placeholder legal definition."@en-GB ;
     dcterms:source <https://example.org/legislation/example/article/1> .
 ```
@@ -147,9 +302,9 @@ The `owl:annotatedTarget` must match the definition literal exactly, including i
 
 References: [Dublin Core source](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/source/) and [W3C OWL axiom annotations in RDF](https://www.w3.org/TR/owl2-mapping-to-rdf/#Axioms_that_Generate_a_Main_Triple).
 
-Legal definitions must be literal quotations from the cited source. Preserve the source wording, including its spelling; do not paraphrase or silently rewrite the text to match the label spelling convention. Explanations in everyday language belong in `:businessDefinition` and must not be presented as quotations from legislation. Each legal quotation retains its own required source reference as described above.
+Legal definitions must be literal quotations from the cited source. Preserve the source wording, including its spelling; do not paraphrase or silently rewrite the text to match the label spelling convention. Explanations in everyday language belong in `ebwsm:businessDefinition` and must not be presented as quotations from legislation. Each legal quotation retains its own required source reference as described above.
 
-For a class without a meaningful named superclass, provide a mandatory base definition explaining what instances of the class are and what characterises them. Store it in `:taxonomicDefinition`. Do not invent a superclass solely to satisfy the definition format. A superclass of `owl:Thing` alone does not supply an informative taxonomic definition. The base definition fulfils the mandatory definition requirement; it is not a fourth definition type. This editorial rule does not add or change formal class hierarchy axioms.
+For a class without a meaningful named superclass, provide a mandatory base definition explaining what instances of the class are and what characterises them. Store it in `ebwsm:taxonomicDefinition`. Do not invent a superclass solely to satisfy the definition format. A superclass of `owl:Thing` alone does not supply an informative taxonomic definition. The base definition fulfils the mandatory definition requirement; it is not a fourth definition type. This editorial rule does not add or change formal class hierarchy axioms.
 
 Reference: [W3C OWL 2 object subproperties](https://www.w3.org/TR/owl2-syntax/#Object_Subproperties) and [data subproperties](https://www.w3.org/TR/owl2-syntax/#Data_Subproperties).
 
@@ -186,7 +341,7 @@ The earlier separation remains in force: generally applicable conceptual restric
 
 Logical inconsistency and unsatisfiable named classes reported by HermiT block merging into `main`. Approval of an exception authorises only a separate publication of the documented revision. Both modellers must explicitly approve the exception, and the publication must display a clear warning that identifies the conflict and its consequences. The [quality exception register](QUALITY_EXCEPTIONS.md) records the finding, rationale, scope, approvals, and resolution plan.
 
-Use the [ontology pull request template](../.github/PULL_REQUEST_TEMPLATE/ontology.md) to record the quality evidence and both approvals. The local suite and GitHub workflow run HermiT after the structural and editorial checks. The automated check currently requires a model without imports because the project has yet to configure how to load a complete import closure. Its status fails on logical findings and on incomplete checks, including models outside OWL 2 DL. GitHub enforcement of the scoped merge requirements and any profile-specific SHACL inference settings are still to be configured.
+Use the [ontology pull request template](../.github/PULL_REQUEST_TEMPLATE/ontology.md) to record the quality evidence and both approvals. The local suite and GitHub workflow run HermiT after the structural and editorial checks. The automated check resolves the complete import closure from the local catalogue and dependency manifest, verifies pinned files and approved corrections, and checks all imported axioms with HermiT. Imports that are missing, unpinned or outside the catalogue fail the suite. Its status fails on logical findings and on incomplete checks, including models outside OWL 2 DL. GitHub enforcement of the scoped merge requirements and any profile-specific SHACL inference settings are still to be configured.
 
 References: [W3C OWL 2 Primer on open-world semantics](https://www.w3.org/TR/owl2-primer/) and [W3C SHACL minimum-count constraints](https://www.w3.org/TR/shacl/#MinCountConstraintComponent).
 
@@ -198,9 +353,9 @@ These links belong in repository documentation, not in ontology annotations or d
 
 ## Quality checks before every GitHub synchronisation
 
-The merge requirements apply when a pull request changes the active central ontology (currently `semantics/model/webuild.ttl`) or files belonging to an application profile under `semantics/application_profile`, including its SHACL shapes and examples. A pull request with other changes as well is in scope as soon as it touches either area. GitHub may still run the quality suite for unrelated changes, whose merges are outside this policy.
+The merge requirements apply when a pull request changes the active central ontology (currently `semantics/model/webuild.ttl`) or its imported dependency files under `semantics/imports`, the local catalogue, or files belonging to an application profile under `semantics/application_profile`, including its SHACL shapes and examples. A pull request with other changes as well is in scope as soon as it touches any of these areas. GitHub may still run the quality suite for unrelated changes, whose merges are outside this policy.
 
-Record the reviewed revision with each approval. If the central ontology or an application profile changes after approval, treat both approvals as expired. Run the applicable quality checks again and obtain fresh approval from both modellers for the revised content before merging into `main`. Changes confined to files outside the scope above do not trigger a new review under this rule.
+Record the reviewed revision with each approval. If the central ontology, an imported dependency, its resolution metadata or an application profile changes after approval, treat both approvals as expired. Run the applicable quality checks again and obtain fresh approval from both modellers for the revised content before merging into `main`. Changes confined to files outside the scope above do not trigger a new review under this rule.
 
 Run all automated checks on the saved files before every push, including a push to a working branch. Complete the applicable human review below and review the Git diff. If a pull or merge changes the model, run the checks again on the resulting files before continuing or pushing. Protégé changes must be saved first; these checks read the files on disk.
 
@@ -219,7 +374,7 @@ Run the full automated suite:
 
 A non-zero exit status means the checks failed. Fix the reported errors before synchronising. The suite runs the checker regression tests, validates the active model, runs HermiT on the same model files, and checks application-profile examples with pySHACL. The same suite is configured in `.github/workflows/ontology-quality.yml` for every push, pull request, and manual workflow run. It runs on GitHub once the workflow is pushed. Local execution is a working agreement, not an installed Git hook. This workflow does not configure branch protection or enforce the human approval process.
 
-The checks parse all `.ttl` files under `semantics/model` except `Archive` and `modelling_considerations`, and validate their combined graph. `webuild.ttl` must exist. Archived originals, `vocab`, and generated `docs/ebwv` are outside this draft model's validation scope. Imports and source URIs are not fetched. The checker expects the ontology declaration for `https://w3id.org/ebwv` and applies namespace-specific checks to terms under `https://w3id.org/ebwv#`.
+The checks parse all `.ttl` files under `semantics/model` except `Archive` and `modelling_considerations`, and validate their combined graph. `webuild.ttl` must exist. Archived originals, `vocab`, and generated `docs/ebwv` are outside this extension graph's validation scope. A passing suite must not be represented as validation of the upstream EBWV vocabulary. Source URIs and import URLs are not fetched during validation; approved imports are resolved to pinned local files through the catalogue and manifest. Imported graphs are kept separate from the authored graph for editorial checks and are included in logical checks. The checker expects the extension ontology declaration for `https://w3id.org/ebwv/semantic-model`. Editorial checks cover new `ebwsm:` terms and any reused `ebwv:` terms annotated with extension definitions. Bare reused class declarations do not require replacing their original annotations. The checker rejects the obsolete EBWV IRIs for our three extension definition properties. Declarations in the EBWV namespace must be listed as reviewed reuse in `REVIEWED_EBWV_DECLARATIONS` in `semantics/quality/check.py` (currently Agent); new terms belong in `ebwsm:`. Add an existing term to that reviewed set only alongside its agreed model change and traceability record. Correct reuse of other EBWV IRIs remains a human review obligation against the pinned source.
 
 Automated checks cover:
 
@@ -238,7 +393,7 @@ Human review covers what these checks cannot establish: meaningful superclass/su
 
 An ontology IRI identifies the ontology; the path to the `.ttl` file specifies its storage location. Do not make that identity depend on someone's local user directory.
 
-Protégé can resolve local imports through a `catalog-v001.xml` file. Share such a catalogue only with reviewed, relative file paths. Do not automatically ignore catalogues: they may be needed to open the model correctly on another computer. Do not silently redirect a missing import to an ontology with a different IRI.
+Protégé can resolve local imports through a `catalog-v001.xml` file. Share such a catalogue only with reviewed, relative file paths. Do not automatically ignore catalogues: they may be needed to open the model correctly on another computer. Do not silently redirect a missing import to an ontology with a different IRI. The active PROV-O ontology identity, pinned version and exact approved correction, and the locally identified Dublin Core class projection, are documented in their respective controlled-import sections above. Confirm that dependency classes appear in the active import closure; a document being listed as loaded does not by itself establish that.
 
 The following was observed in the archived models on 30 September 2026:
 

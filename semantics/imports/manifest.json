@@ -1,0 +1,29 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "iri": "http://www.w3.org/ns/prov#",
+      "published_version_iri": "http://www.w3.org/ns/prov-o-20130430",
+      "file": "prov-o/prov-o-20130430.ttl",
+      "sha256": "35d9574a78c8ac896a93eb264692aa86c13ee33ba815395843c8f40f105c522b",
+      "source_url": "https://www.w3.org/ns/prov-o",
+      "upstream_file": "prov-o/prov-o-20130430.original.ttl",
+      "upstream_sha256": "7d203989f67b38bca572253942acc5a1bf24ce3ccfece16f072dcb4be2b79a96",
+      "approved_on": "2026-11-23",
+      "remove_annotation_property_declarations": [
+        "http://www.w3.org/ns/prov#wasRevisionOf",
+        "http://www.w3.org/ns/prov#specializationOf"
+      ]
+    },
+    {
+      "iri": "https://w3id.org/ebwv/semantic-model/imports/dcterms-classes/2026-11-23",
+      "file": "dcterms/dcterms-classes-2026-11-23.ttl",
+      "sha256": "abfd58a1d7c37ec4ff2a8edfd470ca6e657bfcee28678879e33f1ffb63065dd5",
+      "source_url": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl",
+      "upstream_file": "dcterms/dublin_core_terms.original.ttl",
+      "upstream_sha256": "13df401072dd7015bf9d75162f3e41c8138075304b7b9cc1aa1e9c16db976797",
+      "approved_on": "2026-11-23",
+      "projection": "dcterms-classes-v1"
+    }
+  ]
+}

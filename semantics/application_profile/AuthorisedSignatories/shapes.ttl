@@ -1,5 +1,6 @@
 @prefix ap: <https://w3id.org/ebwv/profile/authorised-signatories#> .
 @prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix ebwsm: <https://w3id.org/ebwv/semantic-model#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -7,15 +8,15 @@
 # Draft profile. See readme.md for the source, proposed term IRIs and open decisions.
 ap:AuthorizedSignatoriesShape
     a sh:NodeShape ;
-    sh:targetClass ebwv:AuthorizedSignatories ;
+    sh:targetClass ebwsm:AuthorizedSignatories ;
     sh:property [
-        sh:path ebwv:hasLegalEntity ;
+        sh:path ebwsm:hasLegalEntity ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node ap:LegalEntityShape
     ] ;
     sh:property [
-        sh:path ebwv:hasAuthorizedPerson ;
+        sh:path ebwsm:hasAuthorizedPerson ;
         sh:minCount 1 ;
         sh:node ap:AuthorizedPersonShape
     ] .
@@ -24,13 +25,13 @@ ap:LegalEntityShape
     a sh:NodeShape ;
     sh:class ebwv:LegalEntity ;
     sh:property [
-        sh:path ebwv:hasLegalPerson ;
+        sh:path ebwsm:hasLegalPerson ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node ap:LegalPersonShape
     ] ;
     sh:property [
-        sh:path ebwv:hasLegalEntityIdentifier ;
+        sh:path ebwsm:hasLegalEntityIdentifier ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node ap:LegalEntityIdentifierShape
@@ -54,7 +55,7 @@ ap:LegalEntityIdentifierShape
     a sh:NodeShape ;
     sh:class ebwv:LegalEntityIdentifier ;
     sh:property [
-        sh:path ebwv:euid ;
+        sh:path ebwsm:euid ;
         sh:minCount 1 ;
         sh:datatype xsd:string
     ] ;
@@ -64,39 +65,39 @@ ap:LegalEntityIdentifierShape
         sh:pattern "^[A-Z0-9]{20}$"
     ] ;
     sh:property [
-        sh:path ebwv:taxIdentifier ;
+        sh:path ebwsm:taxIdentifier ;
         sh:datatype xsd:string
     ] .
 
 ap:AuthorizedPersonShape
     a sh:NodeShape ;
-    sh:class ebwv:AuthorizedPerson ;
+    sh:class ebwsm:AuthorizedPerson ;
     sh:property [
-        sh:path ebwv:hasNaturalPerson ;
+        sh:path ebwsm:hasNaturalPerson ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node ap:NaturalPersonShape
     ] ;
     sh:property [
-        sh:path ebwv:hasSignatoryRole ;
+        sh:path ebwsm:hasSignatoryRole ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node ap:SignatoryRoleShape
     ] ;
     sh:property [
-        sh:path ebwv:hasBirthPlace ;
+        sh:path ebwsm:hasBirthPlace ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node ap:PlaceShape
     ] ;
     sh:property [
-        sh:path ebwv:hasCitizenshipCountry ;
+        sh:path ebwsm:hasCitizenshipCountry ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node ap:CountryCodeShape
     ] ;
     sh:property [
-        sh:path ebwv:hasIdentifyingDocument ;
+        sh:path ebwsm:hasIdentifyingDocument ;
         sh:maxCount 1 ;
         sh:node ap:IdentifyingDocumentShape
     ] .
@@ -122,13 +123,13 @@ ap:NaturalPersonShape
 
 ap:SignatoryRoleShape
     a sh:NodeShape ;
-    sh:class ebwv:SignatoryRole ;
+    sh:class ebwsm:SignatoryRole ;
     sh:property [
-        sh:path ebwv:roleName ;
+        sh:path ebwsm:roleName ;
         sh:datatype xsd:string
     ] ;
     sh:property [
-        sh:path ebwv:representationType ;
+        sh:path ebwsm:representationType ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node ap:RepresentationTypeCodeShape
@@ -136,46 +137,46 @@ ap:SignatoryRoleShape
 
 ap:PlaceShape
     a sh:NodeShape ;
-    sh:class ebwv:Place ;
+    sh:class ebwsm:Place ;
     sh:property [
-        sh:path ebwv:locality ;
+        sh:path ebwsm:locality ;
         sh:minCount 1 ;
         sh:datatype xsd:string
     ] ;
     sh:property [
-        sh:path ebwv:hasCountry ;
+        sh:path ebwsm:hasCountry ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node ap:CountryCodeShape
     ] ;
     sh:property [
-        sh:path ebwv:hasRegion ;
+        sh:path ebwsm:hasRegion ;
         sh:maxCount 1 ;
         sh:node ap:CodeEntryShape
     ] .
 
 ap:IdentifyingDocumentShape
     a sh:NodeShape ;
-    sh:class ebwv:IdentifyingDocument ;
+    sh:class ebwsm:IdentifyingDocument ;
     sh:property [
-        sh:path ebwv:documentNumber ;
+        sh:path ebwsm:documentNumber ;
         sh:minCount 1 ;
         sh:datatype xsd:string
     ] ;
     sh:property [
-        sh:path ebwv:documentType ;
+        sh:path ebwsm:documentType ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node ap:CodeEntryShape
     ] ;
     sh:property [
-        sh:path ebwv:issuingCountry ;
+        sh:path ebwsm:issuingCountry ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node ap:CountryCodeShape
     ] ;
     sh:property [
-        sh:path ebwv:expiryDate ;
+        sh:path ebwsm:expiryDate ;
         sh:minCount 1 ;
         sh:datatype xsd:date
     ] .

@@ -13,11 +13,14 @@ For example, the Authorised Signatories profile would use these Turtle prefixes.
 ```turtle
 @prefix ap: <https://w3id.org/ebwv/profile/authorised-signatories#> .
 @prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix ebwsm: <https://w3id.org/ebwv/semantic-model#> .
 ```
 
-Reference central classes and properties by their existing IRIs under `https://w3id.org/ebwv#`. Use this namespace whenever a shape targets a central class or refers to a central property in a path. A profile's requirements must reflect its use case. Requirements valid generally for the meaning of a central concept belong in the central model. Maintain term-to-use-case links in the separate [traceability register](../USE_CASE_TRACEABILITY.md).
+Reference existing EBWV classes and properties with their unchanged `ebwv:` IRIs. Use `ebwsm:` for new extension terms and for candidate terms not declared in the pinned EBWV vocabulary. Check existing meanings and axioms before reusing an IRI; a candidate referenced by a shape is not thereby adopted into the central ontology. The shapes namespace remains separate from both domain namespaces. A profile's requirements must reflect its use case. Requirements valid generally for the meaning of a central concept belong in the central model. Maintain term-to-use-case links in the separate [traceability register](../USE_CASE_TRACEABILITY.md).
 
 Keep the SHACL shapes outside the central ontology and apply the relevant profile separately during data validation. The central OWL model is edited in Protégé; edit SHACL source files as Turtle, preserving their SHACL content. Do not save shapes through the central ontology's Protégé workflow without first verifying that the editor preserves them.
+
+The extension model and SHACL files are authoritative RDF sources for the extension. They are not generated from the existing vocabulary YAML. See the [source ownership and EBWV reuse decision](../PROTEGE_GITHUB.md#source-ownership-and-ebwv-reuse), including the pinned upstream version and the current full-import limitation.
 
 Existing profile diagrams and documentation are source material for review. This decision does not automatically convert or approve them as profiles of the new draft model.
 

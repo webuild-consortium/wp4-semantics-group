@@ -8,10 +8,16 @@ import sys
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS
 
+from dependencies import load_dependencies
+
 ROOT = Path(__file__).resolve().parents[2]
 MODEL = ROOT / "semantics/model"
-ONTOLOGY = URIRef("https://w3id.org/ebwv")
+ONTOLOGY = URIRef("https://w3id.org/ebwv/semantic-model")
 W = Namespace(f"{ONTOLOGY}#")
+EBWV = Namespace("https://w3id.org/ebwv#")
+# Extend only after reviewing reuse against the pinned vocabulary and recording
+# that decision. This is a reuse boundary, not a copy of the upstream ontology.
+REVIEWED_EBWV_DECLARATIONS = frozenset({EBWV.Agent})
 KINDS = (OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty)
 
 
@@ -33,14 +39,30 @@ def check_graph(graph):
         if (prop, RDF.type, OWL.AnnotationProperty) not in graph:
             error(prop, "missing annotation property declaration")
 
-    entities = {s for kind in (*KINDS, RDFS.Class, RDF.Property)
-                for s in graph.subjects(RDF.type, kind)
-                if isinstance(s, URIRef) and str(s).startswith(str(W))}
+    # Apply editorial rules to new extension terms and to reused EBWV terms
+    # explicitly augmented with our definitions. A bare external declaration
+    # does not require rewriting that vocabulary's original annotations.
+    declared = {s for kind in (*KINDS, RDFS.Class, RDF.Property)
+                for s in graph.subjects(RDF.type, kind) if isinstance(s, URIRef)}
+    for term in declared:
+        if (str(term).startswith(str(EBWV))
+                and term not in REVIEWED_EBWV_DECLARATIONS):
+            error(term, "EBWV declarations require reviewed reuse; new terms belong in ebwsm")
+    definitions = (W.taxonomicDefinition, W.legalDefinition, W.businessDefinition)
+    augmented = {s for prop in definitions for s in graph.subjects(prop, None)
+                 if isinstance(s, URIRef) and str(s).startswith(str(EBWV))}
+    entities = {s for s in declared if str(s).startswith(str(W))} | augmented
+    for prop in (EBWV.taxonomicDefinition, EBWV.legalDefinition, EBWV.businessDefinition):
+        if (any(graph.triples((prop, None, None)))
+                or any(graph.triples((None, prop, None)))
+                or any(graph.triples((None, OWL.annotatedProperty, prop)))):
+            error(prop, "extension definition properties must use the ebwsm namespace")
     for term in sorted(entities):
         types = set(graph.objects(term, RDF.type))
         if not types.intersection(KINDS):
             error(term, "declare the OWL class or specific OWL property type")
-        name = str(term)[len(str(W)):]
+        namespace = W if str(term).startswith(str(W)) else EBWV
+        name = str(term)[len(str(namespace)):]
         if OWL.Class in types or RDFS.Class in types:
             if not re.fullmatch(r"[A-Z][A-Za-z0-9]*", name):
                 error(term, "class name must use UpperCamelCase")
@@ -114,7 +136,7 @@ def check_graph(graph):
             error(term, "legal definition lacks a source on its exact assertion")
 
     if any(graph.triples((None, OWL.imports, None))):
-        warnings.append("Imports are present; imported ontologies were not fetched or validated")
+        warnings.append("Imported axioms retain their source conventions; the full suite checks the pinned import closure")
     return errors, warnings
 
 
@@ -137,8 +159,9 @@ def main():
     try:
         graph, files = load_model(MODEL)
         errors, warnings = check_graph(graph)
+        dependencies = load_dependencies(graph, MODEL)
     except Exception as exc:
-        print(f"FAIL: could not parse the active Turtle model: {exc}")
+        print(f"FAIL: could not load the active model and pinned dependencies: {exc}")
         return 1
     for message in sorted(set(errors)):
         print(f"ERROR: {message}")
@@ -149,6 +172,8 @@ def main():
     print("Human review required: meaning and hierarchy, US/UK spelling, exact legal "
           "quotations and article/version relevance, use cases and joint approval.")
     print("Structural checks only. The full suite runs HermiT separately.")
+    print(f"Dependencies: {len({item.path for item in dependencies})} pinned local document(s), complete import closure verified.")
+    print("Editorial scope: authored graph only. HermiT includes pinned imports; the full upstream EBWV vocabulary remains outside the import closure.")
     return 1 if errors else 0
 
 
