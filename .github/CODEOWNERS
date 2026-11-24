@@ -1,0 +1,9 @@
+# Semantic model owners for the WE BUILD central ontology and related files.
+# Both owners are listed so that GitHub requests a review from each.
+# A pull request author cannot approve their own pull request.
+# Therefore Tore must approve Bart's pull requests, and Bart must approve Tore's pull requests.
+# One owner approval is enough when a third person changes these files.
+/semantics/ @bartbink @ToHelland
+
+# Keep this ownership list under the same review rule.
+/.github/CODEOWNERS @bartbink @ToHelland
