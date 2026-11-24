@@ -8,7 +8,9 @@
 *.owl.bak
 *.owl~
 
-# Local reference documents for project learning
-/Reference_Documents/
+# Reference material stays local except these two shared modelling sources.
+/Reference_Documents/*
+!/Reference_Documents/Authorisation.PlantUML
+!/Reference_Documents/ebucoreplus.ttl
 
 /semantics/quality/hermit/target/

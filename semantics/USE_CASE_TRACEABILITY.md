@@ -10,7 +10,7 @@ Use the project's existing use-case identifiers and names. Link to the authorita
 
 | Use-case ID | Use-case name | Requirement ID or source passage | Source link |
 | --- | --- | --- | --- |
-| Pending confirmation | General Authorisation Model | Classes, object-property relations and datatype properties in the selected local reference; individual mappings and authoritative requirement clauses remain to be reviewed. | Local `Reference_Documents/Authorisation.PlantUML` (Git-ignored); [source selection and review sequence](PROTEGE_GITHUB.md#next-modelling-source-general-authorisation-model). |
+| Pending confirmation | General Authorisation Model | Classes, object-property relations and datatype properties in the selected reference; individual mappings and authoritative requirement clauses remain to be reviewed. | [Versioned Authorisation.PlantUML](../Reference_Documents/Authorisation.PlantUML); [source selection and review sequence](PROTEGE_GITHUB.md#next-modelling-source-general-authorisation-model). |
 | Pending confirmation | Authorised Signatories | Attestation links and signatory details in the project diagram. Rulebook version and clauses remain open. | [Source and draft profile mappings](application_profile/AuthorisedSignatories/readme.md#source-and-model-alignment) |
 
 ## Class and property mappings

@@ -1,0 +1,613 @@
+@startuml
+title General Authorisation Model
+
+'#############################################
+'#              Classes                      #
+'#############################################
+
+class AssignmentRule {
+ +name: string
+ +operator: [AND, OR, NOT, NULL]
+ +hasSubrule:
+ +authorisee:
+ +jointType: ENUM [Alone, All, Majority,
+ At Least x of y]
+ +requiredNumberOfAuthorisees: Integer
+ +totalNumberOfGranteesInRule: Integer
+}
+
+class "<i>AssignmentRule (Alias)</i>" as AssignmentRule_
+
+note right of AssignmentRule
+ OR is inclusive: at least one alternative subrule
+ must be satisfied. Satisfying additional alternatives
+ is permitted but is not required.
+
+ Compound rules combine subrules using operator.
+ Rules listing authorisees use jointType and the total y.
+ These participation fields do not apply to compound rules.
+
+ Alone: at least one eligible actor is sufficient;
+ additional participation is permitted.
+ All: all y eligible actors must participate.
+ Majority: more than half of y must participate.
+ At Least x of y: at least x eligible actors must participate.
+ requiredNumberOfAuthorisees supplies x for this threshold.
+
+ totalNumberOfGranteesInRule supplies y: the total number
+ of distinct eligible actors, not involvement entries.
+ A role-based involvement may identify multiple actors.
+ An actor holding multiple qualifying roles counts once
+ within the rule. Count eligibility at the time of the action.
+end note
+
+class Authorisation {
+ +dct:identifier: uri
+ *dct:title: Literal
+ *entityConcerned:
+ *dct:temporal:
+ *hasLegalBasisIn:
+ *authorisationRule:
+ +hasSupportingInvolvementOf:
+ +status: ENUM [active, inactive]
+ *dateOfIssue: date
+ +type: Skos Concept
+ +replaces:
+ +delegable: [Y/N]
+ *hasRule:
+ +isDocumentedIn: uri
+ +hasScope:
+}
+
+class "<i>Authorisation (Alias)</i>" as Authorisation_
+
+class AuthorisationRule {
+ +name: string
+ +operator: [AND, OR, NOT, NULL]
+ hasSubrule:
+ *authoriser:
+}
+
+class "<i>AuthorisationRule (Alias)</i>" as AuthorisationRule_
+
+class Authority {
+
+}
+
+class By'Law {
+ *hasApplicableLaw:
+}
+
+class CodeListReference {
+ *listIdentifier: string
+ *listVersion: string
+ *entryCode: string
+ +label: string
+ +uri: uri
+}
+
+note right of CodeListReference
+ Every code-list reference must identify the managed list,
+ its specific version, and the entry code.
+ The list identifier must distinguish its managing
+ organisation or publisher. A public URI is optional.
+
+ Interpretation and descendant traversal use the specified
+ version. Later list versions do not automatically change
+ the scope of an existing authorisation.
+ This requirement also applies to code-list references
+ used for units or other coded fields.
+
+ The same reference may be reused wherever the same list,
+ version and entry are intended. label is optional display
+ text; it does not replace entryCode or identify the entry.
+ A symbol or place name must not be assumed to be its code.
+
+ The displayed code-list boxes are illustrative sources,
+ not separate property types or mandatory dependencies.
+ Codes and hierarchies are resolved using the identified
+ managed list and version; a reference selects one entry.
+end note
+
+class  EconomicOperator {
+ *legalName: string
+ +registryNumber: string
+ *EUID: identifier
+ pattern: "^[A-Z]{2}[A-Z]{3}\\.
+ [a-zA-Z0-9]+\\.[a-zA-Z0-9]+$"
+}
+
+class "<i>EconomicOperator (Alias)</i>" as EconomicOperator_
+
+class IdentificationDocument {
+ *number: string
+ *name: string
+ +type: CodeListReference
+}
+
+class Involvement {
+ +code: string
+ *name: string
+ *dct:temporal:
+ +member:
+ +hasRole:
+ *inOrganisation:
+}
+
+class "<i>Involvement (Alias1)</i>" as Involvement_
+
+class "<i>Involvement (Alias2)</i>" as Involvement__
+
+note right of Involvement
+ A member may be specified to identify a particular actor.
+ If member is absent, hasRole and inOrganisation
+ must both be supplied. The involvement then designates
+ any eligible holder of that role in that organisation.
+ When authority is exercised, the actual actor must
+ hold the specified role at the time of the action.
+end note
+
+class Jurisdiction {
+ 
+}
+
+class Law {
+ *hasJurisdiction: 
+ *code: string
+ *name: string
+ *authority:
+}
+
+class LegalBasis {
+' Legal Basis is a Role that the law or an other
+' authorisation gan give.
+ +hasApplicableLaw:
+ +hasApplicableAuthorisation:
+ +isInfluencedBy:
+}
+
+class "<i>LegalBasis (Alias)</i>" as LegalBasis_
+
+note right of LegalBasis
+ A role played by a law, bylaw, another authorisation,
+ or another qualifying source when it provides the
+ legal grounding for a particular authorisation.
+ An authorisation may have multiple legal bases.
+ Every authorisation must reference at least one legal basis.
+
+ Each LegalBasis must reference at least one applicable
+ law or applicable authorisation, or both. Each source
+ property is individually optional (0..n), but their
+ combined number of source references must be at least one.
+ Bylaws are covered by the existing subclass of Law.
+ isInfluencedBy does not replace the required source.
+end note
+
+class Machine {
+ *id: url
+ +name: string
+}
+
+class "<i>Machine (Alias)</i>" as Machine_
+
+class Operator {
+ +name: string
+ *operation: [AND,OR, XOR, NULL]
+' +hasSuboperator:
+ +hasRule:
+}
+
+class PeriodOfTime {
+ +startDate: date
+ +endDate: date
+}
+
+class Person {
+ *nameFirst: string
+ *nameLast: string
+ +title: string
+ +dateOfBirth: date
+ +placeOfBirth: CodeListReference
+ +fullAdress:
+ +identificationDocument:
+}
+
+Class "<i>Person (Alias)</i>" as Person_
+
+class Presidence {
+ +name:
+ *description: string
+ *hasJurisdiction:
+ *influences:
+}
+
+class PrivateEvaluationDefinition {
+ *identifier: uri
+ *serviceEndpoint: uri
+ *checkDefinition: uri
+ *evaluatedBy:
+}
+
+class PrivateRestrictionResult {
+ *restriction:
+ *transactionIdentifier: uri
+ *evaluationDefinition:
+ *outcome: ENUM [satisfied, not satisfied, undetermined]
+}
+
+note right of PrivateEvaluationDefinition
+ An atomic restriction has exactly one evaluationMode.
+ Local: inputDefinition is required and identifies a
+ machine-resolvable definition of the transaction input
+ or calculation. privateEvaluationDefinition is absent.
+ The relying party compares the input with value using
+ the restriction's operator and unit where applicable.
+
+ Private: privateEvaluationDefinition is required;
+ inputDefinition is absent. The definition identifies
+ the Economic Operator, service endpoint and defined check.
+ The service receives the requested transaction and the
+ applicable restriction, evaluates the complete comparison
+ within the Economic Operator's environment, and returns
+ its result rather than the confidential calculated input.
+
+ Compound restrictions have none of these evaluation fields;
+ they combine the results of their child restrictions.
+end note
+
+note right of PrivateRestrictionResult
+ A result belongs to exactly one restriction, requested
+ transaction and private evaluation definition.
+ The evaluation definition must match the one referenced
+ by that restriction, whose mode must be Private.
+ The result records the outcome of that restriction only;
+ it does not represent the relying party's final acceptance.
+ Confidential input values and intermediate totals are
+ not included. The eWallet environment handles trust.
+end note
+
+class Restriction {
+ +evaluationMode: ENUM [Local, Private]
+ +inputDefinition: uri
+ +privateEvaluationDefinition:
+ *operator: [!=, <, <=, =, >=, >, AND, OR, NOT]
+ +value: [Literal or CodeListReference]
+ +unit: [Unit or CodeListReference]
+ +hasSubrestriction:
+ }
+ 
+class "<i>Restriction (Alias)</i>" as Restriction_
+
+note right of Restriction
+ A restriction must be referenced by at least one
+ parent restriction or directly by at least one Scope.
+ Both kinds of reference are permitted.
+
+ Every restriction must be reachable from a Scope
+ through zero or more hasSubrestriction links.
+ Cycles are not permitted.
+
+ A restriction may have zero to n recorded children.
+ No recorded children does not, by itself, establish
+ that none exist.
+
+ A restriction may be reused by multiple parents
+ or scopes. Changes affect every referencing context.
+ To change only one use, create a separate restriction
+ and replace the reference for that use.
+
+ A comparison value may be a literal or a reference
+ to a concept in a managed code list.
+ unit is optional and identifies a measurement unit
+ or currency when applicable.
+
+ For numbers or quantities, input <= value means
+ numerically less than or equal, using compatible units.
+ For code-list concepts, input <= value means the input
+ is the selected concept or a descendant at any depth.
+ Use the specified managed hierarchy, not code-prefix
+ or numerical comparison of the codes.
+ = and != compare exact values or exact concepts;
+ != does not exclude a concept's descendants.
+ Use NOT around a <= hierarchy check to exclude a subtree.
+ <, > and >= apply to comparable ordered literal values;
+ their meaning for concept hierarchies is not defined here.
+
+ Atomic restrictions use a comparison operator, require
+ value, and have no children. unit is used when applicable.
+ Compound restrictions have no comparison value or unit.
+ AND has two or more children; all must be satisfied.
+ OR has two or more children; at least one must be satisfied.
+ Additional satisfied OR alternatives are permitted.
+ NOT has exactly one child and reverses its result.
+ To exclude each of several alternatives, use NOT(OR(...)).
+ To exclude only their conjunction, use NOT(AND(...)).
+
+ Evaluation results are satisfied, not satisfied, or
+ undetermined. NOT of undetermined remains undetermined.
+ AND is not satisfied if any child is not satisfied;
+ it is satisfied if all are satisfied, otherwise undetermined.
+ OR is satisfied if any child is satisfied;
+ it is not satisfied if all are not satisfied,
+ otherwise undetermined.
+ A missing operand or incomplete child set must not be
+ treated as a complete successful evaluation.
+ A scope passes only when its overall result is satisfied.
+
+ Code lists may come from standards or be maintained
+ by an organisation. A public URI is not required;
+ the reference must identify the list, its mandatory
+ version, and its entry using CodeListReference.
+end note
+
+class Role {
+ *name:
+ *inOrganisation:
+}
+
+class "<i>Role (Alias)</i>" as Role_
+
+class "<i>Role (upper ontology)</i>" as _Role
+
+class Rule {
+ *isApplicableWhithin:
+ *isDerivedFrom:
+ +hasPart:
+}
+
+class "<i>Rule (Alias)</i>" as Rule_
+
+note right of Rule
+ A rule that implements or conforms to an applicable
+ law or bylaw, including a business rule.
+ It is derived from one or more legal bases
+ and may be composed of subrules.
+end note
+
+class Scope {
+ *title: string
+ +hasRestriction:[operator in subproperty]
+}
+
+note right of Scope
+ The eWallet environment provides the trust framework.
+ Scope evaluation determines whether the requested
+ process, service or contract falls within the authorisation.
+
+ Online services are normally specified by an eService
+ restriction, not by a geographical restriction.
+ The explicit restriction expression determines which
+ checks apply and how they combine. There is no implicit
+ geographical check or default combination with eService.
+ Where a geographical restriction is explicitly specified
+ for online business, the input is the site's market.
+ Each restriction identifies its input and authorised
+ concept; code-list references include the list version.
+
+ The relying party evaluates restrictions using the
+ transaction data and the specified code-list versions.
+ Restrictions requiring private data are evaluated within
+ the Economic Operator's environment. Only the result
+ for the relevant restriction and transaction is presented;
+ the underlying private values are not disclosed.
+
+ The relying party combines its own checks with the
+ private restriction results and makes the final decision
+ to accept the authority for the requested transaction.
+end note
+
+class Unit {
+ *exponent: RestrictionValue
+ *unit: CodeListReference
+ }
+
+note right of Unit
+ Unit represents a unit term with an exponent; its base
+ unit is identified by a versioned CodeListReference.
+ A coded unit or currency can be referenced directly by
+ Restriction.unit. Compound units can use Unit terms.
+ These are alternative representations, not cumulative
+ requirements. A unit is absent where not applicable.
+end note
+
+class Entity {
+ *mandatory
+ +optional
+}
+
+'#############################################
+'#              Code lists                   #
+'#############################################
+
+class "CodeList:eService\n<size:11><color:gray><i>Allowed eService codes based on service provider.</i></color></size>" as eService {
+  <font:monospaced><color:gray>code   definition</color></font>
+  --
+  <font:monospaced>2026.Q2  stating 2026 Q3 VAT</font>
+  <font:monospaced>2026     stating 2026 revenue</font>
+  <font:monospaced>ALL      state all taxex</font>
+}
+
+class "CodeList:identificationDocumentType\n<size:11><color:gray><i>Document types aligned with ICAO Doc 9303 MRTD categories.</i></color></size>" as identificationDocumentType {
+  <font:monospaced><color:gray>code      definition</color></font>
+  --
+  <font:monospaced>PASSPORT  Machine readable passport</font>
+  <font:monospaced>ID_CARD   Machine readable official travel document</font>
+  <font:monospaced>VISA      Machine readable visa</font>
+  <font:monospaced>EMERGENCY Emergency travel document</font>
+}
+
+class "CodeList:ISO4217:20215\n<size:11><color:gray><i>Allowed currency values.</i></color></size>" as ISO421720215 {
+  <font:monospaced><color:gray>code  definition</color></font>
+  --
+  <font:monospaced>EUR   Euro</font>
+  <font:monospaced>USD   United States Dollar</font>
+  <font:monospaced>NOK   Norwegian krone</font>
+  <font:monospaced>GBP   Pound sterling</font>
+}
+
+class "CodeList:ISO80000Unit\n<size:11><color:gray><i>Scientific unit symbols based on ISO/IEC 80000.</i></color></size>" as ISO80000Unit {
+  <font:monospaced><color:gray>symbol  definition</color></font>
+  --
+  <font:monospaced>m       metre</font>
+  <font:monospaced>s       second</font>
+  <font:monospaced>kg      kilogram</font>
+  <font:monospaced>N       newton</font>
+  <font:monospaced>Pa      pascal</font>
+  <font:monospaced>J       joule</font>
+  <font:monospaced>W       watt</font>
+}
+
+class "CodeList:NACE\n<size:11><color:gray><i>Allowed economic activity codes based on NACE.</i></color></size>" as NACE {
+  <font:monospaced><color:gray>code   definition</color></font>
+  --
+  <font:monospaced>01.11  Growing of cereals, leguminous crops and oil seeds</font>
+  <font:monospaced>62.01  Computer programming activities</font>
+  <font:monospaced>64.19  Other monetary intermediation</font>
+}
+
+class "CodeList:SpacialExtent\n<size:11><color:gray><i>Allowed regions codes based on\n<size:11><color:gray><i>several ISO's or online published lists.</i></color></size>" as SpacialExtent {
+  <font:monospaced><color:gray>code   definition</color></font>
+  --
+  <font:monospaced>NL  Netherlands (ISO3166-1 alpha2)</font>
+  <font:monospaced>FR  Friesland (GIS standard)</font>
+}
+
+class "DataType:RestrictionValue\n<size:11><color:gray><i>Allowed numeric value types.</i></color></size>" as RestrictionValue{
+  <font:monospaced><color:gray>type      example  definition</color></font>
+  --
+  <font:monospaced>integer   -2       whole number</font>
+  <font:monospaced>decimal   3.14     exact decimal value</font>
+  <font:monospaced>rational  1/3      exact fraction</font>
+  <font:monospaced>string    Oslo     exact fraction</font>
+}
+
+'#############################################
+'#             Relations                     #
+'#############################################
+
+AssignmentRule::authorisee "1" -right-> "0..n" Involvement_ #line:DarkRed;text:DarkRed
+'AssignmentRule::hasSubrule "1" -up-> "1" AssignmentRule_ #line:DarkRed;text:DarkRed
+AssignmentRule::hasSubrule "1" -up-> "1" Operator::name #line:DarkRed;text:DarkRed
+
+Authorisation::authorisationRule "1" -left-> "1..n" AuthorisationRule #line:DarkRed;text:White :_____
+Authorisation::hasLegalBasisIn "1" -up-> "1..n" LegalBasis_ #line:DarkRed;text:DarkRed
+Authorisation::hasScope "0..1" -down-> "1..n" Scope #line:DarkRed;text:DarkRed
+Authorisation::isDocumentedIn "0..1" -down-> "1..n" Document #line:DarkRed;text:DarkRed
+Authorisation::hasRule "1" -right-> "1" AssignmentRule #line:DarkRed;text:White :_____
+Authorisation::temporal "1" -up-> "1" PeriodOfTime #line:DarkRed;text:White :_____
+Authorisation::entityConcerned "1" -up-> "1..n" Involvement__ #line:DarkRed;text:White :_____
+Authorisation::hasSupportingInvolvementOf "0..1" -left-> "1..n" Involvement___ #line:DarkRed;text:White :_____
+
+AuthorisationRule::hasSubrule "1" -up-> "1..n" AuthorisationRule_ #line:DarkRed;text:DarkRed
+AuthorisationRule::authoriser "1" -left-> "1..n" Involvement #line:DarkRed;text:DarkRed
+
+By'Law::hasApplicableLaw "1" --> "1..n" Law::code #line:DarkRed;text:DarkRed
+
+CodeListReference::uri "1" ..> "1" eService::code
+CodeListReference::uri "1" ..> "1" identificationDocumentType::code
+CodeListReference::uri "1" ..> "1" ISO421720215::code
+CodeListReference::uri "1" ..> "1" ISO80000Unit::symbol
+CodeListReference::uri "1" ..> "1" NACE::code
+CodeListReference::uri "1" ..> "1" RestrictionValue::code
+CodeListReference::uri "1" ..> "1" SpacialExtent::code
+
+IdentificationDocument::type "0..n" --> "0..1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+
+Involvement::hasRole "1" -down-> "0..1" Role #line:DarkRed;text:DarkRed
+Involvement::member "1" -down-> "0..1" Person  #line:DarkRed;text:DarkRed
+Involvement::member "1" -down-> "0..1" Machine  #line:DarkRed;text:DarkRed
+Involvement::inOrganisation "1" -down-> "0..1" EconomicOperator  #line:DarkRed;text:DarkRed
+Involvement_::hasRole "1" -down-> "0..1" Role_ #line:DarkRed;text:DarkRed
+Involvement_::member "1" -down-> "0..1" Person_  #line:DarkRed;text:DarkRed
+Involvement_::member "1" -down-> "0..1" Machine_  #line:DarkRed;text:DarkRed
+Involvement_::inOrganisation "1" -down-> "0..1" EconomicOperator_  #line:DarkRed;text:DarkRed
+
+Law  <|-- By'Law #line:DarkRed;text:White :_____
+Law::authority "1" --> "1" Authority #line:DarkRed;text:White :__________
+Law::hasJurisdiction "1" -up-> "1" Jurisdiction #line:DarkRed;text:White :_____
+Law "1" <-up- "1" Rule::isApplicableWhithin #line:DarkRed;text:White :_____
+
+LegalBasis -up-|> _Role #line:DarkRed;text:Darkred
+LegalBasis::hasApplicableLaw "1" --> "0..n" Law #line:DarkRed;text:Darkred
+LegalBasis::isInfluencedBy "1" --> "0..n" Presidence #line:DarkRed;text:Darkred
+LegalBasis::hasApplicableAuthorisation "1"  -left-> "0..n" Authorisation_ #line:DarkRed;text:White :_____
+
+Operator::hasRule -- AuthorisationRule
+Person::identificationDocument "1" -down-> "1" IdentificationDocument
+Person::placeOfBirth "0..n" --> "0..1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+
+Presidence::hasJurisdiction "1" --> "1" Jurisdiction #line:DarkRed;text:Darkred
+
+PrivateEvaluationDefinition::evaluatedBy "0..n" --> "1" EconomicOperator #line:DarkRed;text:DarkRed
+PrivateRestrictionResult::restriction "0..n" --> "1" Restriction #line:DarkRed;text:DarkRed
+PrivateRestrictionResult::evaluationDefinition "0..n" --> "1" PrivateEvaluationDefinition #line:DarkRed;text:DarkRed
+
+Restriction::privateEvaluationDefinition "0..n" --> "0..1" PrivateEvaluationDefinition #line:DarkRed;text:DarkRed
+Restriction::hasSubrestriction "0..n" -up-> "0..n" Restriction_ #line:DarkRed;text:DarkRed
+Restriction::value .down.> RestrictionValue #line:Gray;text:DarkRed : literal alternative
+Restriction::value "0..n" --> "0..1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+Restriction::unit "0..n" --> "0..1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+Restriction::unit "0..n" --> "0..n" Unit #line:DarkRed;text:DarkRed
+
+Role::inOrganisation "1" -left-> "1" "EconomicOperator" #line:DarkRed;text:DarkRed
+
+Rule::isDerivedFrom "1" --> "1..n" LegalBasis #line:DarkRed;text:Darkred
+Rule::hasPart "0..1" --> "1..n" Rule_ #line:DarkRed;text:Darkred
+
+Scope::hasRestriction "0..n" -down-> "0..n" Restriction #line:DarkRed;text:DarkRed
+
+Unit::unit "0..n" --> "1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+
+'#############################################
+'#                  Layout                   #
+'#############################################
+
+AssignmentRule -down-> Document #line:White
+Authority -right- By'Law #line:White
+EconomicOperator -left- Person #line:White
+RestrictionValue -down- ISO80000Unit #line:White;text:White :_____
+Role -right- Person #line:White
+Rule -right- _Role #line:White
+LegalBasis -right- Rule_ #line:White
+
+'#############################################
+'#             Coloring                      #
+'#############################################
+
+class AssignmentRule #LightYellow;line:DarkRed;text:DarkRed
+class Authorisation #LightYellow;line:DarkRed;text:DarkRed
+class AuthorisationRule #LightYellow;line:DarkRed;text:DarkRed
+class Authority #LightYellow;line:DarkRed;text:DarkRed
+class By'Law #LightYellow;line:DarkRed;text:DarkRed
+class CodeListReference #LightYellow;line:DarkRed;text:DarkRed
+class Document #LightYellow;line:DarkRed;text:DarkRed
+class EconomicOperator #LightYellow;line:DarkRed;text:DarkRed
+class Entity #LightYellow;line:DarkRed;text:DarkRed
+class IdentificationDocument #LightYellow;line:DarkRed;text:DarkRed
+class Involvement #LightYellow;line:DarkRed;text:DarkRed
+class Jurisdiction  #LightYellow;line:DarkRed;text:DarkRed
+class Law #LightYellow;line:DarkRed;text:DarkRed
+class LegalBasis #LightYellow;line:DarkRed;text:DarkRed
+class Machine #LightYellow;line:DarkRed;text:DarkRed
+class PeriodOfTime #LightYellow;line:DarkRed;text:DarkRed
+class Person #LightYellow;line:DarkRed;text:DarkRed
+class Presidence #LightYellow;line:DarkRed;text:DarkRed
+class Restriction #LightYellow;line:DarkRed;text:DarkRed
+class PrivateEvaluationDefinition #LightYellow;line:DarkRed;text:DarkRed
+class PrivateRestrictionResult #LightYellow;line:DarkRed;text:DarkRed
+class Role #LightYellow;line:DarkRed;text:DarkRed
+class Rule #LightYellow;line:DarkRed;text:DarkRed
+class Scope #LightYellow;line:DarkRed;text:DarkRed
+class Unit #LightYellow;line:DarkRed;text:DarkRed
+
+class eService #CEEED0;line:285F17;text:285F17
+class identificationDocumentType #CEEED0;line:285F17;text:285F17
+class ISO421720215 #CEEED0;line:285F17;text:285F17
+class ISO80000Unit #CEEED0;line:285F17;text:285F17
+class NACE #CEEED0;line:285F17;text:285F17
+class RestrictionValue #CEEED0;line:285F17;text:285F17
+class SpacialExtent #CEEED0;line:285F17;text:285F17
+
+hide circle
+
+@enduml

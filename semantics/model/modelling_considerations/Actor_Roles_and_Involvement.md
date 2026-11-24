@@ -41,7 +41,7 @@ The new classes therefore use `ebwsm:EconomicOperator` and `ebwsm:PublicSectorBo
 
 ## Review of Involvement in the selected General Authorisation Model
 
-The selected integration source is the local, Git-ignored `Reference_Documents/Authorisation.PlantUML`, SHA-256 `9c5066cf4c8e6af64cf2648cb7e6180b38134a4f6530e83a9f70679d43464931`. It is distinct from [the archived earlier diagram](../Archive/authorisation_part.PlantUML). Neither diagram is an imported ontology. Both are preserved as evidence.
+The selected integration source is the [versioned Authorisation.PlantUML](../../../Reference_Documents/Authorisation.PlantUML), SHA-256 `9c5066cf4c8e6af64cf2648cb7e6180b38134a4f6530e83a9f70679d43464931`. Bart requested its inclusion in Git on 24 November 2026. It is distinct from [the archived earlier diagram](../Archive/authorisation_part.PlantUML). Neither diagram is an imported ontology. Both are preserved as evidence.
 
 The selected source has `Involvement.member`, `Involvement.hasRole`, `Involvement.inOrganisation` and `dct:temporal`. Its note explicitly allows `member` to be absent when a role and organisation select eligible holders. AssignmentRule counts distinct eligible actors at the time of action, rather than counting Involvement entries or roles.
 
