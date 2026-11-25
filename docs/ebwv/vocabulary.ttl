@@ -16,7 +16,7 @@ ebwv: a owl:Ontology ;
     dc:title """European Business Wallet Vocabulary v0.1"""@en ;
     dc:description """Vocabulary used by the Verifiable Credentials of the European Business Wallet Framework"""^^rdf:HTML ;
     rdfs:seeAlso <https://webuild-consortium.github.io/wp4-semantics-group/ebwv> ;
-    dc:date "2026-11-02"^^xsd:date ;
+    dc:date "2026-11-11"^^xsd:date ;
 .
 
 # Property definitions
@@ -178,7 +178,7 @@ ebwv:assignment a rdf:Property, owl:ObjectProperty ;
 
 ebwv:attestationLegalCategory a rdf:Property, owl:ObjectProperty ;
     rdfs:domain ebwv:ElectronicAttestationOfAttributes ;
-    rdfs:range ebwv:AttestationLegalCategory, [ a owl:Class; owl:oneOf (ebwv:QEAA ebwv:Pub-EAA ebwv:EAA) ] ;
+    rdfs:range ebwv:AttestationLegalCategory, [ a owl:Class; owl:oneOf (ebwv:QEAA ebwv:PuB-EAA ebwv:EAA) ] ;
     rdfs:label "attestation legal category" ;
     rdfs:comment """<div>a categorization of electronic attestations of attributes into three primary types, each associated with a distinct level of assurance and legal effect</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory>, <https://w3id.org/ebwv#> ;
@@ -2636,9 +2636,9 @@ ebwv:Permanent a ebwv:TypeOfEmployment ;
     vs:term_status "stable" ;
 .
 
-ebwv:Pub-EAA a ebwv:AttestationLegalCategory ;
+ebwv:PuB-EAA a ebwv:AttestationLegalCategory ;
     rdfs:label "Public Electronic Attestation of Attributes" ;
-    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA>, <https://w3id.org/ebwv#> ;
+    rdfs:isDefinedBy <https://sanastot.suomi.fi/en/terminology/webuild/concept/PuB-EAA>, <https://w3id.org/ebwv#> ;
     vs:term_status "stable" ;
 .
 
