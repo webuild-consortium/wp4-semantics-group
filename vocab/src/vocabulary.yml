@@ -4,17 +4,20 @@ vocab:
     context: https://w3id.org/ebwv/v0.1
 
 prefix:
-  - id: schema
-    value: http://schema.org/
+  - id: cred
+    value: https://www.w3.org/2018/credentials#
 
   - id: jsonld
     value: http://www.w3.org/ns/json-ld#
 
-  - id: cred
-    value: https://w3.org/2018/credentials#
+  - id: schema
+    value: https://schema.org/
 
   - id: skos
     value: http://www.w3.org/2004/02/skos/core#
+
+  - id: time
+    value: http://www.w3.org/2006/time#
 
 ontology:
   - property: dc:title
@@ -27,6 +30,11 @@ ontology:
     value: https://webuild-consortium.github.io/wp4-semantics-group/ebwv
 
 class:
+  - id: A1Certificate
+    label: A1 Certificate
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/a1certificate
+
   - id: Address
     label: Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/address
@@ -37,11 +45,13 @@ class:
 
   - id: AttestationLegalCategory
     label: Attestation Legal Category
+    comment: a categorization of electronic attestations of attributes into three primary types, each associated with a distinct level of assurance and legal effect
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
 
   - id: BankAccount
     label: Bank Account
     upper_value: cred:CredentialSubject
+    comment: an account held with a credit institution or payment service provider that enables a legal or natural person to receive, hold, and transfer funds
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount
     example:
       - label: Credential with credential subject of type BankAccount
@@ -78,10 +88,34 @@ class:
   - id: Capital
     label: Capital
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
+  - id: BeneficialOwner
+    label: beneficial owner
+    comment: a beneficial owner of the focus legal entity, with their direct and total capital and voting shares, high-risk indicator and, where applicable, the reason for other control
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/beneficialowner
+
+  - id: BeneficialOwnership
+    label: beneficial ownership
+    comment: the beneficial-ownership (wirtschaftlich Berechtigte) analysis of the focus legal entity across the standard, accumulation, domination and customer-due-diligence calculation methods
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/beneficialownership
+
+  - id: BeneficialOwnershipVariant
+    label: beneficial ownership variant
+    comment: the beneficial owners determined under one calculation method, grouped by the basis of determination — capital, voting rights, other control, or fictitious
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/beneficialownershipvariant
+
+  - id: CertifiedSite
+    label: certified site
+    upper_value: Site
+    comment: certification target (site) of the corresponding certification
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedsite
 
   - id: Company
     label: Company as defined in directive-EU-2025/25
-    upper_value: cred:CredentialSubject
+    upper_value:
+      - cred:CredentialSubject
+      - EconomicOperator
+      - KycLegalEntity
+      - LegalPerson
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/company
     example:
       - label: Credential with credential subject of type Company
@@ -99,7 +133,10 @@ class:
             "attestationLegalCategory": "QEAA",
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
-              "@type": "Company",
+              "@type": [
+                "EconomicOperator",
+                "Company"
+              ],
               "legalIdentifier": {
                 "@type" : "Euid",
                 "@value" : "NOFOR.987654321"
@@ -124,14 +161,38 @@ class:
                 {
                   "@type" : "ClearingNumber",
                   "@value" : "12345678"
+                },
+                {
+                  "@type" : "DunsNumber",
+                  "@value" : "123456789"
+                },
+                {
+                  "@type": "VatId",
+                  "@value": "123456789MVA"
+                },
+                {
+                  "@type": "Tin",
+                  "@value": "NO-ORG-123456789"
+                },
+                {
+                  "@type": "Lei",
+                  "@value": "5493001KJTIIGC8Y1R12"
+                },
+                {
+                  "@type": "Eori",
+                  "@value": "NO123456789012"
+                },
+                {
+                  "@type": "Excise",
+                  "@value": "GBWK123456789000"
+                },
+                {
+                  "@type": "PeppolId",
+                  "@value": "0199:5493001KJTIIGC8Y1R12"
                 }
               ],
-              "vat": "123456789MVA",
-              "tin": "NO-ORG-123456789",
-              "lei": "5493001KJTIIGC8Y1R12",
-              "eori": "NO123456789012",
-              "excise": "GBWK123456789000"
-
+              "dateOfRegistration" : "2018-12-03",
+              "endDate" : "2020-12-02"
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
@@ -140,16 +201,133 @@ class:
 
   - id: ContactPoint
     label: Contact Point
+    comment: a designated communication channel or organisational function through which an entity can be contacted for a specific purpose
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
+
+  - id: CorporateRole
+    label: corporate role
+    comment: a function held by a legal representative or statutory partner within a company, e.g. CEO or CFO
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/corporaterole
+
+  - id: cred:CredentialEvidence
+    label: Credential Evidence
+    defined_by: https://www.w3.org/TR/vc-data-model-2.0/#evidence
+    context: https://www.w3.org/ns/credentials/v2
 
   - id: cred:CredentialSubject
     label: Credential Subject
     defined_by: https://w3.org/TR/vc-data-model-2.0/#credential-subject
+    context: https://www.w3.org/ns/credentials/v2
+
+  - id: DataSpaceRole
+    label: role of dataspace member
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dataspacerole
+
+  - id: DeliveryType
+    label: delivery type
+    comment: indicates whether a KYC delivery represents a researched product or a research that was aborted
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverytype
+
+  - id: DUNS
+    label: DUNS
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/duns
+    example:
+      - label: Credential with credential subject of type DUNS, holding business defined by DID
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:af1383ab-b4e0-496f-8bf4-ce3e4228ece3",
+              "@type": [
+                "DUNS"
+              ],
+              "identifier": {
+                "@type" : "DunsNumber",
+                "@value" : "123456789"
+              },
+              "businessEntity": "did:key:$publicKeyOfBusinessEntity$" 
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+      - label: Credential with credential subject of type Company, holding business defined by explicit claims
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:af1383ab-b4e0-496f-8bf4-ce3e4228ece3",
+              "@type": [
+                "DUNS"
+              ],
+              "identifier": {
+                "@type" : "DunsNumber",
+                "@value" : "123456789"
+              },
+              "businessEntity": {
+                "@id": "did:key:$publicKeyOfBusinessEntity$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company"
+                ],
+                "legalName": "acme Corporation",
+                "legalForm": "Inc.",
+                "registeredAddress": {
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                }
+              }
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: EconomicOperator
+    label: Economic Operator
+    comment: any natural or legal person, including but not limited to companies, partnerships, foundations, associations as well as sole-traders and self-employed persons or a group of such persons, acting in a commercial or professional capacity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/economicoperator
 
   - id: ElectronicAttestationOfAttributes
     label: Electronic Attestation Of Attributes
     upper_value: cred:VerifiableCredential
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/electronicattestationofattributes
+
+  - id: EquityHolder
+    label: equity holder
+    comment: Any individual or entity that holds an ownership stake in a business. This includes public or private stockholders, sole proprietors, LLC members, and partnership owners. Not all equity holders own formal stock shares (for example, owners of a sole proprietorship or a general partnership). If the equity holder is a legal person it can have a list of equity holders which ultimately forms a ownership tree.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/equityholder
+
+  - id: EquityPartner
+    label: equity partner
+    upper_value: EquityHolder
+    comment: An owner in a professional services firm (such as a law, accounting, or consulting firm) structured as a partnership or LLP. Rather than earning a fixed salary, equity partners contribute firm capital, share directly in the company's annual profits and losses, and hold voting and management rights.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/equitypartner
 
   - id: EuropeanBusinessWalletOwner
     label: European Business Wallet Owner
@@ -183,15 +361,451 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
+  - id: EvidenceData
+    label: evidence data
+    upper_value: cred:CredentialEvidence
+    comment: Additional supporting information about claims allowing the verifier to establish the confidence with which it relies on the claims. The EvidenceData records how information was verified, naming the source, the verified claims and the verification date.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencedata
+
+  - id: FinancialYear
+    label: financial year
+    comment: an annual financial statement (Geschäftsjahr) of the focus legal entity, reporting size class, revenue, operating result, balance sheet total, headcount and the statement date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/financialyear
+
   - id: GeneralPartner
     label: General Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/generalpartner
 
+  - id: GLN
+    label: Global Location Number
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gln
+    example:
+      - label: Credential with credential subject of type GLN
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:88b6586b-0eb4-43a6-b6cc-bd4e11198834",
+              "@type": "GLN",
+              "organisation": "did:key:$publicKeyOfHolder$",
+              "licenceKey": "810123456",
+              "identifier": {
+                "@type" : "GlobalLocationNumber",
+                "@value": "8101234560000"
+              }
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfGS1Issuer$"
+          }
+
+      - label: Credential with credential subject of type GLN and separate registered address
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:88b6586b-0eb4-43a6-b6cc-bd4e11198834",
+              "@type": "GLN",
+              "organisation": "did:key:$publicKeyOfHolder$",
+              "licenceKey": "810123456",
+              "identifier": {
+                "@type" : "GlobalLocationNumber",
+                "@value": "8101234560000"
+              },
+              "registeredAddress": {
+                "@type":"Address",
+                "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                "thoroughfare": "Via Appia",
+                "locatorDesignator": "123",
+                "postName": "Rome",
+                "adminUnitL2": "Lazio",
+                "postCode": "00100",
+                "adminUnitL1": "IT"
+              }
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfGS1Issuer$"
+          }
+
+      - label: Credential with credential subject of type GLN and company identity asserted by GS1 issuer
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:88b6586b-0eb4-43a6-b6cc-bd4e11198834",
+              "@type": "GLN",
+              "organisation": {
+                "@id": "did:key:$publicKeyOfHolder$",
+                "@type": "EconomicOperator",
+                "legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation",
+                "registeredAddress": {
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                }
+              },
+              "licenceKey": "810123456",
+              "identifier": {
+                "@type" : "GlobalLocationNumber",
+                "@value": "8101234560000"
+              }
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfGS1Issuer$"
+          }
+
+  - id: GovernanceRulebook
+    label: Governance rulebook
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/governancerulebook
+
+  - id: Incoterms
+    label: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/incoterms
+
+  - id: KycCheck
+    label: KYC check
+    upper_value: cred:CredentialSubject
+    comment: the result of a Know-Your-Customer (KYC) investigation on a focus legal entity, bundling the delivery type and the researched focus entity with its ownership, control and register information
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/kyccheck
+    example:
+      - label: Credential with credential subject of type KycCheck
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:3f2a9b7c-5d1e-4a2b-8c3d-9e0f1a2b3c4d",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "did:key:$publicKeyOfHolder$",
+              "@type": "KycCheck",
+              "deliveryType": "ResearchedProduct",
+              "focusEntity": {
+                "@type": [
+                  "EconomicOperator",
+                  "KycLegalEntity",
+                  "Company",
+                  "LimitedLiabilityCompany"
+                ],
+                "legalName": "ACME SE",
+                "legalForm": "SE",
+                "legalStatus": "active",
+                "dateOfRegistration": "2001-05-14",
+                "legalIdentifier": {
+                  "@type": "Euid",
+                  "@value": "DE1234.HRB12345"
+                },
+                "identifier": [
+                  {
+                    "@type": "VatId",
+                    "@value": "DE123456789"
+                  },
+                  {
+                    "@type": "BanzNumber",
+                    "@value": "R123456"
+                  },
+                  {
+                    "@type": "Isin",
+                    "@value": "DE000ACME123"
+                  }
+                ],
+                "registeredAddress": {
+                  "@type": "Address",
+                  "thoroughfare": "Maximilianstrasse",
+                  "locatorDesignator": "10",
+                  "postCode": "80539",
+                  "postName": "Muenchen",
+                  "adminUnitL2": "Bayern",
+                  "adminUnitL1": "DE"
+                },
+                "subscribedCapital": {
+                  "@type": "MonetaryAmount",
+                  "amount": 120000,
+                  "currency": "EUR"
+                },
+                "liquidationStatus": "none",
+                "insolvencyStatus": "none",
+                "isFoundation": false,
+                "isTrust": false,
+                "isCsrdObligated": true,
+                "activity": [
+                  {
+                    "@type": "Nace21",
+                    "@value": "62.01"
+                  },
+                  {
+                    "@type": "Wz2008",
+                    "@value": "62.01.0"
+                  }
+                ],
+                "companyCategory": "Kapitalgesellschaft",
+                "balanceSheetDate": "2024-12-31",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "hasTelephone": "+49 89 1234567",
+                  "website": "https://acme.example",
+                  "hasFax": "+49 89 1234568"
+                },
+                "leiStatus": "ISSUED",
+                "listedOnRegulatedMarket": true,
+                "formerName": "ACME GmbH",
+                "domicile": {
+                  "@type": "Address",
+                  "thoroughfare": "Maximilianstrasse",
+                  "locatorDesignator": "10",
+                  "postCode": "80539",
+                  "postName": "Muenchen",
+                  "adminUnitL1": "DE"
+                },
+                "stockExchangeListing": {
+                  "@type": "StockExchangeListing",
+                  "tickerSymbol": "ACM",
+                  "marketIdentificationCode": "XFRA",
+                  "exchange": {
+                    "@type": "StockExchange",
+                    "exchangeName": "Frankfurter Wertpapierboerse",
+                    "exchangeCountry": "DE",
+                    "marketIdentificationCode": "XFRA"
+                  }
+                },
+                "regulator": {
+                  "@type": "Regulator",
+                  "regulatorName": "BaFin",
+                  "regulatedId": "100123456",
+                  "regulatorClassification": "Kapitalverwaltungsgesellschaft"
+                },
+                "register": {
+                  "@type": "RegisterIdentification",
+                  "registerType": "HRB",
+                  "registerTypeDescription": "Handelsregister Abteilung B",
+                  "registerLocation": "Amtsgericht Muenchen",
+                  "registerNumber": "DE1234",
+                  "registeredCompanyId": "HRB12345",
+                  "registeredCompanyIdCountry": "DE"
+                },
+                "handoverFlag": true,
+                "handover": false,
+                "financialYear": {
+                  "@type": "FinancialYear",
+                  "statementDate": "2024-12-31",
+                  "companySize": "large",
+                  "numberOfEmployees": 420,
+                  "revenue": {
+                    "@type": "MonetaryAmount",
+                    "amount": 85000000,
+                    "currency": "EUR"
+                  },
+                  "operatingResult": {
+                    "@type": "MonetaryAmount",
+                    "amount": 7200000,
+                    "currency": "EUR"
+                  },
+                  "balanceSheetTotal": {
+                    "@type": "MonetaryAmount",
+                    "amount": 123000000,
+                    "currency": "EUR"
+                  }
+                },
+                "equityHolder": [
+                  {
+                    "@type": [
+                      "EquityHolder",
+                      "Shareholder"
+                    ],
+                    "legalEntity": "did:key:$publicKeyOfLegalPerson$",
+                    "share": {
+                      "@type": "Share",
+                      "relativeShare": 49.0,
+                      "relativeVotingRights": 49.0,
+                      "isDirectParticipation": true
+                    },
+                    "handover": true,
+                    "handoverDescription": "beneficial ownership structure to be continued manually",
+                    "equityHolder": {
+                      "@type": [
+                        "EquityHolder",
+                        "Shareholder"
+                      ],
+                      "legalEntity": "did:key:$publicKeyOfNaturalPerson$",
+                      "share": {
+                        "@type": "Share",
+                        "relativeShare": 100.0,
+                        "relativeVotingRights": 100.0,
+                        "isDirectParticipation": true
+                      }
+                    }
+                  },
+                  {
+                    "@type": [
+                      "EquityHolder",
+                      "EquityPartner"
+                    ],
+                    "legalEntity": "did:key:$publicKeyOfLegalPerson2$",
+                    "share": {
+                      "@type": "Share",
+                      "relativeShare": 60.0,
+                      "absoluteShare": {
+                        "@type": "MonetaryAmount",
+                        "amount": 15000,
+                        "currency": "EUR"
+                      },
+                      "relativeVotingRights": 60.0,
+                      "isDirectParticipation": true
+                    },
+                    "handover": false,
+                    "equityHolder": {
+                      "@type": [
+                        "EquityHolder",
+                        "Shareholder"
+                      ],
+                      "legalEntity": "did:key:$publicKeyOfNaturalPerson2$",
+                      "share": {
+                        "@type": "Share",
+                        "relativeShare": 100.0,
+                        "relativeVotingRights": 100.0,
+                        "isDirectParticipation": true
+                      }
+                    }
+                  }
+                ],
+                "beneficialOwnership": {
+                  "@type": "BeneficialOwnership",
+                  "standard": {
+                    "@type": "BeneficialOwnershipVariant",
+                    "capitalBeneficialOwner": {
+                      "@type": "BeneficialOwner",
+                      "legalEntity": "did:key:$publicKeyOfBeneficialOwner$",
+                      "share": {
+                        "@type": "Share",
+                        "relativeShare": 51.0,
+                        "relativeVotingRights": 51.0,
+                        "isDirectParticipation": true
+                      },
+                      "relativeShareDirect": 51.0,
+                      "relativeVotingRightsDirect": 51.0,
+                      "isHighRisk": false
+                    }
+                  },
+                  "transparencyRegister": {
+                    "@type": "TransparencyRegisterEntry",
+                    "person": {
+                      "@type": "NaturalPerson",
+                      "givenName": "Erika",
+                      "familyName": "Mustermann",
+                      "citizenship": "DE"
+                    },
+                    "interestType": "shareholding",
+                    "interestScope": "more than 25%"
+                  }
+                },
+                "legalRepresentative": {
+                  "@type": "LegalRepresentative",
+                  "legalEntity": "did:key:$publicKeyOfRepresentative$",
+                  "role": "CEO",
+                  "typeOfRepresentation": "Alone",
+                  "isExemptFromSection181": true,
+                  "entryDate": "2015-03-01"
+                },
+                "transparencyRegisterExtract": {
+                  "@type": "TransparencyRegisterExtract",
+                  "referenceNumber": "TR-2024-0001",
+                  "applicationNumber": "APP-9988",
+                  "hasDiscrepancyNote": false,
+                  "validFromDate": "2024-10-01"
+                },
+                "participation": {
+                  "@type": "Participation",
+                  "legalEntity": "did:key:$publicKeyOfParticipation$",
+                  "share": {
+                    "@type": "Share",
+                    "relativeShare": 25.0,
+                    "absoluteShare": {
+                      "@type": "MonetaryAmount",
+                      "amount": 50000,
+                      "currency": "EUR"
+                    },
+                    "relativeVotingRights": 25.0,
+                    "isDirectParticipation": true
+                  }
+                }
+              }
+            },
+            "evidence": {
+              "@type": "EvidenceData",
+              "evidenceSource": "Handelsregister",
+              "provenClaim": "$.credentialSubject.focusEntity.legalPerson.legalName",
+              "verificationDate": "2024-11-30"
+            },
+            "validFrom": "2025-01-15T09:00:00Z",
+            "validUntil": "2026-01-15T09:00:00Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: KycLegalEntity
+    label: KYC legal entity
+    comment: the collection of KYC-specific attributes of a legal entity, such as liquidation and insolvency status, foundation or trust indicators, register identification and capital-market orientation. Company is a subclass of KycLegalEntity and therefore inherits these attributes alongside the core attributes it inherits from EconomicOperator.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/kyclegalentity
+
+  - id: LegalEntity
+    label: legal entity recognized by law
+    comment: A legal entity is any individual, company, or organization recognized by law. It possesses distinct rights and responsibilities, meaning it can own property, enter into contracts, incur debts, pay taxes, and sue or be sued in court.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
+
+  - id: LegalEntityIdentifier
+    label: Legal entity identifier
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentityidentifier
+
   - id: LegalPerson
     label: Legal Person
     upper_value:
-      - LegalEntity
       - cred:CredentialSubject
+      - LegalEntity
+    comment: A legal person is an entity the law recognises as having its own rights and obligations, separate from its members. It can own property, enter contracts, sue and be sued, and be held liable.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalperson
     example:
       - label: Credential with credential subject of type LegalPerson
@@ -222,30 +836,29 @@ class:
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
-  - id: LegalEntity
-    label: Legal entity
-    upper_value: cred:CredentialSubject
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
-
   - id: LegalRepresentative
     label: Legal representative
+    comment: a natural person or economic operator that has authority, under law, the company's statutes, a register entry or another recognised legal basis, to represent a company in dealings with third parties, authorities or courts
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
 
+  - id: LeiRegistration
+    label: LEI Registration
+    comment: Registration Meta Data of LEI provided and maintained by LEI issuer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registration
+
   - id: LimitedLiabilityCompany
-    label: European Company Certificate Data for limited liability companies
-    upper_value:
-      - Company
-      - cred:CredentialSubject
+    label: limited liability company
+    upper_value: Company
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/limitedliabilitycompany
     example:
-      - label: Credential with credential subject of type LimitedLiabilityCompany
+      - label: EUCC (EU directive 2025/25) with credential subject of type LimitedLiabilityCompany
         json: |
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
               "https://w3id.org/ebwv/v0.1"
             ],
-            "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+            "@id": "urn:uuid:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
             "@type": [
               "VerifiableCredential",
               "ElectronicAttestationOfAttributes"
@@ -254,12 +867,18 @@ class:
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": [
+                "EconomicOperator",
                 "Company",
                 "LimitedLiabilityCompany"
               ],
               "legalIdentifier": {
                 "@type" : "Euid",
                 "@value" : "NOFOR.987654321"
+              },
+              "register": {
+                "@type" : "RegisterIdentification",
+                "registeredCompanyId" : "987654321",
+                "registeredCompanyIdCountry" : "NO"
               },
               "legalName": "acme Corporation",
               "legalForm": "Inc.",
@@ -285,24 +904,27 @@ class:
               },
               "dateOfRegistration": "2023-10-11",
               "legalStatus": "active",
-              "activity": "10.82",
+              "activity": {
+                "@type": "Nace21",
+                "@value": "10.82"
+              },
               "subscribedCapital": {
-                "@type": "Capital",
+                "@type": "MonetaryAmount",
                 "amount": 100000,
                 "currency": "EUR"
               },
               "legalRepresentative": [
                 {
                   "@type": "LegalRepresentative",
-                  "legalRepresentativeId": "did:key:$publicKeyOfRepresentative1$",
+                  "legalEntity": "did:key:$publicKeyOfRepresentative1$",
                   "role": "CEO",
-                  "scopeOfAuthorization": "Alone"
+                  "typeOfRepresentation": "Alone"
                 },
                 {
                   "@type": "LegalRepresentative",
-                  "legalRepresentativeId": "did:key:$publicKeyOfRepresentative2$",
+                  "legalEntity": "did:key:$publicKeyOfRepresentative2$",
                   "role": "CFO",
-                  "scopeOfAuthorization": "Alone"
+                  "typeOfRepresentation": "Alone"
                 }
               ]
             },
@@ -323,11 +945,98 @@ class:
     label: Loyalty Card
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/loyaltycard
 
+  - id: Membership
+    label: Membership
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/membership
+    example:
+      - label: Credential of type Membership
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8d6f0e3c-1c2a-4e2b-9f1a-1234567890ab",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "issuer": "did:web:example.org:ds-issuer",
+            "validFrom": "2026-06-23T09:00:00Z",
+            "validUntil": "2027-06-23T09:00:00Z",
+            "attestationLegalCategory": "EAA",
+            "credentialStatus": {
+              "@id": "https://example.org/status/membership#42",
+              "@type": "BitstringStatusListEntry"
+            },
+            "termsOfUse": {
+              "@type": "GovernanceRulebook",
+              "url": "https://agri-x.eu/rulebook",
+              "version": "1.2",
+              "hash": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+              "acceptedAt": "2026-06-20T14:30:00Z"
+            },
+            "credentialSubject": {
+              "@id": "did:web:example.org:holder",
+              "@type": "Membership",
+              "member": {
+                "@type": "EconomicOperator",
+                "legalIdentifier": "BEEUID0123456789",
+                "legalName": "Farm Example BV",
+                "identifier": [
+                  {
+                    "@type": "VatId",
+                    "@value": "BE0123456789"
+                  },
+                  {
+                    "@type": "Lei",
+                    "@value": "5493001KJTIIGC8Y1R12"
+                  }
+                ]
+              },
+              "memberOf": "https://agri-X.eu",
+              "role": [
+                "DataRightsHolder",
+                "DataProvider"
+              ],
+              "onboardedBy": {
+                "@type": "OnboardingDetails",
+                "platform": "DjustConnect",
+                "operator": {
+                  "@type": "EconomicOperator",
+                  "legalName": "Instituut voor Landbouw-, Visserij- en Voedingsonderzoek (ILVO)",
+                  "identifier": {
+                    "@type": "VatId",
+                    "@value": "BE0123456789"
+                  }
+                },
+                "member": {
+                  "@type": "EconomicOperator",
+                  "legalIdentifier": "BEEUID0123456789",
+                  "legalName": "Farm Example BV",
+                  "identifier": [
+                    {
+                      "@type": "VatId",
+                      "@value": "BE0123456789"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+
+  - id: MonetaryAmount
+    label: Monetary Amount
+    comment: A structured representation of a sum of money, consisting at minimum of a numeric amount and the currency in which that amount is expressed. It is used in business attestations, credentials, invoices, payments, taxes, fees, capital, turnover, balances, and other economic or financial statements where the monetary value must be interpreted unambiguously across systems and jurisdictions.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/monetaryamount
+
   - id: NaturalPerson
-    label: Natural Person Identification Data
+    label: Natural Person
     upper_value:
-      - LegalEntity
       - cred:CredentialSubject
+      - LegalEntity
+    comment: A natural person is a human being with legal capacity, holding rights and obligations simply by being a person. The contrast is a legal person. It always acts through natural persons, such as managing directors, "Prokuristen", or authorised agents. Legal person credentials link the two - see <a href="#LegalRepresentative">LegalRepresentative</a>
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naturalperson
     example:
       - label: Credential with credential subject of type NaturalPerson
@@ -348,28 +1057,35 @@ class:
               "@type": "NaturalPerson",
               "givenName": "Mario",
               "familyName": "Mustermann",
-              "dateOfBirth": "12/01/1965"
+              "dateOfBirth": "1965-12-01"
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
             "issuer": "did:key:$publicKeyOfIssuer$"
           }
 
+  - id: OnboardingDetails
+    label: onboarding details
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingdetails
+
+  - id: Participation
+    label: participation
+    comment: a participation (Beteiligung) held by the focus legal entity in another legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/participation
+
   - id: Partnership
-    label: European Company Certificate Data for partnerships
-    upper_value:
-      - Company
-      - cred:CredentialSubject
+    label: partnership
+    upper_value: Company
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnership
     example:
-      - label: Credential with credential subject of type Partnership
+      - label: EUCC (EU directive 2025/25) with credential subject of type Partnership
         json: |
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
               "https://w3id.org/ebwv/v0.1"
             ],
-            "@id": "urn:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+            "@id": "urn:uuid:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
             "@type": [
               "VerifiableCredential",
               "ElectronicAttestationOfAttributes"
@@ -378,9 +1094,21 @@ class:
             "credentialSubject": {
               "@id": "did:key:$publicKeyOfHolder$",
               "@type": [
+                  "EconomicOperator",
                   "Company",
                   "Partnership"
               ],
+              "legalIdentifier": {
+                "@type" : "Euid",
+                "@value" : "NOFOR.987654321"
+              },
+              "register": {
+                "@type" : "RegisterIdentification",
+                "registeredCompanyId" : "987654321",
+                "registeredCompanyIdCountry" : "NO"
+              },
+              "legalName": "acme",
+              "legalForm": "Partnership",
               "registeredAddress": {
                 "@type":"Address",
                 "fullAddress": "Via Appia 123, 00100 Rome, Italy",
@@ -394,24 +1122,66 @@ class:
               "partner": [
                 {
                   "@type": "GeneralPartner",
-                  "partnerId": "did:key:$publicKeyOfPartner1$"
+                  "legalEntity": "did:key:$publicKeyOfPartner1$"
                 },
                 {
                   "@type": "LimitedPartner",
-                  "partnerId": "did:key:$publicKeyOfPartner2$",
+                  "legalEntity": "did:key:$publicKeyOfPartner2$",
                   "liabilityOrContribution": {
-                    "@type": "Capital",
+                    "@type": "MonetaryAmount",
                     "amount": 100000,
                     "currency": "EUR"
                   }
                 },
                 {
                   "@type": "StatutoryPartner",
-                  "partnerId": "did:key:$publicKeyOfPartner3$",
-                  "role": "Head of HR",
-                  "scopeOfAuthorization": "Jointly"
+                  "legalEntity": "did:key:$publicKeyOfPartner3$",
+                  "role": "HeadOfHR",
+                  "typeOfRepresentation": "Jointly"
                 }
               ]
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: PaymentTerms
+    label: terms of payment
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentterms
+    example:
+      - label: Credential with credential subject of type PaymentTerms
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:06aeb5bc-e4a1-46a5-920e-d15eaba7f35c",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:08f36c51-27f9-4aa2-a09e-b02fa5b778c2",
+              "@type": "PaymentTerms",
+              "paymentDue": "P30D",
+              "deliveryLocation": {
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                },
+              "supplier": "did:key:$publicKeyOfSupplier",
+              "buyer": "did:key:$publicKeyOfBuyer",
+              "terms": "DAP",
+              "currency": "EUR"
             },
             "validUntil": "2029-12-03T12:19:52Z",
             "validFrom": "2019-12-03T12:19:52Z",
@@ -422,13 +1192,807 @@ class:
     label: Period of Time
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/periodoftime
 
-  - id: Person
-    label: Person
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
+  - id: PostedWorkerNotification
+    label: Posted Worker Notification
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworkernotification
+    example:
+      - label: Credential with credential subject of type PostedWorkerNotification
+        json: |
+          {
+            "@context": [
+              "https://schema.org",
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:f0adc5fe-3558-40f8-b1e2-97713ec44dff",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:8369f95f-829f-4d2a-ace3-d90d128dd45c",
+              "@type": "PostedWorkerNotification",
+              "postedWorker" : {
+                "@type": "NaturalPerson",
+                "gender": "male",
+                "familyName": "Miller",
+                "givenName": "Joe",
+                "birthName": "Miller",
+                "dateOfBirth": "1956-12-02",
+                "citizenship": "IT",
+                "placeOfBirth": {
+                  "@type" : "Address",
+                  "postName": "Rome",
+                  "adminUnitL1": "IT"
+                },
+                "domicile": {
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                },
+                "temporaryAddress":{
+                  "@type":"Address",
+                  "fullAddress": "Via Appia 123, 00100 Rome, Italy",
+                  "thoroughfare": "Via Appia",
+                  "locatorDesignator": "123",
+                  "postName": "Rome",
+                  "adminUnitL2": "Lazio",
+                  "postCode": "00100",
+                  "adminUnitL1": "IT"
+                }
+              },
+              "assignment": {
+                "@type":"WorkAssignment",
+                "jurisdiction": "IT",
+                "description": "job duties", 
+                "duration": {
+                  "@type" : "PeriodOfTime",
+                  "startDate": "2020-01-01",
+                  "endDate": "2020-06-30"
+                }
+              },
+              "a1": "urn:uuid:35b7bf25-0629-48d0-8269-20eac38dd2d7",
+              "employer": {
+                "@type" : "EconomicOperator",
+                "legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation",
+                "temporaryWorkAgency": false
+              },
+              "hostEntity": {
+                "@type" : "EconomicOperator",
+                "legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "ITFOR.987654321"
+                },
+                "legalName": "Hosting Service Corporation",
+                "temporaryWorkAgency": true
+              },
+              "typeOfEmployment": "Permanent"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
 
-  - id: ScopeOfAuthorization
-    label: Scope Of Authorization
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofauthorization
+  - id: PowerOfAttorney
+    label: Power of attorney
+    upper_value: cred:CredentialSubject
+    comment: A power of attorney is a verifiable authorisation that allows a principal (a natural person) or group of principals to delegate authority to a mandatee (a natural person). The power of attorney must be signed by the principal. If the power of attorney is given by a group of principals, each principal must sign it. A power of attorney is limited in scope. It enables the mandatee to represent or act on behalf of the principals within this scope.<br> The power of attorney must prove that the principals are legitimate holders of the power they are delegating. Proof of provenance must be provided in the credential to establish this trust.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/powerofattorney
+    example:
+      - label: PowerOfAttorney given by a single legal representative (alone)
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
+              "@type": "PowerOfAttorney",
+              "mandatee": "did:key:$publicKeyOfMandatee$",
+              "principal": "did:key:$publicKeyOfPrincipal$",
+              "scopeOfPower": "RegistrationAndClosingOfBranches"
+            },
+            "provenanceProof": {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://w3id.org/ebwv/v0.1"
+              ],
+              "@id": "urn:uuid:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+              "@type": [
+                "VerifiableCredential",
+                "ElectronicAttestationOfAttributes"
+              ],
+              "attestationLegalCategory": "QEAA",
+              "credentialSubject": {
+                "@id": "did:key:$publicKeyOfOrganisationOfPrincipal$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company",
+                  "LimitedLiabilityCompany"
+                ],
+                "legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation",
+                "legalForm": "Inc.",
+                "legalRepresentative": [
+                  {
+                    "@type": "LegalRepresentative",
+                    "legalEntity": "did:key:$publicKeyOfPrincipal$",
+                    "role": "CEO",
+                    "typeOfRepresentation": "Alone"
+                  }
+                ]
+              },
+              "validUntil": "2029-12-03T12:19:52Z",
+              "validFrom": "2019-12-03T12:19:52Z",
+              "issuer": "did:key:$publicKeyOfBusinessRegister$"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfPrincipal$"
+          }
+      - label: PowerOfAttorney given by a single legal representative (alone) and notarized by a QTSP
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "QEAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
+              "@type": "PowerOfAttorney",
+              "mandatee": "did:key:$publicKeyOfMandatee$",
+              "principal": "did:key:$publicKeyOfPrincipal$",
+              "scopeOfPower": "RegistrationAndClosingOfBranches"
+            },
+            "provenanceProof":{
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://w3id.org/ebwv/v0.1"
+              ],
+              "@id": "urn:uuid:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+              "@type": [
+                "VerifiableCredential",
+                "ElectronicAttestationOfAttributes"
+              ],
+              "attestationLegalCategory": "QEAA",
+              "credentialSubject": {
+                "@id": "did:key:$publicKeyOfOrganisationOfPrincipal$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company",
+                  "LimitedLiabilityCompany"
+                ],
+                "legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation",
+                "legalForm": "Inc.",
+                "legalRepresentative": [
+                  {
+                    "@type": "LegalRepresentative",
+                    "legalEntity": "did:key:$publicKeyOfPrincipal$",
+                    "role": "CEO",
+                    "typeOfRepresentation": "Alone"
+                  }
+                ]
+              },
+              "validUntil": "2029-12-03T12:19:52Z",
+              "validFrom": "2019-12-03T12:19:52Z",
+              "issuer": "did:key:$publicKeyOfBusinessRegister$"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": "did:key:$publicKeyOfNotary$"
+          }
+      - label: PowerOfAttorney given by two legal representatives (jointly)
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:8c076e09-c680-4fa0-b346-630096770c3e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:f59f2815-9ddc-4276-aa93-bb9c52516606",
+              "@type": "PowerOfAttorney",
+              "mandatee": "did:key:$publicKeyOfMandatee$",
+              "principal": [
+                "did:key:$publicKeyOfPrincipal1$",
+                "did:key:$publicKeyOfPrincipal2$"
+              ],
+              "scopeOfPower": "https://example.org/amlscopes#OpeningBankAccount"
+            },
+            "provenanceProof": {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://w3id.org/ebwv/v0.1"
+              ],
+              "@id": "urn:uuid:d5dfeb39-edc7-40b1-a2fc-3968dbd3eac8",
+              "@type": [
+                "VerifiableCredential",
+                "ElectronicAttestationOfAttributes"
+              ],
+              "attestationLegalCategory": "QEAA",
+              "credentialSubject": {
+                "@id": "did:key:$publicKeyOfOrganisationOfPrincipals$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company",
+                  "LimitedLiabilityCompany"
+                ],
+                "legalIdentifier": {
+                  "@type" : "Euid",
+                  "@value" : "NOFOR.987654321"
+                },
+                "legalName": "acme Corporation",
+                "legalForm": "Inc.",
+                "legalRepresentative": [
+                  {
+                    "@type": "LegalRepresentative",
+                    "legalEntity": "did:key:$publicKeyOfPrincipal1$",
+                    "role": "CEO",
+                    "typeOfRepresentation": "Jointly"
+                  },
+                  {
+                    "@type": "LegalRepresentative",
+                    "legalEntity": "did:key:$publicKeyOfPrincipal2$",
+                    "role": "CFO",
+                    "typeOfRepresentation": "Jointly"
+                  }
+                ]
+              },
+              "validUntil": "2029-12-03T12:19:52Z",
+              "validFrom": "2019-12-03T12:19:52Z",
+              "issuer": "did:key:$publicKeyOfBusinessRegister$"
+            },
+            "validUntil": "2029-12-03T12:19:52Z",
+            "validFrom": "2019-12-03T12:19:52Z",
+            "issuer": [
+              "did:key:$publicKeyOfPrincipal1$",
+              "did:key:$publicKeyOfPrincipal2$"
+            ]
+          }
+
+  - id: PublicSectorBody
+    label: public sector body
+    comment: public sector body’ means a Union entity, a national, state, regional or local authority, a body governed by public law or an association formed by one or several such entities or bodies , or a private entity mandated by at least one such entities, authorities, bodies or associations to provide public services, when acting under such a mandate
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorbody
+
+  - id: QmsCertificate
+    label: Quality management systems (QMS) certificate
+    comment:  Quality management systems (QMS) certificate used for ESG Reporting and Sustainability
+    upper_value: cred:CredentialSubject
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/qmscertificate
+    example:
+      - label: QmsCertificate - IATF 16949:2016 multi-site certificate (a selection of the additional sites is shown)
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:3f1d2c7a-9b84-4c0e-9d21-6e5b8a0f1c42",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "issuer": "did:web:dqs.de",
+            "validFrom": "2024-03-25T00:00:00Z",
+            "validUntil": "2027-03-24T00:00:00Z",
+            "credentialSubject": {
+              "@id": "urn:iatf:certificate:060703-IATF25",
+              "@type": "QmsCertificate",
+              "identifier": [
+                {
+                  "@type": "CertificateRegistrationNumber",
+                  "@value": "060703 IATF25"
+                },
+                {
+                  "@type": "MainCertificateRegistrationNumber",
+                  "@value": "494712 IATF25"
+                },
+                {
+                  "@type": "IatfCertificateNumber",
+                  "@value": "0507678"
+                }
+              ],
+              "legalEntity": {
+                "@id": "did:key:$publicKeyOfRobertBoschGmbH$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company"
+                ],
+                "legalName": "Robert Bosch GmbH",
+                "legalForm": "GmbH",
+                "identifier": {
+                  "@type": "IatfUsi",
+                  "@value": "Y3XA44"
+                },
+                "registeredAddress": {
+                  "@type": "Address",
+                  "fullAddress": "Robert-Bosch-Straße 1, 91522 Ansbach, Germany",
+                  "thoroughfare": "Robert-Bosch-Straße",
+                  "locatorDesignator": "1",
+                  "postCode": "91522",
+                  "postName": "Ansbach",
+                  "adminUnitL1": "DE"
+                }
+              },
+              "certificationStandard": {
+                "@id": "https://www.iatfglobaloversight.org/iatf-169492016/",
+                "@type": "QmsStandard"
+              },
+              "certifiedScope": "Design and manufacturing of electronic components (IATF 16949:2016, with product design)",
+              "hasSite": [
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "P29R3L"
+                  },
+                  "certifiedScope": "Policy making, Strategic planning, Finance, Contract Review, Sales, Product design, Internal audit management, Quality system management",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Headquarter ME",
+                    "fullAddress": "Tübinger Straße 123, 72762 Reutlingen, Germany",
+                    "thoroughfare": "Tübinger Straße",
+                    "locatorDesignator": "123",
+                    "postCode": "72762",
+                    "postName": "Reutlingen",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "6EZTYS"
+                  },
+                  "certifiedScope": "Contract Review, Sales, Product design",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Headquarters VM",
+                    "fullAddress": "Robert-Bosch-Allee 1, 74232 Abstatt, Germany",
+                    "thoroughfare": "Robert-Bosch-Allee",
+                    "locatorDesignator": "1",
+                    "postCode": "74232",
+                    "postName": "Abstatt",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "Y2NCWM"
+                  },
+                  "certifiedScope": "Purchasing, Supplier management",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Mobility Solutions - Purchasing Direct Materials",
+                    "fullAddress": "Bregenzerstraße 26, 70469 Stuttgart-Feuerbach, Germany",
+                    "thoroughfare": "Bregenzerstraße",
+                    "locatorDesignator": "26",
+                    "postCode": "70469",
+                    "postName": "Stuttgart-Feuerbach",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "CZM42E"
+                  },
+                  "certifiedScope": "Logistics, Purchasing, Supplier management, Warehousing",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Global Business Services",
+                    "fullAddress": "Bregenzerstraße 26, 70469 Stuttgart-Feuerbach, Germany",
+                    "thoroughfare": "Bregenzerstraße",
+                    "locatorDesignator": "26",
+                    "postCode": "70469",
+                    "postName": "Stuttgart-Feuerbach",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "32NEEP"
+                  },
+                  "certifiedScope": "Contract Review, Product Design, Sales",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Powertrain Solutions (PS)",
+                    "fullAddress": "Wernerstraße 51, 70469 Stuttgart-Feuerbach, Germany",
+                    "thoroughfare": "Wernerstraße",
+                    "locatorDesignator": "51",
+                    "postCode": "70469",
+                    "postName": "Stuttgart-Feuerbach",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "IatfUsi",
+                    "@value": "LRNKEC"
+                  },
+                  "certifiedScope": "Contract Review, Product design, Sales",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Cross-Domain Computing Solutions",
+                    "fullAddress": "Poststraße 70, 71229 Leonberg, Germany",
+                    "thoroughfare": "Poststraße",
+                    "locatorDesignator": "70",
+                    "postCode": "71229",
+                    "postName": "Leonberg",
+                    "adminUnitL1": "DE"
+                  }
+                }
+              ]
+            },
+            "evidence": {
+              "@type": "EvidenceData",
+              "evidenceSource": "QMS Certificate IATF 16949:2016",
+              "url": "https://www.dqsglobal.com/en/customer-database/robert-bosch-gmbh10#",
+              "provenClaim": "$.credentialSubject",
+              "verificationDate": "2024-11-30"
+            }
+          }
+
+      - label: QmsCertificate - ISO 9001:2015 multi-site certificate (a selection of the additional sites is shown)
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:9a2b7c41-5d38-4e6f-b0c1-2f3a4b5c6d7e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "issuer": "did:web:bureauveritas.com",
+            "validFrom": "2024-08-06T00:00:00Z",
+            "validUntil": "2027-08-05T00:00:00Z",
+            "credentialSubject": {
+              "@id": "urn:bureauveritas:certificate:DE014976",
+              "@type": "QmsCertificate",
+              "identifier": {
+                "@type": "CertificateRegistrationNumber",
+                "@value": "DE014976"
+              },
+              "legalEntity": {
+                "@id": "did:key:$publicKeyOfRobertBoschPowerToolsGmbH$",
+                "@type": [
+                  "EconomicOperator",
+                  "Company"
+                ],
+                "legalName": "Robert Bosch Power Tools GmbH",
+                "legalForm": "GmbH",
+                "registeredAddress": {
+                  "@type": "Address",
+                  "fullAddress": "Max-Lang-Straße 40-46, 70771 Leinfelden-Echterdingen, Germany",
+                  "thoroughfare": "Max-Lang-Straße",
+                  "locatorDesignator": "40-46",
+                  "postCode": "70771",
+                  "postName": "Leinfelden-Echterdingen",
+                  "adminUnitL1": "DE"
+                }
+              },
+              "certificationStandard": {
+                "@id": "https://www.iso.org/standard/62085.html",
+                "@type": "QmsStandard"
+              },
+              "certifiedScope": "Development, Production, Packaging, Distribution, Sales, Service, and Recycling of Tools, Batteries and Accessories",
+              "hasSite": [
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-001"
+                  },
+                  "certifiedScope": "Head Office Development, Distribution and Sales of Tools, Batteries and of Accessories",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Robert Bosch Power Tools GmbH (Head Office)",
+                    "fullAddress": "Max-Lang-Straße 40-46, 70771 Leinfelden-Echterdingen, Germany",
+                    "thoroughfare": "Max-Lang-Straße",
+                    "locatorDesignator": "40-46",
+                    "postCode": "70771",
+                    "postName": "Leinfelden-Echterdingen",
+                    "adminUnitL1": "DE"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-002"
+                  },
+                  "certifiedScope": "Production and Development of Accessories",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "ARESI SPA",
+                    "fullAddress": "Via Dei Murari 12, I-24041 Brembate, Italy",
+                    "thoroughfare": "Via Dei Murari",
+                    "locatorDesignator": "12",
+                    "postCode": "24041",
+                    "postName": "Brembate",
+                    "adminUnitL1": "IT"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-004"
+                  },
+                  "certifiedScope": "Design, Production and Distribution of Power Tools",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Bosch Limited Power Tools Division",
+                    "fullAddress": "Plot No A-20/2 SIPCOT Industrial Growth Centre, 602 105 Oragadam, Kanchipuram District, Tamil Nadu State, India",
+                    "thoroughfare": "SIPCOT Industrial Growth Centre",
+                    "locatorDesignator": "Plot No A-20/2",
+                    "postCode": "602 105",
+                    "postName": "Oragadam",
+                    "adminUnitL2": "Tamil Nadu",
+                    "adminUnitL1": "IN"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-005"
+                  },
+                  "certifiedScope": "Packaging and Distribution of Tools and of Accessories",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Bosch Power Tools B.V.",
+                    "fullAddress": "Konijnenberg 60, 4825 Breda, The Netherlands",
+                    "thoroughfare": "Konijnenberg",
+                    "locatorDesignator": "60",
+                    "postCode": "4825",
+                    "postName": "Breda",
+                    "adminUnitL1": "NL"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-012"
+                  },
+                  "certifiedScope": "Development, Production and Distribution of Tools and of Batteries",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Robert Bosch Power Tools Sdn Bhd",
+                    "fullAddress": "45, Hilir Sungai Keluang 1, Phase 4, Bayan Lepas Industrial Park, 11900 Bayan Lepas, Penang, Malaysia",
+                    "thoroughfare": "Hilir Sungai Keluang 1",
+                    "locatorDesignator": "45",
+                    "postCode": "11900",
+                    "postName": "Bayan Lepas",
+                    "adminUnitL2": "Penang",
+                    "adminUnitL1": "MY"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-016"
+                  },
+                  "certifiedScope": "Production and Distribution of Tools",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Robert Bosch Tool de Mexico S.A de C.V",
+                    "fullAddress": "Blvd Abelardo L. Rodriguez #148 Col. Alamitos, 21210 Mexicali - Baja California, Mexico",
+                    "thoroughfare": "Blvd Abelardo L. Rodriguez",
+                    "locatorDesignator": "148",
+                    "postCode": "21210",
+                    "postName": "Mexicali",
+                    "adminUnitL2": "Baja California",
+                    "adminUnitL1": "MX"
+                  }
+                },
+                {
+                  "@type": [
+                    "Site",
+                    "CertifiedSite"
+                  ],
+                  "identifier": {
+                    "@type": "CertificateRegistrationNumber",
+                    "@value": "DE014976-021"
+                  },
+                  "certifiedScope": "Worldwide Distribution and Postponement of Power Tools and Accessories",
+                  "hasAddress": {
+                    "@type": "Address",
+                    "locatorName": "Robert Bosch Tool Corporation",
+                    "fullAddress": "2700 College Blvd, 72301 West Memphis, AR, United States",
+                    "thoroughfare": "College Blvd",
+                    "locatorDesignator": "2700",
+                    "postCode": "72301",
+                    "postName": "West Memphis",
+                    "adminUnitL2": "AR",
+                    "adminUnitL1": "US"
+                  }
+                }
+              ]
+            },
+            "evidence": {
+              "@type": "EvidenceData",
+              "evidenceSource": "QMS Certificate ISO 9001:2015, Certificate No. DE014976 (Bureau Veritas)",
+              "url": "https://www.bosch-pt.com/ww/media/documents/iso_9001/certificate_iso9001_bosch_pt_matrix_single_2024-2027.pdf",
+              "provenClaim": "$.credentialSubject",
+              "verificationDate": "2025-12-12"
+            }
+          }
+
+  - id: QmsStandard
+    label: quality management systems standard
+    comment: A Quality Management System (QMS) standard is a formal, structured set of policies, processes, and procedures designed to help organizations consistently meet customer and regulatory requirements. Key QMS Standards are &colon;<li>ISO 9001&colon; The universal baseline standard for quality management systems applicable to any business size or sector.</li><li>ISO 13485&colon; Tailored specifically for the medical device and healthcare industry, emphasizing product safety and lifecycle tracking.</li><li>IATF 16949&colon; Customized for the automotive manufacturing sector to prevent defects and reduce supply chain waste.</li><li> AS9100&colon; Built for aerospace and defense organizations demanding high safety and reliability standards.</li>
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/qmsstandard
+
+  - id: RegisterIdentification
+    label: register identification
+    comment: the identification of a legal entity in an official company register, including the register type, the registering court or authority, and the register number
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeridentification
+
+  - id: Regulator
+    label: regulator
+    comment: a supervisory authority (such as BaFin) at which the legal entity is registered, with the regulator-assigned identifier and the entity's regulatory classification
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/regulator
+
+  - id: Residency
+    label: residency
+    upper_value: cred:CredentialSubject
+    comment: the residency of a natural person at an address, stating the person, the address and the date since when the person resides there
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
+    example:
+      - label: Credential with credential subject of type Residency
+        json: |
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/ebwv/v0.1"
+            ],
+            "@id": "urn:uuid:6b5caa7e-2c1d-4a9f-8e7b-0c1a2b3c4d5e",
+            "@type": [
+              "VerifiableCredential",
+              "ElectronicAttestationOfAttributes"
+            ],
+            "attestationLegalCategory": "EAA",
+            "credentialSubject": {
+              "@id": "urn:uuid:b6ef9582-12cf-4287-b009-33f90b6b13bc",
+              "@type": "Residency",
+              "person": "did:key:$publicKeyOfPerson$",
+              "arrivalDate": "2020-06-01",
+              "hasAddress": {
+                "@type": "Address",
+                "thoroughfare": "Musterstrasse",
+                "locatorDesignator": "1",
+                "postCode": "80000",
+                "postName": "München",
+                "adminUnitL2": "Bayern",
+                "adminUnitL1": "DE"
+              }
+            },
+            "validFrom": "2020-06-01T00:00:00Z",
+            "validUntil": "2030-06-01T00:00:00Z",
+            "issuer": "did:key:$publicKeyOfIssuer$"
+          }
+
+  - id: ScopeOfPower
+    label: scope of power
+    comment: the scope of power delegated to a mandatee in the context of representing a company
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeofpower
+
+  - id: Share
+    label: share
+    comment: a capital and voting stake (Anteil) held in a company, expressed as relative share, absolute amounts and relative voting rights, and whether the participation is direct
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/share
+
+  - id: Shareholder
+    label: shareholder
+    upper_value: EquityHolder
+    comment: The common attributes of a shareholder of a legal entity — the legal entity that's hold the share, the stake and the aggregated share in the focus entity. An equity holder who owns fractional shares of stock in a corporation (such as common or preferred stock). Shareholders have a claim on company value, and their financial liability is typically limited to the amount they invested in the stock.
+
+  - id: ShareInFocus
+    label: share in focus entity
+    comment: the capital and voting share a holder has in the focus legal entity, computed under the several beneficial-ownership calculation methods used in German anti-money-laundering practice (GwG / Transparenzregister). Each method yields a relative capital share together with the relative voting rights; the methods differ in how indirect holdings along an ownership path (Strang) are counted and at which threshold (Grenze) a holding is recognised - see the standard, accG10, accG25, dom10 and dom25 properties
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareinfocus
+
+  - id: ShareVotingPair
+    label: share and voting pair
+    comment: a pair of relative capital share and relative voting rights computed for a given beneficial-ownership calculation method
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/sharevotingpair
+
+  - id: Site
+    label: Site
+    comment: a place, premises or location at which an organisation is present or located
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/site
+
+  - id: SocialSecurityContribution
+    label: Social Security Contribution
+    upper_value: cred:CredentialSubject
+    comment: A social security contribution attestation is an attestation issued by a competent authority or authorized body confirming information about an employer’s fulfilment of obligations related to social security contributions arising from the employment of workers.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialsecuritycontribution
 
   - id: StatutoryPartner
     label: Statutory Partner
@@ -442,19 +2006,288 @@ class:
     label: Transport Ticket
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transportticket
 
+  - id: StockExchange
+    label: stock exchange
+    comment: a stock exchange on which a security may be listed, identified by name, country and operating market identification code (MIC)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/stockexchange
+
+  - id: StockExchangeListing
+    label: stock exchange listing
+    comment: a listing of the legal entity on a stock exchange, with its market identification code and ticker symbol
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/stockexchangelisting
+
+  - id: TransparencyRegisterEntry
+    label: transparency register entry
+    comment: a beneficial owner as recorded in the transparency register (Transparenzregister), with the natural person and the type and scope of their economic interest
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transparencyregisterentry
+
+  # --- KYC (delivery-json) control & classification classes ---
+
+  - id: TransparencyRegisterExtract
+    label: transparency register extract
+    comment: metadata of a transparency register (Transparenzregister) extract obtained for the focus legal entity, including application and reference numbers, validity date and discrepancy-report information
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transparencyregisterextract
+
+  - id: TypeOfEmployment
+    label: Type Of Employment
+    comment: the category or form of an employment relationship, indicating how a worker is employed or engaged by an employer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
+
+  - id: TypeOfRepresentation
+    label: type of representation
+    comment: type of representation meaning Alone or Jointly
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation
+
+  - id: UBO
+    label: Ultimate Beneficiary Owner
+    comment: An Ultimate Beneficial Owner (UBO) is the natural person (real human) who ultimately owns, controls, or profits from a legal person (company).
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/UBO
+
+  - id: VATRegistrationUnit
+    label: VAT Registration Unit
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vatregistrationunit
+
+  - id: Vessel
+    label: Vessel
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vessel
+
+  - id: WorkAssignment
+    label: Work Assignment
+    upper_value: schema:Thing
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/workassignment
+
+individual:   # code lists
+  - id: AbortedResearch
+    label: aborted research
+    type: DeliveryType
+    comment: delivery type indicating that the KYC investigation was aborted before completion
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/abortedresearch
+
+  - id: Alone
+    label: Alone
+    type: TypeOfRepresentation
+    comment: the representative can bind the company or principal alone, with their signature only.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
+
+  - id: CEO
+    label: Chief Executive Officer
+    type: CorporateRole
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ceo
+
+  - id: CFO
+    label: Chief Financial Officer
+    type: CorporateRole
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cfo
+
+  - id: CIP
+    label: Carriage & Insurance Paid To
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cip
+
+  - id: ConstitutionOfCompanies
+    label: constitution of companies
+    type: ScopeOfPower
+    comment: Changes to the instrument of constitution of companies and the statutes if contained in a separate instrument.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/constitutionofcompanies
+
+  - id: CPT
+    label: Carriage Paid To
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cpt
+
+  - id: CrossBoarderConversions
+    label: cross boarder conversions
+    type: ScopeOfPower
+    comment: All legal transactions regarding cross-border conversions involving the Company.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossboarderconversions
+
+  - id: CrossBoarderMergers
+    label: cross boarder mergers
+    type: ScopeOfPower
+    comment: All legal transactions regarding cross border mergers involving the Company.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossboardermergers
+
+  - id: CrossBorderDivisions
+    label: cross border divisions
+    type: ScopeOfPower
+    comment: All legal transactions regarding cross border divisions involving the Company
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/crossborderdivisions
+
+  - id: DAP
+    label: Delivered At Place
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dap
+
+  - id: DataConsumer
+    label: Partner that wants to use data, e.g. by calling an API.
+    type: DataSpaceRole
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dataconsumer
+
+  - id: DataProvider
+    label: Partner that enables sharing data, e.g. via an API.
+    type: DataSpaceRole
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dataprovider
+
+  - id: DataRightsHolder
+    label: Owns the rights to the data (e.g. farmers) and can consent to data being shared from a data provider to a data consumer.
+    type: DataSpaceRole
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/datarightsholder
+
+  - id: DDP
+    label: Delivered Duty Paid
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ddp
+
+  - id: DPU
+    label: Delivered Place Unloaded
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dpu
+
+  - id: EAA
+    label: Electronic Attestation of Attributes
+    type: AttestationLegalCategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA
+
+  - id: EXW
+    label: Ex Works
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exw
+
+  - id: FAS
+    label: Free Alongside Ship
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fas
+
+  - id: FCA
+    label: Free Carrier
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fca
+
+  - id: FOB
+    label: Free On Board
+    type: Incoterms
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fob
+
+  - id: FormationOfCompanies
+    label: formation of companies
+    type: ScopeOfPower
+    comment: The formation of companies.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/sopeofpower
+
+  - id: HeadOfHR
+    label: Head of Human Resources
+    type: CorporateRole
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/headofhr
+
+  - id: Jointly
+    label: Jointly
+    type: TypeOfRepresentation
+    comment: the representative can only act together with one or more other authorised representatives. A typical rule is "two managing directors jointly."
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly
+
+  - id: OnboardingServiceProvider
+    label: Onboarding Service Provider
+    type: DataSpaceRole
+    comment: Partner that onboards members into Agri-X; may be a DSI or another technology partner.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/onboardingserviceprovider
+
+  - id: Operator
+    label: Operator
+    type: DataSpaceRole
+    comment: Partner providing DSSC building-block services (identity management, consent management, logging, …).
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/operator
+
+  - id: Permanent
+    label: Permanent
+    type: TypeOfEmployment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/permanent
+
+  - id: PuB-EAA
+    label: Public Electronic Attestation of Attributes
+    type: AttestationLegalCategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/PuB-EAA
+
+  - id: QEAA
+    label: Qualified Electronic Attestation of Attributes
+    type: AttestationLegalCategory
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA
+
+  - id: RegistrationAndClosingOfBranches
+    label: registration and closing of branches
+    type: ScopeOfPower
+    comment: Registration and closure of branches of the Company.
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/registrationandclosingofbranches
+
+  - id: ResearchedProduct
+    label: researched product
+    type: DeliveryType
+    comment: delivery type indicating that the KYC investigation was completed and the researched product is delivered
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/researchedproduct
+
+  - id: Temporary
+    label: Temporary
+    type: TypeOfEmployment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporary
+
 property:
-  - id: activity
-    label: main activity of company
-    domain: Company
+  - id: a1
+    label: a1 certificate
+    domain: PostedWorkerNotification
+    range: xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/a1
+
+  - id: absoluteShare
+    label: absolute share
+    domain: Share
+    range: MonetaryAmount
+    comment: total value of the shares held directly and indirectly; may be repeated to express the same value in several currencies
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/absoluteshare
+
+  - id: academicTitle
+    label: academic title
+    domain: NaturalPerson
+    range: xsd:string
+    comment: title (Titel) of the natural person as recorded in the official registers
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/academictitle
+
+  # --- KYC (delivery-json) ownership & financial properties ---
+
+  - id: acceptedAt
+    label: accepted at
+    domain: GovernanceRulebook
+    range: xsd:dateTime
+    comment: Datetime when the rulebook was accepted. May differ from issuance time in an outbound flow where a credential is issued to an existing member based on a previously completed onboarding flow.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/acceptedat
+
+  - id: accG10
+    label: accumulation 10% method
+    domain:
+      - ShareInFocus
+      - BeneficialOwnership
     range:
-      - Nace21
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
+      - ShareVotingPair
+      - BeneficialOwnershipVariant
+    range_union: true
+    comment: determined under the accumulation (Addition) method with a 10 percent threshold (Grenze) - relative holdings of at least 10 percent are added up across all ownership paths (Straenge) that lead to the focus entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/accg10
+
+  - id: accG25
+    label: accumulation 25% method
+    domain:
+      - ShareInFocus
+      - BeneficialOwnership
+    range:
+      - ShareVotingPair
+      - BeneficialOwnershipVariant
+    range_union: true
+    comment: determined under the accumulation (Addition) method with a 25 percent threshold (Grenze) - relative holdings of at least 25 percent are added up across all ownership paths (Straenge) that lead to the focus entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/accg25
 
   - id: accountName
     label: account name
     domain: BankAccount
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/bankaccount
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/accountname
 
   - id: accountType
     label: account type
@@ -462,33 +2295,56 @@ property:
     range: AccountType
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/banktype
 
+  - id: activity
+    label: main activity of company
+    domain:
+      - Company
+    range:
+      - Nace21
+      - Naics
+      - Sic
+      - Wz2003
+      - Wz2008
+    range_union: true
+    comment: the main economic activity of the company, expressed as a code in one or more classification schemes (NACE Rev. 2.1, NAICS, SIC, WZ 2003, WZ 2008)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/activity
+
   - id: addressArea
     label: address area
     domain: Address
     range: xsd:string
+    comment: the name of a geographic area that groups addresses
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/addressarea
 
-  - id: adminUnitL2
-    label: administrative unit level 2
-    domain: Address
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2
+  - id: administrativeRepresentative
+    label: administrative representative
+    domain: EconomicOperator
+    range: NaturalPerson
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/administrativerepresentative
 
   - id: adminUnitL1
     label: administrative unit level 1
     domain: Address
     range: CountryCode
+    comment: the name of the uppermost level of the address, almost always a country
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL1
+
+  - id: adminUnitL2
+    label: administrative unit level 2
+    domain: Address
+    range: xsd:string
+    comment: The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/adminUnitL2
 
   - id: alternativeName
     label: alternative name
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/alternativename
 
   - id: amount
     label: amount
-    domain: Capital
+    domain: MonetaryAmount
     range: xsd:float
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
 
@@ -498,75 +2354,246 @@ property:
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivallocation
 
+  - id: applicationNumber
+    label: application number
+    domain: TransparencyRegisterExtract
+    range: xsd:string
+    comment: the transaction number assigned by the transparency register for the extract
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/applicationnumber
+
+  - id: arrivalDate
+    label: arrival date
+    domain: Residency
+    range: xsd:date
+    comment: the date since when the person resides at this address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaldate
+
+  - id: assignment
+    label: assignment
+    domain: PostedWorkerNotification
+    range: WorkAssignment
+    comment: a formal allocation of a role, mandate, responsibility, task, right, or duty to an identified party or agent within a defined context
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/assignment
+
   - id: attestationLegalCategory
     label: attestation legal category
     domain: ElectronicAttestationOfAttributes
     range: AttestationLegalCategory
-    one_of: [ QEAA, Pub-EAA, EAA ]
+    one_of: [ QEAA, PuB-EAA, EAA ]
+    comment: a categorization of electronic attestations of attributes into three primary types, each associated with a distinct level of assurance and legal effect
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/attestationlegalcategory
+
+  - id: averagePeriodWorkforce
+    label: average period workforce
+    domain: SocialSecurityContribution
+    range: xsd:string
+    comment: average number of employed persons for the reporting period
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/averageperiodworkforce
+
+  - id: balanceSheetDate
+    label: balance sheet date
+    domain: KycLegalEntity
+    range: xsd:date
+    comment: balance sheet reporting date of the legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/balancesheetdate
+
+  - id: balanceSheetTotal
+    label: balance sheet total
+    domain: FinancialYear
+    range: MonetaryAmount
+    comment: balance sheet total (Bilanzsumme) of the focus legal entity in the financial year
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/balancesheettotal
+
+  - id: beneficialOwnership
+    label: beneficial ownership
+    domain: KycLegalEntity
+    range: BeneficialOwnership
+    comment: the beneficial-ownership analysis of the focus legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/beneficialownership
 
   - id: birthName
     label: birth name
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname
 
+  - id: businessEntity
+    label: business entity
+    domain: DUNS
+    range: Company
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/businessEntity
+
+  - id: buyer
+    label: buyer
+    domain: PaymentTerms
+    range: xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/buyer
+
+  - id: capitalBeneficialOwner
+    label: capital beneficial owner
+    domain: BeneficialOwnershipVariant
+    range: BeneficialOwner
+    comment: a beneficial owner determined on the basis of capital - a natural person who, directly or indirectly, holds a share of the capital (Kapitalanteile) of the focus legal entity that reaches the threshold of the enclosing calculation method (more than 25 percent under the standard method, or the 10 or 25 percent threshold of the accumulation and domination methods) (section 3(2) sentence 1 no. 1 GwG)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capitalbeneficialowner
+
+  - id: cdd
+    label: customer due diligence method
+    domain: BeneficialOwnership
+    range: BeneficialOwnershipVariant
+    comment: beneficial owners determined under the customer-due-diligence (CDD) method
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/cdd
+
+  - id: certificationStandard
+    label: certification standard
+    domain: QmsCertificate
+    range: QmsStandard
+    comment: the standard the certificate is based on
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certificationstandard
+
+  - id: certifiedScope
+    label: certified scope
+    domain:
+      - QmsCertificate
+      - CertifiedSite
+    range: xsd:String
+    comment: the scope of certification
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/certifiedscope
+
   - id: citizenship
     label: citizenship
-    domain: Person
+    domain: NaturalPerson
     range: CountryCode
+    comment: the legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
+
+  - id: companyCategory
+    label: company category
+    domain: KycLegalEntity
+    range: xsd:string
+    comment: company category (Gesellschaftsart) of the legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/companycategory
+
+  - id: registeredCompanyId
+    label: registered company id
+    domain: RegisterIdentification
+    range: xsd:string
+    comment: identification number of the company in a (foreign) register
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredcompanyid
+
+  - id: registeredCompanyIdCountry
+    label: registered company id country
+    domain: RegisterIdentification
+    range: CountryCode
+    comment: country code of the country for the company's register identification number
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredcompanyidcountry
+
+  - id: companySize
+    label: company size
+    domain: FinancialYear
+    range: xsd:string
+    comment: size class of the company according to the German Commercial Code (HGB)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/companysize
+
+  - id: complianceStatus
+    label: compliance status
+    domain: SocialSecurityContribution
+    range:
+      - xsd:string
+      - skos:Concept
+    comment: in the SSC context, the assessed status of the fulfilment of the covered obligations
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/compliancestatus
+
+  - id: constructionSector
+    label: construction sector
+    domain: EconomicOperator
+    range: xsd:boolean
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/constructionsector
 
   - id: contactPoint
     label: contact point
-    domain: Person
+    domain:
+      - NaturalPerson
+      - EconomicOperator
     range: ContactPoint
+    comment: a designated communication channel or organisational function through which an entity can be contacted for a specific purpose
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contactpoint
+
+  - id: contributor
+    label: contributor
+    comment: The economic operator that is the employer subject of a social security contribution attestation.
+    domain: SocialSecurityContribution
+    range: EconomicOperator
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/contributor
 
   - id: correspondenceAddress
     label: correspondence Address
     domain:
       - Company
+      - LegalPerson
     range:
       - Address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
 
   - id: countryOfBirth
     label: country of birth
-    domain: Person
+    domain: NaturalPerson
     range: Location
+    comment: the sovereign state within whose territory a person's birth was officially registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofbirth
 
   - id: countryOfDeath
     label: country of death
-    domain: Person
+    domain: NaturalPerson
     range: Location
+    comment: the sovereign state within whose territory a person's death was officially registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/countryofdeath
+
+  - id: coverageStatement
+    label: coverage statement
+    domain: SocialSecurityContribution
+    range: xsd:string
+    comment: a human-readable statement describing the reporting scope covered by the attestation
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/coveragestatement
+
+  - id: coveredObligationType
+    label: covered obligation type
+    domain: SocialSecurityContribution
+    range:
+      - xsd:string
+    comment: the type of obligation that is covered by the attestation; in the case of a SSC, this covers for example social security, employment-related contribution, reporting, or payment obligation
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/coveredobligationtype
 
   - id: currency
     label: currency
-    domain: Capital
+    domain:
+      - MonetaryAmount
+      - PaymentTerms
     range: Currency
+    comment: a recognised monetary unit used to express prices, payments, liabilities, values, or other monetary amounts in a business, financial, administrative, or regulatory context
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/currency
 
   - id: dateOfBirth
     label: date of birth
     domain:
-      -  Person
       -  NaturalPerson
     range: xsd:date
+    comment: the point in time on which the person was born
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofbirth
 
   - id: dateOfDeath
     label: date of death
-    domain: Person
+    domain: NaturalPerson
     range: xsd:date
+    comment: the calendar date on which a person is recorded or attested as having died
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofdeath
 
   - id: dateOfRegistration
     label: date of registration
-    domain: Company
+    domain:
+      - Company
+      - LegalPerson
     range: xsd:date
+    comment: the date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
 
   - id: departureLocation
@@ -575,57 +2602,300 @@ property:
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/departurelocation
 
+  - id: deliveryLocation
+    label: delivery location
+    domain: PaymentTerms
+    range:
+      - Location
+      - Address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverylocation
+
+  - id: deliveryType
+    label: delivery type
+    domain: KycCheck
+    range: DeliveryType
+    one_of: [ResearchedProduct, AbortedResearch]
+    comment: states whether the delivery concerns a researched product or a research that was aborted
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverytype
+
+  - id: directParent
+    label: direct parent
+    domain: KycLegalEntity
+    range:
+      - LimitedLiabilityCompany
+      - Partnership
+    range_union: true
+    comment: the direct parent company of the focus legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/directparent
+
+  - id: discrepancyReportNumber
+    label: discrepancy report number
+    domain: TransparencyRegisterExtract
+    range: xsd:string
+    comment: the transaction number of the discrepancy report (Unstimmigkeitsmeldung) at the transparency register
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/discrepancyreportnumber
+
+  - id: dom10
+    label: domination 10% method
+    domain:
+      - ShareInFocus
+      - BeneficialOwnership
+    range:
+      - ShareVotingPair
+      - BeneficialOwnershipVariant
+    range_union: true
+    comment: determined under the domination (Beherrschung) method with a 10 percent threshold (Grenze) - a holding is counted only along a chain in which controlling influence of at least 10 percent exists at every level, so that control passes through the chain to the focus entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dom10
+
+  - id: dom25
+    label: domination 25% method
+    domain:
+      - ShareInFocus
+      - BeneficialOwnership
+    range:
+      - ShareVotingPair
+      - BeneficialOwnershipVariant
+    range_union: true
+    comment: determined under the domination (Beherrschung) method with a 25 percent threshold (Grenze) - a holding is counted only along a chain in which controlling influence of at least 25 percent exists at every level, so that control passes through the chain to the focus entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dom25
+
   - id: domicile
     label: domicile
-    domain: Person
+    domain:
+      - NaturalPerson
+      - KycLegalEntity
     range: Address
+    comment: At its core, a domicile address refers to the place where an individual has their fixed, permanent home and principal establishment, and to which they intend to return whenever they are absent. This is not merely a physical location but a legal concept that carries substantial weight in various legal and administrative contexts. For businesses, a domicile address is a registered address where the company is officially established and recognized by the authorities.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/domicile
 
-  - id: eori
-    label: economic operator registration and identification
-    domain: Company
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
+  - id: duration
+    label: duration
+    domain: WorkAssignment
+    range: PeriodOfTime
+    comment: a temporal length representing how long an activity, status, validity period, assignment, mandate, process, event, or other time-bound condition lasts
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/duration
 
-  - id: excise
-    label: excise number
-    domain: Company
+  - id: employee
+    label: employee
+    domain:
+      - EconomicOperator
+    range: NaturalPerson
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/employee
+
+  - id: employer
+    label: employer
+    domain:
+      - A1Certificate
+      - PostedWorkerNotification
+      - SocialSecurityContribution
+    range: EconomicOperator
+    comment: a party that engages a person to perform work under an employment relationship, with associated rights, duties, reporting obligations, or liabilities
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/employer
+
+  - id: endDate
+    label: end date of period of time
+    domain:
+      - PeriodOfTime
+      - Company
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/endDate
+
+  - id: entryDate
+    label: entry date
+    domain: LegalRepresentative
+    range: xsd:date
+    comment: the date on which the representative took up the function
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/entrydate
+
+  - id: equityHolder
+    label: equity holder
+    domain:
+      - KycLegalEntity
+      - EquityHolder
+    range:
+      - EquityHolder
+    range_union: true
+    comment: Any individual or entity that holds an ownership stake in a business. This includes public or private stockholders, sole proprietors, LLC members, and partnership owners. Not all equity holders own formal stock shares (for example, owners of a sole proprietorship or a general partnership).
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/equityholder
+
+  - id: evidenceSource
+    label: evidence source
+    domain: EvidenceData
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/excise
+    comment: the source used to verify the information
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/evidencesource
+
+  - id: exchange
+    label: exchange
+    domain: StockExchangeListing
+    range: StockExchange
+    comment: the stock exchange on which the legal entity is listed
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exchange
+
+  - id: exchangeCountry
+    label: exchange country
+    domain: StockExchange
+    range: CountryCode
+    comment: the country of the stock exchange
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exchangecountry
+
+  - id: exchangeName
+    label: exchange name
+    domain: StockExchange
+    range: xsd:string
+    comment: the name of the stock exchange
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exchangename
+
+  - id: exitDate
+    label: exit date
+    domain: LegalRepresentative
+    range: xsd:date
+    comment: the date on which the representative left the function
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/exitdate
 
   - id: familyName
     label: family name
     domain:
       - NaturalPerson
-      - Person
     range: xsd:string
+    comment: the hereditary surname of a family
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/familyname
+
+  - id: fictitiousBeneficialOwner
+    label: fictitious beneficial owner
+    domain: BeneficialOwnershipVariant
+    range: BeneficialOwner
+    comment: a fictitious (notional) beneficial owner (fiktiver wirtschaftlich Berechtigter) - where, after exhausting all available means, no natural person can be identified as beneficial owner by capital, voting rights or other control, the legal representatives, managing partners or managing directors of the focus legal entity are deemed to be the beneficial owners (section 3(2) sentence 5 GwG)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fictitiousbeneficialowner
+
+  - id: fictitiousBoReason
+    label: fictitious beneficial owner reason
+    domain: TransparencyRegisterExtract
+    range: xsd:string
+    comment: reason why the legal representatives are recorded as fictitious beneficial owners
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fictitiousboreason
+
+  - id: financialYear
+    label: financial year
+    domain: KycLegalEntity
+    range: FinancialYear
+    comment: an annual financial statement of the focus legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/financialyear
+
+  - id: flagState
+    label: flag state
+    domain: Vessel
+    range: CountryCode
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/flagstate
+
+  - id: focusEntity
+    label: focus entity
+    domain: KycCheck
+    range: Company
+    comment: the focus legal entity (a company) that is investigated as part of the KYC service
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/focusentity
+
+  - id: formerName
+    label: former name
+    domain: KycLegalEntity
+    range: xsd:string
+    comment: a previous registered name of the legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/formername
 
   - id: fullAddress
     label: full address
     domain: Address
     range: xsd:string
+    comment: the complete address written as a string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fulladdress
 
   - id: fullName
     label: full name
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullname
 
+  - id: fullPeriodCovered
+    label: full period covered
+    domain: A1Certificate
+    range: xsd:boolean
+    comment: indicates that the PD A1 certificate applies for the entire duration of the cross-border work activity or posting for which the certificate is issued
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/fullperiodcovered
+
   - id: gender
     label: gender
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
+    comment: a recorded, declared, or attested classification of a person according to gender in a given administrative, legal, or business context
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gender
+
+  - id: geographicIdentifier
+    label: geographic identifier
+    domain: Location
+    range: xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/geographicidentifier
+
+  - id: geographicName
+    label: geographic name
+    domain: Location
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/geographicname
 
   - id: givenName
     label: given name
     domain:
       - NaturalPerson
-      - Person
     range: xsd:string
+    comment: the name(s) that identify the person within a family with a common surname
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/givenname
+
+  - id: handover
+    label: handover
+    domain:
+      - KycLegalEntity
+      - EquityHolder
+    range: xsd:boolean
+    comment: indicator of whether the KYC research on the focus legal entity must be continued manually
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/handover
+
+  - id: handoverDescription
+    label: handover description
+    domain:
+      - KycLegalEntity
+      - EquityHolder
+    range: xsd:string
+    comment: reason why a KYC analysis cannot be continued
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/handoverdescription
+
+  - id: handoverFlag
+    label: handover flag
+    domain: KycLegalEntity
+    range: xsd:boolean
+    comment: statement on whether the examination of the beneficial ownership structure is complete or incomplete
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/handoverflag
+
+  - id: hasAddress
+    label: hasAddress
+    domain: Site
+    range: Address
+    comment: the address of an entity, provided the address is not of a specific type like registered address or temporary address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress
+
+  - id: hasAddress
+    label: hasAddress
+    domain:
+      - Site
+      - Residency
+    range: Address
+    comment: the address of an entity, provided the address is not of a specific type like registered address or temporary address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasaddress
+
+  - id: hasDiscrepancyNote
+    label: has discrepancy note
+    domain: TransparencyRegisterExtract
+    range: xsd:boolean
+    comment: whether the extract carries a note that a discrepancy report (Unstimmigkeitsmeldung) exists
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasdiscrepancynote
 
   - id: hasEmail
     label: email
@@ -633,43 +2903,209 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/email
 
+  - id: hasFax
+    label: has fax
+    domain: ContactPoint
+    range: xsd:string
+    comment: fax number of the contact point
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hasfax
+
+  - id: hash
+    label: hash
+    domain: GovernanceRulebook
+    range: xsd:string
+    comment: SHA-256 hash of the rulebook, for quick comparison.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hash
+
+  - id: hasSite
+    label: has site
+    domain:
+      - SocialSecurityContribution
+      - QmsCertificate
+    range: Site
+    comment: a place, premises or location at which an organisation is present or located
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/site
+
   - id: hasTelephone
     label: telephone
     domain: ContactPoint
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/telephone
 
+  - id: hostEntity
+    label: host entity
+    domain: PostedWorkerNotification
+    range: EconomicOperator
+    comment: an economic operator established or operating in the host country that receives, supervises, coordinates or otherwise benefits from the work carried out by a posted worker during a posting period
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/hostentity
+
   - id: iban
     label: IBAN
     domain: BankAccount
     range: Iban
+    comment: an internationally standardised identifier for a payment account, composed of a country code, check digits and a country-specific basic bank account number, used to identify the account to which a payment is to be made or from which a payment is to be collected
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/iban
 
   - id: identifier
     label: identifier
-    domain: 
-      - Company
+    domain:
+      - EconomicOperator
+      - Site
+      - VATRegistrationUnit
+      - GLN
+      - DUNS
+      - QmsCertificate
+      - NaturalPerson
+      - EquityHolder
+      - Participation
+      - BeneficialOwner
+      - BoardingPass
       - LoyaltyCard
     range:
+      - BanzNumber
       - Bic
+      - CertificateRegistrationNumber
       - ClearingNumber
+      - CompanyId
+      - DunsNumber
+      - Eori
+      - Excise
+      - GlobalLocationNumber
+      - IatfCertificateNumber
+      - IatfUsi
       - Iban
+      - Isin
+      - Lei
+      - MainCertificateRegistrationNumber
+      - PeppolId
+      - Tin
+      - VatId
+      - xsd:anyURI
       - xsd:string
+    range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/identifier
 
-  - id: issuer
+  - id: insolvencyStatus
+    label: insolvency status
+    domain: KycLegalEntity
+    range: xsd:string
+    comment: insolvency status of the company
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/insolvencystatus
+
+  - id: interestScope
+    label: interest scope
+    domain: TransparencyRegisterEntry
+    range: xsd:string
+    comment: scope of the economic interest of the natural person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/interestscope
+
+  # --- KYC (delivery-json) control & classification properties ---
+
+  - id: interestType
+    label: interest type
+    domain: TransparencyRegisterEntry
+    range: xsd:string
+    comment: type of the economic interest of the natural person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/interesttype
+
+  - id: isCsrdObligated
+    label: is CSRD obligated
+    domain: KycLegalEntity
+    range: xsd:boolean
+    comment: states whether the company is legally required to comply with the <a href="https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en">European Union's Corporate Sustainability Reporting Directive (CSRD)</a>. It means the company is legally mandated to track and publicly disclose their environmental, social, and governance (ESG) impacts, risks, and opportunities in a standardized digital format.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/iscsrdobligated
+
+  - id: isDirectParticipation
+    label: is direct participation
+    domain: Share
+    range: xsd:boolean
+    comment: whether the participation in the company is direct
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/isdirectparticipation
+
+  - id: isExemptFromSection181
+    label: is exempt from section 181
+    domain: LegalRepresentative
+    range: xsd:boolean
+    comment: whether the representative is exempt from the self-dealing restriction of section 181 of the German Civil Code (BGB)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/isexemptfromsection181
+
+  - id: isFoundation
+    label: is foundation
+    domain: KycLegalEntity
+    range: xsd:boolean
+    comment: entity type indicator stating whether the company is a foundation
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/isfoundation
+
+  - id: isHighRisk
+    label: is high risk
+    domain: BeneficialOwner
+    range: xsd:boolean
+    comment: whether the beneficial owner is classified as high risk
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ishighrisk
+
+  - id: cred:issuer
     label: issuer
-    domain: LoyaltyCard
-    range: EconomicOperator
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/issuer
+    range:
+      - EconomicOperator
+      - PublicSectorBody
+    defined_by: https://www.w3.org/2018/credentials/#issuer
+    context: https://www.w3.org/ns/credentials/v2
+
+  - id: isTrust
+    label: is trust
+    domain: KycLegalEntity
+    range: xsd:boolean
+    comment: entity type indicator stating whether the entity is a trust
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/istrust
+
+  - id: jobTitle
+    label: job title
+    domain: NaturalPerson
+    range: xsd:string
+    comment: the name or designation of a worker's role, position or function in relation to an employment relationship, posting arrangement or work assignment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jobtitle
+
+  - id: jurisdiction
+    label: jurisdiction
+    domain:
+      - EconomicOperator
+      - A1Certificate
+      - WorkAssignment
+      - PublicSectorBody
+    range:
+      - CountryCode
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/jurisdiction
+
+  - id: legalBasis
+    label: legal basis
+    domain: SocialSecurityContribution
+    range: xsd:string
+    comment: legal provision or framework under which the attestation is issued
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalbasis
+
+  - id: legalEntity
+    label: legal entity
+    domain:
+      - LegalRepresentative
+      - GeneralPartner
+      - LimitedPartner
+      - StatutoryPartner
+      - QmsCertificate
+      - CertifiedSite
+      - Participation
+      - EquityHolder
+      - BeneficialOwner
+    range: LegalEntity
+    comment: the legal entity — a legal person or a natural person — referenced by its DID and/or claims, e.g. the acting representative, the participated entity, the shareholder, the general partner, the beneficial owner, the certified company or the operator of a certified site
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalentity
 
   - id: legalForm
     label: legal form
     domain:
       - LegalPerson
       - Company
-    range:
-      - xsd:string
+    range: xsd:string
+    comment: the juridical classification of a legal entity according to the law under which it is constituted, determining its legal personality, governance structure, and liability regime
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalform
 
   - id: legalIdentifier
@@ -677,10 +3113,12 @@ property:
     domain:
       - EuropeanBusinessWalletOwner
       - LegalPerson
-      - Company
+      - EconomicOperator
+      - PublicSectorBody
     range:
-      - PublicBodyId
+      - PublicSectorBodyId
       - Euid
+    range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalidentifier
 
   - id: legalName
@@ -688,42 +3126,117 @@ property:
     domain:
       - EuropeanBusinessWalletOwner
       - LegalPerson
-      - Company
+      - EconomicOperator
+      - PublicSectorBody
     range: xsd:string
-    comment: a name under which the legal entity is registered
+    comment: the name under which the legal entity is legally registered
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalname
 
   - id: legalRepresentative
     label: legal representative
     domain:
       - LimitedLiabilityCompany
-    range:
-      - LegalRepresentative
+      - KycLegalEntity
+    range: LegalRepresentative
+    comment: a natural person or economic operator that has authority, under law, the company's statutes, a register entry or another recognised legal basis, to represent a company in dealings with third parties, authorities or courts
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentative
-
-  - id: legalRepresentativeId
-    label: unique ID of the identity of the representative
-    domain: LegalRepresentative
-    range: xsd:anyURI
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalrepresentativeid
 
   - id: legalStatus
     label: status of the company
-    domain: Company
+    domain:
+      - Company
+      - LegalPerson
     range: xsd:string
+    comment: the officially recorded status of a registered business entity as determined or maintained by the competent register authority
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalstatus
+
+  - id: legalSuccessionReason
+    label: legal succession reason
+    domain: KycLegalEntity
+    range: xsd:string
+    comment: reason for the legal succession, such as a change of seat or a change of legal form
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/legalsuccessionreason
 
   - id: lei
     label: legal entity identifier
-    domain: Company
+    domain:
+      - LegalEntityIdentifier
     range: xsd:string
+    comment: a globally unique reference code assigned under the Global LEI System to identify a legal entity participating in financial, business or regulatory transactions
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
+
+  - id: leiLastUpdate
+    label: lei last update date
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leilastupdate
+
+  - id: leiLegalEntity
+    label: legal entity as registered at lei issuer
+    domain: LegalEntityIdentifier
+    range:
+      - LegalPerson
+      - PublicSectorBody
+    comment: an organisation, legal person, trust, fund, government body, international organisation or other legally or administratively recognised entity that is eligible to be identified by a Legal Entity Identifier under the Global LEI System
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leilegalentity
+
+  - id: leiNextRenewal
+    label: lei next renewal
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leinextrenewal
+
+  - id: leiRegistration
+    label: lei registration data
+    domain: LegalEntityIdentifier
+    range: LeiRegistration
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistration
+
+  - id: leiRegistrationDate
+    label: lei registration date
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationdate
+
+  - id: leiRegistrationStatus
+    label: lei registration status
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leiregistrationstatus
+
+  - id: leiStatus
+    label: LEI status
+    domain: KycLegalEntity
+    range: xsd:string
+    comment: status of the Legal Entity Identifier (LEI) of the legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/leistatus
 
   - id: liabilityOrContribution
     label: liability or contribution of the limited partner
     domain: LimitedPartner
-    range: Capital
+    range: MonetaryAmount
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liabilityorcontribution
+
+  - id: licenceKey
+    label: gs1 licence key
+    domain: GLN
+    range: GS1CompanyPrefix
+    comment: the GS1 Company Prefix assigned to the organization
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/licenceKey
+
+  - id: liquidationStatus
+    label: liquidation status
+    domain: KycLegalEntity
+    range: xsd:string
+    comment: liquidation status of the company
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/liquidationstatus
+
+  - id: listedOnRegulatedMarket
+    label: listed on regulated market
+    domain: KycLegalEntity
+    range: xsd:boolean
+    comment: capital-market orientation, stating whether the legal entity is listed on an organised (regulated) market
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/listedonregulatedmarket
 
   - id: locatorDesignator
     label: locator designator
@@ -731,31 +3244,144 @@ property:
     range:
       - xsd:string
       - xsd:integer
+    range_union: true
+    comment: an alphanumeric identifier assigned within a thoroughfare or property context to designate a specific access point, building, unit, or sub-unit
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatordesignator
 
   - id: locatorName
     label: locator name
     domain: Address
     range: xsd:string
+    comment: Proper noun(s) applied to the real world entity identified by the locator.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/locatorname
+
+  - id: managingLeiIssuer
+    label: managing lei issuer
+    domain: LeiRegistration
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/managingleiissuer
+
+  - id: mandatee
+    label: mandatee
+    domain: PowerOfAttorney
+    range:
+      - NaturalPerson
+    comment: The person who gets power.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/mandatee
+
+  - id: marketIdentificationCode
+    label: market identification code
+    domain:
+      - StockExchangeListing
+      - StockExchange
+    range: xsd:string
+    comment: the operating market identification code (MIC) as defined in ISO 10383
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/marketidentificationcode
 
   - id: matronymicName
     label: matronymic name
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
+    comment: a name component derived from the given name of a person's mother
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/matronymicname
+
+  - id: member
+    label: member
+    domain:
+      - Membership
+      - OnboardingDetails
+    range: EconomicOperator
+    comment: holder of the membership
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/member
+
+  - id: memberOf
+    label: member of
+    domain: Membership
+    range: IRI
+    comment: The DSI or dataspace the holder is member of.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof
+
+  - id: noFixedPlaceOfWork
+    label: no fixed place of work
+    domain: A1Certificate
+    range: xsd:boolean
+    comment: Indicates that no fixed address or fixed place of work exists for the work or self-employment activity covered by the A1 certificate.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork
+
+  - id: numberOfEmployees
+    label: number of employees
+    domain: FinancialYear
+    range: xsd:integer
+    comment: number of employees of the focus legal entity in the financial year
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/numberofemployees
+
+  - id: onboardedBy
+    label: onboarded by
+    domain: Membership
+    range: OnboardingDetails
+    comment: Onboarding details of member.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/nofixedplaceofwork
+
+  - id: operatingResult
+    label: operating result
+    domain: FinancialYear
+    range: MonetaryAmount
+    comment: operating result (operatives Ergebnis) of the focus legal entity in the financial year
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/operatingresult
+
+  - id: operator
+    label: operator
+    domain: OnboardingDetails
+    range: EconomicOperator
+    comment: The organisation that hosts the platform and onboards new members.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/operator
+
+  - id: organisation
+    label: organisation
+    domain: GLN
+    range: EconomicOperator
+    comment: organisation legally registered as economic operator
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/organisation
+
+  - id: otherControlBeneficialOwner
+    label: other control beneficial owner
+    domain: BeneficialOwnershipVariant
+    range: BeneficialOwner
+    comment: a beneficial owner determined on the basis of control exercised in another comparable way (auf vergleichbare Weise Kontrolle) rather than through capital or voting rights - for example through voting or control agreements, the right to appoint or remove the management, veto rights or another dominant influence; the concrete basis is stated in otherControlReason (section 3(2) sentence 1 no. 3 GwG)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/othercontrolbeneficialowner
+
+  - id: otherControlReason
+    label: other control reason
+    domain: BeneficialOwner
+    range: xsd:string
+    comment: reason for which the person is considered to exercise other control
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/othercontrolreason
 
   - id: owner
     label: owner
-    domain: 
+    domain:
       - BankAccount
       - LoyaltyCard
     range:
       - LegalPerson
-      - Company
+      - EconomicOperator
       - NaturalPerson
-      - Person
+    range_union: true
+    comment: an agent that holds an ownership right, title or legally recognised control over an asset, resource, business entity, credential, account, property or other object
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/owner
+
+  - id: ownershipPercentage
+    label: ownership percentage
+    domain: TBD
+    range: xsd:float
+    defined_by: https:/w3id.org/ebwv/terminology#/concept/ownershipPercentage
+
+  - id: participation
+    label: participation
+    domain: KycLegalEntity
+    range: Participation
+    comment: a participation held by the focus legal entity in another legal person
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/participation
 
   - id: partner
     label: partner
@@ -764,16 +3390,9 @@ property:
       - GeneralPartner
       - LimitedPartner
       - StatutoryPartner
+    range_union: true
+    comment: a person or legal entity that is a member of a partnership or comparable company-law entity and whose status as partner is recorded or recognised by the competent business register or company register
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
-
-  - id: partnerId
-    label: unique ID of the identity of the partner
-    domain:
-      - GeneralPartner
-      - LimitedPartner
-      - StatutoryPartner
-    range: xsd:anyURI
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partnerid
 
   - id: passenger
     label: passenger
@@ -783,37 +3402,77 @@ property:
 
   - id: patronymicName
     label: patronymic name
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/patronymicname
 
+  - id: paymentDue
+    label: due period of payment
+    domain: PaymentTerms
+    range:
+     - xsd:duration
+     - time:TemporalDuration
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/paymentDue
+
+  - id: person
+    label: person
+    domain:
+      - A1Certificate
+      - Residency
+      - TransparencyRegisterEntry
+    range: NaturalPerson
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/person
+
   - id: personalAdministrativeNumber
-    label: personalAdministrativeNumber
-    domain: Person
+    label: personal administrative number
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/personaladministrativenumber
 
   - id: placeOfBirth
     label: place of birth
-    domain: Person
+    domain: NaturalPerson
     range: Location
+    comment: the location where a person was born
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofbirth
 
   - id: placeOfDeath
     label: place of death
-    domain: Person
+    domain: NaturalPerson
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofdeath
+
+  - id: placeOfWork
+    label: place of work
+    domain:
+      - A1Certificate
+      - WorkAssignment
+    range:
+      - Address
+      - CountryCode
+      - EconomicOperator
+      - Vessel
+    range_union: true
+    comment: the location where a worker performs, is expected to perform, or is assigned to perform work during an employment, posting or work assignment
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/placeofwork
+
+  - id: platform
+    label: platform
+    domain: OnboardingDetails
+    range: xsd:string
+    comment: name of the plaform that onboarded the member (e.g. data sharing initiative)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/platform
 
   - id: poBox
     label: post office box
     domain: Address
     range: xsd:string
+    comment: A location designator for a postal delivery point at a post office, usually a number.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/pobox
 
   - id: portrait
     label: portrait
-    domain: Person
+    domain: NaturalPerson
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/portrait
 
@@ -821,42 +3480,261 @@ property:
     label: post code
     domain: Address
     range: xsd:string
+    comment: The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postcode
+
+  - id: postedWorker
+    label: posted worker
+    domain: PostedWorkerNotification
+    range: NaturalPerson
+    comment: a worker who is sent by an employer to perform work temporarily in a country other than the country in which the worker normally works
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postedworker
 
   - id: postName
     label: post name
     domain: Address
     range: xsd:string
+    comment: a name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/postname
 
+  - id: principal
+    label: principal
+    domain: PowerOfAttorney
+    range:
+      - NaturalPerson
+    comment: The person or the group (list) of persons who gives power.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/principal
+
+  - id: processingNote
+    label: processing note
+    domain: TransparencyRegisterExtract
+    range: xsd:string
+    comment: a note indicating a particularity regarding the focus legal entity in the extract
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/processingnote
+
+  - id: provenanceProof
+    label: provenance proof
+    domain: ElectronicAttestationOfAttributes
+    range:
+      - ElectronicAttestationOfAttributes
+    dataset: true
+    comment: Proof required to establish trust in the issuer of the credential. The proof allows the relying party to verify if the issuer is authorized to issue the credential and to make the claims about the credential subject. E.g. in the case of an power of attorney the provenanceProof provides the proof that the principal is authorized to give power to the mandatee.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provenanceproof
+
+  - id: provenClaim
+    label: proven claim
+    domain: EvidenceData
+    range: xsd:string
+    comment: JsonPath to the claim in the credential (root) that is covered by this evidence
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provenclaim
+
   - id: provider
-    label: provide
+    label: provider
     domain: BankAccount
     range:
       - LegalPerson
-      - Company
+      - EconomicOperator
+    range_union: true
+    comment: an agent that offers, supplies or makes available a service, account, facility or other capability to another party
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provider
+
+  - id: provisionalDetermination
+    label: provisional determination
+    domain: A1Certificate
+    range: xsd:boolean
+    comment: A determination that has legal or administrative effect on a provisional basis and remains subject to confirmation, amendment, or withdrawal under the applicable procedure.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/provisionaldetermination
+
+  - id: qualificationNote
+    label: qualification note
+    domain: SocialSecurityContribution
+    range: xsd:string
+    comment: A human-readable note about caveat, limitation, condition that qualifies the interpretation of the attestation.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/qualificationnote
+
+  - id: referenceNumber
+    label: reference number
+    domain: TransparencyRegisterExtract
+    range: xsd:string
+    comment: the reference number identifying a transparency register extract
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/referencenumber
+
+  - id: register
+    label: register
+    domain: Company
+    range: RegisterIdentification
+    comment: identification of the legal entity in an official company register
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/register
 
   - id: registeredAddress
     label: registered address
-    domain: Company
-    range:
-      - Address
+    domain:
+      - Company
+      - EconomicOperator
+      - GLN
+      - LegalPerson
+      - LegalEntity
+      - Site
+    range: Address
+    comment: the address at which the legal entity is legally registered; if an entity is not considered to be a registered organisation, use "hasAddress" or similar property to express the address of the entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registeredaddress
+
+  - id: registerLocation
+    label: register location
+    domain: RegisterIdentification
+    range: xsd:string
+    comment: name of the local court (Amtsgericht) or authority at which the company is registered
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registerlocation
+
+  - id: registerNumber
+    label: register number
+    domain: RegisterIdentification
+    range: xsd:string
+    comment: official registration number of the company at the register
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registernumber
+
+  - id: registerType
+    label: register type
+    domain: RegisterIdentification
+    range: xsd:string
+    comment: type of the register in which the legal entity is registered
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registertype
+
+  - id: registerTypeDescription
+    label: register type description
+    domain: RegisterIdentification
+    range: xsd:string
+    comment: classification / description of the register type
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/registertypedescription
+
+  - id: regulatedId
+    label: regulated id
+    domain: Regulator
+    range: xsd:string
+    comment: the identifier assigned by the supervisory authority that is specific to the regulated entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/regulatedid
+
+  - id: regulator
+    label: regulator
+    domain: KycLegalEntity
+    range: Regulator
+    comment: a supervisory authority at which the legal entity is registered
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/regulator
+
+  - id: regulatorClassification
+    label: regulator classification
+    domain: Regulator
+    range: xsd:string
+    comment: classification of the entity type according to the supervisory authority's definition
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/regulatorclassification
+
+  - id: regulatorName
+    label: regulator name
+    domain: Regulator
+    range: xsd:string
+    comment: the name of the supervisory authority (such as BaFin)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/regulatorname
+
+  - id: relativeShare
+    label: relative share
+    domain:
+      - Share
+      - ShareVotingPair
+    range: xsd:decimal
+    comment: total percentage of shares held directly and indirectly
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/relativeshare
+
+  - id: relativeShareDirect
+    label: relative share direct
+    domain: BeneficialOwner
+    range: xsd:decimal
+    comment: percentage of direct shares held in the company
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/relativesharedirect
+
+  - id: relativeVotingRights
+    label: relative voting rights
+    domain:
+      - Share
+      - ShareVotingPair
+      - BeneficialOwner
+    range: xsd:decimal
+    comment: total percentage of voting rights held in the company, directly and indirectly
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/relativevotingrights
+
+  - id: relativeVotingRightsDirect
+    label: relative voting rights direct
+    domain: BeneficialOwner
+    range: xsd:decimal
+    comment: percentage of direct voting rights held in the company
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/relativevotingrightsdirect
+
+  - id: reportingMonth
+    label: reporting month
+    domain: SocialSecurityContribution
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingmonth
+
+  - id: reportingPeriod
+    label: reporting period
+    domain: SocialSecurityContribution
+    range: PeriodOfTime
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/reportingperiod
+
+  - id: researchedSuccessorId
+    label: researched successor id
+    domain: KycLegalEntity
+    range: xsd:string
+    comment: successor identifier used when an ordered company was inactive and one or more successor companies were researched instead
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/researchedsuccessorid
+
+  - id: researchTerminationReason
+    label: research termination reason
+    domain: KycLegalEntity
+    range: xsd:string
+    comment: reason why a research had to be aborted, for example the company being inactive
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/researchterminationreason
 
   - id: residency
     label: residency
-    domain: Person
+    domain: NaturalPerson
     range: CountryCode
+    comment: a jurisdiction in which a person has their dwelling or is officially regarded as living or residing
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/residency
 
+  - id: revenue
+    label: revenue
+    domain: FinancialYear
+    range: MonetaryAmount
+    comment: revenue (Umsatzerlöse) of the focus legal entity in the financial year
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/revenue
+
   - id: role
-    label: role of representative
+    label: role of the entity (e.g. the role of a legal representative in the company or the role of a dataspace member in the dataspace)
     domain:
       - LegalRepresentative
       - StatutoryPartner
-    range: xsd:string
+      - Membership
+    range:
+      - DataSpaceRole
+      - CorporateRole
+    one_of:
+      - DataConsumer
+      - DataProvider
+      - DataRightsHolder
+      - OnboardingServiceProvider
+      - Operator
+      - CEO
+      - CFO
+      - HeadOfHR
+    range_union: true
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
+
+  - id: salutation
+    label: salutation
+    domain: NaturalPerson
+    range: xsd:string
+    comment: form of address (Anrede) of the natural person as recorded in the official registers
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/salutation
 
   - id: scheduledArrivalTime
     label: scheduled arrival time
@@ -870,14 +3748,103 @@ property:
     range: xsd:dateTime
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scheduleddeparturetime
 
-  - id: scopeOfAuthorization
-    label: scope of authorization (alone or jointly)
+  - id: scopeOfPower
+    label: scope of power
+    domain: PowerOfAttorney
+    range: ScopeOfPower
+    one_of:
+      - FormationOfCompanies
+      - ConstitutionOfCompanies
+      - RegistrationAndClosingOfBranches
+      - CrossBoarderConversions
+      - CrossBoarderMergers
+      - CrossBorderDivisions
+    comment: The scope of the power given to a mandatee.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
+
+  - id: share
+    label: share
     domain:
-      - LegalRepresentative
-      - StatutoryPartner
-    range: ScopeOfAuthorization
-    one_of: [Alone, Jointly]
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/role
+      - Shareholder
+      - EquityPartner
+      - Participation
+      - BeneficialOwner
+    range: Share
+    comment: the capital and voting stake held
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/share
+
+  - id: shareInFocusAlongBranch
+    label: share in focus along branch
+    domain: Shareholder
+    range: ShareInFocus
+    comment: the holder's capital and voting share in the focus legal entity along the ownership branch
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareinfocusalongbranch
+
+  - id: shareInFocusTotal
+    label: share in focus total
+    domain: Shareholder
+    range: ShareInFocus
+    comment: the holder's total capital and voting share in the focus legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/shareinfocustotal
+
+  - id: socialRepresentative
+    label: social representative
+    domain: EconomicOperator
+    range: NaturalPerson
+    comment: a person or entity designated to represent or assist an employer or posted worker in relation to social security, labour, employment or posting-related obligations during a posting period
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/socialrepresentative
+
+  - id: staffAverage
+    label: staff average
+    comment: The average number of staff associated with the employer for the period or reference data used in a social security contribution attestation.
+    domain: SocialSecurityContribution
+    range: xsd:integer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/staffaverage
+
+  - id: standard
+    label: standard method
+    domain:
+      - ShareInFocus
+      - BeneficialOwnership
+    range:
+      - ShareVotingPair
+      - BeneficialOwnershipVariant
+    range_union: true
+    comment: share and control determined under the standard method - the statutory GwG calculation under which a natural person qualifies as beneficial owner when holding, directly or indirectly, more than 25 percent of the capital shares or voting rights, or exercising control in a comparable manner
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/standard
+
+  - id: startDate
+    label: start date of period of time
+    domain: PeriodOfTime
+    range: xsd:date
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/startDate
+
+  - id: statementDate
+    label: statement date
+    domain: FinancialYear
+    range: xsd:date
+    comment: date of the annual financial statement
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statementdate
+
+  - id: stateOfInsurance
+    label: state of insurance
+    comment: In PWN, the "Home Member State" information regarding the Work Assignment
+    domain: WorkAssignment
+    range: CountryCode
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/stateofinsurance
+
+  - id: statusConfirmation
+    label: status confirmation
+    domain: A1Certificate
+    range: xsd:boolean
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statusconfirmation
+
+  - id: stockExchangeListing
+    label: stock exchange listing
+    domain: KycLegalEntity
+    range: StockExchangeListing
+    comment: a listing of the legal entity on a stock exchange
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/stockexchangelisting
 
   - id: seatNumber
     label: seat number
@@ -895,20 +3862,84 @@ property:
     label: subscribed capital
     domain:
       - LimitedLiabilityCompany
-    range: Capital
+      - KycLegalEntity
+    range: MonetaryAmount
+    comment: the total monetary amount of capital that shareholders or members have formally committed to contribute to a company under its constitutive documents
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/subscribedcapital
+
+  - id: supplier
+    label: supplier
+    domain: PaymentTerms
+    range: xsd:anyURI
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/supplier
+
+  - id: temporaryAddress
+    label: temporary address
+    domain: NaturalPerson
+    range: Address
+    comment: an address at which a person resides, stays or can be reached for a limited period, without it being the person's permanent home or domicile address
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporaryaddress
+
+  - id: temporaryWorkAgency
+    label: temporary work agency
+    domain: EconomicOperator
+    range: xsd:boolean
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/temporaryworkagency
+
+  - id: terms
+    label: terms
+    domain: PaymentTerms
+    range: Incoterms
+    one_of:  [EXW, FCA, CPT, CIP, DAP, DPU, DDP, FAS, FOB ]
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/terms
+
+  - id: cred:termsOfUse
+    label: terms of use
+    domain: VerifiableCredential
+    range: GovernanceRulebook
+    defined_by: https://www.w3.org/TR/vc-data-model-2.0/#terms-of-use
 
   - id: thoroughfare
     label: thoroughfare
     domain: Address
     range: xsd:string
+    comment: the name of a passage or way through from one location to another
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
 
-  - id: tin
-    label: tax reference number
-    domain: Company
+  - id: tickerSymbol
+    label: ticker symbol
+    domain: StockExchangeListing
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tin
+    comment: the stock exchange ticker symbol of the legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tickersymbol
+
+  - id: totalPayroll
+    label: total payroll
+    comment: The total payroll amount associated with the employer for the reference period used in a social security contribution attestation.
+    domain: SocialSecurityContribution
+    range: MonetaryAmount
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/totalpayroll
+
+  - id: transitionalRules
+    label: transitional rules
+    domain: A1Certificate
+    range: xsd:boolean
+    comment: a temporary legal or administrative rule set that applies to a case because the relevant situation falls within a transition from one regime, framework, or procedure to another
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transitionalrules
+
+  - id: transparencyRegister
+    label: transparency register
+    domain: BeneficialOwnership
+    range: TransparencyRegisterEntry
+    comment: beneficial owners as recorded in the transparency register
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transparencyregister
+
+  - id: transparencyRegisterExtract
+    label: transparency register extract
+    domain: KycLegalEntity
+    range: TransparencyRegisterExtract
+    comment: a transparency register extract obtained for the focus legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transparencyregisterextract
 
   - id: transportEvent
     label: transport event
@@ -916,11 +3947,31 @@ property:
     range: TransportEvent
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transportevent
 
-  - id: vat
-    label: value added tax id
-    domain: Company
+  - id: type
+    label: type
+    domain: VATRegistrationUnit
     range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vat
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/type
+
+  - id: typeOfEmployment
+    label: type of employment
+    domain:
+      - A1Certificate
+      - PostedWorkerNotification
+    range: TypeOfEmployment
+    one_of: [Permanent, Temporary]
+    comment: the category or form of an employment relationship, indicating how a worker is employed or engaged by an employer
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofemployment
+
+  - id: typeOfRepresentation
+    label: type of representation
+    domain:
+      - LegalRepresentative
+      - StatutoryPartner
+    range: TypeOfRepresentation
+    comment: specifies how a representative may act on behalf of the principal, meaning whether they can act alone or only together with others.
+    one_of: [Alone, Jointly]
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation
 
   - id: vesselDescription
     label: vessel description
@@ -928,31 +3979,61 @@ property:
     range: xsd:string
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vesseldescription
 
-individual:   # code lists
-  - id: Alone
-    label: scope of authorization Alone
-    type: ScopeOfAuthorization
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Alone
+  - id: ultimateParent
+    label: ultimate parent
+    domain: KycLegalEntity
+    range:
+      - LimitedLiabilityCompany
+      - Partnership
+    range_union: true
+    comment: the ultimate (top) parent company of the focus legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/ultimateparent
 
-  - id: EAA
-    label: electronic attestation of attributes
-    type: AttestationLegalCategory
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/EAA
+  - id: url
+    label: url
+    domain:
+    - GovernanceRulebook
+    - EvidenceData
+    range: xsd:anyURI
+    comment: Reference (URL) to the online source of the specified document (e.g. governance rulebook, iso certificate, etc.)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/url
 
-  - id: Jointly
-    label: scope of authorization Jointly
-    type: ScopeOfAuthorization
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Jointly
+  - id: validFromDate
+    label: valid from date
+    domain: TransparencyRegisterExtract
+    range: xsd:date
+    comment: the date from which the transparency register extract is valid
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/validfromdate
 
-  - id: Pub-EAA
-    label: public electronic attestation of attributes
-    type: AttestationLegalCategory
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/Pub-EAA
+  - id: verificationDate
+    label: verification date
+    domain: EvidenceData
+    range: xsd:date
+    comment: the date on which the verification was performed
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/verificationdate
 
-  - id: QEAA
-    label: qualified electronic attestation of attributes
-    type: AttestationLegalCategory
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/QEAA
+  - id: version
+    label: verson
+    domain: GovernanceRulebook
+    range: xsd:string
+    comment: Version of the online rulebook at the time of acceptance.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/version
+
+  # --- KYC (delivery-json) core properties ---
+
+  - id: votingRightsBeneficialOwner
+    label: voting rights beneficial owner
+    domain: BeneficialOwnershipVariant
+    range: BeneficialOwner
+    comment: a beneficial owner determined on the basis of voting rights - a natural person who, directly or indirectly, controls a share of the voting rights (Stimmrechte) of the focus legal entity that reaches the threshold of the enclosing calculation method (more than 25 percent under the standard method, or the 10 or 25 percent threshold of the accumulation and domination methods) (section 3(2) sentence 1 no. 2 GwG)
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/votingrightsbeneficialowner
+
+  - id: website
+    label: website
+    domain: ContactPoint
+    range: xsd:anyURI
+    comment: website of the legal entity
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/website
 
 datatype:
   - id: AccountType
@@ -960,12 +4041,11 @@ datatype:
     upper_value: xsd:string
     comment: list of account types TBD
 
-  - id: CountryCode
-    label: Country Code
+  - id: BanzNumber
+    label: Bundesanzeiger number
     upper_value: xsd:string
-    pattern: '[A-Z]{2}'
-    comment: 2 letter country code according to ISO-3166
-    defined_by: https://www.iso.org/iso-3166-country-codes.html
+    comment: internal unique identification (BANZ-Number) assigned by Bundesanzeiger Verlag that identifies a company as part of the KYC service
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/banznumber
 
   - id: Bic
     label: Business Identifier Code aka Swift Code
@@ -974,10 +4054,29 @@ datatype:
     comment: International code (i.e. BIC or SWIFT code), as defined in ISO 9362, of the financial institution
     defined_by: https://www.iso.org/standard/84108.html
 
+  - id: CertificateRegistrationNumber
+    label: certificate registration number
+    upper_value: xsd:string
+    comment:  An internal tracking or reference number assigned specifically by the third-party Certification Body (CB) (such as TÜV NORD, DQS, or TÜV SÜD) that performed the audit and printed the paper certificate.
+    defined_by: https://iatf-customerportal.org/
+
   - id: ClearingNumber
     label: ClearingNumber
     upper_value: xsd:string
     comment: Clearing number, only used in some countries, of the identification of the financial institution.
+
+  - id: CompanyId
+    label: Company identifier
+    upper_value: xsd:string
+    comment: internal check number (CompanyID) assigned by Bundesanzeiger Verlag that identifies a company in the UFDB
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/banznumber
+
+  - id: CountryCode
+    label: Country Code
+    upper_value: xsd:string
+    pattern: '[A-Z]{2}(-.*)?'
+    comment: 2 letter country code according to ISO-3166
+    defined_by: https://www.iso.org/iso-3166-country-codes.html
 
   - id: Currency
     label: Currency
@@ -988,10 +4087,55 @@ datatype:
       - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/currency
       - http://publications.europa.eu/resource/authority/currency
 
+  - id: DunsNumber
+    label: DUNS number
+    upper_value: xsd:string
+    pattern: '[0-9]{9}'
+    comment: The Data Universal Numbering System, abbreviated as DUNS or D-U-N-S, is a proprietary system developed and managed by Dun & Bradstreet (D&B) that assigns a unique numeric identifier, referred to as a "DUNS number" to a single business entity.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dunsnumber
+
+  - id: Eori
+    label: economic operator registration and identification
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/eori
+
   - id: Euid
     label: EUID
     upper_value: xsd:string
+    pattern: '[A-Z]{2}[A-Z0-9]+\.[A-Z0-9]+'
+    comment: The European Unique Identifier (EUID) for companies based on a standardized format defined by the Business Registers Interconnection System (BRIS) and ISO 6523. It consists of three parts&colon;<li>Country Code&colon; An ISO 3166-1 alpha-2 code indicating the member state (e.g., DE for Germany, or EL for Greece).</li><li>Register Code / Court Identifier&colon; A code identifying the specific national or regional trade/commercial register or court (e.g., R3306 or K1101 in Germany).</li><li>Company Register Identifier&colon; The unique national registration number assigned to the company by that register (e.g., HRB12345 or HRB123456).</li> Part 2 and 3 are separated by a dot&colon; DEK1101.HRB12345 - Germany | local court cologne | HRB12345
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/euid
+
+  - id: Excise
+    label: excise number
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/excise
+
+  - id: GlobalLocationNumber
+    label: Global Location Number
+    pattern: '[0-9]{13}'
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/globallocationnumber
+
+  - id: GS1CompanyPrefix
+    label: GS1 company prefix
+    pattern: '[0-9]{7,9}'
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/gs1companyprefix
+
+  - id: IatfCertificateNumber
+    label: IATF Certificate Number
+    upper_value: xsd:string
+    pattern: '[0-9]{7}'
+    comment: The IATF Certification Number (IATF Registration No.) is a unique, central identification number issued directly by the International Automotive Task Force (IATF) database/oversight system for the certified organization or manufacturing site.
+    defined_by: https://iatf-customerportal.org/
+
+  - id: IatfUsi
+    label: IATF USI
+    upper_value: xsd:string
+    pattern: '[0-9A-Z]{6}'
+    comment: This IATF Unique Site Identifier (USI) is used within the automotive industry's IATF 16949 Quality Management System. It is a permanent, immutable 6-digit alphanumeric code assigned to a specific physical manufacturing facility or remote support location. It remains tied to that exact address for the lifetime of the certification, regardless of company name changes or certification body transfers.
+    defined_by: https://iatf-customerportal.org/
 
   - id: Iban
     label: IBAN
@@ -1001,6 +4145,32 @@ datatype:
     defined_by:
       - https://www.iso.org/standard/81090.html
 
+  - id: Isin
+    label: International Securities Identification Number
+    upper_value: xsd:string
+    pattern: '[A-Z]{2}[A-Z0-9]{9}[0-9]'
+    comment: International Securities Identification Number uniquely identifying a security, as defined in ISO 6166
+    defined_by: https://www.iso.org/standard/78502.html
+
+  - id: KmgMid
+    label: KMG-MID
+    pattern: '[0-9]{9}'
+    upper_value: xsd:string
+    comment: A nationally unique identifier assigned to an agricultural holding registered in the Slovenian Register of Agricultural Holdings (Register kmetijskih gospodarstev, RKG). The identifier uniquely identifies a farm or agricultural holding for administrative, regulatory, subsidy, traceability, and agricultural data exchange purposes.
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/kmgmid
+
+  - id: Lei
+    label: legal entity identifier
+    upper_value: xsd:string
+    comment: a globally unique reference code assigned under the Global LEI System to identify a legal entity participating in financial, business or regulatory transactions
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/lei
+
+  - id: MainCertificateRegistrationNumber
+    label: main certificate registration number
+    upper_value: xsd:string
+    comment:  An internal tracking or reference number assigned specifically by the third-party Certification Body (CB) (such as TÜV NORD, DQS, or TÜV SÜD) that performed the audit and printed the paper certificate.
+    defined_by: https://iatf-customerportal.org/
+
   - id: Nace21
     label: Nace Rev. 2.1
     upper_value: xsd:string
@@ -1009,13 +4179,56 @@ datatype:
       - https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/ux2/nace2.1/nace2.1
       - http://data.europa.eu/ux2/nace2.1/nace2.1
 
+  - id: Naics
+    label: NAICS 2002
+    upper_value: xsd:string
+    comment: notation of the main activity of the company according to the North American Industry Classification System (NAICS), edition 2002
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/naics
+
   - id: NationalBankCode
     label: National Bank Code
     upper_value: xsd:string
     comment: Country-specific code for e.g. internal routing within a specific country’s clearing system (e.g. BLZ, Sort Code)
 
-  - id: PublicBodyId
+  - id: PeppolId
+    label: Peppol ID
+    upper_value: xsd:string
+    pattern: '[0-9]{4}(:.*)'
+    comment: A Peppol ID is a unique identifier used to securely exchange electronic documents (like invoices) within the Peppol network, acting similarly to a digital address. It consists of a four-digit scheme ID (identifying the type of number) and a specific participant ID, separated by a colon (e.g., 9930:DE123456789)
+    defined_by:
+    - https://docs.peppol.eu/edelivery/
+    - https://docs.peppol.eu/poacc/billing/3.0/codelist/ICD/
+
+  - id: PublicSectorBodyId
     label: unique identifier of public body
     upper_value: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicBodyId
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/publicsectorBodyId
+
+  - id: Sic
+    label: SIC 1987
+    upper_value: xsd:string
+    comment: notation of the main activity of the company according to the Standard Industrial Classification (SIC), edition 1987
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/sic
+
+  - id: Tin
+    label: tax reference number
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tin
+
+  - id: VatId
+    label: unique vat identifier
+    upper_value: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vatid
+
+  - id: Wz2003
+    label: WZ 2003
+    upper_value: xsd:string
+    comment: notation of the main activity of the company according to the German Classification of Economic Activities (Klassifikation der Wirtschaftszweige), edition 2003
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/wz2003
+
+  - id: Wz2008
+    label: WZ 2008
+    upper_value: xsd:string
+    comment: notation of the main activity of the company according to the German Classification of Economic Activities (Klassifikation der Wirtschaftszweige), edition 2008
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/wz2008
 

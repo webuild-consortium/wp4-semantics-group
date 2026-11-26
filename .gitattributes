@@ -1,0 +1,2 @@
+# Consistent line endings for the manually edited ontology sources.
+semantics/**/*.ttl text eol=lf

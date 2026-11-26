@@ -1,0 +1,394 @@
+@startuml
+title Power of X PoA / PoR Application Profile Model
+
+skinparam defaultFontName monospaced
+
+skinparam class {
+  BackgroundColor LightYellow
+  BorderColor DarkRed
+  FontColor DarkRed
+  ArrowColor DarkRed
+}
+
+class "PoXAttestation\n<size:11><color:gray><i>Root Power of X credential payload containing representation, proxy, authority, and metadata.</i></color></size>" as PoXAttestation {
+  *credential : CredentialClassification
+  *represented_economic_operator : RepresentedEconomicOperator
+  *proxy : Proxy
+  *authority : Authority
+  *credential_metadata : CredentialMetadata
+}
+
+class CredentialClassification {
+  *vct : URI
+  *type : CodeListCredentialType
+}
+
+class RepresentedEconomicOperator {
+  *identifier : Identifier
+  *legal_name : string
+}
+
+class Identifier {
+  *scheme : string
+  *value : string
+}
+
+class Proxy {
+  *entity_type : CodeListProxyEntityType
+  *proxy : legal_entity_proxy or natural_entity_proxy
+}
+
+class LegalEntityProxy {
+  *identifier : Identifier {if legal proxy selected}
+  *legal_name : string {if legal proxy selected}
+}
+
+class NaturalEntityProxy {
+  *family_name : string {if natural proxy selected}
+  *given_name : string {if natural proxy selected}
+  *birth_date : RFC3339 date-time or full-date
+  ?birth_place : ISO3166-1 alpha-2 or locality text
+  *nationality : ISO3166-1 alpha-2 [1..n]
+  +personal_administrative_number : string
+  +pseudonym : string
+}
+
+class Authority {
+  *authority_source : CodeListAuthoritySource
+  *selected_authority : one of proxy_position, proxy_power_scope, proxy_employee_authorisation
+}
+
+class ProxyPosition {
+  *position : CodeListProxyPositionPosition
+  *inscription_date : RFC3339 date-time or full-date
+  *issuing_authority : IssuingAuthority
+  *authentic_source : AuthenticSource {mandatory for QEAA}
+  *evidence : Evidence {mandatory for QEAA}
+  *assurance_level : CodeListAssuranceLevel
+  +expiration_date : RFC3339 date-time or full-date
+  +cardinality : integer {default 1}
+  +issuing_region : ISO3166-2 region code
+}
+
+class ProxyPowerScope {
+  *type : CodeListPowerScopeType
+  *grant_date : RFC3339 date-time or full-date
+  *limitation : CodeListLimitation
+  ?faculty : CodeListFaculty [1..n?]
+  *issuing_authority : IssuingAuthority
+  *assurance_level : CodeListAssuranceLevel
+  +expiration_date : RFC3339 date-time or full-date
+  +cardinality : integer {default 1}
+  +constraints : Constraint [0..n]
+  +geographical_scope : ISO3166-1 alpha-2 or EU [0..n]
+  +mandator : Mandator
+  +service_access : ServiceAccess [0..n]
+  +authentic_source : AuthenticSource {mandatory for QEAA}
+  +evidence : Evidence {mandatory for QEAA}
+  +issuing_region : ISO3166-2 region code
+}
+
+class ProxyEmployeeAuthorisation {
+  +extension_placeholder : object
+}
+
+class Constraint {
+  *type : CodeListConstraintType
+  *description : string
+}
+
+class Mandator {
+  *family_name : string {if mandator present}
+  *given_name : string {if mandator present}
+  *birth_date : RFC3339 date-time or full-date
+  ?birth_place : ISO3166-1 alpha-2 or locality text
+  *nationality : ISO3166-1 alpha-2 [1..n]
+}
+
+class ServiceAccess {
+  *relying_party_name : string {if service access entry present}
+  *relying_party_id : string {if service access entry present}
+  ?relying_party_services : string or array [1..n]
+}
+
+class IssuingAuthority {
+  *name : string
+  ?type : CodeListIssuingAuthorityType
+  *country : ISO3166-1 alpha-2
+  +region : ISO3166-2 region code
+}
+
+class AuthenticSource {
+  +id : string {mandatory for QEAA}
+  +name : string {mandatory for QEAA}
+}
+
+class Evidence {
+  +uri : URI {mandatory for QEAA}
+  +description : string {mandatory for QEAA}
+}
+
+class CredentialMetadata {
+  *serial_number : integer or string
+  *signature : bit string
+  *issuer_key_identifier : integer or string
+  *validity : MetadataValidity
+  *status : MetadataStatus
+  *schema : MetadataSchema
+  *trust : MetadataTrust
+  +policies : string sequence
+  +issuer_information_access : URI
+  +display : MetadataDisplay
+  +binding : MetadataBinding {conditional}
+}
+
+class MetadataIssuer {
+  *iss : URI or string
+  *issuer_key_identifier : string
+}
+
+class MetadataValidity {
+  *iat : date-time or NumericDate
+  *not_before : date-time
+  *not_after : date-time
+}
+
+class MetadataStatus {
+  *serial_number : string
+  *status_endpoint : URI
+  *revocation_distribution_points : URI [1..n]
+  *current_status : CodeListAttestationStatus
+  +revocation_reason : CodeListRevocationReason
+}
+
+class MetadataBinding {
+  +cryptographically_bound_to : string {conditional}
+  +cnf : object {conditional}
+}
+
+class MetadataTrust {
+  *trust_anchor : URI or string
+  +qualified_certificate_reference : string {conditional}
+}
+
+class MetadataSchema {
+  *id : OID or URI
+  *version : integer or string
+  *location : URI
+}
+
+class MetadataDisplay {
+  +language : ISO3166-1 alpha-2? 
+  +name : string
+  +logo : bit string
+}
+
+class "CodeList:CredentialType\n<size:11><color:gray><i>Credential type values from draft schema.</i></color></size>" as CodeListCredentialType {
+  <color:gray>code</color>
+  --
+  power_of_attorney
+  power_of_representation
+  power_of_employee
+}
+
+class "CodeList:ProxyEntityType\n<size:11><color:gray><i>Proxy selector values; numeric and string forms are unresolved.</i></color></size>" as CodeListProxyEntityType {
+  <color:gray>code     definition</color>
+  --
+  0        LegalEntityProxy
+  1        NaturalEntityProxy
+  legal_entity
+  natural_entity
+}
+
+class "CodeList:AuthoritySource\n<size:11><color:gray><i>Authority specialization selector.</i></color></size>" as CodeListAuthoritySource {
+  <color:gray>code</color>
+  --
+  proxy_position
+  proxy_power_scope
+  proxy_employee_authorisation
+}
+
+class "CodeList:ProxyPosition.Position" as CodeListProxyPositionPosition {
+  <color:gray>code</color>
+  --
+  Sole Administrator
+  Supportive Administrator
+  Joint Administrator
+  Board Member
+}
+
+class "CodeList:AssuranceLevel" as CodeListAssuranceLevel {
+  <color:gray>code definition</color>
+  --
+  0 / HIGH          High
+  1 / SUBSTANTIAL   Substantial
+  2 / LOW           Low
+}
+
+class "CodeList:IssuingAuthorityType" as CodeListIssuingAuthorityType {
+  <color:gray>code definition</color>
+  --
+  0 / QEAA
+  1 / PubEAA
+  2 / EAA
+  QTSP / NQTSP labels unresolved
+}
+
+class "CodeList:PowerScopeType" as CodeListPowerScopeType {
+  <color:gray>code definition</color>
+  --
+  0 Organic Representation
+  1 Voluntary Representation
+  2 Apud Acta
+}
+
+class "CodeList:Limitation" as CodeListLimitation {
+  <color:gray>code definition</color>
+  --
+  0 / False Unlimited
+  1 / True  Limited
+}
+
+class "CodeList:Faculty" as CodeListFaculty {
+  <color:gray>code</color>
+  --
+  GENERAL
+  TAX
+  PROCUREMENT
+  CONTRACT
+  FINANCIAL
+  BANKING
+  LEGAL
+  DATA
+  OTHER
+}
+
+class "CodeList:ConstraintType" as CodeListConstraintType {
+  <color:gray>code</color>
+  --
+  Economic
+  Operational
+  Other
+}
+
+class "CodeList:AttestationStatus" as CodeListAttestationStatus {
+  <color:gray>code definition</color>
+  --
+  active   currently valid
+  revoked  permanently invalid
+  expired  validity period ended
+  unknown  status unavailable
+}
+
+class "CodeList:RevocationReason" as CodeListRevocationReason {
+  <color:gray>code</color>
+  --
+  PRIVILEGE_WITHDRAWN
+  ORGANIZATION_DISSOLVED
+  EMPLOYMENT_TERMINATED
+  COURT_ORDER
+  FRAUD
+  ADMINISTRATIVE_DECISION
+  ATTESTATION_COMPROMISED
+  TECHNICAL_ERROR
+  SUPERSEDED
+}
+
+note as LegendNote
+* mandatory or protocol-mandatory
++ optional
+? unresolved mandatory, datatype, or cardinality
+{conditional} present or required only under a stated condition
+end note
+
+PoXAttestation::credential "1" -down-> "1" CredentialClassification #line:DarkRed;text:DarkRed
+PoXAttestation::represented_economic_operator "1" -down-> "1" RepresentedEconomicOperator #line:DarkRed;text:DarkRed
+PoXAttestation::proxy "1" -down-> "1" Proxy #line:DarkRed;text:DarkRed
+PoXAttestation::authority "1" -down-> "1" Authority #line:DarkRed;text:DarkRed
+PoXAttestation::credential_metadata "1" -down-> "1" CredentialMetadata #line:DarkRed;text:DarkRed
+
+CredentialClassification::type "1" --> "1" CodeListCredentialType #line:DarkRed;text:DarkRed
+RepresentedEconomicOperator::identifier "1" --> "1" Identifier #line:DarkRed;text:DarkRed
+Proxy::entity_type "1" --> "1" CodeListProxyEntityType #line:DarkRed;text:DarkRed
+Proxy::legal_entity_proxy "1" --> "0..1" LegalEntityProxy #line:DarkRed;text:DarkRed
+Proxy::natural_entity_proxy "1" --> "0..1" NaturalEntityProxy #line:DarkRed;text:DarkRed
+LegalEntityProxy::identifier "1" --> "1" Identifier #line:DarkRed;text:DarkRed
+
+Authority::authority_source "1" --> "1" CodeListAuthoritySource #line:DarkRed;text:DarkRed
+Authority::proxy_position "1" --> "0..1" ProxyPosition #line:DarkRed;text:DarkRed
+Authority::proxy_power_scope "1" --> "0..1" ProxyPowerScope #line:DarkRed;text:DarkRed
+Authority::proxy_employee_authorisation "1" --> "0..1 future" ProxyEmployeeAuthorisation #line:DarkRed;text:DarkRed
+
+ProxyPosition::position "1" --> "1" CodeListProxyPositionPosition #line:DarkRed;text:DarkRed
+ProxyPosition::issuing_authority "1" --> "1" IssuingAuthority #line:DarkRed;text:DarkRed
+ProxyPosition::authentic_source "1" --> "0..1 / QEAA 1" AuthenticSource #line:DarkRed;text:DarkRed
+ProxyPosition::evidence "1" --> "0..1 / QEAA 1" Evidence #line:DarkRed;text:DarkRed
+ProxyPosition::assurance_level "1" --> "1" CodeListAssuranceLevel #line:DarkRed;text:DarkRed
+
+ProxyPowerScope::type "1" --> "1" CodeListPowerScopeType #line:DarkRed;text:DarkRed
+ProxyPowerScope::limitation "1" --> "1" CodeListLimitation #line:DarkRed;text:DarkRed
+ProxyPowerScope::faculty "1" --> "1..n?" CodeListFaculty #line:DarkRed;text:DarkRed
+ProxyPowerScope::issuing_authority "1" --> "1" IssuingAuthority #line:DarkRed;text:DarkRed
+ProxyPowerScope::assurance_level "1" --> "1" CodeListAssuranceLevel #line:DarkRed;text:DarkRed
+ProxyPowerScope::constraints "1" --> "0..n" Constraint #line:DarkRed;text:DarkRed
+ProxyPowerScope::mandator "1" --> "0..1" Mandator #line:DarkRed;text:DarkRed
+ProxyPowerScope::service_access "1" --> "0..n" ServiceAccess #line:DarkRed;text:DarkRed
+ProxyPowerScope::authentic_source "1" --> "0..1 / QEAA 1" AuthenticSource #line:DarkRed;text:DarkRed
+ProxyPowerScope::evidence "1" --> "0..1 / QEAA 1" Evidence #line:DarkRed;text:DarkRed
+
+Constraint::type "1" --> "1" CodeListConstraintType #line:DarkRed;text:DarkRed
+IssuingAuthority::type "1" --> "1" CodeListIssuingAuthorityType #line:DarkRed;text:DarkRed
+
+CredentialMetadata::issuer "1" --> "1" MetadataIssuer #line:DarkRed;text:DarkRed
+CredentialMetadata::validity "1" --> "1" MetadataValidity #line:DarkRed;text:DarkRed
+CredentialMetadata::status "1" --> "1" MetadataStatus #line:DarkRed;text:DarkRed
+CredentialMetadata::binding "1" --> "0..1" MetadataBinding #line:DarkRed;text:DarkRed
+CredentialMetadata::trust "1" --> "1" MetadataTrust #line:DarkRed;text:DarkRed
+CredentialMetadata::schema "1" --> "1" MetadataSchema #line:DarkRed;text:DarkRed
+CredentialMetadata::display "1" --> "0..1" MetadataDisplay #line:DarkRed;text:DarkRed
+MetadataStatus::current_status "1" --> "1" CodeListAttestationStatus #line:DarkRed;text:DarkRed
+MetadataStatus::revocation_reason "1" --> "0..1" CodeListRevocationReason #line:DarkRed;text:DarkRed
+
+LegendNote .. PoXAttestation #gray
+
+class PoXAttestation #LightYellow;line:DarkRed;text:DarkRed
+class CredentialClassification #LightYellow;line:DarkRed;text:DarkRed
+class RepresentedEconomicOperator #LightYellow;line:DarkRed;text:DarkRed
+class Identifier #LightYellow;line:DarkRed;text:DarkRed
+class Proxy #LightYellow;line:DarkRed;text:DarkRed
+class LegalEntityProxy #LightYellow;line:DarkRed;text:DarkRed
+class NaturalEntityProxy #LightYellow;line:DarkRed;text:DarkRed
+class Authority #LightYellow;line:DarkRed;text:DarkRed
+class ProxyPosition #LightYellow;line:DarkRed;text:DarkRed
+class ProxyPowerScope #LightYellow;line:DarkRed;text:DarkRed
+class ProxyEmployeeAuthorisation #LightYellow;line:DarkRed;text:DarkRed
+class Constraint #LightYellow;line:DarkRed;text:DarkRed
+class Mandator #LightYellow;line:DarkRed;text:DarkRed
+class ServiceAccess #LightYellow;line:DarkRed;text:DarkRed
+class IssuingAuthority #LightYellow;line:DarkRed;text:DarkRed
+class AuthenticSource #LightYellow;line:DarkRed;text:DarkRed
+class Evidence #LightYellow;line:DarkRed;text:DarkRed
+class CredentialMetadata #LightYellow;line:DarkRed;text:DarkRed
+class MetadataIssuer #LightYellow;line:DarkRed;text:DarkRed
+class MetadataValidity #LightYellow;line:DarkRed;text:DarkRed
+class MetadataStatus #LightYellow;line:DarkRed;text:DarkRed
+class MetadataBinding #LightYellow;line:DarkRed;text:DarkRed
+class MetadataTrust #LightYellow;line:DarkRed;text:DarkRed
+class MetadataSchema #LightYellow;line:DarkRed;text:DarkRed
+class MetadataDisplay #LightYellow;line:DarkRed;text:DarkRed
+class CodeListCredentialType #CEEED0;line:285F17;text:285F17
+class CodeListProxyEntityType #CEEED0;line:285F17;text:285F17
+class CodeListAuthoritySource #CEEED0;line:285F17;text:285F17
+class CodeListProxyPositionPosition #CEEED0;line:285F17;text:285F17
+class CodeListAssuranceLevel #CEEED0;line:285F17;text:285F17
+class CodeListIssuingAuthorityType #CEEED0;line:285F17;text:285F17
+class CodeListPowerScopeType #CEEED0;line:285F17;text:285F17
+class CodeListLimitation #CEEED0;line:285F17;text:285F17
+class CodeListFaculty #CEEED0;line:285F17;text:285F17
+class CodeListConstraintType #CEEED0;line:285F17;text:285F17
+class CodeListAttestationStatus #CEEED0;line:285F17;text:285F17
+class CodeListRevocationReason #CEEED0;line:285F17;text:285F17
+
+hide circle
+
+@enduml

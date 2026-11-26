@@ -1,0 +1,37 @@
+@startuml Agents
+title Agents — Direct PROV-O Reuse and Physical Machines
+
+skinparam groupInheritance 2
+skinparam ArrowColor DarkRed
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide circle
+
+class "prov:Agent" as Agent #LightYellow;line:DarkRed;text:DarkRed
+class "prov:Person\n<size:11><color:gray><i>Menselijke Agent</i></color></size>" as Person #LightYellow;line:DarkRed;text:DarkRed
+class "prov:Organization\n<size:11><color:gray><i>Organisation</i></color></size>" as Organization #LightYellow;line:DarkRed;text:DarkRed
+class "prov:SoftwareAgent\n<size:11><color:gray><i>Running software actor</i></color></size>" as SoftwareAgent #LightYellow;line:DarkRed;text:DarkRed
+class "ebwsm:Machine\n<size:11><color:gray><i>Physical software-controlled actor</i></color></size>" as Machine #LightYellow;line:DarkRed;text:DarkRed {
+ +runsSoftwareAgent :
+}
+
+Agent <|-- Person #line:DarkRed;text:DarkRed
+Agent <|-- Organization #line:DarkRed;text:DarkRed
+Agent <|-- SoftwareAgent #line:DarkRed;text:DarkRed
+Agent <|-- Machine #line:DarkRed;text:DarkRed
+Machine::runsSoftwareAgent -left-> SoftwareAgent #line:DarkRed;text:DarkRed
+
+note bottom of Machine
+  Examples: an automated payment terminal or autonomous robot.
+  Software execution and physical actor have separate identities.
+  The software-agent link has no minimum or maximum count.
+  Agent/Machine membership does not grant permission or a mandate.
+end note
+
+legend top left
+  prov: classes and their existing hierarchy come from the pinned import.
+  Machine and runsSoftwareAgent are WEBUILD extension terms (ebwsm:).
+  No separate WEBUILD Agent class or Dublin Core Agent alignment.
+  Sibling classes are not declared disjoint or exhaustive.
+endlegend
+@enduml

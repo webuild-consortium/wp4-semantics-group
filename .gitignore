@@ -1,0 +1,14 @@
+/vocab/scripts/yml2vocab
+
+# Local workstation files and ontology backups
+.DS_Store
+.local/
+*.ttl.bak
+*.ttl~
+*.owl.bak
+*.owl~
+
+# Local reference documents for project learning
+/Reference_Documents/
+
+/semantics/quality/hermit/target/

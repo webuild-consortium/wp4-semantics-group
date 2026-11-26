@@ -1,0 +1,24 @@
+classDiagram
+    direction LR
+%% =========================
+%% Core EBW Classes
+%% =========================
+
+    class CredentialSubject {
+        <<EBW>>
+    }
+
+    class PowerOfAttorney {
+        <<EBW>>
+        +mandatee: URI
+        +scope: string
+        +provenanceProof: Credential
+    }
+%% =========================
+%% Inheritance
+%% =========================
+    CredentialSubject <|-- PowerOfAttorney
+
+%% =========================
+%% Properties (Object relations)
+%% =========================

@@ -15,6 +15,10 @@ classDiagram
         <<external>>
     }
 
+    class CredentialSubject {
+        <<external>>
+    }
+
 %% =========================
 %% Inheritance
 %% =========================
@@ -23,3 +27,4 @@ classDiagram
 %% =========================
 %% Properties (Object relations)
 %% =========================
+    VerifiableCredential *-- CredentialSubject

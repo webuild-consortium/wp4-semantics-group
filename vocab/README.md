@@ -49,6 +49,12 @@ https://webuild-consortium.github.io/wp4-semantics-group/ebwv
 
 The tool yml2vocab is used to generate the vocabulary in html, turtle and jsonld format as well the jsonld context.
 
+## Semantic model extension
+
+The separately maintained [semantic model extension](../semantics/model/webuild.ttl) reuses existing EBWV IRIs and uses `https://w3id.org/ebwv/semantic-model#` (`ebwsm:`) for new terms. Its Turtle model and separate SHACL application profiles under `semantics/application_profile` are authoritative sources for that extension; they are not generated from `vocab/src/vocabulary.yml`. See the [source ownership and baseline decision](../semantics/PROTEGE_GITHUB.md#source-ownership-and-ebwv-reuse).
+
+The published EBWV vocabulary described in this README still follows the YAML build process below. Moving that existing publication process to an RDF source requires a separate team decision and changes to its generator. Do not edit generated `docs/ebwv/vocabulary.ttl` as a substitute for changing its current source, and do not feed the semantic model extension through the YAML build as an intermediate source.
+
 The tool mmdc is used to generate a svg file of the class diagram for the html documentation.
 
 

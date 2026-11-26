@@ -1,0 +1,213 @@
+@prefix ap: <https://w3id.org/ebwv/profile/authorised-signatories#> .
+@prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix ebwsm: <https://w3id.org/ebwv/semantic-model#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Draft profile. See readme.md for the source, proposed term IRIs and open decisions.
+ap:AuthorizedSignatoriesShape
+    a sh:NodeShape ;
+    sh:targetClass ebwsm:AuthorizedSignatories ;
+    sh:property [
+        sh:path ebwsm:hasLegalEntity ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node ap:LegalEntityShape
+    ] ;
+    sh:property [
+        sh:path ebwsm:hasAuthorizedPerson ;
+        sh:minCount 1 ;
+        sh:node ap:AuthorizedPersonShape
+    ] .
+
+ap:LegalEntityShape
+    a sh:NodeShape ;
+    sh:class ebwv:LegalEntity ;
+    sh:property [
+        sh:path ebwsm:hasLegalPerson ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node ap:LegalPersonShape
+    ] ;
+    sh:property [
+        sh:path ebwsm:hasLegalEntityIdentifier ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node ap:LegalEntityIdentifierShape
+    ] .
+
+ap:LegalPersonShape
+    a sh:NodeShape ;
+    sh:class ebwv:LegalPerson ;
+    sh:property [
+        sh:path ebwv:legalName ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path ebwv:legalForm ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] .
+
+ap:LegalEntityIdentifierShape
+    a sh:NodeShape ;
+    sh:class ebwv:LegalEntityIdentifier ;
+    sh:property [
+        sh:path ebwsm:euid ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path ebwv:lei ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[A-Z0-9]{20}$"
+    ] ;
+    sh:property [
+        sh:path ebwsm:taxIdentifier ;
+        sh:datatype xsd:string
+    ] .
+
+ap:AuthorizedPersonShape
+    a sh:NodeShape ;
+    sh:class ebwsm:AuthorizedPerson ;
+    sh:property [
+        sh:path ebwsm:hasNaturalPerson ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node ap:NaturalPersonShape
+    ] ;
+    sh:property [
+        sh:path ebwsm:hasSignatoryRole ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node ap:SignatoryRoleShape
+    ] ;
+    sh:property [
+        sh:path ebwsm:hasBirthPlace ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node ap:PlaceShape
+    ] ;
+    sh:property [
+        sh:path ebwsm:hasCitizenshipCountry ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node ap:CountryCodeShape
+    ] ;
+    sh:property [
+        sh:path ebwsm:hasIdentifyingDocument ;
+        sh:maxCount 1 ;
+        sh:node ap:IdentifyingDocumentShape
+    ] .
+
+ap:NaturalPersonShape
+    a sh:NodeShape ;
+    sh:class ebwv:NaturalPerson ;
+    sh:property [
+        sh:path ebwv:givenName ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path ebwv:familyName ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path ebwv:dateOfBirth ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date
+    ] .
+
+ap:SignatoryRoleShape
+    a sh:NodeShape ;
+    sh:class ebwsm:SignatoryRole ;
+    sh:property [
+        sh:path ebwsm:roleName ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path ebwsm:representationType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node ap:RepresentationTypeCodeShape
+    ] .
+
+ap:PlaceShape
+    a sh:NodeShape ;
+    sh:class ebwsm:Place ;
+    sh:property [
+        sh:path ebwsm:locality ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path ebwsm:hasCountry ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node ap:CountryCodeShape
+    ] ;
+    sh:property [
+        sh:path ebwsm:hasRegion ;
+        sh:maxCount 1 ;
+        sh:node ap:CodeEntryShape
+    ] .
+
+ap:IdentifyingDocumentShape
+    a sh:NodeShape ;
+    sh:class ebwsm:IdentifyingDocument ;
+    sh:property [
+        sh:path ebwsm:documentNumber ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path ebwsm:documentType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node ap:CodeEntryShape
+    ] ;
+    sh:property [
+        sh:path ebwsm:issuingCountry ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node ap:CountryCodeShape
+    ] ;
+    sh:property [
+        sh:path ebwsm:expiryDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date
+    ] .
+
+ap:CodeEntryShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property [
+        sh:path skos:notation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal
+    ] .
+
+ap:CountryCodeShape
+    a sh:NodeShape ;
+    sh:node ap:CodeEntryShape ;
+    sh:property [
+        sh:path skos:notation ;
+        sh:pattern "^[A-Z]{3}$"
+    ] .
+
+ap:RepresentationTypeCodeShape
+    a sh:NodeShape ;
+    sh:node ap:CodeEntryShape ;
+    sh:property [
+        sh:path skos:notation ;
+        sh:in ( "SOLE" "JOINT" )
+    ] .

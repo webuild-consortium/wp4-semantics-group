@@ -1,6 +1,57 @@
 {
     "@context": {
         "@protected": true,
+        "A1Certificate": {
+            "@id": "https://w3id.org/ebwv#A1Certificate",
+            "@context": {
+                "@protected": true,
+                "employer": {
+                    "@id": "https://w3id.org/ebwv#employer",
+                    "@type": "@id"
+                },
+                "fullPeriodCovered": {
+                    "@id": "https://w3id.org/ebwv#fullPeriodCovered",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "jurisdiction": {
+                    "@id": "https://w3id.org/ebwv#jurisdiction",
+                    "@type": "https://w3id.org/ebwv#CountryCode"
+                },
+                "noFixedPlaceOfWork": {
+                    "@id": "https://w3id.org/ebwv#noFixedPlaceOfWork",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "person": {
+                    "@id": "https://w3id.org/ebwv#person",
+                    "@type": "@id"
+                },
+                "placeOfWork": {
+                    "@id": "https://w3id.org/ebwv#placeOfWork",
+                    "@type": "@id"
+                },
+                "provisionalDetermination": {
+                    "@id": "https://w3id.org/ebwv#provisionalDetermination",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "statusConfirmation": {
+                    "@id": "https://w3id.org/ebwv#statusConfirmation",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "transitionalRules": {
+                    "@id": "https://w3id.org/ebwv#transitionalRules",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "typeOfEmployment": {
+                    "@id": "https://w3id.org/ebwv#typeOfEmployment",
+                    "@type": "@vocab",
+                    "@context": {
+                        "Permanent": "https://w3id.org/ebwv#Permanent",
+                        "Temporary": "https://w3id.org/ebwv#Temporary",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
+                }
+            }
+        },
         "Address": {
             "@id": "https://w3id.org/ebwv#Address",
             "@context": {
@@ -9,13 +60,13 @@
                     "@id": "https://w3id.org/ebwv#addressArea",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
-                "adminUnitL2": {
-                    "@id": "https://w3id.org/ebwv#adminUnitL2",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
                 "adminUnitL1": {
                     "@id": "https://w3id.org/ebwv#adminUnitL1",
                     "@type": "https://w3id.org/ebwv#CountryCode"
+                },
+                "adminUnitL2": {
+                    "@id": "https://w3id.org/ebwv#adminUnitL2",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "fullAddress": {
                     "@id": "https://w3id.org/ebwv#fullAddress",
@@ -75,17 +126,108 @@
                 }
             }
         },
-        "Capital": {
-            "@id": "https://w3id.org/ebwv#Capital",
+        "BeneficialOwner": {
+            "@id": "https://w3id.org/ebwv#BeneficialOwner",
             "@context": {
                 "@protected": true,
-                "amount": {
-                    "@id": "https://w3id.org/ebwv#amount",
-                    "@type": "http://www.w3.org/2001/XMLSchema#float"
+                "identifier": "https://w3id.org/ebwv#identifier",
+                "isHighRisk": {
+                    "@id": "https://w3id.org/ebwv#isHighRisk",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
                 },
-                "currency": {
-                    "@id": "https://w3id.org/ebwv#currency",
-                    "@type": "https://w3id.org/ebwv#Currency"
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
+                },
+                "otherControlReason": {
+                    "@id": "https://w3id.org/ebwv#otherControlReason",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "relativeShareDirect": {
+                    "@id": "https://w3id.org/ebwv#relativeShareDirect",
+                    "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+                },
+                "relativeVotingRights": {
+                    "@id": "https://w3id.org/ebwv#relativeVotingRights",
+                    "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+                },
+                "relativeVotingRightsDirect": {
+                    "@id": "https://w3id.org/ebwv#relativeVotingRightsDirect",
+                    "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+                },
+                "share": {
+                    "@id": "https://w3id.org/ebwv#share",
+                    "@type": "@id"
+                }
+            }
+        },
+        "BeneficialOwnership": {
+            "@id": "https://w3id.org/ebwv#BeneficialOwnership",
+            "@context": {
+                "@protected": true,
+                "accG10": {
+                    "@id": "https://w3id.org/ebwv#accG10",
+                    "@type": "@id"
+                },
+                "accG25": {
+                    "@id": "https://w3id.org/ebwv#accG25",
+                    "@type": "@id"
+                },
+                "cdd": {
+                    "@id": "https://w3id.org/ebwv#cdd",
+                    "@type": "@id"
+                },
+                "dom10": {
+                    "@id": "https://w3id.org/ebwv#dom10",
+                    "@type": "@id"
+                },
+                "dom25": {
+                    "@id": "https://w3id.org/ebwv#dom25",
+                    "@type": "@id"
+                },
+                "standard": {
+                    "@id": "https://w3id.org/ebwv#standard",
+                    "@type": "@id"
+                },
+                "transparencyRegister": {
+                    "@id": "https://w3id.org/ebwv#transparencyRegister",
+                    "@type": "@id"
+                }
+            }
+        },
+        "BeneficialOwnershipVariant": {
+            "@id": "https://w3id.org/ebwv#BeneficialOwnershipVariant",
+            "@context": {
+                "@protected": true,
+                "capitalBeneficialOwner": {
+                    "@id": "https://w3id.org/ebwv#capitalBeneficialOwner",
+                    "@type": "@id"
+                },
+                "fictitiousBeneficialOwner": {
+                    "@id": "https://w3id.org/ebwv#fictitiousBeneficialOwner",
+                    "@type": "@id"
+                },
+                "otherControlBeneficialOwner": {
+                    "@id": "https://w3id.org/ebwv#otherControlBeneficialOwner",
+                    "@type": "@id"
+                },
+                "votingRightsBeneficialOwner": {
+                    "@id": "https://w3id.org/ebwv#votingRightsBeneficialOwner",
+                    "@type": "@id"
+                }
+            }
+        },
+        "CertifiedSite": {
+            "@id": "https://w3id.org/ebwv#CertifiedSite",
+            "@context": {
+                "@protected": true,
+                "certifiedScope": {
+                    "@id": "https://w3id.org/ebwv#certifiedScope",
+                    "@type": "http://www.w3.org/2001/XMLSchema#String"
+                },
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
                 }
             }
         },
@@ -93,10 +235,7 @@
             "@id": "https://w3id.org/ebwv#Company",
             "@context": {
                 "@protected": true,
-                "activity": {
-                    "@id": "https://w3id.org/ebwv#activity",
-                    "@type": "https://w3id.org/ebwv#Nace21"
-                },
+                "activity": "https://w3id.org/ebwv#activity",
                 "correspondenceAddress": {
                     "@id": "https://w3id.org/ebwv#correspondenceAddress",
                     "@type": "@id"
@@ -105,49 +244,25 @@
                     "@id": "https://w3id.org/ebwv#dateOfRegistration",
                     "@type": "http://www.w3.org/2001/XMLSchema#date"
                 },
-                "eori": {
-                    "@id": "https://w3id.org/ebwv#eori",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "excise": {
-                    "@id": "https://w3id.org/ebwv#excise",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "identifier": {
-                    "@id": "https://w3id.org/ebwv#identifier",
-                    "@type": "https://w3id.org/ebwv#Bic"
+                "endDate": {
+                    "@id": "https://w3id.org/ebwv#endDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
                 },
                 "legalForm": {
                     "@id": "https://w3id.org/ebwv#legalForm",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "legalIdentifier": {
-                    "@id": "https://w3id.org/ebwv#legalIdentifier",
-                    "@type": "https://w3id.org/ebwv#PublicBodyId"
-                },
-                "legalName": {
-                    "@id": "https://w3id.org/ebwv#legalName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
                 "legalStatus": {
                     "@id": "https://w3id.org/ebwv#legalStatus",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
-                "lei": {
-                    "@id": "https://w3id.org/ebwv#lei",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                "register": {
+                    "@id": "https://w3id.org/ebwv#register",
+                    "@type": "@id"
                 },
                 "registeredAddress": {
                     "@id": "https://w3id.org/ebwv#registeredAddress",
                     "@type": "@id"
-                },
-                "tin": {
-                    "@id": "https://w3id.org/ebwv#tin",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                },
-                "vat": {
-                    "@id": "https://w3id.org/ebwv#vat",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
         },
@@ -159,13 +274,80 @@
                     "@id": "https://w3id.org/ebwv#hasEmail",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
+                "hasFax": {
+                    "@id": "https://w3id.org/ebwv#hasFax",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
                 "hasTelephone": {
                     "@id": "https://w3id.org/ebwv#hasTelephone",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "website": {
+                    "@id": "https://w3id.org/ebwv#website",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
                 }
             }
         },
-        "CredentialSubject": "https://w3.org/2018/credentials#CredentialSubject",
+        "CorporateRole": "https://w3id.org/ebwv#CorporateRole",
+        "CredentialEvidence": "https://www.w3.org/2018/credentials#CredentialEvidence",
+        "CredentialSubject": "https://www.w3.org/2018/credentials#CredentialSubject",
+        "DataSpaceRole": "https://w3id.org/ebwv#DataSpaceRole",
+        "DeliveryType": "https://w3id.org/ebwv#DeliveryType",
+        "DUNS": {
+            "@id": "https://w3id.org/ebwv#DUNS",
+            "@context": {
+                "@protected": true,
+                "businessEntity": {
+                    "@id": "https://w3id.org/ebwv#businessEntity",
+                    "@type": "@id"
+                },
+                "identifier": "https://w3id.org/ebwv#identifier"
+            }
+        },
+        "EconomicOperator": {
+            "@id": "https://w3id.org/ebwv#EconomicOperator",
+            "@context": {
+                "@protected": true,
+                "administrativeRepresentative": {
+                    "@id": "https://w3id.org/ebwv#administrativeRepresentative",
+                    "@type": "@id"
+                },
+                "constructionSector": {
+                    "@id": "https://w3id.org/ebwv#constructionSector",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "contactPoint": {
+                    "@id": "https://w3id.org/ebwv#contactPoint",
+                    "@type": "@id"
+                },
+                "employee": {
+                    "@id": "https://w3id.org/ebwv#employee",
+                    "@type": "@id"
+                },
+                "identifier": "https://w3id.org/ebwv#identifier",
+                "jurisdiction": {
+                    "@id": "https://w3id.org/ebwv#jurisdiction",
+                    "@type": "https://w3id.org/ebwv#CountryCode"
+                },
+                "legalIdentifier": "https://w3id.org/ebwv#legalIdentifier",
+                "legalName": {
+                    "@id": "https://w3id.org/ebwv#legalName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "registeredAddress": {
+                    "@id": "https://w3id.org/ebwv#registeredAddress",
+                    "@type": "@id"
+                },
+                "socialRepresentative": {
+                    "@id": "https://w3id.org/ebwv#socialRepresentative",
+                    "@type": "@id"
+                },
+                "temporaryWorkAgency": {
+                    "@id": "https://w3id.org/ebwv#temporaryWorkAgency",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                }
+            }
+        },
         "ElectronicAttestationOfAttributes": {
             "@id": "https://w3id.org/ebwv#ElectronicAttestationOfAttributes",
             "@context": {
@@ -175,10 +357,48 @@
                     "@type": "@vocab",
                     "@context": {
                         "QEAA": "https://w3id.org/ebwv#QEAA",
-                        "Pub-EAA": "https://w3id.org/ebwv#Pub-EAA",
+                        "PuB-EAA": "https://w3id.org/ebwv#PuB-EAA",
                         "EAA": "https://w3id.org/ebwv#EAA",
                         "@vocab": "ebwv:INVALID_VALUE:"
                     }
+                },
+                "provenanceProof": {
+                    "@id": "https://w3id.org/ebwv#provenanceProof",
+                    "@type": "@id",
+                    "@container": "@graph"
+                }
+            }
+        },
+        "EquityHolder": {
+            "@id": "https://w3id.org/ebwv#EquityHolder",
+            "@context": {
+                "@protected": true,
+                "equityHolder": {
+                    "@id": "https://w3id.org/ebwv#equityHolder",
+                    "@type": "@id"
+                },
+                "handover": {
+                    "@id": "https://w3id.org/ebwv#handover",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "handoverDescription": {
+                    "@id": "https://w3id.org/ebwv#handoverDescription",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "identifier": "https://w3id.org/ebwv#identifier",
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
+                }
+            }
+        },
+        "EquityPartner": {
+            "@id": "https://w3id.org/ebwv#EquityPartner",
+            "@context": {
+                "@protected": true,
+                "share": {
+                    "@id": "https://w3id.org/ebwv#share",
+                    "@type": "@id"
                 }
             }
         },
@@ -186,13 +406,62 @@
             "@id": "https://w3id.org/ebwv#EuropeanBusinessWalletOwner",
             "@context": {
                 "@protected": true,
-                "legalIdentifier": {
-                    "@id": "https://w3id.org/ebwv#legalIdentifier",
-                    "@type": "https://w3id.org/ebwv#PublicBodyId"
-                },
+                "legalIdentifier": "https://w3id.org/ebwv#legalIdentifier",
                 "legalName": {
                     "@id": "https://w3id.org/ebwv#legalName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "EvidenceData": {
+            "@id": "https://w3id.org/ebwv#EvidenceData",
+            "@context": {
+                "@protected": true,
+                "evidenceSource": {
+                    "@id": "https://w3id.org/ebwv#evidenceSource",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "provenClaim": {
+                    "@id": "https://w3id.org/ebwv#provenClaim",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "url": {
+                    "@id": "https://w3id.org/ebwv#url",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "verificationDate": {
+                    "@id": "https://w3id.org/ebwv#verificationDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                }
+            }
+        },
+        "FinancialYear": {
+            "@id": "https://w3id.org/ebwv#FinancialYear",
+            "@context": {
+                "@protected": true,
+                "balanceSheetTotal": {
+                    "@id": "https://w3id.org/ebwv#balanceSheetTotal",
+                    "@type": "@id"
+                },
+                "companySize": {
+                    "@id": "https://w3id.org/ebwv#companySize",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "numberOfEmployees": {
+                    "@id": "https://w3id.org/ebwv#numberOfEmployees",
+                    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+                },
+                "operatingResult": {
+                    "@id": "https://w3id.org/ebwv#operatingResult",
+                    "@type": "@id"
+                },
+                "revenue": {
+                    "@id": "https://w3id.org/ebwv#revenue",
+                    "@type": "@id"
+                },
+                "statementDate": {
+                    "@id": "https://w3id.org/ebwv#statementDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
                 }
             }
         },
@@ -200,9 +469,216 @@
             "@id": "https://w3id.org/ebwv#GeneralPartner",
             "@context": {
                 "@protected": true,
-                "partnerId": {
-                    "@id": "https://w3id.org/ebwv#partnerId",
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
+                }
+            }
+        },
+        "GLN": {
+            "@id": "https://w3id.org/ebwv#GLN",
+            "@context": {
+                "@protected": true,
+                "identifier": "https://w3id.org/ebwv#identifier",
+                "licenceKey": {
+                    "@id": "https://w3id.org/ebwv#licenceKey",
+                    "@type": "https://w3id.org/ebwv#GS1CompanyPrefix"
+                },
+                "organisation": {
+                    "@id": "https://w3id.org/ebwv#organisation",
+                    "@type": "@id"
+                },
+                "registeredAddress": {
+                    "@id": "https://w3id.org/ebwv#registeredAddress",
+                    "@type": "@id"
+                }
+            }
+        },
+        "GovernanceRulebook": {
+            "@id": "https://w3id.org/ebwv#GovernanceRulebook",
+            "@context": {
+                "@protected": true,
+                "acceptedAt": {
+                    "@id": "https://w3id.org/ebwv#acceptedAt",
+                    "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                },
+                "hash": {
+                    "@id": "https://w3id.org/ebwv#hash",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "url": {
+                    "@id": "https://w3id.org/ebwv#url",
                     "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "version": {
+                    "@id": "https://w3id.org/ebwv#version",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Incoterms": "https://w3id.org/ebwv#Incoterms",
+        "KycCheck": {
+            "@id": "https://w3id.org/ebwv#KycCheck",
+            "@context": {
+                "@protected": true,
+                "deliveryType": {
+                    "@id": "https://w3id.org/ebwv#deliveryType",
+                    "@type": "@vocab",
+                    "@context": {
+                        "ResearchedProduct": "https://w3id.org/ebwv#ResearchedProduct",
+                        "AbortedResearch": "https://w3id.org/ebwv#AbortedResearch",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
+                },
+                "focusEntity": {
+                    "@id": "https://w3id.org/ebwv#focusEntity",
+                    "@type": "@id"
+                }
+            }
+        },
+        "KycLegalEntity": {
+            "@id": "https://w3id.org/ebwv#KycLegalEntity",
+            "@context": {
+                "@protected": true,
+                "balanceSheetDate": {
+                    "@id": "https://w3id.org/ebwv#balanceSheetDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "beneficialOwnership": {
+                    "@id": "https://w3id.org/ebwv#beneficialOwnership",
+                    "@type": "@id"
+                },
+                "companyCategory": {
+                    "@id": "https://w3id.org/ebwv#companyCategory",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "directParent": {
+                    "@id": "https://w3id.org/ebwv#directParent",
+                    "@type": "@id"
+                },
+                "domicile": {
+                    "@id": "https://w3id.org/ebwv#domicile",
+                    "@type": "@id"
+                },
+                "equityHolder": {
+                    "@id": "https://w3id.org/ebwv#equityHolder",
+                    "@type": "@id"
+                },
+                "financialYear": {
+                    "@id": "https://w3id.org/ebwv#financialYear",
+                    "@type": "@id"
+                },
+                "formerName": {
+                    "@id": "https://w3id.org/ebwv#formerName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "handover": {
+                    "@id": "https://w3id.org/ebwv#handover",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "handoverDescription": {
+                    "@id": "https://w3id.org/ebwv#handoverDescription",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "handoverFlag": {
+                    "@id": "https://w3id.org/ebwv#handoverFlag",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "insolvencyStatus": {
+                    "@id": "https://w3id.org/ebwv#insolvencyStatus",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "isCsrdObligated": {
+                    "@id": "https://w3id.org/ebwv#isCsrdObligated",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "isFoundation": {
+                    "@id": "https://w3id.org/ebwv#isFoundation",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "isTrust": {
+                    "@id": "https://w3id.org/ebwv#isTrust",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "legalRepresentative": {
+                    "@id": "https://w3id.org/ebwv#legalRepresentative",
+                    "@type": "@id"
+                },
+                "legalSuccessionReason": {
+                    "@id": "https://w3id.org/ebwv#legalSuccessionReason",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "leiStatus": {
+                    "@id": "https://w3id.org/ebwv#leiStatus",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "liquidationStatus": {
+                    "@id": "https://w3id.org/ebwv#liquidationStatus",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "listedOnRegulatedMarket": {
+                    "@id": "https://w3id.org/ebwv#listedOnRegulatedMarket",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "participation": {
+                    "@id": "https://w3id.org/ebwv#participation",
+                    "@type": "@id"
+                },
+                "regulator": {
+                    "@id": "https://w3id.org/ebwv#regulator",
+                    "@type": "@id"
+                },
+                "researchedSuccessorId": {
+                    "@id": "https://w3id.org/ebwv#researchedSuccessorId",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "researchTerminationReason": {
+                    "@id": "https://w3id.org/ebwv#researchTerminationReason",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "stockExchangeListing": {
+                    "@id": "https://w3id.org/ebwv#stockExchangeListing",
+                    "@type": "@id"
+                },
+                "subscribedCapital": {
+                    "@id": "https://w3id.org/ebwv#subscribedCapital",
+                    "@type": "@id"
+                },
+                "transparencyRegisterExtract": {
+                    "@id": "https://w3id.org/ebwv#transparencyRegisterExtract",
+                    "@type": "@id"
+                },
+                "ultimateParent": {
+                    "@id": "https://w3id.org/ebwv#ultimateParent",
+                    "@type": "@id"
+                }
+            }
+        },
+        "LegalEntity": {
+            "@id": "https://w3id.org/ebwv#LegalEntity",
+            "@context": {
+                "@protected": true,
+                "registeredAddress": {
+                    "@id": "https://w3id.org/ebwv#registeredAddress",
+                    "@type": "@id"
+                }
+            }
+        },
+        "LegalEntityIdentifier": {
+            "@id": "https://w3id.org/ebwv#LegalEntityIdentifier",
+            "@context": {
+                "@protected": true,
+                "lei": {
+                    "@id": "https://w3id.org/ebwv#lei",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "leiLegalEntity": {
+                    "@id": "https://w3id.org/ebwv#leiLegalEntity",
+                    "@type": "@id"
+                },
+                "leiRegistration": {
+                    "@id": "https://w3id.org/ebwv#leiRegistration",
+                    "@type": "@id"
                 }
             }
         },
@@ -210,41 +686,102 @@
             "@id": "https://w3id.org/ebwv#LegalPerson",
             "@context": {
                 "@protected": true,
+                "correspondenceAddress": {
+                    "@id": "https://w3id.org/ebwv#correspondenceAddress",
+                    "@type": "@id"
+                },
+                "dateOfRegistration": {
+                    "@id": "https://w3id.org/ebwv#dateOfRegistration",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
                 "legalForm": {
                     "@id": "https://w3id.org/ebwv#legalForm",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
-                "legalIdentifier": {
-                    "@id": "https://w3id.org/ebwv#legalIdentifier",
-                    "@type": "https://w3id.org/ebwv#PublicBodyId"
-                },
+                "legalIdentifier": "https://w3id.org/ebwv#legalIdentifier",
                 "legalName": {
                     "@id": "https://w3id.org/ebwv#legalName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "legalStatus": {
+                    "@id": "https://w3id.org/ebwv#legalStatus",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "registeredAddress": {
+                    "@id": "https://w3id.org/ebwv#registeredAddress",
+                    "@type": "@id"
                 }
             }
         },
-        "LegalEntity": "https://w3id.org/ebwv#LegalEntity",
         "LegalRepresentative": {
             "@id": "https://w3id.org/ebwv#LegalRepresentative",
             "@context": {
                 "@protected": true,
-                "legalRepresentativeId": {
-                    "@id": "https://w3id.org/ebwv#legalRepresentativeId",
-                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                "entryDate": {
+                    "@id": "https://w3id.org/ebwv#entryDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "exitDate": {
+                    "@id": "https://w3id.org/ebwv#exitDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "isExemptFromSection181": {
+                    "@id": "https://w3id.org/ebwv#isExemptFromSection181",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
                 },
                 "role": {
                     "@id": "https://w3id.org/ebwv#role",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                    "@type": "@vocab",
+                    "@context": {
+                        "DataConsumer": "https://w3id.org/ebwv#DataConsumer",
+                        "DataProvider": "https://w3id.org/ebwv#DataProvider",
+                        "DataRightsHolder": "https://w3id.org/ebwv#DataRightsHolder",
+                        "OnboardingServiceProvider": "https://w3id.org/ebwv#OnboardingServiceProvider",
+                        "Operator": "https://w3id.org/ebwv#Operator",
+                        "CEO": "https://w3id.org/ebwv#CEO",
+                        "CFO": "https://w3id.org/ebwv#CFO",
+                        "HeadOfHR": "https://w3id.org/ebwv#HeadOfHR",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
                 },
-                "scopeOfAuthorization": {
-                    "@id": "https://w3id.org/ebwv#scopeOfAuthorization",
+                "typeOfRepresentation": {
+                    "@id": "https://w3id.org/ebwv#typeOfRepresentation",
                     "@type": "@vocab",
                     "@context": {
                         "Alone": "https://w3id.org/ebwv#Alone",
                         "Jointly": "https://w3id.org/ebwv#Jointly",
                         "@vocab": "ebwv:INVALID_VALUE:"
                     }
+                }
+            }
+        },
+        "LeiRegistration": {
+            "@id": "https://w3id.org/ebwv#LeiRegistration",
+            "@context": {
+                "@protected": true,
+                "leiLastUpdate": {
+                    "@id": "https://w3id.org/ebwv#leiLastUpdate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "leiNextRenewal": {
+                    "@id": "https://w3id.org/ebwv#leiNextRenewal",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "leiRegistrationDate": {
+                    "@id": "https://w3id.org/ebwv#leiRegistrationDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "leiRegistrationStatus": {
+                    "@id": "https://w3id.org/ebwv#leiRegistrationStatus",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "managingLeiIssuer": {
+                    "@id": "https://w3id.org/ebwv#managingLeiIssuer",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
                 }
             }
         },
@@ -266,50 +803,85 @@
             "@id": "https://w3id.org/ebwv#LimitedPartner",
             "@context": {
                 "@protected": true,
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
+                },
                 "liabilityOrContribution": {
                     "@id": "https://w3id.org/ebwv#liabilityOrContribution",
                     "@type": "@id"
-                },
-                "partnerId": {
-                    "@id": "https://w3id.org/ebwv#partnerId",
-                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
                 }
             }
         },
-        "Location": "https://w3id.org/ebwv#Location",
+        "Location": {
+            "@id": "https://w3id.org/ebwv#Location",
+            "@context": {
+                "@protected": true,
+                "geographicIdentifier": {
+                    "@id": "https://w3id.org/ebwv#geographicIdentifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "geographicName": {
+                    "@id": "https://w3id.org/ebwv#geographicName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Membership": {
+            "@id": "https://w3id.org/ebwv#Membership",
+            "@context": {
+                "@protected": true,
+                "member": {
+                    "@id": "https://w3id.org/ebwv#member",
+                    "@type": "@id"
+                },
+                "memberOf": {
+                    "@id": "https://w3id.org/ebwv#memberOf",
+                    "@type": "@id"
+                },
+                "onboardedBy": {
+                    "@id": "https://w3id.org/ebwv#onboardedBy",
+                    "@type": "@id"
+                },
+                "role": {
+                    "@id": "https://w3id.org/ebwv#role",
+                    "@type": "@vocab",
+                    "@context": {
+                        "DataConsumer": "https://w3id.org/ebwv#DataConsumer",
+                        "DataProvider": "https://w3id.org/ebwv#DataProvider",
+                        "DataRightsHolder": "https://w3id.org/ebwv#DataRightsHolder",
+                        "OnboardingServiceProvider": "https://w3id.org/ebwv#OnboardingServiceProvider",
+                        "Operator": "https://w3id.org/ebwv#Operator",
+                        "CEO": "https://w3id.org/ebwv#CEO",
+                        "CFO": "https://w3id.org/ebwv#CFO",
+                        "HeadOfHR": "https://w3id.org/ebwv#HeadOfHR",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
+                }
+            }
+        },
+        "MonetaryAmount": {
+            "@id": "https://w3id.org/ebwv#MonetaryAmount",
+            "@context": {
+                "@protected": true,
+                "amount": {
+                    "@id": "https://w3id.org/ebwv#amount",
+                    "@type": "http://www.w3.org/2001/XMLSchema#float"
+                },
+                "currency": {
+                    "@id": "https://w3id.org/ebwv#currency",
+                    "@type": "https://w3id.org/ebwv#Currency"
+                }
+            }
+        },
         "NaturalPerson": {
             "@id": "https://w3id.org/ebwv#NaturalPerson",
             "@context": {
                 "@protected": true,
-                "dateOfBirth": {
-                    "@id": "https://w3id.org/ebwv#dateOfBirth",
-                    "@type": "http://www.w3.org/2001/XMLSchema#date"
-                },
-                "familyName": {
-                    "@id": "https://w3id.org/ebwv#familyName",
+                "academicTitle": {
+                    "@id": "https://w3id.org/ebwv#academicTitle",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
-                "givenName": {
-                    "@id": "https://w3id.org/ebwv#givenName",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
-                }
-            }
-        },
-        "Partnership": {
-            "@id": "https://w3id.org/ebwv#Partnership",
-            "@context": {
-                "@protected": true,
-                "partner": {
-                    "@id": "https://w3id.org/ebwv#partner",
-                    "@type": "@id"
-                }
-            }
-        },
-        "PeriodOfTime": "https://w3id.org/ebwv#PeriodOfTime",
-        "Person": {
-            "@id": "https://w3id.org/ebwv#Person",
-            "@context": {
-                "@protected": true,
                 "alternativeName": {
                     "@id": "https://w3id.org/ebwv#alternativeName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -362,6 +934,11 @@
                     "@id": "https://w3id.org/ebwv#givenName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
                 },
+                "identifier": "https://w3id.org/ebwv#identifier",
+                "jobTitle": {
+                    "@id": "https://w3id.org/ebwv#jobTitle",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
                 "matronymicName": {
                     "@id": "https://w3id.org/ebwv#matronymicName",
                     "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -389,24 +966,462 @@
                 "residency": {
                     "@id": "https://w3id.org/ebwv#residency",
                     "@type": "https://w3id.org/ebwv#CountryCode"
+                },
+                "salutation": {
+                    "@id": "https://w3id.org/ebwv#salutation",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "temporaryAddress": {
+                    "@id": "https://w3id.org/ebwv#temporaryAddress",
+                    "@type": "@id"
                 }
             }
         },
-        "ScopeOfAuthorization": "https://w3id.org/ebwv#ScopeOfAuthorization",
+        "OnboardingDetails": {
+            "@id": "https://w3id.org/ebwv#OnboardingDetails",
+            "@context": {
+                "@protected": true,
+                "member": {
+                    "@id": "https://w3id.org/ebwv#member",
+                    "@type": "@id"
+                },
+                "operator": {
+                    "@id": "https://w3id.org/ebwv#operator",
+                    "@type": "@id"
+                },
+                "platform": {
+                    "@id": "https://w3id.org/ebwv#platform",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Participation": {
+            "@id": "https://w3id.org/ebwv#Participation",
+            "@context": {
+                "@protected": true,
+                "identifier": "https://w3id.org/ebwv#identifier",
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
+                },
+                "share": {
+                    "@id": "https://w3id.org/ebwv#share",
+                    "@type": "@id"
+                }
+            }
+        },
+        "Partnership": {
+            "@id": "https://w3id.org/ebwv#Partnership",
+            "@context": {
+                "@protected": true,
+                "partner": {
+                    "@id": "https://w3id.org/ebwv#partner",
+                    "@type": "@id"
+                }
+            }
+        },
+        "PaymentTerms": {
+            "@id": "https://w3id.org/ebwv#PaymentTerms",
+            "@context": {
+                "@protected": true,
+                "buyer": {
+                    "@id": "https://w3id.org/ebwv#buyer",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "currency": {
+                    "@id": "https://w3id.org/ebwv#currency",
+                    "@type": "https://w3id.org/ebwv#Currency"
+                },
+                "deliveryLocation": {
+                    "@id": "https://w3id.org/ebwv#deliveryLocation",
+                    "@type": "@id"
+                },
+                "paymentDue": {
+                    "@id": "https://w3id.org/ebwv#paymentDue",
+                    "@type": "http://www.w3.org/2001/XMLSchema#duration"
+                },
+                "supplier": {
+                    "@id": "https://w3id.org/ebwv#supplier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "terms": {
+                    "@id": "https://w3id.org/ebwv#terms",
+                    "@type": "@vocab",
+                    "@context": {
+                        "EXW": "https://w3id.org/ebwv#EXW",
+                        "FCA": "https://w3id.org/ebwv#FCA",
+                        "CPT": "https://w3id.org/ebwv#CPT",
+                        "CIP": "https://w3id.org/ebwv#CIP",
+                        "DAP": "https://w3id.org/ebwv#DAP",
+                        "DPU": "https://w3id.org/ebwv#DPU",
+                        "DDP": "https://w3id.org/ebwv#DDP",
+                        "FAS": "https://w3id.org/ebwv#FAS",
+                        "FOB": "https://w3id.org/ebwv#FOB",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
+                }
+            }
+        },
+        "PeriodOfTime": {
+            "@id": "https://w3id.org/ebwv#PeriodOfTime",
+            "@context": {
+                "@protected": true,
+                "endDate": {
+                    "@id": "https://w3id.org/ebwv#endDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "startDate": {
+                    "@id": "https://w3id.org/ebwv#startDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                }
+            }
+        },
+        "PostedWorkerNotification": {
+            "@id": "https://w3id.org/ebwv#PostedWorkerNotification",
+            "@context": {
+                "@protected": true,
+                "a1": {
+                    "@id": "https://w3id.org/ebwv#a1",
+                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                },
+                "assignment": {
+                    "@id": "https://w3id.org/ebwv#assignment",
+                    "@type": "@id"
+                },
+                "employer": {
+                    "@id": "https://w3id.org/ebwv#employer",
+                    "@type": "@id"
+                },
+                "hostEntity": {
+                    "@id": "https://w3id.org/ebwv#hostEntity",
+                    "@type": "@id"
+                },
+                "postedWorker": {
+                    "@id": "https://w3id.org/ebwv#postedWorker",
+                    "@type": "@id"
+                },
+                "typeOfEmployment": {
+                    "@id": "https://w3id.org/ebwv#typeOfEmployment",
+                    "@type": "@vocab",
+                    "@context": {
+                        "Permanent": "https://w3id.org/ebwv#Permanent",
+                        "Temporary": "https://w3id.org/ebwv#Temporary",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
+                }
+            }
+        },
+        "PowerOfAttorney": {
+            "@id": "https://w3id.org/ebwv#PowerOfAttorney",
+            "@context": {
+                "@protected": true,
+                "mandatee": {
+                    "@id": "https://w3id.org/ebwv#mandatee",
+                    "@type": "@id"
+                },
+                "principal": {
+                    "@id": "https://w3id.org/ebwv#principal",
+                    "@type": "@id"
+                },
+                "scopeOfPower": {
+                    "@id": "https://w3id.org/ebwv#scopeOfPower",
+                    "@type": "@vocab",
+                    "@context": {
+                        "FormationOfCompanies": "https://w3id.org/ebwv#FormationOfCompanies",
+                        "ConstitutionOfCompanies": "https://w3id.org/ebwv#ConstitutionOfCompanies",
+                        "RegistrationAndClosingOfBranches": "https://w3id.org/ebwv#RegistrationAndClosingOfBranches",
+                        "CrossBoarderConversions": "https://w3id.org/ebwv#CrossBoarderConversions",
+                        "CrossBoarderMergers": "https://w3id.org/ebwv#CrossBoarderMergers",
+                        "CrossBorderDivisions": "https://w3id.org/ebwv#CrossBorderDivisions",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
+                }
+            }
+        },
+        "PublicSectorBody": {
+            "@id": "https://w3id.org/ebwv#PublicSectorBody",
+            "@context": {
+                "@protected": true,
+                "jurisdiction": {
+                    "@id": "https://w3id.org/ebwv#jurisdiction",
+                    "@type": "https://w3id.org/ebwv#CountryCode"
+                },
+                "legalIdentifier": "https://w3id.org/ebwv#legalIdentifier",
+                "legalName": {
+                    "@id": "https://w3id.org/ebwv#legalName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "QmsCertificate": {
+            "@id": "https://w3id.org/ebwv#QmsCertificate",
+            "@context": {
+                "@protected": true,
+                "certificationStandard": {
+                    "@id": "https://w3id.org/ebwv#certificationStandard",
+                    "@type": "@id"
+                },
+                "certifiedScope": {
+                    "@id": "https://w3id.org/ebwv#certifiedScope",
+                    "@type": "http://www.w3.org/2001/XMLSchema#String"
+                },
+                "hasSite": {
+                    "@id": "https://w3id.org/ebwv#hasSite",
+                    "@type": "@id"
+                },
+                "identifier": "https://w3id.org/ebwv#identifier",
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
+                }
+            }
+        },
+        "QmsStandard": "https://w3id.org/ebwv#QmsStandard",
+        "RegisterIdentification": {
+            "@id": "https://w3id.org/ebwv#RegisterIdentification",
+            "@context": {
+                "@protected": true,
+                "registeredCompanyId": {
+                    "@id": "https://w3id.org/ebwv#registeredCompanyId",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "registeredCompanyIdCountry": {
+                    "@id": "https://w3id.org/ebwv#registeredCompanyIdCountry",
+                    "@type": "https://w3id.org/ebwv#CountryCode"
+                },
+                "registerLocation": {
+                    "@id": "https://w3id.org/ebwv#registerLocation",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "registerNumber": {
+                    "@id": "https://w3id.org/ebwv#registerNumber",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "registerType": {
+                    "@id": "https://w3id.org/ebwv#registerType",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "registerTypeDescription": {
+                    "@id": "https://w3id.org/ebwv#registerTypeDescription",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Regulator": {
+            "@id": "https://w3id.org/ebwv#Regulator",
+            "@context": {
+                "@protected": true,
+                "regulatedId": {
+                    "@id": "https://w3id.org/ebwv#regulatedId",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "regulatorClassification": {
+                    "@id": "https://w3id.org/ebwv#regulatorClassification",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "regulatorName": {
+                    "@id": "https://w3id.org/ebwv#regulatorName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Residency": {
+            "@id": "https://w3id.org/ebwv#Residency",
+            "@context": {
+                "@protected": true,
+                "arrivalDate": {
+                    "@id": "https://w3id.org/ebwv#arrivalDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "hasAddress": {
+                    "@id": "https://w3id.org/ebwv#hasAddress",
+                    "@type": "@id"
+                },
+                "person": {
+                    "@id": "https://w3id.org/ebwv#person",
+                    "@type": "@id"
+                }
+            }
+        },
+        "ScopeOfPower": "https://w3id.org/ebwv#ScopeOfPower",
+        "Share": {
+            "@id": "https://w3id.org/ebwv#Share",
+            "@context": {
+                "@protected": true,
+                "absoluteShare": {
+                    "@id": "https://w3id.org/ebwv#absoluteShare",
+                    "@type": "@id"
+                },
+                "isDirectParticipation": {
+                    "@id": "https://w3id.org/ebwv#isDirectParticipation",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "relativeShare": {
+                    "@id": "https://w3id.org/ebwv#relativeShare",
+                    "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+                },
+                "relativeVotingRights": {
+                    "@id": "https://w3id.org/ebwv#relativeVotingRights",
+                    "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+                }
+            }
+        },
+        "Shareholder": {
+            "@id": "https://w3id.org/ebwv#Shareholder",
+            "@context": {
+                "@protected": true,
+                "share": {
+                    "@id": "https://w3id.org/ebwv#share",
+                    "@type": "@id"
+                },
+                "shareInFocusAlongBranch": {
+                    "@id": "https://w3id.org/ebwv#shareInFocusAlongBranch",
+                    "@type": "@id"
+                },
+                "shareInFocusTotal": {
+                    "@id": "https://w3id.org/ebwv#shareInFocusTotal",
+                    "@type": "@id"
+                }
+            }
+        },
+        "ShareInFocus": {
+            "@id": "https://w3id.org/ebwv#ShareInFocus",
+            "@context": {
+                "@protected": true,
+                "accG10": {
+                    "@id": "https://w3id.org/ebwv#accG10",
+                    "@type": "@id"
+                },
+                "accG25": {
+                    "@id": "https://w3id.org/ebwv#accG25",
+                    "@type": "@id"
+                },
+                "dom10": {
+                    "@id": "https://w3id.org/ebwv#dom10",
+                    "@type": "@id"
+                },
+                "dom25": {
+                    "@id": "https://w3id.org/ebwv#dom25",
+                    "@type": "@id"
+                },
+                "standard": {
+                    "@id": "https://w3id.org/ebwv#standard",
+                    "@type": "@id"
+                }
+            }
+        },
+        "ShareVotingPair": {
+            "@id": "https://w3id.org/ebwv#ShareVotingPair",
+            "@context": {
+                "@protected": true,
+                "relativeShare": {
+                    "@id": "https://w3id.org/ebwv#relativeShare",
+                    "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+                },
+                "relativeVotingRights": {
+                    "@id": "https://w3id.org/ebwv#relativeVotingRights",
+                    "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+                }
+            }
+        },
+        "Site": {
+            "@id": "https://w3id.org/ebwv#Site",
+            "@context": {
+                "@protected": true,
+                "hasAddress": {
+                    "@id": "https://w3id.org/ebwv#hasAddress",
+                    "@type": "@id"
+                },
+                "identifier": "https://w3id.org/ebwv#identifier",
+                "registeredAddress": {
+                    "@id": "https://w3id.org/ebwv#registeredAddress",
+                    "@type": "@id"
+                }
+            }
+        },
+        "SocialSecurityContribution": {
+            "@id": "https://w3id.org/ebwv#SocialSecurityContribution",
+            "@context": {
+                "@protected": true,
+                "averagePeriodWorkforce": {
+                    "@id": "https://w3id.org/ebwv#averagePeriodWorkforce",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "complianceStatus": {
+                    "@id": "https://w3id.org/ebwv#complianceStatus",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "contributor": {
+                    "@id": "https://w3id.org/ebwv#contributor",
+                    "@type": "@id"
+                },
+                "coverageStatement": {
+                    "@id": "https://w3id.org/ebwv#coverageStatement",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "coveredObligationType": {
+                    "@id": "https://w3id.org/ebwv#coveredObligationType",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "employer": {
+                    "@id": "https://w3id.org/ebwv#employer",
+                    "@type": "@id"
+                },
+                "hasSite": {
+                    "@id": "https://w3id.org/ebwv#hasSite",
+                    "@type": "@id"
+                },
+                "legalBasis": {
+                    "@id": "https://w3id.org/ebwv#legalBasis",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "qualificationNote": {
+                    "@id": "https://w3id.org/ebwv#qualificationNote",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "reportingMonth": {
+                    "@id": "https://w3id.org/ebwv#reportingMonth",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "reportingPeriod": {
+                    "@id": "https://w3id.org/ebwv#reportingPeriod",
+                    "@type": "@id"
+                },
+                "staffAverage": {
+                    "@id": "https://w3id.org/ebwv#staffAverage",
+                    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+                },
+                "totalPayroll": {
+                    "@id": "https://w3id.org/ebwv#totalPayroll",
+                    "@type": "@id"
+                }
+            }
+        },
         "StatutoryPartner": {
             "@id": "https://w3id.org/ebwv#StatutoryPartner",
             "@context": {
                 "@protected": true,
-                "partnerId": {
-                    "@id": "https://w3id.org/ebwv#partnerId",
-                    "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+                "legalEntity": {
+                    "@id": "https://w3id.org/ebwv#legalEntity",
+                    "@type": "@id"
                 },
                 "role": {
                     "@id": "https://w3id.org/ebwv#role",
-                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                    "@type": "@vocab",
+                    "@context": {
+                        "DataConsumer": "https://w3id.org/ebwv#DataConsumer",
+                        "DataProvider": "https://w3id.org/ebwv#DataProvider",
+                        "DataRightsHolder": "https://w3id.org/ebwv#DataRightsHolder",
+                        "OnboardingServiceProvider": "https://w3id.org/ebwv#OnboardingServiceProvider",
+                        "Operator": "https://w3id.org/ebwv#Operator",
+                        "CEO": "https://w3id.org/ebwv#CEO",
+                        "CFO": "https://w3id.org/ebwv#CFO",
+                        "HeadOfHR": "https://w3id.org/ebwv#HeadOfHR",
+                        "@vocab": "ebwv:INVALID_VALUE:"
+                    }
                 },
-                "scopeOfAuthorization": {
-                    "@id": "https://w3id.org/ebwv#scopeOfAuthorization",
+                "typeOfRepresentation": {
+                    "@id": "https://w3id.org/ebwv#typeOfRepresentation",
                     "@type": "@vocab",
                     "@context": {
                         "Alone": "https://w3id.org/ebwv#Alone",
@@ -416,20 +1431,214 @@
                 }
             }
         },
+        "StockExchange": {
+            "@id": "https://w3id.org/ebwv#StockExchange",
+            "@context": {
+                "@protected": true,
+                "exchangeCountry": {
+                    "@id": "https://w3id.org/ebwv#exchangeCountry",
+                    "@type": "https://w3id.org/ebwv#CountryCode"
+                },
+                "exchangeName": {
+                    "@id": "https://w3id.org/ebwv#exchangeName",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "marketIdentificationCode": {
+                    "@id": "https://w3id.org/ebwv#marketIdentificationCode",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "StockExchangeListing": {
+            "@id": "https://w3id.org/ebwv#StockExchangeListing",
+            "@context": {
+                "@protected": true,
+                "exchange": {
+                    "@id": "https://w3id.org/ebwv#exchange",
+                    "@type": "@id"
+                },
+                "marketIdentificationCode": {
+                    "@id": "https://w3id.org/ebwv#marketIdentificationCode",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "tickerSymbol": {
+                    "@id": "https://w3id.org/ebwv#tickerSymbol",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "TransparencyRegisterEntry": {
+            "@id": "https://w3id.org/ebwv#TransparencyRegisterEntry",
+            "@context": {
+                "@protected": true,
+                "interestScope": {
+                    "@id": "https://w3id.org/ebwv#interestScope",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "interestType": {
+                    "@id": "https://w3id.org/ebwv#interestType",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "person": {
+                    "@id": "https://w3id.org/ebwv#person",
+                    "@type": "@id"
+                }
+            }
+        },
+        "TransparencyRegisterExtract": {
+            "@id": "https://w3id.org/ebwv#TransparencyRegisterExtract",
+            "@context": {
+                "@protected": true,
+                "applicationNumber": {
+                    "@id": "https://w3id.org/ebwv#applicationNumber",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "discrepancyReportNumber": {
+                    "@id": "https://w3id.org/ebwv#discrepancyReportNumber",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "fictitiousBoReason": {
+                    "@id": "https://w3id.org/ebwv#fictitiousBoReason",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "hasDiscrepancyNote": {
+                    "@id": "https://w3id.org/ebwv#hasDiscrepancyNote",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "processingNote": {
+                    "@id": "https://w3id.org/ebwv#processingNote",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "referenceNumber": {
+                    "@id": "https://w3id.org/ebwv#referenceNumber",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "validFromDate": {
+                    "@id": "https://w3id.org/ebwv#validFromDate",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                }
+            }
+        },
+        "TypeOfEmployment": "https://w3id.org/ebwv#TypeOfEmployment",
+        "TypeOfRepresentation": "https://w3id.org/ebwv#TypeOfRepresentation",
+        "UBO": "https://w3id.org/ebwv#UBO",
+        "VATRegistrationUnit": {
+            "@id": "https://w3id.org/ebwv#VATRegistrationUnit",
+            "@context": {
+                "@protected": true,
+                "identifier": "https://w3id.org/ebwv#identifier",
+                "type": {
+                    "@id": "https://w3id.org/ebwv#type",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Vessel": {
+            "@id": "https://w3id.org/ebwv#Vessel",
+            "@context": {
+                "@protected": true,
+                "flagState": {
+                    "@id": "https://w3id.org/ebwv#flagState",
+                    "@type": "https://w3id.org/ebwv#CountryCode"
+                }
+            }
+        },
+        "WorkAssignment": {
+            "@id": "https://w3id.org/ebwv#WorkAssignment",
+            "@context": {
+                "@protected": true,
+                "duration": {
+                    "@id": "https://w3id.org/ebwv#duration",
+                    "@type": "@id"
+                },
+                "jurisdiction": {
+                    "@id": "https://w3id.org/ebwv#jurisdiction",
+                    "@type": "https://w3id.org/ebwv#CountryCode"
+                },
+                "placeOfWork": {
+                    "@id": "https://w3id.org/ebwv#placeOfWork",
+                    "@type": "@id"
+                },
+                "stateOfInsurance": {
+                    "@id": "https://w3id.org/ebwv#stateOfInsurance",
+                    "@type": "https://w3id.org/ebwv#CountryCode"
+                }
+            }
+        },
+        "issuer": {
+            "@id": "https://www.w3.org/2018/credentials#issuer",
+            "@type": "@id"
+        },
+        "ownershipPercentage": {
+            "@id": "https://w3id.org/ebwv#ownershipPercentage",
+            "@type": "http://www.w3.org/2001/XMLSchema#float"
+        },
+        "termsOfUse": {
+            "@id": "https://www.w3.org/2018/credentials#termsOfUse",
+            "@type": "@id"
+        },
+        "AbortedResearch": "https://w3id.org/ebwv#AbortedResearch",
         "Alone": "https://w3id.org/ebwv#Alone",
+        "CEO": "https://w3id.org/ebwv#CEO",
+        "CFO": "https://w3id.org/ebwv#CFO",
+        "CIP": "https://w3id.org/ebwv#CIP",
+        "ConstitutionOfCompanies": "https://w3id.org/ebwv#ConstitutionOfCompanies",
+        "CPT": "https://w3id.org/ebwv#CPT",
+        "CrossBoarderConversions": "https://w3id.org/ebwv#CrossBoarderConversions",
+        "CrossBoarderMergers": "https://w3id.org/ebwv#CrossBoarderMergers",
+        "CrossBorderDivisions": "https://w3id.org/ebwv#CrossBorderDivisions",
+        "DAP": "https://w3id.org/ebwv#DAP",
+        "DataConsumer": "https://w3id.org/ebwv#DataConsumer",
+        "DataProvider": "https://w3id.org/ebwv#DataProvider",
+        "DataRightsHolder": "https://w3id.org/ebwv#DataRightsHolder",
+        "DDP": "https://w3id.org/ebwv#DDP",
+        "DPU": "https://w3id.org/ebwv#DPU",
         "EAA": "https://w3id.org/ebwv#EAA",
+        "EXW": "https://w3id.org/ebwv#EXW",
+        "FAS": "https://w3id.org/ebwv#FAS",
+        "FCA": "https://w3id.org/ebwv#FCA",
+        "FOB": "https://w3id.org/ebwv#FOB",
+        "FormationOfCompanies": "https://w3id.org/ebwv#FormationOfCompanies",
+        "HeadOfHR": "https://w3id.org/ebwv#HeadOfHR",
         "Jointly": "https://w3id.org/ebwv#Jointly",
-        "Pub-EAA": "https://w3id.org/ebwv#Pub-EAA",
+        "OnboardingServiceProvider": "https://w3id.org/ebwv#OnboardingServiceProvider",
+        "Operator": "https://w3id.org/ebwv#Operator",
+        "Permanent": "https://w3id.org/ebwv#Permanent",
+        "PuB-EAA": "https://w3id.org/ebwv#PuB-EAA",
         "QEAA": "https://w3id.org/ebwv#QEAA",
+        "RegistrationAndClosingOfBranches": "https://w3id.org/ebwv#RegistrationAndClosingOfBranches",
+        "ResearchedProduct": "https://w3id.org/ebwv#ResearchedProduct",
+        "Temporary": "https://w3id.org/ebwv#Temporary",
         "AccountType": "https://w3id.org/ebwv#AccountType",
-        "CountryCode": "https://w3id.org/ebwv#CountryCode",
+        "BanzNumber": "https://w3id.org/ebwv#BanzNumber",
         "Bic": "https://w3id.org/ebwv#Bic",
+        "CertificateRegistrationNumber": "https://w3id.org/ebwv#CertificateRegistrationNumber",
         "ClearingNumber": "https://w3id.org/ebwv#ClearingNumber",
+        "CompanyId": "https://w3id.org/ebwv#CompanyId",
+        "CountryCode": "https://w3id.org/ebwv#CountryCode",
         "Currency": "https://w3id.org/ebwv#Currency",
+        "DunsNumber": "https://w3id.org/ebwv#DunsNumber",
+        "Eori": "https://w3id.org/ebwv#Eori",
         "Euid": "https://w3id.org/ebwv#Euid",
+        "Excise": "https://w3id.org/ebwv#Excise",
+        "GlobalLocationNumber": "https://w3id.org/ebwv#GlobalLocationNumber",
+        "GS1CompanyPrefix": "https://w3id.org/ebwv#GS1CompanyPrefix",
+        "IatfCertificateNumber": "https://w3id.org/ebwv#IatfCertificateNumber",
+        "IatfUsi": "https://w3id.org/ebwv#IatfUsi",
         "Iban": "https://w3id.org/ebwv#Iban",
+        "Isin": "https://w3id.org/ebwv#Isin",
+        "KmgMid": "https://w3id.org/ebwv#KmgMid",
+        "Lei": "https://w3id.org/ebwv#Lei",
+        "MainCertificateRegistrationNumber": "https://w3id.org/ebwv#MainCertificateRegistrationNumber",
         "Nace21": "https://w3id.org/ebwv#Nace21",
+        "Naics": "https://w3id.org/ebwv#Naics",
         "NationalBankCode": "https://w3id.org/ebwv#NationalBankCode",
-        "PublicBodyId": "https://w3id.org/ebwv#PublicBodyId"
+        "PeppolId": "https://w3id.org/ebwv#PeppolId",
+        "PublicSectorBodyId": "https://w3id.org/ebwv#PublicSectorBodyId",
+        "Sic": "https://w3id.org/ebwv#Sic",
+        "Tin": "https://w3id.org/ebwv#Tin",
+        "VatId": "https://w3id.org/ebwv#VatId",
+        "Wz2003": "https://w3id.org/ebwv#Wz2003",
+        "Wz2008": "https://w3id.org/ebwv#Wz2008"
     }
 }

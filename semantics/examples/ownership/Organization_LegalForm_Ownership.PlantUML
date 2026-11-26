@@ -1,0 +1,57 @@
+@startuml Ownership_Jansen
+title Fietsenservice Jansen — organisatie, rechtsvorm en eigenaren
+' Conceptual instance example supplied by Bart, not verified register data.
+' Role-labelled arrows abbreviate Role / RoleFulfillment and omit the period.
+left to right direction
+skinparam shadowing false
+skinparam ArrowColor DarkRed
+skinparam objectBorderColor DarkRed
+skinparam objectFontColor DarkRed
+skinparam nodesep 35
+skinparam ranksep 65
+hide circle
+
+object "Zoon 1 van Jansen\n: prov:Person" as Son1 #LightYellow
+object "Zoon 2 van Jansen\n: prov:Person" as Son2 #LightYellow
+object "Fietsenservice Jansen\n: prov:Organization" as BikeShop #LightYellow
+object "Eenmanszaak\n(onverdeelde boedel)\n: ebwsm:LegalForm" as SoleProprietorship #CEEED0
+
+Son1 --> BikeShop : vervult rol: mede-eigenaar
+Son2 --> BikeShop : vervult rol: mede-eigenaar
+BikeShop --> SoleProprietorship : heeft rechtsvorm
+
+legend bottom left
+  Geel: concrete personen en organisaties. Groen: rechtsvorm (LegalForm).
+  Twee eigenaren: het voorbeeld veronderstelt vererving met onverdeelde boedel.
+  De rolvervullingen en perioden zijn voor dit eenvoudige overzicht weggelaten.
+endlegend
+@enduml
+
+@startuml Ownership_Braindex
+title Braindex — organisatie, rechtsvorm en eigenaar
+' Conceptual instance example supplied by Bart, not verified register data.
+' Ownership is interpreted as shareholding; no percentage is asserted.
+left to right direction
+skinparam shadowing false
+skinparam ArrowColor DarkRed
+skinparam objectBorderColor DarkRed
+skinparam objectFontColor DarkRed
+skinparam nodesep 35
+skinparam ranksep 65
+hide circle
+
+object "Bink beheer BV\n: prov:Organization" as Holding #LightYellow
+object "Braindex\n: prov:Organization" as Braindex #LightYellow
+object "BV\n: ebwsm:LegalForm" as PrivateLimitedCompany #CEEED0
+
+Holding --> Braindex : vervult rol: aandeelhouder
+Braindex --> PrivateLimitedCompany : heeft rechtsvorm
+Holding --> PrivateLimitedCompany : heeft rechtsvorm
+
+legend bottom left
+  Bink beheer BV is een concrete organisatie en kan een rol vervullen.
+  BV is een rechtsvorm; de twee organisaties delen deze classificatie.
+  Eigenaar is hier uitgelegd als aandeelhouder, zonder aandelenpercentage.
+  De rolvervulling en haar periode zijn voor de leesbaarheid weggelaten.
+endlegend
+@enduml
