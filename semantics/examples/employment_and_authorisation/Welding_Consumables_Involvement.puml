@@ -1,0 +1,232 @@
+@startuml
+title Example Involvement Model
+
+'#############################################
+'#              Classes                      #
+'#############################################
+
+class CodeListReference1 {
+ *listIdentifier: identificationDocumentType
+ *listVersion: 1
+ *entryCode: PASSPORT
+ +label: Machine readable passport
+ +uri:
+}
+
+class "CodeListReference1\n <i>Alias1</i>" as CodeListReference1_
+
+class CodeListReference2 {
+ *listIdentifier: SpacialExtent
+ *listVersion: 1
+ *entryCode: NL
+ +label: Netherlands
+ +uri:
+}
+
+class "CodeListReference2\n <i>Alias1</i>" as CodeListReference2_
+
+class CodeListReference3 {
+ *listIdentifier: AuthorisationRoles
+ *listVersion: 1
+ *entryCode: MANDATOR
+ +label: Mandator
+ +uri: 
+}
+
+class CodeListReference4 {
+ *listIdentifier: PositionsInX
+ *listVersion: 1
+ *entryCode: 26
+ +label: Welder
+ +uri:
+}
+
+class CodeListReference5 {
+ *listIdentifier: PositionsInX
+ *listVersion: 1
+ *entryCode: 20
+ +label: Production Supervisor
+ +uri:
+}
+
+class CodeListReference6 {
+ *listIdentifier: involvementType
+ *listVersion: 1
+ *entryCode: 3
+ +label: Authorisation appointment
+ +uri:
+}
+
+class CodeListReference7 {
+ *listIdentifier: AuthorisationRoles
+ *listVersion: 1
+ *entryCode: MANDATEE
+ +label: Mandatee
+ +uri: 
+}
+
+class IdentificationDocument1 {
+ *number: N990K441
+ +type: uri
+}
+
+class IdentificationDocument2 {
+ *number: P789H342
+ +type: uri
+}
+
+class Involvement1 {
+ *involvementType: uri
+ *involvementRole:
+ *dct:temporal:
+ *member:
+ +hasPosition:
+ +organisation:
+}
+
+class Involvement2 {
+ *involvementType: uri
+ *involvementRole:
+ *dct:temporal:
+ *member:
+ +hasPosition:
+ +organisation:
+}
+
+class  Organisation {
+ *legalName: Cloud 9
+ +registryNumber: 556677
+ *EUID: BE-KVK.556677
+}
+
+class "Organisation\n <i>Cloud 9 Alias</i>" as Organisation_
+
+class PeriodOfTime1 {
+ +startDate: 01-12-2026
+ +endDate: 01-12-2027
+}
+
+class PeriodOfTime2 {
+ +startDate: 01-12-2026
+ +endDate: 01-12-2027
+}
+
+class Person1 {
+ *nameFirst: Klaas
+ *nameLast: Vries, de
+ +title: ir.
+ +dateOfBirth: 3-1-1986
+ +placeOfBirth: uri
+ +fullAdress:
+ +identificationDocument:
+}
+
+class Person2 {
+ *nameFirst: Piet
+ *nameLast: Fopma
+ +title: ir.
+ +dateOfBirth: 13-12-1999
+ +placeOfBirth: uri
+ +fullAdress:
+ +identificationDocument:
+}
+
+
+class Position1 {
+ *name: uri
+ *inOrganisation:
+ +reportsTo:
+}
+
+class Position2 {
+ *name: uri
+ *inOrganisation:
+ +reportsTo:
+}
+
+class Role1 {
+ *name: uri
+ *dct:temporal:
+}
+
+class Role2 {
+ *name: uri
+ *dct:temporal:
+}
+
+'#############################################
+'#             Relations                     #
+'#############################################
+
+IdentificationDocument1::type ..> CodeListReference1::listIdentifier #line:DarkBlue;text:DarkBlue
+IdentificationDocument2::type ..> CodeListReference1_::listIdentifier #line:DarkBlue;text:DarkBlue
+
+Involvement1::involvementType .up.> CodeListReference6::listIdentifier #line:DarkBlue;text:DarkBlue
+Involvement1::hasPosition -down-> Position1 #line:DarkBlue;text:DarkBlue
+Involvement1::member -down-> Person1  #line:DarkBlue;text:DarkBlue
+Involvement1::organisation -down-> Organisation  #line:DarkBlue;text:DarkBlue
+Involvement1::dct -left-> PeriodOfTime1  #line:DarkBlue;text:DarkBlue
+Involvement1::involvementRole -right-> Role1  #line:DarkBlue;text:DarkBlue
+
+Involvement2::involvementType .up.> CodeListReference6::listIdentifier #line:DarkBlue;text:DarkBlue
+Involvement2::hasPosition -down-> Position2 #line:DarkBlue;text:DarkBlue
+Involvement2::member -down-> Person2  #line:DarkBlue;text:DarkBlue
+Involvement2::organisation -down-> Organisation_  #line:DarkBlue;text:DarkBlue
+Involvement2::dct -left-> PeriodOfTime2  #line:DarkBlue;text:DarkBlue
+Involvement2::involvementRole -right-> Role2  #line:DarkBlue;text:DarkBlue
+
+Position1::inOrganisation -right-> "Organisation" #line:DarkBlue;text:DarkBlue
+Position1::name .down.> CodeListReference5 #line:DarkBlue;text:DarkBlue
+
+Person1::identificationDocument -down-> IdentificationDocument1
+Person1::placeOfBirth ..> CodeListReference2::listIdentifier #line:DarkBlue;text:DarkBlue
+
+Person2::identificationDocument -down-> IdentificationDocument2
+Person2::placeOfBirth ..> CodeListReference2_::listIdentifier #line:DarkBlue;text:DarkBlue
+
+Position2::inOrganisation -left-> Organisation_ #line:DarkBlue;text:DarkBlue
+Position2::name .up.> CodeListReference4 #line:DarkBlue;text:DarkBlue
+
+'Position2::reportsTo -left-> Position1 #line:DarkBlue;text:DarkBlue
+
+Role1::name .right.> CodeListReference3::listIdentifier #line:DarkBlue;text:DarkBlue
+Role2::name .right.> CodeListReference7::listIdentifier #line:DarkBlue;text:DarkBlue
+
+'#############################################
+'#                  Layout                   #
+'#############################################
+
+'Role2 -right- CodeListReference5 #line:DarkBlue
+'PeriodOfTime1 -left- CodeListReference5 #line:DarkBlue
+'Person1 -down- CodeListReference5 #line:DarkBlue
+Person1 -left- Organisation #line:White
+Person2 -right- Organisation_ #line:White
+
+'#############################################
+'#             Coloring                      #
+'#############################################
+
+class CodeListReference1  #CEEED0;line:285F17;text:285F17
+class CodeListReference2  #CEEED0;line:285F17;text:285F17
+class CodeListReference3  #CEEED0;line:285F17;text:285F17
+class CodeListReference4  #CEEED0;line:285F17;text:285F17
+class CodeListReference5  #CEEED0;line:285F17;text:285F17
+class CodeListReference6  #CEEED0;line:285F17;text:285F17
+class CodeListReference7  #CEEED0;line:285F17;text:285F17
+class Organisation  #LightBlue;line:DarkBlue;text:DarkBlue
+class IdentificationDocument1  #LightBlue;line:DarkBlue;text:DarkBlue
+class IdentificationDocument2  #LightBlue;line:DarkBlue;text:DarkBlue
+class Involvement1 #LightBlue;line:DarkBlue;text:DarkBlue
+class Involvement2 #LightBlue;line:DarkBlue;text:DarkBlue
+class PeriodOfTime1  #LightBlue;line:DarkBlue;text:DarkBlue
+class PeriodOfTime2  #LightBlue;line:DarkBlue;text:DarkBlue
+class Person1  #LightBlue;line:DarkBlue;text:DarkBlue
+class Person2  #LightBlue;line:DarkBlue;text:DarkBlue
+class Position1  #LightBlue;line:DarkBlue;text:DarkBlue
+class Position2  #LightBlue;line:DarkBlue;text:DarkBlue
+class Role1  #LightBlue;line:DarkBlue;text:DarkBlue
+class Role2  #LightBlue;line:DarkBlue;text:DarkBlue
+
+hide circle
+
+@enduml

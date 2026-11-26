@@ -181,3 +181,55 @@ ebwsm:Shareholder a owl:Class ;
     ebwsm:taxonomicDefinition "A shareholder is a role in which an Agent holds one or more shares in a particular company."@en-GB ;
     rdfs:comment "The company is the context of the role. This is distinct from the party to whom an enterprise belongs and from ownership of company assets. No equivalence, subclass or disjointness relation to EnterpriseOwner is asserted. No percentage, voting right, mandate, automatic ownership of assets or legal eligibility rule is inferred. The Agent restriction is necessary typing, not sufficient proof that an actor can legally hold the shares."@en-GB ;
     dcterms:source <https://www.kvk.nl/producten-bestellen/wat-staat-er-op-een-uittreksel/> .
+
+ebwsm:Involvement a owl:Class ;
+    skos:prefLabel "Involvement"@en-GB ;
+    ebwsm:taxonomicDefinition "An involvement describes the capacity in which a party takes part in, or is designated to take part in, an action or arrangement. It may identify the party directly or by reference to a role in an organisation, and may specify the period for which the involvement applies."@en-GB ;
+    rdfs:comment "In a power of attorney, Principal can name the capacity in the authorisation while CEO identifies the organisational role. A designation of eligible role holders may apply across successive holders. Its period describes the designation and can differ from each holder’s period of role fulfilment."@en-GB ;
+    rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty ebwsm:involvementCode ; owl:allValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty ebwsm:involvementName ; owl:allValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty dcterms:temporal ; owl:allValuesFrom dcterms:PeriodOfTime ],
+        [ a owl:Restriction ; owl:onProperty ebwsm:member ; owl:allValuesFrom prov:Agent ],
+        [ a owl:Restriction ; owl:onProperty ebwsm:hasRole ; owl:allValuesFrom ebwsm:Role ],
+        [ a owl:Restriction ; owl:onProperty ebwsm:inOrganization ; owl:allValuesFrom prov:Organization ] .
+
+ebwsm:involvementCode a owl:DatatypeProperty ;
+    skos:prefLabel "Involvement code"@en-GB ;
+    ebwsm:taxonomicDefinition "A string code assigned to an involvement."@en-GB .
+
+ebwsm:involvementName a owl:DatatypeProperty ;
+    skos:prefLabel "Involvement name"@en-GB ;
+    ebwsm:taxonomicDefinition "The name of the capacity in which a party participates or is designated to participate, such as Principal or Attorney."@en-GB .
+
+# The pinned DCMI module contains classes only. Use the published property IRI.
+dcterms:temporal a owl:ObjectProperty ;
+    skos:prefLabel "Temporal coverage"@en-GB .
+
+ebwsm:member a owl:ObjectProperty ;
+    skos:prefLabel "Member"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that identifies the particular party designated by an involvement."@en-GB .
+
+ebwsm:hasRole a owl:ObjectProperty ;
+    skos:prefLabel "Has role"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates an involvement to the contextual role by which a party is described or selected."@en-GB .
+
+ebwsm:inOrganization a owl:ObjectProperty ;
+    skos:prefLabel "In organisation"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates an involvement to the organisation in which the specified party or role is situated."@en-GB .
+
+ebwsm:authorizer a owl:ObjectProperty ;
+    skos:prefLabel "Authoriser"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates an authorisation rule to an involvement designating an authorising party."@en-GB .
+
+ebwsm:authorizee a owl:ObjectProperty ;
+    skos:prefLabel "Authorisee"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates an assignment rule to an involvement designating a grantee."@en-GB .
+
+ebwsm:entityConcerned a owl:ObjectProperty ;
+    skos:prefLabel "Entity concerned"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates an authorisation to an involvement designating a party concerned by it."@en-GB .
+
+ebwsm:hasSupportingInvolvementOf a owl:ObjectProperty ;
+    skos:prefLabel "Has supporting involvement of"@en-GB ;
+    ebwsm:taxonomicDefinition "An object property that relates an authorisation to an involvement designating a supporting party."@en-GB .

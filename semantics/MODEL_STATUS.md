@@ -8,6 +8,13 @@ Open [model/webuild.ttl](model/webuild.ttl), ontology IRI `https://w3id.org/ebwv
 
 The catalogue resolves the unchanged, checksum-pinned PROV-O core (2013-04-30, approved two-annotation correction) and Dublin Core class-only projection. Their original sources and exact transformations are recorded in [imports/manifest.json](imports/manifest.json). Importing them does not itself align their classes with WEBUILD classes. Archived models and the selected local General Authorisation Model remain source evidence rather than imported axioms.
 
+### Work list for 26 November 2026
+
+- [ ] Import FOAF into the working ontology. Pin the reviewed source, resolve it through the local catalogue and validate the combined import closure.
+- [ ] Review possible WEBUILD classes for organisation, person, software agent and hardware agent individually. Compare each proposed meaning with FOAF and the existing PROV-O reuse. For hardware agents, first clarify the relationship with `ebwsm:Machine`.
+- [ ] Continue the class-by-class review of the Involvement diagram. Record each agreed decision before implementing it in `webuild.ttl`.
+- [ ] Review the [LegalForm candidates and EU Member State inventory](#to-do-for-webuildttl-legalform-subclasses), starting with the Netherlands.
+
 ## Agents and machines
 
 - Reuse `prov:Agent` directly. No separate `ebwv:Agent` or `ebwsm:Agent` is defined in the active extension.
@@ -30,6 +37,13 @@ The expression “legal persons/legal subjects” used during the discussion was
 `ebwsm:LegalForm` is now a class of classification values such as BV and sole proprietorship. It is disjoint with `prov:Agent`: the classification BV is not the concrete company Bink beheer BV. `hasLegalForm` links an organisation to such a value. Its target type is expressed by an all-values restriction on `prov:Organization`, not by a global range. There is no universal obligation to supply a legal form, no maximum count, and no inference from a form value to a local NaturalPerson/LegalPerson class. Code-list selection, jurisdiction, versioning and historical forms remain open.
 
 An enterprise operated as a sole proprietorship can be represented organisationally without thereby making that organisation a natural person or granting it separate legal personality. Whether an organisational enterprise and a company/legal subject are separate individuals in a particular dataset depends on what each individual denotes; the diagram does not settle every entity-resolution question.
+
+### To do for `webuild.ttl`: LegalForm subclasses
+
+- [ ] Review three proposed subclasses of `ebwsm:LegalForm` one at a time: *Natural Person*, *Legal Person* and *Not a Legal Person*. Clarify whether the third category is intended for organisations without legal personality and how it relates to *Natural Person*. The first proposed disjoint pair to assess is *Natural Person* and *Legal Person*.
+- [ ] Check authoritative Dutch legal sources for how *natuurlijke persoon* is used: as a legal-form category (*rechtsvorm*), as a direct designation of a human being, or in both senses depending on context. Record the relevant passages and what each term denotes.
+- [ ] Use that evidence to decide where each class belongs and whether disjointness is justified. Check the consequences against the existing disjointness of `ebwsm:LegalForm` and `prov:Agent` before proposing OWL axioms.
+- [ ] Then inventory legal forms for each EU Member State using national legal or register sources. Start with the Dutch candidates BV, NV, *kerkgenootschap*, *eenmanszaak*, *rijksoverheid* and VOF. For each entry, record the official national term and source, verify what it denotes and review its proposed classification.
 
 ## Roles, fulfilment and PROV qualification
 
@@ -76,11 +90,13 @@ Reviewed sources:
 - [KVK Gegevenscatalogus 3.0.4h, April 2022, page 9](https://production-site-nl.kvk.bloomreach.cloud/binaries/content/assets/kvkwebsite-nl/categorie/producten-bestellen/gegevenscatalogus.pdf#page=9), [KVK Form 12](https://www.kvk.nl/over-het-handelsregister/formulier-12-inschrijving-overige-functionarissen//) and [KVK API test scenarios](https://developers.kvk.nl/documentation/testing/swagger-vestigingen-api): the inherited co-ownership case.
 - [KVK: sole-proprietorship staffing](https://www.kvk.nl/personeel/als-eenmanszaak-personeel-aannemen-dit-moet-je-weten/) and [KVK: extract contents](https://www.kvk.nl/producten-bestellen/wat-staat-er-op-een-uittreksel/): roles, enterprise, legal subject and staff must not be collapsed.
 
-## Involvement remains an integration question
+## Involvement
 
-The selected General Authorisation Model permits an Involvement to identify an actor or select eligible holders of a role in an organisation. A selector can identify multiple current/future actors and is therefore not equated with one concrete RoleFulfillment. Its validity period also need not equal a player's fulfilment period.
+On 24 November 2026 Bart approved the general definition of Involvement and requested its attributes and relations in the central model. The first application is the [General Authorisation Model](../Reference_Documents/Authorisation.PlantUML), specifically the Involvement class and note, the AssignmentRule counting note and the four incoming associations. Appointments and remuneration illustrate its broader scope. The class stands on its own. A designation can apply before any action occurs and can cover successive role holders.
 
-There are two role levels: an organisation/other eligible actor can fulfil EconomicOperator or PublicSectorBody, and a person or other eligible actor can fulfil an internal role with that actor as context. An organisation's legal-form value is neither that actor nor its contextual role. The selected reference's mandatory/optional `inOrganisation` discrepancy remains recorded in the detailed review. Involvement, actor resolution, action-time checks and authorisation-rule migration are not silently adopted from the drawings.
+In a power of attorney, Principal and Attorney name capacities within the arrangement. CEO and director identify organisational roles. The organisation is the concrete `prov:Organization`; EconomicOperator describes a capacity an actor may fulfil. The member is a `prov:Agent`, allowing organisations as well as the diagram's Person and Machine. The existing EBWV member property describes membership and has an EconomicOperator range. The extension therefore uses its own member relation. Temporal coverage uses the published Dublin Core property as an OWL object property with a class-specific period target.
+
+The four incoming properties retain the meanings and directions of the diagram. Source-class axioms and rule operators await the review of those classes. The diagram marks name, temporal coverage and organisation with an asterisk. Its organisation association permits zero or one, and the note requires both organisation and role when the member is omitted. These authorisation-specific supply requirements and cardinalities remain open for profile review. Role-holder resolution and authority checks also remain open. See the [term mappings](USE_CASE_TRACEABILITY.md). Both modellers must approve the reviewed revision before merge.
 
 ## Used versus Usage
 

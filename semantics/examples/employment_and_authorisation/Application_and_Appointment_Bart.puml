@@ -1,0 +1,203 @@
+@startuml
+title General Involvement Model
+
+'#############################################
+'#              Classes                      #
+'#############################################
+
+
+class CodeListReference {
+ *listIdentifier: string
+ *listVersion: string
+ *entryCode: string
+ +label: string
+ +uri: uri
+}
+
+class IdentificationDocument {
+ *number: string
+ *name: string
+ +type: CodeListReference
+}
+
+class "IdentificationDocument\n<size:11><color:gray><i>Alias1</i></color></size>" as IdentificationDocument_ {
+  }
+
+class Involvement {
+ *involvementType: CodeListReference
+ *involvementRole:
+ *dct:temporal:
+ *member:
+ +hasPosition:
+ +organisation:
+}
+
+class "Involvement\n<size:11><color:gray><i>Alias1</i></color></size>" as Involement_ {
+  }
+
+class Machine {
+ *id: url
+ +name: string
+}
+
+class PeriodOfTime {
+ +startDate: date
+ +endDate: date
+}
+
+class  Organisation {
+ *legalName: string
+ +registryNumber: string
+ *EUID: identifier
+ pattern: "^[A-Z]{2}[A-Z]{3}\\.
+ [a-zA-Z0-9]+\\.[a-zA-Z0-9]+$"
+}
+
+class Person {
+ *nameFirst: string
+ *nameLast: string
+ +title: string
+ +dateOfBirth: date
+ +placeOfBirth: CodeListReference
+ +fullAdress:
+ +identificationDocument:
+}
+
+class "Person\n<size:11><color:gray><i>Alias1</i></color></size>" as Person_ {
+  }
+
+class Position {
+ *name: CodeListReference
+ *inOrganisation:
+ +reportsTo:
+}
+
+class "Position\n<size:11><color:gray><i>Alias1</i></color></size>" as Position_ {
+  }
+
+class "Position\n<size:11><color:gray><i>Alias2</i></color></size>" as Position__ {
+  }
+
+class Role {
+ *name: CodeListReference
+ *dct:temporal:
+}
+
+class "Role\n<size:11><color:gray><i>Alias1</i></color></size>" as Role_ {
+  }
+
+'class Entity {
+' *mandatory
+' +optional
+'}
+
+'#############################################
+'#              Code lists                   #
+'#############################################
+
+class "CodeList:identificationDocumentType\n<size:11><color:gray><i>Document types aligned with ICAO Doc 9303 MRTD categories.</i></color></size>" as identificationDocumentType {
+  <font:monospaced><color:gray>code      definition</color></font>
+  --
+  <font:monospaced>PASSPORT  Machine readable passport</font>
+  <font:monospaced>ID_CARD   Machine readable official travel document</font>
+  <font:monospaced>VISA      Machine readable visa</font>
+  <font:monospaced>EMERGENCY Emergency travel document</font>
+}
+
+class "CodeList:involvementType\n<size:11><color:gray><i>Involvement types per context.</i></color></size>" as involvementType {
+  <font:monospaced><color:gray>code  definition</color></font>
+  --
+  <font:monospaced>01    Board Appointment</font>
+  <font:monospaced>02    Employment</font>
+  <font:monospaced>03    Freelancer Engagement</font>
+  <font:monospaced>04    Contractor Engagement</font>
+  <font:monospaced>05    Subcontracting</font>
+  <font:monospaced>06    Service Agreement</font>
+}
+
+class "CodeList:SpacialExtent\n<size:11><color:gray><i>Allowed regions codes based on\n<size:11><color:gray><i>several ISO's or online published lists.</i></color></size>" as SpacialExtent {
+  <font:monospaced><color:gray>code   definition</color></font>
+  --
+  <font:monospaced>NL     Netherlands (ISO3166-1 alpha2)</font>
+  <font:monospaced>FR     Friesland (GIS standard)</font>
+}
+
+class "CodeList:AuthorisationRoles\n<size:11><color:gray><i>Allowed role codes based on standardised\n<size:11><color:gray><i>roles in the authorisation context.</i></color></size>" as AuthorisationRoles {
+  <font:monospaced><color:gray>code   definition</color></font>
+  --
+  <font:monospaced>PL     Principal</font>
+  <font:monospaced>AY     Attorney</font>
+  <font:monospaced>WS     Witness</font>
+  <font:monospaced>EC     Entity Concerned</font>
+}
+
+class "CodeList:PositionsInOrganisation\n<size:11><color:gray><i>Allowed role codes based on standardised\n<size:11><color:gray><i>roles in the organisation context.</i></color></size>" as PositionsInOrganisation {
+  <font:monospaced><color:gray>code   definition</color></font>
+  --
+  <font:monospaced>BM1    Chairman of the board Member</font>
+  <font:monospaced>CEO    Chief Executive Officer</font>
+  <font:monospaced>PSR    Production Supervisor</font>
+  <font:monospaced>WDR    Welder Concerned</font>
+}
+
+'#############################################
+'#             Relations                     #
+'#############################################
+
+CodeListReference::uri "1" ..> "1" identificationDocumentType::code
+CodeListReference::uri "1" ..> "1" SpacialExtent::code
+CodeListReference::uri "1" ..> "1" AuthorisationRoles::code
+CodeListReference::uri "1" ..> "1" PositionsInOrganisation
+CodeListReference::uri "1" ..> "1" involvementType
+
+IdentificationDocument_ "0..n" -right-> "0..1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+
+Involvement::hasPosition "1" -down-> "0..1" Position #line:DarkRed;text:DarkRed 
+Involvement::member "1" -down-> "0..1" Person  #line:DarkRed;text:DarkRed
+Involvement::member "1" -down-> "0..1" Machine  #line:DarkRed;text:DarkRed
+Involvement::organisation "1" -down-> "0..1" Organisation  #line:DarkRed;text:DarkRed
+Involvement::dct "1" -left-> "1" PeriodOfTime  #line:DarkRed;text:DarkRed
+Involvement::involvementRole "1" -right-> "1" Role  #line:DarkRed;text:DarkRed
+Involement_ "1" -left-> "1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+
+Person::identificationDocument "1" -down-> "1" IdentificationDocument
+Person_ "1" -right-> "1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+'Person::placeOfBirth "0..n" --> "0..1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+
+Position::inOrganisation "1" -right-> "1" "Organisation" #line:DarkRed;text:DarkRed
+Position::reportsTo "1" -left-> "1" Position_ #line:DarkRed;text:DarkRed
+Position__ "1" -left-> "1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+
+Role_ "1" -right-> "1" CodeListReference::listIdentifier #line:DarkRed;text:DarkRed
+
+'#############################################
+'#                  Layout                   #
+'#############################################
+
+IdentificationDocument -down-> CodeListReference #line:White;text:DarkRed
+'Organisation -left- Person #line:White
+'Role -right- Person #line:White
+
+'#############################################
+'#             Coloring                      #
+'#############################################
+
+class CodeListReference #LightYellow;line:DarkRed;text:DarkRed
+class Organisation #LightYellow;line:DarkRed;text:DarkRed
+class IdentificationDocument #LightYellow;line:DarkRed;text:DarkRed
+class Involvement #LightYellow;line:DarkRed;text:DarkRed
+class Machine #LightYellow;line:DarkRed;text:DarkRed
+class PeriodOfTime #LightYellow;line:DarkRed;text:DarkRed
+class Person #LightYellow;line:DarkRed;text:DarkRed
+class Position #LightYellow;line:DarkRed;text:DarkRed
+class Role #LightYellow;line:DarkRed;text:DarkRed
+
+class identificationDocumentType #CEEED0;line:285F17;text:285F17
+class involvementType #CEEED0;line:285F17;text:285F17
+class PositionsInOrganisation #CEEED0;line:285F17;text:285F17
+class SpacialExtent #CEEED0;line:285F17;text:285F17
+class AuthorisationRoles #CEEED0;line:285F17;text:285F17
+
+hide circle
+
+@enduml
