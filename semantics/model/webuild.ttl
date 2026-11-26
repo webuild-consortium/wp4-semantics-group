@@ -1,3 +1,5 @@
+@prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix ebwsm: <https://w3id.org/ebwv/semantic-model#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -11,7 +13,8 @@
 
 <https://w3id.org/ebwv/semantic-model> rdf:type owl:Ontology ;
     owl:imports <http://www.w3.org/ns/prov#>,
-        <https://w3id.org/ebwv/semantic-model/imports/dcterms-classes/2026-11-23> ;
+        <https://w3id.org/ebwv/semantic-model/imports/dcterms-classes/2026-11-23>,
+        <https://w3id.org/ebwv/semantic-model/imports/foaf-classes/2026-11-26> ;
     rdfs:comment "PROV-O is imported through the ontology IRI http://www.w3.org/ns/prov# recognised by Protege for the pinned 2013-04-30 local document. Its historical duplicate ontology headers cause a version-IRI import to load the file without joining the active import closure in the observed Protege session. The catalogue and manifest pin the same approved local copy, which removes only the duplicate annotation-property declarations for prov:wasRevisionOf and prov:specializationOf, retaining both as object properties. The original source and exact correction are recorded under semantics/imports. No class or property alignment between the extension and PROV-O is implied by the import."@en-GB ;
     rdfs:comment "The local Dublin Core class module is imported through the same catalogue so that all 22 dcterms classes and their eight mutual subclass relations are visible from this single working ontology. The module preserves source definitions and class IRIs but is a documented class-only OWL projection, not the full DCMI RDF schema. The unchanged source, exact projection and checksums are recorded under semantics/imports/dcterms. RDF metamodel statements and the source property definitions are outside this module. Importing it establishes no alignment with PROV-O."@en-GB ;
     rdfs:comment "Joint draft of the WEBUILD semantic model extension. Existing EBWV terms retain their published IRIs; new model terms use the ebwsm namespace. This Turtle file and the separate SHACL profile files are the authoritative sources for the extension. Meaningful domain branches are developed individually without a custom common root class. The referenced EBWV revision is a reuse baseline, not an OWL import: full import remains pending resolution of the upstream Turtle syntax error and validation of the complete dependency graph."@en-GB ;
@@ -34,27 +37,71 @@ ebwsm:businessDefinition rdf:type owl:AnnotationProperty ;
     skos:prefLabel "Business definition"@en-GB ;
     ebwsm:taxonomicDefinition "An annotation property that associates a term with an optional definition in everyday language."@en-GB .
 
+ebwsm:rationale a owl:AnnotationProperty ;
+    skos:prefLabel "Rationale"@en-GB ;
+    ebwsm:taxonomicDefinition "An annotation property that records why a modelling choice was made."@en-GB .
+
 # Local display label and source link for the imported Dublin Core interval.
 # Its class declaration, definition and superclass come from the import.
 dcterms:PeriodOfTime skos:prefLabel "Period of time"@en-GB ;
     dcterms:source <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/PeriodOfTime> .
 
+ebwv:Agent a owl:Class ;
+    rdfs:subClassOf foaf:Agent ;
+    skos:prefLabel "Agent"@en-GB ;
+    ebwsm:businessDefinition "An agent is an entity that can perform actions or be treated as acting within a process."@en-GB ;
+    ebwsm:taxonomicDefinition "An agent is an foaf:Agent that can perform actions or be treated as acting within a process."@en-GB ;
+    dcterms:source <https://sanastot.suomi.fi/en/terminology/webuild/concept/concept-41> .
+
+[] a owl:Axiom ;
+    owl:annotatedSource ebwv:Agent ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedTarget foaf:Agent ;
+    ebwsm:rationale "WEBUILD treats the ability to act, including being treated as acting within a process, as sufficient to qualify as a FOAF agent. A FOAF group may also be used simply to identify people together. For example, Piet and Noor are individually appointed and must both sign the same document. Describing them as a group gives no basis on its own for treating the group as an actor in that process. This supports asserting the subclass relationship in one direction."@en-GB .
+
+ebwsm:Person a owl:Class ;
+    rdfs:subClassOf ebwv:Agent ;
+    skos:prefLabel "Person"@en-GB ;
+    ebwsm:taxonomicDefinition "A person is an ebwv:Agent who is a human being."@en-GB .
+
+ebwsm:Organization a owl:Class ;
+    rdfs:subClassOf ebwv:Agent ;
+    skos:prefLabel "Organisation"@en-GB ;
+    ebwsm:taxonomicDefinition "An organisation is an ebwv:Agent formed by persons or other agents, with an identifiable structure through which it pursues a shared purpose as a collective entity."@en-GB ;
+    dcterms:source <https://sanastot.suomi.fi/en/terminology/webuild/concept/organisation> .
+
+[] a owl:Axiom ;
+    owl:annotatedSource ebwsm:Organization ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedTarget ebwv:Agent ;
+    ebwsm:rationale "An organisation's structure enables the collective itself to act in pursuit of its shared purpose. This capacity applies even before a particular action is recorded. For example, Cloud 9 can be identified as Piet's employer independently of who performed a particular action."@en-GB .
+
 # Direct reuse: declarations, definitions and existing hierarchy come from the
 # pinned PROV-O import. These are display annotations, not replacement classes.
-# No ebwv:Agent definition or PROV-to-Dublin-Core Agent alignment is asserted.
 prov:Agent skos:prefLabel "Agent"@en-GB .
 prov:Person skos:prefLabel "Person"@en-GB ;
     rdfs:comment "PROV Person describes the human actor. The legal classification NaturalPerson and its relation to this imported class require separate review. The earlier local alternative label Natural Person was withdrawn after that distinction was discussed. A human actor can be the same individual considered in a legal capacity; no separate identity, class equivalence, disjointness or mapping to ebwv:NaturalPerson is inferred from this distinction."@en-GB .
 prov:Organization skos:prefLabel "Organisation"@en-GB .
 prov:SoftwareAgent skos:prefLabel "Software agent"@en-GB .
 
+ebwsm:Software a owl:Class ;
+    rdfs:subClassOf ebwv:Agent ;
+    skos:prefLabel "Software"@en-GB ;
+    ebwsm:taxonomicDefinition "Software is an ebwv:Agent implemented as a program or set of programs capable of acting within a process."@en-GB .
+
 ebwsm:Machine a owl:Class ;
-    rdfs:subClassOf prov:Agent,
-        [ a owl:Restriction ; owl:onProperty ebwsm:runsSoftwareAgent ; owl:allValuesFrom prov:SoftwareAgent ] ;
+    rdfs:subClassOf ebwv:Agent,
+        [ a owl:Restriction ; owl:onProperty ebwsm:runsSoftwareAgent ; owl:allValuesFrom ebwsm:Software ] ;
     skos:prefLabel "Machine"@en-GB ;
-    ebwsm:taxonomicDefinition "A machine is a PROV agent embodied in physical hardware that can execute predetermined processes autonomously under software control."@en-GB ;
-    rdfs:comment "The machine is the physical actor; a SoftwareAgent is running software. Illustrative machines include an automated payment terminal and an autonomous robot. Hardware qualifies here when it bears responsibility in the PROV sense, rather than merely being a passive device. Autonomy means that predefined processes can be executed without step-by-step human intervention; it does not require independently chosen goals. Classification does not confer permission, a mandate, legal personhood or representation authority. Permitted operations must be determined from applicable authorisations and scope. A software-agent link can describe a separately represented executing software actor; no software-agent filler is required because not all control software is itself modelled as a responsible agent. The physical character and behavioural capability are defined in prose; the subclass axiom alone does not mechanically verify them."@en-GB ;
-    dcterms:source <https://www.w3.org/TR/prov-o/#Agent> .
+    ebwsm:taxonomicDefinition "A machine is an ebwv:Agent embodied in physical hardware that can execute predetermined processes autonomously under software control."@en-GB ;
+    rdfs:comment "A machine is the physical actor. The software it runs can be described as a separate actor. Illustrative machines include an automated payment terminal and an autonomous robot. Autonomy means that predefined processes can be executed without step-by-step human intervention; it does not require independently chosen goals. Classification does not confer permission, a mandate, legal personhood or representation authority. Permitted operations must be determined from applicable authorisations and scope. A software-agent link can describe a separately represented executing software actor; no software-agent filler is required because control software may be left implicit. The physical character and behavioural capability are defined in prose; the subclass axiom alone does not mechanically verify them."@en-GB ;
+    dcterms:source <https://sanastot.suomi.fi/en/terminology/webuild/concept/concept-41> .
+
+[] a owl:Axiom ;
+    owl:annotatedSource ebwsm:Machine ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedTarget ebwv:Agent ;
+    ebwsm:rationale "A machine qualifies as a WEBUILD agent by its capacity to act. Responsibility for a particular activity can be recorded separately using PROV."@en-GB .
 
 ebwsm:runsSoftwareAgent a owl:ObjectProperty ;
     skos:prefLabel "Runs software agent"@en-GB ;
@@ -120,8 +167,13 @@ ebwsm:EconomicOperator a owl:Class ;
         ] ;
     skos:prefLabel "Economic operator"@en-GB ;
     ebwsm:taxonomicDefinition "An economic operator is a role in which an Agent acts in a commercial or professional capacity for purposes related to its trade, business, craft or profession within an applicable legal framework."@en-GB ;
-    rdfs:comment "This class describes contextual roles, not the persons, organisations or groups fulfilling them. Its interpretation is informed by Article 3(4) of the Commission proposal COM(2025) 838 final of 19 November 2025. The role pattern is a WEBUILD modelling decision, not a pattern prescribed by that proposal. It is not a subclass of Agent and is not declared equivalent to ebwv:EconomicOperator. Having this role does not itself grant authority to represent another party."@en-GB ;
     dcterms:source <https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:52025PC0838> .
+
+[] a owl:Axiom ;
+    owl:annotatedSource ebwsm:EconomicOperator ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedTarget ebwsm:Role ;
+    ebwsm:rationale "A person, organisation or group can act in a commercial or professional capacity in one context and in another capacity elsewhere. WEBUILD models that capacity as a role so that each fulfilment identifies the actor and the context in which it acts. Article 3(4) of Commission proposal COM(2025) 838 final of 19 November 2025 informs the meaning of the capacity. The choice to represent it as a role is WEBUILD’s. The published ebwv:EconomicOperator describes the actor fulfilling the role. Authority to represent another party requires a separate basis."@en-GB .
 
 ebwsm:PublicSectorBody a owl:Class ;
     rdfs:subClassOf ebwsm:Role,

@@ -24,6 +24,16 @@
       "upstream_sha256": "13df401072dd7015bf9d75162f3e41c8138075304b7b9cc1aa1e9c16db976797",
       "approved_on": "2026-11-23",
       "projection": "dcterms-classes-v1"
+    },
+    {
+      "iri": "https://w3id.org/ebwv/semantic-model/imports/foaf-classes/2026-11-26",
+      "file": "foaf/foaf-classes-2026-11-26.ttl",
+      "sha256": "c10bc07a96093d0c4550de9312392dcf0f7fe8b9dd99937bb4e29064febd49b4",
+      "source_url": "https://xmlns.com/foaf/spec/20140114.rdf",
+      "upstream_file": "foaf/foaf-20140114.original.rdf",
+      "upstream_sha256": "3d859b5d92a2c3d041545d014fa826f682ca06d056af8c7b31e32d930abf2bc5",
+      "approved_on": "2026-11-26",
+      "projection": "foaf-agent-classes-v1"
     }
   ]
 }

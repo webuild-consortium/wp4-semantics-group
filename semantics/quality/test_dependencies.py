@@ -144,7 +144,7 @@ class DependencyChecks(unittest.TestCase):
         model = Path(__file__).resolve().parents[1] / "model"
         graph = Graph().parse(model / "webuild.ttl", format="turtle")
         imports = load_dependencies(graph, model)
-        self.assertEqual(2, len(imports))
+        self.assertEqual(3, len(imports))
         prov = next(item.graph for item in imports
                     if str(item.iri) == "http://www.w3.org/ns/prov#")
         effective = graph + prov

@@ -6,7 +6,7 @@ import re
 import sys
 
 from rdflib import Graph, Literal, Namespace, URIRef
-from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS
+from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS, split_uri
 
 from dependencies import load_dependencies
 
@@ -17,12 +17,65 @@ W = Namespace(f"{ONTOLOGY}#")
 EBWV = Namespace("https://w3id.org/ebwv#")
 # Extend only after reviewing reuse against the pinned vocabulary and recording
 # that decision. This is a reuse boundary, not a copy of the upstream ontology.
-REVIEWED_EBWV_DECLARATIONS = frozenset()
+REVIEWED_EBWV_DECLARATIONS = frozenset({EBWV.Agent})
 KINDS = (OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty)
 
 
 def nonempty_text(value):
     return isinstance(value, Literal) and bool(str(value).strip())
+
+
+def prefixed_names(graph, term):
+    namespace, local = split_uri(term)
+    return {f'{prefix}:{local}' for prefix, iri in graph.namespaces()
+            if prefix and str(iri) == namespace}
+
+
+def class_name_pattern(graph, term, qualified_only=False):
+    """Match prefixed IRIs exactly and English class names case-insensitively."""
+    qualified_names = prefixed_names(graph, term)
+    forms = [re.escape(name) for name in qualified_names]
+    if not qualified_only:
+        local = split_uri(term)[1]
+        labels = {local, re.sub(r'(?<=[a-z])(?=[A-Z])', ' ', local)}
+        labels.update(name.replace(':', ' ') for name in qualified_names)
+        for predicate in (SKOS.prefLabel, RDFS.label):
+            labels.update(str(label) for label in graph.objects(term, predicate)
+                          if isinstance(label, Literal) and
+                          (not label.language or label.language.lower().split('-')[0] == 'en'))
+        forms.extend(f'(?i:{re.escape(label)})' for label in labels)
+    return '(?:' + '|'.join(forms) + ')' if forms else '(?!)'
+
+
+def check_taxonomic_wording(graph, term, definitions, warnings):
+    local_name = split_uri(term)[1]
+    parents = {parent for parent in graph.objects(term, RDFS.subClassOf)
+               if isinstance(parent, URIRef) and parent not in (term, OWL.Thing)}
+    if parents:
+        subject = class_name_pattern(graph, term)
+        parent_names = '|'.join(class_name_pattern(graph, parent, split_uri(parent)[1] == local_name)
+                                for parent in parents)
+        opening = re.compile(rf'^An? {subject} is an? (?:{parent_names})(?:,?\s+)\w')
+        reference = re.compile(rf'(?<![\w.:/#-])(?:{parent_names})(?![\w:-]|\.\w)')
+        for definition in definitions:
+            language = getattr(definition, 'language', None)
+            if language and language.lower().split('-')[0] != 'en':
+                continue
+            text = ' '.join(str(definition).split())
+            if not reference.search(text):
+                yield (f"{term}: taxonomic definition must name its direct superclass "
+                       f"({', '.join(sorted(parents))}); use a prefixed name for a same-named superclass")
+            elif not opening.match(text):
+                warnings.append(f"{term}: alternative wording names a superclass; "
+                                "review the distinguishing characteristics in context")
+
+    for parent in graph.objects(term, RDFS.subPropertyOf):
+        if not isinstance(parent, URIRef) or parent == term or split_uri(parent)[1] != local_name:
+            continue
+        for definition in definitions:
+            if not any(re.search(rf"(?<![\w.:/#-]){re.escape(name)}(?![\w:-]|\.\w)", str(definition))
+                       for name in prefixed_names(graph, parent)):
+                yield f"{term}: taxonomic definition must use a prefixed name for {parent}"
 
 
 def check_graph(graph):
@@ -34,9 +87,6 @@ def check_graph(graph):
 
     if (ONTOLOGY, RDF.type, OWL.Ontology) not in graph:
         error(ONTOLOGY, "missing agreed ontology declaration")
-    if (any(graph.triples((EBWV.Agent, None, None)))
-            or any(graph.triples((None, None, EBWV.Agent)))):
-        error(EBWV.Agent, "the active extension uses prov:Agent directly; do not reintroduce ebwv:Agent")
     for prop in (SKOS.prefLabel, SKOS.altLabel, DCTERMS.source,
                  W.taxonomicDefinition, W.legalDefinition, W.businessDefinition):
         if (prop, RDF.type, OWL.AnnotationProperty) not in graph:
@@ -91,6 +141,7 @@ def check_graph(graph):
         definitions = list(graph.objects(term, W.taxonomicDefinition))
         if not definitions:
             error(term, "taxonomic or base definition is required")
+        errors.extend(check_taxonomic_wording(graph, term, definitions, warnings))
         for prop in (W.taxonomicDefinition, W.legalDefinition, W.businessDefinition):
             if any(not nonempty_text(v) for v in graph.objects(term, prop)):
                 error(term, f"{prop} must contain non-empty definition text")
@@ -152,9 +203,7 @@ def load_model(directory):
         raise ValueError("semantics/model/webuild.ttl is missing")
     combined = Graph()
     for path in files:
-        part = Graph().parse(path, format="turtle")
-        for triple in part:
-            combined.add(triple)
+        combined.parse(path, format="turtle")
     return combined, files
 
 

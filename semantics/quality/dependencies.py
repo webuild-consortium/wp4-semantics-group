@@ -11,9 +11,14 @@ from rdflib import Graph, URIRef
 from rdflib.compare import isomorphic
 from rdflib.namespace import OWL, RDF
 
-from dcterms_classes import class_module
+from dcterms_classes import class_module as dcterms_class_module
+from foaf_classes import class_module as foaf_class_module
 
 CATALOG_NS = "{urn:oasis:names:tc:entity:xmlns:xml:catalog}"
+CLASS_PROJECTIONS = {
+    "dcterms-classes-v1": (dcterms_class_module, "turtle"),
+    "foaf-agent-classes-v1": (foaf_class_module, "xml"),
+}
 
 
 @dataclass
@@ -111,11 +116,12 @@ def load_dependencies(authored, model_directory):
                 raise ValueError(f"Dependency differs beyond its approved correction: {iri}")
 
         if "projection" in record:
-            if record["projection"] != "dcterms-classes-v1":
+            if record["projection"] not in CLASS_PROJECTIONS:
                 raise ValueError(f"Unknown dependency projection: {record['projection']}")
+            class_module, source_format = CLASS_PROJECTIONS[record["projection"]]
             original = local_path(imports, record["upstream_file"], imports)
             verify_hash(original, record["upstream_sha256"])
-            source = Graph().parse(original, format="turtle")
+            source = Graph().parse(original, format=source_format)
             if not isomorphic(class_module(source), graph):
                 raise ValueError(f"Dependency differs beyond its approved class projection: {iri}")
 

@@ -2,7 +2,11 @@
 
 Decision date: 23 November 2026. Bart confirmed that every actor intended here fits PROV-O's responsibility-based Agent meaning, explicitly included software agents and requested a physical Machine subtype. He requested direct use of `prov:Agent` without a separate `ebwv:Agent` definition. This supersedes the 19 November local augmentation of the EBWV Agent class. The resulting draft still requires the other modeller's review before merging.
 
-## Why direct reuse
+## WEBUILD Agent decision of 26 November 2026
+
+Bart initially approved a top-level declaration for the [published EBWV Agent](../../../docs/ebwv/vocabulary.ttl). Its base definition follows the [WEBUILD terminology entry](https://sanastot.suomi.fi/en/terminology/webuild/concept/concept-41). Later that day Bart approved `ebwv:Agent rdfs:subClassOf foaf:Agent` and the `ebwsm:rationale` annotation on that axiom. The [joint-signing example](../../examples/employment_and_authorisation/Piet_and_Noor_joint_signing.md) explains why group membership alone need not imply WEBUILD agency. The relationship to PROV Agent remains open. The PROV hierarchy below still applies to responsibility-based actors.
+
+## Rationale recorded on 23 November
 
 The model now uses the exact imported `prov:Agent` IRI and source meaning. WEBUILD is the application setting rather than a reason to duplicate that class. The earlier narrower description of social/legal actors in business/legal processes is no longer the definition of our general Agent category. There is no new WEBUILD Agent class, alias class or equivalence axiom.
 
@@ -29,14 +33,19 @@ prov:Agent
   prov:Person          (imported; human Agent)
   prov:Organization    (imported)
   prov:SoftwareAgent   (imported)
-  ebwsm:Machine        (new extension class)
+
+ebwv:Agent
+  ebwsm:Machine        (physical actor)
+  ebwsm:Software       (software actor)
 ```
 
-Machine is a PROV agent embodied in physical hardware that can autonomously execute predetermined processes under software control. “Autonomous” means that execution can proceed without step-by-step human intervention. It does not require the device to choose its own goals, and it does not make every passive hardware component an Agent.
+On 26 November 2026 Bart selected `ebwv:Agent` as the sole direct named superclass of `ebwsm:Machine`. A machine inherits the WEBUILD, FOAF and Dublin Core Agent types. The example payment terminal also qualifies as a PROV Agent through its explicit association with a payment activity.
+
+Machine is an ebwv:Agent embodied in physical hardware that can autonomously execute predetermined processes under software control. “Autonomous” means that execution can proceed without step-by-step human intervention. It does not require the device to choose its own goals, and it does not make every passive hardware component an Agent.
 
 Bart's motivating examples are a payment terminal and an autonomous robot such as Optimus. These are examples of the intended physical-actor category, not assertions about a manufacturer's current capabilities or a particular product's legal status.
 
-`ebwsm:runsSoftwareAgent` links the machine to a separately represented executing software actor. A class-level all-values restriction on Machine types every such object as `prov:SoftwareAgent`, from which PROV Agent membership follows. The relation does not identify hardware and software, assert delegation, or automatically associate either actor with a particular activity.
+`ebwsm:runsSoftwareAgent` links the machine to a separately represented executing software actor. A class-level all-values restriction on Machine types every such object as `ebwsm:Software`. Through `ebwv:Agent` it inherits the FOAF and Dublin Core Agent types. A PROV activity association can independently type either participant as a PROV Agent. The relation does not identify hardware and software, assert delegation, or automatically associate either actor with a particular activity.
 
 The link has no minimum or maximum count. Software-controlled operation is part of the Machine definition, but the model does not require a recorded SoftwareAgent link or imply that every piece of firmware is a responsible software actor. The physical character and execution capability are described in the definition, not automatically verified by the reasoner. No global domains/ranges, sibling-class disjointness, exhaustive partition, deployment-time model or generic software-asset class is introduced.
 
@@ -50,7 +59,7 @@ The EconomicOperator and PublicSectorBody role restrictions now require `prov:Ag
 
 The [Involvement review](Actor_Roles_and_Involvement.md) now accepts machines and software within the general actor scope. The selected reference's Person/Machine alternatives do not become an exhaustive partition: its selector semantics, target relations and time checks still require their own integration decision.
 
-## Migration and compatibility boundary
+## Migration of 23 November 2026
 
 - Remove the local declaration, definition and Dublin Core superclass axiom for `ebwv:Agent` from `webuild.ttl`.
 - Use `prov:Agent` in the new role-player restrictions and their reasoning controls. Update synthetic role examples to the imported Person/Organization types.
@@ -58,7 +67,7 @@ The [Involvement review](Actor_Roles_and_Involvement.md) now accepts machines an
 - Keep imported `dcterms:Agent` available as a separate dependency class. Do not assert a global subclass/equivalence between the PROV and Dublin Core Agent classes. Previous local data's inference to Dublin Core Agent therefore no longer follows merely from the actor type.
 - Reject reintroduction of the former Agent IRI in active authored triples through the quality checker. Reviewed reuse of other EBWV terms remains a separate mechanism.
 
-The existing PROV-O disjointness between Agent and InstantaneousEvent now applies directly to role players and machines through these axioms. It does not make Agent and Entity disjoint. The dependency snapshot and its approved correction are unchanged.
+Under the 23 November hierarchy, role players typed as PROV Agents and all machines inherited the PROV disjointness with InstantaneousEvent. Under the 26 November hierarchy this disjointness applies to a machine when it independently qualifies as a PROV Agent. It does not make Agent and Entity disjoint. The dependency snapshot and its approved correction are unchanged.
 
 ## Validation history
 

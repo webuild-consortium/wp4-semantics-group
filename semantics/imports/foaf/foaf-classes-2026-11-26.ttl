@@ -1,0 +1,33 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+foaf:Group a owl:Class ;
+    rdfs:label "Group" ;
+    rdfs:comment "A class of Agents." ;
+    rdfs:subClassOf foaf:Agent .
+
+foaf:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "An organization." ;
+    rdfs:isDefinedBy foaf: ;
+    rdfs:subClassOf foaf:Agent .
+
+foaf:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "A person." ;
+    rdfs:isDefinedBy foaf: ;
+    rdfs:subClassOf foaf:Agent .
+
+<https://w3id.org/ebwv/semantic-model/imports/foaf-classes> a owl:Ontology ;
+    rdfs:label "FOAF Agent classes — WEBUILD projection"@en-GB ;
+    dcterms:source <https://xmlns.com/foaf/spec/20140114.rdf> ;
+    owl:imports <https://w3id.org/ebwv/semantic-model/imports/dcterms-classes/2026-11-23> ;
+    owl:versionIRI <https://w3id.org/ebwv/semantic-model/imports/foaf-classes/2026-11-26> .
+
+foaf:Agent a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:comment "An agent (eg. person, group, software or physical artifact)." ;
+    owl:equivalentClass dcterms:Agent .
+

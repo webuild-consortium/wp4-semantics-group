@@ -22,5 +22,5 @@ ex:robot a ebwsm:Machine ;
     rdfs:label "Example autonomous physical robot"@en-GB ;
     ebwsm:runsSoftwareAgent ex:robotController ;
     owl:differentFrom ex:robotController .
-ex:robotController a prov:SoftwareAgent ;
+ex:robotController a ebwsm:Software ;
     rdfs:label "Example running robot controller"@en-GB .

@@ -2,4 +2,5 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
     <uri name="http://www.w3.org/ns/prov#" uri="../imports/prov-o/prov-o-20130430.ttl"/>
     <uri name="https://w3id.org/ebwv/semantic-model/imports/dcterms-classes/2026-11-23" uri="../imports/dcterms/dcterms-classes-2026-11-23.ttl"/>
+    <uri name="https://w3id.org/ebwv/semantic-model/imports/foaf-classes/2026-11-26" uri="../imports/foaf/foaf-classes-2026-11-26.ttl"/>
 </catalog>

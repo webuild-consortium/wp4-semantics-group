@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.semanticweb.HermiT.ReasonerFactory;
@@ -118,25 +119,26 @@ public final class RolePatternChecks {
         verify(base, "running software is a PROV Agent", true, Set.of(instance(software, P)),
             instance(AGENT, P));
         count++;
-        verify(base, "a physical Machine is a PROV Agent", true, Set.of(instance(type("Machine"), P)),
-            instance(AGENT, P));
+        verify(base, "a Machine can fall outside PROV Agent", true, Set.of(
+            instance(type("Machine"), P), instance(D.getOWLObjectComplementOf(AGENT), P)));
         count++;
-        verify(base, "hardware and executing software may be explicitly distinct", true, Set.of(
+        var webuildSoftware = type("Software");
+        verify(base, "a machine can run distinct WEBUILD Software with neither actor typed as PROV Agent", true, Set.of(
             instance(type("Machine"), P), link(P, "runsSoftwareAgent", Q),
             D.getOWLDifferentIndividualsAxiom(P, Q),
-            instance(D.getOWLObjectComplementOf(software), P)),
-            instance(software, Q), instance(AGENT, Q));
+            instance(D.getOWLObjectComplementOf(AGENT), P), instance(D.getOWLObjectComplementOf(AGENT), Q)),
+            instance(webuildSoftware, Q));
         count++;
-        verify(base, "Machine software link rejects a non-SoftwareAgent target", false, Set.of(
+        verify(base, "Machine software link rejects a target outside WEBUILD Software", false, Set.of(
             instance(type("Machine"), P), link(P, "runsSoftwareAgent", Q),
-            instance(D.getOWLObjectComplementOf(software), Q)));
+            instance(D.getOWLObjectComplementOf(webuildSoftware), Q)));
         count++;
         verify(base, "Machine does not require a separately represented software actor", true, Set.of(
             instance(type("Machine"), P),
             instance(D.getOWLObjectMaxCardinality(0, property("runsSoftwareAgent")), P)));
         count++;
-        verify(base, "Machine inherits PROV event disjointness", false, Set.of(
-            instance(type("Machine"), P),
+        verify(base, "a PROV Agent cannot be a PROV instantaneous event", false, Set.of(
+            instance(AGENT, P),
             instance(D.getOWLClass(IRI.create("http://www.w3.org/ns/prov#InstantaneousEvent")), P)));
         count++;
         verify(base, "no global alignment to Dublin Core Agent is implied", true, Set.of(
@@ -145,7 +147,53 @@ public final class RolePatternChecks {
                 IRI.create("http://purl.org/dc/terms/Agent"))), P)));
         count++;
 
+        var foafAgent = D.getOWLClass(IRI.create("http://xmlns.com/foaf/0.1/Agent"));
+        var dcAgent = D.getOWLClass(IRI.create("http://purl.org/dc/terms/Agent"));
+        var webuildAgent = D.getOWLClass(IRI.create("https://w3id.org/ebwv#Agent"));
+        verify(base, "Software inherits WEBUILD, FOAF and Dublin Core Agent", true,
+            Set.of(instance(webuildSoftware, P)),
+            instance(webuildAgent, P), instance(foafAgent, P), instance(dcAgent, P));
+        count++;
+        verify(base, "Machine inherits WEBUILD, FOAF and Dublin Core Agent", true,
+            Set.of(instance(type("Machine"), P)),
+            instance(webuildAgent, P), instance(foafAgent, P), instance(dcAgent, P));
+        count++;
+        verify(base, "WEBUILD Agent infers FOAF and Dublin Core Agent", true,
+            Set.of(instance(webuildAgent, P)), instance(foafAgent, P), instance(dcAgent, P));
+        count++;
+        var foafGroup = D.getOWLClass(IRI.create("http://xmlns.com/foaf/0.1/Group"));
+        verify(base, "a FOAF group can fall outside WEBUILD Agent", true,
+            Set.of(instance(foafGroup, P), instance(D.getOWLObjectComplementOf(webuildAgent), P)),
+            instance(foafAgent, P), instance(dcAgent, P));
+        count++;
+        verify(base, "Dublin Core Agent infers FOAF Agent", true,
+            Set.of(instance(dcAgent, P)), instance(foafAgent, P));
+        count++;
+        verify(base, "FOAF Agent infers Dublin Core Agent", true,
+            Set.of(instance(foafAgent, P)), instance(dcAgent, P));
+        count++;
+        for (String name : List.of("Person", "Group", "Organization")) {
+            var subtype = D.getOWLClass(IRI.create("http://xmlns.com/foaf/0.1/" + name));
+            verify(base, "FOAF " + name + " infers both Agent types", true,
+                Set.of(instance(subtype, P)), instance(foafAgent, P), instance(dcAgent, P));
+            count++;
+        }
+
         var organisation = D.getOWLClass(IRI.create("http://www.w3.org/ns/prov#Organization"));
+        var webuildOrganization = type("Organization");
+        verify(base, "WEBUILD Person inherits the three Agent types", true,
+            Set.of(instance(type("Person"), P)),
+            instance(webuildAgent, P), instance(foafAgent, P), instance(dcAgent, P));
+        count++;
+        verify(base, "WEBUILD Organisation inherits the three Agent types", true,
+            Set.of(instance(webuildOrganization, P)),
+            instance(webuildAgent, P), instance(foafAgent, P), instance(dcAgent, P));
+        count++;
+        var foafOrganization = D.getOWLClass(IRI.create("http://xmlns.com/foaf/0.1/Organization"));
+        verify(base, "WEBUILD Organisation alone does not entail PROV Agent or FOAF Organization", true,
+            Set.of(instance(webuildOrganization, P), instance(D.getOWLObjectComplementOf(AGENT), P),
+                instance(D.getOWLObjectComplementOf(foafOrganization), P)));
+        count++;
         verify(base, "organisation's legal form is a classification value", true, Set.of(
             instance(organisation, P), link(P, "hasLegalForm", Q)), instance(type("LegalForm"), Q));
         count++;

@@ -6,22 +6,40 @@ Consolidated on 23 November 2026 from the discussion with Bart. This is the curr
 
 Open [model/webuild.ttl](model/webuild.ttl), ontology IRI `https://w3id.org/ebwv/semantic-model`, term namespace `https://w3id.org/ebwv/semantic-model#` (`ebwsm:`). Existing published EBWV IRIs retain their original namespace when reused; the full EBWV vocabulary is not imported.
 
-The catalogue resolves the unchanged, checksum-pinned PROV-O core (2013-04-30, approved two-annotation correction) and Dublin Core class-only projection. Their original sources and exact transformations are recorded in [imports/manifest.json](imports/manifest.json). Importing them does not itself align their classes with WEBUILD classes. Archived models and the selected local General Authorisation Model remain source evidence rather than imported axioms.
+The catalogue resolves the unchanged, checksum-pinned PROV-O core (2013-04-30, approved two-annotation correction) and the Dublin Core and FOAF class modules. Their original sources and exact transformations are recorded in [imports/manifest.json](imports/manifest.json). Importing them does not itself align their classes with WEBUILD classes. Archived models and the selected local General Authorisation Model remain source evidence rather than imported axioms.
 
 ### Work list for 26 November 2026
 
-- [ ] Import FOAF into the working ontology. Pin the reviewed source, resolve it through the local catalogue and validate the combined import closure.
-- [ ] Review possible WEBUILD classes for organisation, person, software agent and hardware agent individually. Compare each proposed meaning with FOAF and the existing PROV-O reuse. For hardware agents, first clarify the relationship with `ebwsm:Machine`.
+- [x] Import the [FOAF Agent class module](imports/foaf/README.md) approved by Bart on 26 November 2026. Its four FOAF classes and the equivalence with Dublin Core Agent are available in the central ontology.
+- FOAF reuse is limited to that pinned projection. Review of the full source's dependencies on `schema:Person` and `skos:Concept` remains incomplete. See the [conditions of reuse](imports/foaf/README.md#conditions-of-reuse).
+- [x] Adopt `ebwsm:Organization` under `ebwv:Agent` for the structured collective described in the [WEBUILD terminology](https://sanastot.suomi.fi/en/terminology/webuild/concept/organisation). Bart approved the class and its definition on 26 November 2026.
+- [x] Adopt `ebwsm:Person` under `ebwv:Agent` for a human being. Piet has this type independently of his appointment or any signature. Mappings to FOAF Person, PROV Person and EBWV NaturalPerson remain open.
+- [x] Adopt `ebwsm:Machine` and `ebwsm:Software` directly under `ebwv:Agent`. A machine can run a separately represented software actor.
 - [ ] Continue the class-by-class review of the Involvement diagram. Record each agreed decision before implementing it in `webuild.ttl`.
 - [ ] Review the [LegalForm candidates and EU Member State inventory](#to-do-for-webuildttl-legalform-subclasses), starting with the Netherlands.
 
+## Vocabulary issues to file after the Barcelona modelling workshop
+
+When the central model needs a concept that is missing from the published vocabulary or differs in meaning from an existing term, use an `ebwsm:` IRI provisionally and record the vocabulary issue here immediately. Reuse the published `ebwv:` IRI when the intended meaning matches. Bart will raise the following proposals with the vocabulary maintainers after the Barcelona modelling workshop on 12–13 January 2027.
+
+- [ ] **Model Economic Operator as a role and identify the actor who fulfils it.** The published `ebwv:EconomicOperator` describes a person or group acting in a commercial or professional capacity. The central model represents that capacity as `ebwsm:EconomicOperator`, a subclass of `ebwsm:Role`. A holder can act commercially in one context and in another capacity elsewhere. Each role fulfilment identifies who acts in that context. Authority to represent another party requires a separate basis. Article 3(4) of Commission proposal COM(2025) 838 final informs the meaning of the capacity. WEBUILD chose the role pattern. Ask the vocabulary maintainers to distinguish the role from its holder and review the effect on existing subclasses, property domains and ranges. For example, `ebwv:organisation` currently links a GLN to the actor registered as an economic operator. [Published vocabulary source](../docs/ebwv/vocabulary.ttl) · [Central model](model/webuild.ttl)
+- [ ] **Add a general Organisation class to the published vocabulary.** Cloud 9 can be identified as Piet’s employer independently of whether it fulfils the Economic Operator role. Propose a class corresponding to `ebwsm:Organization` under `ebwv:Agent`, based on the terminology’s identifiable structure and shared purpose. The existing lower-case `ebwv:organisation` is a GLN property. Review its range alongside the Economic Operator proposal. [WEBUILD terminology](https://sanastot.suomi.fi/en/terminology/webuild/concept/organisation) · [Cloud 9 example](examples/employment_and_authorisation/Welding_Consumables_Involvement.puml)
+
+- [ ] **Add Person for a human being.** Propose a published counterpart to `ebwsm:Person` so that Piet can be described as a human being independently of his appointment as a mandatary. The published `ebwv:NaturalPerson` describes a human being with legal capacity and is a subclass of both `cred:CredentialSubject` and `ebwv:LegalEntity`. Clarify how the two concepts apply to the same individual. The existing declaration gives no superclass of legal form. [Published vocabulary source](../docs/ebwv/vocabulary.ttl)
+
+- [ ] **Add Machine for a software-controlled physical actor.** Propose a vocabulary counterpart to `ebwsm:Machine` under `ebwv:Agent`. A robot or autonomous vehicle may execute a process, while its controller software can be described separately. [Machine example](examples/agents/machine-software.ttl)
+
+- [ ] **Add Software for a program that can act in a process.** Propose a vocabulary counterpart to `ebwsm:Software` under `ebwv:Agent`. The controller in a robot illustrates how software can be identified separately from the machine that runs it. [Machine and software example](examples/agents/machine-software.ttl)
+
 ## Agents and machines
 
-- Reuse `prov:Agent` directly. No separate `ebwv:Agent` or `ebwsm:Agent` is defined in the active extension.
+- On 26 November 2026 Bart approved the published `ebwv:Agent` as a subclass of `foaf:Agent` with the business definition “An agent is an entity that can perform actions or be treated as acting within a process.” The taxonomic definition names the superclass explicitly as `foaf:Agent` under the [definition convention](PROTEGE_GITHUB.md#definition-types). The central ontology attaches the decision to the subclass axiom using `ebwsm:rationale`. The imported FOAF equivalence also makes every WEBUILD Agent a Dublin Core Agent. The relationship to PROV Agent remains open. [Published class](../docs/ebwv/vocabulary.ttl) · [WEBUILD terminology](https://sanastot.suomi.fi/en/terminology/webuild/concept/concept-41).
+- Responsibility-based actor restrictions use `prov:Agent` directly.
+- `ebwsm:Organization` describes an organisation such as Cloud 9 through its identifiable structure and shared purpose. It inherits `foaf:Agent` and `dcterms:Agent` through `ebwv:Agent`. Organisation mappings to FOAF or PROV remain open. The current `Involvement.inOrganization` restriction still infers `prov:Organization` for its value and requires a separate modelling decision.
 - Reuse imported `prov:Person`, `prov:Organization` and `prov:SoftwareAgent`. “Actor” in the discussion means Agent; it is not another class.
-- `ebwsm:Machine` is the physical, software-controlled Agent subtype for autonomous execution of predetermined processes. A payment terminal and an autonomous robot such as Optimus motivated the category.
-- `runsSoftwareAgent` can link hardware to a separately represented running software actor. It has no minimum count and does not identify hardware and software or infer delegation.
-- The separate `dcterms:Agent` remains imported. No PROV/Dublin Core Agent alignment is asserted.
+- `ebwv:Agent` is the sole direct named superclass of `ebwsm:Machine`. PROV responsibility can be recorded for individual machines in context. It inherits `foaf:Agent` and `dcterms:Agent` through `ebwv:Agent`. The class describes a physical actor, such as a robot or autonomous vehicle, that can execute predetermined processes under software control.
+- `ebwsm:runsSoftwareAgent` links a Machine to the `ebwsm:Software` it runs. The target class is scoped to Machine. It has no minimum count and does not identify hardware and software or infer delegation.
+- The FOAF module preserves `foaf:Agent owl:equivalentClass dcterms:Agent`. FOAF Person, Group and Organization are subclasses of both in the inferred hierarchy. No PROV/Dublin Core Agent alignment is asserted.
 - Being an Agent or Machine is not a mandate, legal personhood or permission to act.
 
 See [Agent decisions](model/modelling_considerations/Agents_and_Machines.md), the [Agent diagram](model/Agents.PlantUML) and [machine/software example](examples/agents/machine-software.ttl).

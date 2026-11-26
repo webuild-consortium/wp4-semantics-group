@@ -1,5 +1,5 @@
 @startuml Agents
-title Agents — Direct PROV-O Reuse and Physical Machines
+title WEBUILD Agent and the PROV-O Agent hierarchy
 
 skinparam groupInheritance 2
 skinparam ArrowColor DarkRed
@@ -7,6 +7,11 @@ skinparam shadowing false
 skinparam classAttributeIconSize 0
 hide circle
 
+class "foaf:Agent" as FoafAgent #LightYellow;line:DarkRed;text:DarkRed
+class "ebwv:Agent" as WebuildAgent #LightYellow;line:DarkRed;text:DarkRed
+class "ebwsm:Software" as WebuildSoftware #LightYellow;line:DarkRed;text:DarkRed
+class "ebwsm:Person" as WebuildPerson #LightYellow;line:DarkRed;text:DarkRed
+class "ebwsm:Organization" as WebuildOrganization #LightYellow;line:DarkRed;text:DarkRed
 class "prov:Agent" as Agent #LightYellow;line:DarkRed;text:DarkRed
 class "prov:Person\n<size:11><color:gray><i>Menselijke Agent</i></color></size>" as Person #LightYellow;line:DarkRed;text:DarkRed
 class "prov:Organization\n<size:11><color:gray><i>Organisation</i></color></size>" as Organization #LightYellow;line:DarkRed;text:DarkRed
@@ -15,11 +20,15 @@ class "ebwsm:Machine\n<size:11><color:gray><i>Physical software-controlled actor
  +runsSoftwareAgent :
 }
 
+FoafAgent <|-- WebuildAgent #line:DarkRed;text:DarkRed
+WebuildAgent <|-- WebuildPerson #line:DarkRed;text:DarkRed
+WebuildAgent <|-- WebuildOrganization #line:DarkRed;text:DarkRed
 Agent <|-- Person #line:DarkRed;text:DarkRed
 Agent <|-- Organization #line:DarkRed;text:DarkRed
 Agent <|-- SoftwareAgent #line:DarkRed;text:DarkRed
-Agent <|-- Machine #line:DarkRed;text:DarkRed
-Machine::runsSoftwareAgent -left-> SoftwareAgent #line:DarkRed;text:DarkRed
+WebuildAgent <|-- WebuildSoftware #line:DarkRed;text:DarkRed
+WebuildAgent <|-- Machine #line:DarkRed;text:DarkRed
+Machine::runsSoftwareAgent -left-> WebuildSoftware #line:DarkRed;text:DarkRed
 
 note bottom of Machine
   Examples: an automated payment terminal or autonomous robot.
@@ -31,7 +40,7 @@ end note
 legend top left
   prov: classes and their existing hierarchy come from the pinned import.
   Machine and runsSoftwareAgent are WEBUILD extension terms (ebwsm:).
-  No separate WEBUILD Agent class or Dublin Core Agent alignment.
+  The FOAF module equates foaf:Agent with dcterms:Agent.
   Sibling classes are not declared disjoint or exhaustive.
 endlegend
 @enduml

@@ -45,6 +45,56 @@ class QualityChecks(unittest.TestCase):
     def test_base_definitions_need_no_artificial_parent(self):
         self.assertEqual('', self.errors())
 
+    def test_taxonomic_definition_qualifies_a_same_named_parent(self):
+        namespace = 'https://example.org/actors/'
+        self.g.bind('actors', URIRef(namespace))
+        parent = URIRef(namespace + 'Organization')
+        self.g.add((W.Organization, RDFS.subClassOf, parent))
+        self.g.add((W.Organization, W.businessDefinition, Literal('An actors:Organization.')))
+        for reference in ('organization', 'foaf:Organization', 'actors:Organizations',
+                          'actors:Organization.Member'):
+            with self.subTest(reference=reference):
+                text = f'An organization is an {reference} with a registered address.'
+                self.g.set((W.Organization, W.taxonomicDefinition, Literal(text)))
+                self.assertIn('use a prefixed name', self.errors())
+        self.g.set((W.Organization, W.taxonomicDefinition,
+                    Literal('An organization is an actors:Organization with a registered address.')))
+        self.assertEqual('', self.errors())
+        self.g.set((W.Organization, W.taxonomicDefinition,
+                    Literal('Only an actors:Organization with a registered address qualifies.')))
+        self.assertEqual('', self.errors())
+
+    def test_definition_word_order_is_flexible_but_the_parent_reference_is_required(self):
+        self.g.add((W.Organization, RDFS.subClassOf, W.LegalBody))
+        for text in ('Each organization has a registered address.',
+                     'An organization is a group with an address.'):
+            with self.subTest(text=text):
+                self.g.set((W.Organization, W.taxonomicDefinition, Literal(text, lang='en-GB')))
+                self.assertIn('must name its direct superclass', self.errors())
+        self.g.set((W.Organization, W.taxonomicDefinition,
+                    Literal('An organization is a legal body with an address.', lang='en-GB')))
+        self.assertEqual(([], []), check_graph(self.g))
+        self.g.set((W.Organization, W.taxonomicDefinition,
+                    Literal('For a legal body to qualify, it must have a registered address.', lang='en-GB')))
+        errors, warnings = check_graph(self.g)
+        self.assertFalse(errors)
+        self.assertTrue(any('alternative wording' in warning for warning in warnings))
+
+    def test_owl_thing_and_anonymous_restriction_allow_a_base_definition(self):
+        self.g.add((W.Organization, RDFS.subClassOf, OWL.Thing))
+        self.g.add((W.Organization, RDFS.subClassOf, BNode()))
+        self.assertEqual('', self.errors())
+
+    def test_same_named_superproperty_requires_its_prefix_in_each_definition(self):
+        namespace = 'https://example.org/relations#'
+        self.g.bind('rel', URIRef(namespace))
+        self.g.add((W.hasAddress, RDFS.subPropertyOf, URIRef(namespace + 'hasAddress')))
+        self.g.add((W.hasAddress, W.taxonomicDefinition, Literal('A specialisation of rel:hasAddress.')))
+        # The other definition from setUp still omits the prefixed name.
+        self.assertIn('must use a prefixed name', self.errors())
+        self.g.remove((W.hasAddress, W.taxonomicDefinition, Literal('A base definition.', lang='en-GB')))
+        self.assertEqual('', self.errors())
+
     def test_datatype_range_is_allowed_and_optional(self):
         self.g.add((W.birthDate, RDFS.range, XSD.date))
         self.assertEqual('', self.errors())
@@ -137,13 +187,11 @@ class QualityChecks(unittest.TestCase):
         with patch('check.REVIEWED_EBWV_DECLARATIONS', frozenset({EBWV.ReviewedActor})):
             self.assertEqual('', self.errors())
 
-    def test_old_agent_cannot_return_as_a_declaration_or_restriction_target(self):
-        for triple in ((EBWV.Agent, RDF.type, OWL.Class),
-                       (BNode(), OWL.allValuesFrom, EBWV.Agent)):
-            with self.subTest(triple=triple):
-                self.g.add(triple)
-                self.assertIn('uses prov:Agent directly', self.errors())
-                self.g.remove(triple)
+    def test_published_agent_is_accepted_as_a_top_level_class(self):
+        self.g.add((EBWV.Agent, RDF.type, OWL.Class))
+        self.g.add((EBWV.Agent, SKOS.prefLabel, Literal('Agent', lang='en-GB')))
+        self.g.add((EBWV.Agent, W.taxonomicDefinition, Literal('A base definition.', lang='en-GB')))
+        self.assertEqual('', self.errors())
 
     def test_unreviewed_ebwv_declaration_cannot_bypass_extension_rules(self):
         self.g.add((EBWV.NewRole, RDF.type, OWL.Class))
