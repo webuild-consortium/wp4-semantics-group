@@ -2614,6 +2614,13 @@ property:
     comment: states whether the delivery concerns a researched product or a research that was aborted
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverytype
 
+  - id: departureTime
+    label: departure time
+    domain: BoardingPass
+    range: xsd:dateTime
+    comment: the time and date on which a means of transport is scheduled to departure from its departure location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/departuretime
+
   - id: directParent
     label: direct parent
     domain: KycLegalEntity
