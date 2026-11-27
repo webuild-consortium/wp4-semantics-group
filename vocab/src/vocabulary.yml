@@ -81,6 +81,14 @@ class:
             "issuer": "did:key:$publicKeyOfProvider$"
           }
 
+  - id: BoardingPass
+    label: Boarding Pass
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/boardingpass
+
+  - id: Capital
+    label: Capital
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
+
   - id: BeneficialOwner
     label: beneficial owner
     comment: a beneficial owner of the focus legal entity, with their direct and total capital and voting shares, high-risk indicator and, where applicable, the reason for other control
@@ -933,6 +941,10 @@ class:
   - id: Location
     label: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/location
+
+  - id: LoyaltyCard
+    label: Loyalty Card
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/loyaltycard
 
   - id: Membership
     label: Membership
@@ -2329,6 +2341,12 @@ property:
     range: xsd:float
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/amount
 
+  - id: arrivalLocation
+    label: arrival location
+    domain: BoardingPass
+    range: Location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivallocation
+
   - id: applicationNumber
     label: application number
     domain: TransparencyRegisterExtract
@@ -2342,6 +2360,13 @@ property:
     range: xsd:date
     comment: the date since when the person resides at this address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaldate
+
+  - id: arrivalTime
+    label: arrival time
+    domain: BoardingPass
+    range: xsd:dateTime
+    comment: the time and date of the scheduled arrival of a means of transport like a ferry or airplane
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaltime
 
   - id: assignment
     label: assignment
@@ -2390,6 +2415,7 @@ property:
     label: birth name
     domain: NaturalPerson
     range: xsd:string
+    comment: the combination or a given name and family name registered for a person immediately after birth
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname
 
   - id: businessEntity
@@ -2438,7 +2464,7 @@ property:
     label: citizenship
     domain: NaturalPerson
     range: CountryCode
-    comment: the legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations
+    comment: The legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations. Note that the term "nationality" is often used to indicate the same property.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
 
   - id: companyCategory
@@ -2507,6 +2533,7 @@ property:
       - LegalPerson
     range:
       - Address
+    comment: can also be called a postal address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
 
   - id: countryOfBirth
@@ -2586,6 +2613,13 @@ property:
     one_of: [ResearchedProduct, AbortedResearch]
     comment: states whether the delivery concerns a researched product or a research that was aborted
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/deliverytype
+
+  - id: departureTime
+    label: departure time
+    domain: BoardingPass
+    range: xsd:dateTime
+    comment: the time and date on which a means of transport is scheduled to departure from its departure location
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/departuretime
 
   - id: directParent
     label: direct parent
@@ -2928,6 +2962,8 @@ property:
       - EquityHolder
       - Participation
       - BeneficialOwner
+      - BoardingPass
+      - LoyaltyCard
     range:
       - BanzNumber
       - Bic
@@ -3268,6 +3304,13 @@ property:
     comment: The DSI or dataspace the holder is member of.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof
 
+  - id: name
+    label: name
+    domain: Vessel
+    range: xsd:string
+    comment: the name that an entity is known and identified by; used at least for vessels
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/name
+
   - id: noFixedPlaceOfWork
     label: no fixed place of work
     domain: A1Certificate
@@ -3326,7 +3369,9 @@ property:
 
   - id: owner
     label: owner
-    domain: BankAccount
+    domain:
+      - BankAccount
+      - LoyaltyCard
     range:
       - LegalPerson
       - EconomicOperator
@@ -3709,20 +3754,6 @@ property:
     comment: The scope of the power given to a mandatee.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
 
-  - id: scopeOfPower
-    label: scope of power
-    domain: PowerOfAttorney
-    range: ScopeOfPower
-    one_of:
-      - FormationOfCompanies
-      - ConstitutionOfCompanies
-      - RegistrationAndClosingOfBranches
-      - CrossBoarderConversions
-      - CrossBoarderMergers
-      - CrossBorderDivisions
-    comment: The scope of the power given to a mandatee.
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scopeOfPower
-
   - id: share
     label: share
     domain:
@@ -3807,6 +3838,18 @@ property:
     comment: a listing of the legal entity on a stock exchange
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/stockexchangelisting
 
+  - id: seatNumber
+    label: seat number
+    domain: BoardingPass
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/seatnumber
+
+  - id: seatType
+    label: seat type
+    domain: BoardingPass
+    range: xsd:string
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/seattype
+
   - id: subscribedCapital
     label: subscribed capital
     domain:
@@ -3861,6 +3904,13 @@ property:
     range: xsd:string
     comment: the stock exchange ticker symbol of the legal entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tickersymbol
+
+  - id: ticketClass
+    label: ticket class
+    domain: BoardingPass
+    range: xsd:string
+    comment: a classification of the transport ticket that entitles to use a certain level of seats or accommodation during the travel
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
 
   - id: totalPayroll
     label: total payroll
