@@ -1999,10 +1999,6 @@ class:
     label: Statutory Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
 
-  - id: TransportTicket
-    label: Transport Ticket
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transportticket
-
   - id: StockExchange
     label: stock exchange
     comment: a stock exchange on which a security may be listed, identified by name, country and operating market identification code (MIC)
