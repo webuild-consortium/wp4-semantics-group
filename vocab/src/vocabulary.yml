@@ -2343,7 +2343,7 @@ property:
 
   - id: arrivalLocation
     label: arrival location
-    domain: TransportEvent
+    domain: BoardingPass
     range: Location
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivallocation
 
