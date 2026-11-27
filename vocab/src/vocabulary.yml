@@ -88,6 +88,7 @@ class:
   - id: Capital
     label: Capital
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/capital
+
   - id: BeneficialOwner
     label: beneficial owner
     comment: a beneficial owner of the focus legal entity, with their direct and total capital and voting shares, high-risk indicator and, where applicable, the reason for other control
@@ -1998,10 +1999,6 @@ class:
     label: Statutory Partner
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/statutorypartner
 
-  - id: TransportEvent
-    label: Transport Event
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transportevent
-
   - id: TransportTicket
     label: Transport Ticket
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transportticket
@@ -2368,6 +2365,13 @@ property:
     comment: the date since when the person resides at this address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaldate
 
+  - id: arrivalTime
+    label: arrival time
+    domain: BoardingPass
+    range: xsd:dateTime
+    comment: the time and date of the scheduled arrival of a means of transport like a ferry or airplane
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/arrivaltime
+
   - id: assignment
     label: assignment
     domain: PostedWorkerNotification
@@ -2415,6 +2419,7 @@ property:
     label: birth name
     domain: NaturalPerson
     range: xsd:string
+    comment: the combination or a given name and family name registered for a person immediately after birth
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/birthname
 
   - id: businessEntity
@@ -2463,7 +2468,7 @@ property:
     label: citizenship
     domain: NaturalPerson
     range: CountryCode
-    comment: the legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations
+    comment: The legal bond between a natural person and a state, recognised under national law, which establishes membership in that state and entails associated rights and obligations. Note that the term "nationality" is often used to indicate the same property.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/citizenship
 
   - id: companyCategory
@@ -2532,6 +2537,7 @@ property:
       - LegalPerson
     range:
       - Address
+    comment: can also be called a postal address
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/correspondenceaddress
 
   - id: countryOfBirth
@@ -2595,12 +2601,6 @@ property:
     range: xsd:date
     comment: the date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/dateofregistration
-
-  - id: departureLocation
-    label: departure location
-    domain: TransportEvent
-    range: Location
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/departurelocation
 
   - id: deliveryLocation
     label: delivery location
@@ -3301,6 +3301,13 @@ property:
     comment: The DSI or dataspace the holder is member of.
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/memberof
 
+  - id: name
+    label: name
+    domain: Vessel
+    range: xsd:string
+    comment: the name that an entity is known and identified by; used at least for vessels
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/name
+
   - id: noFixedPlaceOfWork
     label: no fixed place of work
     domain: A1Certificate
@@ -3393,12 +3400,6 @@ property:
     range_union: true
     comment: a person or legal entity that is a member of a partnership or comparable company-law entity and whose status as partner is recorded or recognised by the competent business register or company register
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/partner
-
-  - id: passenger
-    label: passenger
-    domain: TransportTicket
-    range: Person
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/passenger
 
   - id: patronymicName
     label: patronymic name
@@ -3736,18 +3737,6 @@ property:
     comment: form of address (Anrede) of the natural person as recorded in the official registers
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/salutation
 
-  - id: scheduledArrivalTime
-    label: scheduled arrival time
-    domain: TransportEvent
-    range: xsd:dateTime
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scheduledarrivaltime
-
-  - id: scheduledDepartureTime
-    label: scheduled departure time
-    domain: TransportEvent
-    range: xsd:dateTime
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/scheduleddeparturetime
-
   - id: scopeOfPower
     label: scope of power
     domain: PowerOfAttorney
@@ -3941,12 +3930,6 @@ property:
     comment: a transparency register extract obtained for the focus legal entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transparencyregisterextract
 
-  - id: transportEvent
-    label: transport event
-    domain: TransportTicket
-    range: TransportEvent
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/transportevent
-
   - id: type
     label: type
     domain: VATRegistrationUnit
@@ -3972,12 +3955,6 @@ property:
     comment: specifies how a representative may act on behalf of the principal, meaning whether they can act alone or only together with others.
     one_of: [Alone, Jointly]
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/typeofrepresentation
-
-  - id: vesselDescription
-    label: vessel description
-    domain: TransportEvent
-    range: xsd:string
-    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/vesseldescription
 
   - id: ultimateParent
     label: ultimate parent
