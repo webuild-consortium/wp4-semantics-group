@@ -3905,6 +3905,13 @@ property:
     comment: the stock exchange ticker symbol of the legal entity
     defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/tickersymbol
 
+  - id: ticketClass
+    label: ticket class
+    domain: BoardingPass
+    range: xsd:string
+    comment: a classification of the transport ticket that entitles to use a certain level of seats or accommodation during the travel
+    defined_by: https://sanastot.suomi.fi/en/terminology/webuild/concept/thoroughfare
+
   - id: totalPayroll
     label: total payroll
     comment: The total payroll amount associated with the employer for the reference period used in a social security contribution attestation.
